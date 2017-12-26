@@ -1,4 +1,7 @@
 language: node_js
+branches:
+  only:
+    - master
 node_js:
 - node
 - '9'
@@ -15,13 +18,18 @@ before_deploy:
         - cd api
 deploy:
   skip_cleanup: true
-  provider: elasticbeanstalk
-  access_key_id: AKIAIGOTGINQCLC64I6Q
-  secret_access_key:
-    secure: YVcDd/ffH2g6EWAu92Y20bDxwKn3izRgZX1Kfl+WJOZ+F1OvsaDU+n+Me3WLBks3S8dfDOBeYJhSz3xvic6ds6BqkayhuM8oOdGgx+eINuNrZMa+9KyB1IoRsG0y+Xmy2gMbzKLyhdplJ4HPhfBGn2QYKHZmNcUeWE9Qm5S0MiDAjvIyFBDsoRELsS3Vq9Azg1BFazQJzKN1Iv36mBZg3Lry8h8lhMcColGp5/ARyyAZ39n+HteSo0VAYbPvZc8QSPuA1DllQntVn6HtLsZirNggns174zUWBQs6mX0wGcLwFnGO9tTTAsoHI61JMydUBj32oloMk+daPvRXZYthJAM/WQydTMYy+Q9D8nq+VLrRwmDbXkUbrxsvYl6H/cSIJb7rnx9G0+P9YKedZqIfkER6cZR9dNZyWcvQQquWgN6oCQfzdsNdBnB0oK5JQMccVaF6ms3seLJO4a1tKzM3wlqFNWgmOkLAjzFw5wpWer7PswA6Sa3O8tydhd5WmIafsJen9x/p7sNzhy9Q9UMZybWR5x1MZt4cEI7KwG+aOglerVfGtZW3PJLi7tdxmWqpPpVSrXfS9QnQ9JSUqFvD5Q+qr+32veDG4SAmtlRx/QUfFDLnwz/HaQlDf/h4ze4gne2JjiJ74TKXmeGt1mcJbBUnQKoeU0WVUIW0meKw0gM=
-  region: us-east-2
-  app: api
-  env: api-dev
-  bucket_name: elasticbeanstalk-us-east-2-905020680040
-  on:
-    repo: hackpsu-tech/hackPSUS2018
+  - provider: elasticbeanstalk
+    access_key_id: AKIAIGOTGINQCLC64I6Q
+    secret_access_key:
+      secure: YVcDd/ffH2g6EWAu92Y20bDxwKn3izRgZX1Kfl+WJOZ+F1OvsaDU+n+Me3WLBks3S8dfDOBeYJhSz3xvic6ds6BqkayhuM8oOdGgx+eINuNrZMa+9KyB1IoRsG0y+Xmy2gMbzKLyhdplJ4HPhfBGn2QYKHZmNcUeWE9Qm5S0MiDAjvIyFBDsoRELsS3Vq9Azg1BFazQJzKN1Iv36mBZg3Lry8h8lhMcColGp5/ARyyAZ39n+HteSo0VAYbPvZc8QSPuA1DllQntVn6HtLsZirNggns174zUWBQs6mX0wGcLwFnGO9tTTAsoHI61JMydUBj32oloMk+daPvRXZYthJAM/WQydTMYy+Q9D8nq+VLrRwmDbXkUbrxsvYl6H/cSIJb7rnx9G0+P9YKedZqIfkER6cZR9dNZyWcvQQquWgN6oCQfzdsNdBnB0oK5JQMccVaF6ms3seLJO4a1tKzM3wlqFNWgmOkLAjzFw5wpWer7PswA6Sa3O8tydhd5WmIafsJen9x/p7sNzhy9Q9UMZybWR5x1MZt4cEI7KwG+aOglerVfGtZW3PJLi7tdxmWqpPpVSrXfS9QnQ9JSUqFvD5Q+qr+32veDG4SAmtlRx/QUfFDLnwz/HaQlDf/h4ze4gne2JjiJ74TKXmeGt1mcJbBUnQKoeU0WVUIW0meKw0gM=
+    region: us-east-2
+    app: api
+    env: api-dev
+    bucket_name: elasticbeanstalk-us-east-2-905020680040
+    on:
+      repo: hackpsu-tech/hackPSUS2018
+  - provider: firebase
+    token:
+      secure: "UB1d7Uk54HCw12u8Q8X4S6hRaKssUdv7o2GvJfBMtz+n7TVlRfa5eFOHhdemIRtrbzuU1P7nvhNQR8YZXKeawpEoXmLgQWoWkk3dpsoUEMFPqFDUng7GAuwGpR4luagge5KbwnyQzGTRUjAad6mb8cNUzXAar26VWn8kczHHpvU6TU92X3xwU/SeZncNv9SpCLQYJIq6oT6xQZm0NZKoLbeiKK+/FjDYwbLOx5Yz/sklQ+D13bQVI8ufXYJVuor0nsH3yVsVdtIgydMmwB9Rf/H+mh1rI8osIIbygHBkCA01sYAlKQsCgltDSF8gchlCCab3qhWWO8m1DGDMvwTX8zuU3Qd6Ai6u3f6j0t2VTIIVzyrZiu5M50F3ursLHgeg1aYI8+A503zjCsgH+fH6iMENPWWa9anN6jwVoZ3212IJzZa3zAMj3S212V3YiaH87SMP0kNUUzBrKjH+UE3gj1wH04lbqS/u8BgTAx/ua3Narkq/wjfdxRDMOMoGbqCfApfR5imt6mHR+vHVLLTFQMeYpTrKUsnKptiDlJl2a57ZVzStYqi3aw3+wEautSvx4au5otaYQvUVWViyiH1PJ5NGLxdNOrg8KaNd4W0BJviD70lfKnpjRDxQhoNLn/zo4rs9ffk/ETzGc+cMP25VtKt+V/5DsVrU5xV7n37q64Q="
+    
+
