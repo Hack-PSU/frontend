@@ -17,7 +17,6 @@ after_script:
 before_deploy:
         - cd api
 deploy:
-  skip_cleanup: true
   - provider: elasticbeanstalk
     access_key_id: AKIAIGOTGINQCLC64I6Q
     secret_access_key:
@@ -26,6 +25,7 @@ deploy:
     app: api
     env: api-dev
     bucket_name: elasticbeanstalk-us-east-2-905020680040
+    skip_cleanup: true
     on:
       repo: hackpsu-tech/hackPSUS2018
   - provider: firebase
