@@ -1,0 +1,9 @@
+language: node_js
+before_install:
+install:
+        - npm install
+before_script:
+script:
+after_success:
+after_failure:
+after_script:
