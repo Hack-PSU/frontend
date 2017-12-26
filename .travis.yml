@@ -1,13 +1,24 @@
 language: node_js
 node_js:
-        - "node"
-        - "9"
-before_install:
+- node
+- '9'
+before_install: 
 install:
-        - npm install
-before_script:
-script:
+- npm install
+before_script: 
+script: 
 after_success:
-        - cd api && eb deploy --profile hackpsu
-after_failure:
-after_script:
+after_failure: 
+after_script: 
+before_deploy:
+        - cd api
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAIGOTGINQCLC64I6Q
+  secret_access_key:
+    secure: YVcDd/ffH2g6EWAu92Y20bDxwKn3izRgZX1Kfl+WJOZ+F1OvsaDU+n+Me3WLBks3S8dfDOBeYJhSz3xvic6ds6BqkayhuM8oOdGgx+eINuNrZMa+9KyB1IoRsG0y+Xmy2gMbzKLyhdplJ4HPhfBGn2QYKHZmNcUeWE9Qm5S0MiDAjvIyFBDsoRELsS3Vq9Azg1BFazQJzKN1Iv36mBZg3Lry8h8lhMcColGp5/ARyyAZ39n+HteSo0VAYbPvZc8QSPuA1DllQntVn6HtLsZirNggns174zUWBQs6mX0wGcLwFnGO9tTTAsoHI61JMydUBj32oloMk+daPvRXZYthJAM/WQydTMYy+Q9D8nq+VLrRwmDbXkUbrxsvYl6H/cSIJb7rnx9G0+P9YKedZqIfkER6cZR9dNZyWcvQQquWgN6oCQfzdsNdBnB0oK5JQMccVaF6ms3seLJO4a1tKzM3wlqFNWgmOkLAjzFw5wpWer7PswA6Sa3O8tydhd5WmIafsJen9x/p7sNzhy9Q9UMZybWR5x1MZt4cEI7KwG+aOglerVfGtZW3PJLi7tdxmWqpPpVSrXfS9QnQ9JSUqFvD5Q+qr+32veDG4SAmtlRx/QUfFDLnwz/HaQlDf/h4ze4gne2JjiJ74TKXmeGt1mcJbBUnQKoeU0WVUIW0meKw0gM=
+  region: us-east-2
+  app: api
+  env: dev-api
+  on:
+    repo: hackpsu-tech/hackPSUS2018
