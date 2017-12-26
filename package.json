@@ -4,7 +4,7 @@
   "description": "Repository for Spring 2018 hackPSU",
   "main": "js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha", 
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/hackpsu-tech/hackPSUS2018/issues"
   },
-  "homepage": "https://github.com/hackpsu-tech/hackPSUS2018#readme"
+  "homepage": "https://github.com/hackpsu-tech/hackPSUS2018#readme",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
 }
