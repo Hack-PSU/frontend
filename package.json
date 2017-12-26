@@ -4,7 +4,7 @@
   "description": "Repository for Spring 2018 hackPSU",
   "main": "js/main.js",
   "scripts": {
-    "test": "mocha", 
+    "test": "mocha" 
   },
   "repository": {
     "type": "git",
