@@ -94,7 +94,7 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background-color: #113654;
+    background: radial-gradient(circle, #6A85B9, #113654);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -131,6 +131,7 @@ a:hover {
 
 #hackpsu-logo {
     max-width: 75%;
+    height: 75%;
 }
 
 .form {
