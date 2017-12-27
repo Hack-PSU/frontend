@@ -4,10 +4,19 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const firebase = require('firebase-admin');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
 const register = require('./routes/register');
+const admin = require('./routes/admin');
+
+const serviceAccount = require("./hackpsu18-firebase-adminsdk-xf07l-ccc564f4ad");
+
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount),
+  databaseURL: "https://hackpsu18.firebaseio.com"
+});
 const app = express();
 app.use(helmet());
 
@@ -17,7 +26,11 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+//don't show the log when it is test
+if(process.env.NODE_ENV !== 'test') {
+  //use morgan to log at command line
+  app.use(logger('combined')); //'combined' outputs the Apache style LOGs
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -27,6 +40,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/register', register);
 app.use('/doc', express.static(path.join(__dirname, 'doc')));
+app.use('/admin', admin);
 
 
 // catch 404 and forward to error handler
@@ -38,7 +52,9 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  console.error(err);
+  if (process.env.NODE_ENV !== 'test') {
+    console.error(err);
+  }
 
   // set locals, only providing error in development
   res.locals.message = err.message;

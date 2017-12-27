@@ -1,6 +1,7 @@
-var assert = require('assert');
-describe('Initialize', function() {
-	it('Should pass by default', function() {
-		assert.equal(true, true);
-	});
+const assert = require('assert');
+
+describe('Initialize', () => {
+  it('Should pass by default', () => {
+    assert.equal(true, true);
+  });
 });
