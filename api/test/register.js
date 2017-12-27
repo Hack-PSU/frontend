@@ -71,6 +71,13 @@ describe('pre-registration tests', () => {
   });
 });
 
+/**
+ * Deletes all documents in the provided collection
+ * @param db
+ * @param collectionPath
+ * @param batchSize
+ * @return {Promise<any>}
+ */
 function deleteCollection(db, collectionPath, batchSize) {
   var collectionRef = db.collection(collectionPath);
   var query = collectionRef.orderBy('__name__').limit(batchSize);
@@ -80,6 +87,15 @@ function deleteCollection(db, collectionPath, batchSize) {
   });
 }
 
+/**
+ * Recursively batch deletes the collections in the provided collection, limiting
+ * by the provided batch size.
+ * @param db
+ * @param query
+ * @param batchSize
+ * @param resolve
+ * @param reject
+ */
 function deleteQueryBatch(db, query, batchSize, resolve, reject) {
   query.get()
     .then((snapshot) => {

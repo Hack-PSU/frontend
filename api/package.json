@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --exit --timeout 10000"
+    "test": "mocha --exit --timeout 10000",
+    "prod": "NODE_ENV=prod node ./bin/www",
+    "apidoc": "apidoc -i ./routes -o doc/"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -18,8 +20,19 @@
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
+    "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "mocha": "^4.0.1"
+  },
+  "apidoc": {
+    "name": "HackPSU API",
+    "version": "0.0.1",
+    "description": "RESTFul API for all HackPSU connections",
+    "url": "https://api.hackpsu.org",
+    "apidoc": {
+      "title": "HackPSU RESTFul Web",
+      "url" : "https://api.hackpsu.org"
+    }
   }
 }
