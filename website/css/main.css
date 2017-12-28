@@ -110,10 +110,12 @@ a:hover {
 }
 
 /* ====================== CONSTANTS ==================*/
-.white-text { color: #FFF; }
-.orange-text { color: #F3613D; }
+.white { color: #FFF; }
+.orange { color: #F3613D; }
 .center { text-align: center; }
-.gray-text { color: #AFAFAF; }
+.gray { color: #AFAFAF; }
+.dark-blue { color: #113654; }
+.light-blue { color: #6A85B9; }
 
 /* ============================== CSS STARTS HERE ==========================*/
 
@@ -135,11 +137,39 @@ a:hover {
 }
 
 .form {
-    background: white;
     padding: 10px;
 }
 
-.email-input {
-    color: black;
+.input-field {
+    color: white;
 }
 
+.input-field label {
+    color: white;
+}
+
+.input-field .prefix .active {
+    color: white;
+}
+
+.input-field input[type=email] {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+.input-field input[type=email]:not(.browser-default):focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+.submit-btn {
+    background-color: #F3613D;
+}
+
+.submit-btn:hover {
+    background-color: #ff9369;
+}
+
+.submit-btn:focus {
+    background-color: #6A85B9;
+}
