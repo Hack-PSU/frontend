@@ -163,13 +163,13 @@ a:hover {
 }
 
 .submit-btn {
-    background-color: #F3613D;
+    background-color: #e2815d;
 }
 
 .submit-btn:hover {
-    background-color: #ff9369;
+    background-color: #ffb18b;
 }
 
 .submit-btn:focus {
-    background-color: #6A85B9;
+    background-color: #fff7c9;
 }
