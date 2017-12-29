@@ -4,7 +4,7 @@ branches:
   - master
 node_js:
 - node
-- '8'
+- '9'
 cache: yarn
 before_install: 
 install:
@@ -13,10 +13,10 @@ before_script:
 script: 
 after_success: 
 after_failure: 
-after_script: 
+after_script:
+- DEPLOY_FB=0
 before_deploy:
-- cd api
-- npm install
+- ./prepare_deploy.sh
 deploy:
 - provider: elasticbeanstalk
   access_key_id: AKIAIGOTGINQCLC64I6Q
