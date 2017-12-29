@@ -16,6 +16,7 @@ after_failure:
 after_script: 
 before_deploy:
 - cd api
+- npm install
 deploy:
 - provider: elasticbeanstalk
   access_key_id: AKIAIGOTGINQCLC64I6Q
