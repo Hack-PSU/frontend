@@ -37,7 +37,6 @@ describe('test get registered hackers', () => {
       chai.request(server)
         .get('/v1/admin/registered')
         .end((err, res) => {
-          console.log(err);
           res.should.have.status(401);
           err.response.body.should.be.a('object');
           should.equal(err.response.body.error, 'ID Token must be provided');
