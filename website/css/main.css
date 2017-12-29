@@ -94,7 +94,7 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background-color: #113654;
+    background: radial-gradient(circle, #6A85B9, #113654);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -110,10 +110,12 @@ a:hover {
 }
 
 /* ====================== CONSTANTS ==================*/
-.white-text { color: #FFF; }
-.orange-text { color: #F3613D; }
+.white { color: #FFF; }
+.orange { color: #F3613D; }
 .center { text-align: center; }
-.gray-text { color: #AFAFAF; }
+.gray { color: #AFAFAF; }
+.dark-blue { color: #113654; }
+.light-blue { color: #6A85B9; }
 
 /* ============================== CSS STARTS HERE ==========================*/
 
@@ -131,14 +133,43 @@ a:hover {
 
 #hackpsu-logo {
     max-width: 75%;
+    height: 75%;
 }
 
 .form {
-    background: white;
     padding: 10px;
 }
 
-.email-input {
-    color: black;
+.input-field {
+    color: white;
 }
 
+.input-field label {
+    color: white;
+}
+
+.input-field .prefix .active {
+    color: white;
+}
+
+.input-field input[type=email] {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+.input-field input[type=email]:not(.browser-default):focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+.submit-btn {
+    background-color: #e2815d;
+}
+
+.submit-btn:hover {
+    background-color: #ffb18b;
+}
+
+.submit-btn:focus {
+    background-color: #fff7c9;
+}
