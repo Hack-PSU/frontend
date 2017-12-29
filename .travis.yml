@@ -10,6 +10,7 @@ before_install:
 install:
 - npm install
 - npm install --save chai
+- npm install --save chai-http
 before_script: 
 script: 
 after_success: 
