@@ -5,4 +5,6 @@ then
     cd api;
     npm install;
     DEPLOY_FB=1
+else
+    firebase use hackpsu18
 fi
