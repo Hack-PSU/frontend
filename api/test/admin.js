@@ -35,11 +35,12 @@ describe('test get registered hackers', () => {
   describe('No auth failure', () => {
     it('it should reject with an unauthorized message', (done) => {
       chai.request(server)
-        .get('/admin/registered')
+        .get('/v1/admin/registered')
         .end((err, res) => {
+          console.log(err);
           res.should.have.status(401);
           err.response.body.should.be.a('object');
-          err.response.body.error.should.be.equal('ID Token must be provided');
+          should.equal(err.response.body.error, 'ID Token must be provided');
           done();
         });
     });
@@ -55,13 +56,13 @@ describe('test get registered hackers', () => {
           user.getIdToken(true)
             .then((idToken) => {
               chai.request(server)
-                .get('/admin/registered')
+                .get('/v1/admin/registered')
                 .set('content-type', 'application/json')
                 .send({ idtoken: idToken })
                 .end((err, res) => {
                   res.should.have.status(401);
                   err.response.body.should.be.a('object');
-                  err.response.body.error.should.be.equal('You do not have sufficient permissions for this operation');
+                  should.equal(err.response.body.error, 'You do not have sufficient permissions for this operation');
                   done();
                 });
             }).catch((error) => {
@@ -82,7 +83,7 @@ describe('test get registered hackers', () => {
           user.getIdToken(true)
             .then((idToken) => {
               chai.request(server)
-                .get('/admin/registered')
+                .get('/v1/admin/registered')
                 .set('content-type', 'application/json')
                 .send({ idtoken: idToken })
                 .end((err, res) => {
@@ -110,7 +111,7 @@ describe('test make admin', () => {
   describe('un-authenticated tries to make admin', () => {
     it('it should error out with not authenticated error', (done) => {
       chai.request(server)
-        .post('/admin/makeadmin')
+        .post('/v1/admin/makeadmin')
         .set('content-type', 'application/json')
         .send({ uid: 'ykdPNZkuXXYLkmv4MmLeGnoSF8g2' })
         .end((err, res) => {
@@ -131,7 +132,7 @@ describe('test make admin', () => {
             user.getIdToken(true)
               .then((idToken) => {
                 chai.request(server)
-                  .post('/admin/makeadmin')
+                  .post('/v1/admin/makeadmin')
                   .set('content-type', 'application/json')
                   .send({ idtoken: idToken })
                   .end((err, res) => {
@@ -154,7 +155,7 @@ describe('test make admin', () => {
             user.getIdToken(true)
               .then((idToken) => {
                 chai.request(server)
-                  .post('/admin/makeadmin')
+                  .post('/v1/admin/makeadmin')
                   .set('content-type', 'application/json')
                   .send({ idtoken: idToken, uid: 'gsOwfFcUHKfmRHTsmI7N1k7Ocie2' })
                   .end((err, res) => {
@@ -177,7 +178,7 @@ describe('test make admin', () => {
             user.getIdToken(true)
               .then((idToken) => {
                 chai.request(server)
-                  .post('/admin/makeadmin')
+                  .post('/v1/admin/makeadmin')
                   .set('content-type', 'application/json')
                   .send({ idtoken: idToken, uid: 'ykdPNZkuXXYLkmv4MmLeGnoSF8g2' })
                   .end((err, res) => {
@@ -223,7 +224,7 @@ describe('test make admin', () => {
             user.getIdToken(true)
               .then((decodedToken) => {
                 chai.request(server)
-                  .post('/admin/makeadmin')
+                  .post('/v1/admin/makeadmin')
                   .set('content-type', 'application/json')
                   .send({ idtoken: decodedToken, uid: genUid, privilege: 4 })
                   .end((err, res) => {
@@ -246,7 +247,7 @@ describe('test make admin', () => {
             user.getIdToken(true)
               .then((decodedToken) => {
                 chai.request(server)
-                  .post('/admin/makeadmin')
+                  .post('/v1/admin/makeadmin')
                   .set('content-type', 'application/json')
                   .send({ idtoken: decodedToken, privilege: 4 })
                   .end((err, res) => {

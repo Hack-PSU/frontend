@@ -7,14 +7,6 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-// First dummy test
-describe('dummy', () => {
-  beforeEach((done) => {
-    console.log('Running test');
-    done();
-  });
-});
-
 // First index test
 describe('index test', () => {
   it('it should respond with a simple success message', (done) => {
