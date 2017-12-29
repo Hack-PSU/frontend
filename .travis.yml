@@ -4,11 +4,12 @@ branches:
   - master
 node_js:
 - node
-- '9'
+- '8'
 cache: yarn
 before_install: 
 install:
 - npm install
+- npm install --save chai
 before_script: 
 script: 
 after_success: 
