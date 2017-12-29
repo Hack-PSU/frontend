@@ -14,9 +14,9 @@ script:
 after_success: 
 after_failure: 
 after_script:
-- DEPLOY_FB=0
+- export DEPLOY_FB=0
 before_deploy:
-- ./prepare_deploy.sh
+- . ./prepare_deploy.sh
 deploy:
 - provider: elasticbeanstalk
   access_key_id: AKIAIGOTGINQCLC64I6Q
