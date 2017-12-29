@@ -8,9 +8,7 @@ node_js:
 cache: yarn
 before_install: 
 install:
-- npm install
-- npm install --save chai
-- npm install --save chai-http
+- npm install && cd api && npm install && cd ..
 before_script: 
 script: 
 after_success: 
