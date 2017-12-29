@@ -1,0 +1,144 @@
+/*=============== *** CSS RESET *** =================*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: xx-large;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers
+*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    /*padding-top: 51px;*/
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+col-* {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+p {
+    font-weight: lighter;
+}
+
+/*========================= *** MEDIA QUERIES *** =========================*/
+
+
+@font-face {
+    font-family: "Open-Sans-Light";
+    src: url(OpenSans/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "Open-Sans-Bold";
+    src: url(OpenSans/OpenSans-Bold.ttf);
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+    color:#3A2D40;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: larger;
+}
+
+p {
+    padding:10px;
+    line-height: 200%;
+}
+
+body {
+    text-align: center;
+    font-family: 'Lato', 'sans-serif';
+    font-weight: bold;
+    color: white;
+    font-size: xx-large;
+    background-color: #113654;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+section {
+    display: block;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ====================== CONSTANTS ==================*/
+.white-text { color: #FFF; }
+.orange-text { color: #F3613D; }
+.center { text-align: center; }
+.gray-text { color: #AFAFAF; }
+
+/* ============================== CSS STARTS HERE ==========================*/
+
+/* ID Based Selectors */
+#mlh-trust-badge {
+    display: block;
+    position: absolute;
+    float:right;
+    right: 15%;
+    width: 15%;
+    height: 120px;
+    z-index: 1000;
+    margin-top: 0px;
+}
+
+#hackpsu-logo {
+    max-width: 75%;
+}
+
+.form {
+    background: white;
+    padding: 10px;
+}
+
+.email-input {
+    color: black;
+}
+
