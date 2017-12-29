@@ -1,21 +1,21 @@
-process.env.NODE_ENV = "test";
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../app');
+process.env.NODE_ENV = 'test';
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../app');
 
-let should = chai.should();
+const should = chai.should();
 
 chai.use(chaiHttp);
 
-//First dummy test
+// First dummy test
 describe('dummy', () => {
   beforeEach((done) => {
-    console.log("Running test");
+    console.log('Running test');
     done();
   });
 });
 
-//First index test
+// First index test
 describe('index test', () => {
   it('it should respond with a simple success message', (done) => {
     chai.request(server)
