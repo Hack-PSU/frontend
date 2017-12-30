@@ -1,6 +1,6 @@
 {
-  "name": "api",
-  "version": "0.0.0",
+  "name": "hackpsu-api",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -19,7 +19,8 @@
     "firebase-admin": "^5.6.0",
     "helmet": "^3.9.0",
     "morgan": "^1.9.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "ajv": "^5.5.2"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
@@ -28,13 +29,13 @@
     "mocha": "^4.0.1"
   },
   "apidoc": {
-    "name": "HackPSU API",
-    "version": "0.0.1",
+    "name": "HackPSU RESTful Web API",
+    "version": "0.1.1",
     "description": "RESTFul API for all HackPSU connections",
-    "url": "https://api.hackpsu.org",
-    "apidoc": {
-      "title": "HackPSU RESTFul Web",
-      "url": "https://api.hackpsu.org"
+    "url": "https://api.hackpsu.org/v1",
+    "header": {
+      "title": "HackPSU RESTful Web API",
+      "file": "header.md"
     }
   }
 }

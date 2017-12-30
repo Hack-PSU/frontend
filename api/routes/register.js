@@ -7,7 +7,7 @@ const validator = require('email-validator');
 
 /**
  * @api {post} /register/pre Pre-register for HackPSU
- * @apiVersion 0.0.1
+ * @apiVersion 0.1.1
  * @apiName Pre-Registration
  * @apiGroup Registration
  * @apiParam {String} email The email ID to register with
