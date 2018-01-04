@@ -63,4 +63,14 @@ Resource | URL
  CI | https://travis-ci.com
  
  #### ACL details
- **TODO**
+ All routes under ```/admin``` require some form of ACL permissions. These permissions are configured
+ under the authentication from Firebase. To add permissions to your login, contact an administrator.
+ The ACL levels are as follows:
+ Privilege Level | Definition
+ ---------------- | -----------------
+ 1 | Volunteer
+ 2 | Team Member
+ 3 | Exec member
+ 4 | Tech admin
+ 
+  

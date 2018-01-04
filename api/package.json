@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "SENDINBLUE_API_KEY=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 mocha --exit --timeout 10000",
+    "test": "mocha --exit --timeout 10000",
     "prod": "NODE_ENV=prod node ./bin/www",
     "apidoc": "apidoc -i ./routes -o doc/",
     "debug": "node --inspect ./bin/www"
