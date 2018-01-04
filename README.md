@@ -14,8 +14,9 @@ The current RESTful API is live on an ElasticBeanstalk (EB) instance on Amazon W
 
 All routes in the API must be documented properly. The documentation framework used for this project is [Apidocjs](https://apidocjs.com). See the website or current code for the syntax that needs to be followed. For each route, ensure 
 the following properties are included:
+
 Name | Directive
--------------------------
+------------ | -------------
 Api path | @api
 Api version | @apiVersion
 Api name | @apiName
@@ -24,6 +25,7 @@ Api permission | @apiPermission
 Api parameters | @apiParam
 On success response | @apiSuccess
 On error response | @apiError 
+
 
 
 ## CI
