@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { request } from 'https';
-import { emailServerUrl } from './constants';
+const request = require('request');
+const constants = require('./constants');
 
 /**
  * This function substitutes the provided
@@ -9,23 +9,22 @@ import { emailServerUrl } from './constants';
  * @param {Object} [substitutions] A map of strings with the following format { keyword-to-substitute: string-to-substitute-with, ... }; Example: { date: "09-23-2000" }
  * @return {String} HTML string with the words properly substituted
  */
-export function emailSubstitute(html, name, substitutions) {
+module.exports.emailSubstitute = function emailSubstitute(html, name, substitutions) {
   let subHTML = html.replace(/\$name\$/g, name);
   Object.entries(substitutions).forEach((substitution) => {
     subHTML = subHTML.replace(new RegExp(`\\$${substitution[0]}\\$`, 'g'), substitution[1]);
   });
   return subHTML;
-}
+};
 
 /**
  * Makes the POST request to the email server URL
- * @param data Contains all data that is sent in the email. For schema, refer to function createEmailRequest or the SendInBlue API
  * @param options Contains the options for the POST request. For schema, refer to function createEmailRequest or the SendInBlue API
  * @return {Promise<any>}
  */
-export function sendEmail(data, options) {
+module.exports.sendEmail = function sendEmail(options) {
   return new Promise((resolve, reject) => {
-    request(options, (error, response) => {
+    request(options, (error, response, body) => {
       if (error) {
         reject(error);
       } else {
@@ -33,7 +32,7 @@ export function sendEmail(data, options) {
       }
     });
   });
-}
+};
 
 /**
  * This generates the proper email send POST request format
@@ -43,7 +42,7 @@ export function sendEmail(data, options) {
  * @param {String} name The name of the recipient
  * @return {Object} { data, options }
  */
-export function createEmailRequest(email, htmlContent, subject, name) {
+module.exports.createEmailRequest = function createEmailRequest(email, htmlContent, subject, name) {
   const data = {
     to: [{ email, name }],
     sender: {
@@ -56,7 +55,7 @@ export function createEmailRequest(email, htmlContent, subject, name) {
   };
   const options = {
     method: 'POST',
-    url: emailServerUrl,
+    url: constants.emailServerUrl,
     body: data,
     headers: {
       'api-key': process.env.SENDINBLUE_API_KEY,
@@ -67,4 +66,4 @@ export function createEmailRequest(email, htmlContent, subject, name) {
     data,
     options,
   };
-}
+};

@@ -62,5 +62,5 @@ Resource | URL
  ChaiJS | https://chaijs.com
  CI | https://travis-ci.com
  
- #### Administrator details
+ #### ACL details
  **TODO**

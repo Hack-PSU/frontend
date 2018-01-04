@@ -4,23 +4,27 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --exit --timeout 10000",
+    "test": "SENDINBLUE_API_KEY=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 mocha --exit --timeout 10000",
     "prod": "NODE_ENV=prod node ./bin/www",
     "apidoc": "apidoc -i ./routes -o doc/",
     "debug": "node --inspect ./bin/www"
   },
   "dependencies": {
+    "ajv": "^5.5.2",
     "body-parser": "~1.17.1",
+    "chance": "^1.0.13",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "debug": "~2.6.3",
     "email-validator": "^1.1.1",
     "express": "~4.15.2",
+    "express-limiter": "^1.6.1",
     "firebase": "^4.8.1",
     "firebase-admin": "^5.6.0",
     "helmet": "^3.9.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.0-rc.4",
-    "ajv": "^5.5.2"
+    "request": "latest"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",

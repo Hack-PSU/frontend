@@ -5,6 +5,21 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const firebase = require('firebase-admin');
+const cors = require('cors');
+
+const app = express();
+
+
+const whitelist = ['https://hackpsu.com', 'https://hackpsu.org'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -18,9 +33,12 @@ firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
   databaseURL: 'https://hackpsu18.firebaseio.com',
 });
-const app = express();
 app.use(helmet());
 app.use(helmet.hidePoweredBy());
+
+if (process.env.NODE_ENV !== 'test') {
+  app.use(cors(corsOptions));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,7 +75,6 @@ app.use((err, req, res, next) => {
   if (process.env.NODE_ENV !== 'test') {
     console.error(err);
   }
-
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

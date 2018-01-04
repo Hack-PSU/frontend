@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { emailObjectSchema } from '../helpers/constants';
-import { createEmailRequest, emailSubstitute, sendEmail } from '../helpers/functions';
+const constants = require('../helpers/constants');
+const functions = require('../helpers/functions');
 
 const express = require('express');
 const authenticator = require('../helpers/auth');
@@ -19,11 +19,11 @@ const router = express.Router();
  * Administrator authentication middleware
  */
 router.use((req, res, next) => {
-  if (req.body.idtoken) {
-    authenticator.checkAuthentication(req.body.idtoken)
+  if (req.headers.idtoken) {
+    authenticator.checkAuthentication(req.headers.idtoken)
       .then((decodedToken) => {
         if (decodedToken.admin === true) {
-          res.locals.level = decodedToken.privilege;
+          res.locals.privilege = decodedToken.privilege;
           next();
         } else {
           const error = new Error();
@@ -58,7 +58,7 @@ function validateEmails(req, res, next) {
   if (req.body && req.body.emails && Array.isArray(req.body.emails)) {
     if (req.body.html && typeof req.body.html === 'string') {
       // Run validation
-      const validate = ajv.compile(emailObjectSchema);
+      const validate = ajv.compile(constants.emailObjectSchema);
       const successArray = [];
       const failArray = [];
       req.body.emails.map((emailObject) => {
@@ -106,6 +106,7 @@ function verifyACL(level) {
       const error = new Error();
       error.status = 500;
       error.body = { error: 'Something went wrong while accessing permissions' };
+      next(error);
     }
   };
 }
@@ -238,18 +239,17 @@ router.post('/makeadmin', verifyACL(3), (req, res, next) => {
  * @apiSuccess (207) {Object[]} Partial-Success An array of success responses as well as failure objects
  */
 router.post('/email', verifyACL(3), validateEmails, (req, res, next) => {
-  if (req.locals.successArray && req.locals.successArray.length > 0) {
+  if (res.locals.successArray && res.locals.successArray.length > 0) {
     if (req.body.subject && typeof req.body.subject === 'string') {
       const promises = [];
-
       // All valid input
       // Send all the emails
-      req.locals.successArray.forEach((emailObject) => { // For each emailObject
+      res.locals.successArray.forEach((emailObject) => { // For each emailObject
         promises.push(new Promise((resolve) => {
           // Substitute HTML with name/emails and send email
-          const subHTML = emailSubstitute(req.body.html, emailObject.name, emailObject.substitutions); // Substitute the substitutables in the html
-          const request = createEmailRequest(emailObject.email, subHTML, req.body.subject, emailObject.name); // Generate the POST request
-          sendEmail(request.data, request.options)
+          const subHTML = functions.emailSubstitute(req.body.html, emailObject.name, emailObject.substitutions); // Substitute the substitutables in the html
+          const request = functions.createEmailRequest(emailObject.email, subHTML, req.body.subject, emailObject.name); // Generate the POST request
+          functions.sendEmail(request.options)
             .then((response) => {
               resolve(response); // If succesful, resolve
             }).catch((error) => {
@@ -274,7 +274,7 @@ router.post('/email', verifyACL(3), validateEmails, (req, res, next) => {
         } else {
           res.status(200).send(resolves); // Full success response
         }
-      });
+      }).catch(err => console.error(err));
     } else {
       const error = new Error();
       error.status = 400;
