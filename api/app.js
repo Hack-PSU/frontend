@@ -10,13 +10,14 @@ const cors = require('cors');
 const app = express();
 
 
-const whitelist = ['https://hackpsu.com', 'https://hackpsu.org'];
+const whitelist = /^((https:\/\/)?((.*)\.)?hackpsu.(com|org))$/;
 const corsOptions = {
   origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
+    console.log(origin);
+    if (whitelist.test(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(null, true); // Allow all cross-origin requests for now
     }
   },
 };
