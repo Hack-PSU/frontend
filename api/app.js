@@ -5,31 +5,51 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const firebase = require('firebase-admin');
+const cors = require('cors');
+
+const app = express();
+
+
+const whitelist = ['https://hackpsu.com', 'https://hackpsu.org'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
 
 const index = require('./routes/index');
 const users = require('./routes/users');
 const register = require('./routes/register');
 const admin = require('./routes/admin');
 
-const serviceAccount = require("./hackpsu18-firebase-adminsdk-xf07l-ccc564f4ad");
+
+const serviceAccount = require('./hackpsu18-firebase-adminsdk-xf07l-ccc564f4ad');
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://hackpsu18.firebaseio.com"
+  databaseURL: 'https://hackpsu18.firebaseio.com',
 });
-const app = express();
 app.use(helmet());
+app.use(helmet.hidePoweredBy());
+
+if (process.env.NODE_ENV !== 'test') {
+  app.use(cors(corsOptions));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//don't show the log when it is test
-if(process.env.NODE_ENV !== 'test') {
-  //use morgan to log at command line
-  app.use(logger('combined')); //'combined' outputs the Apache style LOGs
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// don't show the log when it is test
+if (process.env.NODE_ENV !== 'test') {
+  // use morgan to log at command line
+  app.use(logger('combined')); // 'combined' outputs the Apache style LOGs
 }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,25 +57,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/register', register);
-app.use('/doc', express.static(path.join(__dirname, 'doc')));
-app.use('/admin', admin);
+app.use('/v1/users', users);
+app.use('/v1/register', register);
+app.use('/v1/doc', express.static(path.join(__dirname, 'doc')));
+app.use('/v1/admin', admin);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   if (process.env.NODE_ENV !== 'test') {
     console.error(err);
   }
-
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

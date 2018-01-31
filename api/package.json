@@ -1,24 +1,30 @@
 {
-  "name": "api",
-  "version": "0.0.0",
+  "name": "hackpsu-api",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha --exit --timeout 10000",
     "prod": "NODE_ENV=prod node ./bin/www",
-    "apidoc": "apidoc -i ./routes -o doc/"
+    "apidoc": "apidoc -i ./routes -o doc/",
+    "debug": "node --inspect ./bin/www"
   },
   "dependencies": {
+    "ajv": "^5.5.2",
     "body-parser": "~1.17.1",
+    "chance": "^1.0.13",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "debug": "~2.6.3",
     "email-validator": "^1.1.1",
     "express": "~4.15.2",
+    "express-limiter": "^1.6.1",
     "firebase": "^4.8.1",
     "firebase-admin": "^5.6.0",
     "helmet": "^3.9.0",
     "morgan": "^1.9.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "request": "latest"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
@@ -27,13 +33,13 @@
     "mocha": "^4.0.1"
   },
   "apidoc": {
-    "name": "HackPSU API",
-    "version": "0.0.1",
+    "name": "HackPSU RESTful Web API",
+    "version": "0.1.1",
     "description": "RESTFul API for all HackPSU connections",
-    "url": "https://api.hackpsu.org",
-    "apidoc": {
-      "title": "HackPSU RESTFul Web",
-      "url": "https://api.hackpsu.org"
+    "url": "https://api.hackpsu.org/v1",
+    "header": {
+      "title": "HackPSU RESTful Web API",
+      "file": "header.md"
     }
   }
 }

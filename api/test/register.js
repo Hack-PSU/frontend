@@ -82,7 +82,7 @@ describe('pre-registration tests', () => {
     succMatrix.forEach((email) => {
       promises.push(new Promise((resolve) => {
         chai.request(server)
-          .post('/register/pre')
+          .post('/v1/register/pre')
           .type('form')
           .send({
             email,
@@ -108,7 +108,7 @@ describe('pre-registration tests', () => {
     failMatrix.forEach((email) => {
       promises.push(new Promise((resolve) => {
         chai.request(server)
-          .post('/register/pre')
+          .post('/v1/register/pre')
           .type('form')
           .send({
             email,
