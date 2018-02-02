@@ -5,8 +5,6 @@
    License: none (public domain)
 */
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,10 +32,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
-body {
-    line-height: 1;
-    /*padding-top: 51px;*/
-}
 ol, ul {
     list-style: none;
 }
@@ -52,10 +46,6 @@ q:before, q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-col-* {
-    padding-left: 0px;
-    padding-right: 0px;
 }
 
 p {
@@ -94,7 +84,7 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background: radial-gradient(ellipse, rgb(100, 126, 175), #113654);
+    background: #333333;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -117,6 +107,11 @@ a:hover {
 .dark-blue { color: #113654; }
 .light-blue { color: #6A85B9; }
 
+.accent {
+    color: #aacacc;
+    background-color: #aacacc;
+}
+
 /* ============================== CSS STARTS HERE ==========================*/
 
 /* ID Based Selectors */
@@ -132,8 +127,9 @@ a:hover {
 }
 
 #hackpsu-logo {
-    max-width: 50%;
-    height: 75%;
+    max-width: 40%;
+    height: 60%;
+    margin: 25px;
 }
 
 #webbed-hexs-right {
@@ -190,15 +186,16 @@ a:hover {
 }
 
 .submit-btn {
-    background-color: #e2815d;
+    background-color: #aacacc;
+    color: #333333;
 }
 
 .submit-btn:hover {
-    background-color: #ffb18b;
+    background-color: #D0EAF1;
 }
 
 .submit-btn:focus {
-    background-color: #fff7c9;
+    background-color: rgba(170,202,204,0.2);
 }
 
 
@@ -219,7 +216,7 @@ ul {
 .main-nav {
     min-height:100%;
     max-height:100%;
-    font-family:Oswald, sans-serif, Arial;
+    font-family: 'Raleway', sans-serif;
     font-size:14px;
     width:25px;
     float:left;
@@ -310,7 +307,7 @@ ul.nav li a {
 /*========================= *** FAQS *** =========================*/
 #faqs {
 	color: #3A2D40;
-	font-family: 'Lato';
+	font-family: 'Lato', sans-serif;
 	font-weight: bold;
 	padding-top:50px;
 }
@@ -331,11 +328,11 @@ ul.nav li a {
 }
 
 .question p {
-	cursor: pointer; cursor: hand;
+	cursor: hand;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: medium;
-	background: orangered;
+	background: #6C88B7;
 	/*border: 2px solid black;*/
 	border-radius: 5px;
 }
@@ -344,7 +341,7 @@ ul.nav li a {
 	padding-right: 5px;
 }
 .question p:hover{
-	background-color: #E5704C;
+	background-color: #6C88B7;
 
 }
 
