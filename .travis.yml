@@ -7,7 +7,7 @@ node_js:
 cache: yarn
 before_install: 
 install:
-- npm install && cd api && npm install && cd ..
+- npm install
 - npm i -g firebase-tools
 before_script: 
 script: 
@@ -15,27 +15,13 @@ after_success:
 after_failure: 
 after_script: 
 before_deploy:
-- ". ./prepare_deploy.sh"
+  - firebase use hackpsu18 --token 1/_m3H9nRUOHgTVRFwn0SyWH28HPFsPyX4hnWEzhFAle4
 deploy:
-- provider: elasticbeanstalk
-  access_key_id: AKIAIGOTGINQCLC64I6Q
-  secret_access_key:
-    secure: YVcDd/ffH2g6EWAu92Y20bDxwKn3izRgZX1Kfl+WJOZ+F1OvsaDU+n+Me3WLBks3S8dfDOBeYJhSz3xvic6ds6BqkayhuM8oOdGgx+eINuNrZMa+9KyB1IoRsG0y+Xmy2gMbzKLyhdplJ4HPhfBGn2QYKHZmNcUeWE9Qm5S0MiDAjvIyFBDsoRELsS3Vq9Azg1BFazQJzKN1Iv36mBZg3Lry8h8lhMcColGp5/ARyyAZ39n+HteSo0VAYbPvZc8QSPuA1DllQntVn6HtLsZirNggns174zUWBQs6mX0wGcLwFnGO9tTTAsoHI61JMydUBj32oloMk+daPvRXZYthJAM/WQydTMYy+Q9D8nq+VLrRwmDbXkUbrxsvYl6H/cSIJb7rnx9G0+P9YKedZqIfkER6cZR9dNZyWcvQQquWgN6oCQfzdsNdBnB0oK5JQMccVaF6ms3seLJO4a1tKzM3wlqFNWgmOkLAjzFw5wpWer7PswA6Sa3O8tydhd5WmIafsJen9x/p7sNzhy9Q9UMZybWR5x1MZt4cEI7KwG+aOglerVfGtZW3PJLi7tdxmWqpPpVSrXfS9QnQ9JSUqFvD5Q+qr+32veDG4SAmtlRx/QUfFDLnwz/HaQlDf/h4ze4gne2JjiJ74TKXmeGt1mcJbBUnQKoeU0WVUIW0meKw0gM=
-  region: us-east-2
-  app: api
-  env: api-dev
-  bucket_name: elasticbeanstalk-us-east-2-905020680040
-  skip_cleanup: true
-  on:
-    branch: master
-    repo: hackpsu-tech/hackPSUS2018
 - provider: firebase
   on:
     branch: master
   token:
     secure: UB1d7Uk54HCw12u8Q8X4S6hRaKssUdv7o2GvJfBMtz+n7TVlRfa5eFOHhdemIRtrbzuU1P7nvhNQR8YZXKeawpEoXmLgQWoWkk3dpsoUEMFPqFDUng7GAuwGpR4luagge5KbwnyQzGTRUjAad6mb8cNUzXAar26VWn8kczHHpvU6TU92X3xwU/SeZncNv9SpCLQYJIq6oT6xQZm0NZKoLbeiKK+/FjDYwbLOx5Yz/sklQ+D13bQVI8ufXYJVuor0nsH3yVsVdtIgydMmwB9Rf/H+mh1rI8osIIbygHBkCA01sYAlKQsCgltDSF8gchlCCab3qhWWO8m1DGDMvwTX8zuU3Qd6Ai6u3f6j0t2VTIIVzyrZiu5M50F3ursLHgeg1aYI8+A503zjCsgH+fH6iMENPWWa9anN6jwVoZ3212IJzZa3zAMj3S212V3YiaH87SMP0kNUUzBrKjH+UE3gj1wH04lbqS/u8BgTAx/ua3Narkq/wjfdxRDMOMoGbqCfApfR5imt6mHR+vHVLLTFQMeYpTrKUsnKptiDlJl2a57ZVzStYqi3aw3+wEautSvx4au5otaYQvUVWViyiH1PJ5NGLxdNOrg8KaNd4W0BJviD70lfKnpjRDxQhoNLn/zo4rs9ffk/ETzGc+cMP25VtKt+V/5DsVrU5xV7n37q64Q=
-after_deploy:
-- cd ..
 notifications:
   slack:
     secure: mo6+1fef5hlltkY3Wcck89RPlkSoKs2EtENjudcU64PSCNp+kWodQElJnN8aY+Qcmn3s+NR9CVd0RTrRAapDVbKWkakBHw5SaUG9ly14/SiNSA04tnzxIMFdtJHpvHs8+dgNOY9iDeFAyCg6/FqGYyl1D7INwIkNfyaG6ymgQQb9udd2cz7JK8ztMtbmDi42kg83VUgA16Hah+160uh4u0rk4F1U2vXEMFRnIJ5DG+7yHtf8UIrvsQ40JhARKwhajrmRP++xw0fSiTvauXNte2oNGULPi7UBiMvcCnGeDycYdMYAQru42CHtlM91m6LCnF8pb42HHFjij37T3NhNUz18elnioikKs7m/PWbgs2sNcW7HsxV1x7dqlW0DRYKe/5eSQIN/Q4dw8T3QnRi+D6EPfmZYSQNh8podd93kIF3A8TjtlbcOhp1M7PTMZOfARfG3c3tKsLahYcOr3D1QudOBh8gVni00jKlKFyVuuELkDwykvZR0qm9HiVpFXDAPk+FaOQwgMKR/VoP1ycgU+a9jyNnZE7c4tJ/bnZK+ESF9PTp1MeOKgfkwm1cEcxxNAHeRmoUfxeEi9b7HvKQHNNb+sInlCXaN9lAU3YgMUKSYgptHtqG7YgnTf6arUrlihADC0g+s20pYOxxwbxUQJTOv6Q0z55eob5A46flJ+Cg=
