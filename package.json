@@ -4,7 +4,6 @@
   "description": "Repository for Spring 2018 hackPSU",
   "main": "js/main.js",
   "scripts": {
-    "test": "mocha && cd api && npm test",
     "lint": "eslint ./api/routes ./api/test ./test ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml"
   },
   "repository": {
