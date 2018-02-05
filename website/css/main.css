@@ -5,8 +5,6 @@
    License: none (public domain)
 */
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,28 +32,24 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
-body {
-    line-height: 1;
-    /*padding-top: 51px;*/
-}
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-col-* {
-    padding-left: 0px;
-    padding-right: 0px;
 }
 
 p {
@@ -63,7 +57,6 @@ p {
 }
 
 /*========================= *** MEDIA QUERIES *** =========================*/
-
 
 @font-face {
     font-family: "Open-Sans-Light";
@@ -75,16 +68,16 @@ p {
     src: url(OpenSans/OpenSans-Bold.ttf);
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    color:#3A2D40;
+    color: #3A2D40;
     text-transform: uppercase;
     white-space: nowrap;
     font-size: larger;
 }
 
 p {
-    padding:10px;
+    padding: 10px;
     line-height: 200%;
 }
 
@@ -94,12 +87,19 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background: radial-gradient(circle, #6A85B9, #113654);
+    background: #333333;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding: 25px;
 }
+
+/*@media screen and (min-width: 768px) {*/
+    /*body {*/
+        /*padding-left: 40px;*/
+    /*}*/
+/*}*/
 
 section {
     display: block;
@@ -110,12 +110,46 @@ a:hover {
 }
 
 /* ====================== CONSTANTS ==================*/
-.white { color: #FFF; }
-.orange { color: #F3613D; }
-.center { text-align: center; }
-.gray { color: #AFAFAF; }
-.dark-blue { color: #113654; }
-.light-blue { color: #6A85B9; }
+.white {
+    color: #FFF;
+}
+
+.orange {
+    color: #E5705C;
+}
+
+.light-blue-primary {
+    color: #6C88B7;
+}
+
+.dark-blue-primary {
+    color: #133753;
+}
+
+.light-blue {
+    color: #AACACC;
+}
+
+.dark-blue-secondary {
+    color: #24577C;
+}
+
+.light-blue-secondary {
+    color: #D0EAF1;
+}
+
+.orange-secondary {
+    color: #C94331;
+}
+
+.gray {
+    color: #333333;
+}
+
+.accent {
+    color: #aacacc;
+    background-color: #aacacc;
+}
 
 /* ============================== CSS STARTS HERE ==========================*/
 
@@ -123,7 +157,7 @@ a:hover {
 #mlh-trust-badge {
     display: block;
     position: absolute;
-    float:right;
+    float: right;
     right: 15%;
     width: 15%;
     height: 120px;
@@ -132,8 +166,30 @@ a:hover {
 }
 
 #hackpsu-logo {
-    max-width: 75%;
-    height: 75%;
+    max-width: 40%;
+    height: 55%;
+    margin: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    #hackpsu-logo {
+        max-width: 75%;
+    }
+}
+
+#webbed-hexs-right {
+    margin-right: 2%;
+    right: 0px;
+    position: absolute;
+    max-width: 20%;
+}
+
+#webbed-hexs-left {
+    margin-left: 2%;
+    left: 0px;
+    top: -2%;
+    position: absolute;
+    max-width: 20%;
 }
 
 .form {
@@ -162,14 +218,275 @@ a:hover {
     box-shadow: 0 1px 0 0 white;
 }
 
+.section-header {
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.section-header-center {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
 .submit-btn {
-    background-color: #e2815d;
+    background-color: #aacacc;
+    color: #333333;
 }
 
 .submit-btn:hover {
-    background-color: #ffb18b;
+    background-color: #D0EAF1;
 }
 
 .submit-btn:focus {
-    background-color: #fff7c9;
+    background-color: rgba(170, 202, 204, 0.2);
+}
+
+/*========================= *** Sidenav Bar *** =========================*/
+.rotate {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none
+}
+
+ul {
+    padding: 0;
+    margin: 0
+}
+
+.main-nav {
+    min-height: 100%;
+    max-height: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    float: left;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: #6C88B7;
+    border: #333333 5px solid;
+    z-index: 9999;
+}
+
+ul.nav li:first-child {
+    padding-top: 75px
+}
+
+ul.nav li {
+    padding-top: 150px;
+}
+
+ul.nav li a {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb;
+    float: left;
+    width: 15px;
+    color: #333333;
+}
+
+@media screen and (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+}
+
+/*========================= *** About *** =========================*/
+#about p {
+    font-family: 'Lato', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+}
+
+#about h3 {
+    margin: 0 auto;
+}
+
+#about .section-header {
+    padding-top: 55px;
+    padding-bottom: 55px;
+    text-align: center;
+}
+
+/*========================= *** Section Title *** =========================*/
+.section-title-container {
+    height: 30px;
+}
+
+.section-title-letter {
+    display: inline-block;
+    padding-right: 1%;
+    padding-left: 1%
+}
+
+.title-graphic-line {
+    position: relative;
+    background-color: orange;
+    height: 2px;
+    top: 14px;
+}
+
+.section-title-word {
+    float: center;
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 1.5%;
+}
+
+@media screen and (max-width: 768px) {
+    .title-graphic-line {
+        background-color: transparent;
+        width: 0px;
+    }
+
+    .section-title {
+        width: 100%;
+    }
+
+    .section-header {
+        font-size: 75%;
+        text-align: center;
+    }
+}
+
+/*========================= *** FAQS *** =========================*/
+#faqs {
+    color: #3A2D40;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+.question-container {
+    padding: 15px;
+    text-align: left;
+}
+
+.question p {
+    color: white;
+    text-align: left;
+    padding: 20px;
+}
+
+.question {
+    text-align: center;
+}
+
+.question p {
+    cursor: hand;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: medium;
+    background: #6C88B7;
+    /*border: 2px solid black;*/
+    border-radius: 5px;
+}
+
+.question p span {
+    transition: ease-out .5s;
+    padding-right: 5px;
+}
+
+.question p:hover {
+    background-color: #6C88B7;
+
+}
+
+.answer {
+    color: white;
+    display: none;
+    font-size: medium;
+    padding: 30px;
+}
+
+.question h7 {
+    text-align: center;
+}
+
+/*.answer p{*/
+/*	line-height:120%;*/
+/*}*/
+.rotated {
+    transform: rotate(90deg);
+    transition: ease-out .5s;
+}
+
+/*========================= *** Partnership *** ======================*/
+.sponsor-img-xl {
+    width: 80%;
+}
+
+/*========================= *** Location *** =========================*/
+#map {
+    color: #3A2D40;
+    font-family: 'Lato';
+    font-weight: bold;
+}
+
+#map li > a {
+    border: 0;
+    border-bottom: 1px solid #3A2D40;
+    color: #3A2D40;
+}
+
+#map .active > a {
+    background-color: #AAD4F2;
+}
+
+#map li > a:hover {
+    background-color: #ffc969;
+}
+
+#map-container {
+    width: 100%;
+    height: 400px;
+    margin: auto auto;
+}
+
+#parking-tab img {
+    width: 80%;
+    max-height: 400px;
+}
+
+#map p {
+    width: auto;
+    font-size: large;
+}
+
+#map h3 {
+    font-size: smaller;
+    padding-top: 20px;
+}
+
+#getting-here-title {
+    font-size: x-large;
+    text-transform: uppercase;
+}
+
+.map-border {
+    border: 3px solid orange;
+    padding: 1em;
+    border-radius: 5px;
+    background: white;
+}
+
+@media screen and (max-width: 768px) {
+    .map-spacer {
+        pointer-events: none;
+        height: 90px;
+        width: auto;
+    }
 }
