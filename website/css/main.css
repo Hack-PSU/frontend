@@ -405,6 +405,11 @@ ul.nav li a {
     transition: ease-out .5s;
 }
 
+/*========================= *** Partnership *** ======================*/
+.sponsor-img-xl {
+    width: 80%;
+}
+
 /*========================= *** Location *** =========================*/
 #map {
     color: #3A2D40;

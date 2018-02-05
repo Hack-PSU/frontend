@@ -387,98 +387,98 @@
                     <div class="col-xs-3 title-graphic-line"></div>
                 </div>
 
-                
+
                 <div class="row">
 
                     <div id="map-container">
                         <script>
-                            function initMap() {
+                          function initMap() {
                             var myLatng = {
-                                lat: 40.803845,
-                                lng: -77.865218
+                              lat: 40.803845,
+                              lng: -77.865218
                             };
 
                             var map = new google.maps.Map(document.getElementById('map-container'), {
-                                center: myLatng,
-                                zoom: 17
+                              center: myLatng,
+                              zoom: 17
                             });
 
                             var marker1 = new google.maps.Marker({
-                                map: map,
-                                position: myLatng,
-                                title: "Business Building"
+                              map: map,
+                              position: myLatng,
+                              title: "Business Building"
                             });
                             var infowindow = new google.maps.InfoWindow({
-                                content: "<p>Click to get directions</p>"
+                              content: "<p>Click to get directions</p>"
                             });
                             infowindow.open(map, marker1);
                             marker1.addListener('click', function () {
-                                startRoute(myLatng);
+                              startRoute(myLatng);
                             });
 
                             function startRoute(startLocation) {
-                                var directionsDisplay;
-                                var directionsService = new google.maps.DirectionsService();
+                              var directionsDisplay;
+                              var directionsService = new google.maps.DirectionsService();
 
-                                // function initialize() {
-                                //     console.log("initializing");
-                                //     directionsDisplay = new google.maps.DirectionsRenderer();
-                                //         var mapOptions = {
-                                //         zoom:7,
-                                //         center: myLatng
-                                //     }
-                                //     map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
-                                //     directionsDisplay.setMap(map);
-                                // };
+                              // function initialize() {
+                              //     console.log("initializing");
+                              //     directionsDisplay = new google.maps.DirectionsRenderer();
+                              //         var mapOptions = {
+                              //         zoom:7,
+                              //         center: myLatng
+                              //     }
+                              //     map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
+                              //     directionsDisplay.setMap(map);
+                              // };
 
-                                function initRoute() {
+                              function initRoute() {
                                 // initialize();
                                 console.log("calculating");
                                 var start;
                                 if (navigator.geolocation) {
-                                    navigator.geolocation.getCurrentPosition(function (position) {
+                                  navigator.geolocation.getCurrentPosition(function (position) {
                                     var pos = {
-                                        lat: position.coords.latitude,
-                                        lng: position.coords.longitude
+                                      lat: position.coords.latitude,
+                                      lng: position.coords.longitude
                                     };
                                     console.log(pos);
                                     start = pos;
                                     var end = startLocation;
                                     console.log(end);
                                     var request = {
-                                        origin: start,
-                                        destination: end,
-                                        travelMode: 'DRIVING'
+                                      origin: start,
+                                      destination: end,
+                                      travelMode: 'DRIVING'
                                     };
                                     directionsService.route(request, function (result, status) {
-                                        if (status == 'OK') {
+                                      if (status == 'OK') {
                                         window.open("https://www.google.com/maps/dir/" + pos.lat + "+" + pos.lng + "/" + startLocation.lat + "+" + startLocation.lng)
                                         // directionsDisplay.setDirections(result);
-                                        }
+                                      }
                                     });
-                                    });
+                                  });
                                 }
-                                }
+                              }
 
-                                initRoute();
+                              initRoute();
                             };
                             var marker2 = new google.maps.Marker({
-                                map: map,
-                                position: {
+                              map: map,
+                              position: {
                                 lat: 40.8050595394,
                                 lng: -77.8628766849
-                                },
-                                title: "North Parking Deck",
-                                animation: google.maps.Animation.DROP,
-                                label: "P"
+                              },
+                              title: "North Parking Deck",
+                              animation: google.maps.Animation.DROP,
+                              label: "P"
                             });
                             marker2.addListener('click', function () {
-                                startRoute({
+                              startRoute({
                                 lat: 40.793717,
                                 lng: -77.869543
-                                });
+                              });
                             });
-                            }
+                          }
                         </script>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp2PCsgrLSiEMXQy-9vl1CSRfJPlXiD2U&callback=initMap"
                                 async defer></script>
@@ -493,9 +493,10 @@
                             address is: Business Building, University Park, PA 16802. The easiest way to get to
                             State College is either by driving or taking a Megabus. We will be providing up to $60
                             in reimbursement for those travelling with 2 or more people ($75 for those with 4 or
-                            more), with exceptions made on a case by case basis.,<br> More detailed directions can be found <a href="https://www.smeal.psu.edu/about-smeal/smeal-location">here</a>.
+                            more), with exceptions made on a case by case basis.,<br> More detailed directions can be
+                            found <a href="https://www.smeal.psu.edu/about-smeal/smeal-location">here</a>.
                         </p>
-             
+
                     </div>
                 </div>
                 <div class="map-spacer"></div>
@@ -509,42 +510,48 @@
 
 
         <!-- Partnership -->
-        <section id='sponsors'>
-            <div class="container-fluid">
-                <div class="med-div"></div>
-                <div class="container-fluid">
-                    <div class="row section-title-container">
-                        <div class="col-xs-3  title-graphic-line"></div>
-                        <div class="col-xs-6 section-title">
-                            <div class="section-title-word">
-                                <div class="section-title-letter">PARTNERSHIP</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 title-graphic-line"></div>
-                    </div>
-                </div>
-                <div class="xs-div"></div>
-        
-                <!-- Partners -->
-                <div class="row">            
-                    <!-- Example
-                    <a href="https://edtechnetwork.psu.edu/" target="_blank">
-                        <div class='zoom hex-container-xxl'>
-                            <img class='sponsor-hex' src="assets/images/sponsor-hexV2.5.svg"></img>
-                            <img class='sponsor-img-xl color-sponsor' src="assets/sponsors/color/edtech-network.svg"></img>
-                            <img class='sponsor-img-xl bw-sponsor' src="assets/sponsors/bw/edtech-network.svg"></img>
-                        </div>
-                    </a>
-                -->
-                </div>
-                <div class="sm-div"></div>
-                <div class="col-md-8 col-md-offset-2">
-                    <p id="edtech-tagline">
-                    Special thanks to our partner, the EdTech Network, for all of their dedication and support in helping us grow HackPSU.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!--<section id='partnership'>-->
+            <!--<div class="container-fluid">-->
+                <!--<div class="med-div"></div>-->
+                <!--<div class="container-fluid">-->
+                    <!--<div class="row section-title-container">-->
+                        <!--<div class="col-xs-3  title-graphic-line"></div>-->
+                        <!--<div class="col-xs-6 section-title">-->
+                            <!--<div class="section-title-word">-->
+                                <!--<div class="section-title-letter">PARTNERSHIP</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 title-graphic-line"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="xs-div"></div>-->
+
+                <!--&lt;!&ndash; Partners &ndash;&gt;-->
+                <!--<div class="row">-->
+                    <!--&lt;!&ndash; Example-->
+                    <!--<a href="https://edtechnetwork.psu.edu/" target="_blank">-->
+                        <!--<div class='zoom hex-container-xxl'>-->
+                            <!--<img class='sponsor-hex' src="assets/images/sponsor-hexV2.5.svg"></img>-->
+                            <!--<img class='sponsor-img-xl color-sponsor' src="assets/sponsors/color/edtech-network.svg"></img>-->
+                            <!--<img class='sponsor-img-xl bw-sponsor' src="assets/sponsors/bw/edtech-network.svg"></img>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--&ndash;&gt;-->
+                    <!--<div class="sm-div"></div>-->
+                    <!--<div class="col-md-6">-->
+                        <!--<a href="https://edtechnetwork.psu.edu/" target="_blank">-->
+                            <!--<img class="sponsor-img-xl" src="assets/icons/edtech-network-logo.svg">-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                        <!--<p id="edtech-tagline">-->
+                            <!--Special thanks to our partner, the EdTech Network, for all of their dedication and support-->
+                            <!--in helping us grow HackPSU.-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</section>-->
 
 
         <!-- Sponsors -->
