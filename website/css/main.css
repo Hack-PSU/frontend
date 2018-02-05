@@ -92,7 +92,14 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding: 25px;
 }
+
+/*@media screen and (min-width: 768px) {*/
+    /*body {*/
+        /*padding-left: 40px;*/
+    /*}*/
+/*}*/
 
 section {
     display: block;
@@ -162,6 +169,12 @@ a:hover {
     max-width: 40%;
     height: 55%;
     margin: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    #hackpsu-logo {
+        max-width: 75%;
+    }
 }
 
 #webbed-hexs-right {
@@ -284,6 +297,12 @@ ul.nav li a {
     color: #333333;
 }
 
+@media screen and (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+}
+
 /*========================= *** About *** =========================*/
 #about p {
     font-family: 'Lato', sans-serif;
@@ -387,7 +406,7 @@ ul.nav li a {
 }
 
 .answer {
-    color: #2A202F;
+    color: white;
     display: none;
     font-size: medium;
     padding: 30px;
