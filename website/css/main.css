@@ -167,7 +167,7 @@ a:hover {
 
 #hackpsu-logo {
     max-width: 40%;
-    height: 60%;
+    height: 55%;
     margin: 25px;
 }
 
@@ -422,6 +422,11 @@ ul.nav li a {
 .rotated {
     transform: rotate(90deg);
     transition: ease-out .5s;
+}
+
+/*========================= *** Partnership *** ======================*/
+.sponsor-img-xl {
+    width: 80%;
 }
 
 /*========================= *** Location *** =========================*/
