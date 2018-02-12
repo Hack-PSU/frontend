@@ -280,11 +280,13 @@ ul {
 }
 
 ul.nav li:first-child {
-    padding-top: 75px
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 ul.nav li {
-    padding-top: 150px;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 ul.nav li a {
@@ -301,6 +303,10 @@ ul.nav li a {
     .main-nav {
         display: none;
     }
+}
+
+ul .active {
+    background-color: #fff;
 }
 
 /*========================= *** About *** =========================*/
