@@ -297,6 +297,11 @@ ul.nav li a {
     float: left;
     width: 15px;
     color: #333333;
+    
+}
+
+ul.nav li a:hover{
+    background: none;
 }
 
 @media screen and (max-width: 768px) {
