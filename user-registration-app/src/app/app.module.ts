@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     LoginComponent,
     UserViewComponent,
+    RegistrationFormComponent,
   ],
   imports: [
     BrowserModule,
