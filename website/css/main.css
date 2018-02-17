@@ -450,7 +450,10 @@ ul .active {
 /*========================= *** Partnership *** ======================*/
 .sponsor-img-xl {
     width: 80%;
-    margin-top: 5%;
+}
+
+.partner-tagline {
+    font-size: x-large;
 }
 
 /*========================= *** Location *** =========================*/
