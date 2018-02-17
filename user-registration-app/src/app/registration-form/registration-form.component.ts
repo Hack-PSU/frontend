@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RegistrationModel } from '../registration-model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { PrevIdx } from '../PrevIdx';
 
 @Component({
   selector: 'app-registration-form',
@@ -11,13 +10,36 @@ import { PrevIdx } from '../PrevIdx';
   styleUrls: ['./registration-form.component.css'],
 })
 export class RegistrationFormComponent implements OnInit {
+  private static regFormComp: RegistrationFormComponent;
 
   public registrationForm: RegistrationModel;
   public user: firebase.User;
-  public prevIdx: PrevIdx;
 
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  public currentIdx: number;
+
+  static afterMove(index) {
+    RegistrationFormComponent.regFormComp.currentIdx = index;
+    RegistrationFormComponent.regFormComp.ref.detectChanges();
+  }
+
+  static subIdx() {
+    RegistrationFormComponent.regFormComp.currentIdx -= 1;
+    RegistrationFormComponent.regFormComp.ref.detectChanges();
+  }
+
+  static addIdx() {
+    RegistrationFormComponent.regFormComp.currentIdx += 1;
+    RegistrationFormComponent.regFormComp.ref.detectChanges();
+  }
+
+  static getInstance() {
+    return RegistrationFormComponent.regFormComp;
+  }
+
+  constructor(public afAuth: AngularFireAuth, public router: Router, public ref: ChangeDetectorRef) {
     this.registrationForm = new RegistrationModel();
+    this.currentIdx = 1;
+    RegistrationFormComponent.regFormComp = this;
   }
 
   ngOnInit() {
@@ -36,5 +58,4 @@ export class RegistrationFormComponent implements OnInit {
       this.router.navigate(['/login']);
     });
   }
-
 }

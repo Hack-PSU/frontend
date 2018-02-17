@@ -1,3 +1,11 @@
+:host .card {
+  -webkit-transition: translate 0.1s;
+  -moz-transition: translate 0.1s;
+  -ms-transition: translate 0.1s;
+  -o-transition: translate 0.1s;
+  transition: translate 0.1s;
+}
+
 .registration-form {
   width: 50%;
   display: block;
@@ -11,3 +19,45 @@
     width: 100%;
   }
 }
+
+.prev-container {
+  display: block;
+}
+
+.prev-container a {
+  margin-left: 49%;
+  color: #ffffff;
+}
+
+.prev-container span:before {
+  font-family: 'Glyphicons Halflings', serif;
+  content: "\e089";
+  margin: 5px;
+}
+
+svg {
+  position: absolute;
+  left:50%;
+}
+
+.next-container {
+  position: absolute;
+  left: 49%;
+  bottom: 5%;
+}
+
+.next-container a {
+  color: #ffffff;
+}
+
+
+.next-container span:before {
+  content: "\25cf";
+  margin-right: 10px;
+}
+
+.card {
+  transition: transform ;
+}
+
+

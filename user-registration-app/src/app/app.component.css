@@ -20,14 +20,11 @@ p {
   font-family: Lato, Georgia, sans-serif;
 }
 
-.header {
-  border-bottom: #b4b4b4 solid 1px;
-}
 
 .wrapper {
   align-items: stretch;
   display: flex;
-  padding: 0px;
+  padding: 0;
 }
 
 .content {

@@ -1,5 +1,11 @@
-<h3 class="text-center">Registration</h3>
-<a [href]="prevIdx?.href"><span class="previous-number">{{prevIdx?.number}}</span></a>
+<div class="prev-container">
+  <a id="prev-link">
+    <span class="previous-number" (change)="onChanged($event)">{{currentIdx-1}}</span>
+  </a>
+</div>
+<svg width="5" height="100%" align="center">
+  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="white"></line>
+</svg>
 <form class="registration-form" (ngSubmit)="onSubmit()" #registrationModel="ngForm">
   <!-- First Name -->
   <div class="row">
@@ -61,16 +67,20 @@
       <div class="card-content ">
         <span class="gender">Gender</span>
         <div class="form-group">
-          <input type="radio" class="with-gap" required value="male" id="male" [(ngModel)]="registrationForm.gender"
+          <input type="radio" class="with-gap" name="gender" required value="male" id="male"
+                 [(ngModel)]="registrationForm.gender"
                  #name="ngModel">
           <label for="male">Male</label>
-          <input type="radio" class="with-gap" required value="female" id="female" [(ngModel)]="registrationForm.gender"
+          <input type="radio" class="with-gap" name="gender" required value="female" id="female"
+                 [(ngModel)]="registrationForm.gender"
                  #name="ngModel">
           <label for="female">Female</label>
-          <input type="radio" class="with-gap" required value="non-binary" id="non-binary" [(ngModel)]="registrationForm.gender"
+          <input type="radio" class="with-gap" name="gender" required value="non-binary" id="non-binary"
+                 [(ngModel)]="registrationForm.gender"
                  #name="ngModel">
           <label for="non-binary">Non-Binary</label>
-          <input type="radio" class="with-gap" required value="no-disclose" id="option4" [(ngModel)]="registrationForm.gender"
+          <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="option4"
+                 [(ngModel)]="registrationForm.gender"
                  #name="ngModel">
           <label for="option4">Prefer not to disclose</label>
         </div>
@@ -85,20 +95,37 @@
       <div class="card-content ">
         <span class="age">Will you be 18 before the date?</span>
         <div class="form-group">
-          <input type="radio" class="with-gap" id="eligible">
-          <label for="eligible">Yes</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="ineligible">
+          <input type="radio"
+                 class="with-gap"
+                 id="eligible"
+                 required
+                 value="true"
+                 [(ngModel)]="registrationForm.eighteenBeforeEvent"
+                 name="eighteenBeforeEvent"
+                 #name="ngModel">
+          <label for="eligible">Yes</label><br>
+          <input type="radio"
+                 class="with-gap"
+                 id="ineligible"
+                 required
+                 value="false"
+                 [(ngModel)]="registrationForm.eighteenBeforeEvent"
+                 name="eighteenBeforeEvent"
+                 #name="ngModel">
           <label for="ineligible">No</label>
         </div>
+        {{registrationForm.eighteenBeforeEvent}}
       </div>
     </div>
   </div>
-
-  <!-- Shirt Size -->
-  <div class="row">
-    <div class="card large white darken-1">
+  <div *ngIf="!registrationForm.eighteenBeforeEvent; else legalForm">
+    <p class="alert danger">You must be over 18 to attend the event. <a href="mailto://team@hackpsu.org">Contact us </a>for
+      more details.</p>
+  </div>
+  <div #legalForm>
+    <!-- Shirt Size -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="shirt-size">Shirt Size</span>
           <div class="form-group">
@@ -127,11 +154,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Dietary Restrictions -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Dietary Restrictions -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="diet">Dietary Restrictions</span>
           <div class="form-group">
@@ -156,11 +183,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Travel Reimbursement -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Travel Reimbursement -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="travel">Will you need travel reimbursement?</span>
           <div class="form-group">
@@ -173,11 +200,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- # of hackathons attended -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- # of hackathons attended -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="attended">Is this your first hackathon?</span>
           <div class="form-group">
@@ -190,11 +217,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- School -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- School -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="school">Name of University</span>
           <div class="form-group">
@@ -207,11 +234,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Phone Number -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Phone Number -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="phone">Phone Number</span>
           <div class="input-field">
@@ -220,11 +247,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Academic Year -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Academic Year -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="year">Academic Year</span>
           <div class="form-group">
@@ -249,11 +276,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Major -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Major -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="major">Major</span>
           <div class="input-field">
@@ -262,11 +289,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Resume -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Resume -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="resume">Submit your resume</span>
           <div class="file-field input-field">
@@ -280,11 +307,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- MLH Code of Conduct -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- MLH Code of Conduct -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="mlh-coc">Do you agree to MLH Code of Conduct?</span>
           <div class="form-group">
@@ -297,11 +324,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- MLH Data Collection Policies -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- MLH Data Collection Policies -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="mlh-data">Do you agree to MLH Data Collection Policies?</span>
           <div class="form-group">
@@ -314,13 +341,13 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- ==========DEMOGRAPHICS========== -->
+    <!-- ==========DEMOGRAPHICS========== -->
 
-  <!-- Race/Ethnicities -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Race/Ethnicities -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="race">Race/Ethnicities</span>
           <div class="form-group">
@@ -349,11 +376,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Coding Experience -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Coding Experience -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="experience">Coding Experience</span>
           <div class="form-group">
@@ -375,11 +402,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Reference -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Reference -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="reference">Where did you hear about hackPSU?</span>
           <div class="input-field">
@@ -388,11 +415,11 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Accomplishment -->
-  <div class="row">
-    <div class="card large white darken-1">
+    <!-- Accomplishment -->
+    <div class="row">
+      <div class="card large white darken-1">
         <div class="card-content ">
           <span class="accomplish">What is a project you're proud of?</span>
           <div class="input-field">
@@ -400,6 +427,11 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
-
 </form>
+<div class="next-container">
+  <a id="next-link">
+    <span class="next-number" (change)="onChanged($event)">{{currentIdx+1}}</span>
+  </a>
+</div>
