@@ -3,19 +3,34 @@ import { RegistrationModel } from '../registration-model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'scale(0)', opacity: 0}),
+          animate('500ms', style({transform: 'scale(1)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'scale(1)', opacity: 1}),
+          animate('500ms', style({transform: 'scale(0)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class RegistrationFormComponent implements OnInit {
   private static regFormComp: RegistrationFormComponent;
 
   public registrationForm: RegistrationModel;
   public user: firebase.User;
-
   public currentIdx: number;
+  public valid: boolean;
 
   static afterMove(index) {
     RegistrationFormComponent.regFormComp.currentIdx = index;
@@ -57,5 +72,9 @@ export class RegistrationFormComponent implements OnInit {
       this.afAuth.auth.signOut();
       this.router.navigate(['/login']);
     });
+  }
+
+  isEighteen(b: boolean) {
+    this.registrationForm.eighteenBeforeEvent = b;
   }
 }

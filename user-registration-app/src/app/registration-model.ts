@@ -10,7 +10,7 @@ export class RegistrationModel {
   public dietaryRestriction: DietaryRestriction;
   public travel_reimbursement: boolean;
   public first_hackathon: boolean;
-  public university: String; s;
+  public university: String;
   public phoneNumber: Number;
   public academicYear: AcademicStatus;
   public major: String;

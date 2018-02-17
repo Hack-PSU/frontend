@@ -39,4 +39,11 @@ p {
  width: 70px;
 }
 
+.header {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 100%;
+}
+
 

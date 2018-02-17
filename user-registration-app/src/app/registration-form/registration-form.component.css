@@ -8,8 +8,8 @@
 
 .registration-form {
   width: 50%;
+  margin: 6% auto;
   display: block;
-  margin: auto;
   color: #333333;
   font-size: large;
 }
@@ -25,7 +25,9 @@
 }
 
 .prev-container a {
-  margin-left: 49%;
+  position: fixed;
+  left: 49%;
+  top: 10%;
   color: #ffffff;
 }
 
@@ -41,7 +43,8 @@ svg {
 }
 
 .next-container {
-  position: absolute;
+  position: fixed;
+  z-index: 0;
   left: 49%;
   bottom: 5%;
 }
@@ -57,7 +60,9 @@ svg {
 }
 
 .card {
-  transition: transform ;
+  transition: transform;
+  background-color: #133753;
+  color: #ffffff;
 }
 
 
