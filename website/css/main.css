@@ -93,6 +93,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     padding: 25px;
+    padding-left: 40px;
 }
 
 /*@media screen and (min-width: 768px) {*/
@@ -261,12 +262,10 @@ li {
 
 ul {
     padding: 0;
-    margin: 0
+    margin: 10px 0px;
 }
 
 .main-nav {
-    min-height: 100%;
-    max-height: 100%;
     font-family: 'Raleway', sans-serif;
     font-size: 1.2vw;
     float: left;
@@ -280,13 +279,11 @@ ul {
     z-index: 9999;
 }
 
-ul.nav li:first-child {
-    height:19vh;
-}
-
 ul.nav li {
     height:19vh;
-
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    cursor: pointer;
 }
 
 ul.nav li a {
@@ -298,16 +295,24 @@ ul.nav li a {
     /*float: left;*/
     width: 1vw;
     color: #333333;
-    
 }
 
-/*ul.nav li a:hover{
+.center-nav {
+    margin-top: 3vh;
+}
+
+ul.nav li a:hover{
     background: none;
-}*/
+}
 
 /* this way the section you're hovering over lights up */
-ul li:hover{
-    background-color:#fff;
+ul li:not(.active):hover a {
+    color: #fff;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
 }
 
 @media screen and (max-width: 768px) {
@@ -341,6 +346,7 @@ ul .active {
 /*========================= *** Section Title *** =========================*/
 .section-title-container {
     height: 30px;
+    margin: 50px 0;
 }
 
 .section-title-letter {
@@ -506,4 +512,23 @@ ul .active {
         height: 90px;
         width: auto;
     }
+}
+
+/*********** SPONSORS ************/
+#sponsors {
+    margin: 25px 0;
+}
+
+.sponsor-img-lg {
+    max-width: 40%;
+}
+
+
+/************* FOOTER *************/
+.social-media-icon {
+    width: 40px;
+}
+
+#footer  p {
+    font-size: small;
 }
