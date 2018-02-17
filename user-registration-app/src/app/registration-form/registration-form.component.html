@@ -1,406 +1,405 @@
-<html>
-
-<!-- First Name -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card firstname">First Name</span>
+<h3 class="text-center">Registration</h3>
+<a [href]="prevIdx?.href"><span class="previous-number">{{prevIdx?.number}}</span></a>
+<form class="registration-form" (ngSubmit)="onSubmit()" #registrationModel="ngForm">
+  <!-- First Name -->
+  <div class="row">
+    <div class="card large white darken-1">
+      <div class="card-content ">
         <div class="input-field">
+          <input name="firstName"
+                 id="firstname-input"
+                 class="validate required"
+                 required
+                 [(ngModel)]="registrationForm.firstName"
+                 #firstName="ngModel"
+                 autocomplete="name"
+                 type="text"
+          >
           <label for="firstname-input">Enter your First Name</label>
-          <input id="firstname-input">
+          {{registrationForm.firstName}}
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Last Name -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card lastname">Last Name</span>
         <div class="input-field">
-          <label for="lastname-input">Enter your First Name</label>
-          <input id="lastname-input">
+          <label for="lastname-input">Enter your Last Name</label>
+          <input name="lastName"
+                 class="validate required"
+                 id="lastname-input"
+                 required
+                 [(ngModel)]="registrationForm.lastName"
+                 autocomplete="family-name"
+                 #name="ngModel"
+                 type="text"
+          >
+          {{registrationForm.lastName}}
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Gender -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card gender">Gender</span>
+  <!-- Email -->
+  <div class="row">
+    <div class="card large white darken-1">
+      <div class="card-content ">
+        <div class="input-field">
+          <label for="email-input">Enter your School Email</label>
+          <input type="email"
+                 class="validate"
+                 name="email"
+                 id="email-input"
+                 required
+                 [(ngModel)]="registrationForm.email"
+                 #name="ngModel"
+          >
+          {{registrationForm.email}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gender -->
+  <div class="row">
+    <div class="card large white darken-1">
+      <div class="card-content ">
+        <span class="gender">Gender</span>
         <div class="form-group">
-          <input type="radio" class="with-gap" id="male">
+          <input type="radio" class="with-gap" required value="male" id="male" [(ngModel)]="registrationForm.gender"
+                 #name="ngModel">
           <label for="male">Male</label>
-        </div>
-        <div class="form-group">
-            <input type="radio" class="with-gap" id="female">
-            <label for="female">Female</label>
-        </div>
-        <div class="form-group">
-            <input type="radio" class="with-gap" id="non-binary">
-            <label for="non-binary">Non-Binary</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="option4">
+          <input type="radio" class="with-gap" required value="female" id="female" [(ngModel)]="registrationForm.gender"
+                 #name="ngModel">
+          <label for="female">Female</label>
+          <input type="radio" class="with-gap" required value="non-binary" id="non-binary" [(ngModel)]="registrationForm.gender"
+                 #name="ngModel">
+          <label for="non-binary">Non-Binary</label>
+          <input type="radio" class="with-gap" required value="no-disclose" id="option4" [(ngModel)]="registrationForm.gender"
+                 #name="ngModel">
           <label for="option4">Prefer not to disclose</label>
         </div>
+        {{registrationForm.gender}}
       </div>
     </div>
   </div>
-</div>
 
-<!-- Age -->
-<div class="row">
-  <div class="col large m12 m9">
-    <div class="card grey darken-1">
-      <div class="card-content white-text">
-        <span class="card age">Will you be 18 before the date?</span>
+  <!-- Age -->
+  <div class="row">
+    <div class="card large white darken-1">
+      <div class="card-content ">
+        <span class="age">Will you be 18 before the date?</span>
         <div class="form-group">
           <input type="radio" class="with-gap" id="eligible">
           <label for="eligible">Yes</label>
         </div>
         <div class="form-group">
-            <input type="radio" class="with-gap" id="ineligible">
-            <label for="ineligible">No</label>
+          <input type="radio" class="with-gap" id="ineligible">
+          <label for="ineligible">No</label>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Shirt Size -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card shirt-size">Shirt Size</span>
-        <div class="form-group">
-          <input type="radio-inline" class="with-gap" id="xsmall">
-          <label for="xsmall">X-Small</label>
-        </div>
-        <div class="form-group">
-            <input type="radio-inline" class="with-gap" id="small">
+  <!-- Shirt Size -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="shirt-size">Shirt Size</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="xsmall">
+            <label for="xsmall">X-Small</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="small">
             <label for="small">Small</label>
-        </div>
-        <div class="form-group">
-            <input type="radio-inline" class="with-gap" id="medium">
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="medium">
             <label for="medium">Medium</label>
-        </div>
-        <div class="form-group">
-          <input type="radio-inline" class="with-gap" id="large">
-          <label for="large">Large</label>
-        </div>
-        <div class="form-group">
-          <input type="radio-inline" class="with-gap" id="xlarge">
-          <label for="xlarge">X-Large</label>
-        </div>
-        <div class="form-group">
-          <input type="radio-inline" class="with-gap" id="xxlarge">
-          <label for="xxlarge">XX-Large</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="large">
+            <label for="large">Large</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="xlarge">
+            <label for="xlarge">X-Large</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="xxlarge">
+            <label for="xxlarge">XX-Large</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Dietary Restrictions -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card diet">Dietary Restrictions</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="vegetarian">
-          <label for="vegetarian">Vegetarian</label>
-        </div>
-        <div class="form-group">
+  <!-- Dietary Restrictions -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="diet">Dietary Restrictions</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="vegetarian">
+            <label for="vegetarian">Vegetarian</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="vegan">
             <label for="vegan">Vegan</label>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="kosher">
             <label for="kosher">Kosher</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="allergies">
-          <label for="allergies">Allergies</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="halal">
+            <label for="kosher">Halal</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="allergies">
+            <label for="allergies">Allergies</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Travel Reimbursement -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card travel">Will you need travel reimbursement?</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="true">
-          <label for="true">Yes</label>
-        </div>
-        <div class="form-group">
-            <input type="radio" class="with-gap" id="false">
+  <!-- Travel Reimbursement -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="travel">Will you need travel reimbursement?</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="true_tr">
+            <label for="true">Yes</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="false_tr">
             <label for="false">No</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- # of hackathons attended -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card attended">Is this your first hackathon?</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="true">
-          <label for="true">Yes</label>
-        </div>
-        <div class="form-group">
-            <input type="radio" class="with-gap" id="false">
+  <!-- # of hackathons attended -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="attended">Is this your first hackathon?</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="true_fh">
+            <label for="true">Yes</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="false_fh">
             <label for="false">No</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- School -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card school">Name of University</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="pennstate">
-          <label for="pennstate">The Pennsylvania State Unversity</label>
-        </div>
-        <div class="form-group">
+  <!-- School -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="school">Name of University</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="pennstate">
+            <label for="pennstate">The Pennsylvania State Unversity</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="other-school">
             <label for="other-school">Other</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Phone Number -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card phone">Phone Number</span>
-        <div class="input-field">
-          <label for="phone-input">Enter your phone number</label>
-          <input id="phone-input">
+  <!-- Phone Number -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="phone">Phone Number</span>
+          <div class="input-field">
+            <label for="phone-input">Enter your phone number</label>
+            <input id="phone-input">
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Academic Year -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card year">Academic Year</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="freshman">
-          <label for="freshman">Freshman</label>
-        </div>
-        <div class="form-group">
+  <!-- Academic Year -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="year">Academic Year</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="freshman">
+            <label for="freshman">Freshman</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="sophomore">
             <label for="sophomore">Sophomore</label>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="junior">
             <label for="junior">Junior</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="senior">
-          <label for="senior">Senior</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="super-senior">
-          <label for="super-senior">Super Senior</label>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Major -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card major">Major</span>
-        <div class="input-field">
-          <label for="major-input">Enter your major</label>
-          <input id="major-input">
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="senior">
+            <label for="senior">Senior</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="higher">
+            <label for="higher">Higher</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Resume -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card resume">Submit your resume</span>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-          Select file to upload:
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" value="Upload File" name="submit">
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MLH Code of Conduct -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card mlh-coc">Do you agree to MLH Code of Conduct?</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="true">
-          <label for="true">Agree</label>
+  <!-- Major -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="major">Major</span>
+          <div class="input-field">
+            <label for="major-input">Enter your major</label>
+            <input id="major-input">
+          </div>
         </div>
-        <div class="form-group">
+      </div>
+  </div>
+
+  <!-- Resume -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="resume">Submit your resume</span>
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Select file to upload:</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- MLH Code of Conduct -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="mlh-coc">Do you agree to MLH Code of Conduct?</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="true_coc">
+            <label for="true_coc">Agree</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="false_coc">
+            <label for="false_coc">Disagree</label>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- MLH Data Collection Policies -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="mlh-data">Do you agree to MLH Data Collection Policies?</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="true">
+            <label for="true">Agree</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="false">
             <label for="false">Disagree</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- MLH Data Collection Policies -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card mlh-data">Do you agree to MLH Data Collection Policies?</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="true">
-          <label for="true">Agree</label>
-        </div>
-        <div class="form-group">
-            <input type="radio" class="with-gap" id="false">
-            <label for="false">Disagree</label>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <!-- ==========DEMOGRAPHICS========== -->
 
-<!-- ==========DEMOGRAPHICS========== -->
-
-<!-- Race/Ethnicities -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card race">Race/Ethnicities</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="indian">
-          <label for="indian">American Indian or Alaska Native</label>
-        </div>
-        <div class="form-group">
+  <!-- Race/Ethnicities -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="race">Race/Ethnicities</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="indian">
+            <label for="indian">American Indian or Alaska Native</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="asian">
             <label for="asian">Asian</label>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="african">
             <label for="african">Black or African American</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="hispanic">
-          <label for="hispanic">Hispanic or Latino</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="pacific">
-          <label for="pacific">Native Hawaiian or Other Pacific Islander</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="white">
-          <label for="white">White</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="hispanic">
+            <label for="hispanic">Hispanic or Latino</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="pacific">
+            <label for="pacific">Native Hawaiian or Other Pacific Islander</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="white">
+            <label for="white">White</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Coding Experience -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card experience">Coding Experience</span>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="none">
-          <label for="none">None</label>
-        </div>
-        <div class="form-group">
+  <!-- Coding Experience -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="experience">Coding Experience</span>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="none">
+            <label for="none">None</label>
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="beginner">
             <label for="beginner">Beginner</label>
-        </div>
-        <div class="form-group">
+            <!--TODO: ADD descriptions-->
+          </div>
+          <div class="form-group">
             <input type="radio" class="with-gap" id="intermediate">
             <label for="intermediate">Intermediate</label>
-        </div>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="advanced">
-          <label for="advanced">Advanced</label>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Reference -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card reference">Where did you hear about hackPSU?</span>
-        <div class="input-field">
-          <label for="reference-input"></label>
-          <input id="reference-input">
+          </div>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="advanced">
+            <label for="advanced">Advanced</label>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-<!-- Accomplishment -->
-<div class="row">
-  <div class="col m12 m9">
-    <div class="card large grey darken-1">
-      <div class="card-content white-text">
-        <span class="card accomplish">What is a project you're proud of?</span>
-        <div class="input-field">
-          <textarea class="form-control" rows="4" id="accomplish-input"></textarea>
+  <!-- Reference -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="reference">Where did you hear about hackPSU?</span>
+          <div class="input-field">
+            <label for="reference-input"></label>
+            <input id="reference-input">
+          </div>
         </div>
       </div>
-    </div>
   </div>
-</div>
 
-</html>
+  <!-- Accomplishment -->
+  <div class="row">
+    <div class="card large white darken-1">
+        <div class="card-content ">
+          <span class="accomplish">What is a project you're proud of?</span>
+          <div class="input-field">
+            <textarea class="form-control" rows="4" id="accomplish-input"></textarea>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</form>

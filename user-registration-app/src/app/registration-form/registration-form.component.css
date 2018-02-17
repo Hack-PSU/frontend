@@ -1,0 +1,13 @@
+.registration-form {
+  width: 50%;
+  display: block;
+  margin: auto;
+  color: #333333;
+  font-size: large;
+}
+
+@media screen and (max-width: 768px){
+  .registration-form {
+    width: 100%;
+  }
+}

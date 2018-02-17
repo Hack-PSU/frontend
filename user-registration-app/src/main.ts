@@ -10,3 +10,21 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
+
+declare var $: any;
+
+$(document).ready(() => {
+  $('.registration-form').onepage_scroll({
+    sectionContainer: '.card',
+    easing: 'ease',                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+    animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+    keyboard: true,                  // You can activate the keyboard controls
+    pagination: false,
+    updateURL: false,
+    loop: false,
+    responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
+    // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+    // the browser's width is less than 600, the fallback will kick in.
+    direction: 'vertical',
+  });
+});

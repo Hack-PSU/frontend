@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { LoginModel } from '../login-model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   public errors: Error = null;
   public model: LoginModel;
@@ -18,6 +18,11 @@ export class LoginComponent {
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.model = new LoginModel();
   }
+
+  ngOnInit() {
+
+  }
+
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -62,14 +67,6 @@ export class LoginComponent {
   }
 
   onLogin() {
-    // this.adminService.getAdminStatus().subscribe((response) => {
-    //   console.log(response);
-    //   this.router.navigate(['/']);
-    // },                                           (error) => {
-    //   this.errors = error;
-    //   console.error(error);
-    //   this.afAuth.auth.signOut();
-    //   this.router.navigate(['/login']);
-    // });
+    this.router.navigate(['/register']);
   }
 }
