@@ -7,12 +7,12 @@
 }
 
 .registration-form {
-  width: 50%;
   margin: 6% auto;
   display: block;
   color: #333333;
   font-size: large;
 }
+
 
 @media screen and (max-width: 768px){
   .registration-form {
@@ -59,10 +59,78 @@ svg {
   margin-right: 10px;
 }
 
+.input-field label {
+  color: #333333;
+}
+
 .card {
   transition: transform;
-  background-color: #133753;
-  color: #ffffff;
+  background-color: #aacacc;
+  color: #101010;
 }
+
+.card .card-action a:not(.btn-large):not(.btn-floating) {
+  color: #ffffff;
+  margin-left: 20%;
+}
+
+.card label {
+  color: #333333;
+}
+.card .form-group label {
+  margin: 2%;
+}
+
+.scrollspy-container {
+  margin-top: 15%;
+  position: fixed;
+  right: 5%;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+  border: 2px solid #133753;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+  background-color: #133753;
+}
+
+[type="radio"][_ngcontent-c2]:checked + label[_ngcontent-c2]:after, [type="radio"].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:before, [type="radio"].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:after {
+  border: 2px solid #133753;
+}
+
+input::placeholder {
+  color: #333333;
+}
+
+.btn {
+  background-color: #133753;
+}
+
+.btn-flat {
+  background-color: transparent;
+}
+
+.switch {
+  margin: 15% auto;
+  width: 50%;
+}
+
+.switch label {
+  margin-left: 15%;
+  font-size: large;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #6C88B7;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: #133753;
+}
+
+.card h3, .card h5 {
+  margin-bottom: 10px;
+}
+
 
 

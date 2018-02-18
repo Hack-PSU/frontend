@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { trigger, style, animate, transition } from '@angular/animations';
 
+import * as data from '../../assets/schools.json';
+
+
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -19,9 +22,9 @@ import { trigger, style, animate, transition } from '@angular/animations';
         transition(':leave', [
           style({transform: 'scale(1)', opacity: 1}),
           animate('500ms', style({transform: 'scale(0)', opacity: 0}))
-        ])
-      ]
-    )
+        ]),
+      ],
+    ),
   ],
 })
 export class RegistrationFormComponent implements OnInit {
@@ -31,6 +34,8 @@ export class RegistrationFormComponent implements OnInit {
   public user: firebase.User;
   public currentIdx: number;
   public valid: boolean;
+
+  public universityList: any;
 
   static afterMove(index) {
     RegistrationFormComponent.regFormComp.currentIdx = index;
@@ -55,6 +60,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = new RegistrationModel();
     this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
+    this.universityList = data;
   }
 
   ngOnInit() {
@@ -76,5 +82,13 @@ export class RegistrationFormComponent implements OnInit {
 
   isEighteen(b: boolean) {
     this.registrationForm.eighteenBeforeEvent = b;
+  }
+
+  travelReimbursement(b: boolean) {
+    this.registrationForm.travel_reimbursement = b;
+  }
+
+  firstHackathon(b: boolean) {
+    this.registrationForm.first_hackathon = b;
   }
 }

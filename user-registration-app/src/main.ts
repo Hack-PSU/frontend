@@ -3,7 +3,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { RegistrationFormComponent } from './app/registration-form/registration-form.component';
+
+
+
 
 if (environment.production) {
   enableProdMode();
@@ -15,6 +17,10 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 declare var $: any;
 
 $(document).ready(() => {
+  $('.scrollspy').scrollSpy();
+  $('.scrollspy-container').children('a').click((e) => {
+    e.preventDefault();
+  });
   // $('.registration-form').onepage_scroll({
   //   sectionContainer: '.card',
   //   easing: 'ease',                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
