@@ -18,11 +18,11 @@ export class RegistrationModel {
   public resume: File;
   public mlhcoc: boolean;
   public mlhdcp: boolean;
-  public dem_info: boolean;
   public ethnicity: String;
   public codingExperience: String;
   public referral: String;
   public projectDesc: String;
+  public return :String;
 }
 
 

@@ -98,7 +98,7 @@ export class RegistrationFormComponent implements OnInit {
         this.registrationForm.lastName = user.displayName.split(' ')[1];
         this.registrationForm.email = user.email;
       }
-    }, (error) => {
+    },                                  (error) => {
       console.error(error);
       this.afAuth.auth.signOut();
       this.router.navigate(['/login']);

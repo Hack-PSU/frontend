@@ -65,7 +65,7 @@ svg {
 
 .card {
   transition: transform;
-  background-color: #aacacc;
+  background-color: white;
   color: #101010;
 }
 
@@ -112,7 +112,17 @@ input::placeholder {
 }
 
 .btn {
-  background-color: #133753;
+  background-color: rgba(255, 255, 255, 0);
+  color: #E5704C;
+  border: 2px solid #E5704C;
+  border-right-width: 8px;
+  border-left-width: 8px;
+  border-radius: 12px;
+}
+
+.btn:hover {
+  background-color: #E5704C;
+  color: white;
 }
 
 .btn-flat {
@@ -137,11 +147,24 @@ input::placeholder {
 }
 
 .card h3, .card h5 {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .small-text {
   font-size: small;
+}
+
+@media screen and (max-width: 768px) {
+  .small-text {
+    font-size: x-small;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .switch label {
+    margin-left: 0;
+    font-size: small;
+  }
 }
 
 
