@@ -283,6 +283,20 @@ a:hover {
     background-color: rgba(170, 202, 204, 0.2);
 }
 
+#footer .email-link {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+#footer .email-link:hover {
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+    color: rgba(255,255,255, 0.5);
+}
+
 /*========================= *** Sidenav Bar *** =========================*/
 .rotate {
     -webkit-transform: rotate(270deg);
