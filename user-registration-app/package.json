@@ -21,10 +21,13 @@
     "@angular/platform-browser": "4.4.6",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-materialize": "15.1.10",
     "angularfire2": "5.0.0-rc.3",
     "core-js": "^2.4.1",
     "firebase": "^4.9.0",
     "jquery": "3.3.1",
+    "libphonenumber-js": "1.0.24",
+    "materialize-css": "0.100.2",
     "rxjs": "^5.1.0",
     "tslint-config-airbnb": "^5.5.0",
     "zone.js": "^0.8.4"

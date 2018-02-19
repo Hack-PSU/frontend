@@ -103,6 +103,14 @@ input::placeholder {
   color: #333333;
 }
 
+.table-of-contents a {
+  color: #ffffff;
+}
+
+.table-of-contents a:hover {
+  border-left: 1px solid #aacacc;
+}
+
 .btn {
   background-color: #133753;
 }
@@ -130,6 +138,10 @@ input::placeholder {
 
 .card h3, .card h5 {
   margin-bottom: 10px;
+}
+
+.small-text {
+  font-size: small;
 }
 
 

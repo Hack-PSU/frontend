@@ -3,9 +3,11 @@ import { RegistrationModel } from '../registration-model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { AsYouType } from 'libphonenumber-js';
 
 import * as data from '../../assets/schools.json';
+import * as majors from '../../assets/majors.json';
 
 
 @Component({
@@ -16,12 +18,12 @@ import * as data from '../../assets/schools.json';
     trigger(
       'enterAnimation', [
         transition(':enter', [
-          style({transform: 'scale(0)', opacity: 0}),
-          animate('500ms', style({transform: 'scale(1)', opacity: 1}))
+          style({ transform: 'scale(0)', opacity: 0 }),
+          animate('500ms', style({ transform: 'scale(1)', opacity: 1 })),
         ]),
         transition(':leave', [
-          style({transform: 'scale(1)', opacity: 1}),
-          animate('500ms', style({transform: 'scale(0)', opacity: 0}))
+          style({ transform: 'scale(1)', opacity: 1 }),
+          animate('500ms', style({ transform: 'scale(0)', opacity: 0 })),
         ]),
       ],
     ),
@@ -29,11 +31,33 @@ import * as data from '../../assets/schools.json';
 })
 export class RegistrationFormComponent implements OnInit {
   private static regFormComp: RegistrationFormComponent;
+  private asYouType: AsYouType;
+  public univAutoCompInit = [
+    { data },
+    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
+    {
+      onAutocomplete(val) {
+        this.registrationForm.university = val;
+      },
+    },
+    { minLength: 1 },
+  ];
+  public majAutoCompInit = [
+    { majors },
+    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
+    {
+      onAutocomplete(val) {
+        this.registrationForm.major = val;
+      },
+    },
+    { minLength: 1 },
+  ];
 
   public registrationForm: RegistrationModel;
   public user: firebase.User;
   public currentIdx: number;
   public valid: boolean;
+  public prettifiedPhone: string;
 
   public universityList: any;
 
@@ -60,7 +84,8 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = new RegistrationModel();
     this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
-    this.universityList = data;
+    this.prettifiedPhone = '';
+    this.asYouType = new AsYouType('US');
   }
 
   ngOnInit() {
@@ -73,22 +98,20 @@ export class RegistrationFormComponent implements OnInit {
         this.registrationForm.lastName = user.displayName.split(' ')[1];
         this.registrationForm.email = user.email;
       }
-    },                                  (error) => {
+    }, (error) => {
       console.error(error);
       this.afAuth.auth.signOut();
       this.router.navigate(['/login']);
     });
   }
 
-  isEighteen(b: boolean) {
-    this.registrationForm.eighteenBeforeEvent = b;
+  parsePhone(val: any) {
+    this.asYouType.reset();
+    this.prettifiedPhone = this.asYouType.input(val);
+    this.registrationForm.phoneNumber = this.asYouType.getNationalNumber();
   }
 
-  travelReimbursement(b: boolean) {
-    this.registrationForm.travel_reimbursement = b;
-  }
-
-  firstHackathon(b: boolean) {
-    this.registrationForm.first_hackathon = b;
+  mlhAgreement(b: boolean) {
+    this.registrationForm.mlhdcp = this.registrationForm.mlhcoc;
   }
 }

@@ -1,4 +1,4 @@
-import { Url } from 'url';
+import { ParsedNumber } from 'libphonenumber-js';
 
 export class RegistrationModel {
   public firstName: String;
@@ -12,10 +12,10 @@ export class RegistrationModel {
   public travel_reimbursement: boolean;
   public first_hackathon: boolean;
   public university: String;
-  public phoneNumber: Number;
+  public phoneNumber: string;
   public academicYear: String;
   public major: String;
-  public resume: Url;
+  public resume: File;
   public mlhcoc: boolean;
   public mlhdcp: boolean;
   public dem_info: boolean;
