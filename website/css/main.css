@@ -87,11 +87,12 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background: #333333;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-image: url('../assets/images/web_background.jpg');
+    background-position: center bottom;
     padding: 25px;
 }
 
@@ -153,27 +154,47 @@ a:hover {
 
 /* ============================== CSS STARTS HERE ==========================*/
 
+#home {
+    margin-top: 5%;
+}
 /* ID Based Selectors */
 #mlh-trust-badge {
     display: block;
     position: absolute;
     float: right;
-    right: 15%;
-    width: 15%;
+    right: 5%;
+    top: 0px;
+    width: 10%;
+    max-width: 100px;
     height: 120px;
     z-index: 1000;
     margin-top: 0px;
 }
 
+@media screen and (max-width: 768px) {
+    #mlh-trust-badge {
+        width: 12%;
+        right: 5%;
+    }
+}
+
 #hackpsu-logo {
-    max-width: 40%;
-    height: 55%;
-    margin: 25px;
+    max-width: 20%;
+}
+
+#date-text {
+    max-width: 50%;   
 }
 
 @media screen and (max-width: 768px) {
     #hackpsu-logo {
-        max-width: 75%;
+        max-width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #date-text {
+        max-width: 80%;
     }
 }
 
@@ -196,27 +217,27 @@ a:hover {
     padding: 10px;
 }
 
-.input-field {
-    color: white;
-}
+/*.input-field {*/
+    /*color: white;*/
+/*}*/
 
-.input-field label {
-    color: white;
-}
+/*.input-field label {*/
+    /*color: white;*/
+/*}*/
 
-.input-field .prefix .active {
-    color: white;
-}
+/*.input-field .prefix .active {*/
+    /*color: white;*/
+/*}*/
 
-.input-field input[type=email] {
-    border-bottom: 1px solid white;
-    box-shadow: 0 1px 0 0 white;
-}
+/*.input-field input[type=email] {*/
+    /*border-bottom: 1px solid white;*/
+    /*box-shadow: 0 1px 0 0 white;*/
+/*}*/
 
-.input-field input[type=email]:not(.browser-default):focus {
-    border-bottom: 1px solid white;
-    box-shadow: 0 1px 0 0 white;
-}
+/*.input-field input[type=email]:not(.browser-default):focus {*/
+    /*border-bottom: 1px solid white;*/
+    /*box-shadow: 0 1px 0 0 white;*/
+/*}*/
 
 .section-header {
     text-align: left;
@@ -230,17 +251,50 @@ a:hover {
     margin: 10px 0;
 }
 
+#registration {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
 .submit-btn {
-    background-color: #aacacc;
-    color: #333333;
+    width: 33%;
+    background-color: rgba(255, 255, 255, 0);
+    color: #FFF;
+    border-left: 8px solid white;
+    border-right: 8px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .submit-btn {
+        width: 70%;
+    }
 }
 
 .submit-btn:hover {
-    background-color: #D0EAF1;
+    background-color: rgba(255, 255, 255, 1);
+    color: #333333;
 }
 
 .submit-btn:focus {
     background-color: rgba(170, 202, 204, 0.2);
+}
+
+#footer .email-link {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+#footer .email-link:hover {
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+    color: rgba(255,255,255, 0.5);
 }
 
 /*========================= *** Sidenav Bar *** =========================*/
@@ -261,30 +315,28 @@ li {
 
 ul {
     padding: 0;
-    margin: 0
+    margin: 10px 0px;
 }
 
 .main-nav {
-    min-height: 100%;
-    max-height: 100%;
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 1.2vw;
     float: left;
-    height: 100%;
+    width:2.5vw;
+    height: 100vh;
     top: 0;
     left: 0;
     position: fixed;
-    background-color: #6C88B7;
-    border: #333333 5px solid;
+    background-color: #E5704C;
+    /*border: #333333 5px solid;*/
     z-index: 9999;
 }
 
-ul.nav li:first-child {
-    padding-top: 75px
-}
-
 ul.nav li {
-    padding-top: 150px;
+    height:19vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    cursor: pointer;
 }
 
 ul.nav li a {
@@ -292,9 +344,28 @@ ul.nav li a {
     -moz-transform: rotate(270deg);
     -o-transform: rotate(270deg);
     writing-mode: lr-tb;
-    float: left;
-    width: 15px;
-    color: #333333;
+    top:50%;
+    /*float: left;*/
+    width: 1vw;
+    color: #010101;
+}
+
+.center-nav {
+    margin-top: 3vh;
+}
+
+ul.nav li a:hover{
+    background: none;
+}
+
+/* this way the section you're hovering over lights up */
+ul li:not(.active):hover a {
+    color: #fff;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
 }
 
 @media screen and (max-width: 768px) {
@@ -303,11 +374,15 @@ ul.nav li a {
     }
 }
 
+ul .active {
+    background-color: #fff;
+}
+
 /*========================= *** About *** =========================*/
 #about p {
     font-family: 'Lato', sans-serif;
-    font-size: large;
-    font-weight: 600;
+    font-size: medium;
+    font-weight: 100;
     text-align: center;
 }
 
@@ -324,6 +399,7 @@ ul.nav li a {
 /*========================= *** Section Title *** =========================*/
 .section-title-container {
     height: 30px;
+    margin: 50px 0;
 }
 
 .section-title-letter {
@@ -334,7 +410,7 @@ ul.nav li a {
 
 .title-graphic-line {
     position: relative;
-    background-color: orange;
+    background-color: #E5704C;
     height: 2px;
     top: 14px;
 }
@@ -429,6 +505,10 @@ ul.nav li a {
     width: 80%;
 }
 
+.partner-tagline {
+    font-size: x-large;
+}
+
 /*========================= *** Location *** =========================*/
 #map {
     color: #3A2D40;
@@ -489,4 +569,23 @@ ul.nav li a {
         height: 90px;
         width: auto;
     }
+}
+
+/*********** SPONSORS ************/
+#sponsors {
+    margin: 25px 0;
+}
+
+.sponsor-img-lg {
+    max-width: 40%;
+}
+
+
+/************* FOOTER *************/
+.social-media-icon {
+    width: 40px;
+}
+
+#footer  p {
+    font-size: small;
 }
