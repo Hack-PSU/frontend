@@ -87,13 +87,13 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background: #333333;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-image: url('../assets/images/web_background.jpg');
+    background-position: center bottom;
     padding: 25px;
-    padding-left: 40px;
 }
 
 /*@media screen and (min-width: 768px) {*/
@@ -154,27 +154,47 @@ a:hover {
 
 /* ============================== CSS STARTS HERE ==========================*/
 
+#home {
+    margin-top: 5%;
+}
 /* ID Based Selectors */
 #mlh-trust-badge {
     display: block;
     position: absolute;
     float: right;
-    right: 15%;
-    width: 15%;
+    right: 5%;
+    top: 0px;
+    width: 10%;
+    max-width: 100px;
     height: 120px;
     z-index: 1000;
     margin-top: 0px;
 }
 
+@media screen and (max-width: 768px) {
+    #mlh-trust-badge {
+        width: 12%;
+        right: 5%;
+    }
+}
+
 #hackpsu-logo {
-    max-width: 40%;
-    height: 55%;
-    margin: 25px;
+    max-width: 20%;
+}
+
+#date-text {
+    max-width: 50%;   
 }
 
 @media screen and (max-width: 768px) {
     #hackpsu-logo {
-        max-width: 75%;
+        max-width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #date-text {
+        max-width: 80%;
     }
 }
 
@@ -231,14 +251,32 @@ a:hover {
     margin: 10px 0;
 }
 
+#registration {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
 .submit-btn {
-    background-color: #aacacc;
-    color: #333333;
-    margin-right: 15px;
+    width: 33%;
+    background-color: rgba(255, 255, 255, 0);
+    color: #FFF;
+    border-left: 8px solid white;
+    border-right: 8px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .submit-btn {
+        width: 70%;
+    }
 }
 
 .submit-btn:hover {
-    background-color: #D0EAF1;
+    background-color: rgba(255, 255, 255, 1);
+    color: #333333;
 }
 
 .submit-btn:focus {
@@ -329,8 +367,8 @@ ul .active {
 /*========================= *** About *** =========================*/
 #about p {
     font-family: 'Lato', sans-serif;
-    font-size: large;
-    font-weight: 600;
+    font-size: medium;
+    font-weight: 100;
     text-align: center;
 }
 
@@ -358,7 +396,7 @@ ul .active {
 
 .title-graphic-line {
     position: relative;
-    background-color: orange;
+    background-color: #E5704C;
     height: 2px;
     top: 14px;
 }
