@@ -5,8 +5,20 @@
 <!--</div>-->
 <!--<svg width="10" height="100%" style="position: fixed; left: 50%; top: 10%">-->
 <!--<line x1="50%" y1="6%" x2="50%" y2="1000%" stroke="#C94331"></line>-->
+<div *ngIf="loading" class="preloader-wrapper big active">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+    <div class="circle"></div>
+  </div><div class="circle-clipper right">
+    <div class="circle"></div>
+  </div>
+  </div>
+</div>
 <div class="row">
-  <form class="registration-form scrollspy col m5 offset-m3 offset-l3 l5" materialize="scrollSpy" (ngSubmit)="onSubmit()"
+  <form class="registration-form scrollspy col m5 offset-m3 offset-l3 l5" materialize="scrollSpy"
+        (ngSubmit)="onSubmit()"
         #registrationModel="ngForm">
     <!-- First Name -->
     <div class="row">
@@ -192,7 +204,7 @@
           <div class="switch">
             <label>
               No
-              <input type="checkbox" name="travel_reimbursement" [(ngModel)]="registrationForm.travel_reimbursement">
+              <input type="checkbox" name="travel_reimbursement" [(ngModel)]="registrationForm.travelReimbursement">
               <span class="lever"></span>
               Yes
             </label>
@@ -303,7 +315,7 @@
           <div class="file-field input-field">
             <div class="btn">
               <span>Select file to upload</span>
-              <input type="file" name="resume" [(ngModel)]="registrationForm.resume">
+              <input type="file" name="resume" (change)="fileAdded($event)" accept="application/pdf">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload a pdf file">
@@ -348,17 +360,23 @@
         <div class="card-content">
           <h5>What is your Race/Ethnicity? (Optional) </h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="naan" name="ethnicity" value="native-american" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="naan" name="ethnicity" value="native-american"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="naan">Native American or Alaska Native</label><br>
-            <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="asian">Asian</label><br>
-            <input type="radio" class="with-gap" id="baa" name="ethnicity" value="african-american" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="baa" name="ethnicity" value="african-american"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="baa">Black or African American</label><br>
-            <input type="radio" class="with-gap" id="hlat" name="ethnicity" value="latinx" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="hlat" name="ethnicity" value="latinx"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="hlat">Hispanic or Latinx</label>
-            <input type="radio" class="with-gap" id="nhopi" name="ethnicity" value="pacific-islander" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="nhopi" name="ethnicity" value="pacific-islander"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="nhopi">Native Hawaiian or Other Pacific Islander</label>
-            <input type="radio" class="with-gap" id="no-disclose" name="ethnicity" value="no-disclose" ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" class="with-gap" id="no-disclose" name="ethnicity" value="no-disclose"
+                   ([ngModel])="registrationForm.ethnicity">
             <label for="no-disclose">Prefer not to disclose</label>
           </div>
         </div>
@@ -369,15 +387,19 @@
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
       <div class="card medium darken-1">
         <div class="card-content ">
-          <span class="experience">Coding Experience</span>
+          <h5 class="experience">Coding Experience</h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="none" name="experience" value="none" ([ngModel])="registrationForm.codingExperience">
+            <input type="radio" class="with-gap" id="none" name="experience" value="none"
+                   ([ngModel])="registrationForm.codingExperience">
             <label for="none">None</label><br>
-            <input type="radio" class="with-gap" id="beginner" name="experience" value="beginner" ([ngModel])="registrationForm.codingExperience">
+            <input type="radio" class="with-gap" id="beginner" name="experience" value="beginner"
+                   ([ngModel])="registrationForm.codingExperience">
             <label for="beginner">Beginner (0-2 years) </label><br>
-            <input type="radio" class="with-gap" id="intermediate" name="experience" value="intermediate" ([ngModel])="registrationForm.codingExperience">
+            <input type="radio" class="with-gap" id="intermediate" name="experience" value="intermediate"
+                   ([ngModel])="registrationForm.codingExperience">
             <label for="intermediate">Intermediate (2-4 years)</label><br>
-            <input type="radio" class="with-gap" id="advanced" name="experience" value="advanced" ([ngModel])="registrationForm.codingExperience">
+            <input type="radio" class="with-gap" id="advanced" name="experience" value="advanced"
+                   ([ngModel])="registrationForm.codingExperience">
             <label for="advanced">Advanced (> 4 years) </label>
           </div>
         </div>
@@ -388,10 +410,10 @@
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
       <div class="card medium darken-1">
         <div class="card-content ">
-          <span class="reference">Where did you hear about hackPSU?</span>
+          <h5 class="reference">Where did you hear about hackPSU?</h5>
           <div class="input-field">
             <label for="reference-input"></label>
-            <input id="reference-input" c>
+            <input id="reference-input" name="referral" [(ngModel)]="registrationForm.referral">
           </div>
         </div>
       </div>
@@ -401,9 +423,10 @@
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
       <div class="card medium darken-1">
         <div class="card-content ">
-          <span class="accomplish">What is a project you're proud of?</span>
+          <h5 class="accomplish">What is a project you're proud of?</h5>
           <div class="input-field">
-            <textarea class="form-control" rows="4" id="accomplish-input" name="accomplishment" [(ngModel)]="registrationForm.projectDesc"></textarea>
+            <textarea class="form-control" rows="4" id="accomplish-input" name="accomplishment"
+                      [(ngModel)]="registrationForm.projectDesc"></textarea>
           </div>
         </div>
       </div>
@@ -412,12 +435,18 @@
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
       <div class="card medium darken-1">
         <div class="card-content ">
-          <span class="accomplish">What would you like to get out of HackPSU?</span>
+          <h5 class="accomplish">What would you like to get out of HackPSU?</h5>
           <div class="input-field">
-            <textarea class="form-control" rows="4" id="return-input" name="return" [(ngModel)]="registrationForm.return"></textarea>
+            <textarea class="form-control" rows="4" id="return-input" name="return"
+                      [(ngModel)]="registrationForm.return"></textarea>
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
+      <button class="btn waves-effect waves-light submit-btn" type="submit" name="action" (click)="onSubmit()">Submit
+        <i class="material-icons right">send</i>
+      </button>
     </div>
   </form>
   <!--<div class="next-container">-->

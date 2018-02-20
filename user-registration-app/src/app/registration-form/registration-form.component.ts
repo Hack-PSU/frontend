@@ -8,12 +8,14 @@ import { AsYouType } from 'libphonenumber-js';
 
 import * as data from '../../assets/schools.json';
 import * as majors from '../../assets/majors.json';
+import { HttpService } from '../HttpService';
 
 
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css'],
+  providers: [HttpService],
   animations: [
     trigger(
       'enterAnimation', [
@@ -58,6 +60,7 @@ export class RegistrationFormComponent implements OnInit {
   public currentIdx: number;
   public valid: boolean;
   public prettifiedPhone: string;
+  public loading: boolean;
 
   public universityList: any;
 
@@ -80,7 +83,7 @@ export class RegistrationFormComponent implements OnInit {
     return RegistrationFormComponent.regFormComp;
   }
 
-  constructor(public afAuth: AngularFireAuth, public router: Router, public ref: ChangeDetectorRef) {
+  constructor(public afAuth: AngularFireAuth, public router: Router, public ref: ChangeDetectorRef, private httpService: HttpService) {
     this.registrationForm = new RegistrationModel();
     this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
@@ -108,10 +111,27 @@ export class RegistrationFormComponent implements OnInit {
   parsePhone(val: any) {
     this.asYouType.reset();
     this.prettifiedPhone = this.asYouType.input(val);
-    this.registrationForm.phoneNumber = this.asYouType.getNationalNumber();
+    this.registrationForm.phone = this.asYouType.getNationalNumber();
   }
 
   mlhAgreement(b: boolean) {
     this.registrationForm.mlhdcp = this.registrationForm.mlhcoc;
+  }
+
+  onSubmit() {
+    console.log(this.registrationForm);
+    this.loading = true;
+    this.httpService.submitRegistration(this.registrationForm, this.afAuth.auth.currentUser.uid)
+      .subscribe((data) => {
+        console.log(data);
+        this.loading = false;
+      },         (error) => {
+        console.error(error);
+      });
+  }
+
+  fileAdded(event) {
+    console.log(event);
+    this.registrationForm.resume = event.target.files[0];
   }
 }
