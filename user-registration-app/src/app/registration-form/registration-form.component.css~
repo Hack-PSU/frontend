@@ -7,7 +7,7 @@
 }
 
 .registration-form {
-  margin: 0px auto;
+  margin: 6% auto;
   display: block;
   color: #333333;
   font-size: large;
@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 768px){
   .registration-form {
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -67,7 +67,6 @@ svg {
   transition: transform;
   background-color: white;
   color: #101010;
-  top:17vh;
 }
 
 .card .card-action a:not(.btn-large):not(.btn-floating) {
@@ -176,5 +175,6 @@ input::placeholder {
   border-left-width: 8px;
   border-radius: 12px;
 }
+
 
 
