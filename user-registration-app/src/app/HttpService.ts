@@ -28,7 +28,8 @@ export class HttpService {
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in submitData) {
-      if (submitData.hasOwnProperty(key) && key !== 'resume') {
+      if (submitData.hasOwnProperty(key) && submitData[key] !== null && key !== 'resume') {
+        console.log(key);
         formObject.append(key, submitData[key]);
       }
     }

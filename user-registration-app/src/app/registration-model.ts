@@ -1,26 +1,27 @@
 export class RegistrationModel {
-  public firstName: String;
-  public lastName: String;
-  public gender: String;
-  public email: String;
+  public firstName: string;
+  public lastName: string;
+  public gender: string;
+  public email: string;
   public eighteenBeforeEvent: boolean;
-  public shirtSize: String;
-  public dietaryRestriction: String;
-  public allergies: String;
+  public shirtSize: string;
+  public dietaryRestriction: string;
+  public allergies: string;
   public travelReimbursement: boolean;
-  public first_hackathon: boolean;
-  public university: String;
+  public firstHackathon: boolean;
+  public university: string;
   public phone: string;
-  public academicYear: String;
-  public major: String;
+  public academicYear: string;
+  public major: string;
   public resume: File;
   public mlhcoc: boolean;
   public mlhdcp: boolean;
-  public ethnicity: String;
-  public codingExperience: String;
-  public referral: String;
-  public projectDesc: String;
-  public return: String;
+  public ethnicity: string;
+  public codingExperience: string;
+  public referral: string;
+  public projectDesc: string;
+  public expectations: string;
+  public veteran: boolean;
 
   constructor() {
     this.firstName = null;
@@ -32,7 +33,7 @@ export class RegistrationModel {
     this.dietaryRestriction = null;
     this.allergies = null;
     this.travelReimbursement = false;
-    this.first_hackathon = false;
+    this.firstHackathon = false;
     this.university = null;
     this.phone = null;
     this.academicYear = null;
@@ -44,7 +45,8 @@ export class RegistrationModel {
     this.codingExperience = null;
     this.referral = null;
     this.projectDesc = null;
-    this.return = null;
+    this.expectations = null;
+    this.veteran = false;
   }
 }
 
