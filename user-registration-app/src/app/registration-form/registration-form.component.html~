@@ -21,9 +21,9 @@
         (ngSubmit)="onSubmit()"
         #registrationModel="ngForm">
     <!-- First Name -->
-    <div class="row" style="top:17vh;">
+    <div class="row">
       <div class="card medium darken-1">
-        <div class="card-content">
+        <div class="card-content ">
           <h5>What is your name?</h5>
           <div class="input-field">
             <input name="firstName"
@@ -36,7 +36,8 @@
                    type="text"
             >
             <label for="firstname-input">Enter your First Name</label>
-          </div>          <div class="input-field">
+          </div>
+          <div class="input-field">
             <label for="lastname-input">Enter your Last Name</label>
             <input name="lastName"
                    class="validate required"
