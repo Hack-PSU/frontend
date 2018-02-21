@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { RegistrationModel } from '../registration-model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
@@ -32,6 +32,7 @@ import { HttpService } from '../HttpService';
   ],
 })
 export class RegistrationFormComponent implements OnInit {
+
   private static regFormComp: RegistrationFormComponent;
   private asYouType: AsYouType;
   public univAutoCompInit = [
@@ -61,8 +62,9 @@ export class RegistrationFormComponent implements OnInit {
   public valid: boolean;
   public prettifiedPhone: string;
   public loading: boolean;
-
-  public universityList: any;
+  public diet_restr: boolean;
+  public otherDietRestr: boolean;
+  @ViewChild('registrationModel') form;
 
   static afterMove(index) {
     RegistrationFormComponent.regFormComp.currentIdx = index;
@@ -101,7 +103,7 @@ export class RegistrationFormComponent implements OnInit {
         this.registrationForm.lastName = user.displayName.split(' ')[1];
         this.registrationForm.email = user.email;
       }
-    },                                  (error) => {
+    }, (error) => {
       console.error(error);
       this.afAuth.auth.signOut();
       this.router.navigate(['/login']);
@@ -125,7 +127,7 @@ export class RegistrationFormComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.loading = false;
-      },         (error) => {
+      }, (error) => {
         console.error(error);
       });
   }
@@ -133,5 +135,24 @@ export class RegistrationFormComponent implements OnInit {
   fileAdded(event) {
     console.log(event);
     this.registrationForm.resume = event.target.files[0];
+  }
+
+  onError() {
+    console.log(this.form);
+  }
+
+  dietaryRestriction(event) {
+    console.log(event);
+    if (event.target.value !== 'other') {
+      this.otherDietRestr = false;
+    }
+  }
+
+  setCodingExperience(event) {
+    this.registrationForm.codingExperience = event.target.value;
+  }
+
+  setEthnicity(event) {
+    this.registrationForm.ethnicity = event.target.value;
   }
 }
