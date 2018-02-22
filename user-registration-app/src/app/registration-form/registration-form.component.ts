@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
 import { RegistrationModel } from '../registration-model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
@@ -9,6 +9,8 @@ import { AsYouType } from 'libphonenumber-js';
 import * as data from '../../assets/schools.json';
 import * as majors from '../../assets/majors.json';
 import { HttpService } from '../HttpService';
+
+declare var $: any;
 
 
 @Component({
@@ -46,7 +48,7 @@ export class RegistrationFormComponent implements OnInit {
     { minLength: 1 },
   ];
   public majAutoCompInit = [
-    { majors },
+    { data: majors },
     { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
     {
       onAutocomplete(val) {
@@ -55,6 +57,32 @@ export class RegistrationFormComponent implements OnInit {
     },
     { minLength: 1 },
   ];
+  public referralAutoCompInit = [
+    {
+      data: {
+        'Participated previously': null,
+        'On-campus flyers': null,
+        'Tech workshops': null,
+        Facebook: null,
+        Instagram: null,
+        'Snapchat advertising': null,
+        'Banners downtown': null,
+        'HUB info booth': null,
+        'Email from my college/major': null,
+        'Heard from a professor': null,
+        'Heard from a friend': null,
+        'Branch campus': null,
+      },
+    },
+    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
+    {
+      onAutocomplete(val) {
+        this.registrationForm.referral = val;
+      },
+    },
+    { minLength: 1 },
+  ];
+;
 
   public registrationForm: RegistrationModel;
   public user: firebase.User;
@@ -66,26 +94,12 @@ export class RegistrationFormComponent implements OnInit {
   public otherDietRestr: boolean;
   @ViewChild('registrationModel') form;
 
-  static afterMove(index) {
-    RegistrationFormComponent.regFormComp.currentIdx = index;
-    RegistrationFormComponent.regFormComp.ref.detectChanges();
-  }
-
-  static subIdx() {
-    RegistrationFormComponent.regFormComp.currentIdx -= 1;
-    RegistrationFormComponent.regFormComp.ref.detectChanges();
-  }
-
-  static addIdx() {
-    RegistrationFormComponent.regFormComp.currentIdx += 1;
-    RegistrationFormComponent.regFormComp.ref.detectChanges();
-  }
 
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
   }
 
-  constructor(public afAuth: AngularFireAuth, public router: Router, public ref: ChangeDetectorRef, private httpService: HttpService) {
+  constructor(public afAuth: AngularFireAuth, public router: Router, private httpService: HttpService) {
     this.registrationForm = new RegistrationModel();
     this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
@@ -99,11 +113,8 @@ export class RegistrationFormComponent implements OnInit {
         this.router.navigate(['/login']);
       } else {
         this.user = user;
-        this.registrationForm.firstName = user.displayName.split(' ')[0];
-        this.registrationForm.lastName = user.displayName.split(' ')[1];
-        this.registrationForm.email = user.email;
       }
-    }, (error) => {
+    },                                  (error) => {
       console.error(error);
       this.afAuth.auth.signOut();
       this.router.navigate(['/login']);
@@ -127,13 +138,12 @@ export class RegistrationFormComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.loading = false;
-      }, (error) => {
+      },         (error) => {
         console.error(error);
       });
   }
 
   fileAdded(event) {
-    console.log(event);
     this.registrationForm.resume = event.target.files[0];
   }
 
@@ -143,7 +153,11 @@ export class RegistrationFormComponent implements OnInit {
 
   dietaryRestriction(event) {
     console.log(event);
-    if (event.target.value !== 'other') {
+    if (event.target.value === 'other') {
+      this.registrationForm.dietaryRestriction = '';
+      this.otherDietRestr = true;
+    } else {
+      this.registrationForm.dietaryRestriction = event.target.value;
       this.otherDietRestr = false;
     }
   }

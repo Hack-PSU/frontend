@@ -1,3 +1,8 @@
+:host {
+  margin-top: 30vh;
+  overflow-y: scroll;
+}
+
 :host .card {
   -webkit-transition: translate 0.1s;
   -moz-transition: translate 0.1s;
@@ -7,7 +12,7 @@
 }
 
 .registration-form {
-  margin: 0px auto;
+  margin: 30vh auto 0 auto;
   display: block;
   color: #333333;
   font-size: large;
@@ -16,7 +21,7 @@
 
 @media screen and (max-width: 768px){
   .registration-form {
-    width: 100vw;
+    width: 90vw; /*Check if Angela fixed */
   }
 }
 
@@ -67,7 +72,8 @@ svg {
   transition: transform;
   background-color: white;
   color: #101010;
-  top:17vh;
+  height: auto;
+  /*top:17vh;*/
 }
 
 .card .card-action a:not(.btn-large):not(.btn-floating) {
@@ -111,6 +117,10 @@ input::placeholder {
 .table-of-contents a:hover {
   border-left: 1px solid #aacacc;
 }
+.table-of-contents a.active {
+  border-left: 2px solid #aacacc;
+}
+
 
 .btn {
   background-color: rgba(255, 255, 255, 0);
@@ -177,4 +187,16 @@ input::placeholder {
   border-radius: 12px;
 }
 
+.card .data-error {
+  color: #F44336;
+}
+
+.card .alert {
+  font-size: small;
+  color: #6C88B7;
+}
+
+.spinner-layer {
+  border-color: white;
+}
 
