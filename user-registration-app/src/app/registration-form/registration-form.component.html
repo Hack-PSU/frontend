@@ -11,6 +11,14 @@
         name="registrationFormDOM"
         #registrationModel="ngForm"
   >
+    <div class="row" *ngIf="!registrationModel.form.valid && form.submitted">
+      <div class="card">
+        <div class="card-content">
+          <p class="data-error">There are errors in your form. Please validate that all required fields have been filled
+            out</p>
+        </div>
+      </div>
+    </div>
     <!-- First Name -->
     <div class="row scrollspy" id="name-container" materialize="scrollSpy">
       <div class="card medium darken-1">
@@ -222,7 +230,8 @@
     </div>
 
     <!-- Travel Reimbursement -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="travel-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="travel-container">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="travel">Will you need travel reimbursement?</h5>
@@ -258,7 +267,8 @@
     </div>
 
     <!-- School -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="university-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="university-container">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="school">What university do you attend?</h5>
@@ -303,16 +313,18 @@
     </div>
 
     <!-- Phone Number -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="phone-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="phone-container">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="phone">What is your phone number? (Required for MLH)</h5>
           <p class="alert">Rest assured we won't be spamming your phone.</p>
           <div class="input-field">
-            <label for="phone-input">Enter your phone number</label>
             <input type="tel" autocomplete="tel-national" id="phone-input" [value]='prettifiedPhone'
-                   (keyup)="parsePhone($event.target.value)" class="validate"
+                   required
+                   (keyup)="parsePhone($event.target.value)" class="validate required"
                    pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
+            <label for="phone-input" data-error="Valid phone number is required">Enter your phone number</label>
           </div>
         </div>
       </div>
@@ -320,23 +332,27 @@
 
 
     <!-- Major -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="major-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="major-container">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="major">What is your (intended) major?</h5>
           <div class="input-field">
-            <label for="autocomplete-input-major">Enter your major</label>
             <input type="text" name="major" [(ngModel)]="registrationForm.major"
                    id="autocomplete-input-major"
+                   required
+                   class="validate required"
                    materialize="autocomplete"
                    [materializeParams]="majAutoCompInit">
+            <label for="autocomplete-input-major" data-error="Major is required">Enter your major</label>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Resume -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="resume-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="resume-container">
       <div class="card medium darken-1">
         <div class="card-content">
           <h5 class="resume">Submit your resume</h5>
@@ -384,7 +400,8 @@
     <!-- ==========DEMOGRAPHICS========== -->
 
     <!-- Race/Ethnicities -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row scrollspy" materialize="scrollSpy" id="ethnicity-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row scrollspy"
+         materialize="scrollSpy" id="ethnicity-container">
       <div class="card medium darken-1">
         <div class="card-content">
           <h5>What is your Race/Ethnicity? (Optional) </h5>
@@ -419,7 +436,8 @@
     </div>
 
     <!-- Coding Experience -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row scrollspy" materialize="scrollSpy" id="experience-container">
+    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row scrollspy"
+         materialize="scrollSpy" id="experience-container">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="experience">Coding Experience</h5>

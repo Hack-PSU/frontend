@@ -82,7 +82,6 @@ export class RegistrationFormComponent implements OnInit {
     },
     { minLength: 1 },
   ];
-;
 
   public registrationForm: RegistrationModel;
   public user: firebase.User;
@@ -138,8 +137,11 @@ export class RegistrationFormComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.loading = false;
+        // TODO: SHOW THE SUCCESS VIEW
       },         (error) => {
         console.error(error);
+        this.loading = false;
+        // TODO: DO ERROR HANDLING HERE
       });
   }
 
@@ -149,6 +151,10 @@ export class RegistrationFormComponent implements OnInit {
 
   onError() {
     console.log(this.form);
+    console.log(this.form.submitted);
+    $('html, body').animate({
+      scrollTop: 0,
+    },                      1000);
   }
 
   dietaryRestriction(event) {
