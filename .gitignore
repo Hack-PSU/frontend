@@ -60,3 +60,5 @@ typings/
 collaborators.txt
 .idea/**
 api/**
+
+.DS_Store
