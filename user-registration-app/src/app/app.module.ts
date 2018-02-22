@@ -14,6 +14,8 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { SignupViewComponent } from './signup-view/signup-view.component';
+import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     LoginComponent,
     UserViewComponent,
     RegistrationFormComponent,
+    SignupViewComponent,
+    ForgotPasswordViewComponent,
   ],
   imports: [
     BrowserModule,

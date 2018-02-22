@@ -10,19 +10,17 @@ import { LoginModel } from '../login-model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public errors: Error = null;
   public model: LoginModel;
 
+  public loading: boolean;
+
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.model = new LoginModel();
+    this.loading = false;
   }
-
-  ngOnInit() {
-
-  }
-
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -55,13 +53,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginEmail() {
+    this.loading = true;
     if (this.model.email && this.model.password) {
       this.afAuth.auth.signInWithEmailAndPassword(this.model.email, this.model.password)
         .then(() => {
+          this.loading = false;
           this.onLogin();
         }).catch((error) => {
           this.errors = error;
           console.error(error);
+          this.loading = false;
         });
     }
   }
