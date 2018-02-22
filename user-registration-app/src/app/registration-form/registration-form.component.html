@@ -399,6 +399,15 @@
 
     <!-- ==========DEMOGRAPHICS========== -->
 
+    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
+      <div class="card">
+        <div class="card-content">
+          <h5 class="center">The next set of questions are demographic information for use by HackPSU. They are completely optional,
+            but we would love to know more about you!</h5>
+        </div>
+      </div>
+    </div>
+
     <!-- Race/Ethnicities -->
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row scrollspy"
          materialize="scrollSpy" id="ethnicity-container">
@@ -430,6 +439,23 @@
                    (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="no-disclose">Prefer not to disclose</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Veteran -->
+    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="mlh-coc">Are you a veteran?</h5>
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox" name="veteran" [(ngModel)]="registrationForm.veteran">
+              <span class="lever"></span>
+              Yes
+            </label>
           </div>
         </div>
       </div>
