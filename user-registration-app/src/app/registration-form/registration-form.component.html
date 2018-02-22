@@ -9,16 +9,19 @@
   <div class="spinner-layer spinner-blue-only">
     <div class="circle-clipper left">
       <div class="circle"></div>
-    </div><div class="gap-patch">
-    <div class="circle"></div>
-  </div><div class="circle-clipper right">
-    <div class="circle"></div>
-  </div>
+    </div>
+    <div class="gap-patch">
+      <div class="circle"></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
   </div>
 </div>
 <div class="row">
   <form class="registration-form scrollspy col m5 offset-m3 offset-l3 l5" materialize="scrollSpy"
-        (ngSubmit)="onSubmit()"
+        (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
+        name="registrationFormDOM"
         #registrationModel="ngForm">
     <!-- First Name -->
     <div class="row">
@@ -35,9 +38,10 @@
                    autocomplete="name"
                    type="text"
             >
-            <label for="firstname-input">Enter your First Name</label>
-          </div>          <div class="input-field">
-            <label for="lastname-input">Enter your Last Name</label>
+            <label for="firstname-input" data-error="First name is required">Enter your First Name</label>
+          </div>
+          <div class="input-field">
+            <label for="lastname-input" data-error="Last name is required">Enter your Last Name</label>
             <input name="lastName"
                    class="validate required"
                    id="lastname-input"
@@ -59,7 +63,7 @@
           <h5>What is your school email?</h5>
           <div class="input-field">
             <i class="material-icons prefix">email</i>
-            <label for="email-input">Enter your email</label>
+            <label for="email-input" data-error="Email is required">Enter your email</label>
             <input type="email"
                    class="validate"
                    name="email"
@@ -80,7 +84,7 @@
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="gender">What is your gender?</h5>
-          <div class="form-group" id="gender-input">
+          <div class="form-group required" id="gender-input" data-error="Gender is required">
             <input type="radio" class="with-gap" name="gender" required value="male" id="male"
                    [(ngModel)]="registrationForm.gender"
                    #name="ngModel">
@@ -158,10 +162,19 @@
 
     <!-- Dietary Restrictions -->
     <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
-      <div class="card medium darken-1">
+      <div class="card medium darken-1" style="height: 450px;">
         <div class="card-content ">
-          <h5 class="diet">Do you have any dietary restrictions?</h5>
-          <div class="form-group">
+          <h6 class="diet">Do you have any dietary restrictions or allergies?</h6>
+          <!-- Switch -->
+          <div class="switch" style="margin-top: 0; margin-bottom: 0;">
+            <label>
+              No
+              <input type="checkbox" name="travel_reimbursement" [(ngModel)]="diet_restr">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+          <div class="form-group" *ngIf="diet_restr">
             <input type="radio" class="with-gap" id="vegetarian" name="dietaryRestriction" value="vegetarian"
                    [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="vegetarian">Vegetarian</label><br>
@@ -174,22 +187,42 @@
             <input type="radio" class="with-gap" id="halal" name="dietaryRestriction" value="halal"
                    [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="halal">Halal</label><br>
-            <input type="radio" class="with-gap" id="other" name="dietaryRestriction" value="other"
+            <input type="radio" class="with-gap" id="gluten-free" name="dietaryRestriction" value="gluten-free"
                    [(ngModel)]="registrationForm.dietaryRestriction">
+            <label for="gluten-free">Gluten Free</label><br>
+            <input type="radio" class="with-gap" id="other" name="dietaryRestriction" value="other"
+                   (change)="dietaryRestriction($event)"
+
+                   [(ngModel)]="otherDietRestr">
             <label for="other">Other</label><br>
           </div>
-          <div *ngIf="registrationForm.dietaryRestriction === 'other'" [@enterAnimation] class="input-field">
-            <input name="allergies"
-                   id="allergy-input"
-                   class="validate required"
-                   required
-                   [(ngModel)]="registrationForm.allergies"
-                   #allergies="ngModel"
+          <div *ngIf="otherDietRestr" [@enterAnimation] class="input-field">
+            <input name="dietary_restrictions"
+                   id="other-diet-restr"
+                   class="validate"
+                   [(ngModel)]="registrationForm.dietaryRestriction"
                    autocomplete="name"
                    type="text"
             >
             <label for="allergy-input">Describe them</label>
           </div>
+        </div>
+      </div>
+    </div>
+    <!-- Travel Reimbursement -->
+    <div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="travel">If you have allergies, describe them here.</h5>
+          <input name="allergies"
+                 id="allergy-input"
+                 class="validate"
+                 [(ngModel)]="registrationForm.allergies"
+                 #allergies="ngModel"
+                 autocomplete="name"
+                 type="text"
+          >
+          <label for="allergy-input">Describe them</label>
         </div>
       </div>
     </div>
@@ -221,7 +254,7 @@
           <div class="switch">
             <label>
               No
-              <input type="checkbox" name="first_hackathon" [(ngModel)]="registrationForm.first_hackathon">
+              <input type="checkbox" name="firstHackathon" [(ngModel)]="registrationForm.firstHackathon">
               <span class="lever"></span>
               Yes
             </label>
@@ -281,9 +314,12 @@
             <input type="radio" class="with-gap" id="senior" name="academic_year" value="senior"
                    [(ngModel)]="registrationForm.academicYear">
             <label for="senior">Senior</label><br>
-            <input type="radio" class="with-gap" id="higher" name="academic_year" value="higher"
+            <input type="radio" class="with-gap" id="graduate" name="academic_year" value="graduate"
                    [(ngModel)]="registrationForm.academicYear">
-            <label for="higher">Higher</label><br>
+            <label for="graduate">Graduate</label><br>
+            <input type="radio" class="with-gap" id="other_year" name="academic_year" value="other"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="other_year">Other</label><br>
           </div>
         </div>
       </div>
@@ -341,7 +377,7 @@
           <div class="switch">
             <label>
               No
-              <input type="checkbox" name="mlh_coc" [(ngModel)]="registrationForm.mlhcoc"
+              <input type="checkbox" name="mlhcoc" [(ngModel)]="registrationForm.mlhcoc"
                      (change)="mlhAgreement($event)">
               <span class="lever"></span>
               Yes
@@ -354,53 +390,65 @@
     <!-- ==========DEMOGRAPHICS========== -->
 
     <!-- Race/Ethnicities -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
       <div class="card medium darken-1">
         <div class="card-content">
           <h5>What is your Race/Ethnicity? (Optional) </h5>
           <div class="form-group">
             <input type="radio" class="with-gap" id="naan" name="ethnicity" value="native-american"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="naan">Native American or Alaska Native</label><br>
             <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="asian">Asian</label><br>
             <input type="radio" class="with-gap" id="baa" name="ethnicity" value="african-american"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="baa">Black or African American</label><br>
             <input type="radio" class="with-gap" id="hlat" name="ethnicity" value="latinx"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="hlat">Hispanic or Latinx</label>
             <input type="radio" class="with-gap" id="nhopi" name="ethnicity" value="pacific-islander"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="nhopi">Native Hawaiian or Other Pacific Islander</label>
             <input type="radio" class="with-gap" id="no-disclose" name="ethnicity" value="no-disclose"
+                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="no-disclose">Prefer not to disclose</label>
           </div>
+          {{registrationForm.ethnicity}}
         </div>
       </div>
     </div>
 
     <!-- Coding Experience -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="row">
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="experience">Coding Experience</h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="none" name="experience" value="none"
+            <input type="radio" class="with-gap" id="none" name="codingExperience" value="none"
+                   (change)="setCodingExperience($event)"
                    ([ngModel])="registrationForm.codingExperience">
             <label for="none">None</label><br>
-            <input type="radio" class="with-gap" id="beginner" name="experience" value="beginner"
+            <input type="radio" class="with-gap" id="beginner" name="codingExperience" value="beginner"
+                   (change)="setCodingExperience($event)"
                    ([ngModel])="registrationForm.codingExperience">
             <label for="beginner">Beginner (0-2 years) </label><br>
-            <input type="radio" class="with-gap" id="intermediate" name="experience" value="intermediate"
+            <input type="radio" class="with-gap" id="intermediate" name="codingExperience" value="intermediate"
+                   (change)="setCodingExperience($event)"
                    ([ngModel])="registrationForm.codingExperience">
             <label for="intermediate">Intermediate (2-4 years)</label><br>
-            <input type="radio" class="with-gap" id="advanced" name="experience" value="advanced"
+            <input type="radio" class="with-gap" id="advanced" name="codingExperience" value="advanced"
+                   (change)="setCodingExperience($event)"
                    ([ngModel])="registrationForm.codingExperience">
             <label for="advanced">Advanced (> 4 years) </label>
           </div>
+          {{registrationForm.codingExperience}}
         </div>
       </div>
     </div>
@@ -437,13 +485,13 @@
           <h5 class="accomplish">What would you like to get out of HackPSU?</h5>
           <div class="input-field">
             <textarea class="form-control" rows="4" id="return-input" name="return"
-                      [(ngModel)]="registrationForm.return"></textarea>
+                      [(ngModel)]="registrationForm.expectations"></textarea>
           </div>
         </div>
       </div>
     </div>
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-      <button class="btn waves-effect waves-light submit-btn" type="submit" name="action" (click)="onSubmit()">Submit
+      <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
     </div>
