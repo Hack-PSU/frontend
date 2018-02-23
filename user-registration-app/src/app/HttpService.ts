@@ -12,14 +12,14 @@ export class HttpService {
 
   }
 
-  getRegistrationStatus() {
-    const API_ENDPOINT = 'register/status';
-    return Observable.fromPromise(this.afAuth.auth.currentUser.getIdToken(true))
+  getRegistrationStatus(currentUser) {
+    const API_ENDPOINT = 'users/registration';
+    return Observable.fromPromise(currentUser.getIdToken(true))
       .switchMap((idToken: string) => {
         console.log(idToken);
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
+        return this.http.get<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
       });
   }
 

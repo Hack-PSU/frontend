@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { AuthGuard } from './AuthGuard';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { RegisterGuard } from './RegisterGuard';
 import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 
@@ -22,7 +21,6 @@ const routes: Routes = [
   declarations: [],
   providers: [
     AuthGuard,
-    RegisterGuard,
     AngularFireAuth,
   ],
 })

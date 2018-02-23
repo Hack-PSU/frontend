@@ -5,7 +5,7 @@
 <!--</div>-->
 <!--<svg width="10" height="100%" style="position: fixed; left: 50%; top: 10%">-->
 <!--<line x1="50%" y1="6%" x2="50%" y2="1000%" stroke="#C94331"></line>-->
-<div class="row">
+<div class="row" *ngIf="!(registrationData | async)?.submitted;">
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
         (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
         name="registrationFormDOM"

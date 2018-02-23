@@ -9,6 +9,7 @@ import { AsYouType } from 'libphonenumber-js';
 import * as data from '../../assets/schools.json';
 import * as majors from '../../assets/majors.json';
 import { HttpService } from '../HttpService';
+import { Observable } from 'rxjs/Observable';
 
 declare var $: any;
 
@@ -91,6 +92,7 @@ export class RegistrationFormComponent implements OnInit {
   public loading: boolean;
   public diet_restr: boolean;
   public otherDietRestr: boolean;
+  public registrationData: Observable<RegistrationModel>;
   @ViewChild('registrationModel') form;
 
 
@@ -112,6 +114,10 @@ export class RegistrationFormComponent implements OnInit {
         this.router.navigate(['/login']);
       } else {
         this.user = user;
+        this.registrationData = this.httpService.getRegistrationStatus(this.user);
+        this.registrationData.subscribe((data) => {
+          console.log(data);
+        });
       }
     },                                  (error) => {
       console.error(error);

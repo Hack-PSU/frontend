@@ -22,6 +22,7 @@ export class RegistrationModel {
   public projectDesc: string;
   public expectations: string;
   public veteran: boolean;
+  public submitted: boolean;
 
   constructor() {
     this.firstName = null;
@@ -47,7 +48,10 @@ export class RegistrationModel {
     this.projectDesc = null;
     this.expectations = null;
     this.veteran = false;
+    this.submitted = false;
   }
+
+
 }
 
 
