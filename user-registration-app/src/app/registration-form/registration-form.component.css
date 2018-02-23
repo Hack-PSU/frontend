@@ -23,6 +23,14 @@
   .registration-form {
     width: 90vw; /*Check if Angela fixed */
   }
+
+}
+
+@media screen and (max-width: 600px){
+  .card {
+    width: 80vw;
+    margin:0px auto;
+  }
 }
 
 .prev-container {
@@ -73,7 +81,6 @@ svg {
   background-color: white;
   color: #101010;
   height: auto;
-  /*top:17vh;*/
 }
 
 .card .card-action a:not(.btn-large):not(.btn-floating) {
