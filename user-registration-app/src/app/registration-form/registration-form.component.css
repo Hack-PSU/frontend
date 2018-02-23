@@ -18,6 +18,16 @@
   font-size: large;
 }
 
+.submitted-block {
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: x-large;
+  text-align: center;
+}
+
+.page-margins {
+  margin-top: 110px;
+}
 
 @media screen and (max-width: 768px){
   .registration-form {

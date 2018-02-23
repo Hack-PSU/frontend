@@ -5,7 +5,7 @@
 <!--</div>-->
 <!--<svg width="10" height="100%" style="position: fixed; left: 50%; top: 10%">-->
 <!--<line x1="50%" y1="6%" x2="50%" y2="1000%" stroke="#C94331"></line>-->
-<div class="row" *ngIf="!(registrationData | async)?.submitted;">
+<div class="row" *ngIf="!(registrationData | async)?.submitted; else templateName">
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
         (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
         name="registrationFormDOM"
@@ -573,3 +573,19 @@
     </ul>
   </div>
 </div>
+
+<ng-template #templateName>
+  <div class="page-margins">
+    <div class="page-header text-center">
+      <h2> You're all set! </h2>
+    </div>
+
+    <div class="submitted-block">
+      Thank you for registering for HackPSU!
+      <br />
+      <br />
+      We are excited to see you this year on April 7.
+      Keep an eye on your inbox for more information as we get closer to the date.
+    </div>
+  </div>
+</ng-template>
