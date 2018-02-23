@@ -1,32 +1,44 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-  $('.question').click(function() {
-    $(this).siblings().slideToggle('slow', 'linear');
-    $('p span', this).toggleClass('rotated');
-  });
-});
+    $('.question').click(function () {
+        $(this).siblings().slideToggle('slow', 'linear');
+        $('p span', this).toggleClass('rotated');
+    });
+    $(window).on('scroll', function (e) {
+        var scrollTop = $(this).scrollTop();
 
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+        // if (scrollTop <= 0) {
+        //     $('.main-nav').find('li').each(function () {
+        //         $(this).removeClass('active');
+        //     });
+        // } else {
+        $(".main-nav").find("li").each(function () {
+            var curLink = $(this).find("a").first();
+            var anchorEl = $(curLink.attr("href"));
+            if (anchorEl.offset().top <= scrollTop && anchorEl.offset().top + anchorEl.height() > scrollTop) {
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+        });
+        // }
+    });
+    $('.main-nav').find('li').click(function (e) {
+        e.preventDefault();
+        scrollToID($(e.target).attr('href'), 500);
+    });
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+    $('.animated-icon').hover(function () {
+        $(this).addClass('pulse');
+    }, function() {
+        $(this).removeClass('pulse');
+    });
 
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 1250, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
+    function scrollToID(id, speed) {
+        var targetOffset = $(id).offset().top;
+        var mainNav = $('.main-nav');
+        navClicked = true;
+        $('html,body').animate({scrollTop: targetOffset}, speed);
+        setTimeout(function () {
+            navClicked = false;
+        }, speed);
+    }
 });
