@@ -1,0 +1,57 @@
+/* Login form styles */
+
+:host {
+  width: 50%;
+  margin: 25px auto;
+}
+
+.text-center {
+  align-self: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .login-container {
+    max-width: 50%;
+  }
+}
+
+.form-control {
+  color: white;
+}
+
+.btn {
+  background-color: rgba(255, 255, 255, 0);
+  color: #aacacc;
+  border: 2px solid #aacacc;
+  border-right-width: 8px;
+  border-left-width: 8px;
+  border-radius: 12px;
+}
+
+.btn .fa:before {
+  color: #aacacc;
+}
+
+.preloader-wrapper {
+  margin: 0 auto;
+  display: block;
+}
+.spinner-layer {
+  border-color: white;
+}
+
+.btn span {
+  color: #C94331;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.login-button {
+  margin: 0 auto;
+  display: block;
+}

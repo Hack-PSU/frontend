@@ -1,0 +1,48 @@
+@import "https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700";
+
+/* Application-wide Styles */
+h1 {
+  color: #fff;
+}
+h2, h3 {
+  color: #444;
+  font-family: Lato, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+  font-family: Lato, Georgia, sans-serif;
+  color: #fff;
+}
+p {
+  color: #fff;
+  font-family: Lato, Georgia, sans-serif;
+}
+
+
+.wrapper {
+  align-items: stretch;
+  display: flex;
+  padding: 0;
+}
+
+.content {
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.logo {
+  margin: 10px 0;
+ width: 70px;
+}
+
+.header {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 100%;
+}
+
+

@@ -9,6 +9,7 @@ before_install:
 install:
 - npm install
 - npm i -g firebase-tools
+- npm install -g @angular/cli
 before_script: 
 script: 
 after_success: 
@@ -16,6 +17,7 @@ after_failure:
 after_script: 
 before_deploy:
   - firebase use hackpsu18 --token 1/_m3H9nRUOHgTVRFwn0SyWH28HPFsPyX4hnWEzhFAle4
+  - cd user-registration-app && ng build --prod --no-aot && cd ..
 deploy:
 - provider: firebase
   on:
