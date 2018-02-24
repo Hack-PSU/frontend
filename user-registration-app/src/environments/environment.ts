@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  api_url: 'http://localhost:5000/v1/',
   firebase: {
     apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
     authDomain: 'hackpsu18.firebaseapp.com',
