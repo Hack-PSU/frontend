@@ -1,11 +1,13 @@
 <div class="wrapper">
   <div class="content">
     <div class="row header">
-      <a href="https://hackpsu.org">
+      <a href="https://hackpsu.org" class="col-xs-1">
         <img src="../assets/images/logo.svg" class="logo col-xs-1">
       </a>
       <app-user-view class="col-xs-1 col-xs-offset-10"></app-user-view>
     </div>
-    <router-outlet></router-outlet>
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

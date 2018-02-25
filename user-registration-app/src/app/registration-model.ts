@@ -21,7 +21,7 @@ export class RegistrationModel {
   public referral: string;
   public projectDesc: string;
   public expectations: string;
-  public veteran: boolean;
+  public veteran: string;
   public submitted: boolean;
 
   constructor() {
@@ -47,7 +47,7 @@ export class RegistrationModel {
     this.referral = null;
     this.projectDesc = null;
     this.expectations = null;
-    this.veteran = false;
+    this.veteran = null;
     this.submitted = false;
   }
 

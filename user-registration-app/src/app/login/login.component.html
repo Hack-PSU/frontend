@@ -4,7 +4,7 @@
 <ng-template #showLogin>
   <!-- LOGIN FORM -->
   <div class="container-fluid login-container">
-    <h6 class="logo text-center">Login</h6>
+    <h6 class="header-text text-center">LOGIN</h6>
     <!-- Main Form -->
     <div class="row">
       <form #loginForm="ngForm" (ngSubmit)="loginEmail()" id="login-form" class="col s12">
@@ -21,6 +21,9 @@
               <input type="password" required class="form-control validate" id="lg_password"
                      autocomplete="current-password" name="lg_password"
                      placeholder="password" [(ngModel)]="model.password">
+            </div>
+            <div class="etc-login-form">
+              <p>forgot your password? <a href="/forgot">click here</a></p>
             </div>
           </div>
           <button *ngIf="!loading; else spinner" [disabled]="!loginForm.valid"
@@ -45,9 +48,6 @@
             </div>
           </ng-template>
         </div>
-        <div class="etc-login-form">
-          <p>forgot your password? <a href="/forgot">click here</a></p>
-        </div>
       </form>
       <div *ngIf="errors" class="alert alert-danger">
         {{ errors.message }}
@@ -57,16 +57,20 @@
     <div class="row">
       <div class="col-offset-2 col-8">
         <a class="btn btn-block btn-social btn-google" (click)="login()">
-          <span class="fa fa-google"></span> Sign in with Google
+          <span class="fa fa-google"></span>
+          <span class="hide-on-med-and-down">Sign in with Google</span>
         </a>
         <a class="btn btn-block btn-social btn-facebook" (click)="loginFacebook()">
-          <span class="fa fa-facebook"></span> Continue with Facebook
+          <span class="fa fa-facebook"></span>
+          <span class="hide-on-med-and-down">Continue with Facebook</span>
         </a>
         <a class="btn btn-block btn-social btn-github" (click)="loginGithub()">
-          <span class="fa fa-github"></span> Sign in with Github
+          <span class="fa fa-github"></span>
+          <span class="hide-on-med-and-down">Sign in with Github</span>
         </a>
         <a class="btn btn-block btn-social btn-email" href="/signup">
-          <span class="fa fa-envelope"></span> Sign up with email
+          <span class="fa fa-envelope"></span>
+          <span class="hide-on-med-and-down">Sign up with email</span>
         </a>
       </div>
     </div>

@@ -5,6 +5,14 @@
   margin: 25px auto;
 }
 
+.login-container {
+  margin-top: 85px;
+}
+
+.header-text {
+  font-size: large;
+}
+
 .text-center {
   align-self: center;
   margin: 0 auto;
@@ -17,21 +25,40 @@
   }
 }
 
+.fa {
+  margin-left: 10px;
+}
+
 .form-control {
   color: white;
 }
 
 .btn {
   background-color: rgba(255, 255, 255, 0);
-  color: #aacacc;
-  border: 2px solid #aacacc;
+  color: #fff;
+  border: 2px solid #fff;
   border-right-width: 8px;
   border-left-width: 8px;
   border-radius: 12px;
+  max-width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: block;
+}
+
+.btn:disabled {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-color: #9F9F9F !important;
+}
+
+/* Removes the faint grey line next to the media icon on buttons */
+.btn>:first-child {
+  border-right: none;
 }
 
 .btn .fa:before {
-  color: #aacacc;
+  color: #fff;
 }
 
 .preloader-wrapper {
@@ -43,7 +70,7 @@
 }
 
 .btn span {
-  color: #C94331;
+  color: #fff;
 }
 
 .btn:hover {
@@ -51,7 +78,27 @@
   color: #333333;
 }
 
+.btn:hover .fa:before {
+  color: #333333;
+}
+
 .login-button {
   margin: 0 auto;
   display: block;
+}
+
+.etc-login-form {
+  margin-bottom: 25px;
+}
+
+.alert-danger {
+  background-color: #a54848;
+}
+
+@media screen and (max-width: 992px) {
+  .fa {
+    display: block;
+    margin: auto auto;
+    width: 100%;
+  }
 }

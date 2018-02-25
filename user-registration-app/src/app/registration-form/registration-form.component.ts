@@ -93,6 +93,8 @@ export class RegistrationFormComponent implements OnInit {
   public diet_restr: boolean;
   public otherDietRestr: boolean;
   public registrationData: Observable<RegistrationModel>;
+  public phoneNoUse;
+  public errors: string;
   @ViewChild('registrationModel') form;
 
 
@@ -106,6 +108,7 @@ export class RegistrationFormComponent implements OnInit {
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
     this.asYouType = new AsYouType('US');
+    this.errors = null;
   }
 
   ngOnInit() {
@@ -117,6 +120,9 @@ export class RegistrationFormComponent implements OnInit {
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
         this.registrationData.subscribe((data) => {
           console.log(data);
+          this.registrationForm = data;
+        },                              (error) => {
+          this.registrationForm = new RegistrationModel();
         });
       }
     },                                  (error) => {
@@ -132,9 +138,9 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.phone = this.asYouType.getNationalNumber();
   }
 
-  mlhAgreement(b: boolean) {
-    this.registrationForm.mlhdcp = this.registrationForm.mlhcoc;
-  }
+  // mlhAgreement(b: boolean) {
+  //   this.registrationForm.mlhdcp = this.registrationForm.mlhcoc;
+  // }
 
   onSubmit() {
     console.log(this.registrationForm);
@@ -143,11 +149,11 @@ export class RegistrationFormComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.loading = false;
-        // TODO: SHOW THE SUCCESS VIEW
+        this.registrationData = this.httpService.getRegistrationStatus(this.user);
       },         (error) => {
         console.error(error);
         this.loading = false;
-        // TODO: DO ERROR HANDLING HERE
+        this.errors = error.message;
       });
   }
 
@@ -180,5 +186,9 @@ export class RegistrationFormComponent implements OnInit {
 
   setEthnicity(event) {
     this.registrationForm.ethnicity = event.target.value;
+  }
+
+  setVeteran(event) {
+    this.registrationForm.veteran = event.target.value;
   }
 }

@@ -39,10 +39,11 @@ p {
 }
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 15px;
   left: 15px;
   width: 100%;
 }
+
 
 

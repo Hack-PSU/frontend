@@ -1,6 +1,6 @@
 <!-- LOGIN FORM -->
 <div class="container-fluid login-container">
-  <h6 class="logo text-center">Sign up</h6>
+  <h6 class="header-text text-center">SIGN UP</h6>
   <!-- Main Form -->
   <div class="row">
     <form #loginForm="ngForm" (ngSubmit)="signUp()" id="login-form" class="col s12">
@@ -19,10 +19,19 @@
                    placeholder="Password" [(ngModel)]="password">
           </div>
         </div>
-        <button *ngIf="!loading; else spinner" [disabled]="!loginForm.valid" class="btn waves-effect waves-light" type="submit"
-                name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
+        <div class="row">
+          <div class="col-sm-6">
+            <a class="btn btn-social" href="/login">BACK<i
+              class="material-icons left">arrow_back</i> </a>
+          </div>
+          <div class="col-sm-6">
+            <button *ngIf="!loading; else spinner" [disabled]="!loginForm.valid" class="btn waves-effect waves-light"
+                    type="submit"
+                    name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
         <ng-template #spinner>
           <div class="preloader-wrapper big active">
             <div class="spinner-layer">
@@ -41,7 +50,8 @@
       </div>
     </form>
     <div *ngIf="errors" class="alert alert-danger alert-dismissible white-text">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+        aria-hidden="true">&times;</span></button>
       {{ errors.message }}
     </div>
   </div>

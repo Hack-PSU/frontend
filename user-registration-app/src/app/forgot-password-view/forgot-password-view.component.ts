@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password-view',
@@ -12,9 +13,16 @@ export class ForgotPasswordViewComponent implements OnInit {
   private errors: any;
   private result: string;
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth, private route: ActivatedRoute,
+              private router: Router) {
+  }
 
   ngOnInit() {
+    this.route
+      .queryParams
+      .subscribe((params) => {
+        this.email = params['email'] || '';
+      });
   }
 
   forgotPassword() {
@@ -23,7 +31,7 @@ export class ForgotPasswordViewComponent implements OnInit {
         .then((complete) => {
           this.result = 'An email was sent to the provided email. Check there to reset your password.';
         }).catch((error) => {
-         this.errors = error;
+        this.errors = error;
       });
     }
   }

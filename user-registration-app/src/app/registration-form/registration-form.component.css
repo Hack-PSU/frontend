@@ -1,6 +1,5 @@
 :host {
   margin-top: 30vh;
-  overflow-y: scroll;
 }
 
 :host .card {
@@ -9,6 +8,7 @@
   -ms-transition: translate 0.1s;
   -o-transition: translate 0.1s;
   transition: translate 0.1s;
+  overflow: visible;
 }
 
 .registration-form {
@@ -31,15 +31,16 @@
 
 @media screen and (max-width: 768px){
   .registration-form {
-    width: 90vw; /*Check if Angela fixed */
+      width: 100%;
+      margin:0px auto;
+    /*width: 90vw; /*Check if Angela fixed */
   }
 
 }
 
 @media screen and (max-width: 600px){
   .card {
-    width: 80vw;
-    margin:0px auto;
+    margin:0 auto;
   }
 }
 
@@ -90,6 +91,7 @@ svg {
   transition: transform;
   background-color: white;
   color: #101010;
+  border:none;
   height: auto;
 }
 
@@ -99,7 +101,7 @@ svg {
 }
 
 .card label {
-  color: #333333;
+    color: #333333;
 }
 .card .form-group label {
   margin: 2%;
@@ -149,8 +151,8 @@ input::placeholder {
 }
 
 .btn:hover {
-  background-color: #E5704C;
-  color: white;
+  background-color: #fff;
+  color: #333333;
 }
 
 .btn-flat {
@@ -158,8 +160,14 @@ input::placeholder {
 }
 
 .switch {
-  margin: 15% auto;
+  margin: 10% auto;
   width: 50%;
+}
+
+@media screen and (max-width: 321px) {
+  .switch {
+    width: 53%;
+  }
 }
 
 .switch label {
@@ -175,7 +183,8 @@ input::placeholder {
 }
 
 .card h3, .card h5 {
-  margin-bottom: 40px;
+    margin-bottom: 25px;
+    text-align:center;
 }
 
 .small-text {
@@ -216,4 +225,40 @@ input::placeholder {
 .spinner-layer {
   border-color: white;
 }
-
+.animated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+.bouncy-bits {
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  max-height: 60px;
+  max-width: 20%;
+}
