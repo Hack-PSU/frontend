@@ -5,6 +5,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AppConstants } from './AppConstants';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -18,12 +19,12 @@ export class AuthGuard implements CanActivate {
 
   checkLogin(): boolean {
     if (this.authService.auth.currentUser) {
-      this.router.navigate(['/register']);
+      this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
       return true;
     }
 
     // Navigate to the login page with extras
-    this.router.navigate(['/login']);
+    this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
     return false;
   }
 }

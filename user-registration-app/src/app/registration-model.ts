@@ -50,8 +50,6 @@ export class RegistrationModel {
     this.veteran = null;
     this.submitted = false;
   }
-
-
 }
 
 

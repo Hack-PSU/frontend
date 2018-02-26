@@ -31,7 +31,7 @@ export class ForgotPasswordViewComponent implements OnInit {
         .then((complete) => {
           this.result = 'An email was sent to the provided email. Check there to reset your password.';
         }).catch((error) => {
-         this.errors = error;
+          this.errors = error;
         });
     }
   }

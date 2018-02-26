@@ -120,7 +120,6 @@ export class RegistrationFormComponent implements OnInit {
         this.user = user;
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
         this.registrationData.subscribe((data) => {
-          console.log(data);
           this.registrationForm = data;
         },                              (error) => {
           this.registrationForm = new RegistrationModel();
@@ -148,7 +147,6 @@ export class RegistrationFormComponent implements OnInit {
     this.loading = true;
     this.httpService.submitRegistration(this.registrationForm, this.afAuth.auth.currentUser.uid)
       .subscribe((data) => {
-        console.log(data);
         this.loading = false;
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
       },         (error) => {
@@ -163,15 +161,12 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   onError() {
-    console.log(this.form);
-    console.log(this.form.submitted);
     $('html, body').animate({
       scrollTop: 0,
     },                      1000);
   }
 
   dietaryRestriction(event) {
-    console.log(event);
     if (event.target.value === 'other') {
       this.registrationForm.dietaryRestriction = '';
       this.otherDietRestr = true;
