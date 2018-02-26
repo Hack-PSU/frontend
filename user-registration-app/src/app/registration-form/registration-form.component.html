@@ -43,7 +43,7 @@
           </div>
           <label class="data-error" *ngIf="!firstnameinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/036-circle.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/Name.svg">
       </div>
     </div>
 
@@ -124,7 +124,6 @@
           </div>
           <label class="data-error" *ngIf="!phoneinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/016-technology-2.svg">
       </div>
     </div>
 
@@ -157,7 +156,7 @@
             <input type="radio" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
                    (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
-            <label for="no-disclose">Caucasian</label><br>
+            <label for="caucasian">Caucasian</label><br>
             <input type="radio" class="with-gap" id="no-disclose" name="ethnicity" value="no-disclose"
                    (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
@@ -258,7 +257,7 @@
           </div>
           <label class="data-error" *ngIf="!shirtControl.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/030-clothes.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/Shirt.svg">
       </div>
     </div>
 
@@ -278,6 +277,7 @@
             </label>
           </div>
         </div>
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/TravelReimbursement.svg">
       </div>
     </div>
 
@@ -352,7 +352,7 @@
             <label for="other-diet-restr">Describe them</label>
           </div>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/026-restaurant.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/DietaryRestrictions.svg">
       </div>
     </div>
 
@@ -372,27 +372,6 @@
       </div>
     </div>
 
-    <!-- School -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-         id="university-container">
-      <div class="card medium darken-1">
-        <div class="card-content ">
-          <h5 class="school">What university do you attend?</h5>
-          <div class="input-field">
-            <label for="autocomplete-input-university">Name of university</label>
-            <input type="text"
-                   name="university"
-                   required
-                   [(ngModel)]="registrationForm.university"
-                   #schoolinput="ngModel"
-                   id="autocomplete-input-university"
-                   materialize="autocomplete"
-                   [materializeParams]="univAutoCompInit">
-          </div>
-          <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
-        </div>
-      </div>
-    </div>
 
 
     <!-- Major -->
@@ -416,6 +395,28 @@
           </div>
           <label class="data-error" *ngIf="!majorinput.valid">Required</label>
         </div>
+      </div>
+    </div>
+    <!-- School -->
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+         id="university-container">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="school">What university do you attend?</h5>
+          <div class="input-field">
+            <label for="autocomplete-input-university">Name of university</label>
+            <input type="text"
+                   name="university"
+                   required
+                   [(ngModel)]="registrationForm.university"
+                   #schoolinput="ngModel"
+                   id="autocomplete-input-university"
+                   materialize="autocomplete"
+                   [materializeParams]="univAutoCompInit">
+          </div>
+          <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
+        </div>
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/University.svg">
       </div>
     </div>
 
@@ -447,7 +448,6 @@
           </div>
           <label class="data-error" *ngIf="!yearinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/014-graduation.svg">
       </div>
     </div>
 
@@ -496,6 +496,7 @@
           </div>
           <label class="data-error" *ngIf="!mlhcocinput.valid">Required</label>
         </div>
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/MLHCodeofConduct.svg">
       </div>
     </div>
 
@@ -555,7 +556,6 @@
             <label for="advanced">Advanced (> 4 years) </label>
           </div>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/006-symbols.svg">
       </div>
     </div>
 
@@ -585,7 +585,6 @@
                       [(ngModel)]="registrationForm.projectDesc"></textarea>
           </div>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/002-cup.svg">
       </div>
     </div>
 
