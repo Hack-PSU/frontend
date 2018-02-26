@@ -255,6 +255,14 @@ a:hover {
     max-width: 50%;
     margin: 5% auto;
 }
+#registration .btn {
+    margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+    #registration {
+        max-width: 100%;
+    }
+}
 
 
 .submit-btn {
