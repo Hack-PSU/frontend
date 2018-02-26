@@ -10,6 +10,7 @@ import * as data from '../../assets/schools.json';
 import * as majors from '../../assets/majors.json';
 import { HttpService } from '../HttpService';
 import { Observable } from 'rxjs/Observable';
+import { AppConstants } from '../AppConstants';
 
 declare var $: any;
 
@@ -114,7 +115,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.afAuth.auth.onAuthStateChanged((user) => {
       if (!user) {
-        this.router.navigate(['/login']);
+        this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
         this.user = user;
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
@@ -128,7 +129,7 @@ export class RegistrationFormComponent implements OnInit {
     },                                  (error) => {
       console.error(error);
       this.afAuth.auth.signOut();
-      this.router.navigate(['/login']);
+      this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
     });
   }
 

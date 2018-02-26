@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { LoginModel } from '../login-model';
+import { AppConstants } from '../AppConstants';
 
 @Component({
   selector: 'app-login',
@@ -37,8 +38,8 @@ export class LoginComponent {
       .then((response) => {
         this.onLogin();
       }).catch((error) => {
-      this.errors = error;
-      console.error(error);
+        this.errors = error;
+        console.error(error);
       });
   }
 
@@ -68,6 +69,6 @@ export class LoginComponent {
   }
 
   onLogin() {
-    this.router.navigate(['/register']);
+    this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
   }
 }
