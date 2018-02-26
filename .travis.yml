@@ -29,7 +29,7 @@ deploy:
   skip_cleanup: true
   access_key_id: AKIAI2D52LBRN2V2Z2MQ
   secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  bucket: aws-website-hackpsu-app-27koh.s3.amazonaws.com
+  bucket: aws-website-hackpsu-app-27koh
   local-dir: user-registration-app/dist
   acl: public_read
   on:
