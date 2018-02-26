@@ -17,7 +17,7 @@ after_failure:
 after_script: 
 before_deploy:
   - firebase use hackpsu18 --token 1/_m3H9nRUOHgTVRFwn0SyWH28HPFsPyX4hnWEzhFAle4
-  - cd user-registration-app && ng build --prod --no-aot && cd ..
+  - cd user-registration-app && npm install && ng build --prod --no-aot && cd ..
 deploy:
 - provider: firebase
   on:
@@ -27,7 +27,7 @@ deploy:
 - provider: s3
   access_key_id: AKIAJAG5TNY3SN77L5HA
   secret_access_key:
-      secure: "Msh3oTdMv+mGLXRV7HpUdGBk0ZHzk0QnDQETt47Ito9pU1WX+t08BE+7nevWUJoaEYfE/QnaAwx5FlRrVg7lmQRV7AKmaW324CPocj9refeXbqbMYLh+Rv0+UXfgEXwNpEdd7420z0DWBklhg6HWm66BKLKVG3TA3zBheSmHQosXVcd41aq9WcyPr+yAlNSNSgj7LTEGLYpR9meIway7l2a5aDHZkmbOSsTHFgJEGF1ICRpXEJ9knoDDyZeVAFsRAAAav8Oq7Phpp83fqxdafeJE5oQHLXx+5L/dBFZayZrmSVE0GCeOVrPpLnZpWkXX9BVkiAvkKBEex9rBF3A4uooVWFFPcDxndfULxUDkWG673lfG3LxRgst6ipoLtNm8FbLUsMR32TIjZntxFoVsh/om2z7qCU2QNOsaFfiYnl81M1t2F3SEIGdXCUOLDFOTF7sW1eIswNv0CEEZVpQL1/h5NE/QgfO4Y3Qvwg5TfYr22StsB1aSZYcYStMjN7QAk2PA3u9nmOvuDVKPy17/yQFaOkdSDvI3Ri1695OPVcnh0QXSQirjSRP7ZfmP2iXA9qDn9po4goRB/cD/PTCZxu+HJhzVX2WWJJ10hTEarHMTrKArBC5PxpeKvge95V7gzH4o1LUmpvGnbkY5jHGMd3DOQUDMMT9z66+lha6U9CY="
+      secure: Msh3oTdMv+mGLXRV7HpUdGBk0ZHzk0QnDQETt47Ito9pU1WX+t08BE+7nevWUJoaEYfE/QnaAwx5FlRrVg7lmQRV7AKmaW324CPocj9refeXbqbMYLh+Rv0+UXfgEXwNpEdd7420z0DWBklhg6HWm66BKLKVG3TA3zBheSmHQosXVcd41aq9WcyPr+yAlNSNSgj7LTEGLYpR9meIway7l2a5aDHZkmbOSsTHFgJEGF1ICRpXEJ9knoDDyZeVAFsRAAAav8Oq7Phpp83fqxdafeJE5oQHLXx+5L/dBFZayZrmSVE0GCeOVrPpLnZpWkXX9BVkiAvkKBEex9rBF3A4uooVWFFPcDxndfULxUDkWG673lfG3LxRgst6ipoLtNm8FbLUsMR32TIjZntxFoVsh/om2z7qCU2QNOsaFfiYnl81M1t2F3SEIGdXCUOLDFOTF7sW1eIswNv0CEEZVpQL1/h5NE/QgfO4Y3Qvwg5TfYr22StsB1aSZYcYStMjN7QAk2PA3u9nmOvuDVKPy17/yQFaOkdSDvI3Ri1695OPVcnh0QXSQirjSRP7ZfmP2iXA9qDn9po4goRB/cD/PTCZxu+HJhzVX2WWJJ10hTEarHMTrKArBC5PxpeKvge95V7gzH4o1LUmpvGnbkY5jHGMd3DOQUDMMT9z66+lha6U9CY=
   bucket: aws-website-hackpsu-app-27koh.s3.amazonaws.com
   local-dir: user-registration-app/dist
   acl: public_read
