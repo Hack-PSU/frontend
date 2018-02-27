@@ -595,3 +595,7 @@ ul .active {
 #footer  p {
     font-size: small;
 }
+
+.small-text {
+    font-size: x-small;
+}
