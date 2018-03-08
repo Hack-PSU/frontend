@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
+import { LiveUpdateComponent } from './live-update/live-update.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-passw
     RegistrationFormComponent,
     SignupViewComponent,
     ForgotPasswordViewComponent,
+    LiveUpdateComponent,
   ],
   imports: [
     BrowserModule,

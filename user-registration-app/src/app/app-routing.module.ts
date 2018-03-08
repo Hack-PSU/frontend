@@ -7,12 +7,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 import { AppConstants } from './AppConstants';
+import { LiveUpdateComponent } from './live-update/live-update.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationFormComponent },
   { path: 'signup', component: SignupViewComponent },
   { path: 'forgot', component: ForgotPasswordViewComponent },
+  { path: 'live', component: LiveUpdateComponent },
   { path: '**', redirectTo: AppConstants.REGISTER_ENDPOINT },
 ];
 

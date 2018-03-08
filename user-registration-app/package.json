@@ -29,6 +29,7 @@
     "libphonenumber-js": "1.0.24",
     "materialize-css": "0.100.2",
     "rxjs": "^5.1.0",
+    "socket.io-client": "2.0.4",
     "tslint-config-airbnb": "^5.5.0",
     "zone.js": "^0.8.4"
   },
