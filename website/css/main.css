@@ -136,6 +136,11 @@ body {
     margin:auto;
 }
 
+.regpara {
+    font-size:4vh;
+    margin:auto;
+}
+
 .line,.linedark {
     display:block:
     overflow:hidden;
@@ -178,6 +183,27 @@ body {
     margin-left:2vw;
 }
 
+@media screen and (max-width:600px){
+    .line>span:before,.line>span:after,.linedark>span:before,.linedark>span:after{
+	width:20vw;
+	height:3px;
+    }
+    .line>span,.linedark>span{
+	font-size:3.5vh;
+	width:30vw;
+    }
+    .regpara{
+	font-size:2vh;
+	margin:auto;
+    }
+    .question{
+	font-size:3vh;
+    }
+    .FAQanswer{
+	font-size:2vh;
+    }
+}
+
 .left {
     width:43vw;
     margin-left:-7vw;
@@ -204,18 +230,40 @@ a.stylizedLink:hover{
     color:#333333;
 }
 
-.topleft {
-    z-index:1;
-    position:relative;
-    height:25vh;
-    width:25vh;
-    left:-20vw;
-    bottom:25vh;
+.circleplat {
+    border-radius:50%;
+    height:23vw;
+    width:23vw;
+    background-color:#333333;
+    display:inline-block;
+    margin:5vh;
 }
 
-.hexSizes {
-    height:50vh;
-    width:50vh;
+.circlegold {
+    border-radius:50%;
+    height:17vw;
+    width:17vw;
+    background-color:#333333;
+    display:inline-block;
+    margin:5vh;
+}
+
+.circlesilv {
+    border-radius:50%;
+    height:13vw;
+    width:13vw;
+    background-color:#333333;
+    display:inline-block;
+    margin:5vh;
+}
+
+.circlebron {
+    border-radius:50%;
+    height:10vw;
+    width:10vw;
+    background-color:#333333;
+    display:inline-block;
+    margin:5vh;
 }
 
 /*@media screen and (min-width: 768px) {*/
@@ -659,9 +707,10 @@ ul .active {
 }
 
 #map-container {
-    width: 100%;
+    width: 90vw;
     height: 400px;
-    margin: auto auto;
+    margin:auto;
+    margin-bottom:2vh;
 }
 
 #parking-tab img {
