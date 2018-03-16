@@ -353,57 +353,55 @@
               //     directionsDisplay.setMap(map);
               // };
 
-                  function initRoute() {
-                  // initialize();
-                  console.log("calculating");
-                  var start;
-                  if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(function(position) {
-                  var pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                  };
-                  console.log(pos);
-                  start = pos;
-                  var end = startLocation;
-                  console.log(end);
-                  var request = {
-                  origin: start,
-                  destination: end,
-                  travelMode: 'DRIVING'
-                  };
-                  directionsService.route(request, function(result, status) {
-                  if (status == 'OK') {
-                  window.open("https://www.google.com/maps/dir/" + pos.lat + "+" + pos.lng + "/" + startLocation.lat + "+" + startLocation.lng)
-                  // directionsDisplay.setDirections(result);
-                  }
-                  });
-                  });
-                  }
-                  }
-                  initRoute();
-                  };
-                  var marker2 = new google.maps.Marker({
-                  map: map,
-                  position: {
-                  lat: 40.8044359,
-                  lng: -77.86309340000003
-                  },
-                  title: "East Parking Deck",
-                  animation: google.maps.Animation.DROP,
-                  label: "P"
-                  });
-                  marker2.addListener('click', function() {
-                  startRoute({
-                  lat: 40.793717,
-                  lng: -77.869543
-                  });
-                  });
-                  }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp2PCsgrLSiEMXQy-9vl1CSRfJPlXiD2U&callback=initMap" async defer></script>
-              </div>
-            </div>
+              function initRoute() {
+              // initialize();
+              console.log("calculating");
+              var start;
+              if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+              };
+              console.log(pos);
+              start = pos;
+              var end = startLocation;
+              console.log(end);
+              var request = {
+              origin: start,
+              destination: end,
+              travelMode: 'DRIVING'
+              };
+              directionsService.route(request, function(result, status) {
+              if (status == 'OK') {
+              window.open("https://www.google.com/maps/dir/" + pos.lat + "+" + pos.lng + "/" + startLocation.lat + "+" + startLocation.lng)
+              // directionsDisplay.setDirections(result);
+              }
+              });
+              });
+              }
+              }
+              initRoute();
+              };
+              var marker2 = new google.maps.Marker({
+              map: map,
+              position: {
+              lat: 40.8044359,
+              lng: -77.86309340000003
+              },
+              title: "East Parking Deck",
+              animation: google.maps.Animation.DROP,
+              label: "P"
+              });
+              marker2.addListener('click', function() {
+              startRoute({
+              lat: 40.793717,
+              lng: -77.869543
+              });
+              });
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp2PCsgrLSiEMXQy-9vl1CSRfJPlXiD2U&callback=initMap" async defer></script>
           </div>
 	  <div class="map-spacer"></div>
         </div>
