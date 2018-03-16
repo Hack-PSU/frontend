@@ -103,9 +103,14 @@ body {
 .scroll {
     background-color:#333333;
     padding:30px;
+    background-image:url("../assets/images/webbed-hexes-left.svg"),url("../assets/images/webbed-hexes-right.svg");
+    background-size:50vh,50vh;
+    background-position:bottom -22vh left -22vh,top -27vh right -18vh;
+    background-repeat:no-repeat, no-repeat;
 }
 
 .alternate {
+    z-index:1000;
     background-image:url("../assets/images/crystalline.jpg");
     background-size:cover;
     -webkit-background-size: cover;
@@ -200,11 +205,17 @@ a.stylizedLink:hover{
 }
 
 .topleft {
-    position:absolute;
-    height:10vh;
-    width:10vh;
-    margin-left:-5vh;
-    margin-top:-5vh;
+    z-index:1;
+    position:relative;
+    height:25vh;
+    width:25vh;
+    left:-20vw;
+    bottom:25vh;
+}
+
+.hexSizes {
+    height:50vh;
+    width:50vh;
 }
 
 /*@media screen and (min-width: 768px) {*/
