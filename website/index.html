@@ -42,7 +42,7 @@
     <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
     <meta property="og:site_name" content="HackPSU.org"/>
     <meta property="og:description"
-          content="Join us April 8 and 9 for HackPSU, Penn State's Official Hackathon! 1300 students will have 24 hours to build the coolest technology they can to compete for prizes and eternal glory."/>
+          content="Join us April 7 and 8 for HackPSU, Penn State's Official Hackathon! 700 students will have 24 hours to build the coolest technology they can to compete for prizes and eternal glory."/>
     <meta property="og:image" content="assets/images/hackpsulogo.png"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -75,20 +75,17 @@
              src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107603951-1"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-107603951-1');
+      gtag('config', 'UA-114978268-1');
     </script>
-    <!-- End Google Analytics Code -->
+
+
 
 
     <!-- Favicon Data -->
@@ -110,6 +107,7 @@
     <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- End Favicon Data -->
+</head>
 
 <body>
 <header id="home">
@@ -130,7 +128,6 @@
                      alt="hackpsulogo">
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <img src="assets/images/date-text.svg" id="date-text" class="animated rubberBand"
@@ -143,8 +140,11 @@
 <!-- Registration -->
 <section id="registration">
     <div class="row">
-        <div class="col-md-12">
-            <a class="btn waves-effect waves-light submit-btn" href="https://hackpsudev.typeform.com/to/U1VCgs">Register</a>
+        <div class="col-md-6 col-sm-12">
+            <a class="btn waves-effect waves-light submit-btn" href="https://app.hackpsu.org">Register</a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <a class="btn waves-effect waves-light submit-btn" target="_blank" href="assets/sponsorship_packet.pdf">Sponsor</a>
         </div>
     </div>
 </section>
@@ -152,7 +152,6 @@
 <!--FOOTER -->
 <section id="footer">
     <div class="container-fluid">
-        <p class="white-text">Looking to sponsor?<br>Shoot us an email at <a class="email-link" href="mailto://sponsorship@hackpsu.org"> sponsorship@hackpsu.org</a></p>
         <div class="col-xs-4 col-xs-offset-4 title-graphic-line" style="margin-bottom: 40px;"></div>
         <div class="row">
             <div id="social-media" class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
@@ -174,6 +173,9 @@
         </div>
         <div class="center row">
             <p> Made with <span>&#9829;</span> in Happy Valley.</p>
+        </div>
+        <div class="center row">
+            <a class="small-text" href="/privacy">Privacy Policy</a>
         </div>
     </div>
 </section>

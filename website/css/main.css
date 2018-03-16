@@ -252,19 +252,25 @@ a:hover {
 }
 
 #registration {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    max-width: 50%;
+    margin: 5% auto;
+}
+#registration .btn {
+    margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+    #registration {
+        max-width: 100%;
+    }
 }
 
 
 .submit-btn {
-    width: 33%;
     background-color: rgba(255, 255, 255, 0);
     color: #FFF;
-    border-left: 8px solid white;
-    border-right: 8px solid white;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    border: 2px solid white;
+    border-right-width: 8px;
+    border-left-width: 8px;
     border-radius: 12px;
 }
 
@@ -588,4 +594,8 @@ ul .active {
 
 #footer  p {
     font-size: small;
+}
+
+.small-text {
+    font-size: x-small;
 }
