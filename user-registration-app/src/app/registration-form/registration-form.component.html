@@ -651,15 +651,22 @@
 <ng-template #templateName>
   <div class="page-margins">
     <div class="page-header text-center">
-      <h2> You're all set! </h2>
+      <h2> RSVP for HackPSU </h2>
     </div>
 
     <div class="submitted-block">
-      Thank you for registering for HackPSU!
+      Would you like to RSVP for HackPSU?
       <br />
       <br />
+      <div class="col-offset-2 col-8">
+        <a class="btn btn-block btn-social" (click)="rsvp(false)">
+          <span>No</span>
+        </a>
+        <a class="btn btn-block btn-social" (click)="rsvp(true)">
+          <span>Yes</span>
+        </a>
+      </div>
       We are excited to see you this year on April 7.
-      Keep an eye on your inbox for more information as we get closer to the date.
     </div>
   </div>
 </ng-template>
