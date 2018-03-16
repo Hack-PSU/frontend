@@ -15,6 +15,8 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
+
+
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -92,8 +94,109 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-image: url('../assets/images/web_background.jpg');
-    background-position: center bottom;
-    padding: 25px;
+    background-position: center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    height:100vh;
+}
+
+.scroll {
+    background-color:#333333;
+    padding:30px;
+}
+
+.alternate {
+    background-image:url("../assets/images/crystalline.jpg");
+    background-size:cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    padding:30px;
+    background-repeat:repeat-y;
+    color:#333333;
+}
+
+.separator {
+    height:3px;
+    background-color:#333333;
+    margin:10px;
+}
+
+.question {
+    font-size:5.5vh;
+    margin:auto;
+}
+.FAQanswer {
+    font-size:3vh;
+    margin:auto;
+}
+
+.line,.linedark {
+    display:block:
+    overflow:hidden;
+    text-align:center;
+    white-space:nowrap;
+}
+
+.line > span, .linedark > span {
+    position:relative;
+    display:inline-block;
+    font-size:10vh;
+    width:25vw;
+}
+
+.line > span:before,.line > span:after {
+    content:"";
+    position:absolute;
+    top:50%;
+    width:30vw;
+    height:5px;
+    background-color:#FFFFFF;
+}
+
+.linedark > span:before,.linedark > span:after {
+    content:"";
+    position:absolute;
+    top:50%;
+    width:30vw;
+    height:5px;
+    background-color:#333333;
+}
+
+.line > span:before,.linedark > span:before {
+    right: 100%;
+    margin-right: 2vw;
+}
+
+.line > span:after,.linedark > span:after {
+    left:100%;
+    margin-left:2vw;
+}
+
+.left {
+    width:43vw;
+    margin-left:-7vw;
+    margin-right:2vw;
+    float:left;
+}
+
+.right {
+    width:43vw;
+    margin-right:-7vw;
+    margin-left:2vw;
+    float:right;
+}
+
+.center {
+    width:43vw;
+    margin:auto;
+}
+
+a.stylizedLink{
+    color:#24577C;
+}
+a.stylizedLink:hover{
+    color:#333333;
 }
 
 /*@media screen and (min-width: 768px) {*/
