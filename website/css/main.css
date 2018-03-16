@@ -199,6 +199,14 @@ a.stylizedLink:hover{
     color:#333333;
 }
 
+.topleft {
+    position:absolute;
+    height:10vh;
+    width:10vh;
+    margin-left:-5vh;
+    margin-top:-5vh;
+}
+
 /*@media screen and (min-width: 768px) {*/
     /*body {*/
         /*padding-left: 40px;*/
