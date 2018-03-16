@@ -60,15 +60,15 @@ p {
 
 /*========================= *** MEDIA QUERIES *** =========================*/
 
-@font-face {
-    font-family: "Open-Sans-Light";
-    src: url(OpenSans/OpenSans-Light.ttf);
-}
+/*@font-face {*/
+    /*font-family: "Open-Sans-Light";*/
+    /*src: url(OpenSans/OpenSans-Light.ttf);*/
+/*}*/
 
-@font-face {
-    font-family: "Open-Sans-Bold";
-    src: url(OpenSans/OpenSans-Bold.ttf);
-}
+/*@font-face {*/
+    /*font-family: "Open-Sans-Bold";*/
+    /*src: url(OpenSans/OpenSans-Bold.ttf);*/
+/*}*/
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
@@ -142,7 +142,7 @@ body {
 }
 
 .line,.linedark {
-    display:block:
+    display:block;
     overflow:hidden;
     text-align:center;
     white-space:nowrap;
@@ -592,7 +592,6 @@ ul .active {
 }
 
 .section-title-word {
-    float: center;
     display: inline-block;
     white-space: nowrap;
     padding-right: 1.5%;
