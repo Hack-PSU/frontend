@@ -70,7 +70,7 @@ p {
 
 @font-face {
     font-family: 'Cornerstone';
-    src: url('https://s3.us-east-2.amazonaws.com/hackpsu-s2018-assets/Cornerstone.ttf');
+    src: url('../assets/fonts/Cornerstone.ttf');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -516,11 +516,6 @@ a:hover {
     margin: 0 auto;
 }
 
-.exec-image {
-    width: 200px;
-    height: 200px;
-}
-
 .exec-image img {
     width: 100%;
     height: 100%;
@@ -551,13 +546,17 @@ a:hover {
     display: inline-block;
 }
 
-.exec-holder .apply-here {
-    background-color: #6FA7B3;
-    font-family: 'Cornerstone', sans-serif;
+.apply-here {
+    background: url('../assets/images/exec/join-us.png') no-repeat fixed center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
-.exec-row {
-    margin-bottom: -50px;
+.apply-here:hover {
+    background: url('../assets/images/exec/apply-here.png') no-repeat fixed center;
 }
 
 /************* HexGrid courtesy of https://github.com/web-tiki/responsive-grid-of-hexagons ******************/
