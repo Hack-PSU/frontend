@@ -70,7 +70,7 @@ p {
 
 @font-face {
     font-family: 'Cornerstone';
-    src: url('/assets/fonts/Cornerstone.ttf');
+    src: url('../assets/fonts/Cornerstone.ttf');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -328,7 +328,7 @@ a:hover {
     position: absolute;
     float: right;
     right: 5%;
-    top: 0px;
+    top: 55px;
     width: 10%;
     max-width: 100px;
     height: 120px;
@@ -343,8 +343,55 @@ a:hover {
     }
 }
 
+nav {
+    background-color: #B1C8CB;
+    height: 55px;
+}
+
+nav .brand-logo {
+    display: block;
+    margin-left: 5%;
+    width: 45px;
+    margin-top: 5px;
+}
+
+nav .right {
+    width: 15vw;
+    margin-right: -0vw;
+}
+
+nav .left {
+    margin-left: 11vw;
+}
+
+nav ul li {
+    line-height: 55px;
+}
+
+/* Need to add media query to make the nav margin co away on medium and small screens. s*/
+
 #hackpsu-logo {
-    max-width: 20%;
+    max-width: 35%;
+}
+
+#header-text {
+    font-family: 'Cornerstone';
+    font-size: 6vh;
+    line-height: 100%; 
+}
+#header-text p {
+    padding: 0px;
+    line-height: 120%;
+}
+
+#header-text p:nth-child(1) {
+    font-size: 9vh;
+}
+#header-text p:nth-child(2) {
+    font-size: 5vh;
+}
+#header-text p:nth-child(3) {
+    font-size: 5vh;
 }
 
 #date-text {
