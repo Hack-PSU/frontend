@@ -92,11 +92,6 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background: url('../assets/images/web_background.jpg') no-repeat fixed center;
     height: 100vh;
 }
 
@@ -310,16 +305,20 @@ a:hover {
 
 /* ============================== CSS STARTS HERE ==========================*/
 
+header {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background: url('../assets/images/web-background.jpg') no-repeat center center fixed;
+}
+
 .section-separator {
     width: 100%;
 }
 
 .section-separator-background {
     width: 100%;
-}
-
-#home {
-    margin-top: 5%;
 }
 
 /* ID Based Selectors */
@@ -332,7 +331,7 @@ a:hover {
     width: 10%;
     max-width: 100px;
     height: 120px;
-    z-index: 1000;
+    z-index: 1;
     margin-top: 0px;
 }
 
@@ -345,6 +344,10 @@ a:hover {
 
 nav {
     background-color: #B1C8CB;
+    height: 55px;
+}
+
+.navbar-fixed {
     height: 55px;
 }
 
@@ -366,12 +369,14 @@ nav .left {
 
 nav ul li {
     line-height: 55px;
+    letter-spacing: .05em;
 }
 
 /* Need to add media query to make the nav margin co away on medium and small screens. s*/
 
 #hackpsu-logo {
-    max-width: 35%;
+    margin-top: 25px;
+    max-width: 30%;
 }
 
 #header-text {
@@ -465,7 +470,7 @@ nav ul li {
 
 #registration {
     max-width: 50%;
-    margin: 5% auto;
+    margin: auto;
 }
 
 #registration .btn {
@@ -479,6 +484,10 @@ nav ul li {
 }
 
 .submit-btn {
+    width: 30%;
+    height: 40px;
+    font-size: 20;
+    font-weight: 800;
     background-color: rgba(255, 255, 255, 0);
     color: #FFF;
     border: 2px solid white;
