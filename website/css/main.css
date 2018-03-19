@@ -370,6 +370,11 @@ nav ul li {
         margin-left: 0px;
     }
 }
+@media (max-width: 992px) { 
+    nav .brand-logo {
+        margin-left: 0px;
+    }
+}
 
 /* Need to add media query to make the nav margin co away on medium and small screens. s*/
 
