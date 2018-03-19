@@ -23,7 +23,7 @@ $(document).ready(function () {
         });
         // }
     });
-    $('nav').find('li').click(function (e) {
+    $('nav').find('.left li').click(function (e) {
         e.preventDefault();
         scrollToID($(e.target).attr('href'), 500);
     });
