@@ -365,6 +365,12 @@ nav ul li {
     letter-spacing: .05em;
 }
 
+@media screen and (max-width: 768px) {
+    nav .brand-logo {
+        margin-left: 0px;
+    }
+}
+
 /* Need to add media query to make the nav margin co away on medium and small screens. s*/
 
 #hackpsu-logo {
@@ -1049,6 +1055,10 @@ nav ul li {
     margin-bottom: 15%;
 }
 
+#sponsors p {
+    color: #24577C;
+}
+
 .sponsors-container img {
     height: auto;
 }
@@ -1123,8 +1133,10 @@ nav ul li {
     }
 }
 
-#sponsors p {
-    color: #24577C;
+@media screen and (max-width: 768px) {
+    .silver-sponsor img {
+        margin-bottom: -50px;
+    }
 }
 
 /************* FOOTER *************/
