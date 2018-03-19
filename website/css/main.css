@@ -566,6 +566,7 @@ nav ul li {
     color: #6C88B7;
 }
 
+
 .exec-holder {
     display: inline-flex;
     position: relative;
@@ -596,6 +597,7 @@ nav ul li {
     top: -10%;
     width: 120%;
     height: 120%;
+    pointer-events: none;
 }
 
 .exec-holder:hover .exec-info {
