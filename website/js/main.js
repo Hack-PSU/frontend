@@ -14,7 +14,7 @@ $(document).ready(function () {
         //         $(this).removeClass('active');
         //     });
         // } else {
-        $(".main-nav").find("li").each(function () {
+        $("nav").find(".left li").each(function () {
             var curLink = $(this).find("a").first();
             var anchorEl = $(curLink.attr("href"));
             if (anchorEl.offset().top <= scrollTop && anchorEl.offset().top + anchorEl.height() > scrollTop) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
         });
         // }
     });
-    $('.main-nav').find('li').click(function (e) {
+    $('nav').find('li').click(function (e) {
         e.preventDefault();
         scrollToID($(e.target).attr('href'), 500);
     });
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     function scrollToID(id, speed) {
         var targetOffset = $(id).offset().top;
-        var mainNav = $('.main-nav');
+        var mainNav = $('nav');
         navClicked = true;
         $('html,body').animate({scrollTop: targetOffset}, speed);
         setTimeout(function () {

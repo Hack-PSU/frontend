@@ -92,11 +92,6 @@ body {
     font-weight: bold;
     color: white;
     font-size: xx-large;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background: url('../assets/images/web_background.jpg') no-repeat fixed center;
     height: 100vh;
 }
 
@@ -310,6 +305,14 @@ a:hover {
 
 /* ============================== CSS STARTS HERE ==========================*/
 
+header {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background: url('../assets/images/web-background.jpg') no-repeat center center fixed;
+}
+
 .section-separator {
     width: 100%;
 }
@@ -318,21 +321,17 @@ a:hover {
     width: 100%;
 }
 
-#home {
-    margin-top: 5%;
-}
-
 /* ID Based Selectors */
 #mlh-trust-badge {
     display: block;
     position: absolute;
     float: right;
     right: 5%;
-    top: 0px;
+    top: 55px;
     width: 10%;
     max-width: 100px;
     height: 120px;
-    z-index: 1000;
+    z-index: 1;
     margin-top: 0px;
 }
 
@@ -343,8 +342,61 @@ a:hover {
     }
 }
 
+nav {
+    background-color: #B1C8CB;
+    height: 55px;
+}
+
+.navbar-fixed {
+    height: 55px;
+}
+
+nav .brand-logo {
+    display: block;
+    margin-left: 5%;
+    width: 45px;
+    margin-top: 5px;
+}
+
+nav .right {
+    width: 15vw;
+    margin-right: -0vw;
+}
+
+nav .left {
+    margin-left: 11vw;
+}
+
+nav ul li {
+    line-height: 55px;
+    letter-spacing: .05em;
+}
+
+/* Need to add media query to make the nav margin co away on medium and small screens. s*/
+
 #hackpsu-logo {
-    max-width: 20%;
+    margin-top: 25px;
+    max-width: 30%;
+}
+
+#header-text {
+    font-family: 'Cornerstone';
+    font-size: 6vh;
+    line-height: 100%; 
+}
+#header-text p {
+    padding: 0px;
+    line-height: 120%;
+}
+
+#header-text p:nth-child(1) {
+    font-size: 9vh;
+}
+#header-text p:nth-child(2) {
+    font-size: 5vh;
+}
+#header-text p:nth-child(3) {
+    font-size: 5vh;
 }
 
 #date-text {
@@ -397,7 +449,7 @@ a:hover {
 
 #registration {
     max-width: 50%;
-    margin: 5% auto;
+    margin: auto;
 }
 
 #registration .btn {
@@ -415,6 +467,10 @@ a:hover {
 }
 
 .submit-btn {
+    width: 30%;
+    height: 40px;
+    font-size: 20;
+    font-weight: 800;
     background-color: rgba(255, 255, 255, 0);
     color: #FFF;
     border: 2px solid white;
