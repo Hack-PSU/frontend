@@ -1071,7 +1071,8 @@ nav ul li {
 
 .gold-sponsor img {
     max-width: 65%;
-    margin-bottom: -70px;
+    margin-top: 100px;
+    margin-bottom: -100px;
 }
 
 .silver-sponsor img {
@@ -1101,7 +1102,7 @@ nav ul li {
 
 .sponsor-image-container .hide-on-hover, .sponsor-image-container .show-on-hover {
     position: absolute;
-    left: 25%;
+    left: 15%;
 }
 
 .show-on-hover {
@@ -1132,6 +1133,13 @@ nav ul li {
 @media screen and (min-width: 768px) {
     .sponsors-container {
         width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gold-sponsor img {
+        margin-top: 30px;
+        margin-bottom: -50px;
     }
 }
 
