@@ -310,7 +310,8 @@ header {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background: url('../assets/images/web-background.jpg') no-repeat center center fixed;
+    background: url('../assets/images/web-background.jpg') no-repeat center fixed;
+    background-size: cover;
 }
 
 .section-separator {
