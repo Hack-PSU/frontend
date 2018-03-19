@@ -71,10 +71,10 @@
       fbq('track', 'PageView');
     </script>
     <script type="text/javascript">
-        $( document ).ready(function(){
-            $(".button-collapse").sideNav({edge: 'left'});
+      $(document).ready(function () {
+        $(".button-collapse").sideNav({edge: 'left'});
         $(".scrollspy").scrollSpy({scrollOffset: 0});
-        });
+      });
     </script>
     <noscript>
         <img height="1" width="1"
@@ -118,18 +118,26 @@
 </head>
 
 <body>
-    
+
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo"> <img src="assets/images/logo-all-white.svg" alt="hackpsulogo"> </a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <a href="#" class="brand-logo"> <img src="assets/images/logo-all-white.svg" alt="hackpsulogo"> </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down">
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#faqs">FAQ</a></li>
                 <li><a href="#schedule">SCHEDULE</a></li>
                 <li><a href="#sponsors">SPONSORS</a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
+                <li><a href="https://app.hackpsu.org/">REGISTER</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#faqs">FAQ</a></li>
+                <li><a href="#schedule">SCHEDULE</a></li>
+                <li><a href="#sponsors">SPONSORS</a></li>
                 <li><a href="https://app.hackpsu.org/">REGISTER</a></li>
             </ul>
         </div>
@@ -288,7 +296,7 @@
                     <a class="hexLink">
                         <img src="assets/images/exec/Colin.svg">
                         <!--<div class="exec-info">-->
-                            <!--<object data="assets/images/exec/Colin.svg"></object>-->
+                        <!--<object data="assets/images/exec/Colin.svg"></object>-->
                         <!--</div>-->
                     </a>
                 </div>
@@ -296,9 +304,9 @@
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink">
-                        <img src="assets/images/exec/matt.svg">
+                        <img src="assets/images/exec/Matt.svg">
                         <!--<div class="exec-info">-->
-                            <!--<object data="assets/images/exec/Matt.svg"></object>-->
+                        <!--<object data="assets/images/exec/Matt.svg"></object>-->
                         <!--</div>-->
                     </a>
                 </div>
@@ -355,11 +363,9 @@
             </li>
             <li class="hex">
                 <div class="hexIn">
-                    <a class="hexLink" href="">
-                        <img class="apply-here" src="assets/images/exec/join-us.png"
-                             onmouseenter="this.src='assets/images/exec/apply-here.png'"
-                             onmouseleave="this.src='assets/images/exec/join-us.png'"
-                        >
+                    <a class="hexLink hide-hoverable" href="">
+                        <img class="apply-here hide-on-hover" src="assets/images/exec/join-us.png">
+                        <img class="show-on-hover" src="assets/images/exec/apply-here.png">
                     </a>
                 </div>
             </li>
@@ -464,7 +470,8 @@
                 </p>
                 <p class="FAQanswer">
                     Don't bring any firearms, knives, weapons, drugs, or alcohol. Don't use an old project.
-                    Also, please read the <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf' class="stylizedLink">
+                    Also, please read the <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+                                             class="stylizedLink">
                     Major League Hacking Code of Conduct</a>. Our team members will enforce
                     this code throughout the event. We are expecting cooperation from all participants to help
                     ensure a safe environment for everybody. Basically be nice to everyone, which
@@ -484,7 +491,8 @@
                     What in heavens name is Slack?
                 </p>
                 <p class="FAQanswer">
-                    Throughout the event we will be using Slack and push notifications to communicate news. Watch for push notifications
+                    Throughout the event we will be using Slack and push notifications to communicate news. Watch for
+                    push notifications
                     during the event on the live site. If you've never used Slack, <a>here's</a> a quick introduction!
                 </p>
             </div>
@@ -611,6 +619,7 @@
 
                               initRoute();
                             }
+
                             var marker2 = new google.maps.Marker({
                               map: map,
                               position: {
@@ -788,12 +797,14 @@
             </div>
         </div>
         <div class="container-fluid sponsors-container">
-            
+
             <!-- Partners -->
             <div class="row" id="partner">
                 <div class=" col-xs-12 partner-sponsor">
-                    <a>
-                        <img src="assets/images/sponsors/PSUIT_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://it.psu.edu">
+                        <img class="hide-on-hover" src="assets/images/sponsors/PSUIT_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/PSUIT_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/PSUIT_original.svg">
                     </a>
                 </div>
             </div>
@@ -801,8 +812,10 @@
             <!-- Gold sponsors -->
             <div class="row gold-sponsor">
                 <div class="col-xs-offset-4 col-xs-4 gold-sponsor">
-                    <a>
-                        <img src="assets/images/sponsors/GM_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="http://gm.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/GM_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/GM_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/GM_original.svg">
                     </a>
                 </div>
             </div>
@@ -810,13 +823,17 @@
             <!-- Silver sponsors -->
             <div class="row silver-sponsor">
                 <div class="col-xs-6">
-                    <a>
-                        <img src="assets/images/sponsors/PSUIST_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://ist.psu.edu">
+                        <img class="hide-on-hover" src="assets/images/sponsors/PSUIST_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/PSUIST_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/PSUIST_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-6">
-                    <a>
-                        <img src="assets/images/sponsors/Google_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://google.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/Google_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/Google_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/Google_original.svg">
                     </a>
                 </div>
             </div>
@@ -824,18 +841,24 @@
             <!-- Bronze sponsors -->
             <div class="row bronze-sponsor">
                 <div class="col-xs-4">
-                    <a>
-                        <img src="assets/images/sponsors/PWC_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://pwc.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/PWC_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/PWC_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/PWC_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-4">
-                    <a>
-                        <img src="assets/images/sponsors/OSIsoft_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://osisoft.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/OSIsoft_blue.svg">
+                        <img style="visibility:hidden;" src="assets/images/sponsors/OSIsoft_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/OSIsoft_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-4">
-                    <a>
-                        <img src="assets/images/sponsors/RulesMatix_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://www.rulesmatix.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/RulesMatix_blue.svg">
+                        <img style="visibility:hidden;" src="assets/images/sponsors/RulesMatix_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/RulesMatix_original.svg">
                     </a>
                 </div>
             </div>
@@ -843,42 +866,57 @@
             <!-- In-kind sponsors -->
             <div class="row inkind-sponsor-lg">
                 <div class="col-xs-3">
-                    <a>
-                        <img src="assets/images/sponsors/Stickermule_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://www.stickermule.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/StickerMule_blue.svg">
+                        <img style="visibility:hidden;" src="assets/images/sponsors/StickerMule_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/StickerMule_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-3">
-                    <a>
-                        <img id="Microsoft" src="assets/images/sponsors/Microsoft_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://www.microsoft.com/en-us/">
+                        <img class="hide-on-hover" id="Microsoft" src="assets/images/sponsors/Microsoft_blue.svg">
+                        <img style="visibility:hidden;" src="assets/images/sponsors/Microsoft_original.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/Microsoft_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-3">
-                    <a>
-                        <img id="Apple" src="assets/images/sponsors/Apple_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://apple.com">
+                        <img class="hide-on-hover" id="Apple" src="assets/images/sponsors/Apple_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/Apple_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/Apple_original.svg">
+
                     </a>
                 </div>
                 <div class="col-xs-3">
-                    <a>
-                        <img src="assets/images/sponsors/Elms_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="https://www.elmsln.org">
+                        <img class="hide-on-hover" src="assets/images/sponsors/Elms_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/Elms_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/Elms_original.svg">
                     </a>
                 </div>
             </div>
             <div class="row inkind-sponsor-sm">
-                
-               <div class="col-xs-3 col-xs-offset-3">
-                        <img src="assets/images/sponsors/Ultrapress_blue.svg">
+
+                <div class="col-xs-3 col-xs-offset-3">
+                    <a class="hide-hoverable sponsor-image-container" href="https://www.ultrapress.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/UltraPress_blue.svg">
+                        <img style="visibility: hidden;" src="assets/images/sponsors/UltraPress_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/UltraPress_original.svg">
                     </a>
                 </div>
                 <div class="col-xs-3">
-                    <a>
-                        <img src="assets/images/sponsors/GoGoSqueez_blue.svg">
+                    <a class="hide-hoverable sponsor-image-container" href="http://www.gogosqueez.com">
+                        <img class="hide-on-hover" src="assets/images/sponsors/GoGoSqueez_blue.svg">
+                        <img style="visibility:hidden;" src="assets/images/sponsors/GoGoSqueez_blue.svg">
+                        <img class="show-on-hover" src="assets/images/sponsors/GoGoSqueez_original.svg">
                     </a>
                 </div>
             </div>
 
             <div class="row">
                 <p class="center">
-                    Want to sponsor us? Check out our sponsorship packet <a href="assets/sponsorship_packet.pdf">here</a>.
+                    Want to sponsor us? Check out our sponsorship packet <a
+                        href="assets/sponsorship_packet.pdf">here</a>.
                     We'd love to hear from you! Email us at <a href="mailto://sponsorship@hackpsu.org">sponsorship@hackpsu.org</a>
                 </p>
             </div>

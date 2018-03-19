@@ -6,6 +6,7 @@ $(document).ready(function () {
         // console.log($(this).find('.question:before'));
         // $(this).find('.question:before').css('transform', 'rotate(90deg)');
     });
+  $(".button-collapse").sideNav();
     $(window).on('scroll', function (e) {
         var scrollTop = $(this).scrollTop();
 
@@ -23,6 +24,14 @@ $(document).ready(function () {
         });
         // }
     });
+
+    // $('.show-on-hover').parent().hover(function() {
+    //     $(this).find('.hide-on-hover').hide(0);
+    //     $(this).find('.show-on-hover').fadeIn(500);
+    // }, function() {
+    //   $(this).find('.show-on-hover').hide(0);
+    //   $(this).find('.hide-on-hover').fadeIn(500);
+    // });
     $('nav').find('.left li').click(function (e) {
         e.preventDefault();
         scrollToID($(e.target).attr('href'), 500);

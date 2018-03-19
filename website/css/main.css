@@ -862,6 +862,7 @@ nav ul li {
 .question {
     padding: 15px;
     text-align: left;
+    cursor: pointer;
 }
 
 .question-container {
@@ -1044,6 +1045,10 @@ nav ul li {
     color: #24577C;
 }
 
+#sponsors .row {
+    margin-bottom: 15%;
+}
+
 .sponsors-container img {
     height: auto;
 }
@@ -1074,17 +1079,42 @@ nav ul li {
     max-width: 50%;
 }
 
-/* Some of the logos are awkward sizes so using custom css */
-#apple {
-    max-width: 40%;
-}
-
-#microsoft {
-    max-width: 60%;
-}
-
 .sponsors-container {
     width: 100%;
+}
+
+.sponsor-image-container {
+    display: block;
+}
+
+.sponsor-image-container .hide-on-hover, .sponsor-image-container .show-on-hover {
+    position: absolute;
+    left: 25%;
+}
+
+.show-on-hover {
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.hide-on-hover {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.hide-hoverable:hover .hide-on-hover{
+    opacity: 0;
+}
+
+.hide-hoverable:hover .show-on-hover {
+    opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
