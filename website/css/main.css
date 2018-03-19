@@ -1067,11 +1067,20 @@ nav ul li {
 }
 
 .inkind-sponsor-lg img {
-    max-width: 40%;
+    max-width: 50%;
 }
 
 .inkind-sponsor-sm img {
     max-width: 50%;
+}
+
+/* Some of the logos are awkward sizes so using custom css */
+#apple {
+    max-width: 40%;
+}
+
+#microsoft {
+    max-width: 60%;
 }
 
 .sponsors-container {
