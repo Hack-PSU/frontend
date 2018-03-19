@@ -190,7 +190,7 @@ body {
 }
 
 .center {
-    width: 43vw;
+    width: 100%;
     margin: auto;
 }
 
@@ -1043,8 +1043,34 @@ nav ul li {
     color: #24577C;
 }
 
-.sponsor-img-lg {
+.sponsors-container img {
+    height: auto;
+}
+
+.partner-sponsor img {
+    max-width: 65%;
+}
+
+.gold-sponsor img {
+    max-width: 65%;
+    margin-bottom: -70px;
+}
+
+.silver-sponsor img {
+    max-width: 75%;
+    margin-bottom: -100px;
+}
+
+.bronze-sponsor img {
+    max-width: 60%;
+}
+
+.inkind-sponsor-lg img {
     max-width: 40%;
+}
+
+.inkind-sponsor-sm img {
+    max-width: 50%;
 }
 
 .sponsors-container {
