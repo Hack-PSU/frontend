@@ -381,7 +381,7 @@ nav ul li {
 #header-text {
     font-family: 'Cornerstone';
     font-size: 6vh;
-    line-height: 100%; 
+    line-height: 100%;
 }
 #header-text p {
     padding: 0px;
@@ -596,6 +596,7 @@ nav ul li {
     top: -10%;
     width: 120%;
     height: 120%;
+    pointer-events: none;
 }
 
 .exec-holder:hover .exec-info {
