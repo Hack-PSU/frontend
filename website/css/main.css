@@ -303,10 +303,15 @@ header {
     -o-background-size: cover;
     background: url('../assets/images/web-background.jpg') no-repeat center fixed;
     background-size: cover;
+    padding-bottom: 6%;
 }
 
-.section-separator {
+.section-separator, .section-separator-first {
     width: 100%;
+}
+
+.section-separator-first {
+    margin-top: -15%;
 }
 
 .section-separator-background {
@@ -505,6 +510,7 @@ nav ul li {
     border-right-width: 8px;
     border-left-width: 8px;
     border-radius: 12px;
+    margin-top: 5%;
 }
 
 @media screen and (max-width: 768px) {
@@ -1014,6 +1020,7 @@ nav ul li {
         margin-top: 10px;
         padding: 0%;
         border-left: none;
+        padding-right: 0;
     }
 
     .schedule-header-left {
@@ -1110,6 +1117,10 @@ nav ul li {
     padding: 1em;
     border-radius: 5px;
     background: white;
+}
+
+#map-container p {
+    color: black;
 }
 
 @media screen and (max-width: 768px) {
