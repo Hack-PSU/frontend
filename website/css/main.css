@@ -1098,6 +1098,15 @@ nav ul li {
     #sponsors p {
         font-size: 4vw;
     }
+
+    .silver-sponsor {
+        margin-top: 25%;
+    }
+
+    #sponsors .row {
+        margin-bottom: 15%;
+    }
+
 }
 
 .sponsors-container img {
