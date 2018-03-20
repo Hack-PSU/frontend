@@ -963,16 +963,34 @@ nav ul li {
 /*======================== *** Schedule *** ==========================*/
 #schedule {
     background: #6FA7B3;
-    padding-bottom: 100px;
+    padding-bottom: 100px;}
+
+.event-name {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.schedule-header-left {
+    font-size: larger;
+    margin-top: 20px;
+    padding-left: 15%;
+}
+
+.schedule-header-right {
+    font-size: larger;
+    margin-top: 20px;
+    padding-right: 20%
 }
 
 .schedule-left {
-    padding-left: 10%;
+    font-size: x-large;
+    padding-left: 15%;
 }
 
 .schedule-right {
+    font-size: x-large;
     border-left: #133753 dashed;
-    padding-right: 10%;
+    padding-right: 20%;
 }
 
 #schedule p {
@@ -984,22 +1002,59 @@ nav ul li {
 }
 
 @media screen and (max-width: 768px){
-    #schedule p {
-        font-size: 4vw;
-    }
 
     .schedule-left {
+        font-size: large;
         border-bottom: #133753 dashed;
-        padding: 0;
+        padding: 0%;
     }
 
     .schedule-right {
+        font-size: large;
         margin-top: 10px;
+        padding: 0%;
         border-left: none;
+    }
+
+    .schedule-header-left {
+        font-size: x-large;
+        padding-left: 0%;
+        padding-bottom: 20px;
+    }
+
+    .schedule-header-right {
+        font-size: x-large;
+        padding-right: 0%
     }
 
 }
 
+@media screen and (max-width: 992px){
+
+    .schedule-left {
+        border-bottom: #133753 dashed;
+        padding: 0%;
+    }
+
+    #last-event {
+        margin-bottom: 50px;
+    }  
+
+    .schedule-right {
+        margin-top: 10px;
+        padding: 0%;
+        border-left: none;
+    }
+
+    .schedule-header-left {
+        padding-left: 0%;
+    }
+
+    .schedule-header-right {
+        padding-right: 0%
+    }
+
+}
 /*========================= *** Partnership *** ======================*/
 .sponsor-img-xl {
     width: 80%;
