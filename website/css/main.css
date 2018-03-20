@@ -1064,6 +1064,10 @@ nav ul li {
     background: white;
 }
 
+#map-container p {
+    color: black;
+}
+
 @media screen and (max-width: 768px) {
     .map-spacer {
         pointer-events: none;
