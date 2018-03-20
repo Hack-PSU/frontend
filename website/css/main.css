@@ -510,6 +510,7 @@ nav ul li {
     border-right-width: 8px;
     border-left-width: 8px;
     border-radius: 12px;
+    margin-top: 5%;
 }
 
 @media screen and (max-width: 768px) {
@@ -1001,6 +1002,7 @@ nav ul li {
     .schedule-right {
         margin-top: 10px;
         border-left: none;
+        padding-right: 0;
     }
 
 }
