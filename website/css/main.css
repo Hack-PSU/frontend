@@ -303,10 +303,15 @@ header {
     -o-background-size: cover;
     background: url('../assets/images/web-background.jpg') no-repeat center fixed;
     background-size: cover;
+    padding-bottom: 6%;
 }
 
-.section-separator {
+.section-separator, .section-separator-first {
     width: 100%;
+}
+
+.section-separator-first {
+    margin-top: -15%;
 }
 
 .section-separator-background {
@@ -505,6 +510,7 @@ nav ul li {
     border-right-width: 8px;
     border-left-width: 8px;
     border-radius: 12px;
+    margin-top: 5%;
 }
 
 @media screen and (max-width: 768px) {
@@ -963,16 +969,34 @@ nav ul li {
 /*======================== *** Schedule *** ==========================*/
 #schedule {
     background: #6FA7B3;
-    padding-bottom: 100px;
+    padding-bottom: 100px;}
+
+.event-name {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.schedule-header-left {
+    font-size: larger;
+    margin-top: 20px;
+    padding-left: 15%;
+}
+
+.schedule-header-right {
+    font-size: larger;
+    margin-top: 20px;
+    padding-right: 20%
 }
 
 .schedule-left {
-    padding-left: 10%;
+    font-size: x-large;
+    padding-left: 15%;
 }
 
 .schedule-right {
+    font-size: x-large;
     border-left: #133753 dashed;
-    padding-right: 10%;
+    padding-right: 20%;
 }
 
 #schedule p {
@@ -984,22 +1008,60 @@ nav ul li {
 }
 
 @media screen and (max-width: 768px){
-    #schedule p {
-        font-size: 4vw;
-    }
 
     .schedule-left {
+        font-size: large;
         border-bottom: #133753 dashed;
-        padding: 0;
+        padding: 0%;
     }
 
     .schedule-right {
+        font-size: large;
         margin-top: 10px;
+        padding: 0%;
         border-left: none;
+        padding-right: 0;
+    }
+
+    .schedule-header-left {
+        font-size: x-large;
+        padding-left: 0%;
+        padding-bottom: 20px;
+    }
+
+    .schedule-header-right {
+        font-size: x-large;
+        padding-right: 0%
     }
 
 }
 
+@media screen and (max-width: 992px){
+
+    .schedule-left {
+        border-bottom: #133753 dashed;
+        padding: 0%;
+    }
+
+    #last-event {
+        margin-bottom: 50px;
+    }  
+
+    .schedule-right {
+        margin-top: 10px;
+        padding: 0%;
+        border-left: none;
+    }
+
+    .schedule-header-left {
+        padding-left: 0%;
+    }
+
+    .schedule-header-right {
+        padding-right: 0%
+    }
+
+}
 /*========================= *** Partnership *** ======================*/
 .sponsor-img-xl {
     width: 80%;
@@ -1057,6 +1119,10 @@ nav ul li {
     background: white;
 }
 
+#map-container p {
+    color: black;
+}
+
 @media screen and (max-width: 768px) {
     .map-spacer {
         pointer-events: none;
@@ -1087,6 +1153,15 @@ nav ul li {
     #sponsors p {
         font-size: 4vw;
     }
+
+    .silver-sponsor {
+        margin-top: 25%;
+    }
+
+    #sponsors .row {
+        margin-bottom: 15%;
+    }
+
 }
 
 .sponsors-container img {
