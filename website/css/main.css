@@ -839,13 +839,6 @@ nav ul li {
     font-size: 2.5em;
 }
 
-.title-graphic-line {
-    position: relative;
-    background-color: #E5704C;
-    height: 2px;
-    top: 14px;
-}
-
 .section-title-word {
     display: inline-block;
     white-space: nowrap;
@@ -875,6 +868,29 @@ nav ul li {
     font-weight: bold;
     padding-top: 50px;
     background-color: #194E6B;
+}
+
+#location {
+    margin-top: 30px;
+}
+
+#location .title {
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 20px; 
+    color: white;  
+}
+
+#location p {
+    font-size: large;
+    text-align: left;   
+}
+
+.horizontal-line {
+    position: relative;
+    background-color: #b7c7ca;
+    height: 2px;
+    top: 14px;
 }
 
 .question {
@@ -925,7 +941,7 @@ nav ul li {
     color: #aacacc;
     display: none;
     font-weight: lighter;
-    font-size: x-large;
+    font-size: large;
     margin: 0 4%;
     text-align: left;
 }
@@ -1064,10 +1080,11 @@ nav ul li {
 }
 
 #sponsors .row {
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 
 #sponsors p {
+    font-size: medium;
     color: #24577C;
 }
 
@@ -1076,6 +1093,7 @@ nav ul li {
         font-size: 4vw;
     }
 }
+
 .sponsors-container img {
     height: auto;
 }
