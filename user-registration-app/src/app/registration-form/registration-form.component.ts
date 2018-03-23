@@ -160,12 +160,17 @@ export class RegistrationFormComponent implements OnInit {
     this.loading = true;
     this.httpService.submitRSVP(this.user, status)
       .subscribe((data) => {
-this.loading = false;
-this.router.navigate(['/rsvpsuccess']);
+    this.loading = false;
+    this.router.navigate(['/rsvpsuccess']);
       },          (error) => {
-this.loading = false;
-this.errors = error.message;
+    this.loading = false;
+    this.errors = error.message;
       });
+  }
+
+  public show : boolean = false;
+  rsvpInfo() {
+    this.show = !this.show;
   }
 
   fileAdded(event) {

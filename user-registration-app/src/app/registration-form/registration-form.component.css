@@ -262,3 +262,11 @@ input::placeholder {
   max-height: 60px;
   max-width: 20%;
 }
+
+#rsvpinfo {
+  text-align: left;
+}
+
+ul.items li {
+  list-style-type: disc;
+}

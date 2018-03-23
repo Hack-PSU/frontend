@@ -1,4 +1,4 @@
-<div class="row" *ngIf="!(registrationData | async)?.submitted; else templateName">
+<div class="row" *ngIf="(registrationData | async)?.submitted; else templateName">
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
         (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
         name="registrationFormDOM"
@@ -663,10 +663,62 @@
           <span>No</span>
         </a>
         <a class="btn btn-block btn-social" (click)="rsvp(true)">
-          <span>Yes</span>
+          <span (click)="rsvpInfo()">Yes</span>
         </a>
       </div>
-      We are excited to see you this year on April 7.
+      <div *ngIf="show">
+        <br />
+        <h4>We are excited to see you this year on April 7.</h4>
+        <br />
+        <div class="row" id="rsvpinfo">
+          <div class="col-md-12 col-md-4">
+            <b>Location</b>
+            <br />
+            <br />
+            <font size="4">The hackathon will take place at the Business Building.
+              The address is: 
+              <br />
+              <br />
+              210 Business Building,
+              <br />
+              University Park, PA 16802
+            </font>
+          </div>
+          <div class="col-md-12 col-md-4 items">
+            <b>Things to Bring</b>
+            <br />
+            <br />
+            <font size="4">
+              <ul>
+                <li>Computer/Laptop</li>
+                <li>Mouse</li>
+                <li>Power Cord</li>
+                <li>Backpack</li>
+                <li>Spare Clothes</li>
+                <li>Blanket</li>
+                <li>Chargers/Batteries</li>
+                <li>Headphones/Earphones</li>
+                <li>Swag</li>
+              </ul>
+            </font>
+          </div>
+          <div class="col-md-12 col-md-4">
+            <b>Date & Time</b>
+            <br />
+            <br />
+            <font size="5">
+              April 7-8
+            </font>
+            <font size="4">
+              <br />
+              <br />
+              12:30pm Saturday - 5:30pm Sunday
+              <br />
+              Hacking starts at 2:00pm Saturday
+            </font>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ng-template>
