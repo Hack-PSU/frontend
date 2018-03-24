@@ -17,6 +17,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 import { LiveUpdateComponent } from './live-update/live-update.component';
+import { LiveViewComponent } from './live-view/live-view.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LiveUpdateComponent } from './live-update/live-update.component';
     SignupViewComponent,
     ForgotPasswordViewComponent,
     LiveUpdateComponent,
+    LiveViewComponent,
   ],
   imports: [
     BrowserModule,
