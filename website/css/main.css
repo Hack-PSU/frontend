@@ -1062,6 +1062,41 @@ nav ul li {
     }
 
 }
+
+#workshops {
+    margin-top: 5%;
+}
+
+.workshop-speaker-img {
+    height: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.header {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-variant: all-small-caps;
+    color: black;
+}
+
+.workshop-blurb {
+    font-size: medium;
+    color: black;
+}
+
+.slider {
+    width: 50%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.slider img {
+    height: 50%;
+    margin-top: 50%;
+}
+
 /*========================= *** Partnership *** ======================*/
 .sponsor-img-xl {
     width: 80%;
