@@ -1069,13 +1069,6 @@ nav ul li {
     padding-bottom: 100px;
 }
 
-.workshop-speaker-img {
-    margin-top: 0px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-}
-
 .header {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -1085,17 +1078,41 @@ nav ul li {
 
 .workshop-blurb {
     font-size: medium;
-    color: white;
+    color: #333333;
+    margin-top: 4%;
 }
+
+.slides {
+    -webkit-box-shadow: 0 1px 3px #333333;
+    -moz-box-shadow: 0 1px 3px #333333;
+    box-shadow: 0 1px 3px #333333;
+}
+
+@media screen and (max-width: 768px) {
+    #workshops p {
+        font-size: 4vw;
+    }
+
+    #workshops p.workshop-blurb {
+        font-size: medium;
+        margin-top: none;
+    }
+}
+
+
 
 .slider {
     width: 50%;
     margin: 0 auto;
 }
 
-.slider img {
-    height: 50%;
-    margin-top: 50%;
+.slider .slides li img {
+    margin-top: 10%;
+    height: auto;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #133753;
 }
 
 /*========================= *** Partnership *** ======================*/
