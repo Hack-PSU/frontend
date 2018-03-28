@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   $(".button-collapse").sideNav();
+  $('.slider').slider();
   $('.question').click(function () {
     $(this).siblings().slideToggle('0.3s', 'linear');
     $(this).toggleClass('open');
