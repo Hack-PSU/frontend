@@ -1063,12 +1063,14 @@ nav ul li {
 
 }
 
+/*======================== *** Workshops *** ==========================*/
 #workshops {
-    margin-top: 5%;
+    background: #6FA7B3;
+    padding-bottom: 100px;
 }
 
 .workshop-speaker-img {
-    height: 50%;
+    margin-top: 0px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -1083,12 +1085,11 @@ nav ul li {
 
 .workshop-blurb {
     font-size: medium;
-    color: black;
+    color: white;
 }
 
 .slider {
     width: 50%;
-    background-color: white;
     margin: 0 auto;
 }
 
