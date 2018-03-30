@@ -1088,6 +1088,10 @@ nav ul li {
     box-shadow: 0 1px 3px #333333;
 }
 
+.slider {
+    width: 70%;
+    margin: 0 auto;
+}
 @media screen and (max-width: 768px) {
     #workshops p {
         font-size: 4vw;
@@ -1095,16 +1099,14 @@ nav ul li {
 
     #workshops p.workshop-blurb {
         font-size: medium;
-        margin-top: none;
+        margin-top: 0;
+    }
+
+    .slider {
+        width: 95%;
     }
 }
 
-
-
-.slider {
-    width: 50%;
-    margin: 0 auto;
-}
 
 .slider .slides li img {
     margin-top: 10%;
