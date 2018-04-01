@@ -1,0 +1,297 @@
+#schedule-container {
+  width: 85%;
+  position: relative;
+  text-align: center;
+  font-family: "Lato", 'Helvetica', sans-serif;
+}
+
+.schedule-title {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.event {
+  width: 96%;
+  min-height: 100px;
+  margin: 2%;
+  text-align: left;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -3px 0 2px rgba(0, 0, 0, 0.1); */
+  -webkit-box-shadow: 0px 3px 5px 0 rgba(34, 34, 34, 0.55);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
+  box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
+  cursor: pointer;
+  transition: transform .15s;
+}
+
+.event:active {
+  transform: scale(0.96);
+}
+
+.event:hover {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.85);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.85);
+  box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.85)
+}
+
+.expired-event {
+  display: none;
+}
+
+.event-info {
+  font-size: 18px;
+  min-height: 60px;
+  padding-left: 2%;
+}
+
+.day-title {
+  font-size: x-large;
+  text-align: center;
+  font-variant-caps: small-caps;
+}
+
+.activity {
+  color: white;
+}
+
+.activity .event {
+  background-color: #6c88b7;
+}
+
+
+.mini {
+  background-color: #6c88b7;
+  color: white;
+}
+
+.food {
+  color: white;
+}
+
+.food .event {
+  background-color: #e5704c;
+}
+
+.workshop {
+  background-color: #173753;
+  color: white;
+}
+
+.workshop .ws-title {
+  font-weight: 400;
+  font-size: 80%;
+}
+
+.description-header {
+  font-size: xx-large;
+  text-transform: capitalize;
+  color: #3A2D40;
+}
+
+.event-row {
+  text-align: center;
+  margin: .5%;
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.description-text, .event-location {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.event-time {
+  color: white;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.activity .event-time {
+  color: white;
+}
+
+.event a {
+  color: white;
+}
+
+i {
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  .event-row {
+    text-align: left;
+    margin: .5%;
+    border: 0px solid black;
+  }
+
+  .event {
+    width: 98%;
+    min-height: 100px;
+    margin: 1%;
+    text-align: left;
+  }
+
+  #schedule-container {
+    text-align: center;
+    background-color: white;
+    width: 100%;
+  }
+}
+
+.workshop {
+  font-family: "Lato", sans-serif;
+}
+
+.event-day-title {
+  font-size:x-large;
+
+}
+
+.event-title {
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height:110%;
+  margin-bottom: .3rem;
+  color: white;
+}
+
+.event-time {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.event-location {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.event-description {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+
+.nopaddingright {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.event-day-side {
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+}
+
+.modal {
+  padding-right: 0 !important;
+}
+
+.modal .modal-content {
+  height: 100%;
+}
+
+.modal-content .container-fluid {
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  height: 80%;
+}
+
+.modal {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: black;
+}
+
+.modal-header {
+  height: 100%;
+  font-size: 16pt;
+}
+
+.modal-body {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12pt;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.modal-body img {
+  width: 80%;
+  max-width: 500;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+}
+
+.modal-day, .modal-time, .modal-location {
+  opacity: .7;
+  font-size: 11pt;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.close {
+  margin: 15px;
+}
+
+.large-screen-hide {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .large-screen-hide {
+    display: block;
+  }
+
+  .modal-header {
+    height: 15%;
+    font-size: 13pt;
+    min-height: 40px;
+  }
+
+  .modal-body {
+    height: 70%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12pt;
+  }
+
+  .modal {
+    margin: 0px;
+    padding: 15px;
+  }
+
+  .modal-dialog {
+    margin: 0px;
+    width: 100%;
+  }
+
+  .modal-footer {
+    padding: 0px;
+    height: 15%;
+    min-height: 40px;
+    position: relative;
+  }
+
+  .modal-footer .btn {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 0px;
+    top: 0px;
+    right: 3%;
+    height: 100%;
+    font-size: 30%;
+    max-height: 25px;
+  }
+
+  .modal-small-screen-hide {
+    display: none;
+  }
+}

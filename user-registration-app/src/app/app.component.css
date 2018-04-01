@@ -45,5 +45,34 @@ p {
   width: 100%;
 }
 
+nav {
+  background-color: #B1C8CB;
+  height: 55px;
+}
 
+nav .brand-logo {
+  display: block;
+  margin-left: 5%;
+  width: 45px;
+}
 
+nav img{
+  vertical-align: top;
+}
+
+nav ul li {
+  line-height: 55px;
+  letter-spacing: .05em;
+}
+nav .left {
+  margin-left: 11vw;
+}
+
+nav .right {
+  width: 15vw;
+  margin-right: -0vw;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #103147;
+}
