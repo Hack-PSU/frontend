@@ -8,13 +8,14 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 import { AppConstants } from './AppConstants';
 import { LiveUpdateComponent } from './live-update/live-update.component';
+import { LiveViewComponent } from './live-view/live-view.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationFormComponent },
   { path: 'signup', component: SignupViewComponent },
   { path: 'forgot', component: ForgotPasswordViewComponent },
-  { path: 'live', component: LiveUpdateComponent },
+  { path: 'live', component: LiveViewComponent },
   { path: '**', redirectTo: AppConstants.REGISTER_ENDPOINT },
 ];
 

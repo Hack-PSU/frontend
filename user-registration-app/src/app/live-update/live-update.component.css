@@ -17,6 +17,8 @@
   padding: 5px;
   margin-bottom: 10px;
   line-height: 20px;
+  -ms-word-break: break-all;
+  word-break: break-all;
 }
 
 .update-img {

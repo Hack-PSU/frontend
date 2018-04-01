@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Cornerstone';
+  src: url('../../assets/fonts/Cornerstone.ttf');
+}
+
+.section-title {
+  margin-bottom: 50px;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  letter-spacing: -10px;
+}
+
+.section-title-word {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 1.5%;
+}
+
+.section-title-letter {
+  display: inline-block;
+  font-size: 2.5em;
+}

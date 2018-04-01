@@ -15,7 +15,7 @@ import { AppConstants } from '../AppConstants';
 @Component({
   selector: 'app-live-view',
   templateUrl: './live-view.component.html',
-  styleUrls: ['./live-view.component.css']
+  styleUrls: ['./live-view.component.css'],
   providers: [HttpService],
   animations: [
     trigger(
