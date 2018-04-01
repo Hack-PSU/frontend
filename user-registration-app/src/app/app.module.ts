@@ -18,6 +18,8 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 import { LiveUpdateComponent } from './live-update/live-update.component';
 import { LiveViewComponent } from './live-view/live-view.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
+import { HttpService } from './HttpService';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { LiveViewComponent } from './live-view/live-view.component';
     ForgotPasswordViewComponent,
     LiveUpdateComponent,
     LiveViewComponent,
+    RsvpComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { LiveViewComponent } from './live-view/live-view.component';
     AngularFireAuthModule,
     MaterializeModule,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

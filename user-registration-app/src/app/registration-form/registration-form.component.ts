@@ -98,7 +98,6 @@ export class RegistrationFormComponent implements OnInit {
   public errors: string;
   @ViewChild('registrationModel') form;
 
-
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
   }
@@ -120,7 +119,9 @@ export class RegistrationFormComponent implements OnInit {
         this.user = user;
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
         this.registrationData.subscribe((data) => {
-          this.registrationForm = data;
+          if (data.submitted) {
+            this.router.navigate(['/rsvp']);
+          }
         },                              (error) => {
           this.registrationForm = new RegistrationModel();
         });
@@ -154,23 +155,6 @@ export class RegistrationFormComponent implements OnInit {
         this.loading = false;
         this.errors = error.message;
       });
-  }
-
-  rsvp(status: boolean) {
-    this.loading = true;
-    this.httpService.submitRSVP(this.user, status)
-      .subscribe((data) => {
-    this.loading = false;
-    this.router.navigate(['/rsvpsuccess']);
-      },          (error) => {
-    this.loading = false;
-    this.errors = error.message;
-      });
-  }
-
-  public show : boolean = false;
-  rsvpInfo() {
-    this.show = !this.show;
   }
 
   fileAdded(event) {
