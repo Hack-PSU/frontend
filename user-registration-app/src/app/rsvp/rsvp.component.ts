@@ -28,15 +28,15 @@ export class RsvpComponent implements OnInit {
       if (!user) {
         this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
-        this.user = user;
-        this.rsvpDataObservable = this.httpService.getRsvpStatus(this.user);
-        this.rsvpDataObservable.subscribe((value) => {
-          console.log(value);
-          this.rsvpData = value; // TODO: debug whether it works for someone who hasnt RSVPed
+        //this.user = user;
+        //this.rsvpDataObservable = this.httpService.getRsvpStatus(this.user);
+        //this.rsvpDataObservable.subscribe((value) => {
+          //console.log(value);
+          //this.rsvpData = value; // TODO: debug whether it works for someone who hasnt RSVPed
           this.loading = false;
-        },                                (error) => {
-          this.errors = error;
-        });
+        //},                                (error) => {
+          //this.errors = error;
+        //});
       }
     });
   }
