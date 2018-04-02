@@ -90,6 +90,13 @@ export class ScheduleViewComponent implements OnInit {
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   }
 
+  getEndTimeMS(event: EventModel) {
+    return parseInt(event.event_end_time, 10);
+  }
+
+  getCurrentTime() {
+    return new Date().getTime();
+  }
   getEndTime(event: EventModel) {
     return new Date(parseInt(event.event_end_time, 10))
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });

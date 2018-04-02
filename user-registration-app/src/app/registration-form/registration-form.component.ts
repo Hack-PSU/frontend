@@ -59,7 +59,7 @@ export class RegistrationFormComponent implements OnInit {
     },
     { minLength: 1 },
   ];
-  public referralAutoCompInit = [
+  public referralAutoCompleteInit = [
     {
       data: {
         'Participated previously': null,

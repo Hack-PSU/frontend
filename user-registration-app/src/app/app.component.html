@@ -5,11 +5,11 @@
         <a href="#" class="brand-logo"> <img src="../assets/images/logo.svg" alt="hackpsulogo"> </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li *ngIf="router.url !== '/register'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-          <li *ngIf="router.url !== '/register'" class="scroller"><a href="#updates">LIVE UPDATES</a></li>
-          <li *ngIf="router.url !== '/register'" class="scroller"><a href="#info">INFO</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">LIVE UPDATES</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#info">INFO</a></li>
           <li><a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' : 'LIVE'}}</a></li>
-          <li *ngIf="router.url !== '/register'">
+          <li *ngIf="router.url === '/live'">
             <a class="dropdown-button" href="#!" data-activates="dropdown1">OTHER
               <i class="material-icons right" style="width: 5vw;">arrow_drop_down
               </i>

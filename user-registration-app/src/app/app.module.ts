@@ -19,6 +19,8 @@ import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-passw
 import { LiveUpdateComponent } from './live-update/live-update.component';
 import { LiveViewComponent } from './live-view/live-view.component';
 import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
+import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
+import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
     LiveUpdateComponent,
     LiveViewComponent,
     ScheduleViewComponent,
+    TravelReimbursementViewComponent,
+    TableAssignmentViewComponent,
   ],
   imports: [
     BrowserModule,
