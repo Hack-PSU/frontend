@@ -3,6 +3,11 @@
   font-family: Lato, Georgia, sans-serif;
 }
 
+@font-face {
+  font-family: 'Cornerstone';
+  src: url('assets/fonts/Cornerstone.ttf');
+}
+
 body {
   background: linear-gradient(#103147, #194E6B, #6FA7B3);
   -webkit-transition: all 0.5s ease;
