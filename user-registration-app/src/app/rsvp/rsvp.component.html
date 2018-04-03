@@ -5,7 +5,7 @@
     <div class="page-header text-center">
       <div style="font-family:'Cornerstone';font-size:75px;"> HackPSU RSVP </div>
     </div>
-    <div *ngIf="rsvpData === null; else result">
+    <div *ngIf="rsvpData?.rsvp_time === null; else result">
       <div class="submitted-block">
         <h5 class="center"> Will you be attending HackPSU? </h5>
         <br>
@@ -91,7 +91,7 @@
 </ng-template>
 
 <ng-template #notcoming>
-
+  <h4 class="center">Thank you for your response. We hope to see you next year!</h4>
 </ng-template>
 
 <ng-template #loadingView>

@@ -8,6 +8,22 @@ import { Observable } from 'rxjs/Observable';
 
 declare var $: any;
 
+class RsvpData {
+  pin: string;
+  rsvp_time: string;
+  idRSVP: string;
+  user_id: string;
+  rsvp_status: boolean;
+
+  constructor() {
+    this.pin = null;
+    this.rsvp_status = false;
+    this.idRSVP = null;
+    this.user_id = null;
+    this.rsvp_time = null;
+  }
+}
+
 
 @Component({
   selector: 'app-rsvp',
@@ -20,9 +36,10 @@ export class RsvpComponent implements OnInit {
   public user: firebase.User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
-  public rsvpData = null;
+  public rsvpData: RsvpData;
 
   constructor(public afAuth: AngularFireAuth, public router: Router, private httpService: HttpService) {
+    this.rsvpData = new RsvpData();
     this.loading = true;
     this.afAuth.auth.onAuthStateChanged((user) => {
       if (!user) {
@@ -31,8 +48,8 @@ export class RsvpComponent implements OnInit {
         this.user = user;
         this.rsvpDataObservable = this.httpService.getRsvpStatus(this.user);
         this.rsvpDataObservable.subscribe((value) => {
-          console.log(value);
-          this.rsvpData = value; // TODO: debug whether it works for someone who hasnt RSVPed
+          this.rsvpData = Object.assign(this.rsvpData, value);
+          console.log(this.rsvpData);
           this.loading = false;
         },                                (error) => {
           this.errors = error;
