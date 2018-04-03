@@ -44,4 +44,25 @@ export class HttpService {
       });
   }
 
+  submitRSVP(currentUser: any, status: boolean) {
+    const API_ENDPOINT = 'users/rsvp';
+    return Observable.fromPromise(currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.post<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+                                                 { rsvp: status.toString() },
+                                                 { headers, reportProgress: true });
+      });
+  }
+
+  getRsvpStatus(currentUser: any) {
+    const API_ENDPOINT = 'users/rsvp';
+    return Observable.fromPromise(currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
+      });
+  }
 }
