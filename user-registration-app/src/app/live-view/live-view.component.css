@@ -1,3 +1,12 @@
+th {
+    vertical-align:middle;
+    text-align:center;
+}
+
+td {
+    vertical-align:top;
+}
+
 .section-title {
   margin-bottom: 50px;
   text-align: center;
@@ -13,4 +22,54 @@
   display: inline-block;
   font-family: 'Cornerstone', 'Lato', sans-serif;
   font-size: 2.5em;
+}
+
+.workshop-level {
+    text-align:center;
+    font-size:1.3em;
+    margin-bottom:50px;
+    font-weight:bold;
+}
+
+.workshop-title {
+    font-weight:bold;
+    margin-bottom:10px;
+    font-size:1.2em;
+}
+
+.workshop {
+    padding:1vw;
+    padding-left:2vw;
+}
+
+.indented {
+    margin-left:7vw;
+}
+
+.left {
+    margin-right:7vw;
+}
+
+.centered {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.beginner {
+    display:inline-block;
+    background:#6FA7B3;
+}
+.intermediate {
+    background:#194E6B;
+}
+.advanced {
+    background:#103147;
+}
+
+.workshop-info {
+    float:right;
+    background-color:transparent;
+    padding:0;
+    box-shadow:none;
 }
