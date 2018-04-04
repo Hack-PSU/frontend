@@ -50,10 +50,31 @@ export class HttpService {
       .switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.post<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT), 
-                                                { status },
-                                                { headers, reportProgress: true });
+        return this.http.post<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+                                                 { status },
+                                                 { headers, reportProgress: true });
       });
   }
 
+  submitTravelReimbursement(travelForm: any, uid) {
+    const API_ENDPOINT = 'users/travelReimbursement';
+    const formObject: FormData = new FormData();
+    formObject.append('uid', uid);
+    for (const key in travelForm) {
+      if (travelForm.hasOwnProperty(key) && travelForm[key] !== null && key !== 'receipt') {
+        formObject.append(key, travelForm[key]);
+      }
+    }
+    if (travelForm.receipt) {
+      Array.from(travelForm.receipt).forEach((r: any) => formObject.append('receipt', r, r.name));
+    }
+    return Observable.fromPromise(this.afAuth.auth.currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+                              formObject,
+                              { headers, reportProgress: true });
+      });
+  }
 }
