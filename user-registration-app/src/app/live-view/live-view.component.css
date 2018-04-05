@@ -1,241 +1,255 @@
 #hackpsu-logo {
-    margin-top: 10px;
-    max-width: 30%;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  max-width: 30%;
+  margin-bottom: 10px;
 }
 
 #mlh-trust-badge {
-    display: block;
-    position: absolute;
-    right: 5%;
-    top: 50px;
-    width: 10%;
-    z-index: 0;
+  display: block;
+  position: absolute;
+  right: 5%;
+  top: 50px;
+  width: 10%;
+  z-index: 0;
 }
 
 #countdown {
-    display: inline-block;
-    font-size: 2em;
-    font-family: 'Cornerstone', 'Lato', sans-serif;
-    list-style-type: none;
-    padding: 1em;
-    text-transform: uppercase;
+  display: inline-block;
+  font-size: 2em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
 }
 
 .submit-btn {
-    width: 30%;
-    height: 40px;
-    font-size: 20;
-    font-weight: 800;
-    background-color: rgba(255, 255, 255, 0);
-    color: #FFF;
-    border: 2px solid white;
-    border-right-width: 8px;
-    border-left-width: 8px;
-    border-radius: 12px;
-  }
-  
-.btn {
-    width: 35%;
+  width: 30%;
+  height: 40px;
+  font-size: 20;
+  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0);
+  color: #FFF;
+  border: 2px solid white;
+  border-right-width: 8px;
+  border-left-width: 8px;
+  border-radius: 12px;
 }
-  
+
+.btn {
+  width: 35%;
+}
+
 .submit-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
-    color: #333333;
+  background-color: rgba(255, 255, 255, 1);
+  color: #333333;
 }
 
 @media screen and (max-width: 768px) {
-    #hackpsu-logo {
-        max-width: 70%;
-    }
+  #hackpsu-logo {
+    max-width: 70%;
+  }
 
-    #countdown {
-        font-size: 1.5em;
-        padding: 0.5em;
-    }
+  #countdown {
+    font-size: 1.5em;
+    padding: 0.5em;
+  }
 
-    .btn {
-        width: 80%;
-    }
+  .btn {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    #countdown {
-        padding: 0.3em;
-    }
+  #countdown {
+    padding: 0.3em;
+  }
 }
 
 th {
-    vertical-align:middle;
-    text-align:center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 td {
-    vertical-align:top;
+  vertical-align: top;
 }
 
 .leader {
-    border-radius:50%;
-    height:10vh;
-    margin-right:3vh;
+  border-radius: 50%;
+  height: 10vh;
+  margin-right: 3vh;
 }
 
 .section-title {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .section-title-word {
-    display: inline-block;
-    white-space: nowrap;
-    padding-right: 1.5%;
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 1.5%;
 }
 
 .section-title-letter {
-    display: inline-block;
-    font-family: 'Cornerstone', 'Lato', sans-serif;
-    font-size: 2.5em;
+  display: inline-block;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  font-size: 2.5em;
 }
 
 .workshop-level {
-    text-align:center;
-    font-size:1.3em;
-    margin-bottom:50px;
-    font-weight:bold;
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 50px;
+  font-weight: bold;
 }
 
 .workshop-title {
-    font-weight:bold;
-    margin-bottom:10px;
-    font-size:1.5vw;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.5vw;
 }
 
 .workshop {
-    padding:1vw;
-    padding-left:2vw;
+  padding: 1vw;
+  padding-left: 2vw;
 }
 
 .indented {
-    margin-left:7vw;
+  margin-left: 7vw;
 }
 
 .left {
-    margin-right:7vw;
+  margin-right: 7vw;
 }
 
 .centered {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flexed {
-    display:flex;
-    flex:1 0 auto;
+  display: flex;
+  flex: 1 0 auto;
 }
 
 .beginner {
-    display:inline-block;
-    background:#6FA7B3;
+  display: inline-block;
+  background: #6FA7B3;
 }
+
 .intermediate {
-    background:#194E6B;
+  background: #194E6B;
 }
+
 .advanced {
-    background:#103147;
+  background: #103147;
 }
 
 .workshop-info {
-    float:right;
-    background-color:transparent;
-    padding:0;
-    box-shadow:none;
+  float: right;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .nav-tabs.nav-justified {
-    background-color: white;
+  background-color: white;
 }
 
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:focus,
 .nav-tabs.nav-justified > .active > a:hover {
-    background-color: #6FA7B3;
-    color: white;
+  background-color: #6FA7B3;
+  color: white;
 }
 
 .info-title {
-    font-size: large;
-    color: #103147;
+  font-size: large;
+  color: #103147;
 }
 
 #info a {
-    border: 0px;
-    border-radius: 1px;
+  border: 0px;
+  border-radius: 1px;
 }
 
 #info a:hover {
-    color: #103147;
+  color: #103147;
 }
 
 #info > .active > a:hover {
-    color: white;
+  color: white;
 }
 
 #info a:active {
-    background-color: #255a8f;
-    color: white;
+  background-color: #255a8f;
+  color: white;
 }
 
 #info li .active {
-    background-color: #255a8f;
-    color: white
+  background-color: #255a8f;
+  color: white
 }
 
 .info-card {
-    margin-top: 25px;
-    background-color: #29707F;
-    color: #333333;
-    opacity: 25%;
-    border-radius: 2px;
-    box-shadow: none;
+  margin-top: 10px;
+  padding: 10px 0;
+  line-height: 35px;
+  background-color: #a6c4f8;
+  color: #333333;
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 .info-list {
-    font-size: 16px;
-    list-style-type: disc;
+  font-size: 16px;
+  list-style-type: disc;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
 }
 
 footer {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 #footer .email-link {
-    text-decoration: underline;
-    color: #ffffff;
+  text-decoration: underline;
+  color: #ffffff;
 }
 
 #footer .email-link:hover {
-    -webkit-transition: color 0.5s;
-    -moz-transition: color 0.5s;
-    -ms-transition: color 0.5s;
-    -o-transition: color 0.5s;
-    transition: color 0.5s;
-    color: rgba(255,255,255, 0.5);
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .social-media-icon {
-    width: 40px;
+  width: 40px;
 }
 
-#footer  p {
-    font-size: small;
+#footer p {
+  font-size: small;
 }
 
 .small-text {
-    font-size: x-small;
+  font-size: x-small;
+}
+
+#prizes .card {
+  min-height: 250px;
 }
 
 .card-title {
-    color: black;
+  color: black;
+}
+
+.card-reveal {
+  color: black;
 }

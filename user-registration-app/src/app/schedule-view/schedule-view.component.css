@@ -71,8 +71,8 @@
   background-color: #e5704c;
 }
 
-.workshop {
-  background-color: #173753;
+.workshops .event {
+  background-color: #24577c;
   color: white;
 }
 
@@ -200,9 +200,8 @@ i {
 }
 
 .modal {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 50%;
+  margin-left: 25%;
   color: black;
 }
 
@@ -222,7 +221,7 @@ i {
 
 .modal-body img {
   width: 80%;
-  max-width: 500;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding: 25px;

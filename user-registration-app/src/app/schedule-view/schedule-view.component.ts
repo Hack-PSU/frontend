@@ -57,19 +57,21 @@ export class ScheduleViewComponent implements OnInit {
           this.eventsService.getEvents(value).subscribe((events: EventModel[]) => {
             console.log(events);
             events.forEach((m) => {
-              switch (m.event_type) {
-                case 'activity':
-                  this.activities.unshift(m);
-                  break;
-                case 'food':
-                  this.meals.unshift(m);
-                  break;
-                case 'workshop':
-                  this.workshops.unshift(m);
-                  break;
-                default:
-                  break;
-              }
+              // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {
+                switch (m.event_type) {
+                  case 'activity':
+                    this.activities.unshift(m);
+                    break;
+                  case 'food':
+                    this.meals.unshift(m);
+                    break;
+                  case 'workshop':
+                    this.workshops.unshift(m);
+                    break;
+                  default:
+                    break;
+                }
+              // }
             });
 
           });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { LiveUpdatesService } from '../live-updates.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
@@ -65,9 +65,9 @@ export class LiveUpdateComponent implements OnInit {
         this.idtoken.subscribe((value) => {
           this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
             message.forEach(m => this.updates.unshift(m));
-
+            setTimeout(this.collapseLastN, 1000);
           });
-        }, (error) => {
+        },                     (error) => {
           this.error = error;
         });
       } else {
@@ -111,6 +111,12 @@ export class LiveUpdateComponent implements OnInit {
     }
     LiveUpdateComponent.fullyCollapsed = true;
     LiveUpdateComponent.fullyExpanded = false;
+  }
+
+  collapseLastN() {
+    $('.expandable-update').slice(3).each(function () {
+      $(this).hide(1000);
+    });
   }
 
 }
