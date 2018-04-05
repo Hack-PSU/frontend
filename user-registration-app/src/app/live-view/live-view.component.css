@@ -4,6 +4,15 @@
     margin-bottom: 10px;
 }
 
+#mlh-trust-badge {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 50px;
+    width: 10%;
+    z-index: 0;
+}
+
 #countdown {
     display: inline-block;
     font-size: 2em;
@@ -35,6 +44,27 @@
     color: #333333;
 }
 
+@media screen and (max-width: 768px) {
+    #hackpsu-logo {
+        max-width: 70%;
+    }
+
+    #countdown {
+        font-size: 1.5em;
+        padding: 0.5em;
+    }
+
+    .btn {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #countdown {
+        padding: 0.3em;
+    }
+}
+
 th {
     vertical-align:middle;
     text-align:center;
@@ -51,20 +81,21 @@ td {
 }
 
 .section-title {
-  margin-bottom: 50px;
-  text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .section-title-word {
-  display: inline-block;
-  white-space: nowrap;
-  padding-right: 1.5%;
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 1.5%;
 }
 
 .section-title-letter {
-  display: inline-block;
-  font-family: 'Cornerstone', 'Lato', sans-serif;
-  font-size: 2.5em;
+    display: inline-block;
+    font-family: 'Cornerstone', 'Lato', sans-serif;
+    font-size: 2.5em;
 }
 
 .workshop-level {
@@ -122,16 +153,25 @@ td {
     box-shadow:none;
 }
 
+.nav-tabs.nav-justified {
+    background-color: white;
+}
+
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:focus,
 .nav-tabs.nav-justified > .active > a:hover {
-    background-color: #194E6B;
+    background-color: #6FA7B3;
     color: white;
 }
 
 .info-title {
     font-size: large;
-    color: white;
+    color: #103147;
+}
+
+#info a {
+    border: 0px;
+    border-radius: 1px;
 }
 
 #info a:hover {
@@ -152,10 +192,50 @@ td {
     color: white
 }
 
-.color2 {
-    background:#6FA7B3;
+.info-card {
+    margin-top: 25px;
+    background-color: #29707F;
+    color: #333333;
+    opacity: 25%;
+    border-radius: 2px;
+    box-shadow: none;
 }
 
-.color1 {
-    background:#194E6B;
+.info-list {
+    font-size: 16px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: #fff;
+}
+
+#footer .email-link {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+#footer .email-link:hover {
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+    color: rgba(255,255,255, 0.5);
+}
+
+.social-media-icon {
+    width: 40px;
+}
+
+#footer  p {
+    font-size: small;
+}
+
+.small-text {
+    font-size: x-small;
+}
+
+.card-title {
+    color: black;
 }

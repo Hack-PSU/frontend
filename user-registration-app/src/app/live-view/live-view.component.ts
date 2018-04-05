@@ -11,6 +11,7 @@ import * as majors from '../../assets/majors.json';
 import { HttpService } from '../HttpService';
 import { Observable } from 'rxjs/Observable';
 import { AppConstants } from '../AppConstants';
+declare var jQuery:any;
 
 @Component({
   selector: 'app-live-view',
@@ -40,3 +41,19 @@ export class LiveViewComponent implements OnInit {
   }
 
 }
+
+//const second = 1000,
+      //minute = second * 60,
+      //hour = minute * 60,
+
+//let countDown = new Date('Apr 08, 2018 12:00:00').getTime(),
+    //x = setInterval(function() {
+
+      //let now = new Date().getTime(),
+          //distance = countDown - now;
+
+        //document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        //document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        //document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+    //}, second)
