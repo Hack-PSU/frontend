@@ -1,17 +1,9 @@
-import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
-/*import { RegistrationModel } from '../registration-model';*/
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Router } from '@angular/router';
-import * as firebase from 'firebase/app';
+import { Component, OnInit} from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-/*import { AsYouType } from 'libphonenumber-js';*/
 
-import * as data from '../../assets/schools.json';
-import * as majors from '../../assets/majors.json';
 import { HttpService } from '../HttpService';
-import { Observable } from 'rxjs/Observable';
-import { AppConstants } from '../AppConstants';
-declare var jQuery:any;
+
+declare var $: any;
 
 @Component({
   selector: 'app-live-view',
@@ -38,6 +30,9 @@ export class LiveViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
   }
 
 }
@@ -55,5 +50,5 @@ export class LiveViewComponent implements OnInit {
         //document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
         //document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
         //document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-      
+
     //}, second)

@@ -198,8 +198,8 @@ td {
   margin-top: 10px;
   padding: 10px 0;
   line-height: 35px;
-  background-color: #a6c4f8;
-  color: #333333;
+  background-color: #78909c;
+  color: white;
   border-radius: 2px;
   box-shadow: none;
 }
@@ -207,6 +207,8 @@ td {
 .info-list {
   font-size: 16px;
   list-style-type: disc;
+}
+#hardware .info-list {
   -webkit-column-count: 3;
   -moz-column-count: 3;
   column-count: 3;
@@ -246,10 +248,30 @@ footer {
   min-height: 250px;
 }
 
+#prizes h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
 .card-title {
   color: black;
 }
 
 .card-reveal {
   color: black;
+}
+
+.tabs .tab a {
+  color: #000;
+}
+
+.map-block {
+  display: block;
+}
+.map-block img {
+  display: block;
+  margin: 0 auto;
+}
+
+.submission {
+  padding: 2%;
 }
