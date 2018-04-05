@@ -10,11 +10,18 @@
          alt="hackpsulogo">
   </div>
   <div class="row center">
-    <ul>
-      <li id="countdown"><span id="hours"></span>Hours</li>
-      <li id="countdown"><span id="minutes"></span>Minutes</li>
-      <li id="countdown"><span id="seconds"></span>Seconds</li>
-    </ul>
+    <div id='countdown-timer' class="row">
+      <div id='days' class='unit'><div>{{days}}</div>Days</div>
+      <div id='hours' class='unit'><div>{{hours}}</div>Hours</div>
+      <div id='minutes' class='unit'><div>{{minutes}}</div>Minutes</div>
+      <div id='seconds' class='unit'><div>{{seconds}}</div>Seconds</div>
+      <h3 id='countdown-text'>{{bannerText}}</h3>
+    </div>
+    <!--<ul>-->
+      <!--<li ><span id="hours"></span>Hours</li>-->
+      <!--<li id="countdown"><span id="minutes"></span>Minutes</li>-->
+      <!--<li id="countdown"><span id="seconds"></span>Seconds</li>-->
+    <!--</ul>-->
   </div>
   <div class="row">
     <div class="center">
