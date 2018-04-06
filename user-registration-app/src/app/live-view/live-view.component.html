@@ -11,16 +11,28 @@
   </div>
   <div class="row center">
     <div id='countdown-timer' class="row">
-      <div id='days' class='unit'><div>{{days}}</div>Days</div>
-      <div id='hours' class='unit'><div>{{hours}}</div>Hours</div>
-      <div id='minutes' class='unit'><div>{{minutes}}</div>Minutes</div>
-      <div id='seconds' class='unit'><div>{{seconds}}</div>Seconds</div>
+      <div id='days' class='unit'>
+        <div>{{days}}</div>
+        Days
+      </div>
+      <div id='hours' class='unit'>
+        <div>{{hours}}</div>
+        Hours
+      </div>
+      <div id='minutes' class='unit'>
+        <div>{{minutes}}</div>
+        Minutes
+      </div>
+      <div id='seconds' class='unit'>
+        <div>{{seconds}}</div>
+        Seconds
+      </div>
       <h3 id='countdown-text'>{{bannerText}}</h3>
     </div>
     <!--<ul>-->
-      <!--<li ><span id="hours"></span>Hours</li>-->
-      <!--<li id="countdown"><span id="minutes"></span>Minutes</li>-->
-      <!--<li id="countdown"><span id="seconds"></span>Seconds</li>-->
+    <!--<li ><span id="hours"></span>Hours</li>-->
+    <!--<li id="countdown"><span id="minutes"></span>Minutes</li>-->
+    <!--<li id="countdown"><span id="seconds"></span>Seconds</li>-->
     <!--</ul>-->
   </div>
   <div class="row">
@@ -49,7 +61,6 @@
         <li role="presentation" class="active"><a data-toggle="tab" href="#map" class="info-title">MAP</a></li>
         <li role="presentation"><a data-toggle="tab" href="#rules" class="info-title">RULES</a></li>
         <li role="presentation"><a data-toggle="tab" href="#hardware" class="info-title">HARDWARE</a></li>
-        <li role="presentation"><a data-toggle="tab" href="#judging" class="info-title">JUDGING CRITERIA</a></li>
         <li role="presentation"><a data-toggle="tab" href="#prizes" class="info-title">PRIZES</a></li>
         <li role="presentation"><a data-toggle="tab" href="#submission" class="info-title">SUBMISSION</a></li>
       </ul>
@@ -104,64 +115,88 @@
             </ol>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade in table-responsive" id="judging">
-          <div class="card">
-            <div class="card-content blue-grey lighten-1">
-              <h4>HackPSU Judging Criteria</h4>
-            </div>
-            <div class="card-tabs">
-              <ul class="tabs tabs-fixed-width">
-                <li class="tab"><a class="active" href="#tab1">Creativity & Originality</a></li>
-                <li class="tab"><a href="#tab2">Technical Skills</a></li>
-                <li class="tab"><a href="#tab3">Implementation</a></li>
-                <li class="tab"><a href="#tab4">Clarity</a></li>
-                <li class="tab"><a href="#tab5">Knowledge</a></li>
-              </ul>
-            </div>
-            <div class="card-content blue-grey darken-1">
-              <div id="tab1">
-                <ol class="info-list">
-                  <li>Is the solution novel, original and not-obvious?</li>
-                  <li>How different is the design from current solutions?</li>
-                  <li>Does it approach the problem from an unusual or different perspective?</li>
-                  <li>How creative is the problem statement?</li>
-                  <li>Does the solution address a problem which is novel, original and not-obvious?</li>
-                </ol>
-              </div>
-              <div id="tab2">
-                <ol class="info-list">
-                  <li>Was the solution technically challenging? (Taking into account team size and measured relative to
-                    competition)
-                  </li>
-                  <li>How intricate was the solution?</li>
-                  <li>Did the solution pose a challenge to the group?</li>
-                </ol>
-              </div>
-              <div id="tab3">
-                <ol class="info-list">
-                  <li>Was the solution effective in addressing the problem?</li>
-                  <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
-                  <li>Is the solution needlessly complex?</li>
-                  <li>Overall, is the solution viable in addressing the problem statement?</li>
-                </ol>
-              </div>
-              <div id="tab4">
-                <ol class="info-list">
-                  <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
-                  <li>Were the topics accessible to the audience?</li>
-                  <li>Were all obscure acronyms or jargon explained?</li>
-                </ol>
-              </div>
-              <div id="tab5">
-                <ol class="info-list">
-                  <li>How effectively did the team handle questions?</li>
-                  <li>Did the team demonstrate knowledge of the subject matter?</li>
-                </ol>
+        <div role="tabpanel" class="tab-pane fade in table-responsive" id="prizes">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-1">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/FB_Event_header.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">HackPSU Overall Prize<i
+                    class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">HackPSU Overall Prize<i
+                    class="material-icons right">close</i></span>
+                  <h5>Creativity & Originality</h5>
+                  <ol class="info-list">
+                    <li>Is the solution novel, original and not-obvious?</li>
+                    <li>How different is the design from current solutions?</li>
+                    <li>Does it approach the problem from an unusual or different perspective?</li>
+                    <li>How creative is the problem statement?</li>
+                    <li>Does the solution address a problem which is novel, original and not-obvious?</li>
+                  </ol>
+                  <h5>Technical Skills</h5>
+                  <ol class="info-list">
+                    <li>Was the solution technically challenging? (Taking into account team size and measured relative
+                      to
+                      competition)
+                    </li>
+                    <li>How intricate was the solution?</li>
+                    <li>Did the solution pose a challenge to the group?</li>
+                  </ol>
+                  <h5>Implementation</h5>
+                  <ol class="info-list">
+                    <li>Was the solution effective in addressing the problem?</li>
+                    <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
+                    <li>Is the solution needlessly complex?</li>
+                    <li>Overall, is the solution viable in addressing the problem statement?</li>
+                  </ol>
+                  <h5>Clarity</h5>
+                  <ol class="info-list">
+                    <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
+                    <li>Were the topics accessible to the audience?</li>
+                    <li>Were all obscure acronyms or jargon explained?</li>
+                  </ol>
+                  <h5>Knowledge</h5>
+                  <ol class="info-list">
+                    <li>How effectively did the team handle questions?</li>
+                    <li>Did the team demonstrate knowledge of the subject matter?</li>
+                  </ol>
+                  <h5>Prizes:</h5>
+                  <h6>$500 Amazon Gift card for 1st place</h6>
+                  <h6>$300 Amazon gift card for 2nd place</h6>
+                  <h6>$200 Amazon gift card for 3rd place</h6>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade in table-responsive" id="prizes">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/PSUIT_original.svg" style="width: 50%; left: 25%">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">Hack the classroom with Alexa<i class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">Hack the classroom with Alexa<i
+                    class="material-icons right">close</i></span>
+                  <p>Hack the classroom by building an Alexa skill that enhances teaching and learning in the
+                    classroom.<br/><br/>
+
+                    Judging criteria will be the same as HackPSU's general judging criteria
+                  </p>
+                  <h5>Prizes:</h5>
+                  <h6>Amazon Echos (2nd Generation) for 1st place</h6>
+                  <h6>Amazon Echo Dots (2nd Generation) for 2nd place</h6>
+                  <h6>$25 Amazon gift cards for 3rd place</h6>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
               <div class="card blue-grey lighten-1">
@@ -209,7 +244,8 @@
                   <img class="activator" src="../../assets/images/GSK_original.svg" style="width: 50%; left: 25%">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator">Sleep Tracker Solution<i class="material-icons right">more_vert</i></span>
+                <span class="card-title activator">Sleep Tracker Solution<i
+                  class="material-icons right">more_vert</i></span>
                 </div>
                 <div class="card-reveal">
                   <span class="card-title activator">Sleep Tracker Solution<i
@@ -238,16 +274,16 @@
               </dd>
 
               <dt>Go to our HackPSU Devpost</dt>
-              <dd>Log in to Devpost with your GitHub.</dd>
+              <dd>Log in to Devpost at <a href="">https://link-to-devpost</a>with your GitHub.</dd>
 
               <dt>Add your Project on Devpost</dt>
               <dd>Enter in the name of your project, your team member's names, select the category of your project, and
                 link the URL to your Git repository.
               </dd>
 
-              <dt>Remember your Assigned Table Number</dt>
-              <dd>After you submit your project on Devpost, your team will be assigned a table number. When hacking is
-                over, bring your project to your table before judging begins.
+              <dt>Request for a table number <a routerLink="/table">here</a></dt>
+              <dd>After you submit your project on Devpost, you can request for a table number at the above link after 10 am Sunday.
+                When hacking is over, bring your project to your table before judging begins.
               </dd>
             </dl>
           </div>
@@ -295,7 +331,7 @@
   </div>
   <app-live-update></app-live-update>
 </section>
-<section id="workshops">
+<section id="workshops" class="container-fluid">
   <div class="row section-title-container">
     <div class="col-xs-6 section-title col-xs-offset-3">
       <div class="section-title-word">
@@ -312,22 +348,22 @@
     </div>
   </div>
 
-  <div class="row centered">
-    <div class="card beginner col-md-4" style="margin-right:7vw;">
+  <div class="row">
+    <div class="card beginner col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/google.svg"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Interview Prep</div>
-	    <div style="font-weight:bold;">B McElroy</div>
-	    <div style="font-weight:bold;">Auditorium, 4:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/google.svg"
+               class="leader">
+          <div>
+            <div class="workshop-title">Interview Prep</div>
+            <div style="font-weight:bold;">B McElroy</div>
+            <div style="font-weight:bold;">Auditorium, 4:00 PM</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-7 card workshop-info">
+    <div class="col-md-7 col-xs-12 card workshop-info">
       <div class="card-content">
         <p>This Interview Prep Workshop hosted by Google will focus on
           getting our hackers ready for an interview! We'll be going over
@@ -337,22 +373,22 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card beginner col-xs-4 indented">
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12 indented">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/apple.svg"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">App Development/Swift</div>
-	    <div style="font-weight:bold;">Zach from Apple</div>
-	    <div style="font-weight:bold;">Auditorium, 5:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/apple.svg"
+               class="leader">
+          <div>
+            <div class="workshop-title">App Development/Swift</div>
+            <div style="font-weight:bold;">Zach from Apple</div>
+            <div style="font-weight:bold;">Auditorium, 5:00 PM</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
         <p>Interested in making your own mobile app? Stop by our App
           Development Workshop hosted by Apple to gain the basic skills and
@@ -363,25 +399,26 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card beginner col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/pj.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">
-	      Introduction to Cloud Computing
-	    </div>
-	    <div style="font-weight:bold;">Pranav Jain</div>
-	    <div style="font-weight:bold;">
-	      Auditorium, Saturday 8:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/pj.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">
+              Introduction to Cloud Computing
+            </div>
+            <div style="font-weight:bold;">Pranav Jain</div>
+            <div style="font-weight:bold;">
+              Auditorium, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
         <p>This workshop will be the beginning of a two-part workshop. In
           this Introduction to Cloud Computing Workshop, hackers will be
@@ -393,50 +430,52 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card beginner col-xs-4 indented">
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12 indented">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/sush.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Cloud Computing</div>
-	    <div style="font-weight:bold;">Sushrut Shringarputale</div>
-	    <div style="font-weight:bold;">
-	      Auditorium, Saturday 9:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/sush.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cloud Computing</div>
+            <div style="font-weight:bold;">Sushrut Shringarputale</div>
+            <div style="font-weight:bold;">
+              Auditorium, Saturday 9:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
-	<p>The Cloud Computing Workshop follows our REST API Workshop. It
-	  will be an interactive tour through current cloud technologies
-	  that are available to developers, as well as an introduction to
-	  industry-like deployment practices. Attendees will be able to run
-	  their own code to the cloud at the end of this workshop.
-	</p>
+        <p>The Cloud Computing Workshop follows our REST API Workshop. It
+          will be an interactive tour through current cloud technologies
+          that are available to developers, as well as an introduction to
+          industry-like deployment practices. Attendees will be able to run
+          their own code to the cloud at the end of this workshop.
+        </p>
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card beginner col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/trent.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Cybersecurity</div>
-	    <div style="font-weight:bold;">Trent Jaeger</div>
-	    <div style="font-weight:bold;">
-	      Auditorium, Sunday 9:00 AM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/trent.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cybersecurity</div>
+            <div style="font-weight:bold;">Trent Jaeger</div>
+            <div style="font-weight:bold;">
+              Auditorium, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
         <p>There are many different types of attacks that exploit your
           network vulnerabilities. Being aware of these threats and knowing
@@ -449,24 +488,25 @@
   </div>
 
 
-  <div class="row centered">
-    <div class="card intermediate col-xs-4"
-	 style="margin-right:7vw;padding-right:0px;">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12"
+         style="margin-right:7vw;padding-right:0px;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/garrett.png"
-	       class="leader">
-	  <div style="margin-left:2vh;">
-	    <div class="workshop-title">Hello World: Welcome to Python</div>
-	    <div style="font-weight:bold;">Garrett Sullivan</div>
-	    <div style="font-weight:bold;">
-	      MBA 1, Saturday 5:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/garrett.png"
+               class="leader">
+          <div style="margin-left:2vh;">
+            <div class="workshop-title">Hello World: Welcome to Python</div>
+            <div style="font-weight:bold;">Garrett Sullivan</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 5:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-7 card workshop-info">
+    <div class="col-md-7 col-xs-12 card workshop-info">
       <div class="card-content">
         <p>New to programming? Never programmed before? That's ok! This
           Introduction to Python Workshop is designed for those who have
@@ -478,23 +518,24 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card intermediate col-xs-4 indented">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12 indented">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/ryan.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Introduction to HTML/CSS</div>
-	    <div style="font-weight:bold;">Ryan O'Neill</div>
-	    <div style="font-weight:bold;">
-	      MBA 1, Saturday 6:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/ryan.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Introduction to HTML/CSS</div>
+            <div style="font-weight:bold;">Ryan O'Neill</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 6:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-7 card workshop-info">
+    <div class="col-md-7 col-xs-12 card workshop-info">
       <div class="card-content">
         <p>Hi there hacker! New to coding? Little or no experience? That's
           ok! For those of you interested in learning about coding in
@@ -505,25 +546,24 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card intermediate col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <div class="col-xs-3">
-	    <img src="../../assets/images/workshop_leaders/chanpreet.png"
-		 class="leader">
-	  </div>
-	  <div class="col-sm-9">
-	    <div class="workshop-title">Databases</div>
-	    <div style="font-weight:bold;">Chanpreet Singh</div>
-	    <div style="font-weight:bold;">
-	      MBA 1, Saturday 8:00 PM </div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/chanpreet.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Databases</div>
+            <div style="font-weight:bold;">Chanpreet Singh</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-7 card workshop-info">
+    <div class="col-md-7 col-xs-12 card workshop-info">
       <div class="card-content">
         <p>Our Databases Workshop will give you the chance to learn about
           the basics of databses in SQL. In this workshop, you will be able
@@ -532,23 +572,24 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card intermediate col-xs-4 indented">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12 indented">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/angela.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Web Development</div>
-	    <div style="font-weight:bold;">Angela Chan</div>
-	    <div style="font-weight:bold;">
-	      MBA 1, Saturday 9:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/angela.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Web Development</div>
+            <div style="font-weight:bold;">Angela Chan</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 9:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
         <p>Our Web Development Workshop will take the brief overview of the
           basics of HTML from our previous workshop and expand them to do
@@ -558,23 +599,24 @@
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card intermediate col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/alex.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Cryptocurrency</div>
-	    <div style="font-weight:bold;">Alex Patin</div>
-	    <div style="font-weight:bold;">
-	      MBA 1, Sunday 9:00 AM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/alex.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cryptocurrency</div>
+            <div style="font-weight:bold;">Alex Patin</div>
+            <div style="font-weight:bold;">
+              MBA 1, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
         <p>You've probably heard of Bitcoins and Ripple, but what really
           are they? Come to our Cryptocurrency Workshop if you are
@@ -586,117 +628,120 @@
     </div>
   </div>
 
-    <div class="row centered">
-    <div class="card advanced col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card advanced col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/yuya.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Machine Learning</div>
-	    <div style="font-weight:bold;">Yuya Ong</div>
-	    <div style="font-weight:bold;">
-	      MBA 2, Saturday 6:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/yuya.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Machine Learning</div>
+            <div style="font-weight:bold;">Yuya Ong</div>
+            <div style="font-weight:bold;">
+              MBA 2, Saturday 6:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
-	<p>What really is the difference between AI and machine learning?
-	  Come to our Machine Learning Workshop to find out more about
-	  machine learning. In this workshop, you will learn how computers
-	  can utilize pattern recognition and predict based off of
-	  computational statistics to "learn", improve performance, and
-	  solve specific tasks by being fed data instead of explicit
-	  programming!</p>
+        <p>What really is the difference between AI and machine learning?
+          Come to our Machine Learning Workshop to find out more about
+          machine learning. In this workshop, you will learn how computers
+          can utilize pattern recognition and predict based off of
+          computational statistics to "learn", improve performance, and
+          solve specific tasks by being fed data instead of explicit
+          programming!</p>
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card advanced indented col-xs-4">
+  <div class="row ">
+    <div class="card advanced indented col-md-4 col-xs-12">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/dave.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Hardware Prototyping</div>
-	    <div style="font-weight:bold;">David McDermott</div>
-	    <div style="font-weight:bold;">
-	      MBA 2, Saturday 8:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/dave.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Hardware Prototyping</div>
+            <div style="font-weight:bold;">David McDermott</div>
+            <div style="font-weight:bold;">
+              MBA 2, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
-	<p>Our Hardware Prototyping Workshop is definitely not to be missed!
-	  Learn everything from how to download a basic program onto a
-	  Raspberry Pi Board, to the many applications it can be used for.
-	  This workshop is very hands on, so come prepared to learn!
-	  Hardware will be provided.</p>
+        <p>Our Hardware Prototyping Workshop is definitely not to be missed!
+          Learn everything from how to download a basic program onto a
+          Raspberry Pi Board, to the many applications it can be used for.
+          This workshop is very hands on, so come prepared to learn!
+          Hardware will be provided.</p>
       </div>
     </div>
   </div>
-  <div class="row centered">
-    <div class="card advanced col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card advanced col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/nick.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">
-	      How to Take Your Project to Market!</div>
-	    <div style="font-weight:bold;">Nick Jacobson</div>
-	    <div style="font-weight:bold;">
-	      MBA 2, Sunday 9:00 AM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/nick.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">
+              How to Take Your Project to Market!
+            </div>
+            <div style="font-weight:bold;">Nick Jacobson</div>
+            <div style="font-weight:bold;">
+              MBA 2, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
-	<p>Stop by our Taking Your Product to Market Workshop to see the
-	  developers of Mood Triggers, an app that was started here at
-	  Penn State and is currently used by over 44,000 people. The
-	  members of the Mood Triggers team will be talking about the trials
-	  and tribulations of taking your product from prototype to
-	  distribution!
-	</p>
+        <p>Stop by our Taking Your Product to Market Workshop to see the
+          developers of Mood Triggers, an app that was started here at
+          Penn State and is currently used by over 44,000 people. The
+          members of the Mood Triggers team will be talking about the trials
+          and tribulations of taking your product from prototype to
+          distribution!
+        </p>
       </div>
     </div>
   </div>
 
 
-
-  
-  <div class="row centered">
-    <div class="card intermediate col-xs-4" style="margin-right:7vw;">
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12" style="margin-right:7vw;">
       <div class="card-header">&nbsp;</div>
       <div class="card-block">
-	<div class="row flexed">
-	  <img src="../../assets/images/workshop_leaders/adlan.png"
-	       class="leader">
-	  <div>
-	    <div class="workshop-title">Virtual Reality</div>
-	    <div style="font-weight:bold;">Adlan Ramly</div>
-	    <div style="font-weight:bold;">
-	      MBA 3, Saturday 5:00 PM</div>
-	  </div>
-	</div>
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/adlan.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Virtual Reality</div>
+            <div style="font-weight:bold;">Adlan Ramly</div>
+            <div style="font-weight:bold;">
+              MBA 3, Saturday 5:00 PM
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card col-xs-7 workshop-info">
+    <div class="card col-md-7 col-xs-12 workshop-info">
       <div class="card-content">
-	<p>Come see the members of our Penn State VR Club delve into the
-	  possibilities of VR technology at our Virtual Reality Workshop!
-	  Starting with a discussion on the development of a VR application,
-	  this workshop will talk about the tools and software you need to
-	  learn, practice, and implement your own Virtual Reality projects!
-	</p>
+        <p>Come see the members of our Penn State VR Club delve into the
+          possibilities of VR technology at our Virtual Reality Workshop!
+          Starting with a discussion on the development of a VR application,
+          this workshop will talk about the tools and software you need to
+          learn, practice, and implement your own Virtual Reality projects!
+        </p>
       </div>
     </div>
   </div>
