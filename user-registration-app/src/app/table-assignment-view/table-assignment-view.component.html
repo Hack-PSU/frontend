@@ -1,3 +1,259 @@
-<p>
-  table-assignment-view works!
-</p>
+<div class="row">
+  <h3 class="center header">Table Assignment UI</h3>
+</div>
+<div class="row" *ngIf="response === null; else responseView">
+  <div class="col hide-on-small-only m2 l2 m2-offset-1 scrollspy-container">
+    <ul class="section table-of-contents">
+      <li><a href="#project-container">Project Name</a></li>
+      <li><a href="#team-member-container">Team Members</a></li>
+      <li><a href="#project-category-container">Project Category</a></li>
+    </ul>
+  </div>
+  <form class="registration-form col m5 l5"
+        (ngSubmit)="travelModel.form.valid ? onSubmit() : onError()"
+        name="travelFormDOM"
+        novalidate
+        #travelModel="ngForm"
+  >
+    <!-- Project Name -->
+    <div class="row scrollspy" id="project-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>What is the name of your project?</h5>
+          <div class="input-field">
+            <input name="projectName"
+                   id="projectName-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="travelForm.projectName"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="projectname-input" data-error="Project name is required">Enter your Project Name</label>
+          </div>
+          <label class="data-error" *ngIf="!projectName.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member #1-->
+    <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>Team Member 1</h5>
+          <div class="input-field">
+            <input name="fullName1"
+                   id="fullName1-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="registrationForm.fullName1"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="fullname1-input" data-error="Full name is required">Enter your Full name</label>
+          </div>
+          <div class="input-field">
+            <input name="email1"
+                   class="validate required"
+                   id="email1-input"
+                   required
+                   [(ngModel)]="registrationForm.email1"
+                   autocomplete="family-name"
+                   #firstnameinput="ngModel"
+                   type="text"
+            >
+            <label for="email1-input" data-error="Email address is required">Enter your Email Address</label>
+          </div>
+          <label class="data-error" *ngIf="!teammember1input.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of People -->
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="year-container">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="year">How many people are in your team? (excluding yourself)</h5>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="freshman" required name="academic_year" value="freshman"
+                   #yearinput="ngModel"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="freshman">0</label><br>
+            <input type="radio" class="with-gap" id="sophomore" required name="academic_year" value="sophomore"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="sophomore">1</label><br>
+            <input type="radio" class="with-gap" id="junior" required name="academic_year" value="junior"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="junior">2</label><br>
+            <input type="radio" class="with-gap" id="senior" required name="academic_year" value="senior"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="senior">3</label><br>
+            <input type="radio" class="with-gap" id="graduate" required name="academic_year" value="graduate"
+                   [(ngModel)]="registrationForm.academicYear">
+          </div>
+          <label class="data-error" *ngIf="!yearinput.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member #2-->
+    <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>Team Member 2</h5>
+          <div class="input-field">
+            <input name="fullName2"
+                   id="fullName2-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="registrationForm.fullName2"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="fullname2-input" data-error="Full name is required">Enter your Full name</label>
+          </div>
+          <div class="input-field">
+            <input name="email2"
+                   class="validate required"
+                   id="email2-input"
+                   required
+                   [(ngModel)]="registrationForm.email2"
+                   autocomplete="family-name"
+                   #firstnameinput="ngModel"
+                   type="text"
+            >
+            <label for="email2-input" data-error="Email address is required">Enter your Email Address</label>
+          </div>
+          <label class="data-error" *ngIf="!teammember2input.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member #3-->
+    <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>Team Member 3</h5>
+          <div class="input-field">
+            <input name="fullName3"
+                   id="fullName3-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="registrationForm.fullName3"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="fullname3-input" data-error="Full name is required">Enter your Full name</label>
+          </div>
+          <div class="input-field">
+            <input name="email3"
+                   class="validate required"
+                   id="email3-input"
+                   required
+                   [(ngModel)]="registrationForm.email3"
+                   autocomplete="family-name"
+                   #firstnameinput="ngModel"
+                   type="text"
+            >
+            <label for="email3-input" data-error="Email address is required">Enter your Email Address</label>
+          </div>
+          <label class="data-error" *ngIf="!teammember3input.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member #4-->
+    <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>Team Member 4</h5>
+          <div class="input-field">
+            <input name="fullName4"
+                   id="fullName4-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="registrationForm.fullName4"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="fullname4-input" data-error="Full name is required">Enter your Full name</label>
+          </div>
+          <div class="input-field">
+            <input name="email4"
+                   class="validate required"
+                   id="email4-input"
+                   required
+                   [(ngModel)]="registrationForm.email4"
+                   autocomplete="family-name"
+                   #firstnameinput="ngModel"
+                   type="text"
+            >
+            <label for="email4-input" data-error="Email address is required">Enter your Email Address</label>
+          </div>
+          <label class="data-error" *ngIf="!teammember4input.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of People -->
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="project-category-container">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="year">What category does your project fall under?</h5>
+          <div class="form-group">
+            <input type="radio" class="with-gap" id="vr" required name="academic_year" value="vr"
+                   #yearinput="ngModel"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="vr">Virtual Reality</label><br>
+            <input type="radio" class="with-gap" id="iot" required name="academic_year" value="iot"
+                   [(ngModel)]="registrationForm.academicYear">
+            <label for="iot">Internet of Things</label><br>
+          </div>
+          <label class="data-error" *ngIf="!yearinput.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="center">
+      <div class="card" *ngIf="errors">
+        <div class="card-content">
+          <p class="alert alert-danger">{{errors}}</p>
+        </div>
+      </div>
+      <div class="center">
+        <button *ngIf="!loading; else spinner" class="btn waves-effect waves-light submit-btn" type="submit"
+                name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        <ng-template #spinner>
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #responseView>
+  <div class="card medium darken-1">
+    <div class="card-content">
+      <h5>{{response}}</h5>
+    </div>
+  </div>
+</ng-template>
