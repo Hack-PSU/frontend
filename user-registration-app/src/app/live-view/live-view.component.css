@@ -212,6 +212,11 @@ td {
   flex: 1 0 auto;
 }
 
+.lighter {
+    background: #D0EAF1;
+    color:#333333;
+}
+
 .beginner {
   display: inline-block;
   background: #6FA7B3;
