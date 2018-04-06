@@ -48,6 +48,8 @@ td {
     border-radius:50%;
     height:10vh;
     margin-right:3vh;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .section-title {
