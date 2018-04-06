@@ -22,6 +22,16 @@ export class HttpService {
       });
   }
 
+  getTableAssignment(currentUser) {
+    const API_ENDPOINT = 'users/tableAssignmentUI';
+    return Observable.fromPromise(currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.get<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
+      });
+  }
+
   submitRegistration(submitData: RegistrationModel, uid: string) {
     const API_ENDPOINT = 'register';
     const formObject: FormData = new FormData();
@@ -67,6 +77,25 @@ export class HttpService {
     }
     if (travelForm.receipt) {
       Array.from(travelForm.receipt).forEach((r: any) => formObject.append('receipt', r, r.name));
+    }
+    return Observable.fromPromise(this.afAuth.auth.currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+                              formObject,
+                              { headers, reportProgress: true });
+      });
+  }
+
+  submitTableAssignmentUI(tableForm: any, uid) {
+    const API_ENDPOINT = 'users/tableAssignmentUI';
+    const formObject: FormData = new FormData();
+    formObject.append('uid', uid);
+    for (const key in tableForm) {
+      if (tableForm.hasOwnProperty(key) && tableForm[key] !== null) {
+        formObject.append(key, tableForm[key]);
+      }
     }
     return Observable.fromPromise(this.afAuth.auth.currentUser.getIdToken(true))
       .switchMap((idToken: string) => {
