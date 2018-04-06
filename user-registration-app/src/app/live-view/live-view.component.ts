@@ -1,7 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 import { HttpService } from '../HttpService';
+import { Subscription } from 'rxjs/Subscription';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
 declare var $: any;
 
@@ -25,11 +27,12 @@ declare var $: any;
     ),
   ],
 })
-export class LiveViewComponent implements OnInit {
+export class LiveViewComponent implements OnInit, OnDestroy {
   currentTime: number;
   startTime: number;
   endTime: number;
   isBeforeEvent: boolean;
+  subscription: Subscription;
 
   days: number;
   hours: number;
@@ -38,10 +41,10 @@ export class LiveViewComponent implements OnInit {
 
   bannerText: string;
 
-  constructor() {
+  constructor(private zone: NgZone) {
     this.currentTime = new Date().getTime() / 1000;
     this.startTime = new Date('April 7, 2018 14:00:00').getTime() / 1000;
-    this.endTime =   new Date('April 8, 2018 14:00:00').getTime() / 1000;
+    this.endTime = new Date('April 8, 2018 14:00:00').getTime() / 1000;
   }
 
   ngOnInit() {
@@ -50,11 +53,12 @@ export class LiveViewComponent implements OnInit {
     });
     if (this.currentTime < this.startTime) {
       this.bannerText = 'until HackPSU!';
-      this.getTimeRemaining(this.currentTime, this.startTime);
+      this.countDown(this.currentTime, this.startTime);
       this.isBeforeEvent = true;
     } else if (this.currentTime < this.endTime) {
       this.bannerText = 'remains!';
       this.getTimeRemaining(this.currentTime, this.endTime);
+      this.countDown(this.currentTime, this.endTime);
       this.isBeforeEvent = false;
     } else {
       this.bannerText = 'Hacking is over!';
@@ -73,42 +77,37 @@ export class LiveViewComponent implements OnInit {
     timeTill = timeTill % 3600;
     this.minutes = Math.floor(timeTill / 60);
     this.seconds = Math.floor(timeTill % 60);
-    this.countDown(currentTime, countdownTime);
   }
+
   countDown(currentTime, countdownTime) {
-    setTimeout(() => {
-      currentTime += 1;
-      if ((countdownTime - currentTime) <= 0) {
-        if (this.isBeforeEvent) {
-          this.bannerText = 'remains!';
-          this.getTimeRemaining(currentTime, this.endTime);
+    this.zone.runOutsideAngular(() => {
+      const timer = TimerObservable.create(0, 1000);
+      this.subscription = timer.subscribe(() => {
+        this.currentTime += 1;
+        if ((countdownTime - this.currentTime) <= 0) {
+          if (this.isBeforeEvent) {
+            this.zone.run(() => {
+              this.bannerText = 'remains!';
+              this.getTimeRemaining(this.currentTime, this.endTime);
+            });
+          } else {
+            this.days = 0;
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+            this.bannerText = 'Hacking is over!';
+          }
         } else {
-          this.days = 0;
-          this.hours = 0;
-          this.minutes = 0;
-          this.seconds = 0;
-          this.bannerText = 'Hacking is over!';
+          this.zone.run(() => {
+            this.getTimeRemaining(this.currentTime, countdownTime);
+          });
         }
-      } else {
-        this.getTimeRemaining(currentTime, countdownTime);
-      }
-    },         1000);
+      });
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
-
-//const second = 1000,
-      //minute = second * 60,
-      //hour = minute * 60,
-
-//let countDown = new Date('Apr 08, 2018 12:00:00').getTime(),
-    //x = setInterval(function() {
-
-      //let now = new Date().getTime(),
-          //distance = countDown - now;
-
-        //document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        //document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        //document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-    //}, second)
