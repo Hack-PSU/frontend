@@ -39,3 +39,7 @@
 .btn-flat {
   background-color: transparent;
 }
+
+.spinner-layer {
+  border-color: white;
+}

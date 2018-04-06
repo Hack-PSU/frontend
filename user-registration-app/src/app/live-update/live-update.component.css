@@ -7,15 +7,17 @@
 
 .update-title {
   font-size: large;
-  padding: 5px;
+  padding-top: 5px;
   margin: 5px;
+  margin-bottom: 0;
   cursor: pointer;
+  font-family: 'Raleway', sans-serif;
 }
 
 .update-body {
   font-size: medium;
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   line-height: 20px;
   -ms-word-break: break-all;
   word-break: break-all;
@@ -46,12 +48,19 @@
 
 .update-holder {
   margin: 0px;
-  padding: 1%;
+  padding: 0.5%;
 }
 
 .update-holder-inner-styling {
   /*border: 2px solid #F3613e;*/
-  background-color: #aacacc;
+  padding-top: 1%;
+  /*border-radius: 10%;*/
+  margin: 0 auto;
+  background: #D0EAF1 url("../../assets/images/corner2.png") no-repeat;
+}
+
+.update-holder-inner-styling .row {
+  margin-bottom: 10px;
 }
 
 .collapsing-button {
@@ -70,7 +79,7 @@
   position: absolute;
   z-index: 100;
   width: 60%;
-  top: -1%;
+  top: -3%;
   left: 20%;
   text-align: center;
 }

@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import * as io from 'socket.io-client';
+import { AppConstants } from './AppConstants';
 
 @Injectable()
 export class EventsService {
 
-  private url = 'http://localhost:5000/events';
+  private url = `${AppConstants.SOCKET_BASE_URL}/events`;
   private socket;
 
   private broadcastSubject: BehaviorSubject<Event> = new BehaviorSubject<Event>(new Event(''));

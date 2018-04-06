@@ -162,13 +162,13 @@ export class RegistrationFormComponent implements OnInit {
       .subscribe((data) => {
     this.loading = false;
     this.router.navigate(['/rsvpsuccess']);
-      },          (error) => {
+      },         (error) => {
     this.loading = false;
     this.errors = error.message;
       });
   }
 
-  public show : boolean = false;
+  public show = false;
   rsvpInfo() {
     this.show = !this.show;
   }
