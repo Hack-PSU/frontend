@@ -14,14 +14,14 @@ declare var $: any;
 })
 export class TableAssignmentViewComponent implements OnInit {
 
-  public travelForm: any;
+  public tableForm: any;
   public user: any;
   public loading = false;
   public errors = null;
   public response = null;
 
   constructor(private httpService: HttpService, private afAuth: AngularFireAuth, private router: Router) {
-    this.travelForm = {};
+    this.tableForm = {};
   }
 
   ngOnInit() {
@@ -42,14 +42,10 @@ export class TableAssignmentViewComponent implements OnInit {
     },                      1000);
   }
 
-  fileAdded(event) {
-    this.travelForm.receipt = event.target.files;
-  }
-
   onSubmit() {
-    console.log(this.travelForm);
+    console.log(this.tableForm);
     this.loading = true;
-    this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid)
+    this.httpService.submitTableAssignmentUI(this.tableForm, this.user.uid)
       .subscribe((value: any) => {
         this.response = value.result;
         this.loading = false;

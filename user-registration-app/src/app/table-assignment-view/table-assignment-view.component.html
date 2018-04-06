@@ -10,8 +10,8 @@
     </ul>
   </div>
   <form class="registration-form col m5 l5"
-        (ngSubmit)="travelModel.form.valid ? onSubmit() : onError()"
-        name="travelFormDOM"
+        (ngSubmit)="tableModel.form.valid ? onSubmit() : onError()"
+        name="tableFormDOM"
         novalidate
         #travelModel="ngForm"
   >
@@ -25,7 +25,7 @@
                    id="projectName-input"
                    class="validate required"
                    required
-                   [(ngModel)]="travelForm.projectName"
+                   [(ngModel)]="tableForm.projectName"
                    #firstName="ngModel"
                    autocomplete="name"
                    type="text"
@@ -43,57 +43,32 @@
         <div class="card-content">
           <h5>Team Member 1</h5>
           <div class="input-field">
-            <input name="fullName1"
-                   id="fullName1-input"
+            <input name="fullName"
+                   id="fullName-input"
                    class="validate required"
                    required
-                   [(ngModel)]="registrationForm.fullName1"
+                   [(ngModel)]="tableForm.fullName"
                    #firstName="ngModel"
                    autocomplete="name"
                    type="text"
             >
-            <label for="fullname1-input" data-error="Full name is required">Enter your Full name</label>
+            <label for="fullname-input" data-error="Full name is required">Enter your Full name</label>
           </div>
           <div class="input-field">
-            <input name="email1"
-                   class="validate required"
-                   id="email1-input"
+            <!-- <i class="material-icons prefix">email</i> -->
+            <input type="email"
+                   class="validate"
+                   name="email"
+                   email
+                   id="email-input"
                    required
-                   [(ngModel)]="registrationForm.email1"
-                   autocomplete="family-name"
-                   #firstnameinput="ngModel"
-                   type="text"
+                   autocomplete="email"
+                   placeholder="student@university.edu"
+                   [(ngModel)]="tableForm.email"
+                   #emailinput="ngModel"
             >
-            <label for="email1-input" data-error="Email address is required">Enter your Email Address</label>
+            <label for="email-input" data-error="Valid email is required">Enter your email</label>
           </div>
-          <label class="data-error" *ngIf="!teammember1input.valid">Required</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Number of People -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="year-container">
-      <div class="card medium darken-1">
-        <div class="card-content ">
-          <h5 class="year">How many people are in your team? (excluding yourself)</h5>
-          <div class="form-group">
-            <input type="radio" class="with-gap" id="freshman" required name="academic_year" value="freshman"
-                   #yearinput="ngModel"
-                   [(ngModel)]="registrationForm.academicYear">
-            <label for="freshman">0</label><br>
-            <input type="radio" class="with-gap" id="sophomore" required name="academic_year" value="sophomore"
-                   [(ngModel)]="registrationForm.academicYear">
-            <label for="sophomore">1</label><br>
-            <input type="radio" class="with-gap" id="junior" required name="academic_year" value="junior"
-                   [(ngModel)]="registrationForm.academicYear">
-            <label for="junior">2</label><br>
-            <input type="radio" class="with-gap" id="senior" required name="academic_year" value="senior"
-                   [(ngModel)]="registrationForm.academicYear">
-            <label for="senior">3</label><br>
-            <input type="radio" class="with-gap" id="graduate" required name="academic_year" value="graduate"
-                   [(ngModel)]="registrationForm.academicYear">
-          </div>
-          <label class="data-error" *ngIf="!yearinput.valid">Required</label>
         </div>
       </div>
     </div>
@@ -104,30 +79,32 @@
         <div class="card-content">
           <h5>Team Member 2</h5>
           <div class="input-field">
-            <input name="fullName2"
-                   id="fullName2-input"
+            <input name="fullName"
+                   id="fullName-input"
                    class="validate required"
                    required
-                   [(ngModel)]="registrationForm.fullName2"
+                   [(ngModel)]="tableForm.fullName"
                    #firstName="ngModel"
                    autocomplete="name"
                    type="text"
             >
-            <label for="fullname2-input" data-error="Full name is required">Enter your Full name</label>
+            <label for="fullname-input" data-error="Full name is required">Enter your Full name</label>
           </div>
           <div class="input-field">
-            <input name="email2"
-                   class="validate required"
-                   id="email2-input"
+            <!-- <i class="material-icons prefix">email</i> -->
+            <input type="email"
+                   class="validate"
+                   name="email"
+                   email
+                   id="email-input"
                    required
-                   [(ngModel)]="registrationForm.email2"
-                   autocomplete="family-name"
-                   #firstnameinput="ngModel"
-                   type="text"
+                   autocomplete="email"
+                   placeholder="student@university.edu"
+                   [(ngModel)]="tableForm.email"
+                   #emailinput="ngModel"
             >
-            <label for="email2-input" data-error="Email address is required">Enter your Email Address</label>
+            <label for="email-input" data-error="Valid email is required">Enter your email</label>
           </div>
-          <label class="data-error" *ngIf="!teammember2input.valid">Required</label>
         </div>
       </div>
     </div>
@@ -138,30 +115,32 @@
         <div class="card-content">
           <h5>Team Member 3</h5>
           <div class="input-field">
-            <input name="fullName3"
-                   id="fullName3-input"
+            <input name="fullName"
+                   id="fullName-input"
                    class="validate required"
                    required
-                   [(ngModel)]="registrationForm.fullName3"
+                   [(ngModel)]="tableForm.fullName"
                    #firstName="ngModel"
                    autocomplete="name"
                    type="text"
             >
-            <label for="fullname3-input" data-error="Full name is required">Enter your Full name</label>
+            <label for="fullname-input" data-error="Full name is required">Enter your Full name</label>
           </div>
           <div class="input-field">
-            <input name="email3"
-                   class="validate required"
-                   id="email3-input"
+            <!-- <i class="material-icons prefix">email</i> -->
+            <input type="email"
+                   class="validate"
+                   name="email"
+                   email
+                   id="email-input"
                    required
-                   [(ngModel)]="registrationForm.email3"
-                   autocomplete="family-name"
-                   #firstnameinput="ngModel"
-                   type="text"
+                   autocomplete="email"
+                   placeholder="student@university.edu"
+                   [(ngModel)]="tableForm.email"
+                   #emailinput="ngModel"
             >
-            <label for="email3-input" data-error="Email address is required">Enter your Email Address</label>
+            <label for="email-input" data-error="Valid email is required">Enter your email</label>
           </div>
-          <label class="data-error" *ngIf="!teammember3input.valid">Required</label>
         </div>
       </div>
     </div>
@@ -170,51 +149,52 @@
     <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
       <div class="card medium darken-1">
         <div class="card-content">
-          <h5>Team Member 4</h5>
+          <h5>Team Member 2</h5>
           <div class="input-field">
-            <input name="fullName4"
-                   id="fullName4-input"
+            <input name="fullName"
+                   id="fullName-input"
                    class="validate required"
                    required
-                   [(ngModel)]="registrationForm.fullName4"
+                   [(ngModel)]="tableForm.fullName"
                    #firstName="ngModel"
                    autocomplete="name"
                    type="text"
             >
-            <label for="fullname4-input" data-error="Full name is required">Enter your Full name</label>
+            <label for="fullname-input" data-error="Full name is required">Enter your Full name</label>
           </div>
           <div class="input-field">
-            <input name="email4"
-                   class="validate required"
-                   id="email4-input"
+            <!-- <i class="material-icons prefix">email</i> -->
+            <input type="email"
+                   class="validate"
+                   name="email"
+                   email
+                   id="email-input"
                    required
-                   [(ngModel)]="registrationForm.email4"
-                   autocomplete="family-name"
-                   #firstnameinput="ngModel"
-                   type="text"
+                   autocomplete="email"
+                   placeholder="student@university.edu"
+                   [(ngModel)]="tableForm.email"
+                   #emailinput="ngModel"
             >
-            <label for="email4-input" data-error="Email address is required">Enter your Email Address</label>
+            <label for="email-input" data-error="Valid email is required">Enter your email</label>
           </div>
-          <label class="data-error" *ngIf="!teammember4input.valid">Required</label>
         </div>
       </div>
     </div>
 
     <!-- Number of People -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="project-category-container">
+    <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
       <div class="card medium darken-1">
-        <div class="card-content ">
-          <h5 class="year">What category does your project fall under?</h5>
+        <div class="card-content">
+          <h5>What category does your project fall under?</h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="vr" required name="academic_year" value="vr"
+            <input type="radio" class="with-gap" id="vr" required name="category" value="vr"
                    #yearinput="ngModel"
-                   [(ngModel)]="registrationForm.academicYear">
+                   [(ngModel)]="tableForm.category">
             <label for="vr">Virtual Reality</label><br>
-            <input type="radio" class="with-gap" id="iot" required name="academic_year" value="iot"
-                   [(ngModel)]="registrationForm.academicYear">
+            <input type="radio" class="with-gap" id="iot" required name="category" value="iot"
+                   [(ngModel)]="tableForm.category">
             <label for="iot">Internet of Things</label><br>
           </div>
-          <label class="data-error" *ngIf="!yearinput.valid">Required</label>
         </div>
       </div>
     </div>
