@@ -23,12 +23,12 @@ export class HttpService {
   }
 
   getTableAssignment(currentUser) {
-    const API_ENDPOINT = 'users/tableAssignmentUI';
+    const API_ENDPOINT = 'users/project';
     return Observable.fromPromise(currentUser.getIdToken(true))
       .switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.get<RegistrationModel>(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
+        return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
       });
   }
 
@@ -66,6 +66,16 @@ export class HttpService {
       });
   }
 
+  getCategories(currentUser: any) {
+    const API_ENDPOINT = 'users/event_categories';
+    return Observable.fromPromise(currentUser.getIdToken(true))
+      .switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers });
+      });
+  }
+
   submitTravelReimbursement(travelForm: any, uid) {
     const API_ENDPOINT = 'users/travelReimbursement';
     const formObject: FormData = new FormData();
@@ -88,8 +98,8 @@ export class HttpService {
       });
   }
 
-  submitTableAssignmentUI(tableForm: any, uid) {
-    const API_ENDPOINT = 'users/tableAssignmentUI';
+  submitTableAssignment(tableForm: any, uid) {
+    const API_ENDPOINT = 'users/project';
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in tableForm) {

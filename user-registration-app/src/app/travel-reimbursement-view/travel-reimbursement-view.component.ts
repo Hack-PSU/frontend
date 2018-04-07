@@ -59,4 +59,8 @@ export class TravelReimbursementViewComponent implements OnInit {
       });
   }
 
+  show() {
+    return new Date().getTime() > new Date('April 7, 2018 18:00:00').getTime();
+  }
+
 }

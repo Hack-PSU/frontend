@@ -1,7 +1,7 @@
 .header {
     border-bottom: 1px solid white;
   }
-  
+
   .bouncy-bits {
     position: absolute;
     top: 50%;
@@ -9,7 +9,7 @@
     max-height: 60px;
     max-width: 20%;
   }
-  
+
   .card {
     transition: transform;
     background-color: white;
@@ -17,11 +17,11 @@
     border:none;
     height: auto;
   }
-  
+
   .table-of-contents a {
     color: white;
   }
-  
+
   .btn {
     background-color: rgba(255, 255, 255, 0);
     color: white;
@@ -30,17 +30,20 @@
     border-left-width: 8px;
     border-radius: 12px;
   }
-  
+
   .btn:hover {
     background-color: #fff;
     color: #333333;
   }
-  
+
   .btn-flat {
     background-color: transparent;
   }
-  
+
   .spinner-layer {
     border-color: white;
   }
-  
+
+  .input-field .email {
+    margin-bottom: 10%;
+  }

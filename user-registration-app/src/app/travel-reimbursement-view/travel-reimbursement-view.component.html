@@ -1,6 +1,7 @@
 <div class="row">
   <h3 class="center header">Submit Travel Reimbursement Request</h3>
 </div>
+<div *ngIf="show(); else sorry">
 <div class="row" *ngIf="response === null; else responseView">
   <div class="col hide-on-small-only m2 l2 m2-offset-1 scrollspy-container">
     <ul class="section table-of-contents">
@@ -151,10 +152,18 @@
     </div>
   </form>
 </div>
+</div>
 <ng-template #responseView>
   <div class="card medium darken-1">
     <div class="card-content">
       <h5>{{response}}</h5>
+    </div>
+  </div>
+</ng-template>
+<ng-template #sorry>
+  <div class="card medium darken-1">
+    <div class="card-content">
+      <h5>Travel reimbursement will be available at 6 PM Saturday</h5>
     </div>
   </div>
 </ng-template>
