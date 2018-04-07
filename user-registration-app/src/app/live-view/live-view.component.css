@@ -214,20 +214,25 @@ td {
 
 .lighter {
     background: #D0EAF1;
-    color:#333333;
+    color: #333333;
+    vertical-align:middle;
 }
 
 .beginner {
-  display: inline-block;
-  background: #6FA7B3;
+    background: #6FA7B3;
+    vertical-align:middle;
 }
 
 .intermediate {
-  background: #194E6B;
+    background: #194E6B;
+    vertical-align:middle;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .advanced {
-  background: #103147;
+    background: #103147;
+    vertical-align:middle;
 }
 
 .workshop-info {
@@ -235,6 +240,11 @@ td {
   background-color: transparent;
   padding: 0;
   box-shadow: none;
+  vertical-align:middle;
+}
+
+.workshop-info .card-content{
+    padding-top:0;
 }
 
 .nav-tabs.nav-justified {
