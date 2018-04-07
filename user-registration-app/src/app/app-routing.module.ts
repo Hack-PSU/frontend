@@ -8,6 +8,9 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
 import { AppConstants } from './AppConstants';
 import { LiveUpdateComponent } from './live-update/live-update.component';
+import { LiveViewComponent } from './live-view/live-view.component';
+import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
+import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 
 const routes: Routes = [
@@ -15,9 +18,11 @@ const routes: Routes = [
   { path: 'register', component: RegistrationFormComponent },
   { path: 'signup', component: SignupViewComponent },
   { path: 'forgot', component: ForgotPasswordViewComponent },
-  { path: 'live', component: LiveUpdateComponent },
+  { path: 'live', component: LiveViewComponent },
+  { path: 'travel', component: TravelReimbursementViewComponent },
+  { path: 'table', component: TableAssignmentViewComponent },
   { path: 'rsvp', component: RsvpComponent },
-  { path: '**', redirectTo: AppConstants.REGISTER_ENDPOINT },
+  { path: '**', redirectTo: AppConstants.LIVE_ENDPOINT },
 ];
 
 @NgModule({

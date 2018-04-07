@@ -59,7 +59,7 @@ export class RegistrationFormComponent implements OnInit {
     },
     { minLength: 1 },
   ];
-  public referralAutoCompInit = [
+  public referralAutoCompleteInit = [
     {
       data: {
         'Participated previously': null,
@@ -155,6 +155,23 @@ export class RegistrationFormComponent implements OnInit {
         this.loading = false;
         this.errors = error.message;
       });
+  }
+
+  rsvp(status: boolean) {
+    this.loading = true;
+    this.httpService.submitRSVP(this.user, status)
+      .subscribe((data) => {
+    this.loading = false;
+    this.router.navigate(['/rsvpsuccess']);
+      },         (error) => {
+    this.loading = false;
+    this.errors = error.message;
+      });
+  }
+
+  public show = false;
+  rsvpInfo() {
+    this.show = !this.show;
   }
 
   fileAdded(event) {

@@ -1,22 +1,19 @@
 <div id="update-super">
   <div id="update-container" class="container-fluid">
     <div *ngFor="let update of updates; let i = index">
-      <div id="{{update.idLIVE_UPDATES}}"
-           class="col-md-4 vertical-align update-holder card"
+      <div id="{{update.uid}}"
+           class="row vertical-align update-holder"
            (click)="updateClicked(update)">
-        <div class="container-fluid col-md-12 col-sm-12 col-xs-12 update-holder-inner-styling">
+        <div class="container-fluid col-sm-8 col-sm-offset-2 col-xs-12 update-holder-inner-styling">
           <div class="row">
             <div class="col-md-12 col-sm-12">
               <!--data-target="toggle_{{update.idLIVE_UPDATES}}"-->
               <div class="update-title"> {{update.update_title}}</div>
             </div>
           </div>
-          <div id="toggle_{{update.idLIVE_UPDATES}}" class="row expandable-update">
+          <div id="toggle_{{update.uid}}" class="row expandable-update">
             <div class="col-md-12 col-sm-12">
               <div class="update-body"> {{update.update_text}}</div>
-              <div class="update-img-holder">
-                <img class="update-img" src="{{update.update_image}}">
-              </div>
             </div>
           </div>
         </div>
@@ -26,6 +23,5 @@
       <span id="expand-updates-button" class="collapsing-button" (click)="expand()">Expand All</span>
       <span id="collapse-updates-button" class="collapsing-button" (click)="collapse()">Collapse All</span>
     </div>
-    <div class="update-container-row row"></div>
   </div>
 </div>

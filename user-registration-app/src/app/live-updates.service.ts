@@ -7,7 +7,7 @@ import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class LiveUpdatesService {
-  private url = 'http://localhost:5000/updates';
+  private url = `${AppConstants.SOCKET_BASE_URL}/updates`;
   private socket;
 
   private broadcastSubject: BehaviorSubject<Event> = new BehaviorSubject<Event>(new Event(''));
