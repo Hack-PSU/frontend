@@ -47,33 +47,33 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   constructor(public liveUpdates: LiveUpdatesService, public afAuth: AngularFireAuth, private _router: Router) {
-    this.updates = [];
-    this.liveUpdates.subject(new Event('connected'))
-      .subscribe(() => {
-        this.updates = [];
-        this.error = null;
-        this.progress = null;
-      });
-    this.liveUpdates.subject(new Event('disconnected'))
-      .subscribe(() => {
-        this.updates = [];
-        this.loading = true;
-      });
-    this.afAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.idtoken = Observable.fromPromise(user.getIdToken(true));
-        this.idtoken.subscribe((value) => {
-          this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
-            message.forEach(m => this.updates.unshift(m));
-            setTimeout(this.collapseLastN, 1000);
-          });
-        },                     (error) => {
-          this.error = error;
-        });
-      } else {
-        this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
-      }
-    });
+    // this.updates = [];
+    // this.liveUpdates.subject(new Event('connected'))
+    //   .subscribe(() => {
+    //     this.updates = [];
+    //     this.error = null;
+    //     this.progress = null;
+    //   });
+    // this.liveUpdates.subject(new Event('disconnected'))
+    //   .subscribe(() => {
+    //     this.updates = [];
+    //     this.loading = true;
+    //   });
+    // this.afAuth.auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.idtoken = Observable.fromPromise(user.getIdToken(true));
+    //     this.idtoken.subscribe((value) => {
+    //       this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
+    //         message.forEach(m => this.updates.unshift(m));
+    //         setTimeout(this.collapseLastN, 1000);
+    //       });
+    //     },                     (error) => {
+    //       this.error = error;
+    //     });
+    //   } else {
+    //     this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
+    //   }
+    // });
   }
 
   ngOnInit() {
