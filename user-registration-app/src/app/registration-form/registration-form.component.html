@@ -1,4 +1,5 @@
-<div class="row" *ngIf="(registrationData | async)?.submitted; else templateName">
+<div class="row">
+  <!--*ngIf="(registrationData | async)?.submitted; else rsvpRedirect()">-->
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
         (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
         name="registrationFormDOM"
@@ -647,7 +648,6 @@
     </ul>
   </div>
 </div>
-
 <ng-template #templateName>
   <div class="page-margins">
     <div class="page-header text-center">

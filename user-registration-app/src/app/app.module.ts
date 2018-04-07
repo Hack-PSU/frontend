@@ -21,6 +21,8 @@ import { LiveViewComponent } from './live-view/live-view.component';
 import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
 import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
 import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
+import { HttpService } from './HttpService';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { TableAssignmentViewComponent } from './table-assignment-view/table-assi
     ScheduleViewComponent,
     TravelReimbursementViewComponent,
     TableAssignmentViewComponent,
+    RsvpComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { TableAssignmentViewComponent } from './table-assignment-view/table-assi
     AngularFireAuthModule,
     MaterializeModule,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -11,6 +11,7 @@ import { LiveUpdateComponent } from './live-update/live-update.component';
 import { LiveViewComponent } from './live-view/live-view.component';
 import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
 import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'travel', component: TravelReimbursementViewComponent },
   { path: 'table', component: TableAssignmentViewComponent },
   { path: '**', redirectTo: AppConstants.LIVE_ENDPOINT },
+  { path: 'rsvp', component: RsvpComponent },
 ];
 
 @NgModule({
