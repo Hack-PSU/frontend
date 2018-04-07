@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700";
-
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 /* Application-wide Styles */
 h1 {
   color: #fff;
@@ -45,5 +45,34 @@ p {
   width: 100%;
 }
 
+nav {
+  background-color: #B1C8CB;
+  height: 55px;
+}
 
+nav .brand-logo {
+  display: block;
+  margin-left: 5%;
+  width: 45px;
+}
 
+nav img{
+  vertical-align: top;
+}
+
+nav ul li {
+  line-height: 55px;
+  letter-spacing: .05em;
+}
+nav .left {
+  margin-left: 11vw;
+}
+
+nav .right {
+  width: 15vw;
+  margin-right: -0vw;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #103147;
+}

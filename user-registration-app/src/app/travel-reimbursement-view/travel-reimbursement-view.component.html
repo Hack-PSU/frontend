@@ -1,0 +1,169 @@
+<div class="row">
+  <h3 class="center header">Submit Travel Reimbursement Request</h3>
+</div>
+<div *ngIf="show(); else sorry">
+<div class="row" *ngIf="response === null; else responseView">
+  <div class="col hide-on-small-only m2 l2 m2-offset-1 scrollspy-container">
+    <ul class="section table-of-contents">
+      <li><a href="#name-container">Name</a></li>
+      <li><a href="#address-container">Address</a></li>
+      <li><a href="#people-container">Number of People</a></li>
+      <li><a href="#files-container">Receipts</a></li>
+    </ul>
+  </div>
+  <form class="registration-form col m5 l5"
+        (ngSubmit)="travelModel.form.valid ? onSubmit() : onError()"
+        name="travelFormDOM"
+        novalidate
+        #travelModel="ngForm"
+  >
+    <!-- First Name -->
+    <div class="row scrollspy" id="name-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5>What is your full, legal name?</h5>
+          <div class="input-field">
+            <input name="firstName"
+                   id="firstname-input"
+                   class="validate required"
+                   required
+                   [(ngModel)]="travelForm.fullName"
+                   #firstName="ngModel"
+                   autocomplete="name"
+                   type="text"
+            >
+            <label for="firstname-input" data-error="First name is required">Enter your full legal name</label>
+          </div>
+          <label class="data-error" *ngIf="!firstName.valid">Required</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="row scrollspy" id="address-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="address">What is your mailing address?</h5>
+          <div class="input-field">
+            <label for="address-input"></label>
+            <input id="address-input" class="validate required" name="address" required autocomplete="street-address"
+                   [(ngModel)]="travelForm.mailingAddress">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Num People -->
+    <div class="row scrollspy" id="people-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="num-people">How many people did you travel with?</h5>
+          <div class="input-field">
+            <label for="num-people-input"></label>
+            <input type="number" id="num-people-input" min="0" max="4" class="validate required" name="num-people" required
+                   [(ngModel)]="travelForm.groupMembers">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Num People -->
+    <div class="row scrollspy" id="amount-container" materialize="scrollSpy">
+      <div class="card medium darken-1">
+        <div class="card-content ">
+          <h5 class="num-people">How much do you require for reimbursement?</h5>
+          <div class="input-field">
+            <i class="material-icons prefix">attach_money</i>
+            <label for="amount-input"></label>
+            <input type="number" id="amount-input" min="0" class="validate required" name="amount" required
+                   [(ngModel)]="travelForm.reimbursementAmount">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Files -->
+    <div class="row scrollspy" materialize="scrollSpy" id="files-container">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <h5 class="resume">Submit your receipts</h5>
+          <div class="file-field input-field row">
+            <div class="btn col s6 offset-s3" style="color: #333333; border-color: #333333">
+              <span class="hide-on-large-only"><i class="material-icons center">file_upload</i></span>
+              <span class="hide-on-med-and-down">Select file(s)</span>
+              <input type="file" class="validate required" name="resume" (change)="fileAdded($event)" accept="image/*" multiple required>
+            </div>
+            <div class="file-path-wrapper col s12">
+              <input class="file-path validate" type="text" placeholder="Upload images">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!travelModel.form.valid">
+      <div class="card">
+        <div class="card-content">
+          <p class="data-error">There are errors in your form. Please validate that all required fields have been filled
+            out</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row scrollspy" materialize="scrollSpy" *ngIf="errors">
+      <div class="card medium darken-1">
+        <div class="card-content">
+          <div class="alert">
+            <p>{{errors.body}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Submit -->
+    <div class="center">
+      <div class="card" *ngIf="errors">
+        <div class="card-content">
+          <p class="alert alert-danger">{{errors}}</p>
+        </div>
+      </div>
+      <div class="center">
+        <button *ngIf="!loading; else spinner" class="btn waves-effect waves-light submit-btn" type="submit"
+                name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        <ng-template #spinner>
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<ng-template #responseView>
+  <div class="card medium darken-1">
+    <div class="card-content">
+      <h5>{{response}}</h5>
+    </div>
+  </div>
+</ng-template>
+<ng-template #sorry>
+  <div class="card medium darken-1">
+    <div class="card-content">
+      <h5>Travel reimbursement will be available at 6 PM Saturday</h5>
+    </div>
+  </div>
+</ng-template>

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { LiveUpdatesService } from '../live-updates.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
+import { AppConstants } from '../AppConstants';
 
 declare var $: any;
 
 class UpdateModel {
-  public idLIVE_UPDATES: string;
+  public uid: string;
   public update_text: string;
   public update_image: string;
   public update_title: string;
@@ -44,7 +46,7 @@ export class LiveUpdateComponent implements OnInit {
     });
   }
 
-  constructor(public liveUpdates: LiveUpdatesService, public afAuth: AngularFireAuth) {
+  constructor(public liveUpdates: LiveUpdatesService, public afAuth: AngularFireAuth, private _router: Router) {
     this.updates = [];
     this.liveUpdates.subject(new Event('connected'))
       .subscribe(() => {
@@ -58,15 +60,19 @@ export class LiveUpdateComponent implements OnInit {
         this.loading = true;
       });
     this.afAuth.auth.onAuthStateChanged((user) => {
-      this.idtoken = Observable.fromPromise(user.getIdToken(true));
-      this.idtoken.subscribe((value) => {
-        this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
-          message.forEach(m => this.updates.unshift(m));
-
+      if (user) {
+        this.idtoken = Observable.fromPromise(user.getIdToken(true));
+        this.idtoken.subscribe((value) => {
+          this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
+            message.forEach(m => this.updates.unshift(m));
+            setTimeout(this.collapseLastN, 1000);
+          });
+        },                     (error) => {
+          this.error = error;
         });
-      },                     (error) => {
-        this.error = error;
-      });
+      } else {
+        this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
+      }
     });
   }
 
@@ -74,7 +80,7 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   updateClicked(updateModel: UpdateModel) {
-    LiveUpdateComponent.collapseListener(`toggle_${updateModel.idLIVE_UPDATES}`);
+    LiveUpdateComponent.collapseListener(`toggle_${updateModel.uid}`);
   }
 
   expand() {
@@ -105,6 +111,12 @@ export class LiveUpdateComponent implements OnInit {
     }
     LiveUpdateComponent.fullyCollapsed = true;
     LiveUpdateComponent.fullyExpanded = false;
+  }
+
+  collapseLastN() {
+    $('.expandable-update').slice(3).each(function () {
+      $(this).hide(1000);
+    });
   }
 
 }

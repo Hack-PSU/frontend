@@ -69,6 +69,6 @@ export class LoginComponent {
   }
 
   onLogin() {
-    this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
+    this.router.navigate([AppConstants.LIVE_ENDPOINT]);
   }
 }

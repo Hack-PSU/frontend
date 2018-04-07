@@ -1,0 +1,125 @@
+<div id="schedule-container" class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <span class="schedule-title">ACTIVITIES</span>
+      <div class="row event-row activity">
+        <div *ngFor="let activity of activities" id="event_key-{{activity.uid}}" class="event"
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)" data-toggle="modal"
+             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="event-day-title center">{{getEventDay(activity)}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 nopadding">
+                  <div class="event-time">
+                    {{getStartTime(activity)}} - {{getEndTime(activity)}}
+                  </div>
+                  <div class="event-location">{{activity.location_name}}</div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-description"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <span class="schedule-title">MEALS</span>
+      <div class="row event-row food">
+        <div *ngFor="let activity of meals" id="event_key-{{activity.uid}}" class="event"
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)" data-toggle="modal"
+             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+          <ng-container>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="event-day-title center">{{getEventDay(activity)}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 nopadding">
+                  <div class="event-time">
+                    {{getStartTime(activity)}} - {{getEndTime(activity)}}
+                  </div>
+                  <div class="event-location">{{activity.location_name}}</div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-description"></div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <span class="schedule-title">WORKSHOPS</span>
+      <div class="row event-row workshops">
+        <div *ngFor="let activity of workshops" id="event_key-{{activity.uid}}" class="event"
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)" data-toggle="modal"
+             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+          <ng-container>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="event-day-title">{{getEventDay(activity)}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 nopadding">
+                  <div class="event-time">
+                    {{getStartTime(activity)}} - {{getEndTime(activity)}}
+                  </div>
+                  <div class="event-location">{{activity.location_name}}</div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-description"></div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let event of activities?.concat(meals)?.concat(workshops)" class="modal fade"
+     id="event_key-{{event.uid}}-modal" role="dialog">
+  <div class="modal-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="modal-header ' + snapshot.type + '">
+            <div class="modal-title">{{event.event_title}}</div>
+            <div class="modal-small-screen-hide modal-location-title">
+              <div class="modal-day">{{getEventDay(event)}}</div>
+              <div class="modal-time">{{getStartTime(event)}} - {{getEndTime(event)}}</div>
+              <div class="modal-location">{{event.location_name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <div class="modal-body">
+            <p>{{event.event_description}}</p>
+          </div>
+        </div>
+        <div class="col-sm-1 modal-small-screen-hide">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="col-xs-12 large-screen-hide">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

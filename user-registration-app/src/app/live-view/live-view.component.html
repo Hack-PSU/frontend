@@ -1,3 +1,809 @@
-<p>
-  live-view works!
-</p>
+<section id="home">
+  <div class="white">
+    <a id="mlh-trust-badge"
+       href="https://mlh.io/seasons/na-2018/events?utm_source=na-2018&utm_medium=TrustBadge&utm_campaign=na-2018&utm_content=white"
+       target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg"
+                            alt="Major League Hacking 2018 Hackathon Season" style="width:100%"></a>
+  </div>
+  <div class="row center">
+    <img src="assets/images/logo-optimized.svg" id="hackpsu-logo" class="animated rubberBand"
+         alt="hackpsulogo">
+  </div>
+  <div class="row center">
+    <div id='countdown-timer' class="row">
+      <div id='days' class='unit'>
+        <div>{{days}}</div>
+        Days
+      </div>
+      <div id='hours' class='unit'>
+        <div>{{hours}}</div>
+        Hours
+      </div>
+      <div id='minutes' class='unit'>
+        <div>{{minutes}}</div>
+        Minutes
+      </div>
+      <div id='seconds' class='unit'>
+        <div>{{seconds}}</div>
+        Seconds
+      </div>
+      <h3 id='countdown-text'>{{bannerText}}</h3>
+    </div>
+    <!--<ul>-->
+    <!--<li ><span id="hours"></span>Hours</li>-->
+    <!--<li id="countdown"><span id="minutes"></span>Minutes</li>-->
+    <!--<li id="countdown"><span id="seconds"></span>Seconds</li>-->
+    <!--</ul>-->
+  </div>
+  <div class="row">
+    <div class="center">
+      <div class="col-md-12 col-sm-12">
+        <a class="btn waves-effect waves-light submit-btn" href="https://join.slack.com/t/hackpsuspring2018/signup">Slack</a>
+      </div>
+    </div>
+  </div>
+  <div class="page-header"></div>
+</section>
+<section id="info">
+  <div class="row section-title-container">
+    <div class="col-xs-6 section-title col-xs-offset-3">
+      <div class="section-title-word">
+        <div class="section-title-letter white-text">I</div>
+        <div class="section-title-letter white-text">N</div>
+        <div class="section-title-letter white-text">F</div>
+        <div class="section-title-letter white-text">O</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid more-padding">
+    <div class="tab" role="navigation">
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" class="active"><a data-toggle="tab" href="#map" class="info-title">MAP</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#rules" class="info-title">RULES</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#hardware" class="info-title">HARDWARE</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#prizes" class="info-title">PRIZES</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#submission" class="info-title">SUBMISSION</a></li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="map">
+          <div class="map-block">
+            <img class="materialboxed" src="../../assets/images/map.png">
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade in" id="rules">
+          <div class="info-card col-xs-12">
+            <ol class="info-list">
+              <li> All participants must be older than 18, and must bring a valid form of identification.</li>
+              <li> Participants must abide by the expectations set in the <a
+                href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147">MLH Code of Conduct</a>,
+                or you will be asked to leave the event.
+              </li>
+              <li> Teams may be comprised of up to five members.</li>
+              <li> Projects should be original works created on site. Coming with an idea in mind is perfectly fine,
+                working on an existing project is not.
+              </li>
+              <li> All submissions must be recieved through DevPost by 2:00PM on Sunday.</li>
+              <li> Students are permitted to come and go from the venue as they please.</li>
+              <li> Anything you create is your work, HackPSU and its partners have no claim over intellectual property
+                produced at the event.
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade in table-responsive" id="hardware">
+          <div class="col-xs-12 row info-card">
+            <ol class="info-list">
+              <li>2 Alienware Laptop</li>
+              <li>8 Amazon Echo</li>
+              <li>1 Amazon Fire Phone</li>
+              <li>6 Arduino 10</li>
+              <li>7 Banner Stands</li>
+              <li>6 Base Shield</li>
+              <li>1 Clear Table Display w/ Ethical Tech One-Page</li>
+              <li>2 Dell XPS 13 Laptop</li>
+              <li>6 DragonBoard 410c</li>
+              <li>1 Grove Starter Kit</li>
+              <li>1 Laminated Hardware Lab Sheet</li>
+              <li>5 Leap Motion</li>
+              <li>1 LinkSprite 7" Touchscreen Monitor and Keyboard</li>
+              <li>1 Intel Starter Kit</li>
+              <li>1 Muse Headband</li>
+              <li>7 Myo Armband</li>
+              <li>6 Oculus Rifts</li>
+              <li>4 Pebble Time</li>
+              <li>3 Samsung Gear VR</li>
+            </ol>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade in table-responsive" id="prizes">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-1">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/FB_Event_header.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">HackPSU Overall Prize<i
+                    class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">HackPSU Overall Prize<i
+                    class="material-icons right">close</i></span>
+                  <h5>Creativity & Originality</h5>
+                  <ol class="info-list">
+                    <li>Is the solution novel, original and not-obvious?</li>
+                    <li>How different is the design from current solutions?</li>
+                    <li>Does it approach the problem from an unusual or different perspective?</li>
+                    <li>How creative is the problem statement?</li>
+                    <li>Does the solution address a problem which is novel, original and not-obvious?</li>
+                  </ol>
+                  <h5>Technical Skills</h5>
+                  <ol class="info-list">
+                    <li>Was the solution technically challenging? (Taking into account team size and measured relative
+                      to
+                      competition)
+                    </li>
+                    <li>How intricate was the solution?</li>
+                    <li>Did the solution pose a challenge to the group?</li>
+                  </ol>
+                  <h5>Implementation</h5>
+                  <ol class="info-list">
+                    <li>Was the solution effective in addressing the problem?</li>
+                    <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
+                    <li>Is the solution needlessly complex?</li>
+                    <li>Overall, is the solution viable in addressing the problem statement?</li>
+                  </ol>
+                  <h5>Clarity</h5>
+                  <ol class="info-list">
+                    <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
+                    <li>Were the topics accessible to the audience?</li>
+                    <li>Were all obscure acronyms or jargon explained?</li>
+                  </ol>
+                  <h5>Knowledge</h5>
+                  <ol class="info-list">
+                    <li>How effectively did the team handle questions?</li>
+                    <li>Did the team demonstrate knowledge of the subject matter?</li>
+                  </ol>
+                  <h5>Prizes:</h5>
+                  <h6>$500 Amazon Gift card for 1st place</h6>
+                  <h6>$300 Amazon gift card for 2nd place</h6>
+                  <h6>$200 Amazon gift card for 3rd place</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/PSUIT_original.svg" style="width: 50%; left: 25%">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">Hack the classroom with Alexa<i class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">Hack the classroom with Alexa<i
+                    class="material-icons right">close</i></span>
+                  <p>Hack the classroom by building an Alexa skill that enhances teaching and learning in the
+                    classroom.<br/><br/>
+
+                    Judging criteria will be the same as HackPSU's general judging criteria
+                  </p>
+                  <h5>Prizes:</h5>
+                  <h6>Amazon Echos (2nd Generation) for 1st place</h6>
+                  <h6>Amazon Echo Dots (2nd Generation) for 2nd place</h6>
+                  <h6>$25 Amazon gift cards for 3rd place</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-1">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/GeneralMotors.svg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">Autonomous RC Car<i
+                    class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">Autonomous RC Car<i class="material-icons right">close</i></span>
+                  <p>General Motors' Vision is Zero Crashes, Zero Emissions, and Zero Congestion.
+                    Use the provided RC car, sensors, Arduino, etc to demonstrate autonomous driving
+                    and/or driver assistance features for vehicles.</p>
+                  <h6>Prize: $100 Lyft credit and an Extech Multimeter Kit</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-3">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/GoogleCloudPlatform.svg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator">Google Cloud Platform Challenge<i class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>Google Cloud Platform Challenge</span>
+                  <p>The product meets deliverables, is creative, and has high clarity. We encourage you
+                    to be creative with what already exists, such as in-phone technology, but we still
+                    want your idea to be out of the box. Ideal responses will be user-friendly, and
+                    explore ways to encourage adherence to the program.</p>
+                  <h6> Prize: 4 Google Home Minis and 4 Chromecasts</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+              <div class="card blue-grey lighten-1">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../../assets/images/GSK_original.svg" style="width: 50%; left: 25%">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator">Sleep Tracker Solution<i
+                  class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title activator">Sleep Tracker Solution<i
+                    class="material-icons right">close</i></span>
+                  <p>We are seeking a simple solution to monitor sleep and wakefulness. This could be a mobile
+                    app that uses the microphone in one's phone to record patterns and/ or monitor sleep and breathing,
+                    or by taking a completely different approach to tracking sleep that doesn't require a phone. Other
+                    alternative solutions could involve targeting less tech-savvy patients who might be more included to
+                    use something other than a smartphone.<br/><br/>
+
+                    Our goal is to measure all aspects of sleep quality e.g. duration, periods of wakefulness, hours,
+                    times
+                    waking, episodes of sleepiness during the day, coughing, breathlessness, wheezing etc.</p>
+                  <h6>Prize: $1,600</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade in" id="submission">
+          <div class="info-card col-xs-12">
+            <dl class="submission info-list">
+              <dt>Create a Git Repository for your Project</dt>
+              <dd>If you do not have a GitHub account, create one at github.com. If you are not sure how to create a Git
+                repository, go to this article to learn how.
+              </dd>
+
+              <dt>Go to our HackPSU Devpost</dt>
+              <dd>Log in to Devpost at <a href="https://hackpsu-s2018.devpost.com/?preview_token=pJjjZOXLg0oglWICgfudBXZUSl3ypRQ%2FyEuaPCleN4Q%3D">https://hackpsu-s2018.devpost.com/</a>with your GitHub.</dd>
+
+              <dt>Add your Project on Devpost</dt>
+              <dd>Enter in the name of your project, your team member's names, select the category of your project, and
+                link the URL to your Git repository.
+              </dd>
+              <dt>Request for a table number <a routerLink="/table">here</a></dt>
+              <dd>After you submit your project on Devpost, you can request for a table number at the above link after 10 am Sunday.
+                When hacking is over, bring your project to your table before judging begins.
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="schedule">
+  <div class="row section-title-container">
+    <div class="col-xs-6 section-title col-xs-offset-3">
+      <div class="section-title-word">
+        <div class="section-title-letter white-text">S</div>
+        <div class="section-title-letter white-text">C</div>
+        <div class="section-title-letter white-text">H</div>
+        <div class="section-title-letter white-text">E</div>
+        <div class="section-title-letter white-text">D</div>
+        <div class="section-title-letter white-text">U</div>
+        <div class="section-title-letter white-text">L</div>
+        <div class="section-title-letter white-text">E</div>
+      </div>
+    </div>
+  </div>
+  <app-schedule-view></app-schedule-view>
+</section>
+<section id="updates">
+  <div class="row section-title-container">
+    <div class="col-xs-6 section-title col-xs-offset-3">
+      <div class="section-title-word">
+        <div class="section-title-letter white-text">L</div>
+        <div class="section-title-letter white-text">I</div>
+        <div class="section-title-letter white-text">V</div>
+        <div class="section-title-letter white-text">E</div>
+      </div>
+      <div class="section-title-word">
+        <div class="section-title-letter white-text">U</div>
+        <div class="section-title-letter white-text">P</div>
+        <div class="section-title-letter white-text">D</div>
+        <div class="section-title-letter white-text">A</div>
+        <div class="section-title-letter white-text">T</div>
+        <div class="section-title-letter white-text">E</div>
+        <div class="section-title-letter white-text">S</div>
+      </div>
+    </div>
+  </div>
+  <app-live-update></app-live-update>
+</section>
+<section id="workshops" class="container-fluid">
+  <div class="row section-title-container">
+    <div class="col-xs-6 section-title col-xs-offset-3">
+      <div class="section-title-word">
+        <div class="section-title-letter white-text">W</div>
+        <div class="section-title-letter white-text">O</div>
+        <div class="section-title-letter white-text">R</div>
+        <div class="section-title-letter white-text">K</div>
+        <div class="section-title-letter white-text">S</div>
+        <div class="section-title-letter white-text">H</div>
+        <div class="section-title-letter white-text">O</div>
+        <div class="section-title-letter white-text">P</div>
+        <div class="section-title-letter white-text">S</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card lighter col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/google.svg"
+               class="leader">
+          <div>
+            <div class="workshop-title">Interview Prep</div>
+            <div style="font-weight:bold;">B McElroy</div>
+            <div style="font-weight:bold;">Auditorium, 4:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 col-xs-12 card workshop-info">
+      <div class="card-content">
+        <p>This Interview Prep Workshop hosted by Google will focus on
+          getting our hackers ready for an interview! We'll be going over
+          how to prepare your resume, things that companies look for, how
+          to approach an interview, and the differences between a co-op,
+          internship, and full-time interview.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card lighter col-md-4 col-xs-12 indented">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/apple.svg"
+               class="leader">
+          <div>
+            <div class="workshop-title">App Development/Swift</div>
+            <div style="font-weight:bold;">Zach from Apple</div>
+            <div style="font-weight:bold;">Auditorium, 5:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>Interested in making your own mobile app? Stop by our App
+          Development Workshop hosted by Apple to gain the basic skills and
+          tools you'll need to begin coding, designing, and implementing
+          your own app with Swift! Whatever your idea may be, this workshop
+          will be a great place to learn the basics and help get you
+          started!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card lighter col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/pj.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">
+              Introduction to Cloud Computing
+            </div>
+            <div style="font-weight:bold;">Pranav Jain</div>
+            <div style="font-weight:bold;">
+              Auditorium, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>This workshop will be the beginning of a two-part workshop. In
+          this Introduction to Cloud Computing Workshop, hackers will be
+          taught how to write backend systems using NodeJS. Additionally,
+          they will be writing REST APIs and learning how to use them to
+          store and retreive information. This is a unified presentation
+          with the Cloud Computing Workshop, that focuses on backend
+          systems and continuous integration.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card lighter col-md-4 col-xs-12 indented">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/sush.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cloud Computing</div>
+            <div style="font-weight:bold;">Sushrut Shringarputale</div>
+            <div style="font-weight:bold;">
+              Auditorium, Saturday 9:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>The Cloud Computing Workshop follows our REST API Workshop. It
+          will be an interactive tour through current cloud technologies
+          that are available to developers, as well as an introduction to
+          industry-like deployment practices. Attendees will be able to run
+          their own code to the cloud at the end of this workshop.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card lighter col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/trent.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cybersecurity</div>
+            <div style="font-weight:bold;">Trent Jaeger</div>
+            <div style="font-weight:bold;">
+              Auditorium, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>There are many different types of attacks that exploit your
+          network vulnerabilities. Being aware of these threats and knowing
+          how to prevent/stop them is an invaluable resource to companies
+          and small businesses alike. Stop by our Cybersecurity Workshop for
+          a basic overview on network security and to gain some valuable
+          skills in being proactive about attacks.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12"
+         style="margin-right:7vw;padding-right:0px;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/garrett.png"
+               class="leader">
+          <div style="margin-left:2vh;">
+            <div class="workshop-title">Hello World: Welcome to Python</div>
+            <div style="font-weight:bold;">Garrett Sullivan</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 5:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 col-xs-12 card workshop-info">
+      <div class="card-content">
+        <p>New to programming? Never programmed before? That's ok! This
+          Introduction to Python Workshop is designed for those who have
+          either minimal programming experience or none at all. We will be
+          using the popular programming language, Python, to introduce
+          hackers to the art of making their own basic program. If you
+          want to learn how to code, stop by this workshop to see how
+          fun and easy it can be!
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12 indented">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/ryan.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Introduction to HTML/CSS</div>
+            <div style="font-weight:bold;">Ryan O'Neill</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 6:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 col-xs-12 card workshop-info">
+      <div class="card-content">
+        <p>Hi there hacker! New to coding? Little or no experience? That's
+          ok! For those of you interested in learning about coding in
+          HTML with CSS, then you'll definitely want to stop by our
+          Introduction to HTML/CSS Workshop! We'll be going over the
+          basics of HTML and CSS while helping hackers create their own
+          "Hello, World" program!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/chanpreet.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Databases</div>
+            <div style="font-weight:bold;">Chanpreet Singh</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 col-xs-12 card workshop-info">
+      <div class="card-content">
+        <p>Our Databases Workshop will give you the chance to learn about
+          the basics of databses in SQL. In this workshop, you will be able
+          to learn to create and maintain databses, write SQL queries,
+          and understand the applications of databases</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12 indented">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/angela.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Web Development</div>
+            <div style="font-weight:bold;">Angela Chan</div>
+            <div style="font-weight:bold;">
+              MBA 1, Saturday 9:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>Our Web Development Workshop will take the brief overview of the
+          basics of HTML from our previous workshop and expand them to do
+          incredible things. If you want to find out how to design your
+          website and use JavaScript to make a stunning webpage, definitely
+          pay a visit!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card beginner col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/alex.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Cryptocurrency</div>
+            <div style="font-weight:bold;">Alex Patin</div>
+            <div style="font-weight:bold;">
+              MBA 1, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>You've probably heard of Bitcoins and Ripple, but what really
+          are they? Come to our Cryptocurrency Workshop if you are
+          interested in learning more about the basics of cryptocurrencies
+          and blockchain technology. This workshop will give a discussion
+          about what a cryptocurrency really is, how they were developed,
+          and why they're important.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12"
+	 style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/yuya.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Machine Learning</div>
+            <div style="font-weight:bold;">Yuya Ong</div>
+            <div style="font-weight:bold;">
+              MBA 2, Saturday 6:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>What really is the difference between AI and machine learning?
+          Come to our Machine Learning Workshop to find out more about
+          machine learning. In this workshop, you will learn how computers
+          can utilize pattern recognition and predict based off of
+          computational statistics to "learn", improve performance, and
+          solve specific tasks by being fed data instead of explicit
+          programming!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card intermediate indented col-md-4 col-xs-12">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/dave.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Hardware Prototyping</div>
+            <div style="font-weight:bold;">David McDermott</div>
+            <div style="font-weight:bold;">
+              MBA 2, Saturday 8:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>Our Hardware Prototyping Workshop is definitely not to be missed!
+          Learn everything from how to download a basic program onto a
+          Raspberry Pi Board, to the many applications it can be used for.
+          This workshop is very hands on, so come prepared to learn!
+          Hardware will be provided.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card intermediate col-md-4 col-xs-12"
+	 style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/nick.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">
+              How to Take Your Project to Market!
+            </div>
+            <div style="font-weight:bold;">Nick Jacobson</div>
+            <div style="font-weight:bold;">
+              MBA 2, Sunday 9:00 AM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>Stop by our Taking Your Product to Market Workshop to see the
+          developers of Mood Triggers, an app that was started here at
+          Penn State and is currently used by over 44,000 people. The
+          members of the Mood Triggers team will be talking about the trials
+          and tribulations of taking your product from prototype to
+          distribution!
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="card advanced col-md-4 col-xs-12" style="margin-right:7vw;">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+	<div class="row flexed">
+	  <img src="../../assets/images/workshop_leaders/sush.png"
+	       class="leader">
+	  <div>
+	    <div class="workshop-title">Introduction to GitHub</div>
+	    <div style="font-weight:bold;">Sushrut Shringarputale</div>
+	    <div style="font-weight:bold;">
+	      MBA 3, Saturday 4:00 PM</div>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+	<p>Understand what GitHub is and how to properly use it in this
+	  quick, interactive workshop. Gain all the necessary skills
+	  needed to code in a team for your hack, as well as in a
+	  future workplace!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="card advanced col-md-4 col-xs-12 indented">
+      <div class="card-header">&nbsp;</div>
+      <div class="card-block">
+        <div class="row flexed">
+          <img src="../../assets/images/workshop_leaders/adlan.png"
+               class="leader">
+          <div>
+            <div class="workshop-title">Virtual Reality</div>
+            <div style="font-weight:bold;">Adlan Ramly</div>
+            <div style="font-weight:bold;">
+              MBA 3, Saturday 5:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-7 col-xs-12 workshop-info">
+      <div class="card-content">
+        <p>Come see the members of our Penn State VR Club delve into the
+          possibilities of VR technology at our Virtual Reality Workshop!
+          Starting with a discussion on the development of a VR application,
+          this workshop will talk about the tools and software you need to
+          learn, practice, and implement your own Virtual Reality projects!
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+<section id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div id="social-media" class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+        <a target="_blank" href="https://www.facebook.com/HackPSU/"><img
+          class="social-media-icon animated animated-icon"
+          src="assets/icons/facebook.svg"></a>
+        <a target="_blank" href="http://twitter.com/hackpsu"><img
+          class="social-media-icon animated animated-icon"
+          src="assets/icons/twitter.svg"></a>
+        <a target="_blank" href="https://www.instagram.com/hack_psu/"><img
+          class="social-media-icon animated animated-icon"
+          src="assets/icons/instagram.svg"></a>
+        <a target="_blank" href="https://www.snapchat.com/add/hackpsu"><img
+          class="social-media-icon animated animated-icon"
+          src="assets/icons/snapchat.svg"></a>
+        <a target="_blank" href="https://hackpsu-spring2017.devpost.com"><img
+          class="social-media-icon animated animated-icon"
+          src="assets/icons/devpost.svg"></a>
+        <a href="mailto:team@hackpsu.org"><img class="social-media-icon animated animated-icon"
+                                               src="assets/icons/email-icon.svg"></a>
+      </div>
+      <div class="col-md-4 col-sm-4"></div>
+      <div class="col-md-4 col-sm-4"></div>
+    </div>
+    <div class="center row">
+      <p> Made with <span>&#9829;</span> in Happy Valley.</p>
+    </div>
+    <div class="center row">
+      <a class="small-text" target="_blank" href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+</section>
