@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'live', component: LiveViewComponent },
   { path: 'travel', component: TravelReimbursementViewComponent },
   { path: 'table', component: TableAssignmentViewComponent },
-  { path: '**', redirectTo: AppConstants.LIVE_ENDPOINT },
   { path: 'rsvp', component: RsvpComponent },
+  { path: '**', redirectTo: AppConstants.LIVE_ENDPOINT },
 ];
 
 @NgModule({

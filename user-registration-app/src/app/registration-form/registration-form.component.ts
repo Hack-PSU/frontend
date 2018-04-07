@@ -149,6 +149,7 @@ export class RegistrationFormComponent implements OnInit {
     this.httpService.submitRegistration(this.registrationForm, this.afAuth.auth.currentUser.uid)
       .subscribe((data) => {
         this.loading = false;
+        this.router.navigate(['/rsvp']);
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
       },         (error) => {
         console.error(error);
