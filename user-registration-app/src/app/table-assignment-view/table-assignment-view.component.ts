@@ -102,6 +102,6 @@ export class TableAssignmentViewComponent implements OnInit {
   }
 
   show() {
-    return new Date().getTime() > new Date('April 8, 2018 10:00:00').getTime();
+    return new Date().getTime() > new Date('April 8, 2018 18:00:00').getTime();
   }
 }
