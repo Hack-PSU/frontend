@@ -4,6 +4,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { HttpService } from '../HttpService';
 import { Subscription } from 'rxjs/Subscription';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { AppConstants } from '../AppConstants';
+import { RegistrationModel } from '../registration-model';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -41,7 +45,16 @@ export class LiveViewComponent implements OnInit, OnDestroy {
 
   bannerText: string;
 
-  constructor(private zone: NgZone) {
+  constructor(private zone: NgZone, private afAuth: AngularFireAuth, private router: Router) {
+    this.afAuth.auth.onAuthStateChanged((user) => {
+      if (!user) {
+        this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
+      }
+    },                                  (error) => {
+      console.error(error);
+      this.afAuth.auth.signOut();
+      this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
+    });
     this.currentTime = new Date().getTime() / 1000;
     this.startTime = new Date('April 7, 2018 14:00:00').getTime() / 1000;
     this.endTime = new Date('April 8, 2018 14:00:00').getTime() / 1000;
@@ -107,7 +120,8 @@ export class LiveViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
-
 }
