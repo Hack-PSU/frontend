@@ -149,29 +149,13 @@ export class RegistrationFormComponent implements OnInit {
     this.httpService.submitRegistration(this.registrationForm, this.afAuth.auth.currentUser.uid)
       .subscribe((data) => {
         this.loading = false;
+        this.router.navigate(['/rsvp']);
         this.registrationData = this.httpService.getRegistrationStatus(this.user);
       },         (error) => {
         console.error(error);
         this.loading = false;
         this.errors = error.message;
       });
-  }
-
-  rsvp(status: boolean) {
-    this.loading = true;
-    this.httpService.submitRSVP(this.user, status)
-      .subscribe((data) => {
-    this.loading = false;
-    this.router.navigate(['/rsvpsuccess']);
-      },         (error) => {
-    this.loading = false;
-    this.errors = error.message;
-      });
-  }
-
-  public show = false;
-  rsvpInfo() {
-    this.show = !this.show;
   }
 
   fileAdded(event) {
