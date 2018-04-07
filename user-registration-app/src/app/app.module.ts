@@ -16,9 +16,9 @@ import { environment } from '../environments/environment';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
-import { LiveUpdateComponent } from './live-update/live-update.component';
+// import { LiveUpdateComponent } from './live-update/live-update.component';
 import { LiveViewComponent } from './live-view/live-view.component';
-import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
+// import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
 import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
 import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
@@ -33,9 +33,9 @@ import { HttpService } from './HttpService';
     RegistrationFormComponent,
     SignupViewComponent,
     ForgotPasswordViewComponent,
-    LiveUpdateComponent,
+    // LiveUpdateComponent,
     LiveViewComponent,
-    ScheduleViewComponent,
+    // ScheduleViewComponent,
     TravelReimbursementViewComponent,
     TableAssignmentViewComponent,
     RsvpComponent,
