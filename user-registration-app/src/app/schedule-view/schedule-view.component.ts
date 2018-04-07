@@ -60,13 +60,13 @@ export class ScheduleViewComponent implements OnInit {
               // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {
                 switch (m.event_type) {
                   case 'activity':
-                    this.activities.unshift(m);
+                    this.activities.push(m);
                     break;
                   case 'food':
-                    this.meals.unshift(m);
+                    this.meals.push(m);
                     break;
                   case 'workshop':
-                    this.workshops.unshift(m);
+                    this.workshops.push(m);
                     break;
                   default:
                     break;
