@@ -1,4 +1,4 @@
-<div *ngIf="afAuth.authState | async as user; else showLogin">
+<div *ngIf="authService.authState | async as user; else showLogin">
 
 </div>
 <ng-template #showLogin>

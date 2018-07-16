@@ -135,32 +135,25 @@
         <div class="card-content">
           <h5>What is your Race/Ethnicity?</h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="naan" name="ethnicity" value="native-american"
-                   (change)="setEthnicity($event)"
-                   ([ngModel])="registrationForm.ethnicity">
-            <label for="naan">Native American or Alaska Native</label><br>
-            <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian"
-                   (change)="setEthnicity($event)"
-                   ([ngModel])="registrationForm.ethnicity">
+            <input type="radio" id="native-american" name="ethnicity" value="native-american"
+                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
+            <label for="native-american">Native American or Alaska Native</label><br>
+            <input type="radio" id="asian" name="ethnicity" value="asian"
+                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
             <label for="asian">Asian</label><br>
-            <input type="radio" class="with-gap" id="baa" name="ethnicity" value="african-american"
-                   (change)="setEthnicity($event)"
+            <input type="radio" id="african-american" name="ethnicity" value="african-american"
+                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
+            <label for="african-american">Black or African American</label><br>
+            <input type="radio" class="with-gap" id="latinx" name="ethnicity" value="latinx"
                    ([ngModel])="registrationForm.ethnicity">
-            <label for="baa">Black or African American</label><br>
-            <input type="radio" class="with-gap" id="hlat" name="ethnicity" value="latinx"
-                   (change)="setEthnicity($event)"
+            <label for="latinx">Hispanic or Latinx</label><br>
+            <input type="radio" class="with-gap" id="pacific-islander" name="ethnicity" value="pacific-islander"
                    ([ngModel])="registrationForm.ethnicity">
-            <label for="hlat">Hispanic or Latinx</label><br>
-            <input type="radio" class="with-gap" id="nhopi" name="ethnicity" value="pacific-islander"
-                   (change)="setEthnicity($event)"
-                   ([ngModel])="registrationForm.ethnicity">
-            <label for="nhopi">Native Hawaiian or Other Pacific Islander</label><br>
+            <label for="pacific-islander">Native Hawaiian or Other Pacific Islander</label><br>
             <input type="radio" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
-                   (change)="setEthnicity($event)"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="caucasian">Caucasian</label><br>
-            <input type="radio" class="with-gap" id="no-disclose" name="ethnicity" value="no-disclose"
-                   (change)="setEthnicity($event)"
+            <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity" value="no-disclose"
                    ([ngModel])="registrationForm.ethnicity">
             <label for="no-disclose">Prefer not to disclose</label>
           </div>
@@ -173,28 +166,17 @@
          id="veteran-container">
       <div class="card medium darken-1">
         <div class="card-content">
-          <h5 class="mlh-coc">Are you a veteran?</h5>
+          <h5>Are you a veteran?</h5>
           <div class="form-group">
-            <input type="radio" class="with-gap" id="yes_veteran" name="veteran" value="true"
-                   (change)="setVeteran($event)"
+            <input type="radio" class="with-gap" id="true" name="veteran" value="true"
                    ([ngModel])="registrationForm.veteran">
-            <label for="yes_veteran">Yes</label><br>
-            <input type="radio" class="with-gap" id="no_veteran" name="veteran" value="false"
-                   (change)="setVeteran($event)"
+            <label for="true">Yes</label><br>
+            <input type="radio" class="with-gap" id="false" name="veteran" value="false"
                    ([ngModel])="registrationForm.veteran">
-            <label for="no_veteran">No</label><br>
-            <input type="radio" class="with-gap" id="no-disclose-veteran" name="veteran" value="no-disclose"
-                   (change)="setVeteran($event)"
+            <label for="false">No</label><br>
+            <input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose"
                    ([ngModel])="registrationForm.veteran">
-            <label for="no-disclose-veteran">Prefer not to disclose</label><br>
-            <!--<div class="switch">-->
-            <!--<label>-->
-            <!--No-->
-            <!--<input type="checkbox" name="veteran" [(ngModel)]="registrationForm.veteran">-->
-            <!--<span class="lever"></span>-->
-            <!--Yes-->
-            <!--</label>-->
-            <!--</div>-->
+            <label for="no-disclose">Prefer not to disclose</label><br>
           </div>
         </div>
       </div>
@@ -225,7 +207,7 @@
               href="mailto://team@hackpsu.org">team@hackpsu.org</a>
             </p>
           </div>
-          <label class="data-error" *ngIf="!ageinput.valid">Required</label>
+          <label class="data-error" *ngIf="!registrationForm.eighteenBeforeEvent">Required</label>
         </div>
       </div>
     </div>
@@ -458,7 +440,17 @@
          id="resume-container">
       <div class="card medium darken-1">
         <div class="card-content">
-          <h5 class="resume">Submit your resume</h5>
+          <div *ngIf="registrationForm.hasExistingResume()">
+            <pdf-viewer [src]="sanitizeUrl(registrationForm.resume)"
+                        [render-text]="true"
+                        [original-size]="false"
+                        style="display: block;"
+            ></pdf-viewer>
+            <!--<object type="application/pdf" [data]="sanitizeUrl(registrationForm.resume_link)" width="100%" height="100%">-->
+              <!--<embed [src]="sanitizeUrl(registrationForm.resume_link)" type="application/pdf">-->
+            <!--</object>-->
+          </div>
+          <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}} resume</h5>
           <p class="alert">This field is completely optional. You may submit your resume if you want us to share it
             with employers at HackPSU.</p>
           <div class="file-field input-field row">

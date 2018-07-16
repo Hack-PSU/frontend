@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressValidator } from 'address-validator';
-import { HttpService } from '../HttpService';
+import { HttpService } from '../services/HttpService/HttpService';
 import { AppConstants } from '../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
@@ -37,7 +37,7 @@ export class TableAssignmentViewComponent implements OnInit {
         this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
         this.user = user;
-        this.httpService.getTableAssignment(this.user)
+        this.httpService.getTableAssignment()
           .subscribe((value) => {
             this.response = value;
           },         error => this.errors = error);

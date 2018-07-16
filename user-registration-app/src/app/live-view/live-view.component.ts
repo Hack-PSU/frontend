@@ -1,11 +1,11 @@
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
-import { HttpService } from '../HttpService';
+import { HttpService } from '../services/HttpService/HttpService';
 import { Subscription } from 'rxjs/Subscription';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { AppConstants } from '../AppConstants';
-import { RegistrationModel } from '../registration-model';
+import { Registration } from '../models/registration';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 

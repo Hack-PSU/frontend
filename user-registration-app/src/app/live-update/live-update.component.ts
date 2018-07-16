@@ -1,5 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
-import { LiveUpdatesService } from '../live-updates.service';
+import { LiveUpdatesService } from '../services/LiveUpdates/live-updates.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';

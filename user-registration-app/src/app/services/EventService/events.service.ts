@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import * as io from 'socket.io-client';
-import { Observable } from 'rxjs/Observable';
-import { AppConstants } from './AppConstants';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/operator/filter';
+import { Observable } from 'rxjs/Observable';
+import * as io from 'socket.io-client';
+import { AppConstants } from '../../AppConstants';
 
 @Injectable()
-export class LiveUpdatesService {
-  private url = `${AppConstants.SOCKET_BASE_URL}/updates`;
+export class EventsService {
+
+  private url = `${AppConstants.SOCKET_BASE_URL}/events`;
   private socket;
 
   private broadcastSubject: BehaviorSubject<Event> = new BehaviorSubject<Event>(new Event(''));
@@ -22,7 +22,7 @@ export class LiveUpdatesService {
 
   constructor() { }
 
-  getUpdates(idtoken: string) {
+  getEvents(idtoken: string) {
     return new Observable((observer) => {
       this.socket = io(this.url, {
         path: '/v1/live',
@@ -39,7 +39,7 @@ export class LiveUpdatesService {
         console.log('DISCONNECTED');
         this.next(new Event('disconnected'));
       });
-      this.socket.on('update', (data) => {
+      this.socket.on('event', (data) => {
         observer.next(data);
       });
       return () => {

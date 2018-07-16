@@ -1,25 +1,24 @@
-import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
-import { RegistrationModel } from '../registration-model';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Registration } from '../models/registration';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
-
 import * as data from '../../assets/schools.json';
 import * as majors from '../../assets/majors.json';
-import { HttpService } from '../HttpService';
-import { Observable } from 'rxjs/Observable';
+import { HttpService } from '../services/HttpService/HttpService';
+import { Observable } from 'rxjs/Rx';
 import { AppConstants } from '../AppConstants';
+import { AuthService } from '../services/AuthService/auth.service';
 
 declare var $: any;
-
+declare var Materialize: any;
 
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css'],
-  providers: [HttpService],
+  providers: [HttpService, AuthService],
   animations: [
     trigger(
       'enterAnimation', [
@@ -85,7 +84,7 @@ export class RegistrationFormComponent implements OnInit {
     { minLength: 1 },
   ];
 
-  public registrationForm: RegistrationModel;
+  public registrationForm: Registration;
   public user: firebase.User;
   public currentIdx: number;
   public valid: boolean;
@@ -93,7 +92,6 @@ export class RegistrationFormComponent implements OnInit {
   public loading: boolean;
   public diet_restr: boolean;
   public otherDietRestr: boolean;
-  public registrationData: Observable<RegistrationModel>;
   public phoneNoUse;
   public errors: string;
   @ViewChild('registrationModel') form;
@@ -102,8 +100,17 @@ export class RegistrationFormComponent implements OnInit {
     return RegistrationFormComponent.regFormComp;
   }
 
-  constructor(public afAuth: AngularFireAuth, public router: Router, private httpService: HttpService) {
-    this.registrationForm = new RegistrationModel();
+  sanitizeUrl(resume_link: any) {
+    if (!(resume_link instanceof URL)) {
+      throw new Error('Must be a URL');
+    }
+    return resume_link.href;
+  }
+
+  constructor(public router: Router,
+              private httpService: HttpService,
+              private authService: AuthService) {
+    this.registrationForm = new Registration();
     this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
@@ -112,25 +119,32 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.afAuth.auth.onAuthStateChanged((user) => {
-      if (!user) {
-        this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-      } else {
-        this.user = user;
-        this.registrationData = this.httpService.getRegistrationStatus(this.user);
-        this.registrationData.subscribe((data) => {
-          if (data.submitted) {
-            this.router.navigate(['/rsvp']);
-          }
-        },                              (error) => {
-          this.registrationForm = new RegistrationModel();
-        });
-      }
-    },                                  (error) => {
-      console.error(error);
-      this.afAuth.auth.signOut();
+    this.user = this.authService.currentUser;
+    if (!this.user) {
       this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-    });
+    } else {
+      this.httpService.ngProgress.start();
+      Observable.combineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon())
+        .subscribe((data) => {
+          const [registration, hackathon] = data;
+          console.log(data);
+          if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
+            this.httpService.ngProgress.done();
+            this.router.navigate(['/rsvp']);
+          } else if (!registration.isCurrentRegistration(hackathon.uid)) {
+            this.registrationForm = registration;
+            this.parsePhone(this.registrationForm.phone);
+            setTimeout(() => {
+              this.httpService.ngProgress.done();
+              Materialize.updateTextFields();
+            },         500);
+          }
+        },         (error) => {
+          this.httpService.ngProgress.done();
+          // Registration not found.
+          this.registrationForm = new Registration();
+        });
+    }
   }
 
   parsePhone(val: any) {
@@ -139,18 +153,13 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.phone = this.asYouType.getNationalNumber();
   }
 
-  // mlhAgreement(b: boolean) {
-  //   this.registrationForm.mlhdcp = this.registrationForm.mlhcoc;
-  // }
-
   onSubmit() {
     console.log(this.registrationForm);
     this.loading = true;
-    this.httpService.submitRegistration(this.registrationForm, this.afAuth.auth.currentUser.uid)
+    this.httpService.submitRegistration(this.registrationForm, this.authService.currentUser.uid)
       .subscribe((data) => {
         this.loading = false;
         this.router.navigate(['/rsvp']);
-        this.registrationData = this.httpService.getRegistrationStatus(this.user);
       },         (error) => {
         console.error(error);
         this.loading = false;
