@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressValidator } from 'address-validator';
-import { HttpService } from '../services/HttpService/HttpService';
-import { AppConstants } from '../AppConstants';
+import { HttpService } from '../../services/HttpService/HttpService';
+import { AppConstants } from '../../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 declare var $: any;

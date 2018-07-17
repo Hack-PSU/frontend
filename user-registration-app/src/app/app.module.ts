@@ -9,24 +9,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgProgress, NgProgressBrowserXhr, NgProgressModule } from 'ngx-progressbar';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { UserViewComponent } from './user-view/user-view.component';
+import { LoginComponent } from './views/login/login.component';
+import { UserViewComponent } from './views/user-view/user-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { SignupViewComponent } from './signup-view/signup-view.component';
-import { ForgotPasswordViewComponent } from './forgot-password-view/forgot-password-view.component';
+import { RegistrationFormComponent } from './views/registration-form/registration-form.component';
+import { SignupViewComponent } from './views/signup-view/signup-view.component';
+import { ForgotPasswordViewComponent } from './views/forgot-password-view/forgot-password-view.component';
 // import { LiveUpdateComponent } from './live-update/live-update.component';
-import { LiveViewComponent } from './live-view/live-view.component';
+import { LiveViewComponent } from './views/live-view/live-view.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 // import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
-import { TravelReimbursementViewComponent } from './travel-reimbursement-view/travel-reimbursement-view.component';
-import { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
+import { TravelReimbursementViewComponent } from './views/travel-reimbursement-view/travel-reimbursement-view.component';
+import { TableAssignmentViewComponent } from './views/table-assignment-view/table-assignment-view.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { HttpService } from './services/HttpService/HttpService';
 import { AuthService } from './services/AuthService/auth.service';
-import { AuthGuard } from './auth.guard';
-import { DateGuard } from './date.guard';
+import { AuthGuard } from './services/route-guards/auth-guard/auth.guard';
+import { DateGuard } from './services/route-guards/date-guard/date.guard';
 
 
 @NgModule({

@@ -5,6 +5,7 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AppConstants } from './AppConstants';
 import { NgProgress } from 'ngx-progressbar';
 import { AuthService } from './services/AuthService/auth.service';
+import { DateGuard } from './services/route-guards/date-guard/date.guard';
 
 declare var $: any;
 
@@ -44,7 +45,6 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
         e.preventDefault();
         AppComponent.scrollToID($(e.target).attr('href'), 500);
       });
-      console.log($('#mobile-demo').find('.scroller'));
       $('#mobile-demo').find('.scroller').click((e) => {
         e.preventDefault();
         AppComponent.scrollToID($(e.target).attr('href'), 500);
@@ -76,4 +76,7 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
       .catch(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }
 
+  get DateGuard() {
+    return DateGuard;
+  }
 }

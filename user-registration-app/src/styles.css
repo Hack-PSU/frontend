@@ -17,3 +17,8 @@ body {
   transition: all 0.5s ease;
   color: #fff;
 }
+
+app-root {
+  display: block;
+  height: 100%;
+}

@@ -1,16 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Registration } from '../models/registration';
+import { Registration } from '../../models/registration';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
-import * as data from '../../assets/schools.json';
-import * as majors from '../../assets/majors.json';
-import { HttpService } from '../services/HttpService/HttpService';
+import * as data from '../../../assets/schools.json';
+import * as majors from '../../../assets/majors.json';
+import { HttpService } from '../../services/HttpService/HttpService';
 import { Observable } from 'rxjs/Rx';
-import { AppConstants } from '../AppConstants';
-import { AuthService } from '../services/AuthService/auth.service';
+import { AppConstants } from '../../AppConstants';
+import { AuthService } from '../../services/AuthService/auth.service';
+import * as Ajv from 'ajv';
+import * as registeredUserSchema from './registeredUserSchema.json';
 
+const ajv = new Ajv({ allErrors: true });
 declare var $: any;
 declare var Materialize: any;
 
@@ -95,6 +98,7 @@ export class RegistrationFormComponent implements OnInit {
   public phoneNoUse;
   public errors: string;
   @ViewChild('registrationModel') form;
+  private readonly validator: any;
 
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
@@ -107,6 +111,14 @@ export class RegistrationFormComponent implements OnInit {
     return resume_link.href;
   }
 
+  validate() {
+    const result = this.validator(this.registrationForm);
+    if (!result) {
+      this.errors = ajv.errorsText(this.validator.errors).replace(/,/g, '\n');
+    }
+    return result;
+  }
+
   constructor(public router: Router,
               private httpService: HttpService,
               private authService: AuthService) {
@@ -116,6 +128,7 @@ export class RegistrationFormComponent implements OnInit {
     this.prettifiedPhone = '';
     this.asYouType = new AsYouType('US');
     this.errors = null;
+    this.validator = ajv.compile(registeredUserSchema);
   }
 
   ngOnInit() {
@@ -123,24 +136,24 @@ export class RegistrationFormComponent implements OnInit {
     if (!this.user) {
       this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
     } else {
-      this.httpService.ngProgress.start();
+      this.progress.start();
       Observable.combineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon())
         .subscribe((data) => {
           const [registration, hackathon] = data;
           console.log(data);
           if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
-            this.httpService.ngProgress.done();
+            this.progress.done();
             this.router.navigate(['/rsvp']);
           } else if (!registration.isCurrentRegistration(hackathon.uid)) {
             this.registrationForm = registration;
             this.parsePhone(this.registrationForm.phone);
             setTimeout(() => {
-              this.httpService.ngProgress.done();
+              this.progress.done();
               Materialize.updateTextFields();
             },         500);
           }
         },         (error) => {
-          this.httpService.ngProgress.done();
+          this.progress.done();
           // Registration not found.
           this.registrationForm = new Registration();
         });
@@ -153,9 +166,8 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.phone = this.asYouType.getNationalNumber();
   }
 
-  onSubmit() {
-    console.log(this.registrationForm);
-    this.loading = true;
+  submit() {
+    this.progress.start();
     this.httpService.submitRegistration(this.registrationForm, this.authService.currentUser.uid)
       .subscribe((data) => {
         this.loading = false;
@@ -171,7 +183,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.resume = event.target.files[0];
   }
 
-  onError() {
+  error() {
     $('html, body').animate({
       scrollTop: 0,
     },                      1000);
@@ -187,15 +199,15 @@ export class RegistrationFormComponent implements OnInit {
     }
   }
 
-  setCodingExperience(event) {
-    this.registrationForm.codingExperience = event.target.value;
+  get progress() {
+    return this.httpService.ngProgress;
   }
 
-  setEthnicity(event) {
-    this.registrationForm.ethnicity = event.target.value;
-  }
-
-  setVeteran(event) {
-    this.registrationForm.veteran = event.target.value;
+  validateAndSubmit() {
+    if (this.validate() && this.form.valid) {
+      this.submit();
+    } else {
+      this.error();
+    }
   }
 }

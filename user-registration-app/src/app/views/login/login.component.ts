@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Login } from '../models/login';
-import { AppConstants } from '../AppConstants';
-import { AuthService, AuthProviders } from '../services/AuthService/auth.service';
+import { Login } from '../../models/login';
+import { AppConstants } from '../../AppConstants';
+import { AuthService, AuthProviders } from '../../services/AuthService/auth.service';
 import { NgProgress } from 'ngx-progressbar';
 
 @Component({

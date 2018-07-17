@@ -11,6 +11,11 @@
   overflow: visible;
 }
 
+textarea {
+  max-width: 100%;
+  min-width: 100%;
+}
+
 .registration-form {
   margin: 30vh auto 0 auto;
   display: block;
@@ -268,5 +273,14 @@ input::placeholder {
 }
 
 ul.items li {
+  list-style-type: disc;
+}
+
+ul.data-error:not(.browser-default) {
+  padding-left: 40px;
+  list-style-type: disc;
+}
+
+ul.data-error:not(.browser-default) > li {
   list-style-type: disc;
 }

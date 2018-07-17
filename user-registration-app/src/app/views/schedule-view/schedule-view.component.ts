@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { EventsService } from '../services/EventService/events.service';
-import { AppConstants } from '../AppConstants';
+import { EventsService } from '../../services/EventService/events.service';
+import { AppConstants } from '../../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 

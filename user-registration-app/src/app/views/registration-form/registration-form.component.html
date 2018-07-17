@@ -1,7 +1,7 @@
 <div class="row">
   <!--*ngIf="(registrationData | async)?.submitted; else rsvpRedirect()">-->
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
-        (ngSubmit)="registrationModel.form.valid ? onSubmit() : onError()"
+        (ngSubmit)="validateAndSubmit()"
         name="registrationFormDOM"
         #registrationModel="ngForm"
   >
@@ -9,7 +9,10 @@
       <div class="card">
         <div class="card-content">
           <p class="data-error">There are errors in your form. Please validate that all required fields have been filled
-            out</p>
+            out. Errors: <br></p>
+          <ul class="data-error">
+            <li *ngFor="let error of errors.split('\n')">{{error}}</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -44,7 +47,7 @@
           </div>
           <label class="data-error" *ngIf="!firstnameinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/Name.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Name.svg">
       </div>
     </div>
 
@@ -241,7 +244,7 @@
           </div>
           <label class="data-error" *ngIf="!shirtControl.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/Shirt.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Shirt.svg">
       </div>
     </div>
 
@@ -261,7 +264,7 @@
             </label>
           </div>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/TravelReimbursement.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/TravelReimbursement.svg">
       </div>
     </div>
 
@@ -336,7 +339,7 @@
             <label for="other-diet-restr">Describe them</label>
           </div>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/DietaryRestrictions.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/DietaryRestrictions.svg">
       </div>
     </div>
 
@@ -400,7 +403,7 @@
           </div>
           <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/University.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/University.svg">
       </div>
     </div>
 
@@ -490,7 +493,7 @@
           </div>
           <label class="data-error" *ngIf="!mlhcocinput.valid">Required</label>
         </div>
-        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../assets/images/MLHCodeofConduct.svg">
+        <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/MLHCodeofConduct.svg">
       </div>
     </div>
 
@@ -600,29 +603,16 @@
          class="center">
       <div class="card" *ngIf="errors">
         <div class="card-content">
-          <p class="alert alert-danger">{{errors}}</p>
+          <ul class="alert alert-danger">
+            <li *ngFor="let error of errors.split('\n')">{{error}}</li>
+          </ul>
         </div>
       </div>
       <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-        <button *ngIf="!loading; else spinner" class="btn waves-effect waves-light submit-btn" type="submit"
+        <button [disabled]="progress.isStarted()" class="btn waves-effect waves-light submit-btn" type="submit"
                 name="action">Submit
           <i class="material-icons right">send</i>
         </button>
-        <ng-template #spinner>
-          <div class="preloader-wrapper big active">
-            <div class="spinner-layer">
-              <div class="circle-clipper left">
-                <div class="circle"></div>
-              </div>
-              <div class="gap-patch">
-                <div class="circle"></div>
-              </div>
-              <div class="circle-clipper right">
-                <div class="circle"></div>
-              </div>
-            </div>
-          </div>
-        </ng-template>
       </div>
     </div>
   </form>

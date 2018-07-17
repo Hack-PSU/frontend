@@ -1,9 +1,9 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
-import { LiveUpdatesService } from '../services/LiveUpdates/live-updates.service';
+import { LiveUpdatesService } from '../../services/LiveUpdatesService/live-updates.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-import { AppConstants } from '../AppConstants';
+import { AppConstants } from '../../AppConstants';
 
 declare var $: any;
 

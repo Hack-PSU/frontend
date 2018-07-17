@@ -34,7 +34,7 @@ export class AuthService {
         authProvider = new firebase.auth.FacebookAuthProvider();
         break;
       case AuthProviders.GITHUB_PROVIDER:
-        authProvider = new firebase.auth.GoogleAuthProvider();
+        authProvider = new firebase.auth.GithubAuthProvider();
         break;
     }
     return this.afAuth.auth.signInWithPopup(authProvider);

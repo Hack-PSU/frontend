@@ -78,6 +78,10 @@
   color: #333333;
 }
 
+.btn:hover span {
+  color: #333333;
+}
+
 .btn:hover .fa:before {
   color: #333333;
 }

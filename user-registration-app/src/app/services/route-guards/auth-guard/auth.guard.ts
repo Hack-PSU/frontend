@@ -4,8 +4,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AppConstants } from './AppConstants';
-import { AuthService } from './services/AuthService/auth.service';
+import { AppConstants } from '../../../AppConstants';
+import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from 'ngx-progressbar';
 
 @Injectable()
