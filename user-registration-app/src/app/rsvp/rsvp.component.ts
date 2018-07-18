@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import { AppConstants } from '../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 declare var $: any;
 
@@ -84,5 +85,9 @@ export class RsvpComponent implements OnInit {
 
   getPin() {
     return parseInt(this.rsvpData.pin, 10).toString(14).padStart(3, '0');
+  }
+
+  rsvpReady() {
+    return new Date().getTime() >= environment.rsvpStartTime.getTime();
   }
 }

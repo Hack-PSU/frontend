@@ -33,7 +33,7 @@ export class Registration {
     registration.email = value.email;
     registration.eighteenBeforeEvent = value.eighteenBeforeEvent;
     registration.shirtSize = value.shirt_size;
-    registration.dietaryRestriction = value.dietary_registration;
+    registration.dietaryRestriction = value.dietary_restriction;
     registration.allergies = value.allergies;
     registration.travelReimbursement = value.travel_reimbursement;
     registration.firstHackathon = value.first_hackathon;
@@ -47,7 +47,7 @@ export class Registration {
     registration.ethnicity = value.race;
     registration.codingExperience = value.coding_experience;
     registration.referral = value.referral;
-    registration.projectDesc = value.project_desc;
+    registration.projectDesc = value.project;
     registration.expectations = value.expectations;
     registration.veteran = value.veteran;
     registration.submitted = value.submitted;

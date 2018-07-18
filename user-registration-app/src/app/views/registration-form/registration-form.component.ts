@@ -147,6 +147,7 @@ export class RegistrationFormComponent implements OnInit {
           } else if (!registration.isCurrentRegistration(hackathon.uid)) {
             this.registrationForm = registration;
             this.parsePhone(this.registrationForm.phone);
+            this.diet_restr = this.registrationForm.dietaryRestriction !== null;
             setTimeout(() => {
               this.progress.done();
               Materialize.updateTextFields();
@@ -169,12 +170,12 @@ export class RegistrationFormComponent implements OnInit {
   submit() {
     this.progress.start();
     this.httpService.submitRegistration(this.registrationForm, this.authService.currentUser.uid)
-      .subscribe((data) => {
-        this.loading = false;
-        this.router.navigate(['/rsvp']);
+      .subscribe(() => {
+        this.router.navigate(['/rsvp'])
+          .then(() => this.progress.done());
       },         (error) => {
         console.error(error);
-        this.loading = false;
+        this.progress.done();
         this.errors = error.message;
       });
   }
@@ -209,5 +210,9 @@ export class RegistrationFormComponent implements OnInit {
     } else {
       this.error();
     }
+  }
+
+  getFormattedErrorText(): string {
+    return this.errors;
   }
 }

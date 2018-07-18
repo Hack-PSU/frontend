@@ -11,7 +11,7 @@
           <p class="data-error">There are errors in your form. Please validate that all required fields have been filled
             out. Errors: <br></p>
           <ul class="data-error">
-            <li *ngFor="let error of errors.split('\n')">{{error}}</li>
+            <li *ngFor="let error of getFormattedErrorText().split('\n')">{{error}}</li>
           </ul>
         </div>
       </div>
@@ -85,21 +85,21 @@
           <div class="form-group required" id="gender-input" data-error="Gender is required">
             <input type="radio" class="with-gap" name="gender" required value="male" id="male"
                    [(ngModel)]="registrationForm.gender"
-                   #genderControl="ngModel"
-            >
+                   #genderControl="ngModel">
             <label for="male">Male</label><br>
+
             <input type="radio" class="with-gap" name="gender" required value="female" id="female"
-                   [(ngModel)]="registrationForm.gender"
-            >
+                   [(ngModel)]="registrationForm.gender">
             <label for="female">Female</label><br>
+
             <input type="radio" class="with-gap" name="gender" required value="non-binary" id="non-binary"
-                   [(ngModel)]="registrationForm.gender"
-            >
+                   [(ngModel)]="registrationForm.gender">
             <label for="non-binary">Non-Binary</label><br>
+
             <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="option4"
-                   [(ngModel)]="registrationForm.gender"
-            >
+                   [(ngModel)]="registrationForm.gender">
             <label for="option4">Prefer not to disclose</label><br>
+
             <label class="data-error" *ngIf="!genderControl.valid">Required</label>
           </div>
         </div>
@@ -139,25 +139,25 @@
           <h5>What is your Race/Ethnicity?</h5>
           <div class="form-group">
             <input type="radio" id="native-american" name="ethnicity" value="native-american"
-                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
+                   class="with-gap" [(ngModel)]="registrationForm.ethnicity" #ethnicityControl="ngModel">
             <label for="native-american">Native American or Alaska Native</label><br>
             <input type="radio" id="asian" name="ethnicity" value="asian"
-                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
+                   class="with-gap" [(ngModel)]="registrationForm.ethnicity">
             <label for="asian">Asian</label><br>
             <input type="radio" id="african-american" name="ethnicity" value="african-american"
-                   class="with-gap" ([ngModel])="registrationForm.ethnicity">
+                   class="with-gap" [(ngModel)]="registrationForm.ethnicity">
             <label for="african-american">Black or African American</label><br>
             <input type="radio" class="with-gap" id="latinx" name="ethnicity" value="latinx"
-                   ([ngModel])="registrationForm.ethnicity">
+                   [(ngModel)]="registrationForm.ethnicity">
             <label for="latinx">Hispanic or Latinx</label><br>
             <input type="radio" class="with-gap" id="pacific-islander" name="ethnicity" value="pacific-islander"
-                   ([ngModel])="registrationForm.ethnicity">
+                   [(ngModel)]="registrationForm.ethnicity">
             <label for="pacific-islander">Native Hawaiian or Other Pacific Islander</label><br>
             <input type="radio" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
-                   ([ngModel])="registrationForm.ethnicity">
+                   [(ngModel)]="registrationForm.ethnicity">
             <label for="caucasian">Caucasian</label><br>
             <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity" value="no-disclose"
-                   ([ngModel])="registrationForm.ethnicity">
+                   [(ngModel)]="registrationForm.ethnicity">
             <label for="no-disclose">Prefer not to disclose</label>
           </div>
         </div>
@@ -172,14 +172,18 @@
           <h5>Are you a veteran?</h5>
           <div class="form-group">
             <input type="radio" class="with-gap" id="true" name="veteran" value="true"
-                   ([ngModel])="registrationForm.veteran">
+                   required
+                   [(ngModel)]="registrationForm.veteran" #veteranControl>
             <label for="true">Yes</label><br>
             <input type="radio" class="with-gap" id="false" name="veteran" value="false"
-                   ([ngModel])="registrationForm.veteran">
+                   required
+                   [(ngModel)]="registrationForm.veteran">
             <label for="false">No</label><br>
             <input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose"
-                   ([ngModel])="registrationForm.veteran">
+                   required
+                   [(ngModel)]="registrationForm.veteran">
             <label for="no-disclose">Prefer not to disclose</label><br>
+            <label class="data-error" *ngIf="!veteranControl.valid">Required</label>
           </div>
         </div>
       </div>
@@ -302,28 +306,28 @@
           </div>
           <div class="form-group" *ngIf="diet_restr">
             <input type="radio" class="with-gap" id="vegetarian" required name="dietaryRestriction" value="vegetarian"
-                   (change)="dietaryRestriction($event)">
-            <!--#dietControl="ngModel"-->
-
+                   (change)="dietaryRestriction($event)"
+                   [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="vegetarian">Vegetarian</label><br>
             <input type="radio" class="with-gap" id="vegan" required name="dietaryRestriction" value="vegan"
                    (change)="dietaryRestriction($event)"
-            >
+                   [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="vegan">Vegan</label><br>
             <input type="radio" class="with-gap" id="kosher" required name="dietaryRestriction" value="kosher"
                    (change)="dietaryRestriction($event)"
-            >
+                   [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="kosher">Kosher</label><br>
             <input type="radio" class="with-gap" id="halal" required name="dietaryRestriction" value="halal"
                    (change)="dietaryRestriction($event)"
-            >
+                   [(ngModel)]="registrationForm.dietaryRestriction">
             <label for="halal">Halal</label><br>
             <input type="radio" class="with-gap" id="gluten-free" required name="dietaryRestriction"
-                   value="gluten-free"
+                   [(ngModel)]="registrationForm.dietaryRestriction"
                    (change)="dietaryRestriction($event)"
-            >
+                   value="gluten-free">
             <label for="gluten-free">Gluten Free</label><br>
             <input type="radio" class="with-gap" id="other" required name="dietaryRestriction" value="other"
+                   [(ngModel)]="registrationForm.dietaryRestriction"
                    (change)="dietaryRestriction($event)"
             >
             <label for="other">Other</label><br>
@@ -536,20 +540,16 @@
           <h5 class="experience">Coding Experience</h5>
           <div class="form-group">
             <input type="radio" class="with-gap" id="none" name="codingExperience" value="none"
-                   (change)="setCodingExperience($event)"
-                   ([ngModel])="registrationForm.codingExperience">
+                   [(ngModel)]="registrationForm.codingExperience">
             <label for="none">None</label><br>
             <input type="radio" class="with-gap" id="beginner" name="codingExperience" value="beginner"
-                   (change)="setCodingExperience($event)"
-                   ([ngModel])="registrationForm.codingExperience">
+                   [(ngModel)]="registrationForm.codingExperience">
             <label for="beginner">Beginner (0-2 years) </label><br>
             <input type="radio" class="with-gap" id="intermediate" name="codingExperience" value="intermediate"
-                   (change)="setCodingExperience($event)"
-                   ([ngModel])="registrationForm.codingExperience">
+                   [(ngModel)]="registrationForm.codingExperience">
             <label for="intermediate">Intermediate (2-4 years)</label><br>
             <input type="radio" class="with-gap" id="advanced" name="codingExperience" value="advanced"
-                   (change)="setCodingExperience($event)"
-                   ([ngModel])="registrationForm.codingExperience">
+                   [(ngModel)]="registrationForm.codingExperience">
             <label for="advanced">Advanced (> 4 years) </label>
           </div>
         </div>
@@ -630,77 +630,3 @@
     </ul>
   </div>
 </div>
-<ng-template #templateName>
-  <div class="page-margins">
-    <div class="page-header text-center">
-      <h2> RSVP for HackPSU </h2>
-    </div>
-
-    <div class="submitted-block">
-      Would you like to RSVP for HackPSU?
-      <br />
-      <br />
-      <div class="col-offset-2 col-8">
-        <a class="btn btn-block btn-social" (click)="rsvp(false)">
-          <span>No</span>
-        </a>
-        <a class="btn btn-block btn-social" (click)="rsvp(true)">
-          <span (click)="rsvpInfo()">Yes</span>
-        </a>
-      </div>
-      <div *ngIf="show">
-        <br />
-        <h4>We are excited to see you this year on April 7.</h4>
-        <br />
-        <div class="row" id="rsvpinfo">
-          <div class="col-md-12 col-md-4">
-            <b>Location</b>
-            <br />
-            <br />
-            <font size="4">The hackathon will take place at the Business Building.
-              The address is:
-              <br />
-              <br />
-              210 Business Building,
-              <br />
-              University Park, PA 16802
-            </font>
-          </div>
-          <div class="col-md-12 col-md-4 items">
-            <b>Things to Bring</b>
-            <br />
-            <br />
-            <font size="4">
-              <ul>
-                <li>Computer/Laptop</li>
-                <li>Mouse</li>
-                <li>Power Cord</li>
-                <li>Backpack</li>
-                <li>Spare Clothes</li>
-                <li>Blanket</li>
-                <li>Chargers/Batteries</li>
-                <li>Headphones/Earphones</li>
-                <li>Swag</li>
-              </ul>
-            </font>
-          </div>
-          <div class="col-md-12 col-md-4">
-            <b>Date & Time</b>
-            <br />
-            <br />
-            <font size="5">
-              April 7-8
-            </font>
-            <font size="4">
-              <br />
-              <br />
-              12:30pm Saturday - 5:30pm Sunday
-              <br />
-              Hacking starts at 2:00pm Saturday
-            </font>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-template>

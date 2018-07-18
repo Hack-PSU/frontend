@@ -12,9 +12,7 @@ import { NgProgress } from 'ngx-progressbar';
 @Injectable()
 export class HttpService {
 
-  constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {
-
-  }
+  constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {}
 
   private makeGetRequest(API_ENDPOINT: string) {
     return this.authService.idToken
