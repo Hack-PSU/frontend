@@ -1,9 +1,9 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppConstants } from './AppConstants';
-import { NgProgress } from 'ngx-progressbar';
+import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
 import { DateGuard } from './services/route-guards/date-guard/date.guard';
 
@@ -62,7 +62,7 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
           case 'NavigationEnd':
           case 'NavigationCancel':
           case 'NavigationError':
-            this.progressBar.done();
+            this.progressBar.complete();
             break;
           default:
             break;

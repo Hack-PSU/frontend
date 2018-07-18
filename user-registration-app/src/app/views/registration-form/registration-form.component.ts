@@ -1,3 +1,6 @@
+import { combineLatest as observableCombineLatest } from 'rxjs';
+
+import {mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Registration } from '../../models/registration';
 import { Router } from '@angular/router';
@@ -7,7 +10,6 @@ import { AsYouType } from 'libphonenumber-js';
 import * as data from '../../../assets/schools.json';
 import * as majors from '../../../assets/majors.json';
 import { HttpService } from '../../services/HttpService/HttpService';
-import { Observable } from 'rxjs/Rx';
 import { AppConstants } from '../../AppConstants';
 import { AuthService } from '../../services/AuthService/auth.service';
 import * as Ajv from 'ajv';
@@ -132,33 +134,36 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authService.currentUser;
-    if (!this.user) {
-      this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-    } else {
-      this.progress.start();
-      Observable.combineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon())
-        .subscribe((data) => {
-          const [registration, hackathon] = data;
-          console.log(data);
-          if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
-            this.progress.done();
-            this.router.navigate(['/rsvp']);
-          } else if (!registration.isCurrentRegistration(hackathon.uid)) {
-            this.registrationForm = registration;
-            this.parsePhone(this.registrationForm.phone);
-            this.diet_restr = this.registrationForm.dietaryRestriction !== null;
-            setTimeout(() => {
-              this.progress.done();
-              Materialize.updateTextFields();
-            },         500);
-          }
-        },         (error) => {
-          this.progress.done();
-          // Registration not found.
-          this.registrationForm = new Registration();
-        });
-    }
+    this.authService.currentUser.pipe(
+      take(1),
+      mergeMap((user) => {
+        if (!user) {
+          this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
+        } else {
+          this.progress.start();
+          return observableCombineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon());
+        }
+      }) )
+      .subscribe((data) => {
+        const [registration, hackathon] = data;
+        console.log(data);
+        if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
+          this.progress.complete();
+          this.router.navigate(['/rsvp']);
+        } else if (!registration.isCurrentRegistration(hackathon.uid)) {
+          this.registrationForm = registration;
+          this.parsePhone(this.registrationForm.phone);
+          this.diet_restr = this.registrationForm.dietaryRestriction !== null;
+          setTimeout(() => {
+            this.progress.complete();
+            Materialize.updateTextFields();
+          },         500);
+        }
+      },         (error) => {
+        this.progress.complete();
+        // Registration not found.
+        this.registrationForm = new Registration();
+      });
   }
 
   parsePhone(val: any) {
@@ -169,13 +174,17 @@ export class RegistrationFormComponent implements OnInit {
 
   submit() {
     this.progress.start();
-    this.httpService.submitRegistration(this.registrationForm, this.authService.currentUser.uid)
+    this.authService.currentUser.pipe(
+      take(1),
+      mergeMap((user) => {
+        return this.httpService.submitRegistration(this.registrationForm, user.uid);
+      }) )
       .subscribe(() => {
         this.router.navigate(['/rsvp'])
-          .then(() => this.progress.done());
+          .then(() => this.progress.complete());
       },         (error) => {
         console.error(error);
-        this.progress.done();
+        this.progress.complete();
         this.errors = error.message;
       });
   }
@@ -212,7 +221,7 @@ export class RegistrationFormComponent implements OnInit {
     }
   }
 
-  getFormattedErrorText(): string {
+  getFormattedErrorText() {
     return this.errors;
   }
 }

@@ -7,7 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
-import { NgProgress, NgProgressBrowserXhr, NgProgressModule } from 'ngx-progressbar';
+import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { UserViewComponent } from './views/user-view/user-view.component';
@@ -27,6 +27,8 @@ import { HttpService } from './services/HttpService/HttpService';
 import { AuthService } from './services/AuthService/auth.service';
 import { AuthGuard } from './services/route-guards/auth-guard/auth.guard';
 import { DateGuard } from './services/route-guards/date-guard/date.guard';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { NgProgressRouterModule } from '@ngx-progressbar/router';
 
 
 @NgModule({
@@ -54,12 +56,13 @@ import { DateGuard } from './services/route-guards/date-guard/date.guard';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     MaterializeModule,
-    NgProgressModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpModule,
+    NgProgressRouterModule,
     PdfViewerModule,
   ],
   providers: [
     HttpService,
-    { provide: BrowserXhr, useClass: NgProgressBrowserXhr },
     AuthService,
     AuthGuard,
     NgProgress,

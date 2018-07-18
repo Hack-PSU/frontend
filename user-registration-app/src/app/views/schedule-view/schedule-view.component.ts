@@ -1,5 +1,6 @@
+
+import {from as observableFrom,  Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { EventsService } from '../../services/EventService/events.service';
 import { AppConstants } from '../../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -52,9 +53,9 @@ export class ScheduleViewComponent implements OnInit {
       });
     this.afAuth.auth.onAuthStateChanged((user) => {
       if (user) {
-        this.idtoken = Observable.fromPromise(user.getIdToken(true));
+        this.idtoken = observableFrom(user.getIdToken(true));
         this.idtoken.subscribe((value) => {
-          this.eventsService.getEvents(value).subscribe((events: EventModel[]) => {
+          this.eventsService.getEvents().subscribe((events: EventModel[]) => {
             console.log(events);
             events.forEach((m) => {
               // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {

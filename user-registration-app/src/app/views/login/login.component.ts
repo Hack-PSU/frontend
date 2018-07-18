@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../../models/login';
 import { AppConstants } from '../../AppConstants';
 import { AuthService, AuthProviders } from '../../services/AuthService/auth.service';
-import { NgProgress } from 'ngx-progressbar';
+import { NgProgress } from '@ngx-progressbar/core';
 
 @Component({
   selector: 'app-login',
@@ -60,7 +60,7 @@ export class LoginComponent {
   }
 
   onLogin() {
-    this.progressBar.done();
+    this.progressBar.complete();
     this.activatedRoute.queryParams
       .subscribe((params) => {
         if (!params.redirectUrl) {

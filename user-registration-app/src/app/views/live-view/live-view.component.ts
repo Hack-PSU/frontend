@@ -2,8 +2,7 @@ import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 import { HttpService } from '../../services/HttpService/HttpService';
-import { Subscription } from 'rxjs/Subscription';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { Subscription } from 'rxjs';
 import { AppConstants } from '../../AppConstants';
 import { Registration } from '../../models/registration';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -64,22 +63,22 @@ export class LiveViewComponent implements OnInit, OnDestroy {
     $(document).ready(() => {
       $('.materialboxed').materialbox();
     });
-    if (this.currentTime < this.startTime) {
-      this.bannerText = 'until HackPSU!';
-      this.countDown(this.currentTime, this.startTime);
-      this.isBeforeEvent = true;
-    } else if (this.currentTime < this.endTime) {
-      this.bannerText = 'remains!';
-      this.getTimeRemaining(this.currentTime, this.endTime);
-      this.countDown(this.currentTime, this.endTime);
-      this.isBeforeEvent = false;
-    } else {
-      this.bannerText = 'Hacking is over!';
-      this.days = 0;
-      this.hours = 0;
-      this.minutes = 0;
-      this.seconds = 0;
-    }
+    // if (this.currentTime < this.startTime) {
+    //   this.bannerText = 'until HackPSU!';
+    //   // this.countDown(this.currentTime, this.startTime);
+    //   this.isBeforeEvent = true;
+    // } else if (this.currentTime < this.endTime) {
+    //   this.bannerText = 'remains!';
+    //   this.getTimeRemaining(this.currentTime, this.endTime);
+    //   // this.countDown(this.currentTime, this.endTime);
+    //   this.isBeforeEvent = false;
+    // } else {
+    //   this.bannerText = 'Hacking is over!';
+    //   this.days = 0;
+    //   this.hours = 0;
+    //   this.minutes = 0;
+    //   this.seconds = 0;
+    // }
   }
 
   getTimeRemaining(currentTime, countdownTime) {
@@ -92,32 +91,32 @@ export class LiveViewComponent implements OnInit, OnDestroy {
     this.seconds = Math.floor(timeTill % 60);
   }
 
-  countDown(currentTime, countdownTime) {
-    this.zone.runOutsideAngular(() => {
-      const timer = TimerObservable.create(0, 1000);
-      this.subscription = timer.subscribe(() => {
-        this.currentTime += 1;
-        if ((countdownTime - this.currentTime) <= 0) {
-          if (this.isBeforeEvent) {
-            this.zone.run(() => {
-              this.bannerText = 'remains!';
-              this.getTimeRemaining(this.currentTime, this.endTime);
-            });
-          } else {
-            this.days = 0;
-            this.hours = 0;
-            this.minutes = 0;
-            this.seconds = 0;
-            this.bannerText = 'Hacking is over!';
-          }
-        } else {
-          this.zone.run(() => {
-            this.getTimeRemaining(this.currentTime, countdownTime);
-          });
-        }
-      });
-    });
-  }
+  // countDown(currentTime, countdownTime) {
+  //   this.zone.runOutsideAngular(() => {
+  //     const timer = TimerObservable.create(0, 1000);
+  //     this.subscription = timer.subscribe(() => {
+  //       this.currentTime += 1;
+  //       if ((countdownTime - this.currentTime) <= 0) {
+  //         if (this.isBeforeEvent) {
+  //           this.zone.run(() => {
+  //             this.bannerText = 'remains!';
+  //             this.getTimeRemaining(this.currentTime, this.endTime);
+  //           });
+  //         } else {
+  //           this.days = 0;
+  //           this.hours = 0;
+  //           this.minutes = 0;
+  //           this.seconds = 0;
+  //           this.bannerText = 'Hacking is over!';
+  //         }
+  //       } else {
+  //         this.zone.run(() => {
+  //           this.getTimeRemaining(this.currentTime, countdownTime);
+  //         });
+  //       }
+  //     });
+  //   });
+  // }
 
   ngOnDestroy() {
     if (this.subscription) {

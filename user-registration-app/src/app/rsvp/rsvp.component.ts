@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AppConstants } from '../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 declare var $: any;

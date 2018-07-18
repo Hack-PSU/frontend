@@ -1,12 +1,14 @@
+
+import {from as observableFrom,  Observable } from 'rxjs';
+
+import {switchMap,  map, retry, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
-import { Observable } from 'rxjs/Observable';
 import { Registration } from '../../models/registration';
 import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
-import { map, retry, tap } from 'rxjs/operators';
-import { NgProgress } from 'ngx-progressbar';
+import { NgProgress } from '@ngx-progressbar/core';
 
 
 @Injectable()
@@ -15,26 +17,26 @@ export class HttpService {
   constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {}
 
   private makeGetRequest(API_ENDPOINT: string) {
-    return this.authService.idToken
-      .switchMap((idToken: string) => {
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers })
           .pipe(
             retry(3),
           );
-      });
+      }));
   }
 
   private makePostRequest(API_ENDPOINT: string, formObject: FormData) {
-    return this.authService.idToken
-      .switchMap((idToken: string) => {
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
                               formObject,
                               { headers, reportProgress: true });
-      });
+      }));
   }
 
   getRegistrationStatus(): Observable<Registration> {
@@ -81,14 +83,14 @@ export class HttpService {
 
   submitRSVP(currentUser: any, status: boolean) {
     const API_ENDPOINT = 'users/rsvp';
-    return Observable.fromPromise(currentUser.getIdToken(true))
-      .switchMap((idToken: string) => {
+    return observableFrom(currentUser.getIdToken(true)).pipe(
+      switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
                                             { status },
                                             { headers, reportProgress: true });
-      });
+      }));
   }
 
   getCategories(currentUser: any) {
