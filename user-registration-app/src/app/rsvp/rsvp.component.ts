@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../HttpService';
+import { HttpService } from '../services/HttpService/HttpService';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AppConstants } from '../AppConstants';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 declare var $: any;
 
@@ -46,7 +47,7 @@ export class RsvpComponent implements OnInit {
         this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
         this.user = user;
-        this.rsvpDataObservable = this.httpService.getRsvpStatus(this.user);
+        this.rsvpDataObservable = this.httpService.getRsvpStatus();
         this.rsvpDataObservable.subscribe((value) => {
           this.rsvpData = Object.assign(this.rsvpData, value);
           console.log(this.rsvpData);
@@ -69,7 +70,7 @@ export class RsvpComponent implements OnInit {
     this.httpService.submitRSVP(this.user, status)
       .subscribe((data) => {
         this.loading = false;
-        this.rsvpDataObservable = this.httpService.getRsvpStatus(this.user);
+        this.rsvpDataObservable = this.httpService.getRsvpStatus();
         this.rsvpDataObservable.subscribe((value) => {
           console.log(value);
           this.rsvpData = value;
@@ -84,5 +85,9 @@ export class RsvpComponent implements OnInit {
 
   getPin() {
     return parseInt(this.rsvpData.pin, 10).toString(14).padStart(3, '0');
+  }
+
+  rsvpReady() {
+    return new Date().getTime() >= environment.rsvpStartTime.getTime();
   }
 }

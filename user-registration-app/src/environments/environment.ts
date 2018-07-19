@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:5000/v1/',
+  // api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
+  api_url: 'https://api.hackpsu.org/v1/',
   socket_url: 'http://localhost:5000',
   firebase: {
     apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
@@ -15,4 +16,8 @@ export const environment = {
     storageBucket: 'hackpsu18.appspot.com',
     messagingSenderId: '1002677206617',
   },
+  // hackathonStartTime: new Date(),
+  // rsvpStartTime: new Date(),
+  hackathonStartTime: new Date(2018, 10, 6, 7),
+  rsvpStartTime: new Date(2018, 9, 30),
 };

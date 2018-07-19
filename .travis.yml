@@ -7,29 +7,24 @@ node_js:
 cache: yarn
 before_install: 
 install:
-- npm install
-- npm i -g firebase-tools
 - npm install -g @angular/cli
-before_script: 
-script: 
-after_success: 
-after_failure: 
-after_script: 
 before_deploy:
-- firebase use hackpsu18 --token 1/_m3H9nRUOHgTVRFwn0SyWH28HPFsPyX4hnWEzhFAle4
 - cd user-registration-app && npm install && ng build --prod --no-aot && cd ..
-- rvm default do gem install aws-sdk -v 2.1.36
 deploy:
-- provider: firebase
-  on:
-    branch: master
-  token:
-    secure: UB1d7Uk54HCw12u8Q8X4S6hRaKssUdv7o2GvJfBMtz+n7TVlRfa5eFOHhdemIRtrbzuU1P7nvhNQR8YZXKeawpEoXmLgQWoWkk3dpsoUEMFPqFDUng7GAuwGpR4luagge5KbwnyQzGTRUjAad6mb8cNUzXAar26VWn8kczHHpvU6TU92X3xwU/SeZncNv9SpCLQYJIq6oT6xQZm0NZKoLbeiKK+/FjDYwbLOx5Yz/sklQ+D13bQVI8ufXYJVuor0nsH3yVsVdtIgydMmwB9Rf/H+mh1rI8osIIbygHBkCA01sYAlKQsCgltDSF8gchlCCab3qhWWO8m1DGDMvwTX8zuU3Qd6Ai6u3f6j0t2VTIIVzyrZiu5M50F3ursLHgeg1aYI8+A503zjCsgH+fH6iMENPWWa9anN6jwVoZ3212IJzZa3zAMj3S212V3YiaH87SMP0kNUUzBrKjH+UE3gj1wH04lbqS/u8BgTAx/ua3Narkq/wjfdxRDMOMoGbqCfApfR5imt6mHR+vHVLLTFQMeYpTrKUsnKptiDlJl2a57ZVzStYqi3aw3+wEautSvx4au5otaYQvUVWViyiH1PJ5NGLxdNOrg8KaNd4W0BJviD70lfKnpjRDxQhoNLn/zo4rs9ffk/ETzGc+cMP25VtKt+V/5DsVrU5xV7n37q64Q=
-- provider: s3
+- provider: gcs
   skip_cleanup: true
-  access_key_id: AKIAI2D52LBRN2V2Z2MQ
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  bucket: aws-website-hackpsu-app-27koh
+  access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
+  secret_access_key: "$GCS_SECRET_ACCESS_KEY"
+  bucket: hackpsu.org
+  local-dir: website
+  acl: public_read
+  on:
+    repo: hackpsu-tech/hackPSUS2018
+- provider: gcs
+  skip_cleanup: true
+  access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
+  secret_access_key: "$GCS_SECRET_ACCESS_KEY"
+  bucket: app.hackpsu.org
   local-dir: user-registration-app/dist
   acl: public_read
   on:

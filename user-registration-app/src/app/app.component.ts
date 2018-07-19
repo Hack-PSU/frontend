@@ -1,8 +1,12 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router, RouterModule } from '@angular/router';
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppConstants } from './AppConstants';
+import { NgProgress } from '@ngx-progressbar/core';
+import { AuthService } from './services/AuthService/auth.service';
+import { DateGuard } from './services/route-guards/date-guard/date.guard';
+
 declare var $: any;
 
 
@@ -10,6 +14,8 @@ declare var $: any;
   imports: [
     BrowserModule,
     RouterModule,
+    NgProgress,
+    AuthService,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
@@ -27,7 +33,7 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
       const targetOffset = elem.offset().top;
       $('html,body').animate({ scrollTop: targetOffset }, speed);
       setTimeout(() => {
-      },         speed);
+      }, speed);
     }
   }
 
@@ -39,7 +45,6 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
         e.preventDefault();
         AppComponent.scrollToID($(e.target).attr('href'), 500);
       });
-      console.log($('#mobile-demo').find('.scroller'));
       $('#mobile-demo').find('.scroller').click((e) => {
         e.preventDefault();
         AppComponent.scrollToID($(e.target).attr('href'), 500);
@@ -47,12 +52,31 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
     });
   }
 
-  constructor(public afAuth: AngularFireAuth, public router: Router) {}
+  constructor(public authService: AuthService, public router: Router, private progressBar: NgProgress) {
+    this.router.events
+      .subscribe((event) => {
+        switch (event.constructor.name) {
+          case 'NavigationStart':
+            this.progressBar.start();
+            break;
+          case 'NavigationEnd':
+          case 'NavigationCancel':
+          case 'NavigationError':
+            this.progressBar.complete();
+            break;
+          default:
+            break;
+        }
+      });
+  }
 
   logout() {
-    this.afAuth.auth.signOut()
+    this.authService.signOut()
       .then(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]))
       .catch(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }
 
+  get DateGuard() {
+    return DateGuard;
+  }
 }

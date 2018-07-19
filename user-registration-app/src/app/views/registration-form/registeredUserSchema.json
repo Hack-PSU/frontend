@@ -1,0 +1,159 @@
+{
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 45
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 45
+    },
+    "gender": {
+      "enum": [
+        "male",
+        "female",
+        "non-binary",
+        "no-disclose"
+      ]
+    },
+    "shirtSize": {
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ]
+    },
+    "dietaryRestriction": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 45
+    },
+    "allergies": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "travelReimbursement": {
+      "type": "boolean"
+    },
+    "firstHackathon": {
+      "type": "boolean"
+    },
+    "university": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "academicYear": {
+      "enum": [
+        "freshman",
+        "sophomore",
+        "junior",
+        "senior",
+        "graduate",
+        "other"
+      ]
+    },
+    "major": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "phone": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "ethnicity": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 150
+    },
+    "codingExperience": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "none",
+        "beginner",
+        "intermediate",
+        "advanced",
+        "god",
+        null
+      ]
+    },
+    "veteran": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "true",
+        "false",
+        "no-disclose"
+      ]
+    },
+    "eighteenBeforeEvent": {
+      "type": "boolean"
+    },
+    "mlhcoc": {
+      "type": "boolean"
+    },
+    "mlhdcp": {
+      "type": "boolean"
+    },
+    "referral": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "projectDesc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expectations": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "time": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "gender",
+    "shirtSize",
+    "travelReimbursement",
+    "firstHackathon",
+    "email",
+    "academicYear",
+    "major",
+    "eighteenBeforeEvent",
+    "mlhcoc",
+    "mlhdcp"
+  ]
+}
