@@ -7,13 +7,7 @@ node_js:
 cache: yarn
 before_install: 
 install:
-- npm install
 - npm install -g @angular/cli
-before_script: 
-script: 
-after_success: 
-after_failure: 
-after_script: 
 before_deploy:
 - cd user-registration-app && npm install && ng build --prod --no-aot && cd ..
 deploy:
@@ -21,7 +15,7 @@ deploy:
   skip_cleanup: true
   access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
   secret_access_key: "$GCS_SECRET_ACCESS_KEY"
-  bucket: gcs-website-hackpsu-website
+  bucket: hackpsu.org
   local-dir: website
   acl: public_read
   on:
@@ -30,7 +24,7 @@ deploy:
   skip_cleanup: true
   access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
   secret_access_key: "$GCS_SECRET_ACCESS_KEY"
-  bucket: gcs-website-hackpsu-app-27koh
+  bucket: app.hackpsu.org
   local-dir: user-registration-app/dist
   acl: public_read
   on:
