@@ -1,4 +1,5 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
+import * as sinon from 'sinon';
 
 import { DateGuard } from './date.guard';
 import { environment } from '../../../../environments/environment';
@@ -18,13 +19,15 @@ describe('DateGuard', () => {
 
   it('should return true for a date after the event.', inject([DateGuard, Router], (guard: DateGuard) => {
     // Given: Date after event date
-    const validDate = environment.hackathonStartTime.getTime() + 1;
+    const clock = sinon.useFakeTimers(environment.hackathonStartTime.getTime() + 1);
 
     // When: Validate date.
-    // const result = guard.canActivate(); // TODO: Fix
-    const result = true;
+    const result = guard.canActivate(null, null);
 
     // Then: Expect result to be true.
     expect(result).toBeTruthy();
+
+    // Finally: Restore the clock.
+    clock.restore();
   }));
 });
