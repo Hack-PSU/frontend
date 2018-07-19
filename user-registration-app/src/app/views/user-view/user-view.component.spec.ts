@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserViewComponent } from './user-view.component';
+import { AuthService } from '../../services/AuthService/auth.service';
+import { Router } from '@angular/router';
 
 describe('UserViewComponent', () => {
   let component: UserViewComponent;
@@ -8,9 +10,20 @@ describe('UserViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserViewComponent ]
+      declarations: [UserViewComponent],
+      providers: [{
+        provide: AuthService,
+        useClass: class {
+
+        },
+      }, {
+        provide: Router,
+        useClass: class {
+
+        },
+      }],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LiveUpdateComponent } from './live-update.component';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 describe('LiveUpdateComponent', () => {
   let component: LiveUpdateComponent;
@@ -8,9 +9,10 @@ describe('LiveUpdateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LiveUpdateComponent ]
+      declarations: [LiveUpdateComponent],
+      providers: [AngularFireAuth],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

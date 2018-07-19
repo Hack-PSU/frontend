@@ -40,7 +40,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(authProvider);
   }
 
-  signOut() {
+  signOut(): Promise<void> {
     return this.afAuth.auth.signOut();
   }
 }

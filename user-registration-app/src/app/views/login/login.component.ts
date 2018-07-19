@@ -16,7 +16,7 @@ export class LoginComponent {
   public errors: Error = null;
   public model: Login;
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private progressBar: NgProgress) {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableAssignmentViewComponent } from './table-assignment-view.component';
+import { FormsModule } from '@angular/forms';
 
 describe('TableAssignmentViewComponent', () => {
   let component: TableAssignmentViewComponent;
@@ -8,9 +9,10 @@ describe('TableAssignmentViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableAssignmentViewComponent ]
+      declarations: [TableAssignmentViewComponent],
+      imports: [FormsModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

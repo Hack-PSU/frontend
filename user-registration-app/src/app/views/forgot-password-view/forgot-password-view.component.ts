@@ -10,11 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ForgotPasswordViewComponent implements OnInit {
 
   public email: string;
-  private errors: any;
-  private result: string;
+  public errors: any;
+  public result: string;
 
-  constructor(public afAuth: AngularFireAuth, private route: ActivatedRoute,
-              private router: Router) {
+  constructor(public afAuth: AngularFireAuth, private route: ActivatedRoute) {
   }
 
   ngOnInit() {

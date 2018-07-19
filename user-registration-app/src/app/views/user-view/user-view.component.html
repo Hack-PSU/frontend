@@ -1,4 +1,4 @@
-<div *ngIf="afAuth.authState | async as user">
+<div *ngIf="authService.authState | async as user">
   <div class="profile-view valign-wrapper">
     <div class="profile-image-holder">
         <img class="profile-image circle tooltipped hide-on-small-and-down" data-position="bottom" data-delay="50" attr.data-tooltip="{{user.displayName}}"

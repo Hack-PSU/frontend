@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForgotPasswordViewComponent } from './forgot-password-view.component';
+import { FormsModule } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ForgotPasswordViewComponent', () => {
   let component: ForgotPasswordViewComponent;
@@ -8,9 +11,17 @@ describe('ForgotPasswordViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForgotPasswordViewComponent ]
+      declarations: [ForgotPasswordViewComponent],
+      imports: [FormsModule],
+      providers: [{
+        provide: AngularFireAuth,
+        useClass: class {},
+      }, {
+        provide: ActivatedRoute,
+        useValue: {},
+      }],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

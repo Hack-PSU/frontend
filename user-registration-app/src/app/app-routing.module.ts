@@ -10,7 +10,7 @@ import { AppConstants } from './AppConstants';
 import { LiveViewComponent } from './views/live-view/live-view.component';
 import { TravelReimbursementViewComponent } from './views/travel-reimbursement-view/travel-reimbursement-view.component';
 import { TableAssignmentViewComponent } from './views/table-assignment-view/table-assignment-view.component';
-import { RsvpComponent } from './rsvp/rsvp.component';
+import { RsvpComponent } from './views/rsvp/rsvp.component';
 import { DateGuard } from './services/route-guards/date-guard/date.guard';
 
 const routes: Routes = [

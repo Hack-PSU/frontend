@@ -5,7 +5,7 @@ import { AppConstants } from '../../../AppConstants';
 
 @Injectable()
 export class DateGuard implements CanActivate {
-  static validateDate(date: Date) {
+  static validateDate(date = new Date()) {
     return environment.hackathonStartTime.getTime() <= date.getTime();
   }
 

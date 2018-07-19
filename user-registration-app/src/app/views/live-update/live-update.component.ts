@@ -46,7 +46,7 @@ export class LiveUpdateComponent implements OnInit {
     });
   }
 
-  constructor(public liveUpdates: LiveUpdatesService, public afAuth: AngularFireAuth, private _router: Router) {
+  constructor() {
     // this.updates = [];
     // this.liveUpdates.subject(new Event('connected'))
     //   .subscribe(() => {
@@ -59,7 +59,7 @@ export class LiveUpdateComponent implements OnInit {
     //     this.updates = [];
     //     this.loading = true;
     //   });
-    // this.afAuth.auth.onAuthStateChanged((user) => {
+    // this.authService.auth.onAuthStateChanged((user) => {
     //   if (user) {
     //     this.idtoken = Observable.fromPromise(user.getIdToken(true));
     //     this.idtoken.subscribe((value) => {

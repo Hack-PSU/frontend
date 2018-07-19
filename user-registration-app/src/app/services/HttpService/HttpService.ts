@@ -1,7 +1,5 @@
-
-import {from as observableFrom,  Observable } from 'rxjs';
-
-import {switchMap,  map, retry, tap } from 'rxjs/operators';
+import { from as observableFrom, Observable } from 'rxjs';
+import { switchMap, map, retry, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
@@ -13,8 +11,8 @@ import { NgProgress } from '@ngx-progressbar/core';
 
 @Injectable()
 export class HttpService {
-
-  constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {}
+  constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {
+  }
 
   private makeGetRequest(API_ENDPOINT: string) {
     return this.authService.idToken.pipe(
@@ -34,8 +32,8 @@ export class HttpService {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-                              formObject,
-                              { headers, reportProgress: true });
+          formObject,
+          { headers, reportProgress: true });
       }));
   }
 
@@ -88,8 +86,8 @@ export class HttpService {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-                                            { status },
-                                            { headers, reportProgress: true });
+          { status },
+          { headers, reportProgress: true });
       }));
   }
 

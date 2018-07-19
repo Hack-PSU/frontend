@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AddressValidator } from 'address-validator';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { AppConstants } from '../../AppConstants';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/AuthService/auth.service';
+import { take } from 'rxjs/operators';
+
 declare var $: any;
 
 @Component({
@@ -20,14 +22,14 @@ export class TravelReimbursementViewComponent implements OnInit {
   public errors = null;
   public response = null;
 
-  constructor(private httpService: HttpService, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(private httpService: HttpService, private authService: AuthService, private router: Router) {
     this.travelForm = {};
   }
 
   ngOnInit() {
-    this.loading = true;
-    this.afAuth.auth.onAuthStateChanged((user) => {
-      this.loading = false;
+    this.authService.currentUser.pipe(
+      take(1),
+    ).subscribe((user) => {
       if (!user) {
         this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
@@ -39,7 +41,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   onError() {
     $('html, body').animate({
       scrollTop: 0,
-    },                      1000);
+    }, 1000);
   }
 
   fileAdded(event) {
@@ -53,7 +55,7 @@ export class TravelReimbursementViewComponent implements OnInit {
       .subscribe((value: any) => {
         this.response = value.result;
         this.loading = false;
-      },         (error: Error) => {
+      }, (error: Error) => {
         this.errors = error;
         this.loading = false;
       });

@@ -3,37 +3,29 @@ branches:
   only:
   - master
 node_js:
-- '9'
+- '8'
 cache: yarn
-before_install: 
 install:
+- npm i -g firebase-tools
 - npm install -g @angular/cli
 before_deploy:
-- cd user-registration-app && npm install && ng build --prod --no-aot && cd ..
+- cd user-registration-app && npm install && ng build --prod && cd ..
+- rvm default do gem install aws-sdk -v 2.1.36
 deploy:
-- provider: gcs
-  skip_cleanup: true
-  access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
-  secret_access_key: "$GCS_SECRET_ACCESS_KEY"
-  bucket: hackpsu.org
-  local-dir: website
-  acl: public_read
+- provider: firebase
+  project: hackpsu18
   on:
-    repo: hackpsu-tech/hackPSUS2018
-- provider: gcs
+    branch: master
+    repo: Hack-PSU/hackPSU-Frontend
+  token:
+      secure: "Ou4jtXLl15vvqlHV3q67bOeD2dlJ3o8/JijbgqxmeUybsmkbRVlmiGTr5x7VmdU/soebLD7nrv8CbIBFVBIaxqgbZdr68izabKxTRor8EgeTEnLf7miyW8iZ8a/pUpjh0Yu2a6Ds1tjCE7zn0F3MtgzqIzipnDB3uFBfvfEuhewyuDiewwGfotomwRQubkkPQIWE6jfmh7Twtnq+vM1cuFGgj3G2XFaSK2/IL2cCdaEyAggYwNtLNE8yTxnl9yfNALp35BSYzoxc8dX92J7368DlarDosUhCpt9ymwj/OtIjOV8WwXYexzGtEy5Eo24fpcDOv/YCZwNHXnT/Gd6y1z7hdfZIIAVK+rpSR21eR/heoNzXkl7zOnadYdQ9GQ99ibiWNvdT5whndV8qn4/mHHDdRbGWKSk75Qkru+D+1bZDZWj6DGsv/uzQdVRhShXxQa7RtkjFBZ4iXDSnQiJ+2I4lcR7+vvvaNaq+l0cjQ7a9ILg3phcdE/JXcS+M7UeQJnSwf83SF/HwvEwIK1WOETorB/17oow3xozWYj2v4S6e70gricMnqLQTu4+LQxxZjCvCSLRxegcHmREvjDeUSKW85DMNDPTpb6P2JKY8tM2si6G2xI+/+Dd2uDb6jGlAzKy4lyk1t8EbL2DM34HUKyaHx02pQQ+7Ubj2786X7Rw="
+- provider: s3
   skip_cleanup: true
-  access_key_id: GOOGNVYVXMWVAWJUEE2XZUP3
-  secret_access_key: "$GCS_SECRET_ACCESS_KEY"
-  bucket: app.hackpsu.org
+  access_key_id: AKIAI2D52LBRN2V2Z2MQ
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  bucket: aws-website-hackpsu-app-27koh
   local-dir: user-registration-app/dist
   acl: public_read
   on:
-    repo: hackpsu-tech/hackPSUS2018
-notifications:
-  slack:
-    secure: mo6+1fef5hlltkY3Wcck89RPlkSoKs2EtENjudcU64PSCNp+kWodQElJnN8aY+Qcmn3s+NR9CVd0RTrRAapDVbKWkakBHw5SaUG9ly14/SiNSA04tnzxIMFdtJHpvHs8+dgNOY9iDeFAyCg6/FqGYyl1D7INwIkNfyaG6ymgQQb9udd2cz7JK8ztMtbmDi42kg83VUgA16Hah+160uh4u0rk4F1U2vXEMFRnIJ5DG+7yHtf8UIrvsQ40JhARKwhajrmRP++xw0fSiTvauXNte2oNGULPi7UBiMvcCnGeDycYdMYAQru42CHtlM91m6LCnF8pb42HHFjij37T3NhNUz18elnioikKs7m/PWbgs2sNcW7HsxV1x7dqlW0DRYKe/5eSQIN/Q4dw8T3QnRi+D6EPfmZYSQNh8podd93kIF3A8TjtlbcOhp1M7PTMZOfARfG3c3tKsLahYcOr3D1QudOBh8gVni00jKlKFyVuuELkDwykvZR0qm9HiVpFXDAPk+FaOQwgMKR/VoP1ycgU+a9jyNnZE7c4tJ/bnZK+ESF9PTp1MeOKgfkwm1cEcxxNAHeRmoUfxeEi9b7HvKQHNNb+sInlCXaN9lAU3YgMUKSYgptHtqG7YgnTf6arUrlihADC0g+s20pYOxxwbxUQJTOv6Q0z55eob5A46flJ+Cg=
-env:
-  matrix:
-    secure: N+I5e7mADmHGFJ8BJZOAFwsUPcVa6DP4qtHb74hIZS+Mk8AZggmwha8Rr6BT+DTAi8ZKTFqm2T1LSNKJRAD8nedLLmr+Mw9zxfGq/08Pbys5ZkpFlQCWDcpbiuvtNg3cF+FvCTMqLyt4aOAUBudNQh2WsAtKWZwHtyqThA7AwCfcdLpYMLM6NYhp50Ngg3zSRIuWJHcDe+5WQP5hS+J6IbcuhgSQZmpJLRmE60mhtQYW4QUwKkU4pe7nMLTebU05/EnKIvKp/IU3LUJCljmppoZ7sA83LgswX3FirK56R5Ry1mtfUbRpgUjLX3nL6ePRSdyC0g5v14s8nx0RenebSUyRACQ6f6bH34Q0KO3fefQRxdSWNymXeJYQKtzZTB71MYIghWjD4MPicql+kHCfWhwAIbeAZoZwSOSGJv+D/MfkmQzDa19SXGT9VM85dFQ1OBFH/+EJJv9vFWA5aD4nIFRav61HNk63x1mI5YbTzvv4x0Pqc5Ot2fsJHslaYz2cqITm8ti7axmSul1Rn0FkAO5Tz0KjgSOJ2ggMCW5yCXIsZGdhJui2+mW5vPYOrQ0/LIFkCzWnr+ScY/KH2FzEbwGkaMGo5H20uQLkk+6vfI4Qgoj8ip875P5qNrCKdglYr1nqm22HWHyKoVtgx8iOEum+BScz87TVaoTkNq++B44=
-  global:
-    secure: Sr0i1H1smVRdTgipOJGJVxIXD9OJ+iEVDt118W7nCS8puQEK+jM/V471UozPqCYaoU21S1ecKTEazdPEcURn3Ds2m0vaccXy//WifRufB4sm/j2qeykb84lRD+ubFmx+1QdYUwHOoKXwaVXsS7CzWS8SYKz1Iiy4p5ZABlZgbZWN7rvbk/k93389T2IeSaR9HJtY05Osqi/HrjLfrXFH6lEjB9XoebPKrqZo63A57jeGsnQrd+Y9x0jguSlSmygrNGTDH4xQxPTUECMCY6uuuYeThHem6ct8LcGeiZM2Et983S/+6gDPY6W8ALhVMjwlHAZi+NNk9noMRniwOKSWSoGb0hAqsJENrbZZFubo+TkA2HxWFYXB9oPJTNWO2FbHCxrUyO1APyLKhmVht6ZSszKs6cgJ8oRxlv1RiCE5CfICH1Yw14IVtj50BPfVZEKdiUh8PhshJT/6Q8J8LJf7oWjR3O0DAwa7M9+hSX8hzDXNR/Lme/1GMx0kyzBOzbS74AS+vlJD9TbHS9hiUm2MlgUDhd/k4P7AyOSJD5+bGLKy+enZD0yVC+ZKZQH9RjAaT629QbX+2GhMVd2s6CPo/6fxzzX9b97K7rlwjbqEhkQ0bVyuWdOIg9LVRR02MqAfr4W700NRwMjvUE0IQBoLcqr/bj9/G13ieLmhr7DUGBA=
+    branch: master
+    repo: Hack-PSU/hackPSU-Frontend

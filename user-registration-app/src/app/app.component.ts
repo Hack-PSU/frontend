@@ -14,8 +14,6 @@ declare var $: any;
   imports: [
     BrowserModule,
     RouterModule,
-    NgProgress,
-    AuthService,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

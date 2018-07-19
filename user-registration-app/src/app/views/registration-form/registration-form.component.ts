@@ -1,6 +1,6 @@
 import { combineLatest as observableCombineLatest } from 'rxjs';
 
-import {mergeMap, take } from 'rxjs/operators';
+import { mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Registration } from '../../models/registration';
 import { Router } from '@angular/router';
@@ -143,7 +143,7 @@ export class RegistrationFormComponent implements OnInit {
           this.progress.start();
           return observableCombineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon());
         }
-      }) )
+      }))
       .subscribe((data) => {
         const [registration, hackathon] = data;
         console.log(data);
@@ -157,9 +157,9 @@ export class RegistrationFormComponent implements OnInit {
           setTimeout(() => {
             this.progress.complete();
             Materialize.updateTextFields();
-          },         500);
+          }, 500);
         }
-      },         (error) => {
+      }, (error) => {
         this.progress.complete();
         // Registration not found.
         this.registrationForm = new Registration();
@@ -178,11 +178,11 @@ export class RegistrationFormComponent implements OnInit {
       take(1),
       mergeMap((user) => {
         return this.httpService.submitRegistration(this.registrationForm, user.uid);
-      }) )
+      }))
       .subscribe(() => {
         this.router.navigate(['/rsvp'])
           .then(() => this.progress.complete());
-      },         (error) => {
+      }, (error) => {
         console.error(error);
         this.progress.complete();
         this.errors = error.message;
@@ -196,7 +196,7 @@ export class RegistrationFormComponent implements OnInit {
   error() {
     $('html, body').animate({
       scrollTop: 0,
-    },                      1000);
+    }, 1000);
   }
 
   dietaryRestriction(event) {

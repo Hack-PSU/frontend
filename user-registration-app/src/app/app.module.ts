@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserXhr, HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,13 +21,15 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 // import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
 import { TravelReimbursementViewComponent } from './views/travel-reimbursement-view/travel-reimbursement-view.component';
 import { TableAssignmentViewComponent } from './views/table-assignment-view/table-assignment-view.component';
-import { RsvpComponent } from './rsvp/rsvp.component';
+import { RsvpComponent } from './views/rsvp/rsvp.component';
 import { HttpService } from './services/HttpService/HttpService';
 import { AuthService } from './services/AuthService/auth.service';
 import { AuthGuard } from './services/route-guards/auth-guard/auth.guard';
 import { DateGuard } from './services/route-guards/date-guard/date.guard';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
+import { LiveUpdateComponent } from './views/live-update/live-update.component';
+import { ScheduleViewComponent } from './views/schedule-view/schedule-view.component';
 
 
 @NgModule({
@@ -39,17 +40,16 @@ import { NgProgressRouterModule } from '@ngx-progressbar/router';
     RegistrationFormComponent,
     SignupViewComponent,
     ForgotPasswordViewComponent,
-    // LiveUpdateComponent,
     LiveViewComponent,
-    // ScheduleViewComponent,
     TravelReimbursementViewComponent,
     TableAssignmentViewComponent,
     RsvpComponent,
+    LiveUpdateComponent,
+    ScheduleViewComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -62,6 +62,7 @@ import { NgProgressRouterModule } from '@ngx-progressbar/router';
     PdfViewerModule,
   ],
   providers: [
+    HttpClient,
     HttpService,
     AuthService,
     AuthGuard,
