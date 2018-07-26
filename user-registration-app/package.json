@@ -35,7 +35,6 @@
     "libphonenumber-js": "1.0.24",
     "lodash": "4.17.10",
     "materialize-css": "^0.100.2",
-    "ng2-pdf-viewer": "3.0.8",
     "ngx-alerts": "3.0.0",
     "request": "2.87.0",
     "rxjs": "^6.2.2",

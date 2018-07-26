@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './views/login/login.component';
-import { RegistrationFormComponent } from './views/registration-form/registration-form.component';
-import { AuthGuard } from './services/route-guards/auth-guard/auth.guard';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { SignupViewComponent } from './views/signup-view/signup-view.component';
-import { ForgotPasswordViewComponent } from './views/forgot-password-view/forgot-password-view.component';
 import { AppConstants } from './AppConstants';
-import { LiveViewComponent } from './views/live-view/live-view.component';
-import { TravelReimbursementViewComponent } from './views/travel-reimbursement-view/travel-reimbursement-view.component';
-import { TableAssignmentViewComponent } from './views/table-assignment-view/table-assignment-view.component';
-import { RsvpComponent } from './views/rsvp/rsvp.component';
-import { DateGuard } from './services/route-guards/date-guard/date.guard';
+import {
+  ForgotPasswordViewComponent,
+  LiveViewComponent,
+  LoginComponent,
+  RegistrationFormComponent,
+  RsvpComponent,
+  SignupViewComponent,
+  TableAssignmentViewComponent,
+  TravelReimbursementViewComponent,
+} from './views/views';
+import { AuthGuard, DateGuard } from './services/route-guards/guards';
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 
@@ -34,7 +35,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: { rsvp: RsvpResolver },
   },
-  { path: '**', redirectTo: AppConstants.REGISTER_ENDPOINT },
+  { path: '**',
+    redirectTo: DateGuard.validateDate(new Date()) ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT
+  },
 ];
 
 @NgModule({
@@ -44,7 +47,7 @@ const routes: Routes = [
   providers: [
     AngularFireAuth,
     RegistrationResolver,
-    RsvpResolver
+    RsvpResolver,
   ],
 })
 

@@ -434,13 +434,6 @@
          id="resume-container">
       <div class="card medium darken-1">
         <div class="card-content">
-          <div *ngIf="registrationForm.hasExistingResume()">
-            <pdf-viewer [src]="sanitizeUrl(registrationForm.resume)"
-                        [render-text]="true"
-                        [original-size]="false"
-                        style="display: block;"
-            ></pdf-viewer>
-          </div>
           <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}} resume</h5>
           <p class="alert">This field is completely optional. You may submit your resume if you want us to share it
             with employers at HackPSU.</p>
