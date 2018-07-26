@@ -41,7 +41,7 @@ export class TableAssignmentViewComponent implements OnInit {
           .subscribe((value) => {
             this.response = value;
           },         error => this.errors = error);
-        this.httpService.getCategories(this.user)
+        this.httpService.getCategories()
           .subscribe((value: any[]) => {
             console.log(value);
             this.categories = value.filter(e => e.categoryName !== 'HackPSU');

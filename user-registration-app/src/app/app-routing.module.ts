@@ -12,16 +12,28 @@ import { TravelReimbursementViewComponent } from './views/travel-reimbursement-v
 import { TableAssignmentViewComponent } from './views/table-assignment-view/table-assignment-view.component';
 import { RsvpComponent } from './views/rsvp/rsvp.component';
 import { DateGuard } from './services/route-guards/date-guard/date.guard';
+import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
+import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationFormComponent, canActivate: [AuthGuard] },
+  {
+    path: 'register',
+    component: RegistrationFormComponent,
+    canActivate: [AuthGuard],
+    resolve: { registration: RegistrationResolver },
+  },
   { path: 'signup', component: SignupViewComponent },
   { path: 'forgot', component: ForgotPasswordViewComponent },
   { path: 'live', component: LiveViewComponent, canActivate: [AuthGuard, DateGuard] },
   { path: 'travel', component: TravelReimbursementViewComponent, canActivate: [AuthGuard, DateGuard] },
   { path: 'table', component: TableAssignmentViewComponent, canActivate: [AuthGuard, DateGuard] },
-  { path: 'rsvp', component: RsvpComponent, canActivate: [AuthGuard, DateGuard] },
+  {
+    path: 'rsvp',
+    component: RsvpComponent,
+    canActivate: [AuthGuard],
+    resolve: { rsvp: RsvpResolver },
+  },
   { path: '**', redirectTo: AppConstants.REGISTER_ENDPOINT },
 ];
 
@@ -31,6 +43,8 @@ const routes: Routes = [
   declarations: [],
   providers: [
     AngularFireAuth,
+    RegistrationResolver,
+    RsvpResolver
   ],
 })
 

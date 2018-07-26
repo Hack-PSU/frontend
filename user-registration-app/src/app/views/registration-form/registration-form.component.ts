@@ -1,19 +1,18 @@
-import { combineLatest as observableCombineLatest } from 'rxjs';
-
 import { mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Registration } from '../../models/registration';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
 import * as data from '../../../assets/schools.json';
 import * as majors from '../../../assets/majors.json';
 import { HttpService } from '../../services/HttpService/HttpService';
-import { AppConstants } from '../../AppConstants';
 import { AuthService } from '../../services/AuthService/auth.service';
 import * as Ajv from 'ajv';
 import * as registeredUserSchema from './registeredUserSchema.json';
+import { AlertService } from 'ngx-alerts';
+import { ValidateFunction, ErrorObject } from 'ajv';
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
@@ -91,19 +90,50 @@ export class RegistrationFormComponent implements OnInit {
 
   public registrationForm: Registration;
   public user: firebase.User;
-  public currentIdx: number;
-  public valid: boolean;
   public prettifiedPhone: string;
   public loading: boolean;
   public diet_restr: boolean;
   public otherDietRestr: boolean;
   public phoneNoUse;
-  public errors: string;
   @ViewChild('registrationModel') form;
-  private readonly validator: any;
+  private readonly validator: ValidateFunction;
 
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
+  }
+
+  static getFormattedErrorText(error: ErrorObject) {
+    switch (error.dataPath) {
+      case '.firstName':
+        return 'Please enter your first name. How will we address you otherwise?';
+      case '.lastName':
+        return 'Please enter your last name.';
+      case '.phone':
+        return 'MLH requires us to provide your phone number.';
+      case '.gender':
+        return 'Please tell us your gender. We think we\'ve covered all the options';
+      case '.shirtSize':
+        return 'Please provide a shirt size. Wouldn\'t wanna miss out on that :)';
+      case '.travelReimbursement':
+        return 'Are you travelling from far away? You may be eligible for reimbursement!';
+      case '.firstHackathon':
+        return 'Is this your first hackathon? Do let us know!';
+      case '.email':
+        return 'Please provide your email! We send very important details there closer to the event.';
+      case '.academicYear':
+        return 'Please tell us what year you are in college.';
+      case '.major':
+        return 'Please provide your major.';
+      case '.eighteenBeforeEvent':
+        return 'Please certify that you\'re eighteen before the day of the event.';
+      case '.university':
+        return 'Please tell us where you\'re attending school. Use the fancy dropdown!';
+      case '.mlhcoc':
+      case '.mlhdcp':
+        return 'You gotta agree to the MLH terms. It\'s legal stuff ya know.';
+      default:
+        return 'Are you sure you\'ve filled out all the required fields?';
+    }
   }
 
   sanitizeUrl(resume_link: any) {
@@ -113,57 +143,41 @@ export class RegistrationFormComponent implements OnInit {
     return resume_link.href;
   }
 
-  validate() {
+  private validate() {
     const result = this.validator(this.registrationForm);
     if (!result) {
-      this.errors = ajv.errorsText(this.validator.errors).replace(/,/g, '\n');
+      this.validator.errors
+        .map(error => this.showError(
+          RegistrationFormComponent.getFormattedErrorText(error),
+          2),
+        );
     }
     return result;
   }
 
   constructor(public router: Router,
+              private route: ActivatedRoute,
               private httpService: HttpService,
+              private alertsService: AlertService,
               private authService: AuthService) {
     this.registrationForm = new Registration();
-    this.currentIdx = 1;
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
     this.asYouType = new AsYouType('US');
-    this.errors = null;
     this.validator = ajv.compile(registeredUserSchema);
   }
 
   ngOnInit() {
-    this.authService.currentUser.pipe(
-      take(1),
-      mergeMap((user) => {
-        if (!user) {
-          this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-        } else {
-          this.progress.start();
-          return observableCombineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon());
-        }
-      }))
-      .subscribe((data) => {
-        const [registration, hackathon] = data;
-        console.log(data);
-        if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
-          this.progress.complete();
-          this.router.navigate(['/rsvp']);
-        } else if (!registration.isCurrentRegistration(hackathon.uid)) {
-          this.registrationForm = registration;
-          this.parsePhone(this.registrationForm.phone);
-          this.diet_restr = this.registrationForm.dietaryRestriction !== null;
-          setTimeout(() => {
-            this.progress.complete();
-            Materialize.updateTextFields();
-          }, 500);
-        }
-      }, (error) => {
+    this.route.data.subscribe(({ registration }) => {
+      this.registrationForm = registration;
+      this.parsePhone(this.registrationForm.phone);
+      this.phoneNoUse = this.prettifiedPhone;
+      this.diet_restr = this.registrationForm.dietaryRestriction !== null;
+      setTimeout(() => {
         this.progress.complete();
-        // Registration not found.
-        this.registrationForm = new Registration();
-      });
+        Materialize.updateTextFields();
+      },         500);
+    });
   }
 
   parsePhone(val: any) {
@@ -174,19 +188,36 @@ export class RegistrationFormComponent implements OnInit {
 
   submit() {
     this.progress.start();
-    this.authService.currentUser.pipe(
-      take(1),
-      mergeMap((user) => {
-        return this.httpService.submitRegistration(this.registrationForm, user.uid);
-      }))
+    this.authService.currentUser
+      .pipe(
+        mergeMap((user) => {
+          return this.httpService.submitRegistration(this.registrationForm, user.uid);
+        }),
+        take(1),
+      )
       .subscribe(() => {
         this.router.navigate(['/rsvp'])
           .then(() => this.progress.complete());
-      }, (error) => {
-        console.error(error);
-        this.progress.complete();
-        this.errors = error.message;
       });
+  }
+
+  private showError(message: string, level: number) {
+    switch (level) {
+      case 0:
+        this.alertsService.success(message);
+        break;
+      case 1:
+        this.alertsService.info(message);
+        break;
+      case 2:
+        this.alertsService.warning(message);
+        break;
+      case 3:
+        this.alertsService.danger(message);
+        break;
+      default:
+        this.alertsService.warning(message);
+    }
   }
 
   fileAdded(event) {
@@ -196,7 +227,7 @@ export class RegistrationFormComponent implements OnInit {
   error() {
     $('html, body').animate({
       scrollTop: 0,
-    }, 1000);
+    },                      1000);
   }
 
   dietaryRestriction(event) {
@@ -219,9 +250,5 @@ export class RegistrationFormComponent implements OnInit {
     } else {
       this.error();
     }
-  }
-
-  getFormattedErrorText() {
-    return this.errors;
   }
 }

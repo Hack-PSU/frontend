@@ -1,5 +1,5 @@
 import { from as observableFrom, Observable } from 'rxjs';
-import { switchMap, map, retry, tap } from 'rxjs/operators';
+import { switchMap, map, retry, tap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
@@ -7,14 +7,19 @@ import { Registration } from '../../models/registration';
 import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
+import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 
 
 @Injectable()
 export class HttpService {
-  constructor(private http: HttpClient, private authService: AuthService, public ngProgress: NgProgress) {
+  constructor(private http: HttpClient,
+              private authService: AuthService,
+              private errorHandler: CustomErrorHandlerService,
+              public ngProgress: NgProgress,
+  ) {
   }
 
-  private makeGetRequest(API_ENDPOINT: string) {
+  private get(API_ENDPOINT: string) {
     return this.authService.idToken.pipe(
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
@@ -23,41 +28,43 @@ export class HttpService {
           .pipe(
             retry(3),
           );
-      }));
+      }),
+      catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+    );
   }
 
-  private makePostRequest(API_ENDPOINT: string, formObject: FormData) {
+  private post(API_ENDPOINT: string, formObject: FormData) {
     return this.authService.idToken.pipe(
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-          formObject,
-          { headers, reportProgress: true });
-      }));
+                              formObject,
+                              { headers, reportProgress: true });
+      }),
+      catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+    );
   }
 
   getRegistrationStatus(): Observable<Registration> {
     const API_ENDPOINT = 'users/registration';
-    return this.makeGetRequest(API_ENDPOINT)
+    return this.get(API_ENDPOINT)
       .pipe(
-        map(value => Registration.parseJSON(value)),
-        tap(console.log),
+        map(Registration.parseJSON),
       );
   }
 
   getCurrentHackathon(): Observable<Hackathon> {
     const API_ENDPOINT = 'users/hackathon/active';
-    return this.makeGetRequest(API_ENDPOINT)
+    return this.get(API_ENDPOINT)
       .pipe(
-        map(value => Hackathon.parseJSON(value)),
-        tap(console.log),
+        map(Hackathon.parseJSON),
       );
   }
 
   getTableAssignment() {
     const API_ENDPOINT = 'users/project';
-    return this.makeGetRequest(API_ENDPOINT);
+    return this.get(API_ENDPOINT);
   }
 
   submitRegistration(submitData: Registration, uid: string) {
@@ -76,7 +83,7 @@ export class HttpService {
         formObject.append('resume', submitData.resume, submitData.resume.name);
       }
     }
-    return this.makePostRequest(API_ENDPOINT, formObject);
+    return this.post(API_ENDPOINT, formObject);
   }
 
   submitRSVP(currentUser: any, status: boolean) {
@@ -86,14 +93,14 @@ export class HttpService {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-          { status },
-          { headers, reportProgress: true });
+                                            { status },
+                                            { headers, reportProgress: true });
       }));
   }
 
-  getCategories(currentUser: any) {
+  getCategories() {
     const API_ENDPOINT = 'users/event_categories';
-    return this.makeGetRequest(API_ENDPOINT);
+    return this.get(API_ENDPOINT);
   }
 
   submitTravelReimbursement(travelForm: any, uid) {
@@ -108,7 +115,7 @@ export class HttpService {
     if (travelForm.receipt) {
       Array.from(travelForm.receipt).forEach((r: any) => formObject.append('receipt', r, r.name));
     }
-    return this.makePostRequest(API_ENDPOINT, formObject);
+    return this.post(API_ENDPOINT, formObject);
   }
 
   submitTableAssignment(tableForm: any, uid) {
@@ -120,11 +127,11 @@ export class HttpService {
         formObject.append(key, tableForm[key]);
       }
     }
-    return this.makePostRequest(API_ENDPOINT, formObject);
+    return this.post(API_ENDPOINT, formObject);
   }
 
   getRsvpStatus() {
     const API_ENDPOINT = 'users/rsvp';
-    return this.makeGetRequest(API_ENDPOINT);
+    return this.get(API_ENDPOINT);
   }
 }

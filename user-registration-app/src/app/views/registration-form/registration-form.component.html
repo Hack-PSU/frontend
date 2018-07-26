@@ -1,22 +1,9 @@
 <div class="row">
-  <!--*ngIf="(registrationData | async)?.submitted; else rsvpRedirect()">-->
   <form class="registration-form col m5 offset-m3 offset-l3 l5"
         (ngSubmit)="validateAndSubmit()"
         name="registrationFormDOM"
         #registrationModel="ngForm"
   >
-    <div class="row" *ngIf="!registrationModel.form.valid && form.submitted">
-      <div class="card">
-        <div class="card-content">
-          <p class="data-error">There are errors in your form. Please validate that all required fields have been filled
-            out. Errors: <br></p>
-          <ul class="data-error">
-            <li *ngFor="let error of getFormattedErrorText().split('\n')">{{error}}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- First Name -->
     <div class="row scrollspy" id="name-container" materialize="scrollSpy">
       <div class="card medium darken-1">
         <div class="card-content">
@@ -116,8 +103,8 @@
             <input type="tel"
                    autocomplete="tel-national"
                    id="phone-input"
-                   [value]='prettifiedPhone'
                    name="phone"
+                   [value]="prettifiedPhone"
                    required
                    [(ngModel)]="phoneNoUse"
                    (keyup)="parsePhone($event.target.value)"
@@ -173,7 +160,7 @@
           <div class="form-group">
             <input type="radio" class="with-gap" id="true" name="veteran" value="true"
                    required
-                   [(ngModel)]="registrationForm.veteran" #veteranControl>
+                   [(ngModel)]="registrationForm.veteran" #veteranControl="ngModel">
             <label for="true">Yes</label><br>
             <input type="radio" class="with-gap" id="false" name="veteran" value="false"
                    required
@@ -453,9 +440,6 @@
                         [original-size]="false"
                         style="display: block;"
             ></pdf-viewer>
-            <!--<object type="application/pdf" [data]="sanitizeUrl(registrationForm.resume_link)" width="100%" height="100%">-->
-              <!--<embed [src]="sanitizeUrl(registrationForm.resume_link)" type="application/pdf">-->
-            <!--</object>-->
           </div>
           <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}} resume</h5>
           <p class="alert">This field is completely optional. You may submit your resume if you want us to share it
@@ -601,13 +585,6 @@
     <!-- Submit -->
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
          class="center">
-      <div class="card" *ngIf="errors">
-        <div class="card-content">
-          <ul class="alert alert-danger">
-            <li *ngFor="let error of errors.split('\n')">{{error}}</li>
-          </ul>
-        </div>
-      </div>
       <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
         <button [disabled]="progress.isStarted()" class="btn waves-effect waves-light submit-btn" type="submit"
                 name="action">Submit

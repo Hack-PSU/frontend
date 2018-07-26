@@ -30,6 +30,8 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
 import { LiveUpdateComponent } from './views/live-update/live-update.component';
 import { ScheduleViewComponent } from './views/schedule-view/schedule-view.component';
+import { AlertModule, AlertService } from 'ngx-alerts';
+import { CustomErrorHandlerService } from './services/CustomErrorHandler/custom-error-handler.service';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { ScheduleViewComponent } from './views/schedule-view/schedule-view.compo
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
     NgProgressRouterModule,
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000 }),
     PdfViewerModule,
   ],
   providers: [
@@ -68,6 +71,8 @@ import { ScheduleViewComponent } from './views/schedule-view/schedule-view.compo
     AuthGuard,
     NgProgress,
     DateGuard,
+    AlertService,
+    CustomErrorHandlerService,
   ],
   bootstrap: [AppComponent],
 })
