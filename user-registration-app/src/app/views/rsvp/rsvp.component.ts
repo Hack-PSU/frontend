@@ -12,7 +12,6 @@ import { finalize } from 'rxjs/operators';
 
 declare var $: any;
 
-
 @Component({
   selector: 'app-rsvp',
   templateUrl: './rsvp.component.html',

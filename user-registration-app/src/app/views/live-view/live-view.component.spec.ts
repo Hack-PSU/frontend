@@ -8,7 +8,7 @@ describe('LiveViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LiveViewComponent ]
+      declarations: [LiveViewComponent],
     })
     .compileComponents();
   }));

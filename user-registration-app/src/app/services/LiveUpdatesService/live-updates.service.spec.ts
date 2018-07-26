@@ -5,7 +5,7 @@ import { LiveUpdatesService } from './live-updates.service';
 describe('LiveUpdatesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LiveUpdatesService]
+      providers: [LiveUpdatesService],
     });
   });
 

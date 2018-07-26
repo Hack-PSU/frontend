@@ -5,7 +5,7 @@ import { CustomErrorHandlerService } from './custom-error-handler.service';
 describe('CustomErrorHandlerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CustomErrorHandlerService]
+      providers: [CustomErrorHandlerService],
     });
   });
 

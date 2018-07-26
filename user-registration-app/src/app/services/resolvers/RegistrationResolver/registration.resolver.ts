@@ -16,7 +16,6 @@ export class RegistrationResolver implements Resolve<Registration> {
   constructor(private authService: AuthService, private progress: NgProgress, private router: Router, private httpService: HttpService) {
   }
 
-
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
     this.progress.start();
     return this.authService.currentUser

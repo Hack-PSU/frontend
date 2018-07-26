@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Observable ,  BehaviorSubject } from 'rxjs';
 import { AppConstants } from '../../AppConstants';
 
-
 @Injectable()
 export class LiveUpdatesService {
   private url = `${AppConstants.SOCKET_BASE_URL}/updates`;

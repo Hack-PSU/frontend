@@ -8,7 +8,7 @@ describe('RsvpComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RsvpComponent]
+      declarations: [RsvpComponent],
     })
       .compileComponents();
   }));

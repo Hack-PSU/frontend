@@ -8,7 +8,7 @@ describe('ScheduleViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScheduleViewComponent ]
+      declarations: [ScheduleViewComponent],
     })
     .compileComponents();
   }));

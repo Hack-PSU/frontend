@@ -5,7 +5,6 @@ import { AlertService } from 'ngx-alerts';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs-compat/add/observable/throw';
 
-
 @Injectable()
 export class CustomErrorHandlerService {
   constructor(public alerts: AlertService) {
@@ -27,7 +26,6 @@ export class CustomErrorHandlerService {
     const title = error.name || 'Internal Server Error.';
     return { title, body };
   }
-
 
   createCustomError(error: HttpErrorResponse): HttpErrorResponse {
     console.error(error);
@@ -57,7 +55,6 @@ export class CustomErrorHandlerService {
   showToast(error: Error): void {
     this.alerts.danger(error.error.message);
   }
-
 
   parseCustomServerErrorToString(error: HttpErrorResponse): Observable<Error> {
     const customError = this.createCustomError(error);

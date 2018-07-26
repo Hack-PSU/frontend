@@ -1,5 +1,5 @@
 
-import {from as observableFrom,  Observable } from 'rxjs';
+import { from as observableFrom,  Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../../services/EventService/events.service';
 import { AppConstants } from '../../AppConstants';
@@ -15,7 +15,6 @@ export class EventModel {
   public event_description: string;
   public location_name: string;
 }
-
 
 @Component({
   selector: 'app-schedule-view',
@@ -59,19 +58,19 @@ export class ScheduleViewComponent implements OnInit {
             console.log(events);
             events.forEach((m) => {
               // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {
-                switch (m.event_type) {
-                  case 'activity':
-                    this.activities.push(m);
-                    break;
-                  case 'food':
-                    this.meals.push(m);
-                    break;
-                  case 'workshop':
-                    this.workshops.push(m);
-                    break;
-                  default:
-                    break;
-                }
+              switch (m.event_type) {
+                case 'activity':
+                  this.activities.push(m);
+                  break;
+                case 'food':
+                  this.meals.push(m);
+                  break;
+                case 'workshop':
+                  this.workshops.push(m);
+                  break;
+                default:
+                  break;
+              }
               // }
             });
 

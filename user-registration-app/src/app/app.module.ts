@@ -29,7 +29,6 @@ import {
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard } from './services/route-guards/guards';
 
-
 @NgModule({
   declarations: [
     AppComponent,

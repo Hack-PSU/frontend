@@ -9,7 +9,6 @@ import { DateGuard } from './services/route-guards/date-guard/date.guard';
 
 declare var $: any;
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -31,7 +30,7 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
       const targetOffset = elem.offset().top;
       $('html,body').animate({ scrollTop: targetOffset }, speed);
       setTimeout(() => {
-      }, speed);
+      },         speed);
     }
   }
 

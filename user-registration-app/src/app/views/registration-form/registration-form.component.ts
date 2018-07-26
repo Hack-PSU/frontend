@@ -1,18 +1,16 @@
 import { mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Registration } from '../../models/registration';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
+import { AlertService } from 'ngx-alerts';
+import * as Ajv from 'ajv';
 import * as data from '../../../assets/schools.json';
 import * as majors from '../../../assets/majors.json';
-import { HttpService } from '../../services/HttpService/HttpService';
-import { AuthService } from '../../services/AuthService/auth.service';
-import * as Ajv from 'ajv';
+import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
-import { AlertService } from 'ngx-alerts';
-import { ValidateFunction, ErrorObject } from 'ajv';
+import { AuthService, HttpService } from '../../services/services';
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
@@ -96,13 +94,13 @@ export class RegistrationFormComponent implements OnInit {
   public otherDietRestr: boolean;
   public phoneNoUse;
   @ViewChild('registrationModel') form;
-  private readonly validator: ValidateFunction;
+  private readonly validator: Ajv.ValidateFunction;
 
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
   }
 
-  static getFormattedErrorText(error: ErrorObject) {
+  static getFormattedErrorText(error: Ajv.ErrorObject) {
     switch (error.dataPath) {
       case '.firstName':
         return 'Please enter your first name. How will we address you otherwise?';

@@ -91,5 +91,3 @@ export class Registration {
     return this.resume instanceof URL;
   }
 }
-
-

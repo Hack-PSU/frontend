@@ -9,7 +9,6 @@ import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 
-
 @Injectable()
 export class HttpService {
   constructor(private http: HttpClient,

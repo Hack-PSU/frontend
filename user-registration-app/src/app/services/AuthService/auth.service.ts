@@ -3,6 +3,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 
+export enum AuthProviders {
+  GOOGLE_PROVIDER,
+  GITHUB_PROVIDER,
+  FACEBOOK_PROVIDER,
+}
+
 @Injectable()
 export class AuthService {
 
@@ -43,10 +49,4 @@ export class AuthService {
   signOut(): Promise<void> {
     return this.afAuth.auth.signOut();
   }
-}
-
-export enum AuthProviders {
-  GOOGLE_PROVIDER,
-  GITHUB_PROVIDER,
-  FACEBOOK_PROVIDER,
 }

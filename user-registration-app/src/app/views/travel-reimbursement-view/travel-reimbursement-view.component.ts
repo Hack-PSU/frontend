@@ -41,7 +41,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   onError() {
     $('html, body').animate({
       scrollTop: 0,
-    }, 1000);
+    },                      1000);
   }
 
   fileAdded(event) {
@@ -55,7 +55,7 @@ export class TravelReimbursementViewComponent implements OnInit {
       .subscribe((value: any) => {
         this.response = value.result;
         this.loading = false;
-      }, (error: Error) => {
+      },         (error: Error) => {
         this.errors = error;
         this.loading = false;
       });

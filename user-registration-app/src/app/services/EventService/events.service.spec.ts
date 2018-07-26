@@ -5,7 +5,7 @@ import { EventsService } from './events.service';
 describe('EventsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EventsService]
+      providers: [EventsService],
     });
   });
 

@@ -13,7 +13,6 @@ export class UserViewComponent {
   constructor(public authService: AuthService, private _router: Router) {
   }
 
-
   logout() {
     this.authService.signOut()
       .then(() => this._router.navigate([AppConstants.LOGIN_ENDPOINT]))
@@ -21,4 +20,3 @@ export class UserViewComponent {
   }
 
 }
-

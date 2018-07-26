@@ -36,7 +36,7 @@ const routes: Routes = [
     resolve: { rsvp: RsvpResolver },
   },
   { path: '**',
-    redirectTo: DateGuard.validateDate(new Date()) ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT
+    redirectTo: DateGuard.validateDate(new Date()) ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT,
   },
 ];
 
