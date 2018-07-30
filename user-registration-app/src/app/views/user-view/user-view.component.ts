@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { DEFAULT_PACKAGE_URL_PROVIDER } from '@angular/platform-browser-dynamic/src/compiler_factory';
 import { Router } from '@angular/router';
+import { User } from 'firebase';
 import { AppConstants } from '../../AppConstants';
 import { AuthService } from '../../services/AuthService/auth.service';
 
@@ -9,6 +11,7 @@ import { AuthService } from '../../services/AuthService/auth.service';
   styleUrls: ['./user-view.component.css'],
 })
 export class UserViewComponent {
+  private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
 
   constructor(public authService: AuthService, private _router: Router) {
   }
@@ -19,4 +22,10 @@ export class UserViewComponent {
       .catch(() => this._router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }
 
+  public getUserPhotoUrl(user: User | null) {
+    if (!user.photoURL) {
+      return UserViewComponent.DEFAULT_PROFILE_URL;
+    }
+    return user.photoURL;
+  }
 }
