@@ -29,7 +29,7 @@ export class BaseHttpService {
               retry(3),
             );
         }),
-        catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+        catchError(err => this.errorHandler.handleHttpError(err)),
       ));
     }
     return this.memCache.get(API_ENDPOINT);
@@ -45,7 +45,7 @@ export class BaseHttpService {
                               formObject,
                               { headers, reportProgress: true });
       }),
-      catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+      catchError(err => this.errorHandler.handleHttpError(err)),
     );
   }
 }
