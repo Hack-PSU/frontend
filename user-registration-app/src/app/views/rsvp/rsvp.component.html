@@ -37,7 +37,7 @@
 </ng-template>
 
 <ng-template #result>
-  <div *ngIf="(rsvpDataObservable | async)?.rsvp_status; else notcoming">
+  <div *ngIf="rsvpData?.rsvp_status; else notcoming">
     <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
       <div class="card-content">
 	<img src="../../../assets/images/logo2.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>

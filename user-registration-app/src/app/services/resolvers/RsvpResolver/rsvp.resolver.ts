@@ -7,6 +7,8 @@ import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
+import { combineLatest as observableCombineLatest } from 'rxjs';
+import { Registration } from '../../../models/registration';
 
 @Injectable()
 export class RsvpResolver implements Resolve<Rsvp> {
@@ -24,12 +26,11 @@ export class RsvpResolver implements Resolve<Rsvp> {
         if (!user) {
           this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
         } else {
-          return this.httpService.getRsvpStatus();
+          return observableCombineLatest(this.httpService.getRegistrationStatus(), this.httpService.getRsvpStatus());
         }
       }),
-      map(Rsvp.parseJSON),
-      map((rsvp: Rsvp) => {
-        if (!rsvp) {
+      map(([registration, rsvp]) => {
+        if (!registration || !registration.submitted) {
           this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
           return null;
         }
