@@ -301,7 +301,8 @@ header {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-color: #4C708B;
+    background-image: url("../assets/images/background.png");
+    /* background-color: #4C708B; */
     background-size: cover;
     padding-bottom: 6%;
 }
@@ -320,10 +321,11 @@ header {
 }
 
 .action-box {
-    background-color: rgba(224, 224, 224, 0.8);
+    /* background-color: rgba(224, 224, 224, 0.8); */
+    background-color: rgba(170,202,204, 0.6);
 	border: 5px rgba(224, 224, 224, 0.8);
     border-radius: 5px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 7px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
 
 .bottom {
@@ -410,6 +412,15 @@ nav ul li {
 
 #hackpsu-logo {
     max-width: 80%;
+}
+
+.header-hover:hover {
+    cursor: pointer;
+    color: #133753;
+}
+
+.header-hover:hover .bottom-bar{
+    background-color: #133753;
 }
 
 .header-text {
