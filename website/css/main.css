@@ -301,7 +301,7 @@ header {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background: url('../assets/images/web-background.jpg') no-repeat center fixed;
+    background-color: #133753;
     background-size: cover;
     padding-bottom: 6%;
 }
@@ -319,19 +319,37 @@ header {
     margin: -2px;
 }
 
+.bottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.bottom-bar {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+}
+
 /* ID Based Selectors */
 #mlh-trust-badge {
     display: block;
     position: absolute;
     float: right;
     right: 5%;
-    top: 55px;
+    top: 0px;
     width: 10%;
     max-width: 100px;
     height: 120px;
     z-index: 1;
     margin-top: 0px;
 }
+
+#home {
+    height: 100%;
+}
+
 
 @media screen and (max-width: 768px) {
     #mlh-trust-badge {
@@ -381,30 +399,32 @@ nav ul li {
     }
 }
 
-/* Need to add media query to make the nav margin co away on medium and small screens. s*/
+/* Need to add media query to make the nav margin co away on medium and small screens. */
 
 #hackpsu-logo {
     margin-top: 25px;
-    max-width: 30%;
+    max-width: 80%;
 }
 
-#header-text {
+.header-text {
     font-family: 'Cornerstone';
     font-size: 6vh;
     line-height: 100%;
+    margin-top: 25px;
 }
-#header-text p {
+
+.header-text p {
     padding: 0px;
     line-height: 120%;
 }
 
-#header-text p:nth-child(1) {
+.header-text p:nth-child(1) {
     font-size: 9vh;
 }
-#header-text p:nth-child(2) {
+.header-text p:nth-child(2) {
     font-size: 5vh;
 }
-#header-text p:nth-child(3) {
+.header-text p:nth-child(3) {
     font-size: 5vh;
 }
 
