@@ -301,7 +301,7 @@ header {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-color: #133753;
+    background-color: #4C708B;
     background-size: cover;
     padding-bottom: 6%;
 }
@@ -319,10 +319,17 @@ header {
     margin: -2px;
 }
 
+.action-box {
+    background-color: rgba(224, 224, 224, 0.8);
+	border: 5px rgba(224, 224, 224, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .bottom {
     position: absolute;
-    bottom: 0px;
-    width: 100%;
+    bottom: 25px;
+    width: 95%;
     margin-bottom: 0px;
 }
 
@@ -337,7 +344,7 @@ header {
     display: block;
     position: absolute;
     float: right;
-    right: 5%;
+    right: 2.5%;
     top: 0px;
     width: 10%;
     max-width: 100px;
@@ -402,7 +409,6 @@ nav ul li {
 /* Need to add media query to make the nav margin co away on medium and small screens. */
 
 #hackpsu-logo {
-    margin-top: 25px;
     max-width: 80%;
 }
 
