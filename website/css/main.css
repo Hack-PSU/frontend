@@ -417,10 +417,12 @@ nav ul li {
 .header-hover:hover {
     cursor: pointer;
     color: #133753;
+    transition: 0.4s;
 }
 
 .header-hover:hover .bottom-bar{
     background-color: #133753;
+    transition: 0.4s;
 }
 
 .header-text {
