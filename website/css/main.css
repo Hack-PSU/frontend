@@ -303,7 +303,6 @@ header {
     -o-background-size: cover;
     background-image: url("../assets/images/background.png");
     /* background-color: #4C708B; */
-    background-size: cover;
     padding-bottom: 6%;
 }
 

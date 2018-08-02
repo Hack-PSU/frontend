@@ -1,0 +1,72 @@
+$font-stack-primary: 'Lato', sans-serif;
+$font-stack-secondary: 'Raleway', sans-serif;
+$font-stack-tertiary: 'Cornerstone', sans-serif;
+
+/* ====================== CONSTANTS ==================*/
+$white: #FFFFFF;
+$orange: #E5705C;
+$light-blue-primary: #6C88B7;
+$dark-blue-primary: #133753;
+$light-blue: #AACACC;
+$dark-blue-secondary: #24577C;
+$light-blue-secondary: #D0EAF1;
+$orange-secondary: #C94331;
+$gray: #333333;
+
+/* ====================== MIXINS ====================*/
+@mixin accent($color) {
+  color:            $color;
+  background-color: $color;
+}
+
+@mixin background-size($style) {
+  background-size:         $style;
+  -webkit-background-size: $style;
+  -moz-background-size:    $style;
+  -o-background-size:      $style;
+}
+
+/* ====================== GLOBAL STYLES ============*/
+.accent {
+  @include accent($light-blue);
+}
+
+/* ====================== COMPONENTS ==============*/
+body {
+  font-family: $font-stack-primary;
+  color:       white;
+  font-size:   xx-large;
+  text-align:  center;
+
+  header {
+    @include background-size(cover);
+    background-image: url("../assets/images/background.png");
+    padding-bottom:   6%;
+  }
+
+  /* ID Based Selectors */
+  #mlh-trust-badge {
+    display:    block;
+    position:   absolute;
+    float:      right;
+    right:      1%;
+    top:        0px;
+    width:      10%;
+    max-width:  100px;
+    height:     120px;
+    z-index:    1;
+    margin-top: 0px;
+
+    @media screen and (max-width: 768px) {
+      width: 12%;
+      right: 5%;
+    }
+  }
+
+  .landing {
+    .holder {
+      height:      100%;
+      padding-top: 6%;
+    }
+  }
+}
