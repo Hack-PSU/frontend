@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ====================== CONSTANTS ==================*/
 @font-face {
   font-family: "Cornerstone";
@@ -17,15 +18,28 @@ body {
   font-size: xx-large;
   text-align: center;
 }
+body .center {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 body a:hover {
   text-decoration: none;
 }
 body .section-header {
   font-family: "Cornerstone", sans-serif;
   font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  width: 50%;
 }
-body .section-header .header-text {
+body .section-header .header-text, body .section-header .faq-header {
   font-size: 6vh;
+}
+body .section-separator img {
+  margin-top: -5%;
+  margin-bottom: -2%;
 }
 
 header {
@@ -70,7 +84,7 @@ header {
     margin-top: 15px;
   }
 }
-.landing .header-text {
+.landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
   font-family: "Cornerstone", sans-serif;
   font-size: 50px;
   font-size: 4vh;
@@ -78,27 +92,30 @@ header {
   margin-top: 25px;
 }
 @media (max-height: 875px) {
-  .landing .header-text {
+  .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
     font-size: 35px;
   }
 }
 @media (min-height: 1500px) {
-  .landing .header-text {
+  .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
     font-size: 60px;
   }
 }
-.landing .header-text p {
+.landing .header-text p, .landing .header-text #footer a, #footer .landing .header-text a, .landing body .section-header .faq-header p, .landing body .section-header .faq-header #footer a, #footer .landing body .section-header .faq-header a, body .section-header .landing .faq-header p, body .section-header .landing .faq-header #footer a, #footer body .section-header .landing .faq-header a {
   text-align: start;
   padding: 0;
   line-height: 100%;
   transition: all 0.4s;
   color: white;
 }
-.landing .header-text .bottom-bar {
+.landing .header-text .bottom-bar, .landing body .section-header .faq-header .bottom-bar, body .section-header .landing .faq-header .bottom-bar {
   width: 100%;
   height: 5px;
   transition: all 0.4s;
   background-color: white;
+}
+.landing .header-hover {
+  margin-bottom: 25px;
 }
 .landing .header-hover:hover {
   -webkit-transition: all 0.4s;
@@ -110,7 +127,7 @@ header {
 .landing .header-hover:hover .bottom-bar {
   background-color: #133753;
 }
-.landing .header-hover:hover p {
+.landing .header-hover:hover p, .landing .header-hover:hover #footer a, #footer .landing .header-hover:hover a {
   color: #133753;
 }
 .landing .section-separator-first img {
@@ -137,20 +154,32 @@ header {
 
 #about {
   background-color: #103147;
+  margin-bottom: 10px;
 }
-
-.about-bar {
-  margin: 10px 30% 0px 30%;
-  height: 5px;
-  background-color: #24577C;
-}
-
-#about p {
+#about p, #about #footer a, #footer #about a {
   font-family: "Lato", sans-serif;
   font-size: 3vh;
   font-weight: 100;
   text-align: left;
-  margin: auto;
+  padding: 10px;
+  line-height: 200%;
+}
+
+.header-bar, .faq-bar, .about-bar {
+  margin: 0px 30%;
+  height: 5px;
+}
+
+.about-bar {
+  background-color: #24577C;
+}
+
+.faq-bar {
+  background-color: #6C88B7;
+}
+
+.row {
+  margin-bottom: 0px;
 }
 
 .floating {
@@ -178,6 +207,119 @@ header {
   to {
     transform: translate(0px, 0);
   }
+}
+/* FAQ */
+#faqs {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  background-color: #194E6B;
+}
+#faqs #location {
+  margin-top: 30px;
+}
+#faqs #location .title {
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+}
+#faqs #location p, #faqs #location #footer a, #footer #faqs #location a {
+  font-size: large;
+  text-align: left;
+  font-weight: 500;
+}
+#faqs .horizontal-line {
+  position: relative;
+  background-color: #b7c7ca;
+  height: 2px;
+  width: 100%;
+}
+#faqs .question-container {
+  margin-top: 10px;
+  padding: 0 10%;
+}
+@media screen and (max-width: 768px) {
+  #faqs .question-container {
+    padding: 0;
+  }
+}
+#faqs .question + .fa-chevron-right {
+  display: inline-block;
+  margin-top: 10px;
+}
+#faqs .question:before {
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-size: x-large;
+  margin-right: 5px;
+  content: "";
+  color: #C94331;
+  transition: all 0.3s;
+}
+#faqs .open:before {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#faqs .question {
+  color: white;
+  text-align: left;
+  padding: 10px;
+  cursor: hand;
+  font-size: x-large;
+}
+#faqs .FAQanswer {
+  color: #aacacc;
+  display: none;
+  font-weight: lighter;
+  font-size: large;
+  margin: 0 4%;
+  text-align: left;
+}
+#faqs .FAQanswer a {
+  color: #6C88B7;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#faqs .FAQanswer a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+#faqs #map-container {
+  width: 90%;
+  height: 400px;
+  margin: auto auto 2vh;
+}
+
+/************* FOOTER *************/
+#footer {
+  padding: 40px;
+  background-color: #6FA7B3;
+}
+#footer .social-media-icon {
+  width: 40px;
+}
+#footer .row {
+  width: 100%;
+}
+#footer p, #footer a {
+  font-size: small;
+  display: inline-block;
+  margin: auto;
+}
+#footer a {
+  color: white;
+}
+#footer .small-text {
+  font-size: x-small;
 }
 
 /*# sourceMappingURL=main-compiled.css.map */
