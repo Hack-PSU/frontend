@@ -123,13 +123,21 @@
                target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg" alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
         </div>
 
+        <!-- Contained in parent <div> so we can use nth-child() selector and have the clouds
+            move at different points, while keeping css simple. -->
+        <div>
+            <img src="assets/images/cloud-2.svg" class="cloud-1 floating">
+            <img src="assets/images/cloud-1.svg" class="cloud-2 floating">
+            <img src="assets/images/cloud-5.svg" class="cloud-3 floating">
+        </div>
+        
         <!-- HackPSU Page Logo -->
         <div class="row flex-fill">
-            <div class="offset-md-1 col-md-4">
+            <div class="offset-md-2 col-md-3">
                 <img src="assets/images/logo-all-white-no-padding.svg" id="hackpsu-logo" class="animated rubberBand"
                 alt="hackpsulogo">
             </div>
-            <div class="col-md-6 action-box">
+            <div class="col-md-5 action-box">
                 <div class="row">
                     <div class="col-md-12 header-text">
                         <p class="text-left">October 6-7</p>
