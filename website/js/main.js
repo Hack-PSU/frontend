@@ -1,5 +1,6 @@
-$(document).ready(() => {
-  $('.button-collapse').sideNav();
+$(document).ready(function () {
+
+  $(".button-collapse").sideNav();
   $('.slider').slider();
   $('.question').click(function () {
     $(this).siblings().slideToggle('0.3s', 'linear');
@@ -8,16 +9,16 @@ $(document).ready(() => {
     // $(this).find('.question:before').css('transform', 'rotate(90deg)');
   });
   $(window).on('scroll', function (e) {
-    const scrollTop = $(this).scrollTop();
+    var scrollTop = $(this).scrollTop();
 
     // if (scrollTop <= 0) {
     //     $('.main-nav').find('li').each(function () {
     //         $(this).removeClass('active');
     //     });
     // } else {
-    $('nav').find('.left li').each(function () {
-      const curLink = $(this).find('a').first();
-      const anchorEl = $(curLink.attr('href'));
+    $("nav").find(".left li").each(function () {
+      var curLink = $(this).find("a").first();
+      var anchorEl = $(curLink.attr("href"));
       if (anchorEl.offset().top <= scrollTop && anchorEl.offset().top + anchorEl.height() > scrollTop) {
         $(this).addClass('active').siblings().removeClass('active');
       }
@@ -32,7 +33,7 @@ $(document).ready(() => {
   //   $(this).find('.show-on-hover').hide(0);
   //   $(this).find('.hide-on-hover').fadeIn(500);
   // });
-  $('nav').find('.left li').click((e) => {
+  $('nav').find('.left li').click(function (e) {
     e.preventDefault();
     scrollToID($(e.target).attr('href'), 500);
   });
@@ -44,11 +45,11 @@ $(document).ready(() => {
   });
 
   function scrollToID(id, speed) {
-    const targetOffset = $(id).offset().top;
-    const mainNav = $('nav');
+    var targetOffset = $(id).offset().top;
+    var mainNav = $('nav');
     navClicked = true;
-    $('html,body').animate({ scrollTop: targetOffset }, speed);
-    setTimeout(() => {
+    $('html,body').animate({scrollTop: targetOffset}, speed);
+    setTimeout(function () {
       navClicked = false;
     }, speed);
   }
