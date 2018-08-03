@@ -74,6 +74,17 @@ header {
   padding-top: 15%;
   height: 100%;
 }
+@media screen and (max-width: 1200px) {
+  .landing .holder {
+    height: auto;
+  }
+}
+.landing .holder .logo-holder {
+  display: flex;
+}
+.landing .holder .logo-holder img {
+  width: 100%;
+}
 .landing .action-box {
   background-color: rgba(170, 202, 204, 0.6);
   border: 5px rgba(224, 224, 224, 0.8);
@@ -132,6 +143,11 @@ header {
 }
 .landing .section-separator-first img {
   margin-top: -15%;
+}
+@media screen and (max-width: 1200px) {
+  .landing .section-separator-first img {
+    margin-top: 0;
+  }
 }
 .landing .cloud-1 {
   width: 30%;
@@ -234,7 +250,7 @@ header {
 }
 #faqs .horizontal-line {
   position: relative;
-  background-color: #b7c7ca;
+  background-color: #B7C7CA;
   height: 2px;
   width: 100%;
 }
@@ -275,7 +291,7 @@ header {
   font-size: x-large;
 }
 #faqs .FAQanswer {
-  color: #aacacc;
+  color: #AACACC;
   display: none;
   font-weight: lighter;
   font-size: large;

@@ -80,8 +80,8 @@ body {
   text-align:  center;
 
   .center {
-    width: 100%;
-    margin: auto;
+    width:      100%;
+    margin:     auto;
     text-align: center;
   }
 
@@ -92,10 +92,10 @@ body {
   .section-header {
     font-family: $font-stack-tertiary;
     font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    margin: auto;
-    width: 50%;
+    text-align:  center;
+    display:     inline-block;
+    margin:      auto;
+    width:       50%;
     .header-text {
       font-size: 6vh;
     }
@@ -105,7 +105,7 @@ body {
   }
 
   .section-separator img {
-    margin-top: -5%;
+    margin-top:    -5%;
     margin-bottom: -2%;
   }
 }
@@ -137,7 +137,16 @@ header {
 .landing {
   .holder {
     padding-top: 15%;
-    height: 100%;
+    height:      100%;
+    @media screen and (max-width: $break-large) {
+      height: auto;
+    }
+    .logo-holder {
+      display: flex;
+      img {
+        width: 100%;
+      }
+    }
   }
 
   .action-box {
@@ -152,10 +161,10 @@ header {
   }
 
   .header-text {
-    font-family:                        $font-stack-tertiary;
+    font-family:   $font-stack-tertiary;
     @include responsive-font(4vh, 35px, 60px, 50px);
-    max-font-size:                      60px;
-    margin-top:                         25px;
+    max-font-size: 60px;
+    margin-top:    25px;
     p {
       text-align:  start;
       padding:     0;
@@ -186,45 +195,48 @@ header {
 
   .section-separator-first img {
     margin-top: -15%;
+    @media screen and (max-width: $break-large) {
+      margin-top: 0;
+    }
   }
 
   .cloud-1 {
-    width: 30%;
+    width:    30%;
     position: absolute;
-    top: 10vh;
-    left: 5%;
+    top:      10vh;
+    left:     5%;
   }
   .cloud-2 {
-      width: 30%;
-      position: absolute;
-      top: 20vh;
-      right: 2%;
+    width:    30%;
+    position: absolute;
+    top:      20vh;
+    right:    2%;
   }
   .cloud-3 {
-      width: 18%;
-      position: absolute;
-      top: 65vh;
-      left: 20%;  
+    width:    18%;
+    position: absolute;
+    top:      65vh;
+    left:     20%;
   }
 }
 
 #about {
   background-color: #103147;
-  margin-bottom: 10px;
+  margin-bottom:    10px;
 
   p {
     font-family: 'Lato', sans-serif;
-    font-size: 3vh;
+    font-size:   3vh;
     font-weight: 100;
-    text-align: left;
-    padding: 10px;
+    text-align:  left;
+    padding:     10px;
     line-height: 200%;
   }
 }
 
 .header-bar {
-    margin: 0px 30%;
-    height: 5px;
+  margin: 0px 30%;
+  height: 5px;
 }
 
 .about-bar {
@@ -241,159 +253,167 @@ header {
   margin-bottom: 0px;
 }
 
-  .floating {
-      animation-name: floating;
-      animation-duration: 3s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-  }
-  .floating:nth-child(2) {
-      animation-delay: -1s;
-  }
-  .floating:nth-child(3) {
-      animation-delay: -2s;
-  }
-  @keyframes floating {
-      from { transform: translate(0px, 0); }
-      50%  { transform: translate(15px, 0); }
-      to   { transform: translate(-0px, 0); }    
-  }
+.floating {
+  animation-name:            floating;
+  animation-duration:        3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
 
-/* FAQ */ 
+.floating:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.floating:nth-child(3) {
+  animation-delay: -2s;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0px, 0);
+  }
+  50% {
+    transform: translate(15px, 0);
+  }
+  to {
+    transform: translate(-0px, 0);
+  }
+}
+
+/* FAQ */
 
 #faqs {
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    padding-top: 50px;
-    background-color: #194E6B;
+  color:            white;
+  font-family:      'Lato', sans-serif;
+  font-weight:      bold;
+  padding-top:      50px;
+  background-color: #194E6B;
 
-    #location {
+  #location {
     margin-top: 30px;
-    }
+  }
 
-    #location .title {
-        font-size: x-large;
-        text-align: center;
-        margin-bottom: 30px;
-        width: 100%;
-        color: white;
-        font-weight: 700;
-    }
+  #location .title {
+    font-size:     x-large;
+    text-align:    center;
+    margin-bottom: 30px;
+    width:         100%;
+    color:         white;
+    font-weight:   700;
+  }
 
-    #location p {
-        font-size: large;
-        text-align: left;
-        font-weight: 500;
-    }
+  #location p {
+    font-size:   large;
+    text-align:  left;
+    font-weight: 500;
+  }
 
-    .horizontal-line {
-        position: relative;
-        background-color: #b7c7ca;
-        height: 2px;
-        width: 100%;
-    }
+  .horizontal-line {
+    position:         relative;
+    background-color: #B7C7CA;
+    height:           2px;
+    width:            100%;
+  }
 
+  .question-container {
+    margin-top: 10px;
+    padding:    0 10%;
+  }
 
+  @media screen and (max-width: 768px) {
     .question-container {
-        margin-top: 10px;
-        padding: 0 10%;
+      padding: 0;
     }
+  }
 
-    @media screen and (max-width: 768px) {
-        .question-container {
-            padding: 0;
-        }
-    }
+  .question + .fa-chevron-right {
+    display:    inline-block;
+    margin-top: 10px;
+  }
 
-    .question + .fa-chevron-right {
-      display: inline-block;
-      margin-top: 10px;
-    }
+  .question:before {
+    font-family:  "Font Awesome 5 Free";
+    display:      inline-block;
+    font-size:    x-large;
+    margin-right: 5px;
+    content:      "\f054";
+    color:        #C94331;
+    transition:   all 0.3s;
+  }
 
-    .question:before {
-        font-family: "Font Awesome 5 Free";
-        display: inline-block;
-        font-size: x-large;
-        margin-right: 5px;
-        content: "\f054";
-        color: #C94331;
-        transition: all 0.3s;
-    }
+  .open:before {
+    -webkit-transform: rotate(90deg);
+    -moz-transform:    rotate(90deg);
+    -ms-transform:     rotate(90deg);
+    -o-transform:      rotate(90deg);
+    transform:         rotate(90deg);
+  }
 
-    .open:before {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
+  .question {
+    color:      white;
+    text-align: left;
+    padding:    10px;
+    cursor:     hand;
+    font-size:  x-large;
+  }
 
-    .question {
-        color: white;
-        text-align: left;
-        padding: 10px;
-        cursor: hand;
-        font-size: x-large;
-    }
+  .FAQanswer {
+    color:       #AACACC;
+    display:     none;
+    font-weight: lighter;
+    font-size:   large;
+    margin:      0 4%;
+    text-align:  left;
+  }
 
-    .FAQanswer {
-        color: #aacacc;
-        display: none;
-        font-weight: lighter;
-        font-size: large;
-        margin: 0 4%;
-        text-align: left;
-    }
+  .FAQanswer a {
+    color:              #6C88B7;
+    -webkit-transition: all 0.5s;
+    -moz-transition:    all 0.5s;
+    -ms-transition:     all 0.5s;
+    -o-transition:      all 0.5s;
+    transition:         all 0.5s;
+  }
 
-    .FAQanswer a {
-        color: #6C88B7;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -ms-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-    }
+  .FAQanswer a:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
 
-    .FAQanswer a:hover {
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    #map-container {
-        width: 90%;
-        height: 400px;
-        margin: auto auto 2vh;
-    }
+  #map-container {
+    width:  90%;
+    height: 400px;
+    margin: auto auto 2vh;
+  }
 
 }
 
 /************* FOOTER *************/
 #footer {
-    padding: 40px;
-    background-color: #6FA7B3;
+  padding:          40px;
+  background-color: #6FA7B3;
 
-    .social-media-icon {
-      width: 40px;
-    }
+  .social-media-icon {
+    width: 40px;
+  }
 
-    .row {
-      width: 100%;
-    }
+  .row {
+    width: 100%;
+  }
 
-    p {
-      font-size: small;
-      display: inline-block;
-      margin: auto;
-    }
+  p {
+    font-size: small;
+    display:   inline-block;
+    margin:    auto;
+  }
 
-    a {
-      @extend p;
-      color: white;
-    }
+  a {
+    @extend p;
+    color: white;
+  }
 
-    .small-text {
-        font-size: x-small;
-    }
+  .small-text {
+    font-size: x-small;
+  }
 
 }
 
