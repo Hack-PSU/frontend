@@ -83,9 +83,9 @@
                    [(ngModel)]="registrationForm.gender">
             <label for="non-binary">Non-Binary</label><br>
 
-            <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="no-disclose-gender"
+            <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="option4"
                    [(ngModel)]="registrationForm.gender">
-            <label for="no-disclose-gender">Prefer not to disclose</label><br>
+            <label for="option4">Prefer not to disclose</label><br>
 
             <label class="data-error" *ngIf="!genderControl.valid">Required</label>
           </div>
@@ -145,7 +145,7 @@
             <label for="caucasian">Caucasian</label><br>
             <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity" value="no-disclose"
                    [(ngModel)]="registrationForm.ethnicity">
-            <label for="no-disclose-ethnicity">Prefer not to disclose</label>
+            <label for="no-disclose">Prefer not to disclose</label>
           </div>
         </div>
       </div>
@@ -166,10 +166,10 @@
                    required
                    [(ngModel)]="registrationForm.veteran">
             <label for="false">No</label><br>
-            <input type="radio" class="with-gap" id="no-disclose-veteran" name="veteran" value="no-disclose"
+            <input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose"
                    required
                    [(ngModel)]="registrationForm.veteran">
-            <label for="no-disclose-veteran">Prefer not to disclose</label><br>
+            <label for="no-disclose">Prefer not to disclose</label><br>
             <label class="data-error" *ngIf="!veteranControl.valid">Required</label>
           </div>
         </div>
@@ -180,7 +180,7 @@
     <div class="row scrollspy" materialize="scrollSpy" id="age-container">
       <div class="card medium darken-1">
         <div class="card-content ">
-          <h5 class="age">Will you be 18 before April 7, 2018?</h5>
+          <h5 class="age">Will you be 18 before October 6, 2018?</h5>
           <!-- Switch -->
           <div class="switch">
             <label>
@@ -240,7 +240,7 @@
     </div>
 
     <!-- Travel Reimbursement -->
-    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
+    <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpygiti"
          id="travel-container">
       <div class="card medium darken-1">
         <div class="card-content ">
