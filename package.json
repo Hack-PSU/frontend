@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml && styleline **/*.scss",
     "test": "echo 'success'",
-    "watch-sass": "sass --watch ./website/css/main.scss ./website/css/main-compiled.css"
+    "watch-sass": "sass --watch ./website/scss/main.scss ./website/css/main-compiled.css"
   },
   "repository": {
     "type": "git",
