@@ -4,8 +4,9 @@
   "description": "Repository for Spring 2018 hackPSU",
   "main": "js/main.js",
   "scripts": {
-    "lint": "eslint ./api/routes ./api/test ./test ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml && styleline **/*.scss",
-    "test": "echo 'success'"
+    "lint": "eslint ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml && styleline **/*.scss",
+    "test": "echo 'success'",
+    "watch-sass": "sass --watch ./website/css/main.scss ./website/css/main-compiled.css"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "sass": "1.10.2"
   },
   "dependencies": {
     "stylelint-config-recommended": "2.1.0",
