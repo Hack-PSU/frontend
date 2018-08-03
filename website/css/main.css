@@ -319,14 +319,6 @@ header {
     margin: -2px;
 }
 
-.action-box {
-    /* background-color: rgba(224, 224, 224, 0.8); */
-    background-color: rgba(170,202,204, 0.6);
-	border: 5px rgba(224, 224, 224, 0.8);
-    border-radius: 5px;
-    box-shadow: 0 7px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
-}
-
 .bottom {
     position: absolute;
     bottom: 25px;

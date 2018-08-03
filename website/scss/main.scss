@@ -13,6 +13,15 @@ $light-blue-secondary: #D0EAF1;
 $orange-secondary: #C94331;
 $gray: #333333;
 
+$break-small: 576px;
+$break-medium: 768px;
+$break-large: 1200px;
+
+@font-face {
+  font-family: 'Cornerstone';
+  src:         url('../assets/fonts/Cornerstone.ttf');
+}
+
 /* ====================== MIXINS ====================*/
 @mixin accent($color) {
   color:            $color;
@@ -24,6 +33,38 @@ $gray: #333333;
   -webkit-background-size: $style;
   -moz-background-size:    $style;
   -o-background-size:      $style;
+}
+
+@mixin transition($property, $time) {
+  -webkit-transition: $property $time;
+  -moz-transition:    $property $time;
+  -ms-transition:     $property $time;
+  -o-transition:      $property $time;
+  transition:         $property $time;
+}
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
 }
 
 /* ====================== GLOBAL STYLES ============*/
@@ -38,35 +79,92 @@ body {
   font-size:   xx-large;
   text-align:  center;
 
-  header {
-    @include background-size(cover);
-    background-image: url("../assets/images/background.png");
-    padding-bottom:   6%;
+  a:hover {
+    text-decoration: none;
   }
 
-  /* ID Based Selectors */
-  #mlh-trust-badge {
-    display:    block;
-    position:   absolute;
-    float:      right;
-    right:      1%;
-    top:        0px;
-    width:      10%;
-    max-width:  100px;
-    height:     120px;
-    z-index:    1;
-    margin-top: 0px;
-
-    @media screen and (max-width: 768px) {
-      width: 12%;
-      right: 5%;
+  .section-header {
+    font-family: $font-stack-tertiary;
+    font-weight: 600;
+    .header-text {
+      font-size: 6vh;
     }
   }
+}
 
-  .landing {
-    .holder {
-      height:      100%;
-      padding-top: 6%;
+header {
+  @include background-size(cover);
+  background-image: url("../assets/images/background.png");
+}
+
+/* ID Based Selectors */
+#mlh-trust-badge {
+  display:    block;
+  position:   absolute;
+  float:      right;
+  right:      1%;
+  top:        0px;
+  width:      10%;
+  max-width:  100px;
+  height:     120px;
+  z-index:    1;
+  margin-top: 0px;
+
+  @media screen and (max-width: $break-medium) {
+    width: 12%;
+    right: 5%;
+  }
+}
+
+.landing {
+  .holder {
+    padding-top: 6%;
+  }
+  .action-box {
+    background-color: rgba(170, 202, 204, 0.6);
+    border:           5px rgba(224, 224, 224, 0.8);
+    border-radius:    5px;
+    box-shadow:       0 7px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+
+    @media screen and (max-width: $break-small) {
+      margin-top: 15px;
     }
   }
+  .header-text {
+    font-family:                        $font-stack-tertiary;
+    @include responsive-font(5vw, 35px, 60px, 50px);
+    max-font-size:                      60px;
+    margin-top:                         25px;
+    p {
+      text-align:  start;
+      padding:     0;
+      line-height: 120%;
+      transition:  all 0.4s;
+      color:       white;
+    }
+    .bottom-bar {
+      width:            100%;
+      height:           5px;
+      transition:       all 0.4s;
+      background-color: white;
+    }
+  }
+  .header-hover {
+    &:hover {
+      @include transition(all, 0.4s);
+      .bottom-bar {
+        background-color: #133753;
+      }
+      p {
+        color: $dark-blue-primary;
+      }
+    }
+  }
+  .section-separator-first img {
+    margin-top: -15%;
+  }
+}
+
+#about {
+  background-color: #103147;
 }
