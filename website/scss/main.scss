@@ -118,8 +118,10 @@ header {
 
 .landing {
   .holder {
-    padding-top: 6%;
+    padding-top: 15%;
+    height: 100%;
   }
+
   .action-box {
     background-color: rgba(170, 202, 204, 0.6);
     border:           5px rgba(224, 224, 224, 0.8);
@@ -130,15 +132,16 @@ header {
       margin-top: 15px;
     }
   }
+
   .header-text {
     font-family:                        $font-stack-tertiary;
-    @include responsive-font(5vw, 35px, 60px, 50px);
+    @include responsive-font(4vh, 35px, 60px, 50px);
     max-font-size:                      60px;
     margin-top:                         25px;
     p {
       text-align:  start;
       padding:     0;
-      line-height: 120%;
+      line-height: 100%;
       transition:  all 0.4s;
       color:       white;
     }
@@ -149,6 +152,7 @@ header {
       background-color: white;
     }
   }
+
   .header-hover {
     &:hover {
       @include transition(all, 0.4s);
@@ -160,8 +164,28 @@ header {
       }
     }
   }
+
   .section-separator-first img {
     margin-top: -15%;
+  }
+
+  .cloud-1 {
+    width: 30%;
+    position: absolute;
+    top: 10vh;
+    left: 5%;
+  }
+  .cloud-2 {
+      width: 30%;
+      position: absolute;
+      top: 20vh;
+      right: 2%;
+  }
+  .cloud-3 {
+      width: 18%;
+      position: absolute;
+      top: 65vh;
+      left: 20%;  
   }
 }
 
@@ -182,4 +206,22 @@ header {
     text-align: left;
     margin: auto;
 }
+
+  .floating {
+      animation-name: floating;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+  }
+  .floating:nth-child(2) {
+      animation-delay: -1s;
+  }
+  .floating:nth-child(3) {
+      animation-delay: -2s;
+  }
+  @keyframes floating {
+      from { transform: translate(0px, 0); }
+      50%  { transform: translate(15px, 0); }
+      to   { transform: translate(-0px, 0); }    
+  }
 
