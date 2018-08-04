@@ -168,7 +168,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = registration;
-      this.registrationForm.firstHackathon = null;
+      this.registrationForm.firstHackathon = false;
       this.registrationForm.eighteenBeforeEvent = null;
       this.registrationForm.mlhcoc = null;
       this.registrationForm.mlhdcp = null;

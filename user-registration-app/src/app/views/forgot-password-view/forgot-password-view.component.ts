@@ -24,7 +24,7 @@ export class ForgotPasswordViewComponent extends BaseComponent implements OnInit
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress,
               private alertsService: AlertService) {
-    super(authService, router, errorHandler, activatedRoute, progressBar);
+    super(authService, progressBar, errorHandler, activatedRoute, router);
   }
 
   ngOnInit() {

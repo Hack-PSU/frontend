@@ -20,7 +20,7 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
               errorHandler: CustomErrorHandlerService,
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress) {
-    super(authService, router, errorHandler, activatedRoute, progressBar);
+    super(authService, progressBar, errorHandler, activatedRoute, router);
   }
 
   ngOnInit() {

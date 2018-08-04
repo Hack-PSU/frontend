@@ -3,11 +3,11 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
 
 export abstract class BaseComponent {
-  protected constructor(public authService: AuthService,
-                        protected router: Router,
-                        protected errorHandler: CustomErrorHandlerService,
-                        protected activatedRoute: ActivatedRoute,
-                        protected progressBar: NgProgress) {
+  constructor(public authService: AuthService,
+              public progressBar: NgProgress,
+              protected errorHandler: CustomErrorHandlerService,
+              protected activatedRoute: ActivatedRoute,
+              protected router: Router) {
   }
 
   protected readRouteAndNavigate(callback) {
