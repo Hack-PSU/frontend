@@ -1,5 +1,5 @@
 import { from as observableFrom, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap, map, retry, tap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
@@ -8,26 +8,47 @@ import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
-import { Rsvp } from '../../models/rsvp';
-import 'rxjs-compat/add/operator/shareReplay';
-import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 
 @Injectable()
-export class HttpService extends BaseHttpService {
-
-  constructor(http: HttpClient,
-              authService: AuthService,
-              errorHandler: CustomErrorHandlerService,
-              ngProgress: NgProgress,
+export class HttpService {
+  constructor(private http: HttpClient,
+              private authService: AuthService,
+              private errorHandler: CustomErrorHandlerService,
+              public ngProgress: NgProgress,
   ) {
-    super(http, authService, errorHandler, ngProgress);
+  }
+
+  private get(API_ENDPOINT: string) {
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers })
+          .pipe(
+            retry(3),
+          );
+      }),
+      catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+    );
+  }
+
+  private post(API_ENDPOINT: string, formObject: FormData) {
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('idtoken', idToken);
+        return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+                              formObject,
+                              { headers, reportProgress: true });
+      }),
+      catchError(err => this.errorHandler.parseCustomServerErrorToString(err)),
+    );
   }
 
   getRegistrationStatus(): Observable<Registration> {
     const API_ENDPOINT = 'users/registration';
     return this.get(API_ENDPOINT)
       .pipe(
-        map(registrations => Array.isArray(registrations) ? registrations[0] : registrations),
         map(Registration.parseJSON),
       );
   }
@@ -108,11 +129,8 @@ export class HttpService extends BaseHttpService {
     return this.post(API_ENDPOINT, formObject);
   }
 
-  getRsvpStatus(): Observable<Rsvp> {
+  getRsvpStatus() {
     const API_ENDPOINT = 'users/rsvp';
-    return this.get(API_ENDPOINT)
-      .pipe(
-        map(Rsvp.parseJSON),
-      );
+    return this.get(API_ENDPOINT);
   }
 }

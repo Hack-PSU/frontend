@@ -1,5 +1,6 @@
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { combineLatest as observableCombineLatest } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import { Registration } from '../../../models/registration';
 import { catchError, map, mergeMap, take } from 'rxjs/operators';
@@ -9,7 +10,6 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
 import 'rxjs-compat/add/observable/empty';
 import 'rxjs-compat/add/observable/of';
-import { forkJoin } from 'rxjs';
 
 @Injectable()
 export class RegistrationResolver implements Resolve<Registration> {
@@ -25,14 +25,10 @@ export class RegistrationResolver implements Resolve<Registration> {
             this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
             return null;
           }
-          return forkJoin(
-            this.httpService.getRegistrationStatus()
-              .pipe(take(1)),
-            this.httpService.getCurrentHackathon()
-              .pipe(take(1)),
-          );
+          return observableCombineLatest(this.httpService.getRegistrationStatus(), this.httpService.getCurrentHackathon());
         }),
-        map(([registration, hackathon]) => {
+        map((data) => {
+          const [registration, hackathon] = data;
           if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
             this.progress.complete();
             this.router.navigate(['/rsvp']);

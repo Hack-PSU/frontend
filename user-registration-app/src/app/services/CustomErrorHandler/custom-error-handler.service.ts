@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
 import { AlertService } from 'ngx-alerts';
 import { Observable } from 'rxjs/Observable';
@@ -8,8 +7,10 @@ import 'rxjs-compat/add/observable/throw';
 
 @Injectable()
 export class CustomErrorHandlerService {
+  constructor(public alerts: AlertService) {
+  }
 
-  private static tryParseError(error: HttpErrorResponse): Error {
+  tryParseError(error: HttpErrorResponse): Error {
     try {
       return { error: error.error, message: error.message };
     } catch (ex) {
@@ -17,19 +18,7 @@ export class CustomErrorHandlerService {
     }
   }
 
-  private static parseGenericError(error: GenericError): Error {
-    return {
-      error: {
-        message: error.message,
-      },
-      message: error.message,
-    }
-  }
-
-  constructor(private alerts: AlertService) {
-  }
-
-  private parseCustomServerError(error: HttpErrorResponse): any {
+  parseCustomServerError(error: HttpErrorResponse): any {
     if (error.status >= 500) {
       throw new Error('Server error');
     }
@@ -38,7 +27,7 @@ export class CustomErrorHandlerService {
     return { title, body };
   }
 
-  private createCustomError(error: HttpErrorResponse): HttpErrorResponse {
+  createCustomError(error: HttpErrorResponse): HttpErrorResponse {
     console.error(error);
     try {
       const parsedError = this.parseCustomServerError(error);
@@ -63,18 +52,13 @@ export class CustomErrorHandlerService {
     }
   }
 
-  private showToast(error: Error): void {
+  showToast(error: Error): void {
     this.alerts.danger(error.error.message);
   }
 
-  public handleHttpError(error: HttpErrorResponse): Observable<Error> {
+  parseCustomServerErrorToString(error: HttpErrorResponse): Observable<Error> {
     const customError = this.createCustomError(error);
-    const parsedError = CustomErrorHandlerService.tryParseError(customError);
-    return this.handleError(parsedError);
-  }
-
-  public handleError(error: GenericError): Observable<Error> {
-    const parsedError = CustomErrorHandlerService.parseGenericError(error);
+    const parsedError = this.tryParseError(customError);
     this.showToast(parsedError);
     return Observable.throwError(parsedError);
   }

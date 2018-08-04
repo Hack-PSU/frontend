@@ -41,7 +41,7 @@ export class Registration {
     registration.phone = value.phone;
     registration.academicYear = value.academic_year;
     registration.major = value.major;
-    registration.resume = value.resume ? new URL(value.resume) : null;
+    registration.resume = new URL(value.resume);
     registration.mlhcoc = !!value.mlh_coc;
     registration.mlhdcp = !!value.mlh_dcp;
     registration.ethnicity = value.race;
