@@ -36,11 +36,7 @@ export class RsvpComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: { rsvp: Rsvp }) => {
       const { rsvp } = data;
-      if (!rsvp.rsvp_status) {
-        this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
-      } else {
-        this.rsvpData = rsvp;
-      }
+      this.rsvpData = rsvp;
     },                                 (error) => {
       this.errors = error;
     });

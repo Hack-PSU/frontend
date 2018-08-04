@@ -1,0 +1,420 @@
+$font-stack-primary: 'Lato', sans-serif;
+$font-stack-secondary: 'Raleway', sans-serif;
+$font-stack-tertiary: 'Cornerstone', sans-serif;
+
+/* ====================== CONSTANTS ==================*/
+$white: #FFFFFF;
+$orange: #E5705C;
+$light-blue-primary: #6C88B7;
+$dark-blue-primary: #133753;
+$light-blue: #AACACC;
+$dark-blue-secondary: #24577C;
+$light-blue-secondary: #D0EAF1;
+$orange-secondary: #C94331;
+$gray: #333333;
+
+$break-small: 576px;
+$break-medium: 768px;
+$break-large: 1200px;
+
+@font-face {
+  font-family: 'Cornerstone';
+  src:         url('../assets/fonts/Cornerstone.ttf');
+}
+
+/* ====================== MIXINS ====================*/
+@mixin accent($color) {
+  color:            $color;
+  background-color: $color;
+}
+
+@mixin background-size($style) {
+  background-size:         $style;
+  -webkit-background-size: $style;
+  -moz-background-size:    $style;
+  -o-background-size:      $style;
+}
+
+@mixin transition($property, $time) {
+  -webkit-transition: $property $time;
+  -moz-transition:    $property $time;
+  -ms-transition:     $property $time;
+  -o-transition:      $property $time;
+  transition:         $property $time;
+}
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
+}
+
+/* ====================== GLOBAL STYLES ============*/
+.accent {
+  @include accent($light-blue);
+}
+
+/* ====================== COMPONENTS ==============*/
+body {
+  font-family: $font-stack-primary;
+  color:       white;
+  font-size:   xx-large;
+  text-align:  center;
+
+  .center {
+    width:      100%;
+    margin:     auto;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .section-header {
+    font-family: $font-stack-tertiary;
+    font-weight: 600;
+    text-align:  center;
+    display:     inline-block;
+    margin:      auto;
+    width:       50%;
+    .header-text {
+      font-size: 6vh;
+    }
+    .faq-header {
+      @extend .header-text;
+    }
+  }
+
+  .section-separator img {
+    margin-top:    -5%;
+    margin-bottom: -2%;
+  }
+}
+
+header {
+  @include background-size(cover);
+  background-image: url("../assets/images/background.png");
+}
+
+/* ID Based Selectors */
+#mlh-trust-badge {
+  display:    block;
+  position:   absolute;
+  float:      right;
+  right:      1%;
+  top:        0px;
+  width:      10%;
+  max-width:  100px;
+  height:     120px;
+  z-index:    1;
+  margin-top: 0px;
+
+  @media screen and (max-width: $break-medium) {
+    width: 12%;
+    right: 5%;
+  }
+}
+
+.landing {
+  .holder {
+    padding-top: 15%;
+    height:      100%;
+    @media screen and (max-width: $break-large) {
+      height: auto;
+    }
+    .logo-holder {
+      display: flex;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .action-box {
+    background-color: rgba(170, 202, 204, 0.6);
+    border:           5px rgba(224, 224, 224, 0.8);
+    border-radius:    5px;
+    //box-shadow:       0 7px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+
+    @media screen and (max-width: $break-small) {
+      margin-top: 15px;
+    }
+  }
+
+  .header-text {
+    font-family:   $font-stack-tertiary;
+    @include responsive-font(4vh, 35px, 60px, 50px);
+    max-font-size: 60px;
+    margin-top:    25px;
+    p {
+      text-align:  start;
+      padding:     0;
+      line-height: 100%;
+      transition:  all 0.4s;
+      color:       white;
+    }
+    .bottom-bar {
+      width:            100%;
+      height:           5px;
+      transition:       all 0.4s;
+      background-color: white;
+    }
+  }
+
+  .header-hover {
+    margin-bottom: 25px;
+    &:hover {
+      @include transition(all, 0.4s);
+      .bottom-bar {
+        background-color: #133753;
+      }
+      p {
+        color: $dark-blue-primary;
+      }
+    }
+  }
+
+  .section-separator-first img {
+    margin-top: -15%;
+    @media screen and (max-width: $break-large) {
+      margin-top: 0;
+    }
+  }
+
+  .cloud-1 {
+    width:    30%;
+    position: absolute;
+    top:      10vh;
+    left:     5%;
+  }
+  .cloud-2 {
+    width:    30%;
+    position: absolute;
+    top:      20vh;
+    right:    2%;
+  }
+  .cloud-3 {
+    width:    18%;
+    position: absolute;
+    top:      65vh;
+    left:     20%;
+  }
+}
+
+#about {
+  background-color: #103147;
+  margin-bottom:    10px;
+  padding-bottom: 5%;
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size:   3vh;
+    font-weight: 100;
+    text-align:  left;
+    padding:     10px;
+    line-height: 200%;
+  }
+}
+
+.header-bar {
+  margin: 0px 30%;
+  height: 5px;
+}
+
+.about-bar {
+  @extend .header-bar;
+  background-color: #24577C;
+}
+
+.faq-bar {
+  @extend .header-bar;
+  background-color: #6C88B7;
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+.floating {
+  animation-name:            floating;
+  animation-duration:        3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.floating:nth-child(3) {
+  animation-delay: -2s;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0px, 0);
+  }
+  50% {
+    transform: translate(15px, 0);
+  }
+  to {
+    transform: translate(-0px, 0);
+  }
+}
+
+/* FAQ */
+
+#faqs {
+  color:            white;
+  font-family:      'Lato', sans-serif;
+  font-weight:      bold;
+  padding-top:      50px;
+  background-color: #194E6B;
+
+  #location {
+    margin-top: 30px;
+  }
+
+  #location .title {
+    font-size:     x-large;
+    text-align:    center;
+    margin-bottom: 30px;
+    width:         100%;
+    color:         white;
+    font-weight:   700;
+  }
+
+  #location p {
+    font-size:   large;
+    text-align:  left;
+    font-weight: 500;
+  }
+
+  .horizontal-line {
+    position:         relative;
+    background-color: #B7C7CA;
+    height:           2px;
+    width:            100%;
+  }
+
+  .question-container {
+    margin-top: 10px;
+    padding:    0 10%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .question-container {
+      padding: 0;
+    }
+  }
+
+  .question + .fa-chevron-right {
+    display:    inline-block;
+    margin-top: 10px;
+  }
+
+  .question:before {
+    font-family:  "Font Awesome 5 Free";
+    display:      inline-block;
+    font-size:    x-large;
+    margin-right: 5px;
+    content:      "\f054";
+    color:        #C94331;
+    transition:   all 0.3s;
+  }
+
+  .open:before {
+    -webkit-transform: rotate(90deg);
+    -moz-transform:    rotate(90deg);
+    -ms-transform:     rotate(90deg);
+    -o-transform:      rotate(90deg);
+    transform:         rotate(90deg);
+  }
+
+  .question {
+    color:      white;
+    text-align: left;
+    padding:    10px;
+    cursor:     hand;
+    font-size:  x-large;
+  }
+
+  .FAQanswer {
+    color:       #AACACC;
+    display:     none;
+    font-weight: lighter;
+    font-size:   large;
+    margin:      0 4%;
+    text-align:  left;
+  }
+
+  .FAQanswer a {
+    color:              #6C88B7;
+    -webkit-transition: all 0.5s;
+    -moz-transition:    all 0.5s;
+    -ms-transition:     all 0.5s;
+    -o-transition:      all 0.5s;
+    transition:         all 0.5s;
+  }
+
+  .FAQanswer a:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  #map-container {
+    width:  90%;
+    height: 400px;
+    margin: auto auto 2vh;
+  }
+
+}
+
+/************* FOOTER *************/
+#footer {
+  padding:          40px;
+  background-color: #6FA7B3;
+
+  .social-media-icon {
+    width: 40px;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  p {
+    font-size: small;
+    display:   inline-block;
+    margin:    auto;
+  }
+
+  a {
+    @extend p;
+    color: white;
+  }
+
+  .small-text {
+    font-size: x-small;
+  }
+
+}
+

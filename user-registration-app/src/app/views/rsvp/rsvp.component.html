@@ -31,13 +31,13 @@
         <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> Thank you! </div>
       </div>
       <h4 class="center">We've received your registration.</h4>
-      <h5 class="center">Check back here later for your decision!</h5>
+      <h5 class="center">Keep an eye on your email for more information close to the event!</h5>
     </div>
   </div>
 </ng-template>
 
 <ng-template #result>
-  <div *ngIf="(rsvpDataObservable | async)?.rsvp_status; else notcoming">
+  <div *ngIf="rsvpData?.rsvp_status; else notcoming">
     <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
       <div class="card-content">
 	<img src="../../../assets/images/logo2.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
