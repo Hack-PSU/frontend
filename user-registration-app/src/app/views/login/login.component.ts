@@ -21,7 +21,7 @@ export class LoginComponent extends BaseComponent {
               errorHandler: CustomErrorHandlerService,
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress) {
-    super(authService, router, errorHandler, activatedRoute, progressBar);
+    super(authService, progressBar, errorHandler, activatedRoute, router);
     this.model = new Login();
     this.authService.authState
       .subscribe((user) => {
