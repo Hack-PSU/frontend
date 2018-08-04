@@ -171,6 +171,7 @@ header {
 #about {
   background-color: #103147;
   margin-bottom: 10px;
+  padding-bottom: 5%;
 }
 #about p, #about #footer a, #footer #about a {
   font-family: "Lato", sans-serif;
