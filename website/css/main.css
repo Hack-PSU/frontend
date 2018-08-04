@@ -275,7 +275,7 @@ a:hover {
 
 .dark-blue-secondary {
     color: #24577C;
-}
+} 
 
 .light-blue-secondary {
     color: #D0EAF1;
@@ -301,8 +301,8 @@ header {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background: url('../assets/images/web-background.jpg') no-repeat center fixed;
-    background-size: cover;
+    background-image: url("../assets/images/background.png");
+    /* background-color: #4C708B; */
     padding-bottom: 6%;
 }
 
@@ -319,19 +319,82 @@ header {
     margin: -2px;
 }
 
+.action-box {
+    /* background-color: rgba(224, 224, 224, 0.8); */
+    background-color: rgba(170,202,204, 0.6);
+	border: 5px rgba(224, 224, 224, 0.8);
+    border-radius: 5px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 25px;
+    width: 95%;
+    margin-bottom: 0px;
+}
+
+.bottom-bar {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+}
+
+.cloud-1 {
+    width: 30%;
+    position: absolute;
+    top: 10vh;
+    left: 5%;
+}
+.cloud-2 {
+    width: 30%;
+    position: absolute;
+    top: 20vh;
+    right: 2%;
+}
+.cloud-3 {
+    width: 18%;
+    position: absolute;
+    top: 52vh;
+    left: 20%;  
+}
+
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.floating:nth-child(2) {
+    animation-delay: -1s;
+}
+.floating:nth-child(3) {
+    animation-delay: -2s;
+}
+
+@keyframes floating {
+    from { transform: translate(0px, 0); }
+    50%  { transform: translate(15px, 0); }
+    to   { transform: translate(-0px, 0); }    
+}
+
 /* ID Based Selectors */
 #mlh-trust-badge {
     display: block;
     position: absolute;
     float: right;
-    right: 5%;
-    top: 55px;
+    right: 1%;
+    top: 0px;
     width: 10%;
     max-width: 100px;
     height: 120px;
     z-index: 1;
     margin-top: 0px;
 }
+
+#home {
+    height: 100%;
+}
+
 
 @media screen and (max-width: 768px) {
     #mlh-trust-badge {
@@ -375,38 +438,50 @@ nav ul li {
         margin-left: 0px;
     }
 }
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
     nav .brand-logo {
         margin-left: 0px;
     }
 }
 
-/* Need to add media query to make the nav margin co away on medium and small screens. s*/
+/* Need to add media query to make the nav margin co away on medium and small screens. */
 
 #hackpsu-logo {
-    margin-top: 25px;
-    max-width: 30%;
+    max-width: 80%;
 }
 
-#header-text {
-    font-family: 'Cornerstone';
-    font-size: 6vh;
-    line-height: 100%;
+.header-hover:hover {
+    cursor: pointer;
+    color: #133753;
+    transition: 0.4s;
 }
-#header-text p {
+
+.header-hover:hover .bottom-bar{
+    background-color: #133753;
+    transition: 0.4s;
+}
+
+.header-text {
+    font-family: 'Cornerstone';
+    font-size: 4vh;
+    line-height: 100%;
+    margin-top: 25px;
+}
+
+.header-text p {
     padding: 0px;
     line-height: 120%;
 }
 
-#header-text p:nth-child(1) {
+/* .header-text p:nth-child(1) {
     font-size: 9vh;
 }
-#header-text p:nth-child(2) {
+.header-text p:nth-child(2) {
     font-size: 5vh;
 }
-#header-text p:nth-child(3) {
+.header-text p:nth-child(3) {
     font-size: 5vh;
-}
+} */
 
 #date-text {
     max-width: 50%;
@@ -542,6 +617,12 @@ nav ul li {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/*========================= LANDING PAGE ==========================*/
+.landing-holder {
+    height: 100%;
+    padding-top: 15%;
+}
+
 /*========================= *** About *** =========================*/
 #about {
     background-color: #103147;
@@ -551,9 +632,8 @@ nav ul li {
     font-family: 'Lato', sans-serif;
     font-size: 3vh;
     font-weight: 100;
-    text-align: center;
+    text-align: left;
     margin: auto;
-    width: 60%;
 }
 
 @media screen and (max-width: 768px) {
@@ -878,13 +958,13 @@ nav ul li {
 #location .title {
     font-size: x-large;
     text-align: center;
-    margin-bottom: 20px; 
-    color: white;  
+    margin-bottom: 20px;
+    color: white;
 }
 
 #location p {
     font-size: large;
-    text-align: left;   
+    text-align: left;
 }
 
 .horizontal-line {
@@ -1045,7 +1125,7 @@ nav ul li {
 
     #last-event {
         margin-bottom: 50px;
-    }  
+    }
 
     .schedule-right {
         margin-top: 10px;
