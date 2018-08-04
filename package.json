@@ -1,26 +1,17 @@
 {
   "name": "hackpsus2018",
   "version": "0.0.1",
-  "description": "Repository for Spring 2018 hackPSU",
-  "main": "js/main.js",
+  "description": "Frontend repository for hackPSU",
   "scripts": {
     "lint": "eslint ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml && styleline **/*.scss",
     "test": "echo 'success'",
     "watch-sass": "sass --watch ./website/scss/main.scss ./website/css/main-compiled.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hackpsu-tech/hackPSUS2018.git"
   },
   "keywords": [
     "hackPSU"
   ],
   "author": "hackpsu-tech",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hackpsu-tech/hackPSUS2018/issues"
-  },
-  "homepage": "https://github.com/hackpsu-tech/hackPSUS2018#readme",
   "devDependencies": {
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
