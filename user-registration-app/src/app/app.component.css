@@ -47,7 +47,7 @@ p {
 
 nav {
   background-color: #B1C8CB;
-  height: 60px;
+  height: 55px;
 }
 
 nav .brand-logo {
@@ -58,7 +58,6 @@ nav .brand-logo {
 
 nav img{
   vertical-align: top;
-  margin-top: 5px;
 }
 
 nav ul li {

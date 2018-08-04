@@ -168,17 +168,13 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = registration;
-      this.registrationForm.firstHackathon = null;
-      this.registrationForm.eighteenBeforeEvent = null;
-      this.registrationForm.mlhcoc = null;
-      this.registrationForm.mlhdcp = null;
       this.parsePhone(this.registrationForm.phone);
       this.phoneNoUse = this.prettifiedPhone;
       this.diet_restr = this.registrationForm.dietaryRestriction !== null;
       setTimeout(() => {
         this.progress.complete();
         Materialize.updateTextFields();
-      },         750);
+      },         500);
     });
   }
 

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgProgress } from '@ngx-progressbar/core';
-import { AppConstants } from '../../AppConstants';
 import { Login } from '../../models/login';
-import { AuthProviders, AuthService } from '../../services/AuthService/auth.service';
-import { CustomErrorHandlerService } from '../../services/services';
-import { BaseComponent } from '../base/base.component';
+import { AppConstants } from '../../AppConstants';
+import { AuthService, AuthProviders } from '../../services/AuthService/auth.service';
+import { NgProgress } from '@ngx-progressbar/core';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +11,15 @@ import { BaseComponent } from '../base/base.component';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent extends BaseComponent {
+export class LoginComponent {
+
+  public errors: Error = null;
   public model: Login;
 
-  constructor(authService: AuthService,
-              router: Router,
-              errorHandler: CustomErrorHandlerService,
-              activatedRoute: ActivatedRoute,
-              progressBar: NgProgress) {
-    super(authService, router, errorHandler, activatedRoute, progressBar);
+  constructor(public authService: AuthService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private progressBar: NgProgress) {
     this.model = new Login();
     this.authService.authState
       .subscribe((user) => {
@@ -32,17 +30,14 @@ export class LoginComponent extends BaseComponent {
   }
 
   login() {
-    this.progressBar.start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
   }
 
   loginFacebook() {
-    this.progressBar.start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.FACEBOOK_PROVIDER));
   }
 
   loginGithub() {
-    this.progressBar.start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
@@ -59,19 +54,20 @@ export class LoginComponent extends BaseComponent {
         this.onLogin();
       })
       .catch((error) => {
+        this.errors = error;
         console.error(error);
-        this.errorHandler.handleError(error);
-        this.progressBar.complete();
       });
   }
 
   onLogin() {
-    this.readRouteAndNavigate((params) => {
-      if (!params.redirectUrl) {
-        this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
-      } else {
-        this.router.navigate([params['redirectUrl']]);
-      }
-    });
+    this.progressBar.complete();
+    this.activatedRoute.queryParams
+      .subscribe((params) => {
+        if (!params.redirectUrl) {
+          this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
+        } else {
+          this.router.navigate([params['redirectUrl']]);
+        }
+      });
   }
 }
