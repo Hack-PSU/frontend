@@ -47,7 +47,7 @@ header {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-image: url("../assets/images/background.png");
+  background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);
 }
 
 /* ID Based Selectors */
@@ -166,6 +166,14 @@ header {
   position: absolute;
   top: 65vh;
   left: 20%;
+}
+.landing .mountain {
+  width: 55%;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 #about {
