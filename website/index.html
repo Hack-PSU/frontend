@@ -123,6 +123,7 @@
   <body>
     <header id="home" class="landing">
       <div class="holder container-fluid">
+
         <!-- MLH Badge -->
         <div class="white">
           <a id="mlh-trust-badge"
@@ -132,40 +133,55 @@
               alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
         </div>
 
-        <!-- Contained in parent <div> so we can use nth-child() selector and have the clouds
-            move at different points, while keeping css simple. -->
-        <div>
-          <img src="assets/images/cloud-2.svg" class="cloud-1 floating">
-          <img src="assets/images/cloud-1.svg" class="cloud-2 floating">
-          <img src="assets/images/cloud-5.svg" class="cloud-3 floating">
-        </div>
-        <div>
-          <img src="assets/images/flat-mountain-graphic.svg" class="mountain">
-        </div>
 
         <!-- HackPSU Page Logo -->
-        <div class="row">
-          <div class="offset-sm-2 col-sm-3 logo-holder">
+        <div class="logo-holder">
             <img src="assets/images/logo-all-white-no-padding.svg" id="hackpsu-logo"
-                 class="animated rubberBand"
-                 alt="hackpsulogo">
-          </div>
+            class="animated rubberBand"
+            alt="hackpsulogo">
+        </div>
 
-          <div class="col-sm-5 action-box">
+        <!-- Give room between logo and other content -->
+        <div class="row spacer"></div>
+        
+        <!-- Event info and mountain graphics -->
+        <div class="row header-content">
+          <!-- Header info (event date, location) and CTA -->
+          <div class="col-md-5">
             <div class="row">
-              <div class="col-12 header-text">
-                <p class="text-left">October 6-7</p>
-                <p class="text-left">Penn State University</p>
-                <p class="text-left">Business Building</p>
+              <div class="offset-md-2 col-md-8 ">
+                <div class="row">
+                  <div class="col-12 header-text">
+                    <p class="text-left">October 6-7</p>
+                    <p class="text-left">Penn State University</p>
+                    <p class="text-left">Business Building</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row bottom">
-              <a href="https://app.hackpsu.org">
-                <div class="col-md-12 header-text align-bottom header-hover">
-                  <p class="text-left">Register Now</p>
-                  <div class="bottom-bar"></div>
+
+            <div class="row cta">
+                <div class="offset-md-2 col-md-8 register-btn">
+                  <a href="https://app.hackpsu.org">
+                    <div class="col-md-12 header-text text-center">
+                      <p class="text-center">Register Now</p>
+                    </div>
+                  </a>
                 </div>
-              </a>
+            </div>
+          </div>
+
+          <!-- Mountain vista graphics -->
+          <div class="col-md-7">
+            <div class="row header-graphic">
+              <img src="assets/images/flat-mountain-graphic.svg" class="img-fluid mountain">
+              <!-- Contained in parent <div> so we can use nth-child() selector and have the clouds
+              move at different points, while keeping css simple. -->
+              <div>
+                <img src="assets/images/cloud-2.svg" class="cloud-1 floating">
+                <img src="assets/images/cloud-1.svg" class="cloud-2 floating">
+                <img src="assets/images/cloud-5.svg" class="cloud-3 floating">
+              </div>
             </div>
           </div>
 
@@ -178,6 +194,12 @@
     </header>
     <section id="about">
       <div class="container">
+
+        <!-- This doesn't feel right. Only reason this spacer is here is because <header>
+        spills over into this section otherwise, due to the spacer placed at the top there.
+        If anyone can fix that, please do. -->
+        <div class="row spacer-lg"></div>
+
         <div class="row">
           <div class="section-header col-xs-12">
             <div class="header-text small-space">About Us</div>
@@ -196,7 +218,7 @@
       </div>
     </section>
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border2.svg">
+      <img class="section-separator-background" src="assets/images/border2-whitebg.svg">
     </div>
     <section id="faqs">
       <div class="container-fluid">

@@ -72,6 +72,17 @@ $break-large: 1200px;
   @include accent($light-blue);
 }
 
+.spacer {
+  margin-top: 5vh;
+  margin-bottom: 5vh; 
+  width: 100%;
+}
+.spacer-lg {
+  margin-top: 15vh;
+  margin-bottom: 15vh; 
+  width: 100%;
+}
+
 /* ====================== COMPONENTS ==============*/
 body {
   font-family: $font-stack-primary;
@@ -112,7 +123,7 @@ body {
 
 header {
   @include background-size(cover);
-    background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);  }
+  background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);  }
 
 /* ID Based Selectors */
 #mlh-trust-badge {
@@ -141,35 +152,28 @@ header {
       height: auto;
     }
     .logo-holder {
-      display: flex;
-      img {
-        width: 100%;
-      }
-    }
-  }
-
-  .action-box {
-    background-color: rgba(170, 202, 204, 0.6);
-    border:           5px rgba(224, 224, 224, 0.8);
-    border-radius:    5px;
-    //box-shadow:       0 7px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
-
-    @media screen and (max-width: $break-small) {
-      margin-top: 15px;
+      position: absolute;
+      width: 15%;
+      left: 0;
+      right: 0;
+      top: 2.5vh;
+      margin: auto;
+      z-index: 400;
     }
   }
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(4vh, 35px, 60px, 50px);
+    @include responsive-font(4.5vh, 35px, 60px, 50px);
     max-font-size: 60px;
-    margin-top:    25px;
+
     p {
       text-align:  start;
       padding:     0;
       line-height: 100%;
       transition:  all 0.4s;
-      color:       white;
+      color:       #424242;
+      white-space: nowrap;
     }
     .bottom-bar {
       width:            100%;
@@ -179,8 +183,28 @@ header {
     }
   }
 
+  .cta {
+    padding-top: 5vh;
+  }
+
+  .register-btn {
+    height: 10vh;
+    background: white;
+    border: solid 8px rgba(170, 202, 204, 0.6);
+    border-radius: 50px;
+
+    p {
+      // This centers text in button. Typically this should be equal
+      // to the height of the button, however the border throws it off. 
+      line-height: 9vh;
+    }
+    &:hover {
+      @include transition(all, 0.4s);
+      background:  rgba(170, 202, 204, 1)
+    }
+  }
+
   .header-hover {
-    margin-bottom: 25px;
     &:hover {
       @include transition(all, 0.4s);
       .bottom-bar {
@@ -198,40 +222,43 @@ header {
       margin-top: 0;
     }
   }
-
   .cloud-1 {
     width:    30%;
     position: absolute;
-    top:      10vh;
-    left:     5%;
+    top:      -5vh;
+    left:     30%;
+    z-index: 100;
   }
   .cloud-2 {
     width:    30%;
     position: absolute;
-    top:      20vh;
-    right:    2%;
+    top:      15vh;
+    right:    8%;
+    z-index: 300;
   }
   .cloud-3 {
     width:    18%;
     position: absolute;
-    top:      65vh;
-    left:     20%;
+    top:      20vh;
+    left:     15%;
+    z-index: 300;
   }
   .mountain {
-    width: 55%;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    height: 100%;
+    width: 100%;
+    padding-right: 5%;
+    z-index: 200;
   }
 }
 
 #about {
-  background-color: #103147;
+  background: white;
+  //background-color: #103147;
   margin-bottom:    10px;
   padding-bottom: 5%;
-
+  .header-text {
+    color: #424242;
+  }
   p {
     font-family: 'Lato', sans-serif;
     font-size:   3vh;
@@ -239,6 +266,7 @@ header {
     text-align:  left;
     padding:     10px;
     line-height: 200%;
+    color: #424242;
   }
 }
 

@@ -11,6 +11,18 @@
   background-color: #AACACC;
 }
 
+.spacer {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+}
+
+.spacer-lg {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  width: 100%;
+}
+
 /* ====================== COMPONENTS ==============*/
 body {
   font-family: "Lato", sans-serif;
@@ -80,34 +92,26 @@ header {
   }
 }
 .landing .holder .logo-holder {
-  display: flex;
-}
-.landing .holder .logo-holder img {
-  width: 100%;
-}
-.landing .action-box {
-  background-color: rgba(170, 202, 204, 0.6);
-  border: 5px rgba(224, 224, 224, 0.8);
-  border-radius: 5px;
-}
-@media screen and (max-width: 576px) {
-  .landing .action-box {
-    margin-top: 15px;
-  }
+  position: absolute;
+  width: 15%;
+  left: 0;
+  right: 0;
+  top: 2.5vh;
+  margin: auto;
+  z-index: 400;
 }
 .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
   font-family: "Cornerstone", sans-serif;
   font-size: 50px;
-  font-size: 4vh;
+  font-size: 4.5vh;
   max-font-size: 60px;
-  margin-top: 25px;
 }
-@media (max-height: 875px) {
+@media (max-height: 777.7777777778px) {
   .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
     font-size: 35px;
   }
 }
-@media (min-height: 1500px) {
+@media (min-height: 1333.3333333333px) {
   .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
     font-size: 60px;
   }
@@ -117,7 +121,8 @@ header {
   padding: 0;
   line-height: 100%;
   transition: all 0.4s;
-  color: white;
+  color: #424242;
+  white-space: nowrap;
 }
 .landing .header-text .bottom-bar, .landing body .section-header .faq-header .bottom-bar, body .section-header .landing .faq-header .bottom-bar {
   width: 100%;
@@ -125,8 +130,25 @@ header {
   transition: all 0.4s;
   background-color: white;
 }
-.landing .header-hover {
-  margin-bottom: 25px;
+.landing .cta {
+  padding-top: 5vh;
+}
+.landing .register-btn {
+  height: 10vh;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+}
+.landing .register-btn p, .landing .register-btn #footer a, #footer .landing .register-btn a {
+  line-height: 9vh;
+}
+.landing .register-btn:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #aacacc;
 }
 .landing .header-hover:hover {
   -webkit-transition: all 0.4s;
@@ -152,34 +174,38 @@ header {
 .landing .cloud-1 {
   width: 30%;
   position: absolute;
-  top: 10vh;
-  left: 5%;
+  top: -5vh;
+  left: 30%;
+  z-index: 100;
 }
 .landing .cloud-2 {
   width: 30%;
   position: absolute;
-  top: 20vh;
-  right: 2%;
+  top: 15vh;
+  right: 8%;
+  z-index: 300;
 }
 .landing .cloud-3 {
   width: 18%;
   position: absolute;
-  top: 65vh;
-  left: 20%;
+  top: 20vh;
+  left: 15%;
+  z-index: 300;
 }
 .landing .mountain {
-  width: 55%;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  margin: auto;
+  height: 100%;
+  width: 100%;
+  padding-right: 5%;
+  z-index: 200;
 }
 
 #about {
-  background-color: #103147;
+  background: white;
   margin-bottom: 10px;
   padding-bottom: 5%;
+}
+#about .header-text, #about body .section-header .faq-header, body .section-header #about .faq-header {
+  color: #424242;
 }
 #about p, #about #footer a, #footer #about a {
   font-family: "Lato", sans-serif;
@@ -188,6 +214,7 @@ header {
   text-align: left;
   padding: 10px;
   line-height: 200%;
+  color: #424242;
 }
 
 .header-bar, .faq-bar, .about-bar {
