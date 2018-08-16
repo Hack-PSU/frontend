@@ -134,6 +134,11 @@ header {
   padding-top: 5vh;
 }
 .landing .register-btn {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   height: 10vh;
   background: white;
   border: solid 8px rgba(170, 202, 204, 0.6);
