@@ -320,13 +320,13 @@ header {
 
 @keyframes floating {
   from {
-    transform: translate(0px, 0);
+    transform: translate(0vw, 0);
   }
   50% {
-    transform: translate(15px, 0);
+    transform: translate(10vw, 0);
   }
   to {
-    transform: translate(0px, 0);
+    transform: translate(0vw, 0);
   }
 }
 /* FAQ */
