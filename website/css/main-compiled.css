@@ -83,7 +83,7 @@ header {
 }
 
 .landing .holder {
-  padding-top: 15%;
+  padding-top: 20%;
   height: 100%;
 }
 @media screen and (max-width: 1200px) {
@@ -102,24 +102,24 @@ header {
 }
 .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
   font-family: "Cornerstone", sans-serif;
-  font-size: 50px;
-  font-size: 4.5vh;
-  max-font-size: 60px;
+  font-size: 1em;
+  font-size: 1em;
+  max-font-size: 2em;
 }
-@media (max-height: 777.7777777778px) {
+@media (max-width: 90em) {
   .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
-    font-size: 35px;
+    font-size: 0.9em;
   }
 }
-@media (min-height: 1333.3333333333px) {
+@media (min-width: 150em) {
   .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
-    font-size: 60px;
+    font-size: 1.5em;
   }
 }
 .landing .header-text p, .landing .header-text #footer a, #footer .landing .header-text a, .landing body .section-header .faq-header p, .landing body .section-header .faq-header #footer a, #footer .landing body .section-header .faq-header a, body .section-header .landing .faq-header p, body .section-header .landing .faq-header #footer a, #footer body .section-header .landing .faq-header a {
   text-align: start;
   padding: 0;
-  line-height: 100%;
+  line-height: 1.2em;
   transition: all 0.4s;
   color: #424242;
   white-space: nowrap;

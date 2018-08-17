@@ -146,7 +146,7 @@ header {
 
 .landing {
   .holder {
-    padding-top: 15%;
+    padding-top: 20%;
     height:      100%;
     @media screen and (max-width: $break-large) {
       height: auto;
@@ -164,13 +164,13 @@ header {
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(4.5vh, 35px, 60px, 50px);
-    max-font-size: 60px;
+    @include responsive-font(1em, .9em, 1.5em, 1em);
+    max-font-size: 2em;
 
     p {
       text-align:  start;
       padding:     0;
-      line-height: 100%;
+      line-height: 1.2em;
       transition:  all 0.4s;
       color:       #424242;
       white-space: nowrap;
