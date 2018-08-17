@@ -123,6 +123,9 @@ body {
     .faq-header {
       @extend .header-text;
     }
+    @media screen and (max-width: $sm-break){
+      width: 100%;
+    }
   }
 
   .section-separator img {
@@ -157,12 +160,7 @@ header {
 .landing {
   .holder {
     padding-top: 22%;
-    @media screen and (max-width: $lg-break){
-      padding-top: 25%; 
-    }
-    @media screen and (max-width: $break-large) {
-      height: auto;
-    }
+
     .logo-holder {
       position: absolute;
       width: 25%;
@@ -171,6 +169,18 @@ header {
       top: 2.5vh;
       margin: auto;
       z-index: 400;
+    }
+    @media screen and (max-width: $lg-break){
+      padding-top: 25%; 
+    }
+    @media screen and (max-width: $break-large) {
+      height: auto;
+    }
+    @media screen and (max-width: $sm-break) {
+      padding-top: 40%;
+      .logo-holder {
+        width: 45%;
+      }
     }
   }
 
@@ -227,6 +237,9 @@ header {
     }
     .cta {
       padding-top: 5vh;
+      @media screen and (max-width: $sm-break){
+        padding-bottom: 5.5vh; 
+      }
     }
   }
 
@@ -271,7 +284,6 @@ header {
     display: block;
     position: relative;
     width: 100%;
-
     .cloud-1 {
       position: absolute;
       width: 30%;
@@ -330,10 +342,10 @@ header {
 #about {
   background: white;
   //background-color: #103147;
-  margin-bottom:    10px;
+  margin-bottom: 10px;
   padding-bottom: 5%;
-  @media screen and (max-width: $break-small) {
-      padding-top: 5%;
+  @media screen and (max-width: $md-break) {
+      padding-top: 10%;
   }
   .header-text {
     color: #424242;
@@ -365,6 +377,9 @@ header {
 .header-bar {
   width: 30%;
   height: 5px;
+  @media screen and (max-width: $sm-break) {
+    width: 100%;  
+  }
 }
 
 .about-bar {

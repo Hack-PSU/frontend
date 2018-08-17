@@ -49,6 +49,11 @@ body .section-header {
 body .section-header .header-text, body .section-header .faq-header {
   font-size: 6vh;
 }
+@media screen and (max-width: 576px) {
+  body .section-header {
+    width: 100%;
+  }
+}
 body .section-separator img {
   margin-top: -5%;
   margin-bottom: -2%;
@@ -90,6 +95,15 @@ header {
 .landing .holder {
   padding-top: 22%;
 }
+.landing .holder .logo-holder {
+  position: absolute;
+  width: 25%;
+  left: 0;
+  right: 0;
+  top: 2.5vh;
+  margin: auto;
+  z-index: 400;
+}
 @media screen and (max-width: 992px) {
   .landing .holder {
     padding-top: 25%;
@@ -100,14 +114,13 @@ header {
     height: auto;
   }
 }
-.landing .holder .logo-holder {
-  position: absolute;
-  width: 25%;
-  left: 0;
-  right: 0;
-  top: 2.5vh;
-  margin: auto;
-  z-index: 400;
+@media screen and (max-width: 576px) {
+  .landing .holder {
+    padding-top: 40%;
+  }
+  .landing .holder .logo-holder {
+    width: 45%;
+  }
 }
 .landing .header-text, .landing body .section-header .faq-header, body .section-header .landing .faq-header {
   font-family: "Cornerstone", sans-serif;
@@ -164,6 +177,11 @@ header {
 }
 .landing .header-content .cta {
   padding-top: 5vh;
+}
+@media screen and (max-width: 576px) {
+  .landing .header-content .cta {
+    padding-bottom: 5.5vh;
+  }
 }
 .landing .register-btn {
   -webkit-transition: all 0.4s;
@@ -269,9 +287,9 @@ header {
   margin-bottom: 10px;
   padding-bottom: 5%;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   #about {
-    padding-top: 5%;
+    padding-top: 10%;
   }
 }
 #about .header-text, #about body .section-header .faq-header, body .section-header #about .faq-header {
@@ -302,6 +320,11 @@ header {
 .header-bar, .faq-bar, .about-bar {
   width: 30%;
   height: 5px;
+}
+@media screen and (max-width: 576px) {
+  .header-bar, .faq-bar, .about-bar {
+    width: 100%;
+  }
 }
 
 .about-bar {
