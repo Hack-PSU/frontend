@@ -210,30 +210,50 @@ header {
 }
 .landing .header-graphic {
   display: block;
+  position: relative;
+  width: 100%;
 }
 .landing .header-graphic .cloud-1 {
-  width: 30%;
-  height: auto;
   position: absolute;
-  top: -5vh;
-  left: 30%;
+  width: 30%;
+  height: 22%;
+  top: -6%;
+  left: 33%;
   z-index: 100;
 }
+.landing .header-graphic .cloud-1 img {
+  width: 100%;
+  height: 100%;
+}
 .landing .header-graphic .cloud-2 {
-  width: 30%;
-  height: auto;
   position: absolute;
-  top: 15vh;
+  width: 28%;
+  height: 22%;
+  top: 20%;
   right: 8%;
   z-index: 300;
 }
+.landing .header-graphic .cloud-2 img {
+  width: 100%;
+  height: 100%;
+}
+.landing .header-graphic .cloud-2 .floating {
+  animation-delay: -1s;
+}
 .landing .header-graphic .cloud-3 {
-  width: 18%;
-  height: auto;
   position: absolute;
-  top: 25vh;
-  left: 15%;
+  width: 18%;
+  height: 22%;
+  top: 30%;
+  left: 10%;
   z-index: 300;
+}
+.landing .header-graphic .cloud-3 img {
+  width: 100%;
+  height: 100%;
+}
+.landing .header-graphic .cloud-3 .floating {
+  animation-delay: -2s;
 }
 .landing .header-graphic .mountain {
   position: relative;
@@ -296,14 +316,6 @@ header {
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-}
-
-.floating:nth-child(2) {
-  animation-delay: -1s;
-}
-
-.floating:nth-child(3) {
-  animation-delay: -2s;
 }
 
 @keyframes floating {

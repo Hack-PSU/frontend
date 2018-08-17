@@ -174,11 +174,18 @@
           <div class="col-md-7">
             <div class="row header-graphic">
               <img src="assets/images/flat-mountain-graphic-snow.svg" class="img-fluid mountain">
-              <!-- Contained in parent <div> so we can use nth-child() selector and have the clouds
-              move at different points, while keeping css simple. -->
-                <img src="assets/images/cloud-2.svg" class="cloud-1 floating">
-                <img src="assets/images/cloud-1.svg" class="cloud-2 floating">
-                <img src="assets/images/cloud-5.svg" class="cloud-3 floating">
+              <!-- Each cloud img needs its own div to keep their position correct on resize 
+              (abosolute/relative positioning weirdness). -->
+              <div class="cloud-1">
+                  <img src="assets/images/cloud-2.svg" class="floating">
+              </div>
+              <div class="cloud-2">
+                  <img src="assets/images/cloud-1.svg" class="floating">
+              </div>
+              <div class="cloud-3">
+                <img src="assets/images/cloud-5.svg" class="floating">
+              </div>
+
             </div>
           </div>
 
