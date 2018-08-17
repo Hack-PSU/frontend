@@ -90,7 +90,7 @@ header {
 .landing .holder {
   padding-top: 22%;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .landing .holder {
     padding-top: 25%;
   }
@@ -269,6 +269,11 @@ header {
   margin-bottom: 10px;
   padding-bottom: 5%;
 }
+@media screen and (max-width: 576px) {
+  #about {
+    padding-top: 5%;
+  }
+}
 #about .header-text, #about body .section-header .faq-header, body .section-header #about .faq-header {
   color: #424242;
 }
@@ -323,7 +328,7 @@ header {
     transform: translate(0vw, 0);
   }
   50% {
-    transform: translate(10vw, 0);
+    transform: translate(2vw, 0);
   }
   to {
     transform: translate(0vw, 0);

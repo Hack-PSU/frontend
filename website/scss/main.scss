@@ -1,4 +1,3 @@
-
 $font-stack-primary: 'Lato', sans-serif;
 $font-stack-secondary: 'Raleway', sans-serif;
 $font-stack-tertiary: 'Cornerstone', sans-serif;
@@ -15,13 +14,14 @@ $orange-secondary: #C94331;
 $gray: #333333;
 $mountain-blue: #297284;
 
-$laptop-lg: 1440px;
-$laptop: 1024px;
-$tablet: 768px;
-$mobile: 576px;
+$xl-break: 1440px;
+$lg-break: 992px;
+$md-break: 768px;
+$sm-break: 576px;
 $break-small: 576px;
 $break-medium: 768px;
 $break-large: 1200px;
+
 
 @font-face {
   font-family: 'Cornerstone';
@@ -157,7 +157,7 @@ header {
 .landing {
   .holder {
     padding-top: 22%;
-    @media screen and (max-width: $laptop){
+    @media screen and (max-width: $lg-break){
       padding-top: 25%; 
     }
     @media screen and (max-width: $break-large) {
@@ -332,9 +332,9 @@ header {
   //background-color: #103147;
   margin-bottom:    10px;
   padding-bottom: 5%;
-  // @include media-breakpoint-up(sm) {
-  //     padding-top: 5%;
-  // }
+  @media screen and (max-width: $break-small) {
+      padding-top: 5%;
+  }
   .header-text {
     color: #424242;
   }
@@ -393,10 +393,10 @@ header {
     transform: translate(0vw, 0);
   }
   50% {
-    transform: translate(10vw, 0);
+    transform: translate(2vw, 0);
   }
   to {
-    transform: translate(0vw, 0);
+    transform: translate(-0vw, 0);
   }
 }
 
