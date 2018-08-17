@@ -67,7 +67,7 @@ header {
   display: block;
   position: absolute;
   float: right;
-  right: 1%;
+  right: 5%;
   top: 0px;
   width: 10%;
   max-width: 100px;
@@ -82,6 +82,11 @@ header {
   }
 }
 
+.landing {
+  /* Some CSS I made up to get that wrapped box effect in the header.
+  This can be applied to any text structured in the same way as the 
+  event info. */
+}
 .landing .holder {
   padding-top: 20%;
   height: 100%;
@@ -119,7 +124,7 @@ header {
 .landing .header-text p, .landing .header-text #footer a, #footer .landing .header-text a, .landing body .section-header .faq-header p, .landing body .section-header .faq-header #footer a, #footer .landing body .section-header .faq-header a, body .section-header .landing .faq-header p, body .section-header .landing .faq-header #footer a, #footer body .section-header .landing .faq-header a {
   text-align: start;
   padding: 0;
-  line-height: 1.2em;
+  line-height: 1em;
   transition: all 0.4s;
   color: #424242;
   white-space: nowrap;
@@ -130,7 +135,30 @@ header {
   transition: all 0.4s;
   background-color: white;
 }
-.landing .cta {
+.landing .wrapped-box p span, .landing .wrapped-box #footer a span, #footer .landing .wrapped-box a span {
+  color: #FFFFFF;
+  background: #297284;
+  border: solid 1px #297284;
+  border-radius: 0px 15px 15px 0px;
+  padding: 10px;
+  padding-bottom: 4px;
+  font-weight: 400;
+}
+.landing .wrapped-box p:first-of-type span, .landing .wrapped-box #footer a:first-of-type span, #footer .landing .wrapped-box a:first-of-type span {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 15px;
+}
+.landing .wrapped-box p:last-of-type span, .landing .wrapped-box #footer a:last-of-type span, #footer .landing .wrapped-box a:last-of-type span {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 15px;
+}
+.landing .header-content .event-info {
+  padding-top: 6vh;
+}
+.landing .header-content .event-info div {
+  padding-left: 0px;
+}
+.landing .header-content .cta {
   padding-top: 5vh;
 }
 .landing .register-btn {
@@ -218,8 +246,17 @@ header {
   font-weight: 100;
   text-align: left;
   padding: 10px;
+  padding-top: 5vh;
   line-height: 200%;
   color: #424242;
+}
+#about p span, #about #footer a span, #footer #about a span {
+  color: #FFFFFF;
+  background: #24577C;
+  border: solid 1px #24577C;
+  border-radius: 3px;
+  padding: 4px;
+  font-weight: 400;
 }
 
 .header-bar, .faq-bar, .about-bar {

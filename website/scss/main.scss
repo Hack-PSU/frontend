@@ -12,6 +12,7 @@ $dark-blue-secondary: #24577C;
 $light-blue-secondary: #D0EAF1;
 $orange-secondary: #C94331;
 $gray: #333333;
+$mountain-blue: #297284;
 
 $break-small: 576px;
 $break-medium: 768px;
@@ -26,6 +27,10 @@ $break-large: 1200px;
 @mixin accent($color) {
   color:            $color;
   background-color: $color;
+}
+
+@mixin accent-text($color) {
+  color: $color;
 }
 
 @mixin background-size($style) {
@@ -130,7 +135,7 @@ header {
   display:    block;
   position:   absolute;
   float:      right;
-  right:      1%;
+  right:      5%;
   top:        0px;
   width:      10%;
   max-width:  100px;
@@ -170,7 +175,7 @@ header {
     p {
       text-align:  start;
       padding:     0;
-      line-height: 1.2em;
+      line-height: 1em;
       transition:  all 0.4s;
       color:       #424242;
       white-space: nowrap;
@@ -183,8 +188,39 @@ header {
     }
   }
 
-  .cta {
-    padding-top: 5vh;
+  /* Some CSS I made up to get that wrapped box effect in the header.
+  This can be applied to any text structured in the same way as the 
+  event info. */
+  .wrapped-box {
+    p span {
+      @include accent-text($white);
+      background: $mountain-blue;
+      border: solid 1px $mountain-blue;
+      border-radius: 0px 15px 15px 0px;
+      padding: 10px;
+      padding-bottom: 4px;
+      font-weight: 400;
+    }
+    p:first-of-type span {
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 15px;
+    }
+    p:last-of-type span {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 15px;
+    }
+  }
+
+  .header-content {
+    .event-info {
+      padding-top: 6vh;
+      div {
+        padding-left: 0px;
+      }
+    }
+    .cta {
+      padding-top: 5vh;
+    }
   }
 
   .register-btn {
@@ -266,8 +302,18 @@ header {
     font-weight: 100;
     text-align:  left;
     padding:     10px;
+    padding-top: 5vh;
     line-height: 200%;
     color: #424242;
+
+    span {
+      @include accent-text($white);
+      background: $dark-blue-secondary;
+      border: solid 1px $dark-blue-secondary;
+      border-radius: 3px;
+      padding: 4px;
+      font-weight: 400;
+    }
   }
 }
 

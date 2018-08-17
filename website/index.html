@@ -145,13 +145,13 @@
         <div class="row header-content">
           <!-- Header info (event date, location) and CTA -->
           <div class="col-md-5">
-            <div class="row">
+            <div class="row event-info">
               <div class="offset-md-2 col-md-8 ">
                 <div class="row">
-                  <div class="col-12 header-text">
-                    <p class="text-left">October 6-7</p>
-                    <p class="text-left">Penn State University</p>
-                    <p class="text-left">Business Building</p>
+                  <div class="col-12 header-text wrapped-box">
+                    <p class="text-left"><span>October 6-7</span></p>
+                    <p class="text-left"><span>Penn State University</span></p>
+                    <p class="text-left"><span>Business Building</span></p>
                   </div>
                 </div>
               </div>
@@ -185,16 +185,12 @@
         </div>
       </div>
 
-      <!-- <div class="section-separator-first">
-        <img class="section-separator-background" src="assets/images/border1_wTransparency.svg">
-      </div> -->
     </header>
+
     <section id="about">
       <div class="container">
 
-        <!-- This doesn't feel right. Only reason this spacer is here is because <header>
-        spills over into this section otherwise, due to the spacer placed at the top there.
-        If anyone can fix that, please do. -->
+        <!-- Give more space between header content and about section. -->
         <div class="row spacer-lg"></div>
 
         <div class="row">
@@ -202,14 +198,15 @@
             <div class="header-text small-space">About Us</div>
             <div class="about-bar"></div>
           </div>
-          <p>
-            This October 6 - 7th, join us and over 700 students from across the nation for 24 hours
-            of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
-            any major or field, all are welcome to join. Discover your ability to create change by
-            developing technology to solve real-world problems, working with industry leaders, and
-            collaborating with your peers.
-          </p>
-          <p>Of course, we also offer free food, swag, prizes, and much more for your enjoyment!</p>
+          <div class="col-md-12 about-text">
+            <p>
+              This <span>October 6 - 7th</span>, join us and over <span>700 students</span> from across the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
+              any major or field, all are welcome to join. Discover your ability to create change by
+              developing technology to solve real-world problems, working with industry leaders, and
+              collaborating with your peers.
+            </p>
+            <p>Of course, we also offer free food, swag, prizes, and much more for your enjoyment!</p>
+          </div> 
 
         </div>
       </div>
