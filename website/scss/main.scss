@@ -364,12 +364,8 @@ header {
     color: #424242;
 
     span {
-      @include accent-text($white);
-      background: $dark-blue-secondary;
-      border: solid 1px $dark-blue-secondary;
-      border-radius: 3px;
-      padding: 4px;
-      font-weight: 400;
+      @include accent-text($dark-blue-secondary);
+      font-weight: 800;
     }
   }
 }
