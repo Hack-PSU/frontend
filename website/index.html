@@ -35,8 +35,7 @@
         defer></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!--Import Custom shared stylesheet-->
+    <!-- styles -->
     <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
 
     <!-- ~~so metadata -->
@@ -48,10 +47,7 @@
            700 students will have 24 hours to build the coolest technology they can to
            compete for prizes and eternal glory."/>
     <!--Let browser know website is optimized for mobile-->
-    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/hackpsu18.appspot.com/o/rich-header.jpg"/>
-    <meta property="og:image:width" content="915" />
-    <meta property="og:image:height" content="445" />
-    <meta property="og:url" content="https://hackpsu.org" />
+    <meta property="og:image" content="assets/images/hackpsulogo.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- Facebook Pixel Code -->
@@ -102,24 +98,7 @@
       gtag('config', 'UA-114978268-1');
     </script>
 
-    <!-- day and night custom styles -->
-    <script>
-      function getStylesheet() {
-            const currentTime = new Date().getHours();
-            // Uncomment to force nighttime or daytime
-            // const currentTime = 9;
-            if (8 <= currentTime&&currentTime < 19) {
-             document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
-            }
-            if ((0 <= currentTime&&currentTime < 8) || (19 <= currentTime&&currentTime < 25)) {
-             document.write("<link rel='stylesheet' href='css/night-main-compiled.css' type='text/css'>");
-            }
-      }
 
-      getStylesheet();
-    </script>
-
-    <noscript><link href="day-main-compiled.css" rel="stylesheet"></noscript>
     <!-- Favicon Data -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
@@ -146,7 +125,7 @@
       <div class="holder container-fluid">
 
         <!-- MLH Badge -->
-        <div class="white"> 
+        <div class="white">
           <a id="mlh-trust-badge"
              href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
              target="_blank"><img
@@ -162,13 +141,7 @@
                 class="animated rubberBand"
                 alt="hackpsulogo">
             </div>  
-            <!-- Sun and Moon Graphic -->
-            <div class="celestial-body">
-              <img src="assets/images/sun.svg">
-            </div>
         </div>
-
-      
     
         <!-- Event info and mountain graphics -->
         <div class="row header-content">
@@ -225,10 +198,9 @@
 
         <div class="row">
           <div class="section-header col-12">
-            <div class="header-text">About Us</div>
-            <div class="header-bar"></div>
+            <div class="header-text small-space">About Us</div>
+            <div class="about-bar"></div>
           </div>
-
           <div class="col-12 about-text">
             <p>
               This <span>October 6 - 7th</span> , join us and over <span>700 students</span> from across the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
@@ -242,18 +214,19 @@
         </div>
       </div>
     </section>
-
     <div class="section-separator">
-      <img class="section-separator-background first-border">
+      <img class="section-separator-background" src="assets/images/border2-whitebg.svg">
     </div>
-
     <section id="faqs">
       <div class="container-fluid">
 
-        <div class="row">
-          <div class="section-header col-xs-12">
-            <div class="header-text">FAQ</div>
-            <div class="header-bar"></div>
+        <div class="med-div"></div>
+        <div class="container">
+          <div class="row">
+            <div class="section-header col-xs-12">
+              <div class="faq-header">FAQ</div>
+              <div class="faq-bar"></div>
+            </div>
           </div>
         </div>
 
@@ -521,50 +494,9 @@
 
       </div>
     </section>
-
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border6.svg">
+      <img class="section-separator-background" src="assets/images/border3.svg">
     </div>
-
-    <section id="sponsors">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="section-header col-xs-12">
-            <div class="header-text">Sponsors</div>
-            <div class="header-bar"></div>
-          </div>
-        </div>
-
-        <!-- Silver Sponsors -->
-        <div class="row silver">
-          <div class="offset-sm-3 col-sm-6">
-            <a href="https://www.kcftech.com/" target=_blank>
-              <img src="assets/images/sponsors/KSF-Technologies-original.svg" alt="KCF Technologies" class="img-fluid">
-            </a>
-          </div>
-        </div>
-    
-        <!-- Bronze Sponsors -->
-        <div class="row bronze">
-          <div class="offset-sm-4 col-sm-4">
-            <a href="https://www.accuweather.com/" target=_blank>
-              <img src="assets/images/sponsors/Accuweather-original.svg" alt="AccuWeather" class="img-fluid">
-            </a>
-          </div>
-         <!--  <div class="col-sm-3">
-            <a href="https://www.jpmorganchase.com/" target=_blank>
-              <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMorgan Chase & Co." class="img-fluid">
-            </a>
-          </div> -->
-        </div>
-
-      </div>
-    </section>
-
-    <div class="section-separator">
-        <img class="section-separator-background" src="assets/images/border7.svg">
-      </div>
-
     <section id="footer">
       <div class="container-fluid">
         <div class="row">
@@ -595,4 +527,3 @@
     </section>
   </body>
 </html>
-
