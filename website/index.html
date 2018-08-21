@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>HackPSU Spring 2018 //Build Something</title>
+    <title>HackPSU Fall 2018</title>
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
@@ -123,6 +123,7 @@
   <body>
     <header id="home" class="landing">
       <div class="holder container-fluid">
+
         <!-- MLH Badge -->
         <div class="white">
           <a id="mlh-trust-badge"
@@ -132,68 +133,89 @@
               alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
         </div>
 
-        <!-- Contained in parent <div> so we can use nth-child() selector and have the clouds
-            move at different points, while keeping css simple. -->
-        <div>
-          <img src="assets/images/cloud-2.svg" class="cloud-1 floating">
-          <img src="assets/images/cloud-1.svg" class="cloud-2 floating">
-          <img src="assets/images/cloud-5.svg" class="cloud-3 floating">
-        </div>
 
         <!-- HackPSU Page Logo -->
         <div class="row">
-          <div class="offset-sm-2 col-sm-3 logo-holder">
-            <img src="assets/images/logo-all-white-no-padding.svg" id="hackpsu-logo"
-                 class="animated rubberBand"
-                 alt="hackpsulogo">
-          </div>
-
-          <div class="col-sm-5 action-box">
-            <div class="row">
-              <div class="col-12 header-text">
-                <p class="text-left">October 6-7</p>
-                <p class="text-left">Penn State University</p>
-                <p class="text-left">Business Building</p>
+            <div class="logo-holder">
+                <img src="assets/images/logo-all-blue-no-padding.svg" id="hackpsu-logo"
+                class="animated rubberBand"
+                alt="hackpsulogo">
+            </div>  
+        </div>
+    
+        <!-- Event info and mountain graphics -->
+        <div class="row header-content">
+          <!-- Header info (event date, location) and CTA -->
+          <div class="col-md-5">
+            <div class="row event-info">
+              <div class="offset-md-2 col-md-8 ">
+                <div class="row">
+                  <div class="col-12 header-text wrapped-box">
+                    <p class="text-left"><span>October 6-7</span></p>
+                    <p class="text-left"><span>Penn State University</span></p>
+                    <p class="text-left"><span>Business Building</span></p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row bottom">
-              <a href="https://app.hackpsu.org">
-                <div class="col-md-12 header-text align-bottom header-hover">
-                  <p class="text-left">Register Now</p>
-                  <div class="bottom-bar"></div>
+
+            <div class="row cta">
+                <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
+                  <a href="https://app.hackpsu.org">
+                    <div class="header-text text-center">
+                      <p class="text-center">Register Now</p>
+                    </div>
+                  </a>
                 </div>
-              </a>
+            </div>
+          </div>
+
+          <!-- Mountain vista graphics -->
+          <div class="col-md-7">
+            <div class="row header-graphic">
+              <img src="assets/images/flat-mountain-graphic-snow.svg" class="img-fluid mountain">
+              <!-- Each cloud img needs its own div to keep their position correct on resize.  -->
+              <div class="cloud-1">
+                  <img src="assets/images/cloud-2.svg" class="floating">
+              </div>
+              <div class="cloud-2">
+                  <img src="assets/images/cloud-1.svg" class="floating">
+              </div>
+              <div class="cloud-3">
+                <img src="assets/images/cloud-5.svg" class="floating">
+              </div>
+
             </div>
           </div>
 
         </div>
       </div>
 
-      <div class="section-separator-first">
-        <img class="section-separator-background" src="assets/images/border1_wTransparency.svg">
-      </div>
     </header>
+
     <section id="about">
       <div class="container">
+
         <div class="row">
-          <div class="section-header col-xs-12">
+          <div class="section-header col-12">
             <div class="header-text small-space">About Us</div>
             <div class="about-bar"></div>
           </div>
-          <p>
-            This October 6 - 7th, join us and over 700 students from across the nation for 24 hours
-            of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
-            any major or field, all are welcome to join. Discover your ability to create change by
-            developing technology to solve real-world problems, working with industry leaders, and
-            collaborating with your peers.
-          </p>
-          <p>Of course, we also offer free food, swag, prizes, and much more for your enjoyment!</p>
+          <div class="col-12 about-text">
+            <p>
+              This <span>October 6 - 7th</span> , join us and over <span>700 students</span> from across the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
+              any major or field, all are welcome to join. Discover your ability to create change by
+              developing technology to solve real-world problems, working with industry leaders, and
+              collaborating with your peers.
+            </p>
+            <p>Of course, we also offer <span>free food, swag, prizes</span> , and much more for your enjoyment!</p>
+          </div> 
 
         </div>
       </div>
     </section>
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border2.svg">
+      <img class="section-separator-background" src="assets/images/border2-whitebg.svg">
     </div>
     <section id="faqs">
       <div class="container-fluid">
@@ -491,9 +513,6 @@
             <a target="_blank" href="https://www.snapchat.com/add/hackpsu"><img
                 class="social-media-icon animated animated-icon"
                 src="assets/icons/snapchat.svg"></a>
-            <a target="_blank" href="https://hackpsu-s2018.devpost.com"><img
-                class="social-media-icon animated animated-icon"
-                src="assets/icons/devpost.svg"></a>
             <a href="mailto:team@hackpsu.org"><img class="social-media-icon animated animated-icon"
                                                    src="assets/icons/email-icon.svg"></a>
           </div>
