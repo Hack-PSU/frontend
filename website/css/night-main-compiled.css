@@ -252,6 +252,7 @@ header {
 .landing .header-graphic .cloud-1 img {
   width: 100%;
   height: 100%;
+  content: url("../assets/images/cloud-2-night.svg");
 }
 .landing .header-graphic .cloud-2 {
   position: absolute;
@@ -264,6 +265,7 @@ header {
 .landing .header-graphic .cloud-2 img {
   width: 100%;
   height: 100%;
+  content: url("../assets/images/cloud-1-night.svg");
 }
 .landing .header-graphic .cloud-2 .floating {
   animation-delay: -1s;
@@ -279,6 +281,7 @@ header {
 .landing .header-graphic .cloud-3 img {
   width: 100%;
   height: 100%;
+  content: url("../assets/images/cloud-5-night.svg");
 }
 .landing .header-graphic .cloud-3 .floating {
   animation-delay: -2s;
@@ -290,6 +293,7 @@ header {
   width: 100%;
   padding-right: 5%;
   z-index: 200;
+  content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
 }
 
 #about {
