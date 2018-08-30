@@ -1,0 +1,487 @@
+@charset "UTF-8";
+/* ====================== CONSTANTS ==================*/
+@font-face {
+  font-family: "Cornerstone";
+  src: url("../assets/fonts/Cornerstone.ttf");
+}
+/* ====================== MIXINS ====================*/
+/* ====================== GLOBAL STYLES ============*/
+.accent {
+  color: #AACACC;
+  background-color: #AACACC;
+}
+
+.spacer {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+}
+
+.spacer-xl {
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+  width: 100%;
+}
+
+/* ====================== COMPONENTS ==============*/
+body {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: xx-large;
+  text-align: center;
+}
+body .center {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+body a:hover {
+  text-decoration: none;
+}
+body .section-header {
+  font-family: "Cornerstone", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  width: 50%;
+}
+body .section-header .header-text {
+  font-size: 6vh;
+}
+body .section-header .header-bar {
+  width: 40%;
+  height: 5px;
+  margin: auto;
+}
+@media screen and (max-width: 576px) {
+  body .section-header .header-bar {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  body .section-header {
+    width: 100%;
+  }
+}
+body .section-separator img {
+  margin-top: -5%;
+  margin-bottom: -2%;
+}
+
+header {
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);
+}
+
+/* ID Based Selectors */
+#mlh-trust-badge {
+  display: block;
+  position: absolute;
+  float: right;
+  right: 5%;
+  top: 0px;
+  width: 10%;
+  max-width: 100px;
+  height: 120px;
+  z-index: 1;
+  margin-top: 0px;
+}
+@media screen and (max-width: 768px) {
+  #mlh-trust-badge {
+    width: 12%;
+    right: 5%;
+  }
+}
+
+.landing {
+  /* Some CSS I made up to get that wrapped box effect in the header.
+  This can be applied to any text structured in the same way as the 
+  event info. */
+}
+.landing .holder {
+  padding-top: 22%;
+}
+.landing .holder .logo-holder {
+  position: absolute;
+  width: 25%;
+  left: 0;
+  right: 0;
+  top: 2.5vh;
+  margin: auto;
+  z-index: 400;
+}
+@media screen and (max-width: 992px) {
+  .landing .holder {
+    padding-top: 25%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .landing .holder {
+    height: auto;
+  }
+}
+@media screen and (max-width: 576px) {
+  .landing .holder {
+    padding-top: 40%;
+  }
+  .landing .holder .logo-holder {
+    width: 45%;
+  }
+}
+.landing .header-text {
+  font-family: "Cornerstone", sans-serif;
+  font-size: 1em;
+  font-size: 1em;
+  max-font-size: 2em;
+}
+@media (max-width: 70em) {
+  .landing .header-text {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 150em) {
+  .landing .header-text {
+    font-size: 1.5em;
+  }
+}
+.landing .header-text p, .landing .header-text #footer a, #footer .landing .header-text a {
+  text-align: start;
+  padding: 0;
+  line-height: 1em;
+  transition: all 0.4s;
+  color: #424242;
+  white-space: nowrap;
+}
+.landing .header-text .bottom-bar {
+  width: 100%;
+  height: 5px;
+  transition: all 0.4s;
+  background-color: white;
+}
+.landing .wrapped-box p span, .landing .wrapped-box #footer a span, #footer .landing .wrapped-box a span {
+  color: #FFFFFF;
+  background: #297284;
+  border: solid 1px #297284;
+  border-radius: 0px 15px 15px 0px;
+  padding: 10px;
+  padding-bottom: 4px;
+  font-weight: 400;
+}
+.landing .wrapped-box p:first-of-type span, .landing .wrapped-box #footer a:first-of-type span, #footer .landing .wrapped-box a:first-of-type span {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 15px;
+}
+.landing .wrapped-box p:last-of-type span, .landing .wrapped-box #footer a:last-of-type span, #footer .landing .wrapped-box a:last-of-type span {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 15px;
+}
+.landing .header-content .event-info {
+  padding-top: 6vh;
+}
+.landing .header-content .event-info div {
+  padding-left: 0px;
+}
+.landing .header-content .cta {
+  padding-top: 5vh;
+}
+@media screen and (max-width: 576px) {
+  .landing .header-content .cta {
+    padding-bottom: 5.5vh;
+  }
+}
+.landing .register-btn {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  height: 10vh;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+}
+.landing .register-btn p, .landing .register-btn #footer a, #footer .landing .register-btn a {
+  line-height: 9vh;
+}
+.landing .register-btn:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #aacacc;
+}
+.landing .header-hover:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.landing .header-hover:hover .bottom-bar {
+  background-color: #133753;
+}
+.landing .header-hover:hover p, .landing .header-hover:hover #footer a, #footer .landing .header-hover:hover a {
+  color: #133753;
+}
+.landing .section-separator-first img {
+  margin-top: -15%;
+}
+@media screen and (max-width: 1200px) {
+  .landing .section-separator-first img {
+    margin-top: 0;
+  }
+}
+.landing .header-graphic {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.landing .header-graphic .cloud-1 {
+  position: absolute;
+  width: 30%;
+  height: 22%;
+  top: -6%;
+  left: 33%;
+  z-index: 100;
+}
+.landing .header-graphic .cloud-1 img {
+  width: 100%;
+  height: 100%;
+}
+.landing .header-graphic .cloud-2 {
+  position: absolute;
+  width: 28%;
+  height: 22%;
+  top: 20%;
+  right: 8%;
+  z-index: 300;
+}
+.landing .header-graphic .cloud-2 img {
+  width: 100%;
+  height: 100%;
+}
+.landing .header-graphic .cloud-2 .floating {
+  animation-delay: -1s;
+}
+.landing .header-graphic .cloud-3 {
+  position: absolute;
+  width: 18%;
+  height: 22%;
+  top: 30%;
+  left: 10%;
+  z-index: 300;
+}
+.landing .header-graphic .cloud-3 img {
+  width: 100%;
+  height: 100%;
+}
+.landing .header-graphic .cloud-3 .floating {
+  animation-delay: -2s;
+}
+.landing .header-graphic .mountain {
+  position: relative;
+  top: 0px;
+  margin: auto;
+  width: 100%;
+  padding-right: 5%;
+  z-index: 200;
+}
+
+#about {
+  background: white;
+  margin-bottom: 10px;
+  padding-bottom: 5%;
+}
+@media screen and (max-width: 768px) {
+  #about {
+    padding-top: 10%;
+  }
+}
+#about .header-text {
+  color: #424242;
+}
+#about .section-header {
+  text-align: left;
+  margin: 0%;
+}
+#about .header-bar {
+  background-color: #24577C;
+  width: 30%;
+  margin: 0%;
+}
+#about p, #about #footer a, #footer #about a {
+  font-family: "Lato", sans-serif;
+  font-size: 3vh;
+  font-weight: 100;
+  text-align: left;
+  padding-top: 5vh;
+  line-height: 200%;
+  color: #424242;
+}
+#about p span, #about #footer a span, #footer #about a span {
+  color: #24577C;
+  font-weight: 800;
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0vw, 0);
+  }
+  50% {
+    transform: translate(2vw, 0);
+  }
+  to {
+    transform: translate(0vw, 0);
+  }
+}
+/* FAQ */
+#faqs {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  background-color: #194E6B;
+}
+#faqs .header-bar {
+  background-color: #6C88B7;
+}
+#faqs #location {
+  margin-top: 30px;
+}
+#faqs #location .title {
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+}
+#faqs #location p, #faqs #location #footer a, #footer #faqs #location a {
+  font-size: large;
+  text-align: left;
+  font-weight: 500;
+}
+#faqs .horizontal-line {
+  position: relative;
+  background-color: #B7C7CA;
+  height: 2px;
+  width: 100%;
+}
+#faqs .question-container {
+  margin-top: 10px;
+  padding: 0 10%;
+}
+@media screen and (max-width: 768px) {
+  #faqs .question-container {
+    padding: 0;
+  }
+}
+#faqs .question + .fa-chevron-right {
+  display: inline-block;
+  margin-top: 10px;
+}
+#faqs .question:before {
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-size: x-large;
+  margin-right: 5px;
+  content: "";
+  color: #C94331;
+  transition: all 0.3s;
+}
+#faqs .open:before {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#faqs .question {
+  color: white;
+  text-align: left;
+  padding: 10px;
+  cursor: hand;
+  font-size: x-large;
+}
+#faqs .FAQanswer {
+  color: #AACACC;
+  display: none;
+  font-weight: lighter;
+  font-size: large;
+  margin: 0 4%;
+  text-align: left;
+}
+#faqs .FAQanswer a {
+  color: #6C88B7;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#faqs .FAQanswer a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+#faqs #map-container {
+  width: 90%;
+  height: 400px;
+  margin: auto auto 2vh;
+}
+
+/* Sponsors */
+#sponsors {
+  padding-top: 50px;
+}
+#sponsors .header-text {
+  color: #424242;
+}
+#sponsors .header-bar {
+  background: #24577C;
+}
+#sponsors .silver img {
+  max-width: 55%;
+}
+#sponsors .bronze img {
+  max-width: 100%;
+}
+
+/************* FOOTER *************/
+#footer {
+  padding: 40px;
+  background-color: #6FA7B3;
+}
+#footer .social-media-icon {
+  width: 40px;
+}
+#footer .row {
+  width: 100%;
+}
+#footer p, #footer a {
+  font-size: small;
+  display: inline-block;
+  margin: auto;
+}
+#footer a {
+  color: white;
+}
+#footer .small-text {
+  font-size: x-small;
+}
+
+/*# sourceMappingURL=night-main-compiled.css.map */
