@@ -35,8 +35,6 @@
         defer></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- styles -->
-    <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
 
     <!-- ~~so metadata -->
     <meta name="google-site-verification" content="Bl3Vj9Zzc3XisnRWC1pK7BDkhVJJ80dScl3BeJRn11k"/>
@@ -98,7 +96,23 @@
       gtag('config', 'UA-114978268-1');
     </script>
 
+    <!-- day and night custom styles -->
+    <script>
+      function getStylesheet() {
+            let currentTime = new Date().getHours();
+            if (8 <= currentTime&&currentTime < 19) {
+             document.write("<link rel='stylesheet' href='css/main-compiled.css' type='text/css'>");
+            }
+            if ((0 <= currentTime&&currentTime < 8) || (19 <= currentTime&&currentTime < 25)) {
+             document.write("<link rel='stylesheet' href='css/night-main-compiled.css' type='text/css'>");
+            }
+      }
 
+      getStylesheet();
+-->
+    </script>
+
+    <noscript><link href="main-compiled.css" rel="stylesheet"></noscript>
     <!-- Favicon Data -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
@@ -568,3 +582,4 @@
     </section>
   </body>
 </html>
+
