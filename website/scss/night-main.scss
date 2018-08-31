@@ -179,6 +179,20 @@ header {
         content: url("../assets/images/logo-all-white-no-padding.svg");
       }
     }
+    .celestial-body {
+      position: absolute;
+      width: 12.5%;
+      left: 7%;
+      right: 0;
+      top: 11.5vh;
+      margin: 0;
+      img {
+        content: url("../assets/images/moon.svg");
+      }
+      @media screen and (max-width: $break-small){
+        display: none;
+      }
+    }
     @media screen and (max-width: $lg-break){
       padding-top: 25%; 
     }

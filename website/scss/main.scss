@@ -175,6 +175,20 @@ header {
       margin: auto;
       z-index: 400;
     }
+    .celestial-body {
+      position: absolute;
+      width: 12.5%;
+      left: 8%;
+      right: 0;
+      top: 11.5vh;
+      margin: 0;
+      img {
+        content: url("../assets/images/sun.svg");
+      }
+      @media screen and (max-width: $break-small){
+        display: none;
+      }
+    }
     @media screen and (max-width: $lg-break){
       padding-top: 25%; 
     }
@@ -230,11 +244,6 @@ header {
     p:last-of-type span {
       border-top-left-radius: 0px;
       border-bottom-left-radius: 15px;
-    }
-    @media screen and (max-width: 1121px) {
-      p {
-        line-height: .9em;
-      }
     }
   }
 

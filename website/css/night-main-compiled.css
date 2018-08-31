@@ -117,6 +117,22 @@ header {
 .landing .holder .logo-holder img {
   content: url("../assets/images/logo-all-white-no-padding.svg");
 }
+.landing .holder .celestial-body {
+  position: absolute;
+  width: 12.5%;
+  left: 7%;
+  right: 0;
+  top: 11.5vh;
+  margin: 0;
+}
+.landing .holder .celestial-body img {
+  content: url("../assets/images/moon.svg");
+}
+@media screen and (max-width: 576px) {
+  .landing .holder .celestial-body {
+    display: none;
+  }
+}
 @media screen and (max-width: 992px) {
   .landing .holder {
     padding-top: 25%;
