@@ -145,10 +145,10 @@ header {
 }
 @media screen and (max-width: 576px) {
   .landing .holder {
-    padding-top: 40%;
+    padding-top: 55%;
   }
   .landing .holder .logo-holder {
-    width: 45%;
+    width: 60%;
   }
 }
 .landing .header-text {
@@ -337,8 +337,13 @@ header {
   content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
 }
 
+.first-border {
+  content: url("../assets/images/border2-night.svg");
+}
+
 #about {
-  background: #24577c;
+  background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
+  /*//background-color: #103147;*/
   margin-bottom: 10px;
   padding-bottom: 5%;
 }
@@ -358,6 +363,11 @@ header {
   background-color: #718a9a;
   width: 30%;
   margin: 0%;
+}
+@media screen and (max-width: 576px) {
+  #about .header-bar {
+    width: 100%;
+  }
 }
 #about p, #about #footer a, #footer #about a {
   font-family: "Lato", sans-serif;

@@ -99,8 +99,9 @@
     <!-- day and night custom styles -->
     <script>
       function getStylesheet() {
-            //let currentTime = new Date().getHours();
-            let currentTime = 20;
+            const currentTime = new Date().getHours();
+            // Uncomment to force nighttime or daytime
+            // const currentTime = 20;
             if (8 <= currentTime&&currentTime < 19) {
              document.write("<link rel='stylesheet' href='css/main-compiled.css' type='text/css'>");
             }
@@ -237,7 +238,7 @@
     </section>
 
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border2-whitebg.svg">
+      <img class="section-separator-background first-border">
     </div>
 
     <section id="faqs">

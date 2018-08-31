@@ -388,9 +388,14 @@ header {
   
 }
 
+.first-border{
+  content: url("../assets/images/border2-night.svg");
+}
+
 #about {
-  background: #24577c;
-  //background-color: #103147;
+
+  background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
+  /*//background-color: #103147;*/
   margin-bottom: 10px;
   padding-bottom: 5%;
   @media screen and (max-width: $md-break) {
