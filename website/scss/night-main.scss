@@ -200,9 +200,9 @@ header {
       height: auto;
     }
     @media screen and (max-width: $sm-break) {
-      padding-top: 40%;
+      padding-top: 55%;
       .logo-holder {
-        width: 45%;
+        width: 60%;
       }
     }
   }
@@ -407,6 +407,9 @@ header {
     background-color: #718a9a;
     width: 30%;
     margin: 0%;
+    @media screen and (max-width: $break-small){
+      width: 100%;
+    }
   }
   p {
     font-family: 'Lato', sans-serif;

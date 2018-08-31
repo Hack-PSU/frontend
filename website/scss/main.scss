@@ -377,6 +377,9 @@ header {
     background-color: #24577C;
     width: 30%;
     margin: 0%;
+    @media screen and (max-width: $sm-break) {
+      width: 100%;  
+    }
   }
   p {
     font-family: 'Lato', sans-serif;
