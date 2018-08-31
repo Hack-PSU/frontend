@@ -74,7 +74,7 @@ header {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);
+  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg, #24577c 0%, #24577c 45%, #133753 69%, #000000 100%);
 }
 
 /* ID Based Selectors */
@@ -113,6 +113,9 @@ header {
   top: 2.5vh;
   margin: auto;
   z-index: 400;
+}
+.landing .holder .logo-holder img {
+  content: url("../assets/images/logo-all-white-no-padding.svg");
 }
 @media screen and (max-width: 992px) {
   .landing .holder {
@@ -162,22 +165,44 @@ header {
   transition: all 0.4s;
   background-color: white;
 }
+.landing .wrapped-box p, .landing .wrapped-box #footer a, #footer .landing .wrapped-box a {
+  position: relative;
+  z-index: 100;
+  margin-bottom: 18px;
+}
+.landing .wrapped-box p:first-of-type, .landing .wrapped-box #footer a:first-of-type, #footer .landing .wrapped-box a:first-of-type {
+  z-index: 200;
+}
+.landing .wrapped-box p:last-of-type, .landing .wrapped-box #footer a:last-of-type, #footer .landing .wrapped-box a:last-of-type {
+  z-index: 200;
+}
 .landing .wrapped-box p span, .landing .wrapped-box #footer a span, #footer .landing .wrapped-box a span {
-  color: #FFFFFF;
-  background: #297284;
-  border: solid 1px #297284;
+  color: #424242;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
   border-radius: 0px 15px 15px 0px;
   padding: 10px;
   padding-bottom: 4px;
   font-weight: 400;
 }
 .landing .wrapped-box p:first-of-type span, .landing .wrapped-box #footer a:first-of-type span, #footer .landing .wrapped-box a:first-of-type span {
+  border-bottom-width: 0px;
+  border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-left-radius: 15px;
+  z-index: 200;
 }
 .landing .wrapped-box p:last-of-type span, .landing .wrapped-box #footer a:last-of-type span, #footer .landing .wrapped-box a:last-of-type span {
+  border-top-width: 0px;
   border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   border-bottom-left-radius: 15px;
+  z-index: 200;
+}
+@media screen and (max-width: 1121px) {
+  .landing .wrapped-box p, .landing .wrapped-box #footer a, #footer .landing .wrapped-box a {
+    line-height: 0.95em;
+  }
 }
 .landing .header-content .event-info {
   padding-top: 6vh;
@@ -297,7 +322,7 @@ header {
 }
 
 #about {
-  background: white;
+  background: #24577c;
   margin-bottom: 10px;
   padding-bottom: 5%;
 }
@@ -307,14 +332,14 @@ header {
   }
 }
 #about .header-text {
-  color: #424242;
+  color: white;
 }
 #about .section-header {
   text-align: left;
   margin: 0%;
 }
 #about .header-bar {
-  background-color: #24577C;
+  background-color: #718a9a;
   width: 30%;
   margin: 0%;
 }
@@ -325,11 +350,11 @@ header {
   text-align: left;
   padding-top: 5vh;
   line-height: 200%;
-  color: #424242;
+  color: white;
 }
 #about p span, #about #footer a span, #footer #about a span {
-  color: #24577C;
   font-weight: 800;
+  font-size: 3.2vh;
 }
 
 .row {

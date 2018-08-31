@@ -231,6 +231,11 @@ header {
       border-top-left-radius: 0px;
       border-bottom-left-radius: 15px;
     }
+    @media screen and (max-width: 1121px) {
+      p {
+        line-height: .9em;
+      }
+    }
   }
 
   .header-content {
