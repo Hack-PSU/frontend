@@ -36,6 +36,9 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--Import Custom charged stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
+
     <!-- ~~so metadata -->
     <meta name="google-site-verification" content="Bl3Vj9Zzc3XisnRWC1pK7BDkhVJJ80dScl3BeJRn11k"/>
     <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
@@ -101,9 +104,9 @@
       function getStylesheet() {
             const currentTime = new Date().getHours();
             // Uncomment to force nighttime or daytime
-            // const currentTime = 20;
+            // const currentTime = 9;
             if (8 <= currentTime&&currentTime < 19) {
-             document.write("<link rel='stylesheet' href='css/main-compiled.css' type='text/css'>");
+             document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
             }
             if ((0 <= currentTime&&currentTime < 8) || (19 <= currentTime&&currentTime < 25)) {
              document.write("<link rel='stylesheet' href='css/night-main-compiled.css' type='text/css'>");
@@ -113,7 +116,7 @@
       getStylesheet();
     </script>
 
-    <noscript><link href="main-compiled.css" rel="stylesheet"></noscript>
+    <noscript><link href="day-main-compiled.css" rel="stylesheet"></noscript>
     <!-- Favicon Data -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
@@ -140,7 +143,7 @@
       <div class="holder container-fluid">
 
         <!-- MLH Badge -->
-        <div class="white">
+        <div class="white"> 
           <a id="mlh-trust-badge"
              href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
              target="_blank"><img

@@ -76,10 +76,10 @@ $break-large: 1200px;
   font-size: $responsive;
 }
 
+
 header {
   @include background-size(cover);
-  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg, #24577c 0%,#24577c 45%,#133753 69%,#000000 100%);
-}
+  background-image: linear-gradient(180deg, #89f7fe 0%, #fff 100%);  }
 
 .landing {
   .holder {
@@ -93,19 +93,16 @@ header {
       top: 2.5vh;
       margin: auto;
       z-index: 400;
-      img {
-        content: url("../assets/images/logo-all-white-no-padding.svg");
-      }
     }
     .celestial-body {
       position: absolute;
       width: 12.5%;
-      left: 7%;
+      left: 8%;
       right: 0;
       top: 11.5vh;
       margin: 0;
       img {
-        content: url("../assets/images/moon.svg");
+        content: url("../assets/images/sun.svg");
       }
       @media screen and (max-width: $break-small){
         display: none;
@@ -118,9 +115,9 @@ header {
       height: auto;
     }
     @media screen and (max-width: $sm-break) {
-      padding-top: 55%;
+      padding-top: 40%;
       .logo-holder {
-        width: 60%;
+        width: 45%;
       }
     }
   }
@@ -150,44 +147,22 @@ header {
   This can be applied to any text structured in the same way as the 
   event info. */
   .wrapped-box {
-    p {
-      position: relative;
-      z-index: 100;
-      margin-bottom: 18px;
-    }
-    p:first-of-type {
-      z-index: 200;
-    }
-    p:last-of-type {
-      z-index: 200;    
-    }
     p span {
-      @include accent-text(#424242);
-      background: white;
-      border: solid 8px rgba(170, 202, 204, 0.6);
+      @include accent-text($white);
+      background: $mountain-blue;
+      border: solid 1px $mountain-blue;
       border-radius: 0px 15px 15px 0px;
       padding: 10px;
       padding-bottom: 4px;
       font-weight: 400;
     }
     p:first-of-type span {
-      border-bottom-width: 0px;
-      border-bottom-right-radius: 0px;
       border-bottom-left-radius: 0px;
       border-top-left-radius: 15px;
-      z-index: 200;
     }
     p:last-of-type span {
-      border-top-width: 0px;
       border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
       border-bottom-left-radius: 15px;
-      z-index: 200;
-    }
-    @media screen and (max-width: 1121px) {
-      p {
-        line-height: .95em;
-      }
     }
   }
 
@@ -205,7 +180,6 @@ header {
       img {
         width: 100%;
         height: 100%;
-        content: url("../assets/images/cloud-2-night.svg");
       }
     }
     .cloud-2 {
@@ -218,7 +192,6 @@ header {
       img {
         width: 100%;
         height: 100%;
-        content: url("../assets/images/cloud-1-night.svg");
       }
       .floating {
         animation-delay: -1s;
@@ -234,7 +207,6 @@ header {
       img {
         width: 100%;
         height: 100%;
-        content: url("../assets/images/cloud-5-night.svg");
       }
       .floating {
         animation-delay: -2s;
@@ -247,40 +219,37 @@ header {
       width: 100%;
       padding-right: 5%;
       z-index: 200;
-      content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
     }
 
   }
   
 }
 
-.first-border{
-  content: url("../assets/images/border2-night.svg");
+.first-border {
+  content: url("../assets/images/border2-whitebg.svg");
 }
 
-
 #about {
-
-  background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
-  /*//background-color: #103147;*/
+  background: white;
+  //background-color: #103147;
   margin-bottom: 10px;
   padding-bottom: 5%;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
   }
   .header-text {
-    color: white;
+    color: #424242;
   }
   .section-header {
     text-align: left;
     margin: 0%;
   }
   .header-bar {
-    background-color: #718a9a;
+    background-color: #24577C;
     width: 30%;
     margin: 0%;
-    @media screen and (max-width: $break-small){
-      width: 100%;
+    @media screen and (max-width: $sm-break) {
+      width: 100%;  
     }
   }
   p {
@@ -290,11 +259,12 @@ header {
     text-align:  left;
     padding-top: 5vh;
     line-height: 200%;
-    color: white;
+    color: #424242;
+
     span {
-      //@include accent-text(#718a9a);
+      @include accent-text($dark-blue-secondary);
       font-weight: 800;
-      font-size: 3.2vh;
     }
   }
 }
+
