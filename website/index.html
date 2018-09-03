@@ -35,7 +35,8 @@
         defer></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- styles -->
+
+    <!--Import Custom shared stylesheet-->
     <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
 
     <!-- ~~so metadata -->
@@ -98,7 +99,24 @@
       gtag('config', 'UA-114978268-1');
     </script>
 
+    <!-- day and night custom styles -->
+    <script>
+      function getStylesheet() {
+            const currentTime = new Date().getHours();
+            // Uncomment to force nighttime or daytime
+            // const currentTime = 9;
+            if (8 <= currentTime&&currentTime < 19) {
+             document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
+            }
+            if ((0 <= currentTime&&currentTime < 8) || (19 <= currentTime&&currentTime < 25)) {
+             document.write("<link rel='stylesheet' href='css/night-main-compiled.css' type='text/css'>");
+            }
+      }
 
+      getStylesheet();
+    </script>
+
+    <noscript><link href="day-main-compiled.css" rel="stylesheet"></noscript>
     <!-- Favicon Data -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
@@ -140,9 +158,15 @@
                 <img src="assets/images/logo-all-blue-no-padding.svg" id="hackpsu-logo"
                 class="animated rubberBand"
                 alt="hackpsulogo">
-            </div>  
+            </div>
+            <!-- Sun and Moon Graphic -->
+            <div class="celestial-body">
+              <img src="assets/images/sun.svg">
+            </div>
         </div>
-    
+
+
+
         <!-- Event info and mountain graphics -->
         <div class="row header-content">
           <!-- Header info (event date, location) and CTA -->
@@ -198,9 +222,10 @@
 
         <div class="row">
           <div class="section-header col-12">
-            <div class="header-text small-space">About Us</div>
-            <div class="about-bar"></div>
+            <div class="header-text">About Us</div>
+            <div class="header-bar"></div>
           </div>
+
           <div class="col-12 about-text">
             <p>
               This <span>October 6 - 7th</span> , join us and over <span>700 students</span> from across the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
@@ -209,24 +234,23 @@
               collaborating with your peers.
             </p>
             <p>Of course, we also offer <span>free food, swag, prizes</span> , and much more for your enjoyment!</p>
-          </div> 
+          </div>
 
         </div>
       </div>
     </section>
+
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border2-whitebg.svg">
+      <img class="section-separator-background first-border">
     </div>
+
     <section id="faqs">
       <div class="container-fluid">
 
-        <div class="med-div"></div>
-        <div class="container">
-          <div class="row">
-            <div class="section-header col-xs-12">
-              <div class="faq-header">FAQ</div>
-              <div class="faq-bar"></div>
-            </div>
+        <div class="row">
+          <div class="section-header col-xs-12">
+            <div class="header-text">FAQ</div>
+            <div class="header-bar"></div>
           </div>
         </div>
 
@@ -494,9 +518,50 @@
 
       </div>
     </section>
+
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border3.svg">
+      <img class="section-separator-background" src="assets/images/border6.svg">
     </div>
+
+    <section id="sponsors">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="section-header col-xs-12">
+            <div class="header-text">Sponsors</div>
+            <div class="header-bar"></div>
+          </div>
+        </div>
+
+        <!-- Silver Sponsors -->
+        <div class="row silver">
+          <div class="offset-sm-3 col-sm-6">
+            <a href="https://www.kcftech.com/" target=_blank>
+              <img src="assets/images/sponsors/KSF-Technologies-original.svg" alt="KCF Technologies" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <!-- Bronze Sponsors -->
+        <div class="row bronze">
+          <div class="offset-sm-4 col-sm-4">
+            <a href="https://www.accuweather.com/" target=_blank>
+              <img src="assets/images/sponsors/Accuweather-original.svg" alt="AccuWeather" class="img-fluid">
+            </a>
+          </div>
+         <!--  <div class="col-sm-3">
+            <a href="https://www.jpmorganchase.com/" target=_blank>
+              <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMorgan Chase & Co." class="img-fluid">
+            </a>
+          </div> -->
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-separator">
+        <img class="section-separator-background" src="assets/images/border7.svg">
+      </div>
+
     <section id="footer">
       <div class="container-fluid">
         <div class="row">
@@ -513,6 +578,9 @@
             <a target="_blank" href="https://www.snapchat.com/add/hackpsu"><img
                 class="social-media-icon animated animated-icon"
                 src="assets/icons/snapchat.svg"></a>
+            <a target="_blank" href="https://hackpsu-s2018.devpost.com"><img
+                class="social-media-icon animated animated-icon"
+                src="assets/icons/devpost.svg"></a>
             <a href="mailto:team@hackpsu.org"><img class="social-media-icon animated animated-icon"
                                                    src="assets/icons/email-icon.svg"></a>
           </div>
