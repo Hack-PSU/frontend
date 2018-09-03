@@ -400,6 +400,9 @@ body {
     width:  90%;
     height: 400px;
     margin: auto auto 2vh;
+    p {
+      color: $gray;
+    }
   }
 
 }
