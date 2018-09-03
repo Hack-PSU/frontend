@@ -387,6 +387,60 @@ header {
   }
 
 }
+/************* MEDIUM BLOG SECTION ********/
+#medium-blog {
+  .medium-section-separator {
+    width: 100vw;
+    background-color: $gray;
+    color: white;
+    padding: 15px;
+  }
+
+  .medium-post-viewer {
+    width: 50%;
+    margin: 0 auto;
+
+    .card {
+      color: #333333;
+    }
+    .card-image {
+      max-height: 50%;
+      img {
+        height: 100%;
+      }
+    }
+    .card-content {
+      p {
+        font-size: large;
+        text-align: left;
+      }
+    }
+
+    .card-action {
+      .card-date {
+        font-size: small;
+        display: inline-block;
+        float: left;
+        text-align: left;
+        span {
+          padding: 5px;
+          -webkit-border-radius: 1px;
+          -moz-border-radius: 1px;
+          border-radius: 1px;
+          background-color: $light-blue-secondary;
+        }
+        .card-year {
+          background-color: #eeeeee;
+        }
+      }
+      .card-link {
+        font-size: small;
+        color: $dark-blue-primary;
+        float: right;
+      }
+    }
+  }
+}
 
 /************* FOOTER *************/
 #footer {
