@@ -193,7 +193,10 @@ body {
       background:    white;
       border:        solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
-
+      &:hover {
+        @include transition(all, 0.4s);
+        background: rgba(170, 202, 204, 1)
+      }
       .header-text {
         font-family:   $font-stack-tertiary;
         @include responsive-font(1em, .7em, 1.5em, 1em);
@@ -203,10 +206,6 @@ body {
           // This centers text in button. Typically this should be equal
           // to the height of the button, however the border throws it off.
           line-height: 9vh;
-        }
-        &:hover {
-          @include transition(all, 0.4s);
-          background: rgba(170, 202, 204, 1)
         }
       }
 
