@@ -279,16 +279,22 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
+/* Delay animation of 2nd & 3rd clouds to make more realistic affect. */
+.floating:nth-of-type(2) {
+  animation-delay: -1s;
+}
+.floating:nth-of-type(3) {
+  animation-delay: -2s;
+}
 @keyframes floating {
   from {
-    transform: translate(0vw, 0);
+    background-position: 0vw, 0;
   }
   50% {
-    transform: translate(2vw, 0);
+    background-position: 2vw, 0;
   }
   to {
-    transform: translate(-0vw, 0);
+    background-position: -0vw, 0;
   }
 }
 
@@ -453,3 +459,10 @@ body {
   }
 }
 
+/* Debug code */
+ 
+// * {
+// 	//background: #000 !important;
+// 	color: #0f0 !important;
+// 	outline: solid #f00 1px !important;
+// }
