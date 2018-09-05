@@ -93,6 +93,12 @@ header {
       top: 2.5vh;
       margin: auto;
       z-index: 400;
+      img {
+        content: url("../assets/images/logo-daytime.svg");
+      }
+      img:after {
+        content: url("../assets/images/logo-daytime.svg");
+      }
     }
     .celestial-body {
       position: absolute;
@@ -102,6 +108,9 @@ header {
       top: 11.5vh;
       margin: 0;
       img {
+        content: url("../assets/images/sun.svg");
+      }
+      img:after {
         content: url("../assets/images/sun.svg");
       }
       @media screen and (max-width: $break-small){
@@ -170,55 +179,52 @@ header {
     display: block;
     position: relative;
     width: 100%;
+    overflow: hidden;
     .cloud-1 {
       position: absolute;
-      width: 30%;
+      width: 48%;
       height: 22%;
-      top: -6%;
+      top: -2%;
       left: 33%;
       z-index: 100;
-      img {
-        width: 100%;
-        height: 100%;
-      }
+      background-image: url("../assets/images/cloud-2.svg");
+      background-repeat: no-repeat;
+      background-size: 65%;
     }
     .cloud-2 {
       position: absolute;
-      width: 28%;
+      width: 43%;
       height: 22%;
       top: 20%;
-      right: 8%;
+      right: -8%;
       z-index: 300;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      .floating {
-        animation-delay: -1s;
-      }
+      background-image: url("../assets/images/cloud-1.svg");
+      background-repeat: no-repeat;
+      background-size: 65%;
     }
     .cloud-3 {
       position: absolute;
-      width: 18%;
+      width: 28%;
       height: 22%;
       top: 30%;
       left: 10%;
       z-index: 300;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      .floating {
-        animation-delay: -2s;
-      }
+      background-image: url("../assets/images/cloud-5.svg");
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 65%;
     }
     .mountain {
       position: relative;
       top: 0px;
       margin: auto;
       width: 100%;
-      padding-right: 5%;
+      // padding-right: 5%;
       z-index: 200;
+      content: url("../assets/images/flat-mountain-graphic-snow.svg");
+    }
+    .mountain:after {
+      content: url("../assets/images/flat-mountain-graphic-snow.svg");
     }
 
   }
