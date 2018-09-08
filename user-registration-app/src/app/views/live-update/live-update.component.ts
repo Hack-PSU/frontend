@@ -46,7 +46,10 @@ export class LiveUpdateComponent implements OnInit {
     });
   }
 
-  constructor() {
+  constructor(private liveUpdatesService: LiveUpdatesService) {
+    this.liveUpdatesService.getUpdates().subscribe((obj) => {
+      console.log(obj);
+    })
     // this.updates = [];
     // this.liveUpdates.subject(new Event('connected'))
     //   .subscribe(() => {

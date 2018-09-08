@@ -6,7 +6,6 @@
 export const environment = {
   production: false,
   api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
-  socket_url: 'http://localhost:5000',
   firebase: {
     apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
     authDomain: 'hackpsu18.firebaseapp.com',

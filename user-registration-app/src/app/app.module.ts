@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
@@ -52,6 +53,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     MaterializeModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
@@ -62,6 +64,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     HttpClient,
     HttpService,
     AuthService,
+    AngularFireDatabase,
     AuthGuard,
     NgProgress,
     DateGuard,

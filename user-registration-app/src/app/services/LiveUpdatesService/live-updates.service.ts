@@ -1,51 +1,26 @@
 
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable ,  BehaviorSubject } from 'rxjs';
 import { AppConstants } from '../../AppConstants';
+import { HttpService } from '../HttpService/HttpService';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class LiveUpdatesService {
-  private url = `${AppConstants.SOCKET_BASE_URL}/updates`;
+  private url = `${AppConstants.API_BASE_URL}/live/updates/reference`;
   private socket;
 
-  private broadcastSubject: BehaviorSubject<Event> = new BehaviorSubject<Event>(new Event(''));
+  constructor(private angularfireDB: AngularFireDatabase, private httpService: HttpService) { }
 
-  public next(event: Event): void {
-    return this.broadcastSubject.next(event);
+  getUpdates() {
+    this.httpService
+    return this.httpService.getLiveUpdateDatabaseReference()
+      .pipe(
+        map((url) => {
+          const URI = new URL(url);
+          return this.angularfireDB.object(URI.pathname).valueChanges();
+        })
+      );
   }
-
-  public subject(event: Event): Observable<Event> {
-    return this.broadcastSubject.asObservable().pipe(filter(e => e.type === event.type));
-  }
-
-  constructor() { }
-
-  getUpdates(idtoken: string) {
-    return new Observable((observer) => {
-      observer.complete();
-      // this.socket = io(this.url, {
-      //   path: '/v1/live',
-      //   transportOptions: {
-      //     polling: { extraHeaders: { idtoken } },
-      //   },
-      // });
-      // this.socket.on('connect', () => {
-      //   console.log('CONNECTED');
-      //   this.next(new Event('connected'));
-      // });
-      //
-      // this.socket.on('disconnect', () => {
-      //   console.log('DISCONNECTED');
-      //   this.next(new Event('disconnected'));
-      // });
-      // this.socket.on('update', (data) => {
-      //   observer.next(data);
-      // });
-      // return () => {
-      //   this.socket.disconnect();
-      // };
-    });
-  }
-
 }
