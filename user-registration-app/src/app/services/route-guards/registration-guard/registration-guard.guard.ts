@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { HttpService } from '../../HttpService/HttpService';
 import { Registration } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
@@ -15,10 +16,12 @@ export class RegistrationGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    //Checks users registration status
     return this.httpService.getRegistrationStatus()
       .pipe(
         map<Registration, boolean>((registration) => {
           if (!registration) {
+            //Navigates users to registration
             this.router.navigate([AppConstants.REGISTER_ENDPOINT])
               .then(() => {
                 this.ngProgress.complete();
@@ -26,6 +29,14 @@ export class RegistrationGuard implements CanActivate {
             return false;
           }
           return true;
+        }),
+        catchError((error) => {
+          console.error(error);
+          this.router.navigate([AppConstants.REGISTER_ENDPOINT])
+          .then(() => {
+            this.ngProgress.complete();
+          })
+          return of(false);
         }),
       );
   }

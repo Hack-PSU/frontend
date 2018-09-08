@@ -15,7 +15,7 @@ import {
 import { AuthGuard, DateGuard } from './services/route-guards/guards';
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
-import { RegistrationGuardGuard, RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
+import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
 
 const routes: Routes = [
   { 
@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationFormComponent,
     canActivate: [AuthGuard],
-    resolve: { register: RegistrationResolver },
+    resolve: { registration: RegistrationResolver },
   },
   { 
     path: 'signup',
@@ -45,13 +45,11 @@ const routes: Routes = [
     path: 'travel', 
     component: TravelReimbursementViewComponent, 
     canActivate: [AuthGuard, DateGuard, RegistrationGuard], 
-    resolver: { register: RegistrationResolver },
   },
   { 
     path: 'table', 
     component: TableAssignmentViewComponent, 
-    canActivate: [AuthGuard, DateGuard, RegistrationGuard],
-    resolver: { register: RegistrationResolver }, 
+    canActivate: [AuthGuard, DateGuard, RegistrationGuard], 
   },
   {
     path: 'rsvp',
