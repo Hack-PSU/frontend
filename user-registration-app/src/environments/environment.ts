@@ -15,8 +15,8 @@ export const environment = {
     storageBucket: 'hackpsu18.appspot.com',
     messagingSenderId: '1002677206617',
   },
-  // hackathonStartTime: new Date(),
+  hackathonStartTime: new Date(2016, 1,1),
   // rsvpStartTime: new Date(),
-  hackathonStartTime: new Date(2018, 10, 6, 7),
+  // hackathonStartTime: new Date(2018, 10, 6, 7),
   rsvpStartTime: new Date(2018, 9, 30),
 };
