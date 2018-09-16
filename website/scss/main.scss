@@ -310,7 +310,7 @@ body {
 
 
   .header-bar {
-    background-color: #5C9D8D;
+    background-color: $mountain-blue;
     margin-bottom:20px;
   }
 
@@ -362,7 +362,7 @@ body {
     font-size:    large;
     margin-right: 5px;
     content:      "\f067";    
-    color:        #C94331;    //C94331 red plus
+    color:        #C94331;    //red plus
     transition:   all 0.3s;
   }
 
@@ -375,7 +375,7 @@ body {
   }
 
   .question {
-  background:     #E1E9EA;
+    background:     #E1E9EA;
     border:       solid 1px $mountain-blue;
     border-radius:  7px 7px 7px 7px;
     color:      #004D6D;
@@ -392,7 +392,7 @@ body {
     font-size:   medium;
     margin:      0 4%;
     text-align:  left;
-    padding-bottom: 5%;
+    padding-bottom: 4%;
   }
 
   .FAQanswer a {
