@@ -302,7 +302,7 @@ body {
 
 #faqs {
   color:            white;
-  font-family:      'Lato', sans-serif;
+  font-family:      'Raleway', sans-serif;
   font-weight:      bold;
   padding-top:      50px;
   padding-bottom:   50px;
@@ -311,6 +311,7 @@ body {
 
   .header-bar {
     background-color: #5C9D8D;
+    margin-bottom:20px;
   }
 
   #location {
@@ -346,7 +347,7 @@ body {
 
   @media screen and (max-width: 768px) {
     .question-container {
-      padding: 0;
+      padding: 0px;
     }
   }
 
@@ -358,40 +359,44 @@ body {
   .question:before {
     font-family:  "Font Awesome 5 Free", cursive;
     display:      inline-block;
-    font-size:    x-large;
+    font-size:    large;
     margin-right: 5px;
-    content:      "\f054";
-    color:        #C94331;    //red arrow
+    content:      "\f067";    
+    color:        #C94331;    //C94331 red plus
     transition:   all 0.3s;
   }
 
   .open:before {
-    -webkit-transform: rotate(90deg);
-    -moz-transform:    rotate(90deg);
-    -ms-transform:     rotate(90deg);
-    -o-transform:      rotate(90deg);
-    transform:         rotate(90deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform:    rotate(45deg);
+    -ms-transform:     rotate(45deg);
+    -o-transform:      rotate(45deg);
+    transform:         rotate(45deg);
   }
 
   .question {
-    color:      white;
+  background:     #E1E9EA;
+    border:       solid 1px $mountain-blue;
+    border-radius:  7px 7px 7px 7px;
+    color:      #004D6D;
     text-align: left;
     padding:    10px;
     cursor:     hand;
-    font-size:  x-large;
+    font-size:  large;
   }
 
   .FAQanswer {
-    color:       #9EE5DA;
+    color:       white;
     display:     none;
     font-weight: lighter;
-    font-size:   large;
+    font-size:   medium;
     margin:      0 4%;
     text-align:  left;
+    padding-bottom: 5%;
   }
 
   .FAQanswer a {
-    color:              #53AD77;
+    color:              #99C4CC;
     -webkit-transition: all 0.5s;
     -moz-transition:    all 0.5s;
     -ms-transition:     all 0.5s;
@@ -400,7 +405,7 @@ body {
   }
 
   .FAQanswer a:hover {
-    color: $light-blue-primary;  //before: rgba(255, 255, 255, 0.5)
+    color: rgba(255, 255, 255, 0.5)
   }
 
   #map-container {
