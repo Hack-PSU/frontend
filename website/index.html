@@ -102,9 +102,9 @@
     <!-- day and night custom styles -->
     <script>
       function getStylesheet() {
-            const currentTime = new Date().getHours();
+            // const currentTime = new Date().getHours();
             // Uncomment to force nighttime or daytime
-            // var currentTime = 22;
+            var currentTime = 22;
             if (8 <= currentTime&&currentTime < 19) {
              document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
             }
@@ -518,7 +518,7 @@
     </section>
 
     <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border6.svg">
+      <img class="section-separator-background second-border">
     </div>
 
     <section id="sponsors">
@@ -557,7 +557,7 @@
     </section>
 
     <div class="section-separator">
-        <img class="section-separator-background" src="assets/images/border7.svg">
+        <img class="section-separator-background third-border">
       </div>
 
     <section id="footer">

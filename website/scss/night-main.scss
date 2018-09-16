@@ -256,6 +256,27 @@ header {
   content: url("../assets/images/border2-night.svg");
 }
 
+.first-border:after {
+  content: url("../assets/images/border2-night.svg");
+}
+
+
+.second-border {
+  content: url("../assets/images/border6-night.svg");
+}
+
+.second-border:after{
+  content: url("../assets/images/border6-night.svg");
+}
+
+.third-border {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7-night.svg");
+}
+
 #about {
 
   background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
@@ -292,5 +313,24 @@ header {
       font-weight: 800;
       font-size: 3.2vh;
     }
+  }
+}
+
+/* Sponsors */
+
+#sponsors {
+  padding-top: 50px;
+  background: #3581b7;
+  .header-text {
+    color: #FFFFFF;
+  }
+  .header-bar {
+    background: #24577C;
+  }
+  .silver img {
+    max-width: 55%;
+  }
+  .bronze img {
+    max-width: 100%;
   }
 }
