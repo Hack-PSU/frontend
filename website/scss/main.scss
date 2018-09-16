@@ -96,7 +96,7 @@ $break-large: 1200px;
 /* ====================== COMPONENTS ==============*/
 body {
   font-family: $font-stack-primary;
-  color:       $white;
+  color:       white;
   font-size:   xx-large;
   text-align:  center;
 
@@ -305,10 +305,12 @@ body {
   font-family:      'Lato', sans-serif;
   font-weight:      bold;
   padding-top:      50px;
+  padding-bottom:   50px;
   background-color: #194E6B;
 
+
   .header-bar {
-    background-color: #6C88B7;
+    background-color: #5C9D8D;
   }
 
   #location {
@@ -359,7 +361,7 @@ body {
     font-size:    x-large;
     margin-right: 5px;
     content:      "\f054";
-    color:        #C94331;
+    color:        #C94331;    //red arrow
     transition:   all 0.3s;
   }
 
@@ -380,7 +382,7 @@ body {
   }
 
   .FAQanswer {
-    color:       #AACACC;
+    color:       #9EE5DA;
     display:     none;
     font-weight: lighter;
     font-size:   large;
@@ -389,7 +391,7 @@ body {
   }
 
   .FAQanswer a {
-    color:              #6C88B7;
+    color:              #53AD77;
     -webkit-transition: all 0.5s;
     -moz-transition:    all 0.5s;
     -ms-transition:     all 0.5s;
@@ -398,7 +400,7 @@ body {
   }
 
   .FAQanswer a:hover {
-    color: rgba(255, 255, 255, 0.5);
+    color: $light-blue-primary;  //before: rgba(255, 255, 255, 0.5)
   }
 
   #map-container {
