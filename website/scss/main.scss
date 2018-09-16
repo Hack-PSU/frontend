@@ -14,6 +14,11 @@ $orange-secondary: #C94331;
 $gray: #333333;
 $mountain-blue: #297284;
 
+//faq colors
+$pale-blue-link: #99C4CC;
+$red-plus: #C94331;
+$grayish-white-question: #E1E9EA;
+
 $xl-break: 1440px;
 $lg-break: 992px;
 $md-break: 768px;
@@ -362,7 +367,7 @@ body {
     font-size:    large;
     margin-right: 5px;
     content:      "\f067";    
-    color:        #C94331;    //red plus
+    color:        $red-plus;
     transition:   all 0.3s;
   }
 
@@ -375,7 +380,7 @@ body {
   }
 
   .question {
-    background:     #E1E9EA;
+    background:     $grayish-white-question;
     border:       solid 1px $mountain-blue;
     border-radius:  7px 7px 7px 7px;
     color:      #004D6D;
@@ -396,7 +401,7 @@ body {
   }
 
   .FAQanswer a {
-    color:              #99C4CC;
+    color:              $pale-blue-link;
     -webkit-transition: all 0.5s;
     -moz-transition:    all 0.5s;
     -ms-transition:     all 0.5s;
