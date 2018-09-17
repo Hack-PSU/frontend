@@ -23,8 +23,8 @@ export class HttpService extends BaseHttpService {
     super(http, authService, errorHandler, ngProgress);
   }
 
-  getLiveUpdateDatabaseReference(): Observable<string> {
-    const API_ENDPOINT = 'live/update/reference';
+  getLiveUpdateDatabaseReference(): Observable<any> {
+    const API_ENDPOINT = 'live/updates/reference';
     return this.get(API_ENDPOINT);
   }
 

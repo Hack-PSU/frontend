@@ -1,5 +1,5 @@
 
-import { filter, map } from 'rxjs/operators';
+import { take, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable ,  BehaviorSubject } from 'rxjs';
 import { AppConstants } from '../../AppConstants';
@@ -17,9 +17,10 @@ export class LiveUpdatesService {
     this.httpService
     return this.httpService.getLiveUpdateDatabaseReference()
       .pipe(
-        map((url) => {
-          const URI = new URL(url);
-          return this.angularfireDB.object(URI.pathname).valueChanges();
+        take(1),
+        switchMap((url) => {
+          const URI = new URL(url.reference);
+          return this.angularfireDB.list(URI.pathname).valueChanges();
         })
       );
   }
