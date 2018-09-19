@@ -36,6 +36,7 @@
     "lodash": "4.17.10",
     "materialize-css": "^0.100.2",
     "ngx-alerts": "3.0.0",
+    "ngx-pagination": "3.2.0",
     "request": "2.87.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.0.0-rc.0",

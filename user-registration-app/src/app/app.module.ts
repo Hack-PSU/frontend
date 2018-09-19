@@ -11,6 +11,7 @@ import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
 import { AlertModule, AlertService } from 'ngx-alerts';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
@@ -58,6 +59,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
     NgProgressRouterModule,
+    NgxPaginationModule,
     AlertModule.forRoot({ maxMessages: 5, timeout: 5000 }),
   ],
   providers: [

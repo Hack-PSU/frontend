@@ -1,7 +1,9 @@
-import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LiveUpdatesService } from '../../services/LiveUpdatesService/live-updates.service';
-import { OrderedSet } from '../../models/sorted-set';
-import { UpdateModel } from '../../models/UpdateModel';
+import { UpdateModel } from '../../models/update-model';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+
 declare var $: any;
 
 @Component({
@@ -14,8 +16,9 @@ export class LiveUpdateComponent implements OnInit {
   static initialLoad = true;
   static fullyCollapsed = false;
   static fullyExpanded = false;
+  public p: number;
 
-  updates: OrderedSet<UpdateModel>;
+  updates: Observable<UpdateModel[]>;
 
   static collapseListener(target: string) {
     // initialLoad = false;
@@ -33,10 +36,11 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   constructor(private liveUpdatesService: LiveUpdatesService) {
-    this.updates = new OrderedSet<UpdateModel>((a,b) => a.uid === b.uid, 'UpdateModel');
-    this.liveUpdatesService.getUpdates().subscribe((updates) => {
-      this.updates.addAll(updates);
-    });
+    this.p = 1;
+    this.updates = this.liveUpdatesService.getUpdates()
+      .pipe(
+        map(updates => updates.reverse())
+      )
   }
 
   ngOnInit() {
@@ -47,33 +51,23 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   expand() {
-    if (!LiveUpdateComponent.fullyExpanded) {
-      setTimeout(() => {
-        $('html, body').animate({
-          scrollTop: $('.update-container-row').last().offset().top,
-        },                      1000);
-      },         1000);
-      $('.expandable-update').each(function () {
-        $(this).show(1000);
-      });
-    }
-    LiveUpdateComponent.fullyCollapsed = false;
-    LiveUpdateComponent.fullyExpanded = true;
+    $('html, body').animate({
+      scrollTop: $('#update-container').last().offset().top,
+    }, 1000);
+    $('.expandable-update').each(function () {
+      $(this).show(1000);
+    });
   }
 
   collapse() {
-    if (!LiveUpdateComponent.fullyCollapsed) {
-      $('html, body').animate({
-        scrollTop: $('.update-container-row').offset().bottom,
-      },                      2000);
-      setTimeout(() => {
-        $('.expandable-update').each(function () {
-          $(this).hide(1000);
-        });
-      },         1000);
-    }
-    LiveUpdateComponent.fullyCollapsed = true;
-    LiveUpdateComponent.fullyExpanded = false;
+    $('html, body').animate({
+      scrollTop: $('#update-container').offset().bottom,
+    }, 2000);
+    setTimeout(() => {
+      $('.expandable-update').each(function () {
+        $(this).hide(1000);
+      });
+    }, 1000);
   }
 
   collapseLastN() {
