@@ -11,6 +11,7 @@ import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-ha
 import { Rsvp } from '../../models/rsvp';
 import 'rxjs-compat/add/operator/shareReplay';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
+import { EventModel } from "../../models/event-model";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -113,6 +114,14 @@ export class HttpService extends BaseHttpService {
     return this.get(API_ENDPOINT)
       .pipe(
         map(Rsvp.parseJSON),
+      );
+  }
+
+  getEvents() {
+    const API_ENDPOINT = 'live/events';
+    return this.get(API_ENDPOINT, false, false)
+      .pipe(
+        map(EventModel.parseFromJSONArray),
       );
   }
 }
