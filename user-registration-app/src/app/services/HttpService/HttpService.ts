@@ -23,18 +23,12 @@ export class HttpService extends BaseHttpService {
     super(http, authService, errorHandler, ngProgress);
   }
 
-<<<<<<< Updated upstream
-  getLiveUpdateDatabaseReference(): Observable<any> {
-    const API_ENDPOINT = 'live/updates/reference';
-    return this.get(API_ENDPOINT);
-=======
   getUpdatesReference(): Observable<string> {
     const API_ENDPOINT = 'live/updates/reference';
     return this.get(API_ENDPOINT)
       .pipe(
         map(object => object.reference),
       );
->>>>>>> Stashed changes
   }
 
   getRegistrationStatus(): Observable<Registration> {

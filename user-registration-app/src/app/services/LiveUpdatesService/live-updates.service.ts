@@ -5,22 +5,21 @@ import { Observable ,  BehaviorSubject } from 'rxjs';
 import { AppConstants } from '../../AppConstants';
 import { HttpService } from '../HttpService/HttpService';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { UpdateModel } from '../../models/UpdateModel';
 
 @Injectable()
 export class LiveUpdatesService {
-  private url = `${AppConstants.API_BASE_URL}/live/updates/reference`;
-  private socket;
 
   constructor(private angularfireDB: AngularFireDatabase, private httpService: HttpService) { }
 
   getUpdates() {
     this.httpService
-    return this.httpService.getLiveUpdateDatabaseReference()
+    return this.httpService.getUpdatesReference()
       .pipe(
         take(1),
         switchMap((url) => {
-          const URI = new URL(url.reference);
-          return this.angularfireDB.list(URI.pathname).valueChanges();
+          const URI = new URL(url);
+          return this.angularfireDB.list<UpdateModel>(URI.pathname).valueChanges();
         })
       );
   }

@@ -1,18 +1,8 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { LiveUpdatesService } from '../../services/LiveUpdatesService/live-updates.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { AppConstants } from '../../AppConstants';
-
+import { OrderedSet } from '../../models/sorted-set';
+import { UpdateModel } from '../../models/UpdateModel';
 declare var $: any;
-
-class UpdateModel {
-  public uid: string;
-  public update_text: string;
-  public update_image: string;
-  public update_title: string;
-}
 
 @Component({
   selector: 'app-live-update',
@@ -25,11 +15,7 @@ export class LiveUpdateComponent implements OnInit {
   static fullyCollapsed = false;
   static fullyExpanded = false;
 
-  updates: UpdateModel[];
-  idtoken: Observable<string>;
-  progress: { uploaded, total };
-  error: any;
-  loading = false;
+  updates: OrderedSet<UpdateModel>;
 
   static collapseListener(target: string) {
     // initialLoad = false;
@@ -47,36 +33,10 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   constructor(private liveUpdatesService: LiveUpdatesService) {
-    this.liveUpdatesService.getUpdates().subscribe((obj) => {
-      console.log(obj);
-    })
-    // this.updates = [];
-    // this.liveUpdates.subject(new Event('connected'))
-    //   .subscribe(() => {
-    //     this.updates = [];
-    //     this.error = null;
-    //     this.progress = null;
-    //   });
-    // this.liveUpdates.subject(new Event('disconnected'))
-    //   .subscribe(() => {
-    //     this.updates = [];
-    //     this.loading = true;
-    //   });
-    // this.authService.auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.idtoken = Observable.fromPromise(user.getIdToken(true));
-    //     this.idtoken.subscribe((value) => {
-    //       this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
-    //         message.forEach(m => this.updates.unshift(m));
-    //         setTimeout(this.collapseLastN, 1000);
-    //       });
-    //     },                     (error) => {
-    //       this.error = error;
-    //     });
-    //   } else {
-    //     this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
-    //   }
-    // });
+    this.updates = new OrderedSet<UpdateModel>((a,b) => a.uid === b.uid, 'UpdateModel');
+    this.liveUpdatesService.getUpdates().subscribe((updates) => {
+      this.updates.addAll(updates);
+    });
   }
 
   ngOnInit() {
