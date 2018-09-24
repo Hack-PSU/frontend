@@ -327,10 +327,59 @@ header {
   .header-bar {
     background: #24577C;
   }
+  .gold img {
+    max-width: 60%;
+  }
   .silver img {
     max-width: 55%;
   }
   .bronze img {
-    max-width: 100%;
+    max-width: 50%;
   }
+}
+
+.gm-night {
+  content: url("../assets/images/sponsors/GM-night.svg");
+  padding-top: 3%;
+}
+
+.google-night {
+  content: url("../assets/images/sponsors/Google-night.svg");
+}
+
+.ibm-night {
+  content: url("../assets/images/sponsors/IBM-night.svg");
+}
+
+.amazon-night {
+  content: url("../assets/images/sponsors/Amazon-night.svg");
+}
+
+.investpsu-night {
+  content: url("../assets/images/sponsors/InventPSU-night.svg");
+}
+
+.eecs-night {
+  content: url("../assets/images/sponsors/EECS-night.svg");
+}
+
+.kcf-night {
+  content: url("../assets/images/sponsors/KSF_Technologies-night.svg");
+}
+
+.vanguard-night {
+  content: url("../assets/images/sponsors/Vanguard-night.svg");
+}
+
+.capitalone-night {
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+
+.accuweather-night {
+  content: url("../assets/images/sponsors/Accuweather-night.svg");
+  padding-top: 10%;
+}
+
+.ics-night {
+  content: url("../assets/images/sponsors/ICS-night.svg");
 }
