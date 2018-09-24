@@ -22,6 +22,10 @@
   text-transform: uppercase;
 }
 
+#countdown-text {
+  font-family: 'Raleway', 'Lato', sans-serif;
+}
+
 @media screen and (max-width: 768px) {
 
   #countdown-timer .unit {
