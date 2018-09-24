@@ -427,7 +427,7 @@ body {
 
 #schedule {
   color:            white;
-  font-family:      'Raleway', sans-serif;
+  font-family:      'Lato', sans-serif;
   font-weight:      bold;
   padding-top:      50px;
   padding-bottom:   50px;
@@ -435,14 +435,6 @@ body {
 
   .header-bar {
     background-color: white;
-  }
-
-  .horizontal-line {
-    position:         relative;
-    background-color: #B7C7CA;
-    height:           2px;
-    width:            100%;
-    margin_bottom:   10%;
   }
   
   .events-container {
@@ -461,13 +453,23 @@ body {
     margin-top: 10px;
   }
 
+  .time {
+    display:      inline-block;
+    margin-top:   10px;
+    font-weight: lighter;
+    font-size:   small;
+    margin-right:      50%;
+    text-align:  left;
+    padding-right: 50%;
+  }
+
   .event {
     display:      inline-block;
     margin-top:   10px;
     font-weight: lighter;
     font-size:   medium;
     margin:      0 4%;
-    text-align:  left;
+    text-align:  right;
     padding-bottom: 5%;
   }
 }
