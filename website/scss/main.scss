@@ -434,11 +434,14 @@ body {
   .header-bar {
     background: #24577C;
   }
+  .gold img {
+    max-width: 60%;
+  }
   .silver img {
     max-width: 55%;
   }
   .bronze img {
-    max-width: 100%;
+    max-width: 45%;
   }
 }
 
