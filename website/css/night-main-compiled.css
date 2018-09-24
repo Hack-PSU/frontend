@@ -14,7 +14,7 @@ header {
 
 .landing {
   /* Some CSS I made up to get that wrapped box effect in the header.
-  This can be applied to any text structured in the same way as the 
+  This can be applied to any text structured in the same way as the
   event info. */
 }
 .landing .holder {
@@ -196,6 +196,26 @@ header {
   content: url("../assets/images/border2-night.svg");
 }
 
+.first-border:after {
+  content: url("../assets/images/border2-night.svg");
+}
+
+.second-border {
+  content: url("../assets/images/border6-night.svg");
+}
+
+.second-border:after {
+  content: url("../assets/images/border6-night.svg");
+}
+
+.third-border {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7-night.svg");
+}
+
 #about {
   background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
   /*//background-color: #103147;*/
@@ -235,6 +255,72 @@ header {
 #about p span {
   font-weight: 800;
   font-size: 3.2vh;
+}
+
+/* Sponsors */
+#sponsors {
+  padding-top: 50px;
+  background: #00324B;
+}
+#sponsors .header-text {
+  color: #FFFFFF;
+}
+#sponsors .header-bar {
+  background: #24577C;
+}
+#sponsors .gold img {
+  max-width: 60%;
+}
+#sponsors .silver img {
+  max-width: 55%;
+}
+#sponsors .bronze img {
+  max-width: 50%;
+}
+
+.gm-night {
+  content: url("../assets/images/sponsors/GM-night.svg");
+}
+
+.google-night {
+  content: url("../assets/images/sponsors/Google-night.svg");
+}
+
+.ibm-night {
+  content: url("../assets/images/sponsors/IBM-night.svg");
+}
+
+.amazon-night {
+  content: url("../assets/images/sponsors/Amazon-night.svg");
+}
+
+.investpsu-night {
+  content: url("../assets/images/sponsors/InventPSU-night.svg");
+}
+
+.eecs-night {
+  content: url("../assets/images/sponsors/EECS-night.svg");
+}
+
+.kcf-night {
+  content: url("../assets/images/sponsors/KSF_Technologies-night.svg");
+}
+
+.vanguard-night {
+  content: url("../assets/images/sponsors/Vanguard-night.svg");
+}
+
+.capitalone-night {
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+
+.accuweather-night {
+  content: url("../assets/images/sponsors/Accuweather-night.svg");
+  padding-top: 10%;
+}
+
+.ics-night {
+  content: url("../assets/images/sponsors/ICS-night.svg");
 }
 
 /*# sourceMappingURL=night-main-compiled.css.map */
