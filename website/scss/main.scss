@@ -366,7 +366,7 @@ body {
     display:      inline-block;
     font-size:    large;
     margin-right: 5px;
-    content:      "\f067";    
+    content:      "\f067";
     color:        $red-plus;
     transition:   all 0.3s;
   }
@@ -434,8 +434,12 @@ body {
   .header-bar {
     background: #24577C;
   }
+  .platinum img {
+    max-width: 75%;
+  }
+
   .gold img {
-    max-width: 60%;
+    max-width: 45%;
   }
   .silver img {
     max-width: 55%;
@@ -475,7 +479,7 @@ body {
 }
 
 /* Debug code */
- 
+
 // * {
 // 	//background: #000 !important;
 // 	color: #0f0 !important;
