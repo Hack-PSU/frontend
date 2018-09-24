@@ -376,3 +376,7 @@ footer {
 #social-media {
   text-align: center;
 }
+
+.update-paginator /deep/ .ngx-pagination a {
+  color: white
+}

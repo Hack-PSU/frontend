@@ -24,6 +24,14 @@ export class HttpService extends BaseHttpService {
     super(http, authService, errorHandler, ngProgress);
   }
 
+  getUpdatesReference(): Observable<string> {
+    const API_ENDPOINT = 'live/updates/reference';
+    return this.get(API_ENDPOINT)
+      .pipe(
+        map(object => object.reference),
+      );
+  }
+
   getRegistrationStatus(): Observable<Registration> {
     const API_ENDPOINT = 'users/registration';
     return this.get(API_ENDPOINT)
