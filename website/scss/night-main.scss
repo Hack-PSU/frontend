@@ -373,6 +373,9 @@ header {
 
 .kcf-night {
   content: url("../assets/images/sponsors/KSF_Technologies-night.svg");
+  &:after {
+    content: url("../assets/images/sponsors/KSF_Technologies-night.svg");
+  }
 }
 
 .vanguard-night {
