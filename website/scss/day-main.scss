@@ -311,6 +311,9 @@ header {
   }
   .header-text {
     color: #424242;
+    @-moz-document url-prefix() {
+      color: #e5e5e5;
+    }
   }
   .header-bar {
     background: #24577C;
