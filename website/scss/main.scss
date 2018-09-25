@@ -447,22 +447,29 @@ body {
       padding: 0px;
     }
   }
-  
 
-  .day {
-    display:    inline-block;
-    margin-top: 10px;
-  }
+  .row.vertical-divider {
+  overflow: hidden;
+}
+.row.vertical-divider > div[class^="col-"] {
+  text-align: center;
+  padding-bottom: 100px;
+  margin-bottom: -100px;
+  border-left: 3px solid #F2F7F9;
+  border-right: 3px solid #F2F7F9;
+}
+.row.vertical-divider div[class^="col-"]:first-child {
+  border-left: none;
+}
+.row.vertical-divider div[class^="col-"]:last-child {
+  border-right: none;
+}
 
   .time {
-    display:    inline;
     margin-top:   10px;
     font-weight: lighter;
     font-size:   large;
     margin:      0 4%;
-  }
-
-  .time p{
     text-align: left;
     color:    $pale-blue-link;
   }
