@@ -103,16 +103,16 @@ header {
     }
     .celestial-body {
       position: absolute;
-      width: 12.5%;
+      width: 13.5%;
       left: 8%;
       right: 0;
       top: 11.5vh;
       margin: 0;
       img {
-        content: url("../assets/images/sun.svg");
+        content: url("../assets/images/flat-sun-icon.svg");
       }
       img:after {
-        content: url("../assets/images/sun.svg");
+        content: url("../assets/images/flat-sun-icon.svg");
       }
       @media screen and (max-width: $break-small){
         display: none;
