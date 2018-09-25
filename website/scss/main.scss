@@ -198,6 +198,8 @@ body {
       background:    white;
       border:        solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
+      margin-bottom: 2vh;
+
       &:hover {
         @include transition(all, 0.4s);
         background: rgba(170, 202, 204, 1)
@@ -267,6 +269,30 @@ body {
   }
 }
 
+.register-btn-design {
+  @include transition(all, 0.4s);
+  height:        10vh;
+  background:    white;
+  border:        solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;  
+  &:hover {
+    @include transition(all, 0.4s);
+    background: rgba(170, 202, 204, 1)
+  }
+  .header-text {
+    font-family:   $font-stack-tertiary;
+
+    p {
+      // This centers text in button. Typically this should be equal
+      // to the height of the button, however the border throws it off.
+      line-height: 9vh !important;
+      @include responsive-font(.9em, .9em, 1.5em, 1em);
+      max-font-size: 2em;
+      white-space: normal !important;
+    }
+  }
+}
+
 .section-separator-first img {
   margin-top: -15%;
   @media screen and (max-width: $break-large) {
@@ -301,6 +327,64 @@ body {
   to {
     background-position: -0vw, 0;
   }
+}
+
+/* Tracks */
+#tracks {
+  background-color: #194E6B;
+  .header-bar {
+    background-color: $mountain-blue;
+    margin-bottom:20px;
+  }
+  .track-header {
+    font-family: $font-stack-tertiary;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 5vh;
+  }
+  .track-content {
+    font-size: .6em;
+    line-height: 1.35 em;
+    padding-top: 5vh;
+  }
+  .track-img {
+    width: 18%;
+  }
+  .track-register {
+    color: #f5f5f5;
+    font-family:   $font-stack-tertiary;
+    line-height: 9vh !important;
+    @include responsive-font(1em, .7em, 1.5em, 1em);
+    max-font-size: 2em;
+  }
+  .register-btn {
+    @include transition(all, 0.4s);
+    height:        10vh;
+    background:    transparent;
+    border:        solid 8px rgba(170, 202, 204, 0.6);
+    border-radius: 50px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    &:hover {
+      @include transition(all, 0.4s);
+      background: rgba(170, 202, 204, 1)
+    }
+  }
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size:   .6em;
+    font-weight: 100;
+    text-align:  left;
+    line-height: 200%;
+    color: white;
+    span {
+      //@include accent-text(#718a9a);
+      font-weight: 800;
+      font-size: 3.2vh;
+    }
+  }
+
 }
 
 /* FAQ */
