@@ -9,6 +9,7 @@ $light-blue-primary: #6C88B7;
 $dark-blue-primary: #133753;
 $light-blue: #AACACC;
 $dark-blue-secondary: #24577C;
+$dark-blue-tertiary: #00324B;
 $light-blue-secondary: #D0EAF1;
 $orange-secondary: #C94331;
 $gray: #333333;
@@ -118,7 +119,7 @@ header {
       }
     }
     @media screen and (max-width: $lg-break){
-      padding-top: 25%; 
+      padding-top: 25%;
     }
     @media screen and (max-width: $break-large) {
       height: auto;
@@ -153,7 +154,7 @@ header {
   }
 
   /* Some CSS I made up to get that wrapped box effect in the header.
-  This can be applied to any text structured in the same way as the 
+  This can be applied to any text structured in the same way as the
   event info. */
   .wrapped-box {
     p {
@@ -165,7 +166,7 @@ header {
       z-index: 200;
     }
     p:last-of-type {
-      z-index: 200;    
+      z-index: 200;
     }
     p span {
       @include accent-text(#424242);
@@ -249,11 +250,32 @@ header {
     }
 
   }
-  
+
 }
 
 .first-border{
   content: url("../assets/images/border2-night.svg");
+}
+
+.first-border:after {
+  content: url("../assets/images/border2-night.svg");
+}
+
+
+.second-border {
+  content: url("../assets/images/border6-night.svg");
+}
+
+.second-border:after{
+  content: url("../assets/images/border6-night.svg");
+}
+
+.third-border {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7-night.svg");
 }
 
 #about {
@@ -292,5 +314,27 @@ header {
       font-weight: 800;
       font-size: 3.2vh;
     }
+  }
+}
+
+/* Sponsors */
+
+#sponsors {
+  padding-top: 50px;
+  background: $dark-blue-tertiary;
+  .header-text {
+    color: #FFFFFF;
+  }
+  .header-bar {
+    background: $dark-blue-secondary;
+  }
+  .gold img {
+    max-width: 60%;
+  }
+  .silver img {
+    max-width: 55%;
+  }
+  .bronze img {
+    max-width: 50%;
   }
 }
