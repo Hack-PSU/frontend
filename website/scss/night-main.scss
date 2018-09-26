@@ -79,7 +79,7 @@ $break-large: 1200px;
 
 header {
   @include background-size(cover);
-  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg, #24577c 0%,#24577c 45%,#133753 69%,#000000 100%);
+  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg ,#133753 69%,#000000 100%);
 }
 
 .landing {
@@ -244,6 +244,9 @@ header {
       z-index: 200;
       content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
     }
+    .mountain:after {
+      content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
+    }
     @media screen and (max-width: $lg-break) {
       .mountain {
         margin-top: 10vh;
@@ -252,22 +255,21 @@ header {
         margin-top: 6vh;
       }
     }
-    .mountain:after {
-      content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
-    }
 
   }
 
 }
 
-.first-border{
-  content: url("../assets/images/border2-night.svg");
+.section-separator {
+  background: #133753;
 }
 
-.first-border:after {
-  content: url("../assets/images/border2-night.svg");
+.first-border {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
 }
-
+.first-border::after {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
+}
 
 .second-border {
   content: url("../assets/images/border6-night.svg");
@@ -286,12 +288,11 @@ header {
 }
 
 #about {
-
-  background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
+  background: #133753;
   /*//background-color: #103147;*/
-  padding-bottom: 5%;
+  // padding-bottom: 5%;
   // This margin removes that thin white line that appears at some screen sizes where the
-  // above section meets the about section
+  // above section meets the about section.
   margin-top: -1px;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
