@@ -559,34 +559,6 @@ body {
   }
 }
 
-/* Workshops */
-#workshops {
-  color:            white;
-  font-family:      'Lato', sans-serif;
-  font-weight:      bold;
-  padding-top:      25px;
-  padding-bottom:   25px;
-  background-color: #194E6B;
-
-  .live__scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-.live__scroll .row{
-  display:block;
-}
-.live__scroll .live__scroll--box {
-  display:          inline-block;
-  float:            none;
-  padding:          5px;
-  border-radius:    7px 7px 7px 7px;
-  border:           1px solid white;
-  background:       white;
-  color:            $mountain-blue;
-}
-}
-
 /* Sponsors */
 
 #sponsors {
