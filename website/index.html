@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
           crossorigin="anonymous">
+    
     <!-- bootstrap -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -104,7 +105,7 @@
       function getStylesheet() {
             const currentTime = new Date().getHours();
             // Uncomment to force nighttime or daytime
-            // var currentTime = 22;
+            // var currentTime = 14;
             if (8 <= currentTime&&currentTime < 19) {
              document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
             }
@@ -244,7 +245,10 @@
     </section>
 
     <div class="section-separator">
-      <img class="section-separator-background first-border">
+      <img class="section-separator first-border">
+    </div>
+  
+    <div class="section-separator-bar">
     </div>
 
     <section id="tracks">
@@ -273,7 +277,7 @@
           <p class="track-header">Design Track</p>
           <img src="assets/images/design-flat-icon-white.svg" class="track-img">
           <p class="track-content">
-            A new way to experience HackPSU - with designers front and center. Whether its graphic design, UX design, or UI design, this is the track for you. At the start of the event everyone will be provided a prompt of the form: Design an interface for _______________ to/that _______________ . Through mocks, use-flows, and wireframes we will be looking at how your design best addresses the prompt. 
+            A new way to experience HackPSU - with designers front and center. Whether its graphic design, UX design, or UI design, this is the track for you. At the start of the event everyone will be provided a prompt of the form: Design an interface for ____________ to/that ____________ . Through mocks, use-flows, and wireframes we will be looking at how your design best addresses the prompt. 
           </p>
         </div>
         <div class="offset-md-1 col-md-10">
@@ -564,9 +568,141 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
+
+    <!-- Schedule -->
+    <section id="schedule">
+    <div class="container-fluid">
+        <div class="med-div"></div>
+        <div class="container-fluid">
+            <div class="row section-title-container">
+                <div class="section-header col-xs-12">
+            <div class="header-text">SCHEDULE</div>
+            <div class="header-bar"></div>
+          </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+
+          <!-- Left Column of Schedule -->
+            <div class="col-md-4">
+                <div class="schedule-header d-flex justify-content-center">
+                    <p>Saturday</p>
+                </div>
+  
+                  <div class="schedule-left">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">11 AM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event text-md-left">Registration Opens</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">1 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Opening Ceremony</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">2 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Hacking Starts</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">2 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Lunch</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-sm-4 col-xs-4">
+                            <p class="time">7 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Dinner</p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+            <!-- Right Column of Schedule -->
+            <div class="col-md-4">
+                <div class="schedule-header d-flex justify-content-center">
+                    <p>Sunday</p>
+                </div>
+                <div class="schedule-right">
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">1 AM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Late-night Snack</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">3 AM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Ice-Cream Social</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">10 AM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Brunch</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">2 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Hacking Ends</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">2 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Judging Expo</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-4 col-xs-4">
+                            <p class="time">4 PM</p>
+                        </div>
+                        <div class="event col-md-6 col-xs-8">
+                            <p class="event">Closing Ceremony</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- End of Schedule -->
 
     <div class="section-separator">
       <img class="section-separator-background second-border">
