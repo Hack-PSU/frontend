@@ -292,8 +292,9 @@ header {
   /*//background-color: #103147;*/
   // padding-bottom: 5%;
   // This margin removes that thin white line that appears at some screen sizes where the
-  // above section meets the about section.
+  // about section meets other divs above and below it.
   margin-top: -1px;
+  margin-bottom: -1px;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
   }
