@@ -520,21 +520,24 @@ body {
   .header-bar {
     background-color: $mountain-blue;
   }
-  
-  .events-container {
-    margin-top: 10px;
-    padding:    0 10%;
-  }
-
-@media screen and (max-width: 768px) {
-    .events-container {
-      padding: 0px;
-    }
-  }
 
   .schedule-right {
-
+  padding-left: 10%;
   border-left: 3px solid #F5F5F5;
+  }
+
+  @media screen and (max-width: 768px) {
+    .schedule-right {
+      border: none;
+    }
+
+    .schedule-left {
+      padding-left: 10%;
+    }
+
+    .schedule-header {
+      margin-top: 3%;
+    }
   }
 
   .time {
