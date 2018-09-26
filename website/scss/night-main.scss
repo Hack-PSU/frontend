@@ -134,7 +134,7 @@ header {
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(1em, .7em, 1.5em, 1em);
+    @include responsive-font(.85em, .8em, 1.25em, 1em);
     max-font-size: 2em;
 
     p {
@@ -241,9 +241,16 @@ header {
       top: 0px;
       margin: auto;
       width: 100%;
-      // padding-right: 5%;
       z-index: 200;
       content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
+    }
+    @media screen and (max-width: $lg-break) {
+      .mountain {
+        margin-top: 10vh;
+      }
+      .cloud-1, .cloud-2, .cloud-3 {
+        margin-top: 6vh;
+      }
     }
     .mountain:after {
       content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
@@ -283,6 +290,9 @@ header {
   background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
   /*//background-color: #103147;*/
   padding-bottom: 5%;
+  // This margin removes that thin white line that appears at some screen sizes where the
+  // above section meets the about section
+  margin-top: -1px;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
   }

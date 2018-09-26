@@ -134,7 +134,7 @@ header {
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(1em, .7em, 1.5em, 1em);
+    @include responsive-font(.85em, .8em, 1.25em, 1em);
     max-font-size: 2em;
 
     p {
