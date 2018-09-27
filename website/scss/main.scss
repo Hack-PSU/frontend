@@ -291,7 +291,7 @@ body {
   height:        10vh;
   background:    white;
   border:        solid 8px rgba(170, 202, 204, 0.6);
-  border-radius: 50px;  
+  border-radius: 50px;
   &:hover {
     @include transition(all, 0.4s);
     background: rgba(170, 202, 204, 1)
@@ -609,6 +609,12 @@ body {
   }
   .bronze img {
     max-width: 45%;
+  }
+
+  // Minor oracle override
+  .oracle-day {
+    max-width: 100%;
+    margin-top: 7%;
   }
 }
 
