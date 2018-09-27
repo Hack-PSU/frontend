@@ -28,6 +28,7 @@ import {
 } from './views/views';
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard } from './services/route-guards/guards';
+import { WorkshopListComponent } from "./views/workshop-list/workshop-list.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     TravelReimbursementViewComponent,
     TableAssignmentViewComponent,
     RsvpComponent,
+    WorkshopListComponent,
     LiveUpdateComponent,
     ScheduleViewComponent,
   ],
