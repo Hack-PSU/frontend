@@ -12,6 +12,7 @@ import { Rsvp } from '../../models/rsvp';
 import 'rxjs-compat/add/operator/shareReplay';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from "../../models/event-model";
+import { ProjectModel } from "../../models/project-model";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -80,13 +81,13 @@ export class HttpService extends BaseHttpService {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-                                            { status },
-                                            { headers, reportProgress: true });
+          { status },
+          { headers, reportProgress: true });
       }));
   }
 
   getCategories() {
-    const API_ENDPOINT = 'users/event_categories';
+    const API_ENDPOINT = 'users/event/categories';
     return this.get(API_ENDPOINT);
   }
 
@@ -105,16 +106,9 @@ export class HttpService extends BaseHttpService {
     return this.post(API_ENDPOINT, formObject);
   }
 
-  submitTableAssignment(tableForm: any, uid) {
+  submitTableAssignment(tableForm: any) {
     const API_ENDPOINT = 'users/project';
-    const formObject: FormData = new FormData();
-    formObject.append('uid', uid);
-    for (const key in tableForm) {
-      if (tableForm.hasOwnProperty(key) && tableForm[key] !== null) {
-        formObject.append(key, tableForm[key]);
-      }
-    }
-    return this.post(API_ENDPOINT, formObject);
+    return this.post(API_ENDPOINT, tableForm);
   }
 
   getRsvpStatus(): Observable<Rsvp> {
@@ -131,5 +125,13 @@ export class HttpService extends BaseHttpService {
       .pipe(
         map(EventModel.parseFromJSONArray),
       );
+  }
+
+  getProjectDetails() {
+    const API_ENDPOINT = 'users/project';
+    return this.get(API_ENDPOINT, false, true)
+      .pipe(
+        map(ProjectModel.parseFromJSON),
+      )
   }
 }

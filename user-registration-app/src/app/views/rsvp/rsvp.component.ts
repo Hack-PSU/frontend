@@ -9,6 +9,7 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { Rsvp } from '../../models/rsvp';
 import { AppConstants } from '../../AppConstants';
 import { finalize } from 'rxjs/operators';
+import { Registration } from "../../models/registration";
 
 declare var $: any;
 
@@ -23,47 +24,43 @@ export class RsvpComponent implements OnInit {
   public user: firebase.User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
-  public rsvpData: Rsvp;
+  public registrationData: Registration;
 
   constructor(public authService: AuthService,
               public router: Router,
               private httpService: HttpService,
-              private activatedRoute: ActivatedRoute,
-              private progress: NgProgress) {
-    this.rsvpData = new Rsvp();
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe((data: { rsvp: Rsvp }) => {
-      const { rsvp } = data;
-      this.rsvpData = rsvp;
-    },                                 (error) => {
-      this.errors = error;
+    this.activatedRoute.data.subscribe((data: { registration: Registration }) => {
+      const { registration } = data;
+      this.registrationData = registration;
     });
     $(document).ready(() => {
       $('ul.tabs').tabs();
     });
   }
 
-  rsvp(status: boolean) {
-    this.progress.start();
-    this.httpService.submitRSVP(this.user, status)
-      .pipe(finalize(() => this.progress.complete()))
-      .subscribe(() => {
-        this.rsvpDataObservable = this.httpService.getRsvpStatus();
-        this.rsvpDataObservable.subscribe((value) => {
-          this.rsvpData = value;
-        },                                (error) => {
-          this.errors = error;
-        });
-      },         (error) => {
-        this.errors = error.message;
-      });
-  }
+  // rsvp(status: boolean) {
+  //   this.progress.start();
+  //   this.httpService.submitRSVP(this.user, status)
+  //     .pipe(finalize(() => this.progress.complete()))
+  //     .subscribe(() => {
+  //       this.rsvpDataObservable = this.httpService.getRsvpStatus();
+  //       this.rsvpDataObservable.subscribe((value) => {
+  //         this.rsvpData = value;
+  //       },                                (error) => {
+  //         this.errors = error;
+  //       });
+  //     },         (error) => {
+  //       this.errors = error.message;
+  //     });
+  // }
 
-  getPin() {
-    return parseInt(this.rsvpData.pin, 10).toString(14).padStart(3, '0');
-  }
+  // getPin() {
+  //   return parseInt(this.registrationData.pin, 10).toString(14).padStart(3, '0');
+  // }
 
   rsvpReady() {
     return new Date().getTime() >= environment.rsvpStartTime.getTime();
