@@ -335,7 +335,7 @@ header {
     background: #24577C;
   }
   .gold img {
-    max-width: 60%;
+    max-width: 45%;
   }
   .silver img {
     max-width: 55%;
@@ -349,6 +349,16 @@ header {
 }
 .gm-day {
   content: url("../assets/images/sponsors/GM-day.svg");
+}
+
+.oracle-day {
+  content: url("../assets/images/sponsors/Oracle-day.svg");
+  margin-top: 10%;
+}
+
+// Oracle override
+#sponsors .gold .oracle-day {
+  max-width: 100%;
 }
 
 .google-day {
@@ -372,11 +382,7 @@ header {
 }
 
 .nittany-ai-day {
-  content: url("../assets/images/sponsors/nittany-ai-day.svg");
-}
-
-.psuit-day {
-  content: url("../assets/images/sponsors/PSUIT_original.svg");
+  content: url("../assets/images/sponsors/nittanyai-day.svg");
 }
 
 .kcf-day {
@@ -394,6 +400,10 @@ header {
 .accuweather-day {
   content:     url("../assets/images/sponsors/Accuweather-day.svg");
   padding-top: 10%;
+}
+
+.stickermule-day {
+  content:     url("../assets/images/sponsors/StickerMule_original.svg");
 }
 
 .ics-day {
