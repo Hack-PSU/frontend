@@ -1,24 +1,22 @@
 <div style="color:#ffffff" *ngIf="rsvpReady(); else rsvpNotOpen">
   <div class="page-margins">
     <div class="page-header text-center">
-      <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> HackPSU Information </div>
+      <div style="font-family:'Cornerstone',sans-serif;font-size:4em;"> HackPSU Information </div>
     </div>
     <!--<ng-template #result>-->
-      <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
+      <div class="medium blue-grey darken-4 white-text nature-boi" style="color:black;width:70vw;margin:0 auto;display:block;">
         <div class="card-content">
-          <img src="../../../assets/images/all-white-emblem-f2018.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
+          <img src="../../../assets/images/all-white-emblem-f2018.svg" class="emblem-image"/>
           <h5 class="center">We are very excited to see you this year on October 6!</h5>
           <h4 class="center">Your pin is {{registrationData?.pin}}. Present this at check in.</h4>
           <br/>
         </div>
       </div>
-      <br/>
-      <br/>
-      <div style="width:70%; margin:0 auto;display:block;">
-        <div class="row info-card">
+      <div style="width:70vw; margin:0 auto;display:block;">
+        <div class="row info-card blue-grey darken-2">
           <div class="col-md-4">
             <div class="header-text">Location</div>
-            <div class="info-card">
+            <div>
               <p>
               The hackathon will take place at the Business Building.<br>
               The address is:<br>
@@ -43,7 +41,7 @@
           </div>
           <div class="col-md-4">
             <div class="header-text">Date & Time</div>
-            <div class="header-text">
+            <div class="cornerstone">
               October 6-7
             </div>
             <p>
