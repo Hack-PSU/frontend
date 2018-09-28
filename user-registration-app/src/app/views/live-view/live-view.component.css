@@ -1,6 +1,6 @@
 #hackpsu-logo {
   margin-top: 10px;
-  max-width: 30%;
+  max-width: 45%;
   margin-bottom: 10px;
 }
 
@@ -22,12 +22,10 @@
   text-transform: uppercase;
 }
 
-.emblem {
-  transform: scale(2);
-}
-
 #countdown-text {
   font-family: 'Raleway', 'Lato', sans-serif;
+  font-size: 2em;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -107,7 +105,7 @@
 }
 
 .submit-btn {
-  width: 30%;
+  width: 100%;
   height: 40px;
   font-size: 20;
   font-weight: 800;
@@ -119,27 +117,15 @@
   border-radius: 12px;
 }
 
-.btn {
-  width: 35%;
-}
-
 .submit-btn:hover {
   background-color: rgba(255, 255, 255, 1);
   color: #333333;
 }
 
 @media screen and (max-width: 768px) {
-  #hackpsu-logo {
-    max-width: 70%;
-  }
-
   #countdown {
     font-size: 1.5em;
     padding: 0.5em;
-  }
-
-  .btn {
-    width: 80%;
   }
 }
 
@@ -167,8 +153,8 @@ td {
 }
 
 .section-title {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 1.5vh;;
+  margin-bottom: 1.5vh;
   text-align: center;
 }
 
@@ -190,6 +176,13 @@ td {
 .header-text p {
   padding: 0px;
   line-height: 120%;
+}
+
+.header-bar {
+  width:  40%;
+  height: 5px;
+  background-color: #6C88B7;
+  margin: auto;
 }
 
 .section-title-letter {
@@ -317,8 +310,14 @@ td {
 }
 
 .info-list {
-  font-size: 16px;
+  font-size: 1em;
   list-style-type: disc;
+}
+
+@media screen and (max-width: 768px) {
+  .info-list {
+    line-height: 1.5em;
+  }
 }
 
 .info-list a {

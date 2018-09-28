@@ -7,12 +7,14 @@
       src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg"
       alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
   </div>
-  <div class="row center">
-    <img src="assets/images/all-white-emblem-f2018.svg" id="hackpsu-logo" class="animated rubberBand emblem"
-         alt="hackpsulogo">
+  <div class="row">
+    <div class="col-12">
+      <img src="assets/images/all-white-emblem-f2018.svg" id="hackpsu-logo" class="animated rubberBand d-block mx-auto"
+      alt="hackpsulogo">
+    </div>
   </div>
-  <div class="row center">
-    <div id='countdown-timer' class="row">
+  <div class="row">
+    <div id='countdown-timer' class="d-flex justify-items-center">
       <div id='days' class='unit'>
         <div>{{days}}</div>
         Days
@@ -29,18 +31,74 @@
         <div>{{seconds}}</div>
         Seconds
       </div>
-      <h3 id='countdown-text'>{{bannerText}}</h3>
     </div>
   </div>
   <div class="row">
-    <div class="center">
-      <div class="col-md-12 col-sm-12">
+    <div class="col-12">
+        <p id='countdown-text' class="text-center">{{bannerText}}</p>
+    </div>
+    <div class="offset-md-4 col-md-4">
         <a class="btn waves-effect waves-light submit-btn" target="_blank" href="https://join.slack.com/t/hackpsufall2018/shared_invite/enQtNDQ0MzE1OTQxNTcxLTljODEzYjMxZTBiY2EyMDhlM2NiOWVmODc2M2ZhNzQyMzE1NjRmYzZiZWE3ZDVmZDBkYmU3YTM0NjRmMThmZTg">Slack</a>
-      </div>
     </div>
   </div>
   <div class="page-header"></div>
 </section>
+<!-- Map & Rules Section -->
+<section id="map-rules">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="row">
+            <div class="col-12 section-title">
+              <div class="section-title-word">
+                <div class="header-text">Map</div>
+              </div>
+              <div class="header-bar"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="map-block">
+              <img class="materialboxed" src="../../../assets/images/map.png">
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-12 section-title">
+            <div class="section-title-word">
+              <div class="header-text">Rules</div>
+            </div>
+            <div class="header-bar"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="info-card col-xs-12">
+              <ol class="info-list">
+                <li> All participants must be older than 18, and must bring a valid form of identification.</li>
+                <li> Participants must abide by the expectations set in the <a
+                  href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147">MLH Code of Conduct</a>,
+                  or you will be asked to leave the event.
+                </li>
+                <li> Teams may be comprised of up to five members.</li>
+                <li> Projects should be original works created on site. Coming with an idea in mind is perfectly fine,
+                  working on an existing project is not.
+                </li>
+                <li> All submissions must be recieved through DevPost by 2:00PM on Sunday.</li>
+                <li> Students are permitted to come and go from the venue as they please.</li>
+                <li> Anything you create is your work, HackPSU and its partners have no claim over intellectual property
+                  produced at the event.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section id="info">
   <div class="row section-title-container">
     <div class="col-xs-6 section-title col-xs-offset-3">

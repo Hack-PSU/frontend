@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://staging-dot-hackpsu 18.appspot.com/v1/',
+  api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
   // api_url: 'http://localhost:5000/v1/',
   firebase: {
     apiKey: "AIzaSyAWejnwBUrfUoULnMRumGFpOchYjjHlfTI",
