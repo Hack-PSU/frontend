@@ -389,7 +389,14 @@ footer {
 
 
 .card-title {
-  color: black;
+  font-size: 1.5em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  color: #ffffff;
+}
+
+.card .card-content .card-title {
+  margin-bottom: 0px;
+  line-height: 1em;
 }
 
 .card-reveal {
