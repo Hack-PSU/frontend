@@ -1,3 +1,9 @@
+/* Materialize CSS sets content: "";, this breaks
+many of the utlities in Bootstrap, so undoing it here.*/
+.row::after {
+  content: none;
+}
+
 #hackpsu-logo {
   margin-top: 10px;
   max-width: 45%;
