@@ -1,38 +1,35 @@
 <div style="color:#ffffff" *ngIf="rsvpReady(); else rsvpNotOpen">
   <div class="page-margins">
     <div class="page-header text-center">
-      <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> HackPSU RSVP </div>
+      <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> HackPSU Information </div>
     </div>
     <!--<ng-template #result>-->
       <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
         <div class="card-content">
-          <img src="../../../assets/images/logo2.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
-          <h4 class="center">We are very excited to see you this year on October 6!</h4>
-          <h5 class="center">Your pin is {{registrationData?.pin}}. Present this at check in.</h5>
+          <img src="../../../assets/images/all-white-emblem-f2018.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
+          <h5 class="center">We are very excited to see you this year on October 6!</h5>
+          <h4 class="center">Your pin is {{registrationData?.pin}}. Present this at check in.</h4>
           <br/>
         </div>
       </div>
       <br/>
       <br/>
-      <div style="width:70vw;margin:0 auto;display:block;">
-        <div class="row">
+      <div style="width:70%; margin:0 auto;display:block;">
+        <div class="row info-card">
           <div class="col-md-4">
-            <h5>Location</h5>
-            <br/>
-            <br/>
-            The hackathon will take place at the Business Building.
-            The address is:
-            <br/>
-            <br/>
-            210 Business Building,
-            <br/>
-            University Park, PA 16802
+            <div class="header-text">Location</div>
+            <div class="info-card">
+              <p>
+              The hackathon will take place at the Business Building.<br>
+              The address is:<br>
+              210 Business Building,<br>
+              University Park, PA 16802<br>
+              </p>
+            </div>
           </div>
-          <div class="col-md-12 col-md-4 items">
-            <h5>Things to Bring</h5>
-            <br/>
-            <br/>
-            <ul>
+          <div class="col-md-4 items">
+            <div class="header-text">Things to Bring</div>
+            <ul class="items-list">
               <li>Computer/Laptop</li>
               <li>Mouse</li>
               <li>Power Cord</li>
@@ -41,23 +38,20 @@
               <li>Blanket</li>
               <li>Chargers/Batteries</li>
               <li>Headphones/Earphones</li>
-              <li>Swag</li>
+              <li>Personal Hygiene Products</li>
             </ul>
           </div>
-          <div class="col-md-12 col-md-4">
-            <h5>Date & Time</h5>
-            <br/>
-            <br/>
-            <font size="5">
+          <div class="col-md-4">
+            <div class="header-text">Date & Time</div>
+            <div class="header-text">
               October 6-7
-            </font>
-            <font size="4">
-              <br/>
-              <br/>
+            </div>
+            <p>
               12:30pm Saturday - 5:30pm Sunday
-              <br/>
+            </p>
+            <p>
               Hacking starts at 2:00pm Saturday
-            </font>
+            </p>
           </div>
         </div>
       </div>

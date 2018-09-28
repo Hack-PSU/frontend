@@ -19,6 +19,41 @@
   color: #333333;
 }
 
+.info-card {
+  margin-top: 10px;
+  padding: 10px 0;
+  line-height: 35px;
+  background-color: #78909c;
+  color: white;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.header-text {
+  font-family: 'Cornerstone', sans-serif;
+  font-size:   4vh;
+  line-height: 100%;
+  margin-top:  25px;
+}
+
+.items-list {
+  list-style-type: circle;
+}
+
+.items-list > li{
+  margin-left: 2em;
+  list-style-type: circle;
+}
+
+.header-text p {
+  padding: 0px;
+  line-height: 120%;
+}
+
+p {
+  font-size: 1.5em;
+}
+
 .spinner-layer {
   border-color: white;
 }

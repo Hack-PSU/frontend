@@ -13,8 +13,8 @@ import { forkJoin } from 'rxjs';
 
 @Injectable()
 /**
- * This class checks the registration status of the user using getRegistrationStatus. If the user is not registered, 
- * registration-resolver redirects the user to registration page. If the registration can check the user ID and the 
+ * This class checks the registration status of the user using getRegistrationStatus. If the user is not registered,
+ * registration-resolver redirects the user to registration page. If the registration can check the user ID and the
  * their registration is submitted, then routes the user to RSVP page.
  */
 export class RegistrationResolver implements Resolve<Registration> {
@@ -40,7 +40,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         map(([registration, hackathon]) => {
           if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
             this.progress.complete();
-            this.router.navigate(['/rsvp']);
+            this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
           return registration;
