@@ -611,10 +611,19 @@ body {
     max-width: 45%;
   }
 
+  // Minor Nittany AI override {
+  .platinum .nittany-ai-day {
+    max-width: 50%;
+  }
+
   // Minor oracle override
   .oracle-day {
     max-width: 100%;
     margin-top: 7%;
+  }
+
+  .accuweather-day {
+    padding-top: 10%;
   }
 }
 
