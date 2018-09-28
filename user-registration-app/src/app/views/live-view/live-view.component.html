@@ -37,12 +37,45 @@
     <div class="col-12">
         <p id='countdown-text' class="text-center">{{bannerText}}</p>
     </div>
-    <div class="offset-md-4 col-md-4">
+    <div class="offset-md-4 col-md-4 d-flex">
         <a class="btn waves-effect waves-light submit-btn" target="_blank" href="https://join.slack.com/t/hackpsufall2018/shared_invite/enQtNDQ0MzE1OTQxNTcxLTljODEzYjMxZTBiY2EyMDhlM2NiOWVmODc2M2ZhNzQyMzE1NjRmYzZiZWE3ZDVmZDBkYmU3YTM0NjRmMThmZTg">Slack</a>
     </div>
   </div>
   <div class="page-header"></div>
 </section>
+
+<div class="section-separator">
+  <img class="section-separator-background first-border">
+</div>
+
+<div class="section-separator-bar"></div>
+
+<!-- Schedule -->
+<section id="schedule">
+  <div class="row section-title-container">
+    <div class="row">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Schedule</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+  </div>
+  <app-schedule-view></app-schedule-view>
+</section>
+
+<!-- Live Updates -->
+<section id="updates">
+    <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Live Updates</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+  <app-live-update></app-live-update>
+</section>
+
 <!-- Map & Rules Section -->
 <section id="map-rules">
   <div class="container-fluid">
@@ -342,47 +375,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<section id="schedule">
-  <div class="row section-title-container">
-    <div class="col-xs-6 section-title col-xs-offset-3">
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">S</div>
-        <div class="section-title-letter white-text">C</div>
-        <div class="section-title-letter white-text">H</div>
-        <div class="section-title-letter white-text">E</div>
-        <div class="section-title-letter white-text">D</div>
-        <div class="section-title-letter white-text">U</div>
-        <div class="section-title-letter white-text">L</div>
-        <div class="section-title-letter white-text">E</div>
-      </div>
-    </div>
-  </div>
-  <app-schedule-view></app-schedule-view>
-</section>
-
-<section id="updates">
-  <div class="row section-title-container">
-    <div class="col-xs-6 section-title col-xs-offset-3">
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">L</div>
-        <div class="section-title-letter white-text">I</div>
-        <div class="section-title-letter white-text">V</div>
-        <div class="section-title-letter white-text">E</div>
-      </div>
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">U</div>
-        <div class="section-title-letter white-text">P</div>
-        <div class="section-title-letter white-text">D</div>
-        <div class="section-title-letter white-text">A</div>
-        <div class="section-title-letter white-text">T</div>
-        <div class="section-title-letter white-text">E</div>
-        <div class="section-title-letter white-text">S</div>
-      </div>
-    </div>
-  </div>
-  <app-live-update></app-live-update>
 </section>
 
 <section id="workshops" class="container-fluid">
