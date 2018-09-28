@@ -1,49 +1,53 @@
 .header {
-    border-bottom: 1px solid white;
-  }
+  border-bottom: 1px solid white;
+}
 
-  .bouncy-bits {
-    position: absolute;
-    top: 50%;
-    left: 110%;
-    max-height: 60px;
-    max-width: 20%;
-  }
+.bouncy-bits {
+  position:   absolute;
+  top:        50%;
+  left:       110%;
+  max-height: 60px;
+  max-width:  20%;
+}
 
-  .card {
-    transition: transform;
-    background-color: white;
-    color: #101010;
-    border:none;
-    height: auto;
-  }
+.card {
+  transition:       transform;
+  background-color: white;
+  color:            #101010;
+  border:           none;
+  height:           auto;
+}
 
-  .table-of-contents a {
-    color: white;
-  }
+.card.medium .card-action {
+  position: relative;
+}
 
-  .btn {
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-    border: 2px solid white;
-    border-right-width: 8px;
-    border-left-width: 8px;
-    border-radius: 12px;
-  }
+.table-of-contents a {
+  color: white;
+}
 
-  .btn:hover {
-    background-color: #fff;
-    color: #333333;
-  }
+.btn {
+  background-color:   rgba(255, 255, 255, 0);
+  color:              white;
+  border:             2px solid white;
+  border-right-width: 8px;
+  border-left-width:  8px;
+  border-radius:      12px;
+}
 
-  .btn-flat {
-    background-color: transparent;
-  }
+.btn:hover {
+  background-color: #fff;
+  color:            #333333;
+}
 
-  .spinner-layer {
-    border-color: white;
-  }
+.btn-flat {
+  background-color: transparent;
+}
 
-  .input-field .email {
-    margin-bottom: 10%;
-  }
+.spinner-layer {
+  border-color: white;
+}
+
+/*.input-field .email {*/
+  /*margin-bottom: 10%;*/
+/*}*/
