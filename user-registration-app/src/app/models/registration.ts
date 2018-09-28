@@ -24,6 +24,7 @@ export class Registration {
   public veteran: string;
   public submitted: boolean;
   private hackathon: string;
+  public pin: string;
 
   public static parseJSON(value: any): Registration {
     const registration = new Registration();
@@ -52,6 +53,7 @@ export class Registration {
     registration.veteran = value.veteran;
     registration.submitted = !!value.submitted;
     registration.hackathon = value.hackathon;
+    registration.pin = value.pin;
     return registration;
   }
 

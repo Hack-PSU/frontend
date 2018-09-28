@@ -2,7 +2,7 @@
   <h3 class="center header">Table Assignment</h3>
 </div>
 <div *ngIf="show(); else sorry">
-  <div class="row" *ngIf="(response | json) === '{}'; else responseView">
+  <div class="row" *ngIf="!response; else responseView">
     <div class="col hide-on-small-only m2 l2 m2-offset-1 scrollspy-container">
       <ul class="section table-of-contents">
         <li><a href="#project-container">Project Name</a></li>
@@ -22,7 +22,8 @@
           <div class="card-content">
             <h5>What is the name of your project?</h5>
             <div class="input-field">
-              <label for="projectName-input" data-error="Project name is required">Enter your Project Name</label>
+              <label for="projectName-input" data-error="Project name is required">Enter your
+                Project Name</label>
               <input name="projectName"
                      id="projectName-input"
                      class="validate required"
@@ -41,10 +42,9 @@
       <!-- Team Members-->
       <div class="row scrollspy" id="team-member-container" materialize="scrollSpy">
         <div class="card medium darken-1">
-        <span class="card-title">
-          Team member emails
-        </span>
           <div class="card-content">
+            <span class="card-title">Team member emails</span>
+            <p>Enter the emails for everyone in your team</p>
             <div class="input-field" *ngFor="let $ of numberReturn(numTeamMembers); let i of index">
               <i class="material-icons prefix">email</i>
               <input type="email"
@@ -54,11 +54,11 @@
                      id="email-input-{{i}}"
                      required
                      autocomplete="email"
-                     placeholder="student@university.edu"
                      (keyup.enter)="update($event.target.value, i)"
                      (blur)="update($event.target.value, i)"
               >
-              <label for="email-input-{{i}}" data-error="Valid email is required">Enter email for teammate {{i}}</label>
+              <label for="email-input-{{i}}" data-error="Valid email is required">Enter email for
+                teammate {{i}}</label>
             </div>
           </div>
           <div class="card-action">
@@ -75,18 +75,10 @@
             <h5>What category does your project fall under?</h5>
             <p *ngFor="let category of categories">
               <input type="checkbox" id="{{category.categoryName}}"
-                     (change)="categoryToggled(category.categoryName, $event.target.checked)"/>
-              <label for="{{category.categoryName}}">{{category.categoryName}}</label>
+                     (change)="categoryToggled(category.uid, $event.target.checked)"/>
+              <label for="{{category.categoryName}}">{{category.isSponsor ? "Sponsor: " :
+                ""}}{{category.categoryName}}</label>
             </p>
-            <!--<div class="form-group">-->
-            <!--<input type="radio" class="with-gap" id="vr" required name="category" value="vr"-->
-            <!--#yearinput="ngModel"-->
-            <!--[(ngModel)]="tableForm.category">-->
-            <!--<label for="vr">Virtual Reality</label><br>-->
-            <!--<input type="radio" class="with-gap" id="iot" required name="category" value="iot"-->
-            <!--[(ngModel)]="tableForm.category">-->
-            <!--<label for="iot">Internet of Things</label><br>-->
-            <!--</div>-->
           </div>
         </div>
       </div>
@@ -99,7 +91,8 @@
           </div>
         </div>
         <div class="center">
-          <button *ngIf="!loading; else spinner" class="btn waves-effect waves-light submit-btn" type="submit"
+          <button *ngIf="!loading; else spinner" class="btn waves-effect waves-light submit-btn"
+                  type="submit"
                   name="action">Submit
             <i class="material-icons right">send</i>
           </button>
@@ -126,7 +119,9 @@
 <ng-template #responseView>
   <div class="card medium darken-1">
     <div class="card-content">
-      <h5>{{response}}</h5>
+      <h5>Your submission has been recorded</h5>
+      <p>Submission: {{response.projectName}}</p>
+      <p>Table Number: {{response.tableNumber || "Contact staff"}}</p>
     </div>
   </div>
 </ng-template>

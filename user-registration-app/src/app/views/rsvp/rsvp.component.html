@@ -3,24 +3,83 @@
     <div class="page-header text-center">
       <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> HackPSU RSVP </div>
     </div>
-    <div *ngIf="rsvpData?.rsvp_time === null; else result">
-      <div class="submitted-block">
-        <h5 class="center"> Will you be attending HackPSU? </h5>
-        <br>
+    <!--<ng-template #result>-->
+      <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
+        <div class="card-content">
+          <img src="../../../assets/images/logo2.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
+          <h4 class="center">We are very excited to see you this year on October 6!</h4>
+          <h5 class="center">Your pin is {{registrationData?.pin}}. Present this at check in.</h5>
+          <br/>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div style="width:70vw;margin:0 auto;display:block;">
         <div class="row">
-          <div class="col-sm-offset-4 col-sm-2">
-            <a class="btn btn-block btn-social" (click)="rsvp(false)">
-              No
-            </a>
+          <div class="col-md-4">
+            <h5>Location</h5>
+            <br/>
+            <br/>
+            The hackathon will take place at the Business Building.
+            The address is:
+            <br/>
+            <br/>
+            210 Business Building,
+            <br/>
+            University Park, PA 16802
           </div>
-          <div class="col-sm-2">
-            <a class="btn btn-block btn-social" (click)="rsvp(true)">
-              Yes
-            </a>
+          <div class="col-md-12 col-md-4 items">
+            <h5>Things to Bring</h5>
+            <br/>
+            <br/>
+            <ul>
+              <li>Computer/Laptop</li>
+              <li>Mouse</li>
+              <li>Power Cord</li>
+              <li>Backpack</li>
+              <li>Spare Clothes</li>
+              <li>Blanket</li>
+              <li>Chargers/Batteries</li>
+              <li>Headphones/Earphones</li>
+              <li>Swag</li>
+            </ul>
+          </div>
+          <div class="col-md-12 col-md-4">
+            <h5>Date & Time</h5>
+            <br/>
+            <br/>
+            <font size="5">
+              October 6-7
+            </font>
+            <font size="4">
+              <br/>
+              <br/>
+              12:30pm Saturday - 5:30pm Sunday
+              <br/>
+              Hacking starts at 2:00pm Saturday
+            </font>
           </div>
         </div>
       </div>
-    </div>
+    <!--</ng-template>-->
+    <!--<div *ngIf="rsvpData?.rsvp_time === null; else result">-->
+      <!--<div class="submitted-block">-->
+        <!--<h5 class="center"> Will you be attending HackPSU? </h5>-->
+        <!--<br>-->
+        <!--<div class="row">-->
+          <!--<div class="col-sm-offset-4 col-sm-2">-->
+            <!--<a class="btn btn-block btn-social" (click)="rsvp(false)">-->
+              <!--No-->
+            <!--</a>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2">-->
+            <!--<a class="btn btn-block btn-social" (click)="rsvp(true)">-->
+              <!--Yes-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </div>
 
@@ -36,68 +95,6 @@
   </div>
 </ng-template>
 
-<ng-template #result>
-  <div *ngIf="rsvpData?.rsvp_status; else notcoming">
-    <div class="card medium darken-1" style="color:black;width:70vw;margin:0 auto;display:block;">
-      <div class="card-content">
-	<img src="../../../assets/images/logo2.svg" style="filter:invert(0.8);width:50vh;margin:auto;display:block;"/>
-	<h4 class="center">We are very excited to see you this year on April 7!</h4>
-	<h5 class="center">Your pin is {{getPin()}}. Present this at check in.</h5>
-	<br/>
-      </div>
-    </div>
-    <br/>
-    <br/>
-    <div style="width:70vw;margin:0 auto;display:block;">
-      <div class="row">
-	<div class="col-md-4">
-	  <h5>Location</h5>
-	  <br/>
-	  <br/>
-	  The hackathon will take place at the Business Building.
-	  The address is:
-	  <br/>
-	  <br/>
-	  210 Business Building,
-	  <br/>
-	  University Park, PA 16802
-	</div>
-	<div class="col-md-12 col-md-4 items">
-	  <h5>Things to Bring</h5>
-	  <br/>
-	  <br/>
-	  <ul>
-            <li>Computer/Laptop</li>
-            <li>Mouse</li>
-            <li>Power Cord</li>
-            <li>Backpack</li>
-            <li>Spare Clothes</li>
-            <li>Blanket</li>
-            <li>Chargers/Batteries</li>
-            <li>Headphones/Earphones</li>
-            <li>Swag</li>
-	  </ul>
-	</div>
-	<div class="col-md-12 col-md-4">
-	  <h5>Date & Time</h5>
-	  <br/>
-	  <br/>
-	  <font size="5">
-            April 7-8
-	  </font>
-	  <font size="4">
-            <br/>
-            <br/>
-            12:30pm Saturday - 5:30pm Sunday
-            <br/>
-            Hacking starts at 2:00pm Saturday
-	  </font>
-	</div>
-      </div>
-    </div>
-  </div>
-</ng-template>
-
-<ng-template #notcoming>
-  <h4 class="center">Thank you for your response. We hope to see you next year!</h4>
-</ng-template>
+<!--<ng-template #notcoming>-->
+  <!--<h4 class="center">Thank you for your response. We hope to see you next year!</h4>-->
+<!--</ng-template>-->
