@@ -84,6 +84,18 @@
           .scrollSpy({ scrollOffset: 0 });
       });
   </script>
+
+  <!--Browser compatibility popup-->
+  <script>
+    var $buoop = {required:{e:0,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.09 };
+    function $buo_f(){
+      var e = document.createElement("script");
+      e.src = "//browser-update.org/update.min.js";
+      document.body.appendChild(e);
+    };
+    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+    catch(e){window.attachEvent("onload", $buo_f)}
+  </script>
   <noscript>
     <img height="1" width="1"
          src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
@@ -747,7 +759,7 @@
       <div class="col-sm-8 offset-sm-2">
         <!-- Nittany AI alliance -->
         <a href="https://www.nittanyai.psu.edu/" target="_blank">
-          <img src="assets/images/sponsors/nittany-ai-night.svg" alt="Nittany AI Alliance"
+          <img src="assets/images/sponsors/nittanyai-night.svg" alt="Nittany AI Alliance"
                class="img-fluid nittany-ai-day">
         </a>
       </div>
@@ -829,7 +841,7 @@
     </div>
 
     <!-- Bronze Sponsors -->
-    <div class="row bronze">
+    <div class="row bronze d-flex justify-content-center">
       <div class="col-sm-3">
         <!-- Accuweather -->
         <a href="https://www.accuweather.com/" target=_blank>
