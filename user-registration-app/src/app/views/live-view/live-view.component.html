@@ -1,48 +1,89 @@
+<!-- Landing -->
 <section id="home">
-  <!-- MLH Badge -->
-  <div class="white">
-    <a id="mlh-trust-badge"
-       href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
-       target="_blank"><img
-      src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg"
-      alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <img src="assets/images/all-white-emblem-f2018.svg" id="hackpsu-logo" class="animated rubberBand d-block mx-auto"
-      alt="hackpsulogo">
+  <div class="container-fluid">
+    <!-- MLH Badge -->
+    <div class="white">
+      <a id="mlh-trust-badge"
+        href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
+        target="_blank"><img
+        src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg"
+        alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
     </div>
-  </div>
-  <div class="row">
-    <div id='countdown-timer' class="d-flex justify-items-center">
-      <div id='days' class='unit'>
-        <div>{{days}}</div>
-        Days
-      </div>
-      <div id='hours' class='unit'>
-        <div>{{hours}}</div>
-        Hours
-      </div>
-      <div id='minutes' class='unit'>
-        <div>{{minutes}}</div>
-        Minutes
-      </div>
-      <div id='seconds' class='unit'>
-        <div>{{seconds}}</div>
-        Seconds
+    <!-- Emblem/Logo -->
+    <div class="row">
+      <div class="col-12">
+        <img src="assets/images/all-white-emblem-f2018.svg" id="hackpsu-logo" class="animated rubberBand d-block mx-auto"
+        alt="hackpsulogo">
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-        <p id='countdown-text' class="text-center">{{bannerText}}</p>
+    <!-- Countdown Timer -->
+    <div class="row">
+      <div id='countdown-timer' class="d-flex justify-items-center">
+        <div id='days' class='unit'>
+          <div>{{days}}</div>
+          Days
+        </div>
+        <div id='hours' class='unit'>
+          <div>{{hours}}</div>
+          Hours
+        </div>
+        <div id='minutes' class='unit'>
+          <div>{{minutes}}</div>
+          Minutes
+        </div>
+        <div id='seconds' class='unit'>
+          <div>{{seconds}}</div>
+          Seconds
+        </div>
+      </div>
     </div>
-    <div class="offset-md-4 col-md-4">
-        <a class="btn waves-effect waves-light submit-btn" target="_blank" href="https://join.slack.com/t/hackpsufall2018/shared_invite/enQtNDQ0MzE1OTQxNTcxLTljODEzYjMxZTBiY2EyMDhlM2NiOWVmODc2M2ZhNzQyMzE1NjRmYzZiZWE3ZDVmZDBkYmU3YTM0NjRmMThmZTg">Slack</a>
+    <!-- Slack Button & Banner Text -->
+    <div class="row">
+      <div class="col-12">
+          <p id='countdown-text' class="text-center">{{bannerText}}</p>
+      </div>
+      <div class="offset-md-4 col-md-4 d-flex">
+          <a class="btn waves-effect waves-light submit-btn" target="_blank" href="https://join.slack.com/t/hackpsufall2018/shared_invite/enQtNDQ0MzE1OTQxNTcxLTljODEzYjMxZTBiY2EyMDhlM2NiOWVmODc2M2ZhNzQyMzE1NjRmYzZiZWE3ZDVmZDBkYmU3YTM0NjRmMThmZTg">Slack</a>
+      </div>
     </div>
+    <div class="page-header"></div>
   </div>
-  <div class="page-header"></div>
 </section>
+
+<div class="section-separator">
+  <img class="section-separator-background first-border">
+</div>
+
+<div class="section-separator-bar"></div>
+
+<!-- Schedule -->
+<section id="schedule">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Schedule</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+  </div>
+  <app-schedule-view></app-schedule-view>
+</section>
+
+<!-- Live Updates -->
+<section id="updates">
+  <div class="container-fluid">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Live Updates</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+    <app-live-update></app-live-update>
+  </div>
+</section>
+
 <!-- Map & Rules Section -->
 <section id="map-rules">
   <div class="container-fluid">
@@ -94,6 +135,133 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Prizes -->
+<section id="prizes">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Prizes & Challenges</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+    <!-- Prizes -->
+    <div class="row justify-content-around">
+      <!-- Tech Prize (HackPSU) -->
+      <div class="col-md-5">
+        <div class="card blue-grey lighten-1">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="../../../assets/images/FB_Event_header.jpg">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator">HackPSU Tech Prize<i
+              class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title activator">HackPSU Overall Prize<i
+              class="material-icons right">close</i></span>
+            <h5>Creativity & Originality</h5>
+            <ol class="info-list">
+              <li>Is the solution novel, original and not-obvious?</li>
+              <li>How different is the design from current solutions?</li>
+              <li>Does it approach the problem from an unusual or different perspective?</li>
+              <li>How creative is the problem statement?</li>
+              <li>Does the solution address a problem which is novel, original and not-obvious?</li>
+            </ol>
+            <h5>Technical Skills</h5>
+            <ol class="info-list">
+              <li>Was the solution technically challenging? (Taking into account team size and measured relative
+                to
+                competition)
+              </li>
+              <li>How intricate was the solution?</li>
+              <li>Did the solution pose a challenge to the group?</li>
+            </ol>
+            <h5>Implementation</h5>
+            <ol class="info-list">
+              <li>Was the solution effective in addressing the problem?</li>
+              <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
+              <li>Is the solution needlessly complex?</li>
+              <li>Overall, is the solution viable in addressing the problem statement?</li>
+            </ol>
+            <h5>Clarity</h5>
+            <ol class="info-list">
+              <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
+              <li>Were the topics accessible to the audience?</li>
+              <li>Were all obscure acronyms or jargon explained?</li>
+            </ol>
+            <h5>Knowledge</h5>
+            <ol class="info-list">
+              <li>How effectively did the team handle questions?</li>
+              <li>Did the team demonstrate knowledge of the subject matter?</li>
+            </ol>
+            <h5>Prizes:</h5>
+            <h6>$500 Amazon Gift card for 1st place</h6>
+            <h6>$300 Amazon gift card for 2nd place</h6>
+            <h6>$200 Amazon gift card for 3rd place</h6>
+          </div>
+        </div>
+      </div>
+      <!-- Design Prize (HackPSU) -->
+      <div class="col-md-5">
+          <div class="card blue-grey lighten-1">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="../../../assets/images/FB_Event_header.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator">HackPSU Design Prize<i
+                class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title activator">HackPSU Overall Prize<i
+                class="material-icons right">close</i></span>
+              <h5>Creativity & Originality</h5>
+              <ol class="info-list">
+                <li>Is the solution novel, original and not-obvious?</li>
+                <li>How different is the design from current solutions?</li>
+                <li>Does it approach the problem from an unusual or different perspective?</li>
+                <li>How creative is the problem statement?</li>
+                <li>Does the solution address a problem which is novel, original and not-obvious?</li>
+              </ol>
+              <h5>Technical Skills</h5>
+              <ol class="info-list">
+                <li>Was the solution technically challenging? (Taking into account team size and measured relative
+                  to
+                  competition)
+                </li>
+                <li>How intricate was the solution?</li>
+                <li>Did the solution pose a challenge to the group?</li>
+              </ol>
+              <h5>Implementation</h5>
+              <ol class="info-list">
+                <li>Was the solution effective in addressing the problem?</li>
+                <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
+                <li>Is the solution needlessly complex?</li>
+                <li>Overall, is the solution viable in addressing the problem statement?</li>
+              </ol>
+              <h5>Clarity</h5>
+              <ol class="info-list">
+                <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
+                <li>Were the topics accessible to the audience?</li>
+                <li>Were all obscure acronyms or jargon explained?</li>
+              </ol>
+              <h5>Knowledge</h5>
+              <ol class="info-list">
+                <li>How effectively did the team handle questions?</li>
+                <li>Did the team demonstrate knowledge of the subject matter?</li>
+              </ol>
+              <h5>Prizes:</h5>
+              <h6>$500 Amazon Gift card for 1st place</h6>
+              <h6>$300 Amazon gift card for 2nd place</h6>
+              <h6>$200 Amazon gift card for 3rd place</h6>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
@@ -342,47 +510,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<section id="schedule">
-  <div class="row section-title-container">
-    <div class="col-xs-6 section-title col-xs-offset-3">
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">S</div>
-        <div class="section-title-letter white-text">C</div>
-        <div class="section-title-letter white-text">H</div>
-        <div class="section-title-letter white-text">E</div>
-        <div class="section-title-letter white-text">D</div>
-        <div class="section-title-letter white-text">U</div>
-        <div class="section-title-letter white-text">L</div>
-        <div class="section-title-letter white-text">E</div>
-      </div>
-    </div>
-  </div>
-  <app-schedule-view></app-schedule-view>
-</section>
-
-<section id="updates">
-  <div class="row section-title-container">
-    <div class="col-xs-6 section-title col-xs-offset-3">
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">L</div>
-        <div class="section-title-letter white-text">I</div>
-        <div class="section-title-letter white-text">V</div>
-        <div class="section-title-letter white-text">E</div>
-      </div>
-      <div class="section-title-word">
-        <div class="section-title-letter white-text">U</div>
-        <div class="section-title-letter white-text">P</div>
-        <div class="section-title-letter white-text">D</div>
-        <div class="section-title-letter white-text">A</div>
-        <div class="section-title-letter white-text">T</div>
-        <div class="section-title-letter white-text">E</div>
-        <div class="section-title-letter white-text">S</div>
-      </div>
-    </div>
-  </div>
-  <app-live-update></app-live-update>
 </section>
 
 <section id="workshops" class="container-fluid">
@@ -1178,3 +1305,153 @@
 </section>
 
 <script src="live-view.component.js"></script>
+
+<!-- Old Prize Section -->
+<!-- <div class="row">
+  <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="card blue-grey lighten-1">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="../../../assets/images/FB_Event_header.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator">HackPSU Overall Prize<i
+          class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title activator">HackPSU Overall Prize<i
+          class="material-icons right">close</i></span>
+        <h5>Creativity & Originality</h5>
+        <ol class="info-list">
+          <li>Is the solution novel, original and not-obvious?</li>
+          <li>How different is the design from current solutions?</li>
+          <li>Does it approach the problem from an unusual or different perspective?</li>
+          <li>How creative is the problem statement?</li>
+          <li>Does the solution address a problem which is novel, original and not-obvious?</li>
+        </ol>
+        <h5>Technical Skills</h5>
+        <ol class="info-list">
+          <li>Was the solution technically challenging? (Taking into account team size and measured relative
+            to
+            competition)
+          </li>
+          <li>How intricate was the solution?</li>
+          <li>Did the solution pose a challenge to the group?</li>
+        </ol>
+        <h5>Implementation</h5>
+        <ol class="info-list">
+          <li>Was the solution effective in addressing the problem?</li>
+          <li>Was the solution easy to operate for the target demographic? (user friendliness)</li>
+          <li>Is the solution needlessly complex?</li>
+          <li>Overall, is the solution viable in addressing the problem statement?</li>
+        </ol>
+        <h5>Clarity</h5>
+        <ol class="info-list">
+          <li>Was the team able to convey their ideas in a way understandable to the audience?</li>
+          <li>Were the topics accessible to the audience?</li>
+          <li>Were all obscure acronyms or jargon explained?</li>
+        </ol>
+        <h5>Knowledge</h5>
+        <ol class="info-list">
+          <li>How effectively did the team handle questions?</li>
+          <li>Did the team demonstrate knowledge of the subject matter?</li>
+        </ol>
+        <h5>Prizes:</h5>
+        <h6>$500 Amazon Gift card for 1st place</h6>
+        <h6>$300 Amazon gift card for 2nd place</h6>
+        <h6>$200 Amazon gift card for 3rd place</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-5 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="card blue-grey lighten-2">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="../../../assets/images/PSUIT_original.svg" style="width: 50%; left: 25%">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator">Hack the classroom with Alexa<i class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title activator">Hack the classroom with Alexa<i
+          class="material-icons right">close</i></span>
+        <p>Hack the classroom by building an Alexa skill that enhances teaching and learning in the
+          classroom.<br/><br/>
+
+          Judging criteria will be the same as HackPSU's general judging criteria
+        </p>
+        <h5>Prizes:</h5>
+        <h6>Amazon Echos (2nd Generation) for 1st place</h6>
+        <h6>Amazon Echo Dots (2nd Generation) for 2nd place</h6>
+        <h6>$25 Amazon gift cards for 3rd place</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="card blue-grey lighten-1">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="../../../assets/images/GeneralMotors.svg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator">Autonomous RC Car<i
+          class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title activator">Autonomous RC Car<i class="material-icons right">close</i></span>
+        <p>General Motors' Vision is Zero Crashes, Zero Emissions, and Zero Congestion.
+          Use the provided RC car, sensors, Arduino, etc to demonstrate autonomous driving
+          and/or driver assistance features for vehicles.</p>
+        <h6>Prize: $100 Lyft credit and an Extech Multimeter Kit</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-5 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="card blue-grey lighten-3">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="../../../assets/images/GoogleCloudPlatform.svg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator">Google Cloud Platform Challenge<i class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>Google Cloud Platform Challenge</span>
+        <p>The product meets deliverables, is creative, and has high clarity. We encourage you
+          to be creative with what already exists, such as in-phone technology, but we still
+          want your idea to be out of the box. Ideal responses will be user-friendly, and
+          explore ways to encourage adherence to the program.</p>
+        <h6> Prize: 4 Google Home Minis and 4 Chromecasts</h6>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="card blue-grey lighten-1">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="../../../assets/images/GSK_original.svg" style="width: 50%; left: 25%">
+      </div>
+      <div class="card-content">
+      <span class="card-title activator">Sleep Tracker Solution<i
+        class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title activator">Sleep Tracker Solution<i
+          class="material-icons right">close</i></span>
+        <p>We are seeking a simple solution to monitor sleep and wakefulness. This could be a mobile
+          app that uses the microphone in one's phone to record patterns and/ or monitor sleep and breathing,
+          or by taking a completely different approach to tracking sleep that doesn't require a phone. Other
+          alternative solutions could involve targeting less tech-savvy patients who might be more included to
+          use something other than a smartphone.<br/><br/>
+
+          Our goal is to measure all aspects of sleep quality e.g. duration, periods of wakefulness, hours,
+          times
+          waking, episodes of sleepiness during the day, coughing, breathlessness, wheezing etc.</p>
+        <h6>Prize: $1,600</h6>
+      </div>
+    </div>
+  </div>
+  </div> -->

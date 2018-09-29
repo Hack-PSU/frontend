@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgProgress } from '@ngx-progressbar/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
 import { AppConstants } from '../../AppConstants';
