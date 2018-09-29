@@ -1,5 +1,6 @@
 :host {
   margin-top: 30vh;
+  width: 100%;
 }
 
 :host .card {
@@ -9,6 +10,7 @@
   -o-transition: translate 0.1s;
   transition: translate 0.1s;
   overflow: visible;
+  width: 100%;
 }
 
 textarea {

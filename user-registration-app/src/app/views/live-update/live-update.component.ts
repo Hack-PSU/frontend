@@ -3,6 +3,7 @@ import { LiveUpdatesService } from '../../services/LiveUpdatesService/live-updat
 import { UpdateModel } from '../../models/update-model';
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { BaseComponent } from "../base/base.component";
 
 declare var $: any;
 
