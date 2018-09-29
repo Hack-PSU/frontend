@@ -11,8 +11,6 @@ import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-ha
 import { Rsvp } from '../../models/rsvp';
 import 'rxjs-compat/add/operator/shareReplay';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
-import { EventModel } from "../../models/event-model";
-import { ProjectModel } from "../../models/project-model";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -23,14 +21,6 @@ export class HttpService extends BaseHttpService {
               ngProgress: NgProgress,
   ) {
     super(http, authService, errorHandler, ngProgress);
-  }
-
-  getUpdatesReference(): Observable<string> {
-    const API_ENDPOINT = 'live/updates/reference';
-    return this.get(API_ENDPOINT)
-      .pipe(
-        map(object => object.reference),
-      );
   }
 
   getRegistrationStatus(): Observable<Registration> {
@@ -117,21 +107,5 @@ export class HttpService extends BaseHttpService {
       .pipe(
         map(Rsvp.parseJSON),
       );
-  }
-
-  getEvents() {
-    const API_ENDPOINT = 'live/events';
-    return this.get(API_ENDPOINT, false, false)
-      .pipe(
-        map(EventModel.parseFromJSONArray),
-      );
-  }
-
-  getProjectDetails() {
-    const API_ENDPOINT = 'users/project';
-    return this.get(API_ENDPOINT, false, true)
-      .pipe(
-        map(ProjectModel.parseFromJSON),
-      )
   }
 }
