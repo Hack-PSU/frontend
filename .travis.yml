@@ -12,13 +12,13 @@ before_deploy:
 - cd user-registration-app && npm install && ng build --prod && cd ..
 - rvm default do gem install aws-sdk -v 2.1.36
 deploy:
-- provider: firebase
-  project: hackpsu18
-  on:
-    branch: master
-    repo: Hack-PSU/hackPSU-Frontend
-  token:
-      secure: "Z5uzWBo05JaQkk6OyNenzj3G2z0+5TzuUkxxkvWJe3YMFvNhzy+wOLmAWCn4407gaNZqQWCZYAw0S1OD+iW7UJjl1LYsEjXc/49R7hLS2UZ3ZkXErCLBGXZ7j14siNhKsMz0vcHEbJD1stwGGMWnmq4igG3tuMfqmEAwEnvInTkn/Up3iCSu7AIDkZIbXiEjNRjcSAc+ubI7iEPRHCPf5uYVZ5PhWugxriVucubPQ3oIbKped2oOkf2taGIKCGTJPqFJoD3HJ6FuPCfJzOQuDQS9p4PXv8KEnFNoR1B1b6XWnmjNJI+GTwYOUegjFMGZTTpCUVesh9lOGmyZLvZWAO73Y+rvtcFu2uaGERXJ6z1TKj791YgMZjjo1GoSypDlPLGTGhnYei59FUl9NgfOvJAtZaUdjx+HCSaGkSh2q9PAD5zWfAOEx/gmfucjONEUFlz6+QQ8uz34GG7lMxhEKEUNxOtwO0BbPwAVYEsa/T+Bu1GFW5sS5Fg7JOuQ/VxNWy0r09YIou11OONDY8DPUbwCDOP5A7Xr9iBnKNVgzi5DrVLdE9H8Apw/XszmmGvyu3tmZQImMEm/VlWvkz0LC/+NfC7QB8e3J0D6oWoZvuFeZ2+ek9QIGA4M+loOCrckxgi030xKVJfG8fQnkSCnCXeDvnIThlIbMIMxUQRWisU="
+#- provider: firebase
+#  project: hackpsu18
+#  on:
+#    branch: master
+#    repo: Hack-PSU/hackPSU-Frontend
+#  token:
+#      secure: "Z5uzWBo05JaQkk6OyNenzj3G2z0+5TzuUkxxkvWJe3YMFvNhzy+wOLmAWCn4407gaNZqQWCZYAw0S1OD+iW7UJjl1LYsEjXc/49R7hLS2UZ3ZkXErCLBGXZ7j14siNhKsMz0vcHEbJD1stwGGMWnmq4igG3tuMfqmEAwEnvInTkn/Up3iCSu7AIDkZIbXiEjNRjcSAc+ubI7iEPRHCPf5uYVZ5PhWugxriVucubPQ3oIbKped2oOkf2taGIKCGTJPqFJoD3HJ6FuPCfJzOQuDQS9p4PXv8KEnFNoR1B1b6XWnmjNJI+GTwYOUegjFMGZTTpCUVesh9lOGmyZLvZWAO73Y+rvtcFu2uaGERXJ6z1TKj791YgMZjjo1GoSypDlPLGTGhnYei59FUl9NgfOvJAtZaUdjx+HCSaGkSh2q9PAD5zWfAOEx/gmfucjONEUFlz6+QQ8uz34GG7lMxhEKEUNxOtwO0BbPwAVYEsa/T+Bu1GFW5sS5Fg7JOuQ/VxNWy0r09YIou11OONDY8DPUbwCDOP5A7Xr9iBnKNVgzi5DrVLdE9H8Apw/XszmmGvyu3tmZQImMEm/VlWvkz0LC/+NfC7QB8e3J0D6oWoZvuFeZ2+ek9QIGA4M+loOCrckxgi030xKVJfG8fQnkSCnCXeDvnIThlIbMIMxUQRWisU="
 - provider: s3
   skip_cleanup: true
   access_key_id: AKIAI2D52LBRN2V2Z2MQ
