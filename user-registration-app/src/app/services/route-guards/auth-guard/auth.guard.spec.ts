@@ -33,7 +33,7 @@ describe('AuthGuard', () => {
        spyOnProperty(authServiceSpy, 'currentUser', 'get').and.returnValue(Observable.of(user));
 
       // When: Run AuthGuard validation.
-       const resultObservable = guard.canActivate(null, { url: '/rsvp', root: null });
+       const resultObservable = guard.canActivate(null, { url: '/pin', root: null });
 
       // Then: Auth guard returns true.
        resultObservable.subscribe(result => expect(result).toBeTruthy());

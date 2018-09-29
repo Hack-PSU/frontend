@@ -54,7 +54,7 @@ const routes: Routes = [
     resolve: { tableAssignment: TableAssignmentResolver },
   },
   {
-    path: 'rsvp',
+    path: 'pin',
     component: RsvpComponent,
     canActivate: [AuthGuard, RegistrationGuard],
     resolve: { registration: RsvpResolver },
