@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
   api_url: 'https://api.hackpsu.org/v1/',
-  socket_url: 'https://api.hackpsu.org',
   firebase: {
     apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
     authDomain: 'hackpsu18.firebaseapp.com',
