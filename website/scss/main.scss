@@ -32,6 +32,7 @@ $break-large: 1200px;
   src:         url('../assets/fonts/Cornerstone.ttf');
 }
 
+
 /* ====================== MIXINS ====================*/
 @mixin accent($color) {
   color:            $color;
@@ -561,30 +562,48 @@ body {
 
 /* Workshops */
 #workshops {
-  color:            white;
-  font-family:      'Lato', sans-serif;
-  font-weight:      bold;
-  padding-top:      25px;
+  padding-top:      100px;
   padding-bottom:   25px;
   background-color: #194E6B;
 
-  .live__scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
+  .item {
+    font-family:      'Lato', sans-serif;
+    background:     white;
+    border-radius:  7px 7px 7px 7px;
+    color:          #424242;
+    padding:        3% 6% 3% 6%;
+    cursor:         hand;
+    font-size:      large;
+    height:         35%;
+    text-align:     left;
+    }
+
+  .item h5 {
+    font-size:      20px;;
+  }
+
+  .profile {
+    position:       relative;
+    display:        block;
+    width:          100%;
+    margin:         5%;
+    padding-top:    3%;    
+    text-align:     right;
+    font-weight:   lighter;
+  }
+
+  .profile img {
+    border-radius: 50%;
+    float:         left;
+    width:         28%;
+    vertical-align:middle;
+    border:        solid 1px $mountain-blue;
 }
-.live__scroll .row{
-  display:block;
-}
-.live__scroll .live__scroll--box {
-  display:          inline-block;
-  float:            none;
-  padding:          5px;
-  border-radius:    7px 7px 7px 7px;
-  border:           1px solid white;
-  background:       white;
-  color:            $mountain-blue;
-}
+  .profile span {
+    float: left;
+    padding:      3%;
+    vertical-align:middle;
+  }
 }
 
 /* Sponsors */
