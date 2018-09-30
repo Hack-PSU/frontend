@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressValidator } from 'address-validator';
 import { HttpService } from '../../services/HttpService/HttpService';
-import { AppConstants } from '../../AppConstants';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from "../../../environments/environment";
+import { ProjectModel } from "../../models/project-model";
 
 declare var $: any;
 
@@ -16,59 +16,48 @@ declare var $: any;
 export class TableAssignmentViewComponent implements OnInit {
 
   public tableForm: any;
-  public user: any;
   public loading = false;
   public errors = null;
-  public response = {};
+  public response: ProjectModel;
   public categories: any[];
   public numTeamMembers = 0;
 
-  constructor(private httpService: HttpService, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(public router: Router,
+              private route: ActivatedRoute,
+              private httpService: HttpService,
+  ) {
     this.tableForm = {};
-    this.tableForm.team = new Array(4);
-    this.tableForm.categories = ['HackPSU'];
+    this.response = null;
+    this.tableForm.team = [];
+    this.tableForm.categories = [0];
   }
 
   ngOnInit() {
-    this.loading = true;
-    this.afAuth.auth.onAuthStateChanged((user) => {
-      this.loading = false;
-      if (!user) {
-        this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-      } else {
-        this.user = user;
-        this.httpService.getTableAssignment()
-          .subscribe((value) => {
-            this.response = value;
-          },         error => this.errors = error);
-        this.httpService.getCategories()
-          .subscribe((value: any[]) => {
-            console.log(value);
-            this.categories = value.filter(e => e.categoryName !== 'HackPSU');
-          },         (error) => {
-            this.errors = error;
-          });
-      }
-    });
+    this.route.data
+      .subscribe(({ tableAssignment }) => {
+        this.response = tableAssignment;
+      });
+    this.httpService.getCategories()
+      .subscribe((value: any[]) => {
+        this.categories = value.filter(e => e.categoryName !== 'HackPSU');
+      });
   }
 
   onError() {
     $('html, body').animate({
       scrollTop: 0,
-    },                      1000);
+    }, 1000);
   }
 
   onSubmit() {
-    console.log(this.tableForm);
     this.loading = true;
-    this.httpService.submitTableAssignment(this.tableForm, this.user.uid)
+    this.httpService.submitTableAssignment(this.tableForm)
       .subscribe((value: any) => {
         this.response = value.result;
         this.loading = false;
-      },         (error: Error) => {
-        this.errors = error;
+      }, () => {
         this.loading = false;
-      });
+      })
   }
 
   categoryToggled(categoryName, checked) {
@@ -102,6 +91,6 @@ export class TableAssignmentViewComponent implements OnInit {
   }
 
   show() {
-    return new Date().getTime() > new Date('April 8, 2018 18:00:00').getTime();
+    return Date.now() > environment.hackathonStartTime.getTime();
   }
 }

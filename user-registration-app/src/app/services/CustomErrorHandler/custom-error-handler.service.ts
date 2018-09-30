@@ -33,9 +33,9 @@ export class CustomErrorHandlerService {
     if (error.status >= 500) {
       throw new Error('Server error');
     }
-    const body = error.message;
+    const { message } = error.error;
     const title = error.name || 'Internal Server Error.';
-    return { title, body };
+    return { title, message };
   }
 
   private createCustomError(error: HttpErrorResponse): HttpErrorResponse {
@@ -43,7 +43,7 @@ export class CustomErrorHandlerService {
     try {
       const parsedError = this.parseCustomServerError(error);
       const responseOptions = {
-        error: { title: parsedError.title, message: parsedError.body },
+        error: { title: parsedError.title, message: parsedError.message },
         status: 400,
         headers: null,
         url: null,
@@ -70,7 +70,8 @@ export class CustomErrorHandlerService {
   public handleHttpError(error: HttpErrorResponse): Observable<Error> {
     const customError = this.createCustomError(error);
     const parsedError = CustomErrorHandlerService.tryParseError(customError);
-    return this.handleError(parsedError);
+    this.showToast(parsedError);
+    return Observable.throwError(parsedError);
   }
 
   public handleError(error: GenericError): Observable<Error> {
