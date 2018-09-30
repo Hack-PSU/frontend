@@ -198,7 +198,7 @@ export class RegistrationFormComponent implements OnInit {
         take(1),
       )
       .subscribe(() => {
-        this.router.navigate(['/rsvp'])
+        this.router.navigate(['/pin'])
           .then(() => this.progress.complete());
       });
   }
