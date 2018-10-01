@@ -383,6 +383,16 @@ footer {
   border-radius: 10px;
 }
 
+.first-border {
+  margin-top: -15vh;
+}
+
+@media screen and (max-width: 568px) {
+  .first-border {
+    margin-top: -5vh;
+  }
+}
+
 .boxed-text {
   border: 5px solid #6C88B7;
   border-radius: 15px;
