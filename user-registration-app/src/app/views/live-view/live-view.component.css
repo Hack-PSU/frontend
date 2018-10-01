@@ -379,8 +379,48 @@ footer {
   font-size: x-small;
 }
 
+.rounded-more {
+  border-radius: 10px;
+}
+
+.boxed-text {
+  border: 5px solid #6C88B7;
+  border-radius: 15px;
+}
+
+.prize-col {
+  padding-top: 8vh;
+}
+
+.prize-title p {
+  font-family: 'Cornerstone', sans-serif !important;
+  font-size: 2.15em;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.prize-img {
+  max-width: 50%;
+  box-shadow: -1px 3px 5px 0px rgba(10, 10, 10, 0.55)
+}
+
+.prizes-text {
+  font-size: 1.25em;
+  padding-top: 5vh;
+}
+
+.prizes-text p {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.prizes-text span {
+  color: #e5704c;
+  font-weight: 700;
+}
+
 #prizes .card {
-  min-height: 250px;
+  min-height: 150px;
 }
 
 #prizes h6 {
@@ -388,10 +428,27 @@ footer {
 }
 
 
+.card {
+  border-width: 8px;
+  border-radius: 10px;
+}
+
+.card-image {
+  max-height: 100% !important;
+}
+
 .card-title {
   font-size: 1.5em;
   font-family: 'Cornerstone', 'Lato', sans-serif;
   color: #ffffff;
+}
+
+.card-reveal .card-title {
+  color: #424242;
+}
+
+.card-content {
+  max-width: 500px;
 }
 
 .card .card-content .card-title {
@@ -401,6 +458,9 @@ footer {
 
 .card-reveal {
   color: black;
+}
+
+.card-image {
 }
 
 .tabs .tab a {
