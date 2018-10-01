@@ -574,35 +574,48 @@ body {
     padding:        3% 6% 3% 6%;
     cursor:         hand;
     font-size:      large;
-    height:         35%;
+    height:         32%;;
     text-align:     left;
     }
 
   .item h5 {
-    font-size:      20px;;
+    font-size:      20px;
+  }
+
+  .tag {
+    font-size:      16px;
   }
 
   .profile {
-    position:       relative;
-    display:        block;
     width:          100%;
-    margin:         5%;
-    padding-top:    3%;    
-    text-align:     right;
-    font-weight:   lighter;
+    padding-top:    3%;
+    padding-bottom: 0;    
+    height:         70%;
   }
 
   .profile img {
-    border-radius: 50%;
-    float:         left;
-    width:         28%;
-    vertical-align:middle;
+    border-radius: 100%;
     border:        solid 1px $mountain-blue;
 }
-  .profile span {
-    float: left;
-    padding:      3%;
-    vertical-align:middle;
+
+  .presenter p{
+    padding:   1% 4% 0 3%;
+    margin:    0;
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .item {
+      height: 50%;
+    }
+
+    .profile img {
+      width: 20%;
+    }
+
+    .profile presenter{
+      width: 70%;
+    }
   }
 }
 
