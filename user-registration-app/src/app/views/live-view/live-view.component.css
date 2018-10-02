@@ -34,6 +34,23 @@ many of the utlities in Bootstrap, so undoing it here.*/
   width: 100%;
 }
 
+#rules li{
+  padding: 0 10px;
+  font-weight: bold;
+}
+.left-side{
+  /* background:#9FC2CC; */
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 0;
+}
+.right-side{
+  /* text-align: right; */
+  font-size: 1em;
+  /* background-color: #6FA7B3; */
+  margin: 10px 0;
+}
+
 @media screen and (max-width: 768px) {
 
   #countdown-timer .unit {
