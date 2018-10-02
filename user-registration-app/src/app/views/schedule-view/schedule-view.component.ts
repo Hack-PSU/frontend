@@ -35,53 +35,53 @@ export class ScheduleViewComponent implements OnInit {
   private idtoken: Observable<any>;
 
   constructor(private afAuth: AngularFireAuth, private eventsService: EventsService, private _router: Router) {
-    this.eventsService.subject(new Event('connected'))
-      .subscribe(() => {
-        this.activities = [];
-        this.meals = [];
-        this.workshops = [];
-        this.error = null;
-        this.progress = null;
-      });
-    this.eventsService.subject(new Event('disconnected'))
-      .subscribe(() => {
-        this.activities = [];
-        this.meals = [];
-        this.workshops = [];
-        this.loading = true;
-      });
-    this.afAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.idtoken = observableFrom(user.getIdToken(true));
-        this.idtoken.subscribe((value) => {
-          this.eventsService.getEvents().subscribe((events: EventModel[]) => {
-            console.log(events);
-            events.forEach((m) => {
-              // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {
-              switch (m.event_type) {
-                case 'activity':
-                  this.activities.push(m);
-                  break;
-                case 'food':
-                  this.meals.push(m);
-                  break;
-                case 'workshop':
-                  this.workshops.push(m);
-                  break;
-                default:
-                  break;
-              }
-              // }
-            });
-
-          });
-        },                     (error) => {
-          this.error = error;
-        });
-      } else {
-        this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
-      }
-    });
+    // this.eventsService.subject(new Event('connected'))
+    //   .subscribe(() => {
+    //     this.activities = [];
+    //     this.meals = [];
+    //     this.workshops = [];
+    //     this.error = null;
+    //     this.progress = null;
+    //   });
+    // this.eventsService.subject(new Event('disconnected'))
+    //   .subscribe(() => {
+    //     this.activities = [];
+    //     this.meals = [];
+    //     this.workshops = [];
+    //     this.loading = true;
+    //   });
+    // this.afAuth.auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.idtoken = observableFrom(user.getIdToken(true));
+    //     this.idtoken.subscribe((value) => {
+    //       this.eventsService.getEvents().subscribe((events: EventModel[]) => {
+    //         console.log(events);
+    //         events.forEach((m) => {
+    //           // if (new Date().getTime() < parseInt(m.event_end_time, 10)) {
+    //           switch (m.event_type) {
+    //             case 'activity':
+    //               this.activities.push(m);
+    //               break;
+    //             case 'food':
+    //               this.meals.push(m);
+    //               break;
+    //             case 'workshop':
+    //               this.workshops.push(m);
+    //               break;
+    //             default:
+    //               break;
+    //           }
+    //           // }
+    //         });
+    //
+    //       });
+    //     },                     (error) => {
+    //       this.error = error;
+    //     });
+    //   } else {
+    //     this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
+    //   }
+    // });
   }
 
   ngOnInit() {

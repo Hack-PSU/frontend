@@ -79,7 +79,7 @@ $break-large: 1200px;
 
 header {
   @include background-size(cover);
-  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg, #24577c 0%,#24577c 45%,#133753 69%,#000000 100%);
+  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg ,#133753 69%,#000000 100%);
 }
 
 .landing {
@@ -134,7 +134,7 @@ header {
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(1em, .7em, 1.5em, 1em);
+    @include responsive-font(.85em, .8em, 1.25em, 1em);
     max-font-size: 2em;
 
     p {
@@ -241,26 +241,35 @@ header {
       top: 0px;
       margin: auto;
       width: 100%;
-      // padding-right: 5%;
       z-index: 200;
       content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
     }
     .mountain:after {
       content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
     }
+    @media screen and (max-width: $lg-break) {
+      .mountain {
+        margin-top: 10vh;
+      }
+      .cloud-1, .cloud-2, .cloud-3 {
+        margin-top: 6vh;
+      }
+    }
 
   }
 
 }
 
-.first-border{
-  content: url("../assets/images/border2-night.svg");
+.section-separator {
+  background: #133753;
 }
 
-.first-border:after {
-  content: url("../assets/images/border2-night.svg");
+.first-border {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
 }
-
+.first-border::after {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
+}
 
 .second-border {
   content: url("../assets/images/border6-night.svg");
@@ -279,10 +288,13 @@ header {
 }
 
 #about {
-
-  background: linear-gradient(0deg, #3581b7 10%, #2a6590 69%, #24577c 100%);
+  background: #133753;
   /*//background-color: #103147;*/
-  padding-bottom: 5%;
+  // padding-bottom: 5%;
+  // This margin removes that thin white line that appears at some screen sizes where the
+  // about section meets other divs above and below it.
+  margin-top: -1px;
+  margin-bottom: -1px;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
   }
@@ -336,5 +348,10 @@ header {
   }
   .bronze img {
     max-width: 50%;
+  }
+
+  .gold .oracle-day {
+    max-width: 100%;
+    margin-top: 13%;
   }
 }
