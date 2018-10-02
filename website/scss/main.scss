@@ -561,11 +561,18 @@ body {
 
   @media screen and (max-width: 768px) {
     .schedule-right {
+      padding-left: 0px;
       border: none;
+    }
+    .schedule-right div {
+      padding-top: .5vh;
     }
 
     .schedule-left {
-      padding-left: 10%;
+      padding-top: 10px;
+    }
+    .schedule-left div {
+      padding-top: .5vh;
     }
 
     .schedule-header {
