@@ -238,6 +238,7 @@ body {
       This can be applied to any text structured in the same way as the
       event info. */
       .wrapped-box {
+        padding-left: 0px;
         p span {
           @include accent-text($white);
           background:     $mountain-blue;
@@ -263,6 +264,9 @@ body {
           div {
             padding-left: 0px;
           }
+        }
+        .event-info div {
+          padding-left: 0px;
         }
         .cta {
           padding-top: 5vh;
