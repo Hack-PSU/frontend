@@ -567,14 +567,14 @@ body {
   background-color: #194E6B;
 
   .item {
-    font-family:      'Lato', sans-serif;
+    font-family:    'Lato', sans-serif;
     background:     white;
     border-radius:  7px 7px 7px 7px;
     color:          #424242;
     padding:        3% 6% 3% 6%;
     cursor:         hand;
     font-size:      large;
-    height:         32%;;
+    height:         32%;
     text-align:     left;
     }
 
@@ -589,7 +589,7 @@ body {
   .profile {
     width:          100%;
     padding-top:    3%;
-    padding-bottom: 0;    
+    padding-bottom: 0;  
     height:         70%;
   }
 
@@ -598,7 +598,7 @@ body {
     border:        solid 1px $mountain-blue;
 }
 
-  .presenter p{
+  .presenter p {
     padding:   1% 4% 0 3%;
     margin:    0;
     font-size: 15px;
@@ -606,15 +606,29 @@ body {
 
   @media screen and (max-width: 768px) {
     .item {
-      height: 50%;
+      height: 48%;
     }
 
     .profile img {
-      width: 20%;
+      padding: 0;
+      width: 40%;
     }
 
-    .profile presenter{
-      width: 70%;
+  }
+
+  @media screen and (max-width: 550px) {
+    .item {
+      height: 46%;
+    }
+
+    .profile img {
+      padding: 0;
+      width: 30%;
+    }
+
+    .presenter {
+      padding:0;
+      width: 60%;
     }
   }
 }

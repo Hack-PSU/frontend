@@ -35,6 +35,11 @@ $(document).ready(function () {
         0:{
             items:1
         },
+
+        550:{
+            items:2
+        },  
+
         768:{
             items:3
         },
