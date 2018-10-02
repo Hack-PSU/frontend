@@ -579,7 +579,9 @@ body {
     }
 
   .item h5 {
-    font-size:      20px;
+    font-size:      17px;
+    height:         16%;
+    font-weight:    900;
   }
 
   .tag {
@@ -594,8 +596,8 @@ body {
   }
 
   .profile img {
-    border-radius: 100%;
-    border:        solid 1px $mountain-blue;
+    border-radius:  50%;
+    border:        solid 1px $gray;
 }
 
   .presenter p {
