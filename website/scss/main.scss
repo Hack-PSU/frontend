@@ -619,7 +619,7 @@ body {
 
   .item h5 {
     font-size:      17px;
-    height:         16%;
+    height:         25%;
     font-weight:    900;
   }
 
@@ -647,19 +647,21 @@ body {
 
   @media screen and (max-width: 768px) {
     .item {
-      height: 48%;
+      height: 40%;
     }
 
     .profile img {
       padding: 0;
-      width: 40%;
     }
-
   }
 
   @media screen and (max-width: 550px) {
     .item {
-      height: 46%;
+      height: 41%;
+    }
+
+    .item h5 {
+      height: 8%;
     }
 
     .profile img {
