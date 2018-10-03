@@ -198,6 +198,7 @@ i {
   padding-right: 0 !important;
   width: 50%;
   color: black;
+  border-right: 10px;
 }
 
 .modal-dialog {
@@ -213,18 +214,12 @@ i {
   flex-direction: row;
   padding: 0;
   margin: 0;
+  border: none;
 }
 
 .modal .modal-body {
   padding: 1.5rem;
 }
-
-/*.modal-content .container-fluid {*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*text-align: left;*/
-  /*height: 80%;*/
-/*}*/
 
 .modal-dialog .header {
   padding:          24px;
@@ -247,46 +242,6 @@ i {
   margin: 10px 0;
 }
 
-/*.modal-header {*/
-  /*height: 100%;*/
-  /*font-size: 16pt;*/
-/*}*/
-
-/*.modal-location-title {*/
-  /*height: 50%;*/
-/*}*/
-
-/*.modal-body {*/
-  /*padding-top: 10px;*/
-  /*padding-left: 10px;*/
-  /*padding-right: 10px;*/
-  /*font-size: 1.5em;*/
-  /*-webkit-box-shadow: inset 1px 1px 1px #000;*/
-  /*-moz-box-shadow:    inset 1px 1px 1px #000;*/
-  /*box-shadow:         inset 1px 1px 1px #000;*/
-  /*overflow-y: auto;*/
-  /*height: 100%;*/
-/*}*/
-
-/*.modal-body img {*/
-  /*width: 80%;*/
-  /*max-width: 500px;*/
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  /*padding: 25px;*/
-/*}*/
-
-/*.modal-day, .modal-time, .modal-location {*/
-  /*opacity: .7;*/
-  /*font-size: 11pt;*/
-  /*margin-top: 5px;*/
-  /*margin-bottom: 5px;*/
-/*}*/
-
-/*.close {*/
-  /*margin: 15px;*/
-/*}*/
-
 .large-screen-hide {
   display: none;
 }
@@ -299,53 +254,6 @@ i {
   .modal-dialog .header {
     height: fit-content;
   }
-
-  /*.modal-header {*/
-    /*height: 15%;*/
-    /*font-size: 13pt;*/
-    /*min-height: 40px;*/
-  /*}*/
-
-  /*.modal-body {*/
-    /*height: 70%;*/
-    /*padding-top: 10px;*/
-    /*padding-left: 10px;*/
-    /*padding-right: 10px;*/
-    /*font-size: 12pt;*/
-  /*}*/
-
-  /*.modal {*/
-    /*margin: 0px;*/
-    /*padding: 15px;*/
-    /*width: 80%;*/
-    /*left: 10%;*/
-    /*top: 25%;*/
-  /*}*/
-
-  /*.modal-dialog {*/
-    /*margin: 0px;*/
-    /*width: 100%;*/
-  /*}*/
-
-  /*.modal-footer {*/
-    /*padding: 0px;*/
-    /*height: 15%;*/
-    /*min-height: 40px;*/
-    /*position: relative;*/
-  /*}*/
-
-  /*.modal-footer .btn {*/
-    /*position: absolute;*/
-    /*margin-top: auto;*/
-    /*margin-bottom: auto;*/
-    /*bottom: 0px;*/
-    /*top: 0px;*/
-    /*right: 3%;*/
-    /*height: 100%;*/
-    /*font-size: 30%;*/
-    /*max-height: 25px;*/
-  /*}*/
-
   .small-screen-hide {
     display: none;
   }
