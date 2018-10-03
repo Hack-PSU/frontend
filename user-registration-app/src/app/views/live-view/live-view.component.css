@@ -321,7 +321,7 @@ td {
   font-family: "Lato", "Helvetica", sans-serif;
 }
 
-.workshop-track{
+.workshop-track {
   font-family: "Cornerstone", sans-serif;
   font-size: 1.75em;
   font-weight: bold;
@@ -511,6 +511,29 @@ footer {
 
 .activator {
   cursor: pointer;
+}
+
+/* Properly scale our text and icons on smaller screens,
+and make images go away. */
+@media screen and (max-width: 568px) {
+  .card-title {
+    font-size: 2.5em;
+  }
+  .card-content div {
+    font-size: 1.75em;
+  }
+  .card-reveal p {
+    font-size: 1.75em;
+  }
+  .material-icons {
+    font-size: 36px;
+  }
+  .workshop-track {
+    font-size: 2.5em;
+  }
+  .card-image img {
+    height: 0px;
+  }
 }
 
 .tabs .tab a {
