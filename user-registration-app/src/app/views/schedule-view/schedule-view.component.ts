@@ -84,4 +84,8 @@ export class ScheduleViewComponent implements OnInit {
   getEventDay(event: EventModel) {
     return ScheduleViewComponent.days[new Date(parseInt(event.event_start_time, 10)).getDay()];
   }
+
+  dismissModal() {
+
+  }
 }
