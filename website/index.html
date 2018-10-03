@@ -26,9 +26,13 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Owl Carousel Stylesheet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- JS Carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
   <script
@@ -38,9 +42,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!--Import Custom shared stylesheet-->
-  <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
+  <link rel="stylesheet" type="text/css" href="./css/main-compiled.css">
 
-  <!-- ~~so metadata -->
+  <!-- Metadata -->
   <meta name="google-site-verification" content="Bl3Vj9Zzc3XisnRWC1pK7BDkhVJJ80dScl3BeJRn11k"/>
   <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
   <meta property="og:site_name" content="HackPSU.org"/>
@@ -48,6 +52,7 @@
         content="Join us October 6 and 7 for HackPSU, Penn State's Official Hackathon!
            700 students will have 24 hours to build the coolest technology they can to
            compete for prizes and eternal glory."/>
+
   <!--Let browser know website is optimized for mobile-->
   <meta property="og:image" content="assets/images/hackpsulogo.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -101,6 +106,7 @@
          src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Facebook Pixel Code -->
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
   <script>
@@ -170,7 +176,7 @@
     </div>
 
     <!-- HackPSU Page Logo -->
-    <div class="row">
+    <div class="row mb-md-0 mb-4">
       <div class="logo-holder">
         <img id="hackpsu-logo">
       </div>
@@ -255,7 +261,7 @@
           developing technology to solve real-world problems, working with industry leaders, and
           collaborating with your peers.
         </p>
-        <p>Of course, we also offer <span>free food, swag, prizes</span> , and much more for your
+        <p>Of course, we also offer <span>free food, swag, prizes</span>, and much more for your
           enjoyment!</p>
       </div>
 
@@ -278,7 +284,6 @@
         <div class="header-bar"></div>
       </div>
     </div>
-  </div>
   <div class="row">
     <div class="offset-md-1 col-md-10">
       <p class="tracks-text">
@@ -309,7 +314,7 @@
       </p>
     </div>
     <div class="offset-md-1 col-md-10">
-      <div class="offset-md-4 col-md-4 register-btn">
+      <div class="offset-md-2 col-md-8 offset-lg-4 col-lg-4 register-btn">
         <a href="https://app.hackpsu.org">
           <div class="header-text text-center">
             <p class="text-center track-register">Register Now</p>
@@ -323,6 +328,7 @@
         additional third place prize. The prize value is to be split amongst team members.
       </p>
     </div>
+  </div>
   </div>
 </section>
 
@@ -615,26 +621,26 @@
     <div class="row justify-content-center">
 
       <!-- Left Column of Schedule -->
-      <div class="col-md-4">
+      <div class="col-md-6 col-lg-4">
         <div class="schedule-header d-flex justify-content-center">
-          <p>Saturday</p>
+            <p>Saturday</p>
         </div>
 
-        <div class="schedule-left">
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">11 AM</p>
+          <div class="schedule-left">
+            <div class="d-flex justify-content-between">
+                <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
+                    <p class="time">11 AM</p>
+                </div>
+                <div class="event col-8">
+                    <p class="event text-md-left">Registration Opens</p>
+                </div>
             </div>
-            <div class="event col-md-6 col-xs-8">
-              <p class="event text-md-left">Registration Opens</p>
-            </div>
-          </div>
 
           <div class="d-flex justify-content-between">
             <div class="col-md-4 col-xs-4">
               <p class="time">1 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Opening Ceremony</p>
             </div>
           </div>
@@ -643,7 +649,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">2 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Hacking Starts</p>
             </div>
           </div>
@@ -652,7 +658,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">2 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Lunch</p>
             </div>
           </div>
@@ -661,7 +667,7 @@
             <div class="col-sm-4 col-xs-4">
               <p class="time">7 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Dinner</p>
             </div>
           </div>
@@ -669,7 +675,7 @@
       </div>
 
       <!-- Right Column of Schedule -->
-      <div class="col-md-4">
+      <div class="col-md-6 col-lg-4">
         <div class="schedule-header d-flex justify-content-center">
           <p>Sunday</p>
         </div>
@@ -679,7 +685,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">1 AM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Late-night Snack</p>
             </div>
           </div>
@@ -688,16 +694,16 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">3 AM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Ice-Cream Social</p>
             </div>
           </div>
 
           <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
+            <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
               <p class="time">10 AM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Brunch</p>
             </div>
           </div>
@@ -705,7 +711,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">2 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Hacking Ends</p>
             </div>
           </div>
@@ -713,7 +719,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">2 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Judging Expo</p>
             </div>
           </div>
@@ -721,7 +727,7 @@
             <div class="col-md-4 col-xs-4">
               <p class="time">4 PM</p>
             </div>
-            <div class="event col-md-6 col-xs-8">
+            <div class="event col-8">
               <p class="event">Closing Ceremony</p>
             </div>
           </div>
@@ -733,7 +739,68 @@
 </section>
 <!-- End of Schedule -->
 
-<div class="section-separator">
+<!-- Workshops -->
+    <section id="workshops">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+      <div class="owl-carousel owl-theme">
+
+    <div class="item"><h5>Coding in Javascript and D3</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Beginner</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">KCF Technologies</p><p>Leader in Industry Diagnostics</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>How to Debug Your Code!</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Beginner</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/moshin.jpg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Mohsin Ali</p><p>Program Manager @ Vanguard</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Machine Learning - Would you have survived the Titanic?</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/neil.jpeg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Neil Ashtekar</p><p>Junior in Computer Science</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Virtual Reality - Your Own 3D Program with Unity</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/adlan2.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Adlan Ramly</p><p>President of AR/VR Labs</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Introduction to Docker</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/pj.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Pranav Jain</p><p>Software Engineer @ Microsoft</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Neural Network Security</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Advanced</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/ahmed.jpg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Ahmed Abdou</p><p>Researcher @ Almekkawy Lab</p></div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+</div>
+</section>
+  <!-- End of Workshops -->
+
+
+    <div class="section-separator">
   <img class="section-separator-background second-border">
 </div>
 
@@ -784,22 +851,16 @@
     </div>
 
     <!-- Silver Sponsors -->
-    <div class="row silver">
+    <div class="row silver d-flex justify-content-center">
       <div class="col-sm-4">
-        <!-- Google -->
-        <a href="https://www.google.com/intl/en/about/" target="_blank">
+        <!-- Google Cloud Platform-->
+        <a href="https://cloud.google.com/" target="_blank">
           <img src="assets/images/sponsors/GCS-night.svg" alt="Google" class="img-fluid google-day">
         </a>
       </div>
       <div class="col-sm-4">
-        <!-- IBM -->
-        <a href="https://www.ibm.com/" target="_blank">
-          <img src="assets/images/sponsors/IBM-night.svg" alt="IBM" class="img-fluid ibm-day">
-        </a>
-      </div>
-      <div class="col-sm-4">
-        <!-- Amazon -->
-        <a href="https://www.aboutamazon.com/" target="_blank">
+        <!-- Amazon Web Services-->
+        <a href="https://aws.amazon.com/" target="_blank">
           <img src="assets/images/sponsors/aws-night.svg" alt="Amazon" class="img-fluid amazon-day">
         </a>
       </div>
@@ -824,7 +885,7 @@
                class="img-fluid kcf-day" style="padding-top: 5%">
         </a>
       </div>
-      <div class="offset-sm-2 col-sm-4">
+      <div class="col-sm-4">
         <!-- Vanguard -->
         <a href="https://investor.vanguard.com/home/" target="_blank">
           <img src="assets/images/sponsors/Vanguard-night.svg" alt="Vanguard"
@@ -833,7 +894,7 @@
       </div>
       <div class="col-sm-4">
         <!-- Capital One-->
-        <a href="https://www.capitalone.com/" target="_blank">
+        <a href="https://campus.capitalone.com/" target="_blank">
           <img src="assets/images/sponsors/Capital_One-night.svg" alt="CapitalOne"
                class="img-fluid capitalone-day">
         </a>
@@ -861,13 +922,6 @@
            <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMorgan Chase & Co." class="img-fluid">
          </a>
        </div> -->
-      <div class="col-sm-3">
-        <!-- Accuweather -->
-        <a href="http://hackp.ac/mlh-stickermule-hackathons" target=_blank>
-          <img src="assets/images/sponsors/StickerMule-night.svg" alt="StickerMule"
-               class="img-fluid stickermule-day">
-        </a>
-      </div>
     </div>
 
   </div>

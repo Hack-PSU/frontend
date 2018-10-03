@@ -26,6 +26,29 @@ $(document).ready(function () {
     // }
   });
 
+  //owl
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+
+        550:{
+            items:2
+        },  
+
+        768:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
   // $('.show-on-hover').parent().hover(function() {
   //     $(this).find('.hide-on-hover').hide(0);
   //     $(this).find('.show-on-hover').fadeIn(500);

@@ -32,6 +32,7 @@ $break-large: 1200px;
   src:         url('../assets/fonts/Cornerstone.ttf');
 }
 
+
 /* ====================== MIXINS ====================*/
 @mixin accent($color) {
   color:            $color;
@@ -237,6 +238,7 @@ body {
       This can be applied to any text structured in the same way as the
       event info. */
       .wrapped-box {
+        padding-left: 0px;
         p span {
           @include accent-text($white);
           background:     $mountain-blue;
@@ -262,6 +264,9 @@ body {
           div {
             padding-left: 0px;
           }
+        }
+        .event-info div {
+          padding-left: 0px;
         }
         .cta {
           padding-top: 5vh;
@@ -556,11 +561,18 @@ body {
 
   @media screen and (max-width: 768px) {
     .schedule-right {
+      padding-left: 0px;
       border: none;
+    }
+    .schedule-right div {
+      padding-top: .5vh;
     }
 
     .schedule-left {
-      padding-left: 10%;
+      padding-top: 10px;
+    }
+    .schedule-left div {
+      padding-top: .5vh;
     }
 
     .schedule-header {
@@ -584,6 +596,83 @@ body {
     font-size:   large;
     margin:      0 4%;
     text-align:   right;
+  }
+}
+
+/* Workshops */
+#workshops {
+  padding-top:      100px;
+  padding-bottom:   25px;
+  background-color: #194E6B;
+
+  .item {
+    font-family:    'Lato', sans-serif;
+    background:     white;
+    border-radius:  7px 7px 7px 7px;
+    color:          #424242;
+    padding:        3% 6% 3% 6%;
+    cursor:         hand;
+    font-size:      large;
+    height:         32%;
+    text-align:     left;
+    }
+
+  .item h5 {
+    font-size:      17px;
+    height:         25%;
+    font-weight:    900;
+  }
+
+  .tag {
+    font-size:      16px;
+  }
+
+  .profile {
+    width:          100%;
+    padding-top:    3%;
+    padding-bottom: 0;  
+    height:         70%;
+  }
+
+  .profile img {
+    border-radius:  50%;
+    border:        solid 1px $gray;
+}
+
+  .presenter p {
+    padding:   1% 4% 0 3%;
+    margin:    0;
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .item {
+      height: 40%;
+    }
+
+    .profile img {
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .item {
+      height: 41%;
+    }
+
+    .item h5 {
+      height: 8%;
+    }
+
+    .profile img {
+      padding: 0;
+      width: 30%;
+    }
+
+    .presenter {
+      padding:0;
+      width: 60%;
+    }
   }
 }
 
