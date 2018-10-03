@@ -14,8 +14,11 @@ export class ScheduleViewComponent implements OnInit {
   private static days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   public activities: EventModel[];
+  public activitiesViewNum = 5;
   public meals: EventModel[];
+  public mealsViewNum = 5;
   public workshops: EventModel[];
+  public workshopsViewNum = 5;
 
   constructor(private httpService: HttpService, private errorHandler: CustomErrorHandlerService) {
     this.activities = [];
@@ -31,13 +34,13 @@ export class ScheduleViewComponent implements OnInit {
           .forEach((event) => {
             switch (event.event_type) {
               case 'activity':
-                this.activities.push(event);
+                this.activities = this.activities.concat(event);
                 break;
               case 'food':
-                this.meals.push(event);
+                this.meals = this.meals.concat(event);
                 break;
               case 'workshop':
-                this.workshops.push(event);
+                this.workshops = this.workshops.concat(event);
                 break;
               default:
                 break;
@@ -54,12 +57,23 @@ export class ScheduleViewComponent implements OnInit {
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   }
 
-  getEndTimeMS(event: EventModel) {
-    return parseInt(event.event_end_time, 10);
+  showMore(type: string) {
+    switch (type) {
+      case 'activities':
+        return this.activitiesViewNum = ScheduleViewComponent.increment(this.activitiesViewNum, this.activities.length);
+      case 'meals':
+        return this.mealsViewNum = ScheduleViewComponent.increment(this.mealsViewNum, this.meals.length);
+      case 'workshops':
+        return this.workshopsViewNum = ScheduleViewComponent.increment(this.workshopsViewNum, this.workshops.length);
+    }
   }
 
-  getCurrentTime() {
-    return new Date().getTime();
+  private static increment(viewNum: number, arrLength: number) {
+    const INCREMENTOR = 5;
+    if (viewNum + INCREMENTOR > arrLength) {
+      return arrLength;
+    }
+    return viewNum + INCREMENTOR;
   }
 
   getEndTime(event: EventModel) {
