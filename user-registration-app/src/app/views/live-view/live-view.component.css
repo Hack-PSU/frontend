@@ -1,6 +1,12 @@
+/* Materialize CSS sets content: "";, this breaks
+many of the utlities in Bootstrap, so undoing it here.*/
+.row::after {
+  content: none;
+}
+
 #hackpsu-logo {
   margin-top: 10px;
-  max-width: 30%;
+  max-width: 45%;
   margin-bottom: 10px;
 }
 
@@ -24,6 +30,25 @@
 
 #countdown-text {
   font-family: 'Raleway', 'Lato', sans-serif;
+  font-size: 2em;
+  width: 100%;
+}
+
+#rules li{
+  padding: 0 10px;
+  font-weight: bold;
+}
+.left-side{
+  /* background:#9FC2CC; */
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 0;
+}
+.right-side{
+  /* text-align: right; */
+  font-size: 1em;
+  /* background-color: #6FA7B3; */
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -103,7 +128,7 @@
 }
 
 .submit-btn {
-  width: 30%;
+  width: 100%;
   height: 40px;
   font-size: 20;
   font-weight: 800;
@@ -115,27 +140,15 @@
   border-radius: 12px;
 }
 
-.btn {
-  width: 35%;
-}
-
 .submit-btn:hover {
   background-color: rgba(255, 255, 255, 1);
   color: #333333;
 }
 
 @media screen and (max-width: 768px) {
-  #hackpsu-logo {
-    max-width: 70%;
-  }
-
   #countdown {
     font-size: 1.5em;
     padding: 0.5em;
-  }
-
-  .btn {
-    width: 80%;
   }
 }
 
@@ -163,21 +176,50 @@ td {
 }
 
 .section-title {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 1.5vh;;
+  margin-bottom: 1.5vh;
   text-align: center;
 }
 
 .section-title-word {
   display: inline-block;
   white-space: nowrap;
-  padding-right: 1.5%;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  font-size: 2.5em;
+}
+
+.section-separator-bar {
+  height: 5vh;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 -1px -3px rgba(0,0,0,0.12), 0 -1px -2px rgba(0,0,0,0.24);
+
+  z-index: 500;
+  position: relative;
+  background: #236577;
+}
+
+.header-text {
+  font-family: 'Cornerstone', sans-serif;
+  font-size:   1.5em;
+  line-height: 100%;
+  margin-top:  25px;
+}
+
+.header-text p {
+  padding: 0px;
+  line-height: 120%;
+}
+
+.header-bar {
+  width:  40%;
+  height: 5px;
+  background-color: #6C88B7;
+  margin: auto;
 }
 
 .section-title-letter {
   display: inline-block;
-  font-family: 'Cornerstone', 'Lato', sans-serif;
-  font-size: 2.5em;
 }
 
 .indented {
@@ -249,8 +291,23 @@ td {
 }
 
 .info-list {
-  font-size: 16px;
+  font-size: 1em;
+  line-height: 1.35em;
   list-style-type: disc;
+}
+
+.info-list li {
+  padding-bottom: 2vh;
+  padding-right: 5%;
+}
+.info-list li:nth-of-type(1) {
+  padding-top: 3vh;
+}
+
+@media screen and (max-width: 768px) {
+  .info-list {
+    line-height: 1.5em;
+  }
 }
 
 .info-list a {
@@ -333,8 +390,58 @@ footer {
   font-size: x-small;
 }
 
+.rounded-more {
+  border-radius: 10px;
+}
+
+.first-border {
+  margin-top: -15vh;
+}
+
+@media screen and (max-width: 568px) {
+  .first-border {
+    margin-top: -5vh;
+  }
+}
+
+.boxed-text {
+  border: 5px solid #6C88B7;
+  border-radius: 15px;
+}
+
+.prize-col {
+  padding-top: 8vh;
+}
+
+.prize-title p {
+  font-family: 'Cornerstone', sans-serif !important;
+  font-size: 2.15em;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.prize-img {
+  max-width: 50%;
+  box-shadow: -1px 3px 5px 0px rgba(10, 10, 10, 0.55)
+}
+
+.prizes-text {
+  font-size: 1.25em;
+  padding-top: 5vh;
+}
+
+.prizes-text p {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.prizes-text span {
+  color: #e5704c;
+  font-weight: 700;
+}
+
 #prizes .card {
-  min-height: 250px;
+  min-height: 150px;
 }
 
 #prizes h6 {
@@ -342,12 +449,39 @@ footer {
 }
 
 
+.card {
+  border-width: 8px;
+  border-radius: 10px;
+}
+
+.card-image {
+  max-height: 100% !important;
+}
+
 .card-title {
-  color: black;
+  font-size: 1.5em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  color: #ffffff;
+}
+
+.card-reveal .card-title {
+  color: #424242;
+}
+
+.card-content {
+  max-width: 500px;
+}
+
+.card .card-content .card-title {
+  margin-bottom: 0px;
+  line-height: 1em;
 }
 
 .card-reveal {
   color: black;
+}
+
+.card-image {
 }
 
 .tabs .tab a {
@@ -369,4 +503,8 @@ footer {
 
 #social-media {
   text-align: center;
+}
+
+.update-paginator /deep/ .ngx-pagination a {
+  color: white
 }

@@ -7,7 +7,7 @@ import { AppConstants } from '../../AppConstants';
 @Injectable()
 export class EventsService {
 
-  private url = `${AppConstants.SOCKET_BASE_URL}/events`;
+  private url = `/events`;
   private socket;
 
   private broadcastSubject: BehaviorSubject<Event> = new BehaviorSubject<Event>(new Event(''));

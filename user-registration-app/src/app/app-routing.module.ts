@@ -16,11 +16,12 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
+import { TableAssignmentResolver } from "./services/resolvers/TableAssignmentResolver/table-assignment.resolver";
 
 const routes: Routes = [
-  { 
-    path: 'login', 
-    component: LoginComponent 
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'register',
@@ -28,34 +29,35 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: { registration: RegistrationResolver },
   },
-  { 
+  {
     path: 'signup',
     component: SignupViewComponent,
   },
-  { 
-    path: 'forgot', 
-    component: ForgotPasswordViewComponent 
-  },
-  { 
-    path: 'live', 
-    component: LiveViewComponent, 
-    canActivate: [DateGuard],
-  },
-  { 
-    path: 'travel', 
-    component: TravelReimbursementViewComponent, 
-    canActivate: [AuthGuard, DateGuard, RegistrationGuard], 
-  },
-  { 
-    path: 'table', 
-    component: TableAssignmentViewComponent, 
-    canActivate: [AuthGuard, DateGuard, RegistrationGuard], 
+  {
+    path: 'forgot',
+    component: ForgotPasswordViewComponent
   },
   {
-    path: 'rsvp',
+    path: 'live',
+    component: LiveViewComponent,
+    canActivate: [DateGuard],
+  },
+  {
+    path: 'travel',
+    component: TravelReimbursementViewComponent,
+    canActivate: [AuthGuard, DateGuard, RegistrationGuard],
+  },
+  {
+    path: 'table',
+    component: TableAssignmentViewComponent,
+    canActivate: [AuthGuard, DateGuard, RegistrationGuard],
+    resolve: { tableAssignment: TableAssignmentResolver },
+  },
+  {
+    path: 'pin',
     component: RsvpComponent,
     canActivate: [AuthGuard, RegistrationGuard],
-    resolve: { rsvp: RsvpResolver },
+    resolve: { registration: RsvpResolver },
   },
   { path: '**',
     redirectTo: DateGuard.validateDate(new Date()) ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT,
@@ -69,6 +71,7 @@ const routes: Routes = [
   providers: [
     AngularFireAuth,
     RegistrationResolver,
+    TableAssignmentResolver,
     RsvpResolver,
   ],
 })

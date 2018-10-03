@@ -27,10 +27,18 @@ p {
 }
 
 .content {
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   min-height: 100vh;
   transition: all 0.3s;
   /*flex: 1;*/
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .logo {
