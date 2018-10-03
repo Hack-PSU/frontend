@@ -222,23 +222,6 @@ td {
   display: inline-block;
 }
 
-.workshop-level {
-  text-align: center;
-  font-size: 1.3em;
-  margin-bottom: 50px;
-  font-weight: bold;
-}
-
-.workshop-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.workshop {
-  padding: 1vw;
-  padding-left: 2vw;
-}
-
 .indented {
   margin-left: 7vw;
 }
@@ -256,41 +239,6 @@ td {
 .flexed {
   display: flex;
   flex: 1 0 auto;
-}
-
-.lighter {
-    background: #D0EAF1;
-    color: #333333;
-    vertical-align:middle;
-}
-
-.beginner {
-    background: #6FA7B3;
-    vertical-align:middle;
-}
-
-.intermediate {
-    background: #194E6B;
-    vertical-align:middle;
-    margin-top:auto;
-    margin-bottom:auto;
-}
-
-.advanced {
-    background: #103147;
-    vertical-align:middle;
-}
-
-.workshop-info {
-  float: right;
-  background-color: transparent;
-  padding: 0;
-  box-shadow: none;
-  vertical-align:middle;
-}
-
-.workshop-info .card-content{
-    padding-top:0;
 }
 
 .nav-tabs.nav-justified {
@@ -365,6 +313,52 @@ td {
 .info-list a {
   color: #D0EAF1;
 }
+
+/* Workshop stuff*/
+#workshop-container {
+  position: relative;
+  text-align: center;
+  font-family: "Lato", "Helvetica", sans-serif;
+}
+
+.workshop-track{
+  font-family: "Raleway", sans-serif;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.nomargin {
+  margin: 0 !important;
+}
+
+.beginner {
+  background: #D0EAF1;
+  color: #000000;
+  vertical-align:middle;
+}
+
+.intermediate {
+  background: #6FA7B3;
+  color: #000000;
+  vertical-align:middle;
+}
+
+.advanced {
+  background: #1D5B7C;
+  vertical-align:middle;
+  color: #ffffff;
+}
+
+.sponsored {
+  background: #15425f;
+  vertical-align:middle;
+  color: #ffffff;
+}
+/* End workshop stuff */
 
 footer {
   background-color: #fff;
