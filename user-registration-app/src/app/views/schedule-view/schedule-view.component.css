@@ -198,7 +198,9 @@ i {
   padding-right: 0 !important;
   width: 50%;
   color: black;
-  border-right: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius:    10px;
+  border-radius:         10px;
 }
 
 .modal-dialog {
