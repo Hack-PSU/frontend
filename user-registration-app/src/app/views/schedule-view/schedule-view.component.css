@@ -198,7 +198,6 @@ i {
   padding-right: 0 !important;
   width: 50%;
   color: black;
-  max-height: 90%;
 }
 
 .modal-dialog {
@@ -230,6 +229,7 @@ i {
 .modal-dialog .header {
   padding:          24px;
   background-color: #9f9f9f;
+  height: 100%;
 }
 
 .modal-footer {
@@ -241,6 +241,10 @@ i {
   position: absolute;
   top: 5%;
   right: 5%;
+}
+
+.modal-location-title {
+  margin: 10px 0;
 }
 
 /*.modal-header {*/
