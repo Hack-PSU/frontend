@@ -274,6 +274,10 @@ td {
   padding: 0 !important;
 }
 
+.nomargin {
+  margin: 0 !important;
+}
+
 .beginner {
   background: #D0EAF1;
   color: #000000;
@@ -289,13 +293,13 @@ td {
 .advanced {
   background: #1D5B7C;
   vertical-align:middle;
-  color: #000000;
+  color: #ffffff;
 }
 
 .sponsored {
   background: #15425f;
   vertical-align:middle;
-  color: #000000;
+  color: #ffffff;
 }
 /* End workshop stuff */
 
