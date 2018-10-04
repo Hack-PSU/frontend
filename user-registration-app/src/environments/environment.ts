@@ -6,6 +6,7 @@
 export const environment = {
   production: false,
   api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
+  // api_url: 'http://localhost:5000/v1/',
   firebase: {
     apiKey: "AIzaSyAWejnwBUrfUoULnMRumGFpOchYjjHlfTI",
     authDomain: "hackpsu18-staging.firebaseapp.com",
@@ -15,10 +16,9 @@ export const environment = {
     messagingSenderId: "614592542726"
   },
   // hackathonStartTime: new Date(2018, 10,6, 7),
+  liveWebsiteGuardTime: new Date(),
   hackathonStartTime: new Date(),
-  timerStartTime: new Date(2018, 9, 6, 12),
-  hackathonEndTime: new Date(2018, 9, 7, 12),
+  timerStartTime: new Date(2018, 9, 6, 2),
+  hackathonEndTime: new Date(2018, 9, 7, 2),
   rsvpStartTime: new Date(),
-  // hackathonStartTime: new Date(2018, 10, 6, 7),
-  // rsvpStartTime: new Date(2018, 9, 30),
 };

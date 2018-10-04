@@ -27,10 +27,18 @@ p {
 }
 
 .content {
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   min-height: 100vh;
   transition: all 0.3s;
   /*flex: 1;*/
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .logo {
@@ -66,12 +74,18 @@ nav ul li {
   letter-spacing: .05em;
 }
 nav .left {
-  margin-left: 11vw;
+  margin-left: 10vw;
 }
 
 nav .right {
   width: 15vw;
   margin-right: -0vw;
+}
+
+@media screen and (max-width: 768px) {
+  .brand-logo {
+    margin-left: 0px !important;
+  }  
 }
 
 .dropdown-content li>a, .dropdown-content li>span {

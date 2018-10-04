@@ -11,6 +11,7 @@ import * as majors from '../../../assets/majors.json';
 import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
 import { AuthService, HttpService } from '../../services/services';
+import { AppConstants } from "../../AppConstants";
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
@@ -198,7 +199,7 @@ export class RegistrationFormComponent implements OnInit {
         take(1),
       )
       .subscribe(() => {
-        this.router.navigate(['/pin'])
+        this.router.navigate([AppConstants.PIN_ENDPOINT])
           .then(() => this.progress.complete());
       });
   }

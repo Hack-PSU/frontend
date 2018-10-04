@@ -1,18 +1,11 @@
-import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LiveUpdatesService } from '../../services/LiveUpdatesService/live-updates.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { AppConstants } from '../../AppConstants';
+import { UpdateModel } from '../../models/update-model';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { BaseComponent } from "../base/base.component";
 
 declare var $: any;
-
-class UpdateModel {
-  public uid: string;
-  public update_text: string;
-  public update_image: string;
-  public update_title: string;
-}
 
 @Component({
   selector: 'app-live-update',
@@ -24,12 +17,9 @@ export class LiveUpdateComponent implements OnInit {
   static initialLoad = true;
   static fullyCollapsed = false;
   static fullyExpanded = false;
+  public p: number;
 
-  updates: UpdateModel[];
-  idtoken: Observable<string>;
-  progress: { uploaded, total };
-  error: any;
-  loading = false;
+  updates: Observable<UpdateModel[]>;
 
   static collapseListener(target: string) {
     // initialLoad = false;
@@ -46,34 +36,12 @@ export class LiveUpdateComponent implements OnInit {
     });
   }
 
-  constructor() {
-    // this.updates = [];
-    // this.liveUpdates.subject(new Event('connected'))
-    //   .subscribe(() => {
-    //     this.updates = [];
-    //     this.error = null;
-    //     this.progress = null;
-    //   });
-    // this.liveUpdates.subject(new Event('disconnected'))
-    //   .subscribe(() => {
-    //     this.updates = [];
-    //     this.loading = true;
-    //   });
-    // this.authService.auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.idtoken = Observable.fromPromise(user.getIdToken(true));
-    //     this.idtoken.subscribe((value) => {
-    //       this.liveUpdates.getUpdates(value).subscribe((message: UpdateModel[]) => {
-    //         message.forEach(m => this.updates.unshift(m));
-    //         setTimeout(this.collapseLastN, 1000);
-    //       });
-    //     },                     (error) => {
-    //       this.error = error;
-    //     });
-    //   } else {
-    //     this._router.navigate([AppConstants.LOGIN_ENDPOINT]);
-    //   }
-    // });
+  constructor(private liveUpdatesService: LiveUpdatesService) {
+    this.p = 1;
+    this.updates = this.liveUpdatesService.getUpdates()
+      .pipe(
+        map(updates => updates.reverse())
+      )
   }
 
   ngOnInit() {
@@ -84,33 +52,23 @@ export class LiveUpdateComponent implements OnInit {
   }
 
   expand() {
-    if (!LiveUpdateComponent.fullyExpanded) {
-      setTimeout(() => {
-        $('html, body').animate({
-          scrollTop: $('.update-container-row').last().offset().top,
-        },                      1000);
-      },         1000);
-      $('.expandable-update').each(function () {
-        $(this).show(1000);
-      });
-    }
-    LiveUpdateComponent.fullyCollapsed = false;
-    LiveUpdateComponent.fullyExpanded = true;
+    $('html, body').animate({
+      scrollTop: $('#update-container').last().offset().top,
+    }, 1000);
+    $('.expandable-update').each(function () {
+      $(this).show(1000);
+    });
   }
 
   collapse() {
-    if (!LiveUpdateComponent.fullyCollapsed) {
-      $('html, body').animate({
-        scrollTop: $('.update-container-row').offset().bottom,
-      },                      2000);
-      setTimeout(() => {
-        $('.expandable-update').each(function () {
-          $(this).hide(1000);
-        });
-      },         1000);
-    }
-    LiveUpdateComponent.fullyCollapsed = true;
-    LiveUpdateComponent.fullyExpanded = false;
+    $('html, body').animate({
+      scrollTop: $('#update-container').offset().bottom,
+    }, 2000);
+    setTimeout(() => {
+      $('.expandable-update').each(function () {
+        $(this).hide(1000);
+      });
+    }, 1000);
   }
 
   collapseLastN() {
