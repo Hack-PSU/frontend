@@ -82,6 +82,12 @@ nav .right {
   margin-right: -0vw;
 }
 
+@media screen and (max-width: 768px) {
+  .brand-logo {
+    margin-left: 0px !important;
+  }  
+}
+
 .dropdown-content li>a, .dropdown-content li>span {
   color: #103147;
 }
