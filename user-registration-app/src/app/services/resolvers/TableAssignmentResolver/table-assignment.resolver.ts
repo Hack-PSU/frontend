@@ -24,8 +24,7 @@ export class TableAssignmentResolver implements Resolve<ProjectModel> {
         if (!user) {
           this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
         } else {
-          return Observable.of(null);
-          // this.httpService.getProjectDetails();
+          return this.httpService.getProjectDetails();
         }
       }),
       take(1),

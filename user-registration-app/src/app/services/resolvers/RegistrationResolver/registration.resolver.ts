@@ -40,7 +40,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         map(([registration, hackathon]) => {
           if (registration.isCurrentRegistration(hackathon.uid) && registration.submitted) {
             this.progress.complete();
-            this.router.navigate(['/pin']);
+            this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
           return registration;

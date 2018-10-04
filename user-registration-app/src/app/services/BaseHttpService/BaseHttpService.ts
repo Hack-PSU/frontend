@@ -17,9 +17,9 @@ export class BaseHttpService {
     this.memCache = new Map<string, Observable<any>>();
   }
 
-  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean) {
+  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true) {
     if (!this.memCache.has(API_ENDPOINT)) {
-      this.memCache.set(API_ENDPOINT, this.authService.idToken.pipe(
+      this.memCache.set(API_ENDPOINT, useAuth ? this.authService.idToken.pipe(
         switchMap((idToken: string) => {
           let headers = new HttpHeaders();
           headers = headers.set('idtoken', idToken);
@@ -30,7 +30,14 @@ export class BaseHttpService {
             );
         }),
         catchError(err => this.errorHandler.handleHttpError(err)),
-      ));
+      )
+      : this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT))
+          .shareReplay(this.CACHE_SIZE, 10 * 1000)
+          .pipe(
+            retry(3),
+            catchError(err => this.errorHandler.handleHttpError(err)),
+          )
+      );
     }
     return this.memCache.get(API_ENDPOINT);
   }

@@ -4,5 +4,6 @@ export class AppConstants {
   public static LOGIN_ENDPOINT = '/login';
   public static REGISTER_ENDPOINT = '/register';
   public static LIVE_ENDPOINT = '/live';
+  public static PIN_ENDPOINT = '/pin';
   public static TABLE_ENDPOINT: '/table';
 }

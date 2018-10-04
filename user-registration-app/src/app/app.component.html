@@ -11,9 +11,11 @@
         <a href="#" class="brand-logo"> <img src="../assets/images/logo.svg" alt="hackpsulogo"> </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#info">INFO</a></li>
-          <!--<li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>-->
-          <!--<li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">LIVE UPDATES</a></li>-->
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
+          <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
           <li *ngIf="DateGuard.validateDate()">
             <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">
               {{router.url === '/live' ? 'REGISTER' : 'LIVE'}}
@@ -33,9 +35,11 @@
     </nav>
   </div>
   <ul class="side-nav" *ngIf="DateGuard.validateDate()" id="mobile-demo" style="transform: translateX(-100%);">
-    <li *ngIf="router.url !== '/register'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-    <!--<li *ngIf="router.url !== '/register'" class="scroller"><a href="#updates">LIVE UPDATES</a></li>-->
-    <li *ngIf="router.url !== '/register'" class="scroller"><a href="#info">INFO</a></li>
+    <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+    <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
+    <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
+    <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
+    <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
     <li *ngIf="DateGuard.validateDate()">
       <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' :
       'LIVE'}}</a></li>

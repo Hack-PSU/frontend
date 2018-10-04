@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   api_url: 'https://api.hackpsu.org/v1/',
+  socket_url: 'https://api.hackpsu.org',
   firebase: {
     apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
     authDomain: 'hackpsu18.firebaseapp.com',
@@ -9,6 +10,7 @@ export const environment = {
     storageBucket: 'hackpsu18.appspot.com',
     messagingSenderId: '1002677206617',
   },
+  liveWebsiteGuardTime: new Date(2018, 9, 3, 21),
   hackathonStartTime: new Date(2018, 9, 6, 7),
   timerStartTime: new Date(2018, 9, 6, 14),
   hackathonEndTime: new Date(2018, 9, 7, 14),
