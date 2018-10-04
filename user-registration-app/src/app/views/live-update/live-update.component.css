@@ -19,8 +19,8 @@
   padding:        5px;
   margin-bottom:  20px;
   line-height:    20px;
-  -ms-word-break: break-all;
-  word-break:     break-all;
+  -ms-word-break: break-word;
+  word-break:     break-word;
 }
 
 .update-img {
@@ -112,12 +112,12 @@
 
 .update-paginator /deep/ .ngx-pagination a:hover, .update-paginator /deep/ .ngx-pagination button:hover {
   border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 5px; 
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.25);
 }
 
 .update-paginator /deep/ .ngx-pagination .current {
   border: 1px solid #00AEBF;
-  border-radius: 5px; 
+  border-radius: 5px;
   background-color: #00AEBF;
 }
