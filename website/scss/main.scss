@@ -605,6 +605,17 @@ body {
   padding-bottom:   25px;
   background-color: #194E6B;
 
+  .section-header {
+  width: 100%;
+  }
+
+  .header-bar {
+    background-color: $mountain-blue;
+    margin-bottom:    40px;
+    min-width:        40%;
+
+  }
+
   .item {
     font-family:    'Lato', sans-serif;
     background:     white;
