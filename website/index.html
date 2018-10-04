@@ -1,652 +1,967 @@
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>HackPSU Fall 2018</title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>HackPSU Fall 2018</title>
 
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
-    <!-- adding css -->
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- adding css -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
 
-    <!-- other scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-          crossorigin="anonymous">
-    <!-- bootstrap -->
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-          crossorigin="anonymous">
+  <!-- other scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
-    <!-- Compiled and minified JavaScript -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async
-        defer></script>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Owl Carousel Stylesheet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- JS Carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <!--Import Custom shared stylesheet-->
-    <link rel="stylesheet" type="text/css" href="css/main-compiled.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- ~~so metadata -->
-    <meta name="google-site-verification" content="Bl3Vj9Zzc3XisnRWC1pK7BDkhVJJ80dScl3BeJRn11k"/>
-    <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
-    <meta property="og:site_name" content="HackPSU.org"/>
-    <meta property="og:description"
-          content="Join us October 6 and 7 for HackPSU, Penn State's Official Hackathon!
+  <!-- Compiled and minified JavaScript -->
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async
+      defer></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Import Custom shared stylesheet-->
+  <link rel="stylesheet" type="text/css" href="./css/main-compiled.css">
+
+  <!-- Metadata -->
+  <meta name="google-site-verification" content="Bl3Vj9Zzc3XisnRWC1pK7BDkhVJJ80dScl3BeJRn11k"/>
+  <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
+  <meta property="og:site_name" content="HackPSU.org"/>
+  <meta property="og:description"
+        content="Join us October 6 and 7 for HackPSU, Penn State's Official Hackathon!
            700 students will have 24 hours to build the coolest technology they can to
            compete for prizes and eternal glory."/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta property="og:image" content="assets/images/hackpsulogo.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Facebook Pixel Code -->
-    <script>
-      !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ?
-            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-      }(window, document, 'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '795330067294686');
-      fbq('track', 'PageView');
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".button-collapse").sideNav({ edge: 'left' });
-        $(".scrollspy").scrollSpy({ scrollOffset: 0 });
+  <!--Let browser know website is optimized for mobile-->
+  <meta property="og:image" content="assets/images/hackpsulogo.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '795330067294686');
+    fbq('track', 'PageView');
+  </script>
+  <script type="text/javascript">
+    $(document)
+      .ready(function () {
+        $('.button-collapse')
+          .sideNav({ edge: 'left' });
+        $('.scrollspy')
+          .scrollSpy({ scrollOffset: 0 });
       });
-    </script>
-    <noscript>
-      <img height="1" width="1"
-           src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Facebook Pixel Code -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+  </script>
 
-      function gtag() {
-        dataLayer.push(arguments);
+  <!--Browser compatibility popup-->
+  <script>
+    var $buoop = {required:{e:0,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.09 };
+    function $buo_f(){
+      var e = document.createElement("script");
+      e.src = "//browser-update.org/update.min.js";
+      document.body.appendChild(e);
+    };
+    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+    catch(e){window.attachEvent("onload", $buo_f)}
+  </script>
+  <noscript>
+    <img height="1" width="1"
+         src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114978268-1');
+  </script>
+
+  <!-- day and night custom styles -->
+  <script>
+    function getStylesheet() {
+      const currentTime = new Date().getHours();
+      // Uncomment to force nighttime or daytime
+      // var currentTime = 14;
+      if (8 <= currentTime && currentTime < 19) {
+        document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
-
-      gtag('js', new Date());
-
-      gtag('config', 'UA-114978268-1');
-    </script>
-
-    <!-- day and night custom styles -->
-    <script>
-      function getStylesheet() {
-            const currentTime = new Date().getHours();
-            // Uncomment to force nighttime or daytime
-            // var currentTime = 22;
-            if (8 <= currentTime&&currentTime < 19) {
-             document.write("<link rel='stylesheet' href='css/day-main-compiled.css' type='text/css'>");
-            }
-            if ((0 <= currentTime&&currentTime < 8) || (19 <= currentTime&&currentTime < 25)) {
-             document.write("<link rel='stylesheet' href='css/night-main-compiled.css' type='text/css'>");
-            }
+      if ((0 <= currentTime && currentTime < 8) || (19 <= currentTime && currentTime < 25)) {
+        document.write('<link rel=\'stylesheet\' href=\'css/night-main-compiled.css\' type=\'text/css\'>');
       }
+    }
 
-      getStylesheet();
-    </script>
+    getStylesheet();
+  </script>
 
-    <noscript><link href="day-main-compiled.css" rel="stylesheet"></noscript>
-    <!-- Favicon Data -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/icons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- End Favicon Data -->
-  </head>
+  <noscript>
+    <link href="day-main-compiled.css" rel="stylesheet">
+  </noscript>
+  <!-- Favicon Data -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!-- End Favicon Data -->
+</head>
 
-  <body>
-    <header id="home" class="landing">
-      <div class="holder container-fluid">
+<body>
+<header id="home" class="landing">
+  <div class="holder container-fluid">
 
-        <!-- MLH Badge -->
-        <div class="white">
-          <a id="mlh-trust-badge"
-             href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
-             target="_blank"><img
-              src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg"
-              alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
-        </div>
-
-
-        <!-- HackPSU Page Logo -->
-        <div class="row">
-            <div class="logo-holder">
-                <img id="hackpsu-logo">
-            </div>
-            <!-- Sun and Moon Graphic -->
-            <div class="celestial-body">
-              <img>
-            </div>
-        </div>
-
-
-
-        <!-- Event info and mountain graphics -->
-        <div class="row header-content">
-          <!-- Header info (event date, location) and CTA -->
-          <div class="col-md-5">
-            <div class="row event-info">
-              <div class="offset-md-2 col-md-8 ">
-                <div class="row">
-                  <div class="col-12 header-text wrapped-box">
-                    <p class="text-left"><span>October 6-7</span></p>
-                    <p class="text-left"><span>Penn State University</span></p>
-                    <p class="text-left"><span>Business Building</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row cta">
-                <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
-                  <a href="https://app.hackpsu.org">
-                    <div class="header-text text-center">
-                      <p class="text-center">Register Now</p>
-                    </div>
-                  </a>
-                </div>
-            </div>
-          </div>
-
-          <!-- Mountain vista graphics -->
-          <div class="col-md-7">
-            <div class="row header-graphic">
-              <img class="img-fluid mountain">
-              <!-- Each cloud img needs its own div to keep their position correct on resize.  -->
-              <div class="cloud-1 floating">
-                <img class="cloud-img floating">
-              </div>
-              <div class="cloud-2 floating">
-                <img class="cloud-img floating">
-              </div>
-              <div class="cloud-3 floating">
-                <img class="cloud-img floating">
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </header>
-
-    <section id="about">
-      <div class="container">
-
-        <div class="row">
-          <div class="section-header col-12">
-            <div class="header-text">About Us</div>
-            <div class="header-bar"></div>
-          </div>
-
-          <div class="col-12 about-text">
-            <p>
-              This <span>October 6 - 7th</span> , join us and over <span>700 students</span> from across the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding veterans to first-time hackers from
-              any major or field, all are welcome to join. Discover your ability to create change by
-              developing technology to solve real-world problems, working with industry leaders, and
-              collaborating with your peers.
-            </p>
-            <p>Of course, we also offer <span>free food, swag, prizes</span> , and much more for your enjoyment!</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="section-separator">
-      <img class="section-separator-background first-border">
+    <!-- MLH Badge -->
+    <div class="white">
+      <a id="mlh-trust-badge"
+         href="https://mlh.io/seasons/na-2019/events?utm_source=na-2019&utm_medium=TrustBadge&utm_campaign=na-2019&utm_content=white"
+         target="_blank"><img
+          src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg"
+          alt="Major League Hacking 2019 Hackathon Season" style="width:100%"></a>
     </div>
 
-    <section id="faqs">
-      <div class="container-fluid">
+    <!-- HackPSU Page Logo -->
+    <div class="row mb-md-0 mb-4">
+      <div class="logo-holder">
+        <img id="hackpsu-logo">
+      </div>
+      <!-- Sun and Moon Graphic -->
+      <div class="celestial-body">
+        <img>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="section-header col-xs-12">
-            <div class="header-text">FAQ</div>
-            <div class="header-bar"></div>
-          </div>
-        </div>
-
-        <!-- Left column of questions -->
-        <div class="row question-container">
-          <div class="col-xs-12 col-md-6">
+    <!-- Event info and mountain graphics -->
+    <div class="row header-content">
+      <!-- Header info (event date, location) and CTA -->
+      <div class="col-md-5">
+        <div class="row event-info">
+          <div class="offset-md-2 col-md-8 ">
             <div class="row">
-              <p class="question col-xs-11">What is a hackathon?</p>
-              <p class="FAQanswer">
-                <a href='https://medium.com/hackathons-anonymous/wtf-is-a-hackathon-92668579601#.41g3cpwky'
-                   target="_blank">Pretty much the coolest thing ever.</a>
-                <br> Hackathons foster a sense of community, drive innovation, and build the
-                technical leaders
-                of
-                the future. Here at HackPSU, our goal is to create a collaborative environment where
-                people can
-                both
-                innovate and learn new skills.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                Do I need a team?
-              </p>
-              <p class="FAQanswer">
-                Not at all! While some people may come with teams ready, many others will not have
-                created teams
-                yet, or may only have partial teams. Before the event begins, we will have a team
-                building
-                workshop
-                for all participants who need teams.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                Who can participate?
-              </p>
-              <p class="FAQanswer">
-                MLH Hackathons are open to any student currently enrolled in full time higher
-                education.
-                Graduates
-                who graduated less than a year ago may also attend.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                What should I bring?
-              </p>
-              <p class="FAQanswer">
-                You'll need a laptop, or some kind of device you can program on. You might also want
-                to bring a
-                toothbrush/toiletries. Make sure to have your student ID for
-                check-in!
-              </p>
-            </div>
-            <div>
-
-              <p class="question">
-                How long is the hackathon?
-              </p>
-              <p class="FAQanswer">
-                The hackathon runs from 12:30pm Saturday to 5:30pm Sunday, with hacking starting at
-                2:00pm
-                Saturday
-                and concluding 2:00pm Sunday, for a total of 24 hours.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                What about food?
-              </p>
-              <p class="FAQanswer">
-                Food, drinks, and snacks will all be provided for free! Make sure to let us know of
-                any dietary
-                restrictions when you register.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                Can high school students come?
-              </p>
-              <p class="FAQanswer">
-                Anyone in high school, who is over the age of 18 at the date of the event, may
-                participate with
-                a valid
-                ID.
-              </p>
-            </div>
-          </div>
-
-          <!-- Right column of questions -->
-          <div class="col-xs-12 col-md-6">
-            <div>
-              <p class="question">
-                How many people can be on a team?
-              </p>
-              <p class="FAQanswer">
-                Teams are limited to a maximum of 5 people.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                What in heaven's name is Slack?
-              </p>
-              <p class="FAQanswer">
-                Throughout the event we will be using Slack and push notifications to communicate
-                news. Watch
-                for
-                push notifications
-                during the event on the live site. If you've never used Slack, <a>here's</a> a quick
-                introduction!
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                What are the conduct guidelines?
-              </p>
-              <p class="FAQanswer">
-                Don't bring any firearms, knives, weapons, drugs, or alcohol. Don't use an old
-                project.
-                Also, please read the <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
-                                         class="stylizedLink">
-                Major League Hacking Code of Conduct</a>. Our team members will enforce
-                this code throughout the event. We are expecting cooperation from all participants
-                to help
-                ensure a safe environment for everybody. Basically be nice to everyone, which
-                ensures that all guests have a positive experience at our hackathon!
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                How much does it cost?
-              </p>
-              <p class="FAQanswer">
-                $0! The event is completely free to attend!
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                Is there travel reimbursement?
-              </p>
-              <p class="FAQanswer">
-                Yes! We are offering hackers who carpool with 2+ people $60 in reimbursements, and
-                hackers who
-                carpool with 4+ people $75 in reimbursements. We may offer more on a case by case
-                basis.
-              </p>
-            </div>
-            <div>
-              <p class="question">
-                Who can register?
-              </p>
-              <p class="FAQanswer">
-                We welcome participants who are:<br><br>
-                18+ in age as of October 6th, 2018<br>
-                Undergraduate or graduate students<br>
-                From any university - not limited to Penn State students <br>
-                Any skill level - beginner through advanced
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row question-container">
-          <div class="horizontal-line"></div>
-          <div id="location" class="row">
-            <p class="title">
-              How do I get there?
-            </p>
-            <div class="col-xs-12 col-md-4">
-              <p> The hackathon will take place at Penn State's Business Building. Its full address
-                is: <br><br>210
-                Business Building,<br>University Park, PA 16802<br><br>Click the maps location for
-                GPS
-                directions!</p>
-            </div>
-            <div class="col-xs-12 col-md-8">
-              <div id="map-container">
-                <script>
-                  function initMap() {
-                    var myLatng = {
-                      lat: 40.8038445,
-                      lng: -77.86521809999999
-                    };
-
-                    var map = new google.maps.Map(document.getElementById('map-container'), {
-                      center: myLatng,
-                      zoom: 17
-                    });
-
-                    var marker1 = new google.maps.Marker({
-                      map: map,
-                      position: myLatng,
-                      title: "Business Building"
-                    });
-                    var infowindow = new google.maps.InfoWindow({
-                      content: "<p>Click to get directions</p>"
-                    });
-                    infowindow.open(map, marker1);
-                    marker1.addListener('click', function () {
-                      startRoute(myLatng);
-                    });
-
-                    function startRoute(startLocation) {
-                      var directionsDisplay;
-                      var directionsService = new google.maps.DirectionsService();
-
-                      function initRoute() {
-                        // initialize();
-                        console.log("calculating");
-                        var start;
-                        if (navigator.geolocation) {
-                          navigator.geolocation.getCurrentPosition(function (position) {
-                            var pos = {
-                              lat: position.coords.latitude,
-                              lng: position.coords.longitude
-                            };
-                            console.log(pos);
-                            start = pos;
-                            var end = startLocation;
-                            console.log(end);
-                            var request = {
-                              origin: start,
-                              destination: end,
-                              travelMode: 'DRIVING'
-                            };
-                            directionsService.route(request, function (result, status) {
-                              if (status === 'OK') {
-                                window.open("https://www.google.com/maps/dir/" + pos.lat + "+" + pos.lng + "/" + startLocation.lat + "+" + startLocation.lng)
-                                // directionsDisplay.setDirections(result);
-                              }
-                            });
-                          });
-                        }
-                      }
-
-                      initRoute();
-                    }
-
-                    var marker2 = new google.maps.Marker({
-                      map: map,
-                      position: {
-                        lat: 40.8044359,
-                        lng: -77.86309340000003
-                      },
-                      title: "East Parking Deck",
-                      animation: google.maps.Animation.DROP,
-                      label: "P"
-                    });
-                    marker2.addListener('click', function () {
-                      startRoute({
-                        lat: 40.793717,
-                        lng: -77.869543
-                      });
-                    });
-                  }
-                </script>
-                <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp2PCsgrLSiEMXQy-9vl1CSRfJPlXiD2U&callback=initMap"
-                    async defer></script>
+              <div class="col-12 header-text wrapped-box">
+                <p class="text-left"><span>October 6-7</span></p>
+                <p class="text-left"><span>Penn State University</span></p>
+                <p class="text-left"><span>Business Building</span></p>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="row cta">
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
+            <a href="https://app.hackpsu.org">
+              <div class="header-text text-center">
+                <p class="text-center">Register Now</p>
+              </div>
+            </a>
+          </div>
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn-design">
+            <a href="#tracks">
+              <div class="header-text text-center">
+                <p class="text-center">Design Challenge</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <div class="section-separator">
-      <img class="section-separator-background" src="assets/images/border6.svg">
+      <!-- Mountain vista graphics -->
+      <div class="col-md-7">
+        <div class="row header-graphic">
+          <img class="img-fluid mountain">
+          <!-- Each cloud img needs its own div to keep their position correct on resize.  -->
+          <div class="cloud-1 floating">
+            <img class="cloud-img floating">
+          </div>
+          <div class="cloud-2 floating">
+            <img class="cloud-img floating">
+          </div>
+          <div class="cloud-3 floating">
+            <img class="cloud-img floating">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</header>
+
+<section id="about">
+  <div class="container">
+
+    <div class="row">
+      <div class="section-header col-12">
+        <div class="header-text">About Us</div>
+        <div class="header-bar"></div>
+      </div>
+
+      <div class="col-12 about-text">
+        <p>
+          This <span>October 6 - 7th</span> , join us and over <span>700 students</span> from across
+          the nation for <span>24 hours</span> of creation, innovation, & fun. From seasoned coding
+          veterans to first-time hackers from
+          any major or field, all are welcome to join. Discover your ability to create change by
+          developing technology to solve real-world problems, working with industry leaders, and
+          collaborating with your peers.
+        </p>
+        <p>Of course, we also offer <span>free food, swag, prizes</span>, and much more for your
+          enjoyment!</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-separator">
+  <img class="section-separator first-border">
+</div>
+
+<div class="section-separator-bar">
+</div>
+
+<section id="tracks">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="section-header col-xs-12">
+        <div class="header-text">Tracks</div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <p class="tracks-text">
+        Choose your path at HackPSU! This year, we are introducing different challenges for those
+        looking to experience HackPSU in a new way. In addition to the standard prize and challenge,
+        we are offering a design track - focused on those looking to showcase their creative flair.
+      </p>
+    </div>
+    <div class="offset-md-2 col-md-4">
+      <p class="track-header">Tech Track</p>
+      <img src="assets/images/terminal-flat-icon-white.svg" class="track-img">
+      <p class="track-content">
+        The standard HackPSU experience. Learn new skills with workshops in everything from
+        beginners Python to machine learning, and collaborate with team members to build something
+        awesome. We'll have tons of great mentors and other staff around to help you on your way.
+        Choose this track if you're passionate about technology and development.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="track-header">Design Track</p>
+      <img src="assets/images/design-flat-icon-white.svg" class="track-img">
+      <p class="track-content">
+        A new way to experience HackPSU - with designers front and center. Whether its graphic
+        design, UX design, or UI design, this is the track for you. At the start of the event
+        everyone will be provided a prompt of the form: Design an interface for ____________ to/that
+        ____________ . Through mocks, use-flows, and wireframes we will be looking at how your
+        design best addresses the prompt.
+      </p>
+    </div>
+    <div class="offset-md-1 col-md-10">
+      <div class="offset-md-2 col-md-8 offset-lg-4 col-lg-4 register-btn">
+        <a href="https://app.hackpsu.org">
+          <div class="header-text text-center">
+            <p class="text-center track-register">Register Now</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="offset-md-1 col-md-10">
+      <p>
+        Both tracks have separate $500 top prizes, and $250 runner-up prizes. The tech track has an
+        additional third place prize. The prize value is to be split amongst team members.
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="faqs">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="section-header col-xs-12">
+        <div class="header-text">FAQ</div>
+        <div class="header-bar"></div>
+      </div>
     </div>
 
-    <section id="sponsors">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="section-header col-xs-12">
-            <div class="header-text">Sponsors</div>
-            <div class="header-bar"></div>
-          </div>
+    <!-- Left column of questions -->
+    <div class="row question-container">
+      <div class="col-xs-12 col-md-6">
+        <div>
+          <p class="question">What is a hackathon?</p>
+          <p class="FAQanswer">
+            <a href='https://medium.com/hackathons-anonymous/wtf-is-a-hackathon-92668579601#.41g3cpwky'
+               target="_blank">Pretty much the coolest thing ever.</a>
+            <br> Hackathons foster a sense of community, drive innovation, and build the
+            technical leaders
+            of
+            the future. Here at HackPSU, our goal is to create a collaborative environment where
+            people can
+            both
+            innovate and learn new skills.
+          </p>
         </div>
-
-        <!-- Gold Sponsors -->
-        <div class="row gold">
-          <div class="offset-sm-4 col-sm-4">
-            <!-- General Motors -->
-            <a href="https://www.gm.com/" target="_blank">
-              <img src="assets/images/sponsors/GM_original.svg" alt="GM" class="img-fluid">
-            </a>
-          </div>
+        <div>
+          <p class="question">
+            Do I need a team?
+          </p>
+          <p class="FAQanswer">
+            Not at all! While some people may come with teams ready, many others will not have
+            created teams
+            yet, or may only have partial teams. Before the event begins, we will have a team
+            building
+            workshop
+            for all participants who need teams.
+          </p>
         </div>
-
-        <!-- Silver Sponsors -->
-        <div class="row silver">
-<<<<<<< Updated upstream
-          <div class="offset-sm-3 col-sm-6">
-=======
-          <div class="col-sm-4">
-            <!-- KCF Technology -->
->>>>>>> Stashed changes
-            <a href="https://www.kcftech.com/" target=_blank>
-              <img src="assets/images/sponsors/KSF-Technologies-original.svg" alt="KCF Technologies" class="img-fluid">
-            </a>
-          </div>
-<<<<<<< Updated upstream
-=======
-          <div class="col-sm-4">
-            <!-- Google -->
-            <a href="https://google.com/" target="_blank">
-              <img src="assets/images/sponsors/Google_original.svg" alt="Google" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <!-- IBM -->
-            <a href="https://www.ibm.com/" target="_blank">
-              <img src="assets/images/sponsors/Ibm.svg" alt="IBM" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <!-- Amazon -->
-            <a href="https://www.amazon.com/" target="_blank">
-              <img src="assets/images/sponsors/Amazon_logo_plain.svg" alt="Amazon" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <!-- Institute of CyberScience -->
-            <a href="https://ics.psu.edu/" target="_blank">
-              <img src="assets/images/sponsors/ICS_original.svg" alt="Institute of CyberScience" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <!-- Vanguard -->
-            <a href="https://investor.vanguard.com/corporate-portal/?lang=en" target="_blank">
-              <img src="assets/images/sponsors/Vanguard.svg" alt="Vanguard" class="img-fluid">
-            </a>
-          </div>
-          <div class="offset-sm-2 col-sm-4">
-            <!-- Capital One-->
-            <a href="https://www.capitalone.com/" target="_blank">
-              <img src="assets/images/sponsors/capitalone-logo-COLOR.svg" alt="CapitalOne" class="img-fluid">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <!-- Invest Penn State -->
-            <a href="https://invent.psu.edu/" target="_blank">
-              <img src="assets/images/sponsors/inventpsu-logo.png" alt="InvestPSU" class="img-fluid">
-            </a>
-          </div>
->>>>>>> Stashed changes
+        <div>
+          <p class="question">
+            Who can participate?
+          </p>
+          <p class="FAQanswer">
+            MLH Hackathons are open to any student currently enrolled in full time higher
+            education.
+            Graduates
+            who graduated less than a year ago may also attend.
+          </p>
         </div>
-
-        <!-- Bronze Sponsors -->
-        <div class="row bronze">
-          <div class="offset-sm-4 col-sm-4">
-            <a href="https://www.accuweather.com/" target=_blank>
-              <img src="assets/images/sponsors/Accuweather-original.svg" alt="AccuWeather" class="img-fluid">
-            </a>
-          </div>
-         <!--  <div class="col-sm-3">
-            <a href="https://www.jpmorganchase.com/" target=_blank>
-              <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMorgan Chase & Co." class="img-fluid">
-            </a>
-          </div> -->
+        <div>
+          <p class="question">
+            What should I bring?
+          </p>
+          <p class="FAQanswer">
+            You'll need a laptop, or some kind of device you can program on. You might also want
+            to bring a
+            toothbrush/toiletries. Make sure to have your student ID for
+            check-in!
+          </p>
         </div>
+        <div>
 
+          <p class="question">
+            How long is the hackathon?
+          </p>
+          <p class="FAQanswer">
+            The hackathon runs from 11 am Saturday to 5:30pm Sunday, with hacking starting at
+            2:00pm
+            Saturday
+            and concluding 2:00pm Sunday, for a total of 24 hours.
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            What about food?
+          </p>
+          <p class="FAQanswer">
+            Food, drinks, and snacks will all be provided for free! Make sure to let us know of
+            any dietary
+            restrictions when you register.
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            Can high school students come?
+          </p>
+          <p class="FAQanswer">
+            Anyone in high school, who is over the age of 18 at the date of the event, may
+            participate with
+            a valid
+            ID.
+          </p>
+        </div>
       </div>
-    </section>
+
+      <!-- Right column of questions -->
+      <div class="col-xs-12 col-md-6">
+        <div>
+          <p class="question">
+            How many people can be on a team?
+          </p>
+          <p class="FAQanswer">
+            Teams are limited to a maximum of 5 people.
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            What in heaven's name is Slack?
+          </p>
+          <p class="FAQanswer">
+            Throughout the event we will be using Slack and push notifications to communicate
+            news. Watch
+            for
+            push notifications
+            during the event on the live site. If you've never used Slack, <a>here's</a> a quick
+            introduction!
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            What are the conduct guidelines?
+          </p>
+          <p class="FAQanswer">
+            Don't bring any firearms, knives, weapons, drugs, or alcohol. Don't use an old
+            project.
+            Also, please read the <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+                                     class="stylizedLink">
+            Major League Hacking Code of Conduct</a>. Our team members will enforce
+            this code throughout the event. We are expecting cooperation from all participants
+            to help
+            ensure a safe environment for everybody. Basically be nice to everyone, which
+            ensures that all guests have a positive experience at our hackathon!
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            How much does it cost?
+          </p>
+          <p class="FAQanswer">
+            $0! The event is completely free to attend!
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            Is there travel reimbursement?
+          </p>
+          <p class="FAQanswer">
+            Yes! We are offering hackers who carpool with 2+ people $60 in reimbursements, and
+            hackers who
+            carpool with 4+ people $75 in reimbursements. We may offer more on a case by case
+            basis.
+          </p>
+        </div>
+        <div>
+          <p class="question">
+            Who can register?
+          </p>
+          <p class="FAQanswer">
+            We welcome participants who are:<br><br>
+            18+ in age as of October 6th, 2018<br>
+            Undergraduate or graduate students<br>
+            From any university - not limited to Penn State students <br>
+            Any skill level - beginner through advanced
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row question-container">
+      <div class="horizontal-line"></div>
+      <div id="location" class="row">
+        <p class="title">
+          How do I get there?
+        </p>
+        <div class="col-xs-12 col-md-4">
+          <p> The hackathon will take place at Penn State's Business Building. Its full address
+            is: <br><br>210
+            Business Building,<br>University Park, PA 16802<br><br>Click the maps location for
+            GPS
+            directions!</p>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          <div id="map-container">
+            <script>
+              function initMap() {
+                var myLatng = {
+                  lat: 40.8038445,
+                  lng: -77.86521809999999
+                };
+
+                var map = new google.maps.Map(document.getElementById('map-container'), {
+                  center: myLatng,
+                  zoom: 17
+                });
+
+                var marker1 = new google.maps.Marker({
+                  map: map,
+                  position: myLatng,
+                  title: 'Business Building'
+                });
+                var infowindow = new google.maps.InfoWindow({
+                  content: '<p>Click to get directions</p>'
+                });
+                infowindow.open(map, marker1);
+                marker1.addListener('click', function () {
+                  startRoute(myLatng);
+                });
+
+                function startRoute(startLocation) {
+                  var directionsDisplay;
+                  var directionsService = new google.maps.DirectionsService();
+
+                  function initRoute() {
+                    // initialize();
+                    console.log('calculating');
+                    var start;
+                    if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                          lat: position.coords.latitude,
+                          lng: position.coords.longitude
+                        };
+                        console.log(pos);
+                        start = pos;
+                        var end = startLocation;
+                        console.log(end);
+                        var request = {
+                          origin: start,
+                          destination: end,
+                          travelMode: 'DRIVING'
+                        };
+                        directionsService.route(request, function (result, status) {
+                          if (status === 'OK') {
+                            window.open('https://www.google.com/maps/dir/' + pos.lat + '+' + pos.lng + '/' + startLocation.lat + '+' + startLocation.lng);
+                            // directionsDisplay.setDirections(result);
+                          }
+                        });
+                      });
+                    }
+                  }
+
+                  initRoute();
+                }
+
+                var marker2 = new google.maps.Marker({
+                  map: map,
+                  position: {
+                    lat: 40.8044359,
+                    lng: -77.86309340000003
+                  },
+                  title: 'East Parking Deck',
+                  animation: google.maps.Animation.DROP,
+                  label: 'P'
+                });
+                marker2.addListener('click', function () {
+                  startRoute({
+                    lat: 40.793717,
+                    lng: -77.869543
+                  });
+                });
+              }
+            </script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp2PCsgrLSiEMXQy-9vl1CSRfJPlXiD2U&callback=initMap"
+                async defer></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section id="schedule">
+  <div class="container-fluid">
+    <div class="med-div"></div>
+    <div class="container-fluid">
+      <div class="row section-title-container">
+        <div class="section-header col-xs-12">
+          <div class="header-text">SCHEDULE</div>
+          <div class="header-bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+
+      <!-- Left Column of Schedule -->
+      <div class="col-md-6 col-lg-4">
+        <div class="schedule-header d-flex justify-content-center">
+            <p>Saturday</p>
+        </div>
+
+          <div class="schedule-left">
+            <div class="d-flex justify-content-between">
+                <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
+                    <p class="time">11 AM</p>
+                </div>
+                <div class="event col-8">
+                    <p class="event text-md-left">Registration Opens</p>
+                </div>
+            </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">1 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Opening Ceremony</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">2 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Hacking Starts</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">2 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Lunch</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-sm-4 col-xs-4">
+              <p class="time">7 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Dinner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column of Schedule -->
+      <div class="col-md-6 col-lg-4">
+        <div class="schedule-header d-flex justify-content-center">
+          <p>Sunday</p>
+        </div>
+        <div class="schedule-right">
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">1 AM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Late-night Snack</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">3 AM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Ice-Cream Social</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
+              <p class="time">10 AM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Brunch</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">2 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Hacking Ends</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">2 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Judging Expo</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="col-md-4 col-xs-4">
+              <p class="time">4 PM</p>
+            </div>
+            <div class="event col-8">
+              <p class="event">Closing Ceremony</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End of Schedule -->
+
+<!-- Workshops -->
+    <section id="workshops">
+      <div class="container-fluid">
+        <div class="section-header col-xs-12">
+          <div class="header-text">FEATURED WORKSHOPS</div>
+          <div class="header-bar"></div>
+        </div>
+        <div class="row justify-content-center">
+      <div class="owl-carousel owl-theme">
+
+    <div class="item"><h5>Coding in Javascript and D3</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Beginner</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">KCF Technologies</p><p>Leader in Industry Diagnostics</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>How to Debug Your Code!</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Beginner</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/moshin.jpg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Mohsin Ali</p><p>Program Manager @ Vanguard</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Machine Learning - Would you have survived the Titanic?</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/neil.jpeg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Neil Ashtekar</p><p>Junior in Computer Science</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Virtual Reality - Your Own 3D Program with Unity</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/adlan2.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Adlan Ramly</p><p>President of AR/VR Labs</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Introduction to Docker</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Intermediate</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/pj.png" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Pranav Jain</p><p>Software Engineer @ Microsoft</p></div>
+    </div>
+  </div>
+
+    <div class="item"><h5>Neural Network Security</h5>
+      <div class="tag"><i class="fas fa-tag"></i> Advanced</div>
+      <div class="profile row col-xs-12"><div class="col-md-4 col-xs-4">
+        <img src="assets/images/workshop/ahmed.jpg" alt="Avatar"></div>
+        <div class="presenter col-md-8 col-xs-8"><p style="font-weight:800">Ahmed Abdou</p><p>Researcher @ Almekkawy Lab</p></div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+</div>
+</section>
+  <!-- End of Workshops -->
+
 
     <div class="section-separator">
-        <img class="section-separator-background" src="assets/images/border7.svg">
+  <img class="section-separator-background second-border">
+</div>
+
+<section id="sponsors">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="section-header col-xs-12">
+        <div class="header-text">Sponsors</div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+    <!--Platinum Sponsors-->
+    <div class="row platinum" style="padding-top: 2%">
+      <div class="offset-sm-2 col-sm-8">
+        <!-- General Motors -->
+        <a href="https://it.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/psuit-night.svg" alt="PSU IT"
+               class="img-fluid psuit-day">
+        </a>
+      </div>
+    </div>
+    <div class="row platinum">
+      <div class="col-sm-8 offset-sm-2">
+        <!-- Nittany AI alliance -->
+        <a href="https://www.nittanyai.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/nittanyai-night.svg" alt="Nittany AI Alliance"
+               class="img-fluid nittany-ai-day">
+        </a>
+      </div>
+    </div>
+
+    <!-- Gold Sponsors -->
+    <div class="row gold" style="padding-top: 2%">
+      <div class="col-sm-6">
+        <!-- General Motors -->
+        <a href="https://www.gm.com/" target="_blank">
+          <img src="assets/images/sponsors/GM-night.svg" alt="GM" class="img-fluid gm-day">
+        </a>
       </div>
 
-    <section id="footer">
-      <div class="container-fluid">
-        <div class="row">
-          <div id="social-media" class="col-12">
-            <a target="_blank" href="https://www.facebook.com/HackPSU/"><img
-                class="social-media-icon animated animated-icon"
-                src="assets/icons/facebook.svg"></a>
-            <a target="_blank" href="http://twitter.com/hackpsu"><img
-                class="social-media-icon animated animated-icon"
-                src="assets/icons/twitter.svg"></a>
-            <a target="_blank" href="https://www.instagram.com/hack_psu/"><img
-                class="social-media-icon animated animated-icon"
-                src="assets/icons/instagram.svg"></a>
-            <a target="_blank" href="https://www.snapchat.com/add/hackpsu"><img
-                class="social-media-icon animated animated-icon"
-                src="assets/icons/snapchat.svg"></a>
-            <a href="mailto:team@hackpsu.org"><img class="social-media-icon animated animated-icon"
-                                                   src="assets/icons/email-icon.svg"></a>
-          </div>
-        </div>
-        <div class="center row">
-          <p> Made with <span>&#9829;</span> in Happy Valley.</p>
-        </div>
-        <div class="center row">
-          <a class="small-text" target="_blank" href="/privacy">Privacy Policy</a>
-        </div>
+      <div class="col-sm-6">
+        <!-- Oracle -->
+        <a href="https://oracle.com" target="_blank">
+          <img src="assets/images/sponsors/Oracle-night.svg" alt="Oracle"
+               class="img-fluid oracle-day">
+        </a>
       </div>
-    </section>
-  </body>
+    </div>
+
+    <!-- Silver Sponsors -->
+    <div class="row silver d-flex justify-content-center">
+      <div class="col-sm-4">
+        <!-- Google Cloud Platform-->
+        <a href="https://cloud.google.com/" target="_blank">
+          <img src="assets/images/sponsors/GCS-night.svg" alt="Google" class="img-fluid google-day">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- Amazon Web Services-->
+        <a href="https://aws.amazon.com/" target="_blank">
+          <img src="assets/images/sponsors/aws-night.svg" alt="Amazon" class="img-fluid amazon-day">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- Invest Penn State -->
+        <a href="https://invent.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/InventPSU-night.svg" alt="InvestPSU"
+               class="img-fluid investpsu-day">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- EECS -->
+        <a href="https://www.eecs.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/EECS-night.svg" alt="EECS" class="img-fluid eecs-day"
+               style="padding-top: 17%">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- KCF Technology -->
+        <a href="https://www.kcftech.com/" target=_blank>
+          <img src="assets/images/sponsors/KSF_Technologies-night.svg" alt="KCF Technologies"
+               class="img-fluid kcf-day" style="padding-top: 5%">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- Vanguard -->
+        <a href="https://investor.vanguard.com/home/" target="_blank">
+          <img src="assets/images/sponsors/Vanguard-night.svg" alt="Vanguard"
+               class="img-fluid vanguard-day">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- Capital One-->
+        <a href="https://campus.capitalone.com/" target="_blank">
+          <img src="assets/images/sponsors/Capital_One-night.svg" alt="CapitalOne"
+               class="img-fluid capitalone-day">
+        </a>
+      </div>
+    </div>
+
+    <!-- Bronze Sponsors -->
+    <div class="row bronze d-flex justify-content-center">
+      <div class="col-sm-3">
+        <!-- Accuweather -->
+        <a href="https://www.accuweather.com/" target=_blank>
+          <img src="assets/images/sponsors/Accuweather-night.svg" alt="AccuWeather"
+               class="img-fluid accuweather-day">
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <!-- Institute of CyberScience -->
+        <a href="https://ics.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/ICS-night.svg" alt="Institute of CyberScience"
+               class="img-fluid ics-day">
+        </a>
+      </div>
+      <!--  <div class="col-sm-3">
+         <a href="https://www.jpmorganchase.com/" target=_blank>
+           <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMorgan Chase & Co." class="img-fluid">
+         </a>
+       </div> -->
+    </div>
+
+  </div>
+</section>
+
+<div class="section-separator">
+  <img class="section-separator-background third-border">
+</div>
+
+<section id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div id="social-media" class="col-12">
+        <a target="_blank" href="https://www.facebook.com/HackPSU/"><img
+            class="social-media-icon animated animated-icon"
+            src="assets/icons/facebook.svg"></a>
+        <a target="_blank" href="http://twitter.com/hackpsu"><img
+            class="social-media-icon animated animated-icon"
+            src="assets/icons/twitter.svg"></a>
+        <a target="_blank" href="https://www.instagram.com/hack_psu/"><img
+            class="social-media-icon animated animated-icon"
+            src="assets/icons/instagram.svg"></a>
+        <a target="_blank" href="https://www.snapchat.com/add/hackpsu"><img
+            class="social-media-icon animated animated-icon"
+            src="assets/icons/snapchat.svg"></a>
+        <a href="mailto:team@hackpsu.org"><img class="social-media-icon animated animated-icon"
+                                               src="assets/icons/email-icon.svg"></a>
+      </div>
+    </div>
+    <div class="center row">
+      <p> Made with <span>&#9829;</span> in Happy Valley.</p>
+    </div>
+    <div class="center row">
+      <a class="small-text" target="_blank" href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+</section>
+</body>
 </html>

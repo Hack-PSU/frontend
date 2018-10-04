@@ -9,6 +9,7 @@ $light-blue-primary: #6C88B7;
 $dark-blue-primary: #133753;
 $light-blue: #AACACC;
 $dark-blue-secondary: #24577C;
+$dark-blue-tertiary: #00324B;
 $light-blue-secondary: #D0EAF1;
 $orange-secondary: #C94331;
 $gray: #333333;
@@ -102,23 +103,23 @@ header {
     }
     .celestial-body {
       position: absolute;
-      width: 12.5%;
+      width: 13.5%;
       left: 8%;
       right: 0;
       top: 11.5vh;
       margin: 0;
       img {
-        content: url("../assets/images/sun.svg");
+        content: url("../assets/images/flat-sun-icon.svg");
       }
       img:after {
-        content: url("../assets/images/sun.svg");
+        content: url("../assets/images/flat-sun-icon.svg");
       }
       @media screen and (max-width: $break-small){
         display: none;
       }
     }
     @media screen and (max-width: $lg-break){
-      padding-top: 25%; 
+      padding-top: 25%;
     }
     @media screen and (max-width: $break-large) {
       height: auto;
@@ -133,7 +134,7 @@ header {
 
   .header-text {
     font-family:   $font-stack-tertiary;
-    @include responsive-font(1em, .7em, 1.5em, 1em);
+    @include responsive-font(.85em, .8em, 1.25em, 1em);
     max-font-size: 2em;
 
     p {
@@ -153,7 +154,7 @@ header {
   }
 
   /* Some CSS I made up to get that wrapped box effect in the header.
-  This can be applied to any text structured in the same way as the 
+  This can be applied to any text structured in the same way as the
   event info. */
   .wrapped-box {
     p span {
@@ -226,20 +227,62 @@ header {
     .mountain:after {
       content: url("../assets/images/flat-mountain-graphic-snow.svg");
     }
+    @media screen and (max-width: $lg-break) {
+      .mountain {
+        margin-top: 10vh;
+      }
+      .cloud-1, .cloud-2, .cloud-3 {
+        margin-top: 6vh;
+      }
+    }
 
   }
-  
+
+}
+
+.section-separator {
+  background: #FFFFFF;
 }
 
 .first-border {
+  content: url("../assets/images/section-sep-1-mountain.svg");
+}
+.first-border::after {
+  content: url("../assets/images/section-sep-1-mountain.svg");
+}
+
+.first-border:after {
   content: url("../assets/images/border2-whitebg.svg");
+}
+
+.second-border {
+  content: url("../assets/images/border6.svg");
+}
+
+.second-border:after{
+  content: url("../assets/images/border6.svg");
+  @-moz-document url-prefix() {
+    content: url("../assets/images/border6-night.svg");
+  }
+}
+
+.third-border {
+  content: url("../assets/images/border7.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7.svg");
+  @-moz-document url-prefix() {
+    content: url("../assets/images/border7-night.svg");
+  }
 }
 
 #about {
   background: white;
   //background-color: #103147;
-  margin-bottom: 10px;
-  padding-bottom: 5%;
+  // This margin removes that thin white line that appears at some screen sizes where the
+  // above section meets the about section.
+  margin-top: -1px;
   @media screen and (max-width: $md-break) {
       padding-top: 10%;
   }
@@ -255,7 +298,7 @@ header {
     width: 30%;
     margin: 0%;
     @media screen and (max-width: $sm-break) {
-      width: 100%;  
+      width: 100%;
     }
   }
   p {
@@ -264,7 +307,7 @@ header {
     font-weight: 100;
     text-align:  left;
     padding-top: 5vh;
-    line-height: 200%;
+    line-height: 1.85em;
     color: #424242;
 
     span {
@@ -274,3 +317,95 @@ header {
   }
 }
 
+/* Sponsors */
+
+#sponsors {
+  padding-top: 50px;
+  background: #FFFFFF;
+  @-moz-document url-prefix() {
+    background: $dark-blue-tertiary;
+  }
+  .header-text {
+    color: #424242;
+    @-moz-document url-prefix() {
+      color: #e5e5e5;
+    }
+  }
+  .header-bar {
+    background: #24577C;
+  }
+  .gold img {
+    max-width: 45%;
+  }
+  .silver img {
+    max-width: 55%;
+  }
+  .bronze img {
+    max-width: 50%;
+  }
+}
+.psuit-day {
+  content: url("../assets/images/sponsors/PSUIT_original.svg");
+}
+.gm-day {
+  content: url("../assets/images/sponsors/GM-day.svg");
+}
+
+.oracle-day {
+  content: url("../assets/images/sponsors/Oracle-day.svg");
+  margin-top: 10%;
+}
+
+// Oracle override
+#sponsors .gold .oracle-day {
+  max-width: 100%;
+}
+
+.google-day {
+  content: url("../assets/images/sponsors/GCS_original.svg");
+}
+/*
+.ibm-day {
+  content: url("../assets/images/sponsors/IBM-day.svg");
+}
+*/
+.amazon-day {
+  content: url("../assets/images/sponsors/aws-day.svg");
+}
+
+.investpsu-day {
+  content: url("../assets/images/sponsors/InventPSU-day.svg");
+}
+
+.eecs-day {
+  content: url("../assets/images/sponsors/EECS-day.svg");
+}
+
+.nittany-ai-day {
+  content: url("../assets/images/sponsors/nittanyai-day.svg");
+}
+
+.kcf-day {
+  content: url("../assets/images/sponsors/KSF_Technologies-day.svg");
+}
+
+.vanguard-day {
+  content: url("../assets/images/sponsors/Vanguard-day.svg");
+}
+
+.capitalone-day {
+  content: url("../assets/images/sponsors/Capital_One-day.svg");
+}
+
+.accuweather-day {
+  content:     url("../assets/images/sponsors/Accuweather-day.svg");
+  padding-top: 10%;
+}
+/*
+.stickermule-day {
+  content:     url("../assets/images/sponsors/StickerMule_original.svg");
+}
+*/
+.ics-day {
+  content: url("../assets/images/sponsors/ICS-day.svg");
+}
