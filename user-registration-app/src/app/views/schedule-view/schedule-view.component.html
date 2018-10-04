@@ -125,7 +125,7 @@
       </div>
       <div class="content col-lg-9">
         <div class="modal-body">
-          <p>{{event.event_description}}</p>
+          <p [innerHTML]="event.event_description"></p>
         </div>
         <button type="button" href="" class="close small-screen-hide" data-dismiss="modal">&times;</button>
         <div class="modal-footer large-screen-hide">
