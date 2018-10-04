@@ -51,6 +51,20 @@ many of the utlities in Bootstrap, so undoing it here.*/
   margin: 10px 0;
 }
 
+.hardware-text {
+  font-size: 1.25em;
+}
+
+.hardware-text p {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.hardware-text span {
+  color: #e5704c;
+  font-weight: 700;
+}
+
 @media screen and (max-width: 768px) {
 
   #countdown-timer .unit {
@@ -251,6 +265,69 @@ td {
   background-color: #6FA7B3;
   color: white;
 }
+
+/* FAQ */
+.question-container {
+  margin-top: 10px;
+  padding:    0 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .question-container {
+    padding: 0px;
+  }
+}
+
+.question i {
+  padding-right: 5px;
+  color:        #C94331;
+}
+
+.icon-rotate {
+  transition:   all 0.3s;
+}
+.icon-rotate.right-rotate {
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  transform:         rotate(45deg);
+}
+
+.question {
+  background:     #E1E9EA;
+  border:       solid 1px #297284;
+  border-radius:  7px 7px 7px 7px;
+  color:      #004D6D;
+  text-align: left;
+  padding:    10px;
+  cursor:     hand;
+  font-size:  large;
+}
+
+.FAQanswer {
+  color:       white;
+  display:     none;
+  font-weight: lighter;
+  font-size:   medium;
+  margin:      0 4%;
+  text-align:  left;
+  padding-bottom: 4%;
+}
+
+.FAQanswer a {
+  color:              #99C4CC;
+  -webkit-transition: all 0.5s;
+  -moz-transition:    all 0.5s;
+  -ms-transition:     all 0.5s;
+  -o-transition:      all 0.5s;
+  transition:         all 0.5s;
+}
+
+.FAQanswer a:hover {
+  color: rgba(255, 255, 255, 0.5)
+}
+
 
 .info-title {
   font-size: large;
