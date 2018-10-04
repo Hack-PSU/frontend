@@ -196,56 +196,52 @@ i {
 
 .modal {
   padding-right: 0 !important;
-}
-
-.modal .modal-content {
-  height: 100%;
-}
-
-.modal-content .container-fluid {
-  margin: 0px;
-  padding: 0px;
-  text-align: left;
-  height: 80%;
-}
-
-.modal {
   width: 50%;
-  margin-left: 25%;
   color: black;
+  -webkit-border-radius: 10px;
+  -moz-border-radius:    10px;
+  border-radius:         10px;
 }
 
-.modal-header {
+.modal-dialog {
+  max-width: 100%;
   height: 100%;
-  font-size: 16pt;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+.modal .modal-content {
+  flex: 1;
+  color: #000;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-.modal-body {
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 12pt;
-  overflow-y: auto;
+.modal .modal-body {
+  padding: 1.5rem;
+}
+
+.modal-dialog .header {
+  padding:          24px;
+  background-color: #9f9f9f;
   height: 100%;
 }
 
-.modal-body img {
-  width: 80%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px;
-}
-
-.modal-day, .modal-time, .modal-location {
-  opacity: .7;
-  font-size: 11pt;
-  margin-top: 5px;
-  margin-bottom: 5px;
+.modal-footer {
+  position: absolute;
+  bottom: 0;
 }
 
 .close {
-  margin: 15px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.modal-location-title {
+  margin: 10px 0;
 }
 
 .large-screen-hide {
@@ -257,53 +253,10 @@ i {
     display: block;
   }
 
-  .modal-header {
-    height: 15%;
-    font-size: 13pt;
-    min-height: 40px;
+  .modal-dialog .header {
+    height: fit-content;
   }
-
-  .modal-body {
-    height: 70%;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 12pt;
-  }
-
-  .modal {
-    margin: 0px;
-    padding: 15px;
-    width: 80%;
-    left: 10%;
-    top: 25%;
-  }
-
-  .modal-dialog {
-    margin: 0px;
-    width: 100%;
-  }
-
-  .modal-footer {
-    padding: 0px;
-    height: 15%;
-    min-height: 40px;
-    position: relative;
-  }
-
-  .modal-footer .btn {
-    position: absolute;
-    margin-top: auto;
-    margin-bottom: auto;
-    bottom: 0px;
-    top: 0px;
-    right: 3%;
-    height: 100%;
-    font-size: 30%;
-    max-height: 25px;
-  }
-
-  .modal-small-screen-hide {
+  .small-screen-hide {
     display: none;
   }
 }

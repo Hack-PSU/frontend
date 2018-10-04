@@ -29,7 +29,8 @@ import {
   UserViewComponent,
 } from './views/views';
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
-import { AuthGuard, DateGuard } from './services/route-guards/guards';
+import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
+import { TruncatePipe } from "./services/pipes/truncate.pipe";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     TableAssignmentViewComponent,
     RsvpComponent,
     LiveUpdateComponent,
+    TruncatePipe,
     ScheduleViewComponent,
   ],
   imports: [
@@ -70,6 +72,7 @@ import { AuthGuard, DateGuard } from './services/route-guards/guards';
     AuthGuard,
     NgProgress,
     DateGuard,
+    LiveWebsiteDateGuard,
     AlertService,
     CustomErrorHandlerService,
   ],

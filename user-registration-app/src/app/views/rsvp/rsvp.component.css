@@ -1,22 +1,83 @@
-:host{
+:host {
   color: #333333;
+  width: 100%;
 }
 
-.card {
-  height: auto;
+.nature-boi {
+  -webkit-border-radius: 1em;
+  -moz-border-radius:    1em;
+  border-radius:         1em;
 }
+
+.card-content {
+  padding: 1em;
+}
+
+.cornerstone {
+  font-family: 'Cornerstone', sans-serif;
+  font-size: 1.5em;
+}
+@media screen and (min-width: 1024px ) {
+  .card-content {
+    background-image: url('assets/images/section-sep-1-mountain-night.svg');
+    background-size:  cover;
+  }
+}
+
+.emblem-image {
+  width:     100%;
+  max-width: 50vh;
+  margin:    auto;
+  display:   block;
+}
+
 .btn {
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
-  border: 2px solid white;
+  background-color:   rgba(255, 255, 255, 0);
+  color:              white;
+  border:             2px solid white;
   border-right-width: 8px;
-  border-left-width: 8px;
-  border-radius: 12px;
+  border-left-width:  8px;
+  border-radius:      12px;
 }
 
 .btn:hover {
   background-color: #fff;
-  color: #333333;
+  color:            #333333;
+}
+
+.info-card {
+  padding:          10px;
+  line-height:      35px;
+  background-color: #78909c;
+  color:            white;
+  border-radius:    2px;
+  box-shadow:       none;
+}
+
+.header-text {
+  font-family: 'Cornerstone', sans-serif;
+  font-size:   2em;
+  line-height: 100%;
+  margin-top:  25px;
+}
+
+.items-list {
+  list-style-type: circle;
+}
+
+.items-list > li {
+  margin-left:     2em;
+  font-size: 1.5em;
+  list-style-type: circle;
+}
+
+.header-text p {
+  padding:     0px;
+  line-height: 120%;
+}
+
+p {
+  font-size: 1.5em;
 }
 
 .spinner-layer {

@@ -1,6 +1,12 @@
+/* Materialize CSS sets content: "";, this breaks
+many of the utlities in Bootstrap, so undoing it here.*/
+.row::after {
+  content: none;
+}
+
 #hackpsu-logo {
   margin-top: 10px;
-  max-width: 30%;
+  max-width: 45%;
   margin-bottom: 10px;
 }
 
@@ -22,12 +28,41 @@
   text-transform: uppercase;
 }
 
-.emblem {
-  transform: scale(2);
-}
-
 #countdown-text {
   font-family: 'Raleway', 'Lato', sans-serif;
+  font-size: 2em;
+  width: 100%;
+}
+
+#rules li{
+  padding: 0 10px;
+  font-weight: bold;
+}
+.left-side{
+  /* background:#9FC2CC; */
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 0;
+}
+.right-side{
+  /* text-align: right; */
+  font-size: 1em;
+  /* background-color: #6FA7B3; */
+  margin: 10px 0;
+}
+
+.hardware-text {
+  font-size: 1.25em;
+}
+
+.hardware-text p {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.hardware-text span {
+  color: #e5704c;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
@@ -107,7 +142,7 @@
 }
 
 .submit-btn {
-  width: 30%;
+  width: 100%;
   height: 40px;
   font-size: 20;
   font-weight: 800;
@@ -119,27 +154,15 @@
   border-radius: 12px;
 }
 
-.btn {
-  width: 35%;
-}
-
 .submit-btn:hover {
   background-color: rgba(255, 255, 255, 1);
   color: #333333;
 }
 
 @media screen and (max-width: 768px) {
-  #hackpsu-logo {
-    max-width: 70%;
-  }
-
   #countdown {
     font-size: 1.5em;
     padding: 0.5em;
-  }
-
-  .btn {
-    width: 80%;
   }
 }
 
@@ -167,22 +190,32 @@ td {
 }
 
 .section-title {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 1.5vh;;
+  margin-bottom: 1.5vh;
   text-align: center;
 }
 
 .section-title-word {
   display: inline-block;
   white-space: nowrap;
-  padding-right: 1.5%;
   font-family: 'Cornerstone', 'Lato', sans-serif;
   font-size: 2.5em;
 }
 
+.section-separator-bar {
+  height: 5vh;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 -1px -3px rgba(0,0,0,0.12), 0 -1px -2px rgba(0,0,0,0.24);
+
+  z-index: 500;
+  position: relative;
+  background: #236577;
+}
+
 .header-text {
   font-family: 'Cornerstone', sans-serif;
-  font-size:   4vh;
+  font-size:   1.5em;
   line-height: 100%;
   margin-top:  25px;
 }
@@ -192,25 +225,15 @@ td {
   line-height: 120%;
 }
 
+.header-bar {
+  width:  40%;
+  height: 5px;
+  background-color: #6C88B7;
+  margin: auto;
+}
+
 .section-title-letter {
   display: inline-block;
-}
-
-.workshop-level {
-  text-align: center;
-  font-size: 1.3em;
-  margin-bottom: 50px;
-  font-weight: bold;
-}
-
-.workshop-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.workshop {
-  padding: 1vw;
-  padding-left: 2vw;
 }
 
 .indented {
@@ -232,41 +255,6 @@ td {
   flex: 1 0 auto;
 }
 
-.lighter {
-    background: #D0EAF1;
-    color: #333333;
-    vertical-align:middle;
-}
-
-.beginner {
-    background: #6FA7B3;
-    vertical-align:middle;
-}
-
-.intermediate {
-    background: #194E6B;
-    vertical-align:middle;
-    margin-top:auto;
-    margin-bottom:auto;
-}
-
-.advanced {
-    background: #103147;
-    vertical-align:middle;
-}
-
-.workshop-info {
-  float: right;
-  background-color: transparent;
-  padding: 0;
-  box-shadow: none;
-  vertical-align:middle;
-}
-
-.workshop-info .card-content{
-    padding-top:0;
-}
-
 .nav-tabs.nav-justified {
   background-color: white;
 }
@@ -277,6 +265,69 @@ td {
   background-color: #6FA7B3;
   color: white;
 }
+
+/* FAQ */
+.question-container {
+  margin-top: 10px;
+  padding:    0 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .question-container {
+    padding: 0px;
+  }
+}
+
+.question i {
+  padding-right: 5px;
+  color:        #C94331;
+}
+
+.icon-rotate {
+  transition:   all 0.3s;
+}
+.icon-rotate.right-rotate {
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  transform:         rotate(45deg);
+}
+
+.question {
+  background:     #E1E9EA;
+  border:       solid 1px #297284;
+  border-radius:  7px 7px 7px 7px;
+  color:      #004D6D;
+  text-align: left;
+  padding:    10px;
+  cursor:     hand;
+  font-size:  large;
+}
+
+.FAQanswer {
+  color:       white;
+  display:     none;
+  font-weight: lighter;
+  font-size:   medium;
+  margin:      0 4%;
+  text-align:  left;
+  padding-bottom: 4%;
+}
+
+.FAQanswer a {
+  color:              #99C4CC;
+  -webkit-transition: all 0.5s;
+  -moz-transition:    all 0.5s;
+  -ms-transition:     all 0.5s;
+  -o-transition:      all 0.5s;
+  transition:         all 0.5s;
+}
+
+.FAQanswer a:hover {
+  color: rgba(255, 255, 255, 0.5)
+}
+
 
 .info-title {
   font-size: large;
@@ -317,13 +368,81 @@ td {
 }
 
 .info-list {
-  font-size: 16px;
+  font-size: 1em;
+  line-height: 1.35em;
   list-style-type: disc;
+}
+
+.info-list li {
+  padding-bottom: 2vh;
+  padding-right: 5%;
+}
+.info-list li:nth-of-type(1) {
+  padding-top: 3vh;
+}
+
+@media screen and (max-width: 768px) {
+  .info-list {
+    line-height: 1.5em;
+  }
 }
 
 .info-list a {
   color: #D0EAF1;
 }
+
+/* Workshop stuff*/
+#workshop-container {
+  position: relative;
+  text-align: center;
+  font-family: "Lato", "Helvetica", sans-serif;
+}
+
+.workshop-track {
+  font-family: "Cornerstone", sans-serif;
+  font-size: 1.75em;
+  font-weight: bold;
+  background-color: #e5704c;
+  border: 5px solid #e5704c;
+  border-width: 9px 20px 5px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.nomargin {
+  margin: 0 !important;
+}
+
+.beginner {
+  background: #6FA7B3;
+  border-color: #6FA7B3;
+  vertical-align:middle;
+}
+
+.intermediate {
+  background: #1D5B7C;
+  border-color: #1D5B7C;
+  vertical-align:middle;
+}
+
+.advanced {
+  background: #15425f;
+  border-color: #15425f;
+  vertical-align:middle;
+  color: #ffffff;
+}
+
+.sponsored {
+  background: #103247;
+  border-color: #103247;
+  vertical-align:middle;
+  color: #ffffff;
+}
+/* End workshop stuff */
 
 footer {
   background-color: #fff;
@@ -355,8 +474,58 @@ footer {
   font-size: x-small;
 }
 
+.rounded-more {
+  border-radius: 10px;
+}
+
+.first-border {
+  margin-top: -15vh;
+}
+
+@media screen and (max-width: 568px) {
+  .first-border {
+    margin-top: -5vh;
+  }
+}
+
+.boxed-text {
+  border: 5px solid #6C88B7;
+  border-radius: 15px;
+}
+
+.prize-col {
+  padding-top: 8vh;
+}
+
+.prize-title p {
+  font-family: 'Cornerstone', sans-serif !important;
+  font-size: 2.15em;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.prize-img {
+  max-width: 50%;
+  box-shadow: -1px 3px 5px 0px rgba(10, 10, 10, 0.55)
+}
+
+.prizes-text {
+  font-size: 1.25em;
+  padding-top: 5vh;
+}
+
+.prizes-text p {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.prizes-text span {
+  color: #e5704c;
+  font-weight: 700;
+}
+
 #prizes .card {
-  min-height: 250px;
+  min-height: 150px;
 }
 
 #prizes h6 {
@@ -364,12 +533,96 @@ footer {
 }
 
 
+.card {
+  border-width: 8px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card .card-reveal {
+  border-radius: 10px;
+}
+
+.card-image {
+  max-height: 100% !important;
+  overflow: visible;
+}
+
+.card-image img {
+  border-radius: 10px;
+}
+
 .card-title {
-  color: black;
+  font-size: 1.5em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  color: #ffffff;
+}
+
+.card-reveal .card-title {
+  color: #424242;
+}
+
+.card-content {
+  max-width: 500px;
+}
+
+.card-content div:nth-of-type(1) {
+  padding-top: 10px;
+}
+
+.card-content div {
+  text-align: left;
+}
+
+.card .card-content .card-title {
+  margin-bottom: 0px;
+  line-height: 1em;
 }
 
 .card-reveal {
   color: black;
+}
+
+.activator {
+  cursor: pointer;
+}
+
+/* Properly scale our text and icons on smaller screens,
+and make images go away. */
+@media screen and (max-width: 568px) {
+  .card {
+    margin-top: 10vh;
+  }
+  .card:nth-of-type(1) {
+    margin-top: 2vh;
+  }
+  .card-title {
+    font-size: 2.5em;
+  }
+  .card-content div {
+    font-size: 1.75em;
+  }
+  .card-reveal p {
+    font-size: 1.75em;
+  }
+  .material-icons {
+    font-size: 48px;
+    line-height: 75px;
+  }
+  .workshop-track {
+    font-size: 2.5em;
+  }
+  .card-image img {
+    height: 0px;
+  }
+  .btn-floating {
+    width: 75px;
+    height: 75px;
+  }
 }
 
 .tabs .tab a {

@@ -5,7 +5,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppConstants } from './AppConstants';
 import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
-import { DateGuard } from './services/route-guards/date-guard/date.guard';
+import { environment } from "../environments/environment";
+import { LiveWebsiteDateGuard } from "./services/route-guards/guards";
 
 declare var $: any;
 
@@ -73,7 +74,11 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
       .catch(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }
 
+  showLive() {
+    return Date.now() >= environment.liveWebsiteGuardTime.getTime();
+  }
+
   get DateGuard() {
-    return DateGuard;
+    return LiveWebsiteDateGuard;
   }
 }

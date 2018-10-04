@@ -3,16 +3,15 @@
   <h6 class="header-text text-center">SIGN UP</h6>
   <!-- Main Form -->
   <div class="row">
-    <form #loginForm="ngForm" (ngSubmit)="signUp()" id="login-form" class="col s12">
-      <div class="row">
+    <form #loginForm="ngForm" (ngSubmit)="signUp()" id="login-form" class="col-12">
         <div class="login-group">
-          <div class="input-field s6">
+          <div class="form-group input-field">
             <input type="email" required class="validate" id="lg_username"
                    autocomplete="email" name="lg_username"
                    placeholder="yourname@email.com" [(ngModel)]="email">
             <label for="lg_username" data-error="Enter valid email">Email</label>
           </div>
-          <div class="form-group">
+          <div class="form-group input-field">
             <label for="lg_password">Password</label>
             <input type="password" required class="form-control validate" id="lg_password"
                    autocomplete="current-password" name="lg_password"
@@ -20,11 +19,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-6">
             <a class="btn btn-social" href="/login">BACK<i
               class="material-icons left">arrow_back</i> </a>
           </div>
-          <div class="col-sm-6">
+          <div class="col-6">
             <button [disabled]="!loginForm.valid || progressBar.isStarted()" class="btn waves-effect waves-light"
                     type="submit"
                     name="action">Submit
@@ -32,7 +31,6 @@
             </button>
           </div>
         </div>
-      </div>
     </form>
   </div>
 </div>

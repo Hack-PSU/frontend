@@ -12,11 +12,12 @@ import {
   TableAssignmentViewComponent,
   TravelReimbursementViewComponent,
 } from './views/views';
-import { AuthGuard, DateGuard } from './services/route-guards/guards';
+import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
 import { TableAssignmentResolver } from "./services/resolvers/TableAssignmentResolver/table-assignment.resolver";
+import { environment } from "../environments/environment";
 
 const routes: Routes = [
   {
@@ -40,7 +41,7 @@ const routes: Routes = [
   {
     path: 'live',
     component: LiveViewComponent,
-    canActivate: [DateGuard],
+    canActivate: [LiveWebsiteDateGuard],
   },
   {
     path: 'travel',
@@ -54,13 +55,13 @@ const routes: Routes = [
     resolve: { tableAssignment: TableAssignmentResolver },
   },
   {
-    path: 'rsvp',
+    path: 'pin',
     component: RsvpComponent,
     canActivate: [AuthGuard, RegistrationGuard],
     resolve: { registration: RsvpResolver },
   },
   { path: '**',
-    redirectTo: DateGuard.validateDate(new Date()) ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT,
+    redirectTo: LiveWebsiteDateGuard.validateDate() ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT,
   },
 ];
 
