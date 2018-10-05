@@ -49,6 +49,18 @@ export class TravelReimbursementViewComponent implements OnInit {
   }
 
   onSubmit() {
+    /*
+    console.log(this.travelForm);
+    this.loading = true;
+    this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid)
+      .subscribe((value: any) => {
+        this.response = value.result;
+        this.loading = false;
+      },         (error: Error) => {
+        this.errors = error;
+        this.loading = false;
+      });
+    */
     console.log(this.travelForm);
     this.response = this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid);
   }
