@@ -19,7 +19,6 @@ p {
   font-family: Lato, Georgia, sans-serif;
 }
 
-
 .wrapper {
   /*align-items: stretch;*/
   /*display: flex;*/
@@ -56,6 +55,7 @@ p {
 nav {
   background-color: #B1C8CB;
   height: 60px;
+  width: 100%;
 }
 
 nav .brand-logo {
