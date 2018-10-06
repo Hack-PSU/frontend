@@ -1,5 +1,10 @@
+:host {
+  width: 100%;
+}
+
 .header {
   border-bottom: 1px solid white;
+  margin: 0 auto;
 }
 
 .bouncy-bits {
@@ -16,6 +21,12 @@
   color: #101010;
   border:none;
   height: auto;
+  width: 100%;
+}
+
+.success-card {
+  width: 55%;
+  margin: 0 auto;
 }
 
 .table-of-contents a {

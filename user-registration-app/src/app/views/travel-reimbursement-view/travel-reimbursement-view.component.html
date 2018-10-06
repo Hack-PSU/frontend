@@ -1,8 +1,8 @@
 <div class="row">
-  <h3 class="center header">Submit Travel Reimbursement Request</h3>
+  <h3 class="text-center header">Submit Travel Reimbursement Request</h3>
 </div>
 <div *ngIf="show(); else sorry">
-<div class="row" *ngIf="response === null; else responseView">
+<div *ngIf="response === null; else responseView">
   <div class="col hide-on-small-only m2 l2 m2-offset-1 scrollspy-container">
     <ul class="section table-of-contents">
       <li><a href="#name-container">Name</a></li>
@@ -58,6 +58,11 @@
       <div class="card medium darken-1">
         <div class="card-content ">
           <h5 class="num-people">How many people did you travel with?</h5>
+          <p>0: You travelled by yourself</p>
+          <p>1: You drove one other person to the event</p>
+          <p>2: You drove two other people to the event</p>
+          <p>3: You drove three other people to the event</p>
+          <p>4: You drove four or more people to the event</p>
           <div class="input-field">
             <label for="num-people-input"></label>
             <input type="number" id="num-people-input" min="0" max="4" class="validate required" name="num-people" required
@@ -154,9 +159,19 @@
 </div>
 </div>
 <ng-template #responseView>
-  <div class="card medium darken-1">
+  <div style="color:#ffffff" style="padding-bottom: 50px">
+    <div class="text-center">
+      <div style="font-size:50px;"> Thank you! Your request form has been received.</div>
+    </div>
+    <h5 class="center">On Sunday, please visit the Travel Reimbursement table to submit your receipts.</h5>
+  </div>
+  <!--<h6>Submission:</h6>-->
+  <div class="card medium darken-1 success-card">
     <div class="card-content">
-      <h5>{{response}}</h5>
+      <p>Full name: {{travelForm.fullName}}</p>
+      <p>Email: {{travelForm.mailingAddress}}</p>
+      <p>Number of people: {{travelForm.groupMembers}}</p>
+      <p>Accepted reimbursement amount: ${{response?.amount}}</p>
     </div>
   </div>
 </ng-template>
