@@ -1,5 +1,20 @@
+:host {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  :host {
+    margin-left:  20px;
+    margin-right: 20px;
+  }
+}
+
 .header {
-  border-bottom: 1px solid white;
+  font-family:   'Cornerstone', sans-serif;
+  margin-left:   20px;
+  width:         100%;
+  border-bottom: dotted 1px white;
+  margin-top:    50px;
 }
 
 .bouncy-bits {
@@ -12,10 +27,15 @@
 
 .card {
   transition:       transform;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   color:            #101010;
   border:           none;
   height:           auto;
+  padding:          10px 20px 10px 20px;
+}
+
+.card-content {
+  font-family: 'Raleway', sans-serif;
 }
 
 .card.medium .card-action {
@@ -49,5 +69,5 @@
 }
 
 /*.input-field .email {*/
-  /*margin-bottom: 10%;*/
+/*margin-bottom: 10%;*/
 /*}*/

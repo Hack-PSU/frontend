@@ -51,18 +51,24 @@ export class TravelReimbursementViewComponent implements OnInit {
   onSubmit() {
     console.log(this.travelForm);
     this.loading = true;
+    switch(this.travelForm.groupMembers) {
+      case 4:
+        this.travelForm.groupMembers = '4+';
+      default:
+        this.travelForm.groupMembers = this.travelForm.groupMembers.toString();
+    }
     this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid)
-      .subscribe((value: any) => {
-        this.response = value.result;
+      .subscribe((value) => {
+        this.response = value;
         this.loading = false;
-      },         (error: Error) => {
-        this.errors = error;
+      }, () => {
         this.loading = false;
       });
   }
 
   show() {
     return new Date().getTime() > new Date('April 8, 2018 08:00:00').getTime();
+    // return new Date().getTime() > new Date('October 6, 2018 18:00:00').getTime();
   }
 
 }
