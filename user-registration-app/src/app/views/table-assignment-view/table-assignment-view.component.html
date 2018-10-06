@@ -1,5 +1,5 @@
-<div class="row">
-  <h3 class="center header">Table Assignment</h3>
+ <div class="row col-xs-6">
+  <div class="center header"><h3>PROJECT SUBMISSION</h3></div>
 </div>
 <div *ngIf="show(); else sorry">
   <div class="row" *ngIf="!response; else responseView">
@@ -45,7 +45,7 @@
           <div class="card-content">
             <span class="card-title">Team member emails</span>
             <p>Enter the emails for everyone in your team</p>
-            <div class="input-field" *ngFor="let $ of numberReturn(numTeamMembers); let i of index">
+            <div class="input-field" *ngFor="let $ of numberReturn(numTeamMembers); let i = index">
               <i class="material-icons prefix">email</i>
               <input type="email"
                      class="validate email"
@@ -119,7 +119,10 @@
 <ng-template #responseView>
   <div class="card medium darken-1">
     <div class="card-content">
-      <h5>Your submission has been recorded</h5>
+      <div class="center">
+      <img src="assets/icons/ok-icon.svg" height="200" width="200">
+    </div>
+      <h5>Your submission has been recorded!</h5>
       <p>Submission: {{response.projectName}}</p>
       <p>Table Number: {{response.tableNumber || "Contact staff"}}</p>
     </div>
