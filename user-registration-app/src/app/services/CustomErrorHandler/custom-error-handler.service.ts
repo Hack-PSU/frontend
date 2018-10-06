@@ -33,7 +33,10 @@ export class CustomErrorHandlerService {
     if (error.status >= 500) {
       throw new Error('Server error');
     }
-    const { message } = error.error;
+    let { message } = error.error;
+    if (!message) {
+      message = error.error.result;
+    }
     const title = error.name || 'Internal Server Error.';
     return { title, message };
   }

@@ -3,15 +3,15 @@
 }
 
 @media screen and (max-width: 768px) {
-    :host {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
+  :host {
+    margin-left:  20px;
+    margin-right: 20px;
   }
+}
 
 .header {
-  font-family:  'Cornerstone', sans-serif;
-  left-margin:   20px;
+  font-family:   'Cornerstone', sans-serif;
+  margin-left:   20px;
   width:         100%;
   border-bottom: dotted 1px white;
   margin-top:    50px;
@@ -27,7 +27,7 @@
 
 .card {
   transition:       transform;
-  background-color: rgba(255,255,255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   color:            #101010;
   border:           none;
   height:           auto;
@@ -35,7 +35,7 @@
 }
 
 .card-content {
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .card.medium .card-action {
@@ -69,5 +69,5 @@
 }
 
 /*.input-field .email {*/
-  /*margin-bottom: 10%;*/
+/*margin-bottom: 10%;*/
 /*}*/
