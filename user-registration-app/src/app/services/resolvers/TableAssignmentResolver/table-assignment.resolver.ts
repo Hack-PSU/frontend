@@ -7,6 +7,7 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
 import { ProjectModel } from "../../../models/project-model";
+import { AlertService } from "ngx-alerts";
 
 @Injectable()
 export class TableAssignmentResolver implements Resolve<ProjectModel> {
@@ -14,22 +15,25 @@ export class TableAssignmentResolver implements Resolve<ProjectModel> {
               private progress: NgProgress,
               private httpService: HttpService,
               private router: Router,
+              private alertService: AlertService,
   ) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProjectModel> {
-    this.progress.start();
-    return this.authService.currentUser.pipe(
-      mergeMap((user) => {
-        if (!user) {
-          this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-        } else {
-          return this.httpService.getProjectDetails();
-        }
-      }),
-      take(1),
-      finalize(() => {
-        this.progress.complete();
-      }));
+    this.alertService.danger('Table assignment is broken. Please use Devpost instead');
+    this.router.navigate([AppConstants.LIVE_ENDPOINT]);
+    return null;
+    // return this.authService.currentUser.pipe(
+    //   mergeMap((user) => {
+    //     if (!user) {
+    //       this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
+    //     } else {
+    //       return this.httpService.getProjectDetails();
+    //     }
+    //   }),
+    //   take(1),
+    //   finalize(() => {
+    //     this.progress.complete();
+    //   }));
   }
 }
