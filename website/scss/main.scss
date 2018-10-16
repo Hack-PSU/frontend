@@ -196,6 +196,7 @@ body {
     }
 
     .header-content {
+      color: $dark-blue-primary;
       .event-info {
         padding-top: 6vh;
         div {
@@ -259,6 +260,8 @@ body {
       }
 
       .header-content {
+        color: $dark-blue-primary;
+
         .event-info {
           padding-top: 6vh;
           div {
@@ -641,7 +644,7 @@ body {
   .profile {
     width:          100%;
     padding-top:    3%;
-    padding-bottom: 0;  
+    padding-bottom: 0;
     height:         70%;
   }
 

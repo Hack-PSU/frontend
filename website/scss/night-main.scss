@@ -79,7 +79,7 @@ $break-large: 1200px;
 
 header {
   @include background-size(cover);
-  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg ,#133753 69%,#000000 100%);
+  background: url("../assets/images/stars.svg"), linear-gradient(0deg ,#133753 69%,#000000 100%);
 }
 
 .landing {
@@ -100,6 +100,11 @@ header {
       img:after {
         content: url("../assets/images/logo-all-white-no-padding.svg");
       }
+    }
+
+    .header-content {
+      color: $white;
+      margin-top: 10%;
     }
     .celestial-body {
       position: absolute;
