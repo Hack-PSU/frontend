@@ -6,6 +6,7 @@ import { Login } from '../../models/login';
 import { AuthProviders, AuthService } from '../../services/AuthService/auth.service';
 import { CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
+import { AlertService } from "ngx-alerts";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent extends BaseComponent {
   constructor(authService: AuthService,
               router: Router,
               errorHandler: CustomErrorHandlerService,
+              private readonly alertsService: AlertService,
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
@@ -73,5 +75,12 @@ export class LoginComponent extends BaseComponent {
         this.router.navigate([params['redirectUrl']]);
       }
     });
+  }
+
+  onEmailEntered(email: string) {
+    if (/@psu.edu$/.test(email)) {
+      this.alertsService.warning('Our login system is not affiliated with Penn State. ' +
+        'Please make sure the password you choose is not your WebAccess password');
+    }
   }
 }

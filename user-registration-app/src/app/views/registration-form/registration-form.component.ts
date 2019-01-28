@@ -194,6 +194,7 @@ export class RegistrationFormComponent implements OnInit {
     this.authService.currentUser
       .pipe(
         mergeMap((user) => {
+          this.registrationForm.email = user.email;
           return this.httpService.submitRegistration(this.registrationForm, user.uid);
         }),
         take(1),

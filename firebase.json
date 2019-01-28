@@ -1,5 +1,5 @@
 {
-  "hosting": {
+  "hosting": [{
     "public": "website",
     "ignore": [
       "firebase.json",
@@ -13,5 +13,21 @@
         "destination": "/index.html"
       }
     ]
-  }
+  },
+  {
+    "target": "app",
+    "public": "user-registration-app/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/scss/**",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }
