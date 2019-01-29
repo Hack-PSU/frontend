@@ -8,6 +8,9 @@
       "hosting": {
         "app": [
           "hackpsu18-app"
+        ],
+        "website": [
+          "hackpsu18"
         ]
       }
     }
