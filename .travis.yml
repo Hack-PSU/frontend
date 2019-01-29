@@ -12,7 +12,7 @@ before_deploy:
 - cd user-registration-app && npm install && ng build --prod && cd ..
 deploy:
 - provider: script
-  script: bash scripts
+  script: bash scripts/deploy.sh
   on:
     branch: master
 env:
