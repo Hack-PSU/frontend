@@ -344,68 +344,23 @@ header {
     max-width: 50%;
   }
 }
-.psuit-day {
-  content: url("../assets/images/sponsors/PSUIT_original.svg");
-}
-.gm-day {
-  content: url("../assets/images/sponsors/GM-day.svg");
-}
+//.psuit-day {
+//  content: url("../assets/images/sponsors/PSUIT_original.svg");
+//}
+//.gm-day {
+//  content: url("../assets/images/sponsors/GM-day.svg");
+//}
+//
+//.oracle-day {
+//  content: url("../assets/images/sponsors/Oracle-day.svg");
+//  margin-top: 10%;
+//}
 
-.oracle-day {
-  content: url("../assets/images/sponsors/Oracle-day.svg");
-  margin-top: 10%;
-}
+//// Oracle override
+//#sponsors .gold .oracle-day {
+//  max-width: 100%;
+//}
 
-// Oracle override
-#sponsors .gold .oracle-day {
-  max-width: 100%;
-}
-
-.google-day {
-  content: url("../assets/images/sponsors/GCS_original.svg");
-}
-/*
-.ibm-day {
-  content: url("../assets/images/sponsors/IBM-day.svg");
-}
-*/
-.amazon-day {
-  content: url("../assets/images/sponsors/aws-day.svg");
-}
-
-.investpsu-day {
-  content: url("../assets/images/sponsors/InventPSU-day.svg");
-}
-
-.eecs-day {
-  content: url("../assets/images/sponsors/EECS-day.svg");
-}
-
-.nittany-ai-day {
-  content: url("../assets/images/sponsors/nittanyai-day.svg");
-}
-
-.kcf-day {
-  content: url("../assets/images/sponsors/KSF_Technologies-day.svg");
-}
-
-.vanguard-day {
-  content: url("../assets/images/sponsors/Vanguard-day.svg");
-}
-
-.capitalone-day {
-  content: url("../assets/images/sponsors/Capital_One-day.svg");
-}
-
-.accuweather-day {
-  content:     url("../assets/images/sponsors/Accuweather-day.svg");
-  padding-top: 10%;
-}
-/*
-.stickermule-day {
-  content:     url("../assets/images/sponsors/StickerMule_original.svg");
-}
-*/
-.ics-day {
-  content: url("../assets/images/sponsors/ICS-day.svg");
+.pwc-day {
+  content: url("../assets/images/sponsors/PWC_original.svg");
 }
