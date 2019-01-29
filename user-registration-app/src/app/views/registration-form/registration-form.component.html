@@ -40,30 +40,30 @@
     </div>
   </div>
 
-  <!-- Email -->
-  <div class="row scrollspy" materialize="scrollSpy" id="email-container">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5>What is your school email?</h5>
-        <div class="input-field">
-          <!-- <i class="material-icons prefix">email</i> -->
-          <input type="email"
-                 class="validate"
-                 name="email"
-                 email
-                 id="email-input"
-                 required
-                 autocomplete="email"
-                 placeholder="student@university.edu"
-                 [(ngModel)]="registrationForm.email"
-                 #emailinput="ngModel"
-          >
-          <label for="email-input" data-error="Valid email is required">Enter your email</label>
-        </div>
-        <label class="data-error" *ngIf="!emailinput.valid">Required</label>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Email &ndash;&gt;-->
+  <!--<div class="row scrollspy" materialize="scrollSpy" id="email-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content">-->
+        <!--<h5>What is your school email?</h5>-->
+        <!--<div class="input-field">-->
+          <!--&lt;!&ndash; <i class="material-icons prefix">email</i> &ndash;&gt;-->
+          <!--<input type="email"-->
+                 <!--class="validate"-->
+                 <!--name="email"-->
+                 <!--email-->
+                 <!--id="email-input"-->
+                 <!--required-->
+                 <!--autocomplete="email"-->
+                 <!--placeholder="student@university.edu"-->
+                 <!--[(ngModel)]="registrationForm.email"-->
+                 <!--#emailinput="ngModel"-->
+          <!--&gt;-->
+          <!--<label for="email-input" data-error="Valid email is required">Enter your email</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!emailinput.valid">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <!-- Gender -->
   <div class="row scrollspy" id="gender-container" materialize="scrollSpy">

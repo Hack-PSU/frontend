@@ -2,5 +2,14 @@
   "projects": {
     "dev": "hackpsu18-e3e2c",
     "default": "hackpsu18"
+  },
+  "targets": {
+    "hackpsu18": {
+      "hosting": {
+        "app": [
+          "hackpsu18-app"
+        ]
+      }
+    }
   }
 }
