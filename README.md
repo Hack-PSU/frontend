@@ -1,7 +1,7 @@
 # hackpsuS2018
 Repository for the main website for HackPSU Spring 2018
 
-[![Build Status](https://travis-ci.com/hackpsu-tech/hackPSUS2018.svg?token=rXBswytuwgwFX9F967pp&branch=master)](https://travis-ci.com/hackpsu-tech/hackPSUS2018)
+[![Build Status](https://travis-ci.org/Hack-PSU/frontend.svg?token=rXBswytuwgwFX9F967pp&branch=master)](https://travis-ci.org/Hack-PSU/frontend.svg)
 ## Frontend
 
 This version of the frontend contains a simple submission form for pre-registrations. Form data is POSTed to the API, which registers the user's emails on the database. The frontend is currently live at https://hackpsu18.firebaseapp.com. This should change once hosting is switched over.
