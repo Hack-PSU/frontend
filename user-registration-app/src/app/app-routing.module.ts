@@ -22,7 +22,8 @@ import { environment } from "../environments/environment";
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { animation: 'LoginPage' },
   },
   {
     path: 'register',
@@ -33,6 +34,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupViewComponent,
+    data: { animation: 'SignupPage' },
   },
   {
     path: 'forgot',

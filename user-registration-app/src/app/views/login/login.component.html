@@ -8,7 +8,6 @@
     <!-- Main Form -->
     <div class="row">
       <form #loginForm="ngForm" (ngSubmit)="loginEmail()" id="login-form" class="col-12">
-        <!--<div class="row">-->
           <div class="login-group">
             <div class="input-field s6">
               <label for="lg_username" class="sr-only">Email</label>
@@ -16,64 +15,44 @@
                      autocomplete="email" name="lg_username"
                      (blur)="onEmailEntered(emailBox.value)"
                      #emailBox
-                     placeholder="yourname@email.com" [(ngModel)]="model.email">
+                     placeholder="Type your email" [(ngModel)]="model.email">
             </div>
             <div class="form-group">
               <label for="lg_password" class="sr-only">Password</label>
               <input type="password" required class="form-control validate" id="lg_password"
                      autocomplete="current-password" name="lg_password"
-                     placeholder="password" [(ngModel)]="model.password">
+                     placeholder="Type your password" [(ngModel)]="model.password">
             </div>
             <div class="etc-login-form">
               <p>forgot your password? <a href="/forgot">click here</a></p>
             </div>
           </div>
-          <button *ngIf="!loading; else spinner" [disabled]="!loginForm.valid"
-                  class="btn waves-effect waves-light login-button"
-                  type="submit"
-                  name="action">Submit
+        <button [disabled]="!loginForm.valid"
+                class="btn waves-effect waves-light login-button"
+                type="submit"
+                name="action">Login
             <i class="material-icons right">send</i>
           </button>
-          <ng-template #spinner>
-            <div class="preloader-wrapper big active">
-              <div class="spinner-layer">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                  <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-        <!--</div>-->
       </form>
-      <div *ngIf="errors" class="alert alert-danger">
-        {{ errors.message }}
-      </div>
     </div>
     <!-- end:Main Form -->
     <div class="row">
-      <div class="offset-1 col-10">
-        <a class="btn btn-block btn-social btn-google" (click)="login()">
+      <p class="text-center">Alternately, sign up with</p>
+      <div class="offset-1 col-10 signup-btn-container">
+        <a class="btn btn-block btn-social btn-google" (click)="loginGoogle()">
           <span class="fa fa-google"></span>
-          <span class="hide-on-med-and-down">Sign in with Google</span>
         </a>
-        <!--<a class="btn btn-block btn-social btn-facebook" (click)="loginFacebook()">-->
-          <!--<span class="fa fa-facebook"></span>-->
-          <!--<span class="hide-on-med-and-down">Continue with Facebook</span>-->
-        <!--</a>-->
         <a class="btn btn-block btn-social btn-github" (click)="loginGithub()">
           <span class="fa fa-github"></span>
-          <span class="hide-on-med-and-down">Sign in with Github</span>
         </a>
-        <a class="btn btn-block btn-social btn-email" href="/signup">
-          <span class="fa fa-envelope"></span>
-          <span class="hide-on-med-and-down">Sign up with email</span>
-        </a>
+      </div>
+    </div>
+    <div class="row">
+      <p class="text-center">Never created an account with us? Sign up with your email</p>
+      <div class="offset-1 col-10 signup-btn-container">
+      <a class="btn btn-block btn-social btn-email" href="/signup">
+        <span class="fa fa-envelope"></span>
+      </a>
       </div>
     </div>
   </div>

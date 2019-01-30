@@ -1,16 +1,18 @@
 /* Login form styles */
 
 :host {
-  width: 50%;
-  margin: 25px auto;
+  width: 100%;
+  /*margin: 25px auto;*/
 }
 
 .login-container {
   margin-top: 85px;
+  width: 50%;
 }
 
 .header-text {
   font-size: large;
+  font-weight: bolder;
 }
 
 .text-center {
@@ -39,6 +41,27 @@
   margin-right: auto;
   margin-top: 10px;
   display: block;
+}
+
+.btn-social {
+  border-width: 2px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 10px;
+}
+
+.btn-social span {
+  position: relative;
+  display: inline-block;
+  line-height: 50px;
+  margin: 0;
+}
+
+.signup-btn-container {
+  text-align: center;
 }
 
 .btn:disabled {
@@ -97,6 +120,10 @@
   .fa {
     display: block;
     margin: auto auto;
+    width: 100%;
+  }
+
+  .login-container {
     width: 100%;
   }
 }

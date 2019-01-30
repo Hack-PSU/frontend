@@ -18,7 +18,9 @@ export class LiveWebsiteDateGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (!LiveWebsiteDateGuard.validateDate(new Date())) {
-      this.alertsService.danger(`You may only visit this page on or after ${environment.liveWebsiteGuardTime.toDateString()}`);
+      // if (state.url.match(/\/.+/)) {
+      //   this.alertsService.danger(`You may only visit this page on or after ${environment.liveWebsiteGuardTime.toDateString()}`);
+      // }
       this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
       return false;
     }
