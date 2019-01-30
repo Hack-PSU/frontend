@@ -55,10 +55,6 @@
       "minLength": 1,
       "maxLength": 200
     },
-    "email": {
-      "type": "string",
-      "format": "email"
-    },
     "academicYear": {
       "enum": [
         "freshman",
@@ -149,7 +145,6 @@
     "shirtSize",
     "travelReimbursement",
     "firstHackathon",
-    "email",
     "academicYear",
     "major",
     "eighteenBeforeEvent",

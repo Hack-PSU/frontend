@@ -10,6 +10,7 @@ install:
 - npm install -g @angular/cli
 before_deploy:
 - cd user-registration-app && npm install && ng build --prod && cd ..
+- npm run sass
 deploy:
 - provider: script
   script: bash scripts/deploy.sh

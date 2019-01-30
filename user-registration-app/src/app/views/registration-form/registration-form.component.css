@@ -19,7 +19,7 @@ textarea {
 }
 
 .registration-form {
-  margin: 30vh auto 0 auto;
+  margin: auto 0 auto;
   display: block;
   color: #333333;
   font-size: large;
@@ -115,7 +115,7 @@ svg {
 }
 
 .scrollspy-container {
-  margin-top: 15%;
+  /*margin-top: 15%;*/
   position: fixed;
   right: 5%;
 }
