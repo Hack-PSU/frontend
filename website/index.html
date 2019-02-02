@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 14;
+      var currentTime = 21;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -182,7 +182,7 @@
       </div>
       <!-- Sun and Moon Graphic -->
       <div class="celestial-body">
-        <img>
+        <img src="assets/images/sun.svg">
       </div>
     </div>
 

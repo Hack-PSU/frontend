@@ -33,14 +33,9 @@ export class LoginComponent extends BaseComponent {
       });
   }
 
-  login() {
+  loginGoogle() {
     this.progressBar.start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
-  }
-
-  loginFacebook() {
-    this.progressBar.start();
-    this.loginHandler(this.authService.signInWithProvider(AuthProviders.FACEBOOK_PROVIDER));
   }
 
   loginGithub() {
