@@ -126,7 +126,7 @@
     function getStylesheet() {
       const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 14;
+      //var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -179,10 +179,11 @@
     <div class="row mb-md-0 mb-4">
       <div class="logo-holder">
         <img id="hackpsu-logo">
+        <img src = "assets/images/logo-daytime.svg">
       </div>
       <!-- Sun and Moon Graphic -->
       <div class="celestial-body">
-        <img>
+        <img src = "assets/images/sun.svg">
       </div>
     </div>
 
@@ -224,6 +225,7 @@
       <div class="col-md-7">
         <div class="row header-graphic">
           <img class="img-fluid mountain">
+          <img src = "assets/images/flat-mountain-graphic.svg">
           <!-- Each cloud img needs its own div to keep their position correct on resize.  -->
           <div class="cloud-1 floating">
             <img class="cloud-img floating">
@@ -271,6 +273,7 @@
 
 <div class="section-separator">
   <img class="section-separator first-border">
+  <img src = "assets/images/section-sep-1-mountain-night.svg">
 </div>
 
 <div class="section-separator-bar">
