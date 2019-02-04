@@ -1,7 +1,11 @@
 :host {
   margin-top: 30vh;
   width: 100%;
+  margin-left: 25%;
+  padding-bottom: 25px;
 }
+
+
 
 :host .card {
   -webkit-transition: translate 0.1s;
@@ -23,6 +27,8 @@ textarea {
   display: block;
   color: #333333;
   font-size: large;
+  width: 50%;
+  z-index: 1;
 }
 
 .submitted-block {
@@ -117,7 +123,9 @@ svg {
 .scrollspy-container {
   /*margin-top: 15%;*/
   position: fixed;
-  right: 5%;
+  right: 0;
+  z-index: 0;
+  top: 40vh;
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
@@ -201,6 +209,9 @@ input::placeholder {
 @media screen and (max-width: 768px) {
   .small-text {
     font-size: x-small;
+  }
+  :host {
+    margin-left: 0;
   }
 }
 

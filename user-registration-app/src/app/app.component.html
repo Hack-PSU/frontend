@@ -51,10 +51,10 @@
     </li>
     <li *ngIf="router.url !== '/register'"><a href="#" (click)="logout()">LOGOUT</a></li>
   </ul>
-  <div class="content">
-    <div class="row">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="content" [@routeAnimations]="prepareRoute(outlet)">
+    <!--<div class="row full-height">-->
+      <router-outlet #outlet="outlet"></router-outlet>
+    <!--</div>-->
   </div>
 </div>
 

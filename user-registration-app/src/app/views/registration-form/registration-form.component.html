@@ -188,7 +188,7 @@
   <div class="row scrollspy" materialize="scrollSpy" id="age-container">
     <div class="card medium darken-1">
       <div class="card-content ">
-        <h5 class="age">Will you be 18 before October 6, 2018?</h5>
+        <h5 class="age">Will you be 18 before March 16, 2019?</h5>
         <!-- Switch -->
         <div class="switch">
           <label>
@@ -307,36 +307,32 @@
           </label>
         </div>
         <div class="form-group" *ngIf="diet_restr">
+          <p class="alert">NOTE: We will try our best to accommodate all dietary restrictions as
+            long as your registration is submitted at least a month before the event. In case you
+            need to select multiple options, just type them all under "other"</p>
           <input type="radio" class="with-gap" id="vegetarian" required name="dietaryRestriction"
                  value="vegetarian"
-                 (change)="dietaryRestriction($event)"
-                 [(ngModel)]="registrationForm.dietaryRestriction">
+                 (change)="dietaryRestriction($event)">
           <label for="vegetarian">Vegetarian</label><br>
           <input type="radio" class="with-gap" id="vegan" required name="dietaryRestriction"
                  value="vegan"
-                 (change)="dietaryRestriction($event)"
-                 [(ngModel)]="registrationForm.dietaryRestriction">
+                 (change)="dietaryRestriction($event)">
           <label for="vegan">Vegan</label><br>
           <input type="radio" class="with-gap" id="kosher" required name="dietaryRestriction"
                  value="kosher"
-                 (change)="dietaryRestriction($event)"
-                 [(ngModel)]="registrationForm.dietaryRestriction">
+                 (change)="dietaryRestriction($event)">
           <label for="kosher">Kosher</label><br>
           <input type="radio" class="with-gap" id="halal" required name="dietaryRestriction"
                  value="halal"
-                 (change)="dietaryRestriction($event)"
-                 [(ngModel)]="registrationForm.dietaryRestriction">
+                 (change)="dietaryRestriction($event)">
           <label for="halal">Halal</label><br>
           <input type="radio" class="with-gap" id="gluten-free" required name="dietaryRestriction"
-                 [(ngModel)]="registrationForm.dietaryRestriction"
                  (change)="dietaryRestriction($event)"
                  value="gluten-free">
           <label for="gluten-free">Gluten Free</label><br>
           <input type="radio" class="with-gap" id="other" required name="dietaryRestriction"
                  value="other"
-                 [(ngModel)]="registrationForm.dietaryRestriction"
-                 (change)="dietaryRestriction($event)"
-          >
+                 (change)="dietaryRestriction($event)">
           <label for="other">Other</label><br>
         </div>
         <div *ngIf="diet_restr && otherDietRestr" [@enterAnimation] class="input-field">
