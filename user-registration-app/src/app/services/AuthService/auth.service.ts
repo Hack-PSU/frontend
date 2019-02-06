@@ -6,7 +6,6 @@ import * as firebase from 'firebase/app';
 export enum AuthProviders {
   GOOGLE_PROVIDER,
   GITHUB_PROVIDER,
-  FACEBOOK_PROVIDER,
 }
 
 @Injectable()
@@ -35,9 +34,6 @@ export class AuthService {
     switch (provider) {
       case AuthProviders.GOOGLE_PROVIDER:
         authProvider = new firebase.auth.GoogleAuthProvider();
-        break;
-      case AuthProviders.FACEBOOK_PROVIDER:
-        authProvider = new firebase.auth.FacebookAuthProvider();
         break;
       case AuthProviders.GITHUB_PROVIDER:
         authProvider = new firebase.auth.GithubAuthProvider();

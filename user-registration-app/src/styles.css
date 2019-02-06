@@ -7,6 +7,9 @@
   font-family: 'Cornerstone';
   src: url('assets/fonts/Cornerstone.ttf');
 }
+html, body {
+  min-height: 100%;
+}
 
 body {
   background: linear-gradient(#103147, #194E6B);
