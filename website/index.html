@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>HackPSU Fall 2018</title>
+  <title>HackPSU Spring 2019</title>
 
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
@@ -49,8 +49,8 @@
   <meta property="og:title" content="HackPSU: Penn State's Official Hackathon"/>
   <meta property="og:site_name" content="HackPSU.org"/>
   <meta property="og:description"
-        content="Join us October 6 and 7 for HackPSU, Penn State's Official Hackathon!
-           700 students will have 24 hours to build the coolest technology they can to
+        content="Join us March 16 and 17 for HackPSU, Penn State's Official Hackathon!
+           800 students will have 24 hours to build the coolest technology they can to
            compete for prizes and eternal glory."/>
 
   <!--Let browser know website is optimized for mobile-->
@@ -126,7 +126,7 @@
     function getStylesheet() {
       const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 14;
+      //var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -178,11 +178,11 @@
     <!-- HackPSU Page Logo -->
     <div class="row mb-md-0 mb-4">
       <div class="logo-holder">
-        <img id="hackpsu-logo">
+        <img id="hackpsu-logo" src="assets/images/logo-daytime.svg">
       </div>
       <!-- Sun and Moon Graphic -->
       <div class="celestial-body">
-        <img>
+        <img src="assets/images/sun.svg">
       </div>
     </div>
 
@@ -210,20 +210,20 @@
               </div>
             </a>
           </div>
-          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn-design">
-            <a href="#tracks">
-              <div class="header-text text-center">
-                <p class="text-center">Design Challenge</p>
-              </div>
-            </a>
-          </div>
+          <!--<div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn-design">-->
+            <!--<a href="#tracks">-->
+              <!--<div class="header-text text-center">-->
+                <!--<p class="text-center">Design Challenge</p>-->
+              <!--</div>-->
+            <!--</a>-->
+          <!--</div>-->
         </div>
       </div>
 
       <!-- Mountain vista graphics -->
       <div class="col-md-7">
         <div class="row header-graphic">
-          <img class="img-fluid mountain">
+          <img class="img-fluid mountain" src="assets/images/flat-mountain-graphic.svg">
           <!-- Each cloud img needs its own div to keep their position correct on resize.  -->
           <div class="cloud-1 floating">
             <img class="cloud-img floating">
@@ -270,7 +270,7 @@
 </section>
 
 <div class="section-separator">
-  <img class="section-separator first-border">
+  <img class="section-separator first-border" src="assets/images/section-sep-1-mountain-night.svg">
 </div>
 
 <div class="section-separator-bar">
@@ -914,8 +914,23 @@
                class="img-fluid pwc-day">
         </a>
       </div>
+      <div class="col-sm-3">
+        <!-- EECS -->
+        <a href="https://www.eecs.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/EECS-day.svg" alt="EECS" class="img-fluid EECS-night"
+          style="padding-top: 17%">
+        </a>
+      </div>
     </div>
-
+    <div class="row in-kind d-flex justify-content-center">
+      <div class="col-sm-1">
+        <!-- ecroreps -->
+        <a href="https://sustainability.psu.edu/eco-reps" target=_blank>
+          <img src="assets/images/sponsors/ecoreps_original.svg" alt="ecroreps"
+               class="img-fluid ecoreps_original">
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
