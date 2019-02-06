@@ -19,17 +19,22 @@ p {
   font-family: Lato, Georgia, sans-serif;
 }
 
+.full-height {
+  height: 100%;
+}
+
 .wrapper {
   /*align-items: stretch;*/
   /*display: flex;*/
+  height: 100%;
   padding: 0;
 }
 
 .content {
-  padding-bottom: 20px;
-  padding-top: 20px;
-  min-height: 100vh;
+  /*padding-bottom: 20px;*/
+  /*padding-top: 20px;*/
   transition: all 0.3s;
+  display: flex;
   /*flex: 1;*/
 }
 
@@ -85,7 +90,7 @@ nav .right {
 @media screen and (max-width: 768px) {
   .brand-logo {
     margin-left: 0px !important;
-  }  
+  }
 }
 
 .dropdown-content li>a, .dropdown-content li>span {

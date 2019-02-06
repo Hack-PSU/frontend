@@ -1,12 +1,13 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavigationEnd, NavigationStart, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppConstants } from './AppConstants';
 import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
 import { environment } from "../environments/environment";
 import { LiveWebsiteDateGuard } from "./services/route-guards/guards";
+import { fadeOutAnimation } from "./animations";
 
 declare var $: any;
 
@@ -22,6 +23,10 @@ declare var $: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  animations: [
+    fadeOutAnimation,
+    // animation triggers go here
+  ]
 })
 export class AppComponent implements AngularFireAuthModule, OnInit {
 
@@ -80,5 +85,9 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
 
   get DateGuard() {
     return LiveWebsiteDateGuard;
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }
