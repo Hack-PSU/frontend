@@ -9,7 +9,6 @@ import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { Rsvp } from '../../models/rsvp';
-import 'rxjs-compat/add/operator/shareReplay';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from "../../models/event-model";
 import { ProjectModel } from "../../models/project-model";

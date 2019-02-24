@@ -1,8 +1,10 @@
+
+import {of as observableOf} from 'rxjs';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthGuard } from './auth.guard';
 import { AuthService } from '../../AuthService/auth.service';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgProgress } from '@ngx-progressbar/core';
 
@@ -30,7 +32,7 @@ describe('AuthGuard', () => {
      inject([AuthGuard], (guard: AuthGuard) => {
       // Given: An authenticated user.
        const user = {};
-       spyOnProperty(authServiceSpy, 'currentUser', 'get').and.returnValue(Observable.of(user));
+       spyOnProperty(authServiceSpy, 'currentUser', 'get').and.returnValue(observableOf(user));
 
       // When: Run AuthGuard validation.
        const resultObservable = guard.canActivate(null, { url: '/pin', root: null });

@@ -1,9 +1,10 @@
+
+import {shareReplay,  catchError, retry, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../AuthService/auth.service';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { NgProgress } from '@ngx-progressbar/core';
-import { catchError, retry, switchMap } from 'rxjs/operators';
 import { AppConstants } from '../../AppConstants';
 
 export class BaseHttpService {
@@ -23,16 +24,16 @@ export class BaseHttpService {
         switchMap((idToken: string) => {
           let headers = new HttpHeaders();
           headers = headers.set('idtoken', idToken);
-          return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers })
-            .shareReplay(this.CACHE_SIZE, 10 * 1000)
+          return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers }).pipe(
+            shareReplay(this.CACHE_SIZE, 10 * 1000))
             .pipe(
               retry(3),
             );
         }),
         catchError(err => this.errorHandler.handleHttpError(err)),
       )
-      : this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT))
-          .shareReplay(this.CACHE_SIZE, 10 * 1000)
+      : this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT)).pipe(
+          shareReplay(this.CACHE_SIZE, 10 * 1000))
           .pipe(
             retry(3),
             catchError(err => this.errorHandler.handleHttpError(err)),

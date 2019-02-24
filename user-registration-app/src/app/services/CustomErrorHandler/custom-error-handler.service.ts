@@ -3,8 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
 import { AlertService } from 'ngx-alerts';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs-compat/add/observable/throw';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class CustomErrorHandlerService {
@@ -74,12 +73,12 @@ export class CustomErrorHandlerService {
     const customError = this.createCustomError(error);
     const parsedError = CustomErrorHandlerService.tryParseError(customError);
     this.showToast(parsedError);
-    return Observable.throwError(parsedError);
+    return throwError(parsedError);
   }
 
   public handleError(error: GenericError): Observable<Error> {
     const parsedError = CustomErrorHandlerService.parseGenericError(error);
     this.showToast(parsedError);
-    return Observable.throwError(parsedError);
+    return throwError(parsedError);
   }
 }
