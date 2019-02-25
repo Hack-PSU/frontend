@@ -1,3 +1,9 @@
 .extra-credit-form p {
   margin: 5px;
 }
+
+.registration-table th{
+  padding: 15px 10px;
+}
+/*.registration-table td {*/
+/*}*/

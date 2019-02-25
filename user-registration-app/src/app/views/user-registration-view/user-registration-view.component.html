@@ -22,8 +22,8 @@
   <li *ngFor="let registration of registrations;">
       <div class="collapsible-header"><i class="material-icons">place</i>{{registration.name}}</div>
       <div class="collapsible-body">
-        <div class="view-registration table-responsive">
-          <table class="table table-bordered">
+        <div class="view-registration">
+          <table class="table-responsive centered registration-table">
             <thead>
             <tr>
               <ng-container *ngFor="let keyVal of keyVals(registration)">
