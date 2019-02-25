@@ -18,10 +18,12 @@
       </button>
     </form>
   </li>
-  <ng-template *ngFor="let registration of registrations; let i = index;">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  <li *ngFor="let registration of registrations;">
+      <div class="collapsible-header"><i class="material-icons">place</i>{{registration.name}}</div>
+      <div class="collapsible-body">
+        <div class="view-registration">
+          <p class="registration-property" *ngFor="let keyVal of keyVals(registration)">{{keyVal[0]}}: {{keyVal[1]}}</p>
+        </div>
+      </div>
     </li>
-  </ng-template>
 </ul>

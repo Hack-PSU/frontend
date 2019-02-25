@@ -122,4 +122,9 @@ export interface IRegistrationDb {
   time: number;
   hackathon: string;
   submitted: boolean;
+  name: string;
+  start_time: string;
+  end_time: string;
+  base_pin: string;
+  active: boolean;
 }

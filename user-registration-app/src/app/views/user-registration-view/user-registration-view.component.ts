@@ -16,6 +16,10 @@ export class UserRegistrationViewComponent implements OnInit {
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
 
+  public keyVals(object: any) {
+    return Object.entries(object);
+  }
+
   constructor(private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
     this.registrations = [];
     this.classes = [];
@@ -23,8 +27,20 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getExtraCreditClasses()
-      .subscribe(classes => this.classes = classes);
+    const ecObservable = this.httpService.getExtraCreditClasses()
+      .subscribe(classes => {
+        this.classes = classes;
+        ecObservable.unsubscribe();
+      });
+    const regObservable = this.httpService.getUserRegistrations()
+      .subscribe(registrations => {
+        this.registrations = registrations;
+        regObservable.unsubscribe();
+      }, ({ error }) => {
+        if (error.status === 404) {
+          this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+        }
+      });
   }
 
   submitClasses() {

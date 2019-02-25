@@ -1,5 +1,5 @@
 import { from as observableFrom, Observable } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
@@ -152,5 +152,13 @@ export class HttpService extends BaseHttpService {
       { cid: c},
       true,
     )
+  }
+
+  getUserRegistrations() {
+    const API_ENDPOINT = 'users/register';
+    return this.get(API_ENDPOINT, false, true, true)
+      .pipe(
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
+      )
   }
 }
