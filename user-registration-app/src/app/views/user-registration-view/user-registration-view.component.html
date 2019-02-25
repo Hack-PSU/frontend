@@ -18,11 +18,32 @@
       </button>
     </form>
   </li>
+  <h5 style="margin-top: 2em;">Registration history</h5>
   <li *ngFor="let registration of registrations;">
       <div class="collapsible-header"><i class="material-icons">place</i>{{registration.name}}</div>
       <div class="collapsible-body">
-        <div class="view-registration">
-          <p class="registration-property" *ngFor="let keyVal of keyVals(registration)">{{keyVal[0]}}: {{keyVal[1]}}</p>
+        <div class="view-registration table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <ng-container *ngFor="let keyVal of keyVals(registration)">
+                <th scope="col"
+                    *ngIf="regPropertyNameResolve[keyVal[0]]">{{regPropertyNameResolve[keyVal[0]]}}</th>
+              </ng-container>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <ng-container
+                *ngFor="let keyVal of keyVals(registration)">
+                <td
+                  *ngIf="regPropertyNameResolve[keyVal[0]]">
+                  {{keyVal[0] === 'pin' ? parseInt(keyVal[1], 10) - parseInt(registration.base_pin, 10) : keyVal[1]}}
+                </td>
+              </ng-container>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </li>

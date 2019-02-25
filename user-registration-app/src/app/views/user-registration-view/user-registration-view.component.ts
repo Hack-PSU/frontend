@@ -15,6 +15,7 @@ export class UserRegistrationViewComponent implements OnInit {
   registrations: IRegistrationDb[];
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
+  regPropertyNameResolve: any;
 
   public keyVals(object: any) {
     return Object.entries(object);
@@ -24,6 +25,33 @@ export class UserRegistrationViewComponent implements OnInit {
     this.registrations = [];
     this.classes = [];
     this.submittedClasses = new Map();
+    this.regPropertyNameResolve = {
+      academic_year: 'Academic Year',
+      allergies: 'Allergies',
+      coding_experience: 'Coding experience',
+      dietary_restriction: 'Dietary Restrictions',
+      eighteenBeforeEvent: 'Eighteen Years old',
+      email: 'Email ID',
+      expectations: 'Expectations from HackPSU',
+      first_hackathon: 'First time attendee',
+      firstname: 'First Name',
+      gender: 'Gender',
+      lastname: 'Last Name',
+      major: 'Major',
+      name: 'Hackathon Name',
+      phone: 'Phone number',
+      pin: 'Check-in Pin',
+      project: 'Favorite project',
+      race: 'Race',
+      referral: 'Referral source',
+      resume: 'Resume link',
+      shirt_size: 'Shirt Size',
+      travel_reimbursement: 'Need travel reimbursement?',
+      uid: 'Uid',
+      university: 'University',
+      veteran: 'Veteran status',
+    }
+    // console.log(this.regPropertyNameResolve);
   }
 
   ngOnInit() {
@@ -63,5 +91,9 @@ export class UserRegistrationViewComponent implements OnInit {
       this.progressService.complete();
       this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
     });
+  }
+
+  parseInt(string: string, radix: number) {
+    return parseInt(string, radix);
   }
 }
