@@ -93,3 +93,33 @@ export class Registration {
     return this.resume instanceof URL;
   }
 }
+
+export interface IRegistrationDb {
+  firstname: string;
+  lastname: string;
+  gender: string;
+  shirt_size: string;
+  dietary_restriction: string | null;
+  allergies: string | null;
+  travel_reimbursement: boolean;
+  first_hackathon: boolean;
+  university: string;
+  email: string;
+  academic_year: string;
+  major: string;
+  phone: string;
+  race: string | null;
+  resume: string | null;
+  coding_experience: string | null;
+  uid?: string;
+  eighteenBeforeEvent: boolean;
+  mlh_coc: boolean;
+  mlh_dcp: boolean;
+  referral: string | null;
+  project: string | null;
+  expectations: string | null;
+  veteran: string;
+  time: number;
+  hackathon: string;
+  submitted: boolean;
+}

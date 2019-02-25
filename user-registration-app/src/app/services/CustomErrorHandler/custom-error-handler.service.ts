@@ -4,6 +4,7 @@ import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
 import { AlertService } from 'ngx-alerts';
 import { Observable, throwError } from 'rxjs';
+import { IApiResponse } from "../../models/api-response.v2";
 
 @Injectable()
 export class CustomErrorHandlerService {
@@ -35,6 +36,9 @@ export class CustomErrorHandlerService {
     let { message } = error.error;
     if (!message) {
       message = error.error.result;
+    }
+    if (!message) {
+      message = error.message;
     }
     const title = error.name || 'Internal Server Error.';
     return { title, message };
@@ -80,5 +84,11 @@ export class CustomErrorHandlerService {
     const parsedError = CustomErrorHandlerService.parseGenericError(error);
     this.showToast(parsedError);
     return throwError(parsedError);
+  }
+
+  handleV2HttpError(err: { error: IApiResponse }) {
+    const error = { error: err.error, message: err.error.body.data.message };
+    this.alerts.danger(error.message);
+    return throwError(error);
   }
 }

@@ -1,5 +1,5 @@
 import { from as observableFrom, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
@@ -12,6 +12,8 @@ import { Rsvp } from '../../models/rsvp';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from "../../models/event-model";
 import { ProjectModel } from "../../models/project-model";
+import { IApiResponse } from "../../models/api-response.v2";
+import { ExtraCreditClass } from "../../models/extra-credit-class";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -132,5 +134,23 @@ export class HttpService extends BaseHttpService {
       .pipe(
         map(ProjectModel.parseFromJSON),
       )
+  }
+
+  getExtraCreditClasses() {
+    const API_ENDPOINT = 'users/extra-credit';
+    return this.get(API_ENDPOINT, false, true, true)
+      .pipe(
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
+        map((classes: any[]) => classes.map(c => ExtraCreditClass.parseJSON(c))),
+      );
+  }
+
+  registerExtraCreditClass(c: string) {
+    const API_ENDPOINT = 'users/extra-credit';
+    return this.post(
+      API_ENDPOINT,
+      { cid: c},
+      true,
+    )
   }
 }

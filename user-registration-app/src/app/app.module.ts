@@ -32,6 +32,7 @@ import { AuthService, CustomErrorHandlerService, HttpService } from './services/
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { TruncatePipe } from "./services/pipes/truncate.pipe";
 import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component';
+import { UserRegistrationViewComponent } from './views/user-registration-view/user-registration-view.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UserProfileViewComponent } from './views/user-profile-view/user-profile
     TruncatePipe,
     ScheduleViewComponent,
     UserProfileViewComponent,
+    UserRegistrationViewComponent,
   ],
   imports: [
     BrowserModule,

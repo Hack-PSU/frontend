@@ -1,5 +1,4 @@
-
-import {shareReplay,  catchError, retry, switchMap } from 'rxjs/operators';
+import { catchError, retry, shareReplay, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../AuthService/auth.service';
@@ -18,42 +17,48 @@ export class BaseHttpService {
     this.memCache = new Map<string, Observable<any>>();
   }
 
-  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true) {
+  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true, v2: boolean = false) {
     if (!this.memCache.has(API_ENDPOINT)) {
       this.memCache.set(API_ENDPOINT, useAuth ? this.authService.idToken.pipe(
         switchMap((idToken: string) => {
           let headers = new HttpHeaders();
           headers = headers.set('idtoken', idToken);
-          return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers }).pipe(
+          return this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers }).pipe(
             shareReplay(this.CACHE_SIZE, 10 * 1000))
             .pipe(
               retry(3),
             );
         }),
-        catchError(err => this.errorHandler.handleHttpError(err)),
+        catchError(err => {
+          return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+        }),
       )
-      : this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT)).pipe(
+      : this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)).pipe(
           shareReplay(this.CACHE_SIZE, 10 * 1000))
           .pipe(
             retry(3),
-            catchError(err => this.errorHandler.handleHttpError(err)),
+            catchError(err => {
+              return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+            }),
           )
       );
     }
     return this.memCache.get(API_ENDPOINT);
   }
 
-  protected post(API_ENDPOINT: string, formObject: FormData) {
+  protected post(API_ENDPOINT: string, formObject: FormData | any, v2: boolean = false) {
     this.memCache.set(API_ENDPOINT, null);
     return this.authService.idToken.pipe(
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+        return this.http.post(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT),
                               formObject,
                               { headers, reportProgress: true });
       }),
-      catchError(err => this.errorHandler.handleHttpError(err)),
+      catchError(err => {
+        return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+      }),
     );
   }
 }

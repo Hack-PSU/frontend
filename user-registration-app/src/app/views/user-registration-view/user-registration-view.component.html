@@ -1,0 +1,29 @@
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion" class="black-text">
+  <li>
+    <div class="collapsible-header active">
+      <i class="material-icons">rate_review</i>
+      Extra Credit Registration
+    </div>
+    <form class="extra-credit-form" (submit)="submitClasses()">
+      <div class="row">
+        <p *ngFor="let c of classes">
+          <input type="checkbox" name="{{c.class_name}}" id="{{c.class_name}}-checkbox" [(ngModel)]="submittedClasses[c.uid]">
+          <label for="{{c.class_name}}-checkbox">
+            <span>{{c.class_name}}</span>
+          </label>
+        </p>
+      </div>
+      <button class="btn waves-effect waves-light submit-btn"
+              type="submit"
+              name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </li>
+  <ng-template *ngFor="let registration of registrations; let i = index;">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ng-template>
+</ul>

@@ -75,17 +75,23 @@
 }
 
 .profile-container {
+  min-height: 85vh;
   display: flex;
   flex-flow: row;
   width: 100%;
-  min-height: 90vh;
   padding-right: 0;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  padding-left: 0;
+  margin: 2rem auto 0;
 }
+
+.profile-row {
+  width: 100%;
+  margin: 0;
+}
+
 .info-section {
-  padding-top: 15px;
+  padding:          2rem;
+  flex-basis: auto;
   background-color: #333333;
   height: 100%;
 }
