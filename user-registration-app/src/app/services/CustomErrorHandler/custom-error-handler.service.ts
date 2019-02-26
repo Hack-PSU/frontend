@@ -88,7 +88,8 @@ export class CustomErrorHandlerService {
 
   handleV2HttpError(err: { error: IApiResponse }) {
     const error = { error: err.error, message: err.error.body.data.message };
-    this.alerts.danger(error.message);
+    console.error(error);
+    // this.alerts.danger(error.message);
     return throwError(error);
   }
 }

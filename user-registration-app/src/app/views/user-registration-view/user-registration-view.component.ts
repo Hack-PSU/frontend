@@ -87,13 +87,35 @@ export class UserRegistrationViewComponent implements OnInit {
     ).subscribe(() => {
       this.progressService.complete();
       this.alertsService.success('You are now getting tracked for the selected classes');
-    }, () => {
-      this.progressService.complete();
-      this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+    }, ({error}) => {
+      if (error.status === 409) {
+        this.alertsService.success('You are now getting tracked for the selected classes');
+      } else {
+        console.log(error);
+        this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+      }
     });
   }
 
   parseInt(string: string, radix: number) {
     return parseInt(string, radix);
+  }
+
+  businessChallengeRegister() {
+    this.progressService.start();
+    this.httpService.registerExtraCreditClass(
+      this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString(),
+    )
+      .subscribe(() => {
+        this.progressService.complete();
+        this.alertsService.success('You are registered for the business challenge');
+      }, ({error}) => {
+        if (error.status === 409) {
+          this.alertsService.success('You are registered for the business challenge');
+        } else {
+          console.log(error);
+          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+        }
+      });
   }
 }
