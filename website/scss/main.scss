@@ -396,8 +396,8 @@ body {
     background:    transparent;
     border:        solid 8px rgba(170, 202, 204, 0.6);
     border-radius: 50px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin: 5vh 2vh;
+    font-size: smaller;
 
     &:hover {
       @include transition(all, 0.4s);
