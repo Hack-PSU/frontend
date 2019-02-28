@@ -15,16 +15,16 @@
                      autocomplete="email" name="lg_username"
                      (blur)="onEmailEntered(emailBox.value)"
                      #emailBox
-                     placeholder="Type your email" [(ngModel)]="model.email">
+                     placeholder="Enter your email" [(ngModel)]="model.email">
             </div>
             <div class="form-group">
               <label for="lg_password" class="sr-only">Password</label>
               <input type="password" required class="form-control validate" id="lg_password"
                      autocomplete="current-password" name="lg_password"
-                     placeholder="Type your password" [(ngModel)]="model.password">
+                     placeholder="Enter your password" [(ngModel)]="model.password">
             </div>
             <div class="etc-login-form">
-              <p>Forgot your password? <a href="/forgot">click here</a></p>npm
+              <p>Forgot your password? <a href="/forgot">Click Here</a></p>
             </div>
           </div>
         <button [disabled]="!loginForm.valid"
@@ -37,7 +37,7 @@
     </div>
     <!-- end:Main Form -->
     <div class="row">
-      <p class="text-center">Alternately, sign up with</p>
+      <p class="text-center">Alternately, sign in with</p>
       <div class="offset-1 col-10 signup-btn-container">
         <a class="btn btn-block btn-social btn-google" (click)="loginGoogle()">
           <span class="fa fa-google"></span>

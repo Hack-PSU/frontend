@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <a class="btn btn-social" href="/login">BACK<i
+            <a class="btn" href="/login">BACK<i
               class="material-icons left">arrow_back</i> </a>
           </div>
           <div class="col-6">
@@ -32,5 +32,16 @@
           </div>
         </div>
     </form>
+    <div class="row">
+      <p class="text-center">Alternately, sign in with</p>
+      <div class="offset-1 col-10 signup-btn-container">
+        <a class="btn btn-block btn-social btn-google" (click)="loginGoogle()">
+          <span class="fa fa-google"></span>
+        </a>
+        <a class="btn btn-block btn-social btn-google" (click)="loginGithub()">
+          <span class="fa fa-github"></span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
