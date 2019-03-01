@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint ./website/js/main.js --ignore node_modules --cache --ext .js --fix && travis lint .travis.yml && styleline **/*.scss",
     "test": "echo 'success'",
-    "watch-sass": "sass --watch ./website/scss/main.scss:./website/css/main-compiled.css ./website/scss/night-main.scss:./website/css/night-main-compiled.css ./website/scss/day-main.scss:./website/css/day-main-compiled.css",
-    "sass": "sass ./website/scss/main.scss:./website/css/main-compiled.css ./website/scss/night-main.scss:./website/css/night-main-compiled.css ./website/scss/day-main.scss:./website/css/day-main-compiled.css",
+    "watch-sass": "sass --watch ./website/scss/main.scss:./website/css/main-compiled.css ./website/scss/night-main.scss:./website/css/night-main-compiled.css ./website/scss/day-main.scss:./website/css/day-main-compiled.css ./website/scss/business.scss:./website/css/business-compiled.css",
+    "sass": "sass ./website/scss/main.scss:./website/css/main-compiled.css ./website/scss/night-main.scss:./website/css/night-main-compiled.css ./website/scss/day-main.scss:./website/css/day-main-compiled.css ./website/scss/business.scss:./website/css/business-compiled.css",
     "start": "npm run sass"
   },
   "keywords": [
