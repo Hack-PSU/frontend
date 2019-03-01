@@ -1,15 +1,12 @@
+import {of as observableOf,  Observable ,  forkJoin } from 'rxjs';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Registration } from '../../../models/registration';
 import { catchError, map, mergeMap, take } from 'rxjs/operators';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
-import 'rxjs-compat/add/observable/empty';
-import 'rxjs-compat/add/observable/of';
-import { forkJoin } from 'rxjs';
 
 @Injectable()
 /**
@@ -48,7 +45,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         catchError((error) => {
           this.progress.complete();
           // Registration not found.
-          return Observable.of(new Registration());
+          return observableOf(new Registration());
         }),
         take(1),
       );

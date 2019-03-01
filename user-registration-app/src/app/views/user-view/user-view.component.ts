@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DEFAULT_PACKAGE_URL_PROVIDER } from '@angular/platform-browser-dynamic/src/compiler_factory';
 import { Router } from '@angular/router';
 import { User } from 'firebase';
 import { AppConstants } from '../../AppConstants';

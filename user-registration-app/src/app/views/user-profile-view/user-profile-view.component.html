@@ -1,0 +1,69 @@
+<!-- PROFILE VIEW-->
+<div *ngIf="authService.authState | async as user">
+  <div class="container-fluid">
+    <!-- Main view -->
+    <div class="card profile-container container">
+      <div class="row profile-row">
+        <div class="col m4 s12 col-m d-4 info-section">
+          <div class="row justify-content-center">
+            <p class="header-text">PROFILE</p>
+          </div>
+          <div class="row justify-content-center">
+            <img class="profile-image circle"
+                 data-position="bottom"
+                 data-delay="50"
+                 attr.data-tooltip="{{user?.displayName}}"
+                 [src]="getUserPhotoUrl(user)" alt="user-image"/>
+          </div>
+          <hr/>
+          <div class="row justify-content-center" *ngIf="user.displayName">
+            <p class="text-capitalize profile-name font-weight-bold">{{ user.displayName }}</p>
+            <a (click)="editName()"><i class="material-icons">edit</i></a>
+          </div>
+          <div *ngIf="nameEditToggled || !user.displayName" [@fadeIn]>
+            <div class="input-field col-sm-12">
+              <input placeholder="Enter name" id="name" type="text" class="validate" autocomplete="name" #nameInput>
+              <a class="waves-effect waves-light btn" (click)="submitNewName(nameInput.value)">Submit</a>
+              <a class="waves-effect waves-light btn" *ngIf="user.displayName" (click)="nameEditToggled = false;">Cancel</a>
+            </div>
+          </div>
+          <hr/>
+          <div class="row justify-content-between">
+            <p class="font-weight-bold">Email</p>
+            <p>{{user.email}}</p>
+            <a (click)="editEmail()"><i class="material-icons">edit</i></a>
+          </div>
+          <div *ngIf="emailEditToggled" [@fadeIn]>
+            <div class="input-field col-sm-12">
+              <input placeholder="Enter new email" id="email" type="email" class="validate" autocomplete="email" #emailInput>
+              <a class="waves-effect waves-light btn" (click)="submitNewEmail(emailInput.value)">Submit</a>
+              <a class="waves-effect waves-light btn" (click)="emailEditToggled = false;">Cancel</a>
+            </div>
+          </div>
+          <hr/>
+          <div class="row justify-content-between">
+            <p class="font-weight-bold">Password</p>
+            <p>********</p>
+            <a (click)="editPassword()"><i class="material-icons">edit</i></a>
+          </div>
+          <div *ngIf="passwordEditToggled" [@fadeIn]>
+            <div class="input-field col-sm-12">
+              <input placeholder="Enter new password" id="password" type="password" class="validate" #passwordInput>
+              <input placeholder="Confirm password" id="password-confirm" type="password" class="validate" #passwordConfirmInput>
+              <a class="waves-effect waves-light btn" (click)="submitNewPassword(passwordInput.value, passwordConfirmInput.value)">Submit</a>
+              <a class="waves-effect waves-light btn" (click)="passwordEditToggled = false;">Cancel</a>
+            </div>
+          </div>
+          <hr/>
+          <div class="row justify-content-between">
+            <p class="font-weight-bold">Last signed in on</p>
+            <p style="font-size: x-small;">{{ user.metadata.lastSignInTime }}</p>
+          </div>
+      </div>
+        <div class="col m8 s12 col-md-8">
+          <app-user-registration-view></app-user-registration-view>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

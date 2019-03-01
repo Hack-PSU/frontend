@@ -9,10 +9,11 @@ import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { Rsvp } from '../../models/rsvp';
-import 'rxjs-compat/add/operator/shareReplay';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from "../../models/event-model";
 import { ProjectModel } from "../../models/project-model";
+import { IApiResponse } from "../../models/api-response.v2";
+import { ExtraCreditClass } from "../../models/extra-credit-class";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -132,6 +133,32 @@ export class HttpService extends BaseHttpService {
     return this.get(API_ENDPOINT, false, true)
       .pipe(
         map(ProjectModel.parseFromJSON),
+      )
+  }
+
+  getExtraCreditClasses() {
+    const API_ENDPOINT = 'users/extra-credit';
+    return this.get(API_ENDPOINT, false, true, true)
+      .pipe(
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
+        map((classes: any[]) => classes.map(c => ExtraCreditClass.parseJSON(c))),
+      );
+  }
+
+  registerExtraCreditClass(c: string) {
+    const API_ENDPOINT = 'users/extra-credit';
+    return this.post(
+      API_ENDPOINT,
+      { cid: c},
+      true,
+    )
+  }
+
+  getUserRegistrations() {
+    const API_ENDPOINT = 'users/register';
+    return this.get(API_ENDPOINT, false, true, true)
+      .pipe(
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
       )
   }
 }

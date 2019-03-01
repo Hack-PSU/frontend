@@ -1,5 +1,5 @@
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AppConstants } from '../../../AppConstants';
 import { finalize, map, mergeMap, take } from 'rxjs/operators';
 import { AuthService } from '../../AuthService/auth.service';
