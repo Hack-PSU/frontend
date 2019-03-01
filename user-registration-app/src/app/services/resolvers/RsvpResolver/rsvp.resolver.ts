@@ -1,5 +1,5 @@
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  combineLatest as observableCombineLatest } from 'rxjs';
 import { Rsvp } from '../../../models/rsvp';
 import { AppConstants } from '../../../AppConstants';
 import { finalize, map, mergeMap, take } from 'rxjs/operators';
@@ -7,7 +7,6 @@ import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
-import { combineLatest as observableCombineLatest } from 'rxjs';
 import { Registration } from '../../../models/registration';
 
 @Injectable()

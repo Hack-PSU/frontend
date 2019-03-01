@@ -1,3 +1,5 @@
+
+import {of as observableOf} from 'rxjs';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NgProgress, NgProgressModule } from '@ngx-progressbar/core';
@@ -5,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import { UserViewComponent } from './views/user-view/user-view.component';
 import { AuthService } from './services/AuthService/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +21,7 @@ describe('AppComponent', () => {
       }, {
         provide: Router,
         useClass: class {
-          events = Observable.of({});
+          events = observableOf({});
         },
       }, {
         provide: NgProgress,

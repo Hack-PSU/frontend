@@ -1,9 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { Duration } from "../../models/duration";
-import { Observable, Subscriber } from "rxjs";
-import { TimerObservable } from "rxjs-compat/observable/TimerObservable";
-import "rxjs-compat/add/operator/map";
+import { Observable, timer } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +22,7 @@ export class CountdownService {
       let duration = new Duration(new Date(), new Date());
       observer.next({ duration, bannerText });
       this.zone.runOutsideAngular(() => {
-        const timer = TimerObservable.create(0, 1000)
+        const timerObservable = timer(0, 1000)
           .subscribe(() => {
             currentTime = new Date();
             if (currentTime < this.startTime) {
@@ -47,7 +45,7 @@ export class CountdownService {
               this.zone.run(() => {
                 observer.next({ duration, bannerText });
               });
-              timer.unsubscribe();
+              timerObservable.unsubscribe();
             }
           });
       })
