@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstants } from '../../AppConstants';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
+import {AuthProviders} from "../../services/AuthService/auth.service";
 
 @Component({
   selector: 'app-signup-view',
@@ -24,6 +25,36 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  private loginHandler(loginPromise: Promise<any>) {
+    loginPromise
+      .then(() => {
+        this.onLogin();
+      })
+      .catch((error) => {
+        console.error(error);
+        this.errorHandler.handleError(error);
+        this.progressBar.complete();
+      });
+  }
+  onLogin() {
+    this.readRouteAndNavigate((params) => {
+      if (!params.redirectUrl) {
+        this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
+      } else {
+        this.router.navigate([params['redirectUrl']]);
+      }
+    });
+  }
+  loginGoogle() {
+    this.progressBar.start();
+    this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
+  }
+
+  loginGithub() {
+    this.progressBar.start();
+    this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
   signUp() {
