@@ -1,14 +1,45 @@
-import { Observable } from 'rxjs';
+import { catchError, mergeMap, retryWhen, shareReplay, switchMap } from 'rxjs/operators';
+import { Observable, throwError, timer } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../AuthService/auth.service';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { NgProgress } from '@ngx-progressbar/core';
-import { catchError, retry, switchMap } from 'rxjs/operators';
 import { AppConstants } from '../../AppConstants';
 
 export class BaseHttpService {
   private readonly CACHE_SIZE = 3;
   protected memCache: Map<string, Observable<any>>;
+
+  private genericRetryStrategy =
+    ({
+       maxRetryAttempts = 3,
+       scalingDuration = 1000,
+       excludedStatusCodes = []
+     }: {
+      maxRetryAttempts?: number,
+      scalingDuration?: number,
+      excludedStatusCodes?: number[]
+    } = {}) => (attempts: Observable<any>) => {
+      return attempts.pipe(
+        mergeMap((error, i) => {
+          const retryAttempt = i + 1;
+          // if maximum number of retries have been met
+          // or response is a status code we don't wish to retry, throw error
+          if (
+            retryAttempt > maxRetryAttempts ||
+            excludedStatusCodes.find(e => e === error.status)
+          ) {
+            return throwError(error);
+          }
+          console.log(
+            `Attempt ${retryAttempt}: retrying in ${retryAttempt *
+            scalingDuration}ms`
+          );
+          // retry after 1s, 2s, etc...
+          return timer(retryAttempt * scalingDuration);
+        }),
+      );
+    };
 
   constructor(protected http: HttpClient,
               protected authService: AuthService,
@@ -17,42 +48,49 @@ export class BaseHttpService {
     this.memCache = new Map<string, Observable<any>>();
   }
 
-  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true) {
+  protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true, v2: boolean = false) {
     if (!this.memCache.has(API_ENDPOINT)) {
       this.memCache.set(API_ENDPOINT, useAuth ? this.authService.idToken.pipe(
         switchMap((idToken: string) => {
           let headers = new HttpHeaders();
           headers = headers.set('idtoken', idToken);
-          return this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers })
-            .shareReplay(this.CACHE_SIZE, 10 * 1000)
+          return this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers }).pipe(
+            shareReplay(this.CACHE_SIZE, 10 * 1000))
             .pipe(
-              retry(3),
+              retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
             );
         }),
-        catchError(err => this.errorHandler.handleHttpError(err)),
+        catchError(err => {
+          return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+        }),
       )
-      : this.http.get(AppConstants.API_BASE_URL.concat(API_ENDPOINT))
-          .shareReplay(this.CACHE_SIZE, 10 * 1000)
+      : this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)).pipe(
+          shareReplay(this.CACHE_SIZE, 10 * 1000))
           .pipe(
-            retry(3),
-            catchError(err => this.errorHandler.handleHttpError(err)),
-          )
+            retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
+            catchError(err => {
+              return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+            }),
+          ),
       );
     }
     return this.memCache.get(API_ENDPOINT);
   }
 
-  protected post(API_ENDPOINT: string, formObject: FormData) {
+
+  protected post(API_ENDPOINT: string, formObject: FormData | any, v2: boolean = false) {
     this.memCache.set(API_ENDPOINT, null);
     return this.authService.idToken.pipe(
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.post(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+        return this.http.post(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT),
                               formObject,
                               { headers, reportProgress: true });
       }),
-      catchError(err => this.errorHandler.handleHttpError(err)),
+      catchError(err => {
+        return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+      }),
     );
   }
 }

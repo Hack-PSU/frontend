@@ -1,0 +1,29 @@
+.extra-credit-form p {
+  margin: 5px;
+}
+
+.registration-table th{
+  padding: 15px 10px;
+}
+/*.registration-table td {*/
+/*}*/
+
+.btn {
+  background-color: rgba(255, 255, 255, 0);
+  color: #333;
+  border: 2px solid #333;
+  border-right-width: 8px;
+  border-left-width: 8px;
+  border-radius: 12px;
+  max-width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: block;
+}
+
+@media screen and (max-width: 576px) {
+  .btn {
+    max-width: 100%;
+  }
+}
