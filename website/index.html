@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      //const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      //var currentTime = 20;
+      var currentTime = 10;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -927,9 +927,21 @@
       <div class="col-sm-4">
         <!-- Vertex-->
         <a href="https://www.vertexinc.com/" target="_blank">
-          <img src="assets/images/sponsors/Vertex-day.svg" alt="Vertex" class="img-fluid Vertex-day">
+          <img src="assets/images/sponsors/Vertex-day.svg" alt="Vertex" class="img-fluid Vertex-night">
         </a>
         </div>
+      <div class="col-sm-4">
+        <!-- EY-->
+        <a href="https://www.ey.com/" target="_blank">
+          <img src="assets/images/sponsors/EY-day.svg" alt="Vertex" class="img-fluid EY-day">
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <!-- Dick's-->
+        <a href="https://www.dickssportinggoods.com/" target="_blank">
+          <img src="assets/images/sponsors/Dicks-day.svg" alt="Vertex" class="img-fluid Dicks-day">
+        </a>
+      </div>
     </div>
 
     <!-- Bronze Sponsors -->
