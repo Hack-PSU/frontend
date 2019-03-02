@@ -32,7 +32,7 @@ export class UserProfileViewComponent implements OnInit {
   private passwordEditToggled: boolean;
   private nameEditToggled: boolean;
 
-  constructor(private authService: AuthService, private progressService: NgProgress, private alertsService: AlertService) {
+  constructor(public authService: AuthService, private progressService: NgProgress, private alertsService: AlertService) {
   }
 
   ngOnInit() {
