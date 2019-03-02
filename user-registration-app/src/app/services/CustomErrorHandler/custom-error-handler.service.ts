@@ -3,8 +3,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
 import { AlertService } from 'ngx-alerts';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs-compat/add/observable/throw';
+import { Observable, throwError } from 'rxjs';
+import { IApiResponse } from "../../models/api-response.v2";
 
 @Injectable()
 export class CustomErrorHandlerService {
@@ -36,6 +36,9 @@ export class CustomErrorHandlerService {
     let { message } = error.error;
     if (!message) {
       message = error.error.result;
+    }
+    if (!message) {
+      message = error.message;
     }
     const title = error.name || 'Internal Server Error.';
     return { title, message };
@@ -74,12 +77,19 @@ export class CustomErrorHandlerService {
     const customError = this.createCustomError(error);
     const parsedError = CustomErrorHandlerService.tryParseError(customError);
     this.showToast(parsedError);
-    return Observable.throwError(parsedError);
+    return throwError(parsedError);
   }
 
   public handleError(error: GenericError): Observable<Error> {
     const parsedError = CustomErrorHandlerService.parseGenericError(error);
     this.showToast(parsedError);
-    return Observable.throwError(parsedError);
+    return throwError(parsedError);
+  }
+
+  handleV2HttpError(err: { error: IApiResponse }) {
+    const error = { error: err.error, message: err.error.body.data.message };
+    console.error(error);
+    // this.alerts.danger(error.message);
+    return throwError(error);
   }
 }
