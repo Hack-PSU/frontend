@@ -6,8 +6,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
 import { AlertService } from 'ngx-alerts';
 import * as Ajv from 'ajv';
-import * as data from '../../../assets/schools.json';
-import * as majors from '../../../assets/majors.json';
+import { default as data } from '../../../assets/schools.json';
+import { default as majors } from '../../../assets/majors.json';
 import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
 import { AuthService, HttpService } from '../../services/services';
@@ -41,28 +41,23 @@ export class RegistrationFormComponent implements OnInit {
 
   private static regFormComp: RegistrationFormComponent;
   private asYouType: AsYouType;
-  public univAutoCompInit = [
-    { data },
-    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
-    {
+  public univAutoCompInit = {
+    data,
+    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
       onAutocomplete(val) {
         this.registrationForm.university = val;
       },
+    minLength: 1,
+  };
+  public majAutoCompInit = {
+    data: majors,
+    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete(val) {
+      this.registrationForm.major = val;
     },
-    { minLength: 1 },
-  ];
-  public majAutoCompInit = [
-    { data: majors },
-    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
-    {
-      onAutocomplete(val) {
-        this.registrationForm.major = val;
-      },
-    },
-    { minLength: 1 },
-  ];
-  public referralAutoCompleteInit = [
-    {
+    minLength: 1,
+  };
+  public referralAutoCompleteInit = {
       data: {
         'Participated previously': null,
         'On-campus flyers': null,
@@ -77,15 +72,12 @@ export class RegistrationFormComponent implements OnInit {
         'Heard from a friend': null,
         'Branch campus': null,
       },
-    },
-    { limit: 5 }, // The max amount of results that can be shown at once. Default: Infinity.
-    {
+    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
       onAutocomplete(val) {
         this.registrationForm.referral = val;
       },
-    },
-    { minLength: 1 },
-  ];
+    minLength: 1,
+  };
 
   public registrationForm: Registration;
   public user: firebase.User;
@@ -159,6 +151,7 @@ export class RegistrationFormComponent implements OnInit {
               private httpService: HttpService,
               private alertsService: AlertService,
               private authService: AuthService) {
+    console.log(data);
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';

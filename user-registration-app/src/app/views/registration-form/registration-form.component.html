@@ -383,7 +383,7 @@
                  required
                  class="validate required"
                  materialize="autocomplete"
-                 [materializeParams]="majAutoCompInit">
+                 [materializeParams]="[majAutoCompInit]">
           <label for="autocomplete-input-major" data-error="Major is required">Enter your
             major</label>
         </div>
@@ -406,7 +406,7 @@
                  #schoolinput="ngModel"
                  id="autocomplete-input-university"
                  materialize="autocomplete"
-                 [materializeParams]="univAutoCompInit">
+                 [materializeParams]="[univAutoCompInit]">
         </div>
         <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
       </div>
@@ -578,7 +578,7 @@
         <div class="input-field">
           <label for="reference-input"></label>
           <input id="reference-input" name="referral" materialize="autocomplete"
-                 [materializeParams]="referralAutoCompleteInit"
+                 [materializeParams]="[referralAutoCompleteInit]"
                  [(ngModel)]="registrationForm.referral">
         </div>
       </div>
