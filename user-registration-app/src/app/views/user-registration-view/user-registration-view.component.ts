@@ -118,4 +118,9 @@ export class UserRegistrationViewComponent implements OnInit {
         }
       });
   }
+
+  showClassName(class_name: string): boolean {
+    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n'];
+    return hiddenClassNames.indexOf(class_name) === -1;
+  }
 }
