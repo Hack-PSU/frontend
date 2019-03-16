@@ -1,4 +1,4 @@
-<div *ngIf="authService.authState | async as user">
+<div *ngIf="authService.authState | async as user;else loginbutton">
   <div class="profile-view valign-wrapper">
     <div class="profile-image-holder">
       <a href="/profile">
@@ -11,3 +11,8 @@
     <button class="btn btn-flat" (click)="logout()">Logout</button>
   </div>
 </div>
+<ng-template #loginbutton>
+  <a href="/login">
+  <button class="btn btn-flat">Login</button>
+  </a>
+</ng-template>
