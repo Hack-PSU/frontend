@@ -36,7 +36,7 @@
   <!--<h5 style="margin-top: 2em;">Registration history</h5>-->
   <li *ngFor="let registration of registrations;">
     <div class="collapsible-header">
-      <i class="material-icons">place</i>{{registration.name}}
+      <i class="material-icons">place</i>{{registration.hackathon.name}}
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
@@ -44,6 +44,7 @@
           <table class="table-responsive centered registration-table">
             <thead>
             <tr>
+              <th>Check-in pin</th>
               <ng-container *ngFor="let keyVal of keyVals(registration)">
                 <th scope="col"
                     *ngIf="regPropertyNameResolve[keyVal[0]]">{{regPropertyNameResolve[keyVal[0]]}}</th>
@@ -52,11 +53,12 @@
             </thead>
             <tbody>
             <tr>
+              <td>{{registration.pin}}</td>
               <ng-container
                 *ngFor="let keyVal of keyVals(registration)">
                 <td
                   *ngIf="regPropertyNameResolve[keyVal[0]]">
-                  {{keyVal[0] === 'pin' ? parseInt(keyVal[1], 10) - parseInt(registration.base_pin, 10) : keyVal[1]}}
+                  {{keyVal[1]}}
                 </td>
               </ng-container>
             </tr>
