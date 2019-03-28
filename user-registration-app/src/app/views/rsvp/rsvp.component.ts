@@ -9,7 +9,7 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { Rsvp } from '../../models/rsvp';
 import { AppConstants } from '../../AppConstants';
 import { finalize } from 'rxjs/operators';
-import { Registration } from "../../models/registration";
+import { Registration, RegistrationApiResponse } from "../../models/registration";
 
 declare var $: any;
 
@@ -24,7 +24,7 @@ export class RsvpComponent implements OnInit {
   public user: firebase.User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
-  public registrationData: Registration;
+  public registrationData: RegistrationApiResponse;
 
   constructor(public authService: AuthService,
               public router: Router,
@@ -33,7 +33,7 @@ export class RsvpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe((data: { registration: Registration }) => {
+    this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {
       const { registration } = data;
       this.registrationData = registration;
     });

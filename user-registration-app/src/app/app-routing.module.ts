@@ -17,7 +17,6 @@ import { RegistrationResolver } from './services/resolvers/RegistrationResolver/
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
 import { TableAssignmentResolver } from "./services/resolvers/TableAssignmentResolver/table-assignment.resolver";
-import { environment } from "../environments/environment";
 import { UserProfileViewComponent } from "./views/user-profile-view/user-profile-view.component";
 
 const routes: Routes = [
