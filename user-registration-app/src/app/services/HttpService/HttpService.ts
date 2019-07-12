@@ -1,19 +1,20 @@
-import { from as observableFrom, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppConstants } from '../../AppConstants';
-import { Registration } from '../../models/registration';
-import { AuthService } from '../AuthService/auth.service';
-import { Hackathon } from '../../models/hackathon';
-import { NgProgress } from '@ngx-progressbar/core';
-import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
-import { Rsvp } from '../../models/rsvp';
-import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
-import { EventModel } from "../../models/event-model";
-import { ProjectModel } from "../../models/project-model";
-import { IApiResponse } from "../../models/api-response.v2";
-import { ExtraCreditClass } from "../../models/extra-credit-class";
+import {from as observableFrom, Observable} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AppConstants} from '../../AppConstants';
+import {Registration} from '../../models/registration';
+import {AuthService} from '../AuthService/auth.service';
+import {Hackathon} from '../../models/hackathon';
+import {NgProgress} from '@ngx-progressbar/core';
+import {CustomErrorHandlerService} from '../CustomErrorHandler/custom-error-handler.service';
+import {Rsvp} from '../../models/rsvp';
+import {BaseHttpService} from '../BaseHttpService/BaseHttpService';
+import {EventModel} from "../../models/event-model";
+import {ProjectModel} from "../../models/project-model";
+import {IApiResponse} from "../../models/api-response.v2";
+import {ExtraCreditClass} from "../../models/extra-credit-class";
+import {ExtraCreditAssignment} from "../../models/extra-credit-assignment";
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -82,8 +83,8 @@ export class HttpService extends BaseHttpService {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
         return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
-          { status },
-          { headers, reportProgress: true });
+          {status},
+          {headers, reportProgress: true});
       }));
   }
 
@@ -145,11 +146,21 @@ export class HttpService extends BaseHttpService {
       );
   }
 
+  getUserExtraCreditAssignment() {
+
+     const API_ENDPOINT = 'users/extra-credit/assignment/?type=user';
+     return this.get(API_ENDPOINT, true, true, true)
+       .pipe(
+         map((apiResponse: IApiResponse) => apiResponse.body.data),
+         map((assignments: any[]) => assignments.map(a => ExtraCreditAssignment.parseJSON(a))),
+       );
+  }
+
   registerExtraCreditClass(c: string) {
     const API_ENDPOINT = 'users/extra-credit';
     return this.post(
       API_ENDPOINT,
-      { cid: c},
+      {cid: c},
       true,
     )
   }

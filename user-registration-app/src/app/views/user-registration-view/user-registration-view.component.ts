@@ -5,6 +5,7 @@ import { HttpService } from "../../services/HttpService/HttpService";
 import { forkJoin } from "rxjs";
 import { NgProgress } from "@ngx-progressbar/core";
 import { AlertService } from "ngx-alerts";
+import { ExtraCreditAssignment } from "../../models/extra-credit-assignment";
 
 @Component({
   selector: 'app-user-registration-view',
@@ -14,8 +15,10 @@ import { AlertService } from "ngx-alerts";
 export class UserRegistrationViewComponent implements OnInit {
   registrations: IRegistrationDb[];
   classes: ExtraCreditClass[];
+  assignments: ExtraCreditAssignment[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
+
 
   public keyVals(object: any) {
     return Object.entries(object);
@@ -24,6 +27,7 @@ export class UserRegistrationViewComponent implements OnInit {
   constructor(private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
     this.registrations = [];
     this.classes = [];
+    this.assignments = [];
     this.submittedClasses = new Map();
     this.regPropertyNameResolve = {
       academic_year: 'Academic Year',
@@ -68,6 +72,12 @@ export class UserRegistrationViewComponent implements OnInit {
         if (error.status === 404) {
           this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
         }
+      });
+    const ecaObservable = this.httpService.getUserExtraCreditAssignment()
+      .subscribe(assignments => {
+        this.assignments = assignments;
+        assignments.forEach((assignment)=> {this.submittedClasses[assignment.class_uid ]= true})
+        ecaObservable.unsubscribe();
       });
   }
 
