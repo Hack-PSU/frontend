@@ -15,11 +15,11 @@ import { User } from "firebase";
  * registration-resolver redirects the user to registration page. If the registration can check the user ID and the
  * their registration is submitted, then routes the user to RSVP page.
  */
-export class RegistrationResolver implements Resolve<Registration | RegistrationApiResponse> {
+export class RegistrationResolver implements Resolve<Registration> {
   constructor(private authService: AuthService, private progress: NgProgress, private router: Router, private httpService: HttpService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration | RegistrationApiResponse> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
     this.progress.start();
     return this.authService.currentUser
       .pipe(
@@ -37,7 +37,7 @@ export class RegistrationResolver implements Resolve<Registration | Registration
             this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
-          return registration;
+          return registration.parseFromApiResponse(registration);
         }),
         catchError((error) => {
           this.progress.complete();

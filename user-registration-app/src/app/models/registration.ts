@@ -26,7 +26,7 @@ export class Registration {
   public expectations: string;
   public veteran: string;
   public submitted: boolean;
-  private hackathon: string;
+  public hackathon: string;
   public pin: string;
 
   constructor() {
@@ -173,5 +173,39 @@ export class RegistrationApiResponse {
 
   isCurrentRegistration(): boolean {
     return this.hackathon.active;
+  }
+  parseFromApiResponse(value: RegistrationApiResponse) : Registration{
+    const registration = new Registration();
+    registration.firstName = value.firstname;
+    registration.lastName = value.lastname;
+    registration.gender = value.gender;
+    registration.email = value.email;
+    registration.eighteenBeforeEvent = !!value.eighteenBeforeEvent;
+    registration.shirtSize = value.shirt_size;
+    registration.dietaryRestriction = value.dietary_restriction;
+    registration.allergies = value.allergies;
+    registration.travelReimbursement = !!value.travel_reimbursement;
+    registration.firstHackathon = !!value.first_hackathon;
+    registration.university = value.university;
+    registration.phone = value.phone;
+    registration.academicYear = value.academic_year;
+    registration.major = value.major;
+    registration.resume = value.resume;
+    registration.mlhcoc = !!value.mlh_coc;
+    registration.mlhdcp = !!value.mlh_dcp;
+    registration.ethnicity = value.race;
+    registration.codingExperience = value.coding_experience;
+    registration.referral = value.referral;
+    registration.projectDesc = value.project;
+    registration.expectations = value.expectations;
+    registration.veteran = value.veteran;
+    registration.submitted = !!value.submitted;
+    registration.hackathon = this.parseHackathon(registration);
+    registration.pin = (this.pinAi-value.pin).toString();
+    return registration;
+  }
+  parseHackathon(value: any): string{
+    value.hackathon = Hackathon.parseJSON(value);
+    return value.hackathon;
   }
 }
