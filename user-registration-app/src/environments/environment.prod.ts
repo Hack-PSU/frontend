@@ -13,9 +13,9 @@ export const environment = {
   },
 
   //Note: Months are indexed at 0
-  liveWebsiteGuardTime: new Date(2019, 9, 31, 21),
-  hackathonStartTime: new Date(2019, 10, 2, 7),
-  timerStartTime: new Date(2019, 10, 2, 14),
-  hackathonEndTime: new Date(2019, 10, 3, 14),
-  rsvpStartTime: new Date(2019, 10),
+  liveWebsiteGuardTime: new Date(2019, 2, 13, 21),
+  hackathonStartTime: new Date(2019, 2, 16, 7),
+  timerStartTime: new Date(2019, 2, 16, 14),
+  hackathonEndTime: new Date(2019, 2, 17, 14),
+  rsvpStartTime: new Date(2019, 2),
 };

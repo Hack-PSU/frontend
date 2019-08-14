@@ -1,6 +1,6 @@
-import { catchError, mergeMap, retryWhen, shareReplay, switchMap, map, tap } from 'rxjs/operators';
+import { catchError, mergeMap, retryWhen, shareReplay, switchMap } from 'rxjs/operators';
 import { Observable, throwError, timer } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../AuthService/auth.service';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { NgProgress } from '@ngx-progressbar/core';
@@ -49,43 +49,32 @@ export class BaseHttpService {
   }
 
   protected get<T>(API_ENDPOINT: string, ignoreCache?: boolean, useAuth = true, v2: boolean = false) {
-    if (ignoreCache) {
-      this.memCache.delete(API_ENDPOINT);
-    }
-    if (!this.memCache.has(API_ENDPOINT)) { // Set the value in the memory cache
-      let headers = new HttpHeaders();
-      let params = new HttpParams();
-      let fullUrl = v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)
-      if (ignoreCache) {
-        params = params.set('ignoreCache', 'true');
-      }
-      let observable = useAuth ?
-        // With authentication
-        this.authService.idToken.pipe(
-          switchMap((idToken: string) => {
-            headers = headers.set('idtoken', idToken);
-            return this.getInternal(fullUrl, headers, params);
-          })) :
-        // Without authentication
-        this.getInternal(fullUrl, headers, params);
-      observable = observable.pipe(
-        v2 ? map((apiResponse: any) => apiResponse.body.data) : tap(() => undefined),
+    if (!this.memCache.has(API_ENDPOINT)) {
+      this.memCache.set(API_ENDPOINT, useAuth ? this.authService.idToken.pipe(
+        switchMap((idToken: string) => {
+          let headers = new HttpHeaders();
+          headers = headers.set('idtoken', idToken);
+          return this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT), { headers }).pipe(
+            shareReplay(this.CACHE_SIZE, 10 * 1000))
+            .pipe(
+              retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
+            );
+        }),
         catchError(err => {
           return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
         }),
+      )
+      : this.http.get(v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)).pipe(
+          shareReplay(this.CACHE_SIZE, 10 * 1000))
+          .pipe(
+            retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
+            catchError(err => {
+              return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
+            }),
+          ),
       );
-      this.memCache.set(API_ENDPOINT, observable);
     }
     return this.memCache.get(API_ENDPOINT);
-  }
-
-  private getInternal<T>(fullUrl: string, headers: HttpHeaders, params?: HttpParams) {
-    return this.http.get(fullUrl, { headers, params })
-      .pipe(
-        shareReplay(this.CACHE_SIZE, 10 * 1000)).pipe(
-          retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })
-        ),
-      )
   }
 
 

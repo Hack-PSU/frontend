@@ -2,19 +2,11 @@
   margin: 5px;
 }
 
-.registration-table {
-  white-space: nowrap;
-}
-
 .registration-table th{
   padding: 15px 10px;
 }
-
-.registration-table td {
-  max-width: 10em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+/*.registration-table td {*/
+/*}*/
 
 .btn {
   background-color: rgba(255, 255, 255, 0);
