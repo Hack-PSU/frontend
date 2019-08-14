@@ -3,7 +3,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '../../AppConstants';
-import { Registration, RegistrationApiResponse } from '../../models/registration';
+import { Registration } from '../../models/registration';
 import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
 import { NgProgress } from '@ngx-progressbar/core';
@@ -12,6 +12,7 @@ import { Rsvp } from '../../models/rsvp';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from "../../models/event-model";
 import { ProjectModel } from "../../models/project-model";
+import { IApiResponse } from "../../models/api-response.v2";
 import { ExtraCreditClass } from "../../models/extra-credit-class";
 
 @Injectable()
@@ -33,12 +34,12 @@ export class HttpService extends BaseHttpService {
       );
   }
 
-  getRegistrationStatus(): Observable<RegistrationApiResponse> {
-    const API_ENDPOINT = 'users/register';
-    return this.get(API_ENDPOINT, true, true, true)
+  getRegistrationStatus(): Observable<Registration> {
+    const API_ENDPOINT = 'users/registration';
+    return this.get(API_ENDPOINT)
       .pipe(
-        map(registrations => registrations[0]),
-        map(RegistrationApiResponse.parseJSON),
+        map(registrations => Array.isArray(registrations) ? registrations[0] : registrations),
+        map(Registration.parseJSON),
       );
   }
 
@@ -56,11 +57,11 @@ export class HttpService extends BaseHttpService {
   }
 
   submitRegistration(submitData: Registration, uid: string) {
-    const API_ENDPOINT = 'users/register';
+    const API_ENDPOINT = 'register';
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in submitData) {
-      if (submitData.hasOwnProperty(key) && submitData[key] && key !== 'resume') {
+      if (submitData.hasOwnProperty(key) && submitData[key] !== null && key !== 'resume') {
         formObject.append(key, submitData[key]);
       }
     }
@@ -71,7 +72,7 @@ export class HttpService extends BaseHttpService {
         formObject.append('resume', submitData.resume, submitData.resume.name);
       }
     }
-    return this.post(API_ENDPOINT, formObject, true);
+    return this.post(API_ENDPOINT, formObject);
   }
 
   submitRSVP(currentUser: any, status: boolean) {
@@ -139,6 +140,7 @@ export class HttpService extends BaseHttpService {
     const API_ENDPOINT = 'users/extra-credit';
     return this.get(API_ENDPOINT, false, true, true)
       .pipe(
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
         map((classes: any[]) => classes.map(c => ExtraCreditClass.parseJSON(c))),
       );
   }
@@ -154,9 +156,9 @@ export class HttpService extends BaseHttpService {
 
   getUserRegistrations() {
     const API_ENDPOINT = 'users/register';
-    return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true)
+    return this.get(API_ENDPOINT, false, true, true)
       .pipe(
-        map(regs => regs.map(RegistrationApiResponse.parseJSON)),
-      );
+        map((apiResponse: IApiResponse) => apiResponse.body.data),
+      )
   }
 }

@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpService } from '../../HttpService/HttpService';
-import { Registration, RegistrationApiResponse } from '../../../models/registration';
+import { Registration } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
 import { NgProgress } from '@ngx-progressbar/core';
 import { AlertService } from "ngx-alerts";
@@ -20,7 +20,7 @@ export class RegistrationGuard implements CanActivate {
     //Checks users registration status
     return this.httpService.getRegistrationStatus()
       .pipe(
-        map<RegistrationApiResponse, boolean>((registration) => {
+        map<Registration, boolean>((registration) => {
           if (!registration) {
             //Navigates users to registration
             this.router.navigate([AppConstants.REGISTER_ENDPOINT])

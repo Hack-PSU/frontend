@@ -1,5 +1,5 @@
-export interface IApiResponse<T> {
+export interface IApiResponse {
   api_response: string;
   status: number;
-  body: { data: T, result: string };
+  body: { data: any, result: string };
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRegistrationDb, RegistrationApiResponse } from "../../models/registration";
+import { IRegistrationDb } from "../../models/registration";
 import { ExtraCreditClass } from "../../models/extra-credit-class";
 import { HttpService } from "../../services/HttpService/HttpService";
 import { forkJoin } from "rxjs";
@@ -12,7 +12,7 @@ import { AlertService } from "ngx-alerts";
   styleUrls: ['./user-registration-view.component.css']
 })
 export class UserRegistrationViewComponent implements OnInit {
-  registrations: RegistrationApiResponse[];
+  registrations: IRegistrationDb[];
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
