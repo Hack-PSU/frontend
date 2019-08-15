@@ -1,16 +1,15 @@
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable ,  combineLatest as observableCombineLatest } from 'rxjs';
-import { Rsvp } from '../../../models/rsvp';
+import { Observable } from 'rxjs';
 import { AppConstants } from '../../../AppConstants';
 import { finalize, map, mergeMap, take } from 'rxjs/operators';
 import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
-import { Registration } from '../../../models/registration';
+import { RegistrationApiResponse } from '../../../models/registration';
 
 @Injectable()
-export class RsvpResolver implements Resolve<Registration> {
+export class RsvpResolver implements Resolve<RegistrationApiResponse> {
   constructor(private authService: AuthService,
               private progress: NgProgress,
               private httpService: HttpService,
@@ -18,7 +17,7 @@ export class RsvpResolver implements Resolve<Registration> {
   ) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RegistrationApiResponse> {
     this.progress.start();
     return this.authService.currentUser.pipe(
       mergeMap((user) => {
