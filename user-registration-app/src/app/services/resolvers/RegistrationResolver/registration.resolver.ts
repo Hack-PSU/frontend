@@ -37,7 +37,7 @@ export class RegistrationResolver implements Resolve<Registration> {
             this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
-          return registration.parseFromApiResponse(registration);
+          return Registration.parseFromApiResponse(registration);
         }),
         catchError((error) => {
           this.progress.complete();
