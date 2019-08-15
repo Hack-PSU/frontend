@@ -91,7 +91,7 @@ export class Registration {
     registration.veteran = value.veteran;
     registration.submitted = !!value.submitted;
     registration.hackathon = this.parseHackathon(registration);
-    registration.pin = (pin(value.pin)).toString();
+    registration.pin = (value.pin).toString();
     return registration;
   }
 }
