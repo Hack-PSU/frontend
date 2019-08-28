@@ -130,30 +130,34 @@
       <div class="card-content">
         <h5>What is your Race/Ethnicity?</h5>
         <div class="form-group">
-          <input type="radio" id="native-american" name="ethnicity" value="native-american"
-                 class="with-gap" [(ngModel)]="registrationForm.ethnicity"
-                 #ethnicityControl="ngModel">
+          <input type="radio" class="with-gap" id="native-american" name="ethnicity" value="native-american"
+                 #ethnicityControl="ngModel"
+                 [(ngModel)]="registrationForm.ethnicity">
           <label for="native-american">Native American or Alaska Native</label><br>
-          <input type="radio" id="asian" name="ethnicity" value="asian"
-                 class="with-gap" [(ngModel)]="registrationForm.ethnicity">
+          <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian"
+                 #ethnicityControl="ngModel"
+                 [(ngModel)]="registrationForm.ethnicity">
           <label for="asian">Asian</label><br>
-          <input type="radio" id="african-american" name="ethnicity" value="african-american"
-                 class="with-gap" [(ngModel)]="registrationForm.ethnicity">
+          <input type="radio" class="with-gap" id="african-american" name="ethnicity" value="african-american"
+                 #ethnicityControl="ngModel"
+                 [(ngModel)]="registrationForm.ethnicity">
           <label for="african-american">Black or African American</label><br>
           <input type="radio" class="with-gap" id="latinx" name="ethnicity" value="latinx"
+                 #ethnicityControl="ngModel"
                  [(ngModel)]="registrationForm.ethnicity">
           <label for="latinx">Hispanic or Latinx</label><br>
-          <input type="radio" class="with-gap" id="pacific-islander" name="ethnicity"
-                 value="pacific-islander"
+          <input type="radio" class="with-gap" id="pacific-islander" name="ethnicity" value="pacific-islander"
+                 #ethnicityControl="ngModel"
                  [(ngModel)]="registrationForm.ethnicity">
           <label for="pacific-islander">Native Hawaiian or Other Pacific Islander</label><br>
           <input type="radio" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
+                 #ethnicityControl="ngModel"
                  [(ngModel)]="registrationForm.ethnicity">
           <label for="caucasian">Caucasian</label><br>
-          <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity"
-                 value="no-disclose"
+          <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity" value="no-disclose-ethnicity"
+                 #ethnicityControl="ngModel"
                  [(ngModel)]="registrationForm.ethnicity">
-          <label for="no-disclose">Prefer not to disclose</label>
+          <label for="no-disclose-ethnicity">Prefer not to disclose</label><br>
         </div>
       </div>
     </div>
