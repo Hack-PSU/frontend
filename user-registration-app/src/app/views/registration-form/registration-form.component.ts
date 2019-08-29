@@ -161,14 +161,20 @@ export class RegistrationFormComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ registration }) => {
-      this.registrationForm = registration;
-      this.registrationForm.firstHackathon = false;
-      this.registrationForm.eighteenBeforeEvent = null;
-      this.registrationForm.mlhcoc = null;
-      this.registrationForm.mlhdcp = null;
-      this.parsePhone(this.registrationForm.phone);
-      this.phoneNoUse = this.prettifiedPhone;
-      this.diet_restr = this.registrationForm.dietaryRestriction !== null;
+      this.registrationForm = new Registration();
+      //Data to keep
+      //TODO: make this into an actual function to be called
+      this.registrationForm.firstName = registration.firstName;
+      this.registrationForm.lastName = registration.lastName;
+      this.registrationForm.ethnicity = registration.ethnicity;
+      this.registrationForm.gender = registration.gender;
+      this.registrationForm.allergies = registration.allergies;
+      this.registrationForm.major = registration.major;
+      this.registrationForm.university = registration.university;
+      this.registrationForm.phone = registration.phone;
+      this.registrationForm.veteran = registration.veteran;
+      this.registrationForm.shirtSize = registration.shirtSize;
+      
       setTimeout(() => {
         this.progress.complete();
         Materialize.updateTextFields();
