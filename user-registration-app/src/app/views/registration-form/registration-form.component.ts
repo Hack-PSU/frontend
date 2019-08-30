@@ -169,9 +169,8 @@ export class RegistrationFormComponent implements OnInit {
       this.registrationForm.ethnicity = registration.ethnicity;
       this.registrationForm.gender = registration.gender;
       this.registrationForm.allergies = registration.allergies;
-      this.registrationForm.major = registration.major;
-      this.registrationForm.university = registration.university;
-      this.registrationForm.phone = registration.phone;
+      // this.registrationForm.major = registration.major;
+      // this.registrationForm.university = registration.university;
       this.registrationForm.veteran = registration.veteran;
       this.registrationForm.shirtSize = registration.shirtSize;
       
