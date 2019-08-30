@@ -163,16 +163,7 @@ export class RegistrationFormComponent implements OnInit {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = new Registration();
       //Data to keep
-      //TODO: make this into an actual function to be called
-      this.registrationForm.firstName = registration.firstName;
-      this.registrationForm.lastName = registration.lastName;
-      this.registrationForm.ethnicity = registration.ethnicity;
-      this.registrationForm.gender = registration.gender;
-      this.registrationForm.allergies = registration.allergies;
-      // this.registrationForm.major = registration.major;
-      // this.registrationForm.university = registration.university;
-      this.registrationForm.veteran = registration.veteran;
-      this.registrationForm.shirtSize = registration.shirtSize;
+      this.nukeData(this.registrationForm, registration)
       
       setTimeout(() => {
         this.progress.complete();
@@ -181,6 +172,17 @@ export class RegistrationFormComponent implements OnInit {
     });
   }
 
+  nukeData(registrationForm, registration){
+    this.registrationForm.firstName = registration.firstName;
+    this.registrationForm.lastName = registration.lastName;
+    this.registrationForm.ethnicity = registration.ethnicity;
+    this.registrationForm.gender = registration.gender;
+    this.registrationForm.allergies = registration.allergies;
+    // this.registrationForm.major = registration.major;
+    // this.registrationForm.university = registration.university;
+    this.registrationForm.veteran = registration.veteran;
+    this.registrationForm.shirtSize = registration.shirtSize;
+  }
   parsePhone(val: any) {
     this.asYouType.reset();
     this.prettifiedPhone = this.asYouType.input(val);
