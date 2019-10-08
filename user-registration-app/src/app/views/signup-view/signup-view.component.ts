@@ -73,4 +73,10 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
       this.progressBar.complete();
     }
   }
+  onEmailEntered(email: string) {
+    if (/@psu.edu$/.test(email)) {
+      this.alertsService.warning('Our login system is not affiliated with Penn State. ' +
+        'Please make sure the password you choose is not your WebAccess password');
+    }
+  }
 }
