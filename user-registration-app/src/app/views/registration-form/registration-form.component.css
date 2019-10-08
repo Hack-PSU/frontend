@@ -155,6 +155,9 @@ input::placeholder {
   border-left: 2px solid #aacacc;
 }
 
+.email-us-text {
+  margin-left: 20px;
+}
 
 .btn {
   background-color: rgba(255, 255, 255, 0);
