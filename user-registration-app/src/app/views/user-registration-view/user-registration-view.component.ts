@@ -120,7 +120,8 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   showClassName(class_name: string): boolean {
-    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n'];
+    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n','EE 300W',
+    'CMPSC 132','CMPSC 131','STAT 463','IST 256','IST 210','IST 302','STAT 380','CMPSC 311'];
     return hiddenClassNames.indexOf(class_name) === -1;
   }
 }
