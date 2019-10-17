@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // const currentTime = new Date().getHours();
       //Uncomment to force nighttime or daytime
-      //var currentTime = 20;
+      var currentTime = 10;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -885,17 +885,43 @@
           <img src="assets/images/sponsors/Accuweather-day.svg" alt="Accuweather" class="img-fluid Accuweather-night">
         </a>
       </div>
+      <div class="col-sm-4">
+        <!-- EY -->
+        <a href="https://www.ey.com/en_gl" target="_blank">
+          <img src="assets/images/sponsors/EY-day.svg" alt="EY" class="img-fluid EY-night">
+        </a>
+      </div>
+      <!-- DSG -->
+      <div class="col-sm-3">
+        <a href="https://www.dickssportinggoods.com/" target="_blank">
+          <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG" class="img-fluid Dicks-day"
+               style="padding-top: 17%">
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <!-- NittanyAI -->
+        <a href="https://nittanyai.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/nittanyai-day.svg" alt="NitannyAI" class="img-fluid nittany-ai-night">
+        </a>
+      </div>
     </div>
     <!-- Bronze Sponsors -->
-    <!--<div class="row bronze d-flex justify-content-center">-->
-      <!--&lt;!&ndash; EECS &ndash;&gt;-->
-      <!--<div class="col-sm-3">-->
-        <!--<a href="https://www.eecs.psu.edu/" target="_blank">-->
-          <!--<img src="assets/images/sponsors/EECS-day.svg" alt="EECS" class="img-fluid EECS-night"-->
-               <!--style="padding-top: 17%">-->
-        <!--</a>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="row bronze d-flex justify-content-center">
+      <!-- Vanguard -->
+      <div class="col-sm-3">
+        <a href="https://investor.vanguard.com/corporate-portal/" target="_blank">
+          <img src="assets/images/sponsors/Vanguard-day.svg" alt="Vanguard" class="img-fluid Vanguard-night"
+               style="padding-top: 17%">
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <a href="http://www.jpmorganchase.com/techcareers" target="_blank">
+          <img src="assets/images/sponsors/JP-Morgan-Chase-original.svg" alt="JPMC" class="img-fluid JP-Morgan-Chase-night"
+               style="padding-top: 17%">
+        </a>
+      </div>
+
+    </div>
 
     <!-- Basic Sponsors -->
     <!--<div class="row basic d-flex justify-content-center">-->
@@ -916,6 +942,13 @@
                class="img-fluid ICS-night">
         </a>
       </div>
+      <div class="col-sm-2">
+        <!-- Loop -->
+        <a href="https://loopstore.com/" target=_blank>
+          <img src="assets/images/sponsors/loop-day.svg" alt="Loop"
+               class="img-fluid loop-night">
+        </a>
+      </div>
     </div>
 
     <!-- Custom $500 -->
@@ -925,6 +958,13 @@
         <a href="https://lionlaunchpad.psu.edu/" target=_blank>
           <img src="assets/images/sponsors/LionLaunchpad.svg" alt="LionLaunchPad"
                class="img-fluid LionLaunchpad-night">
+        </a>
+      </div>
+      <div class="col-sm-2">
+        <!-- GEW -->
+        <a href="https://gew.psu.edu/" target=_blank>
+          <img src="assets/images/sponsors/GEW.svg" alt="GEW"
+               class="img-fluid GEW-night">
         </a>
       </div>
     </div>

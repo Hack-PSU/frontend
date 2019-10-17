@@ -6,9 +6,7 @@
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
-      Check here for your class if your professor announces that they will
-      be giving extra credit!
-      <!-- <form class="extra-credit-form" (submit)="submitClasses()">
+      <form class="extra-credit-form" (submit)="submitClasses()">
         <ng-container *ngFor="let c of classes">
           <p *ngIf="showClassName(c.class_name)">
           <input type="checkbox" name="{{c.class_name}}" id="{{c.class_name}}-checkbox" [(ngModel)]="submittedClasses[c.uid]">
@@ -22,7 +20,7 @@
               name="action">Submit
         <i class="material-icons right">send</i>
       </button>
-    </form> -->
+    </form>
     </div>
   </li>
   <li>
