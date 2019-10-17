@@ -114,13 +114,14 @@ export class UserRegistrationViewComponent implements OnInit {
           this.alertsService.success('You are registered for the business challenge');
         } else {
           console.log(error);
-          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+          this.alertsService.warning('Something may have gone wrong in that process. Email technology@hackpsu.org or Contact a member of staff to check');
         }
       });
   }
 
   showClassName(class_name: string): boolean {
-    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n'];
+    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n','EE 300W',
+    'CMPSC 132','CMPSC 131','STAT 463','IST 256','IST 210','STAT 380','CMPSC 311','CMPSC 442'];
     return hiddenClassNames.indexOf(class_name) === -1;
   }
 }
