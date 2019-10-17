@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // const currentTime = new Date().getHours();
       //Uncomment to force nighttime or daytime
-      //var currentTime = 20;
+      var currentTime = 10;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -896,6 +896,12 @@
         <a href="https://www.dickssportinggoods.com/" target="_blank">
           <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG" class="img-fluid Dicks-day"
                style="padding-top: 17%">
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <!-- NittanyAI -->
+        <a href="https://nittanyai.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/nittanyai-day.svg" alt="NitannyAI" class="img-fluid nittany-ai-night">
         </a>
       </div>
     </div>
