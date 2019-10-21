@@ -64,7 +64,7 @@
             <p class="font-weight-bold">Pin</p>
           </div>
           <div *ngFor="let registration of registrations;">
-            <ng-container *ngFor="let keyVal of keyVals(registration)">
+            <ng-container>
               <p>{{registration.pin}}</p>
             </ng-container>
           </div>
