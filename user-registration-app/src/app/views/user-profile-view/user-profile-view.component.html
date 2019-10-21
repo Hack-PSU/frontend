@@ -59,6 +59,42 @@
             <p class="font-weight-bold">Last signed in on</p>
             <p style="font-size: x-small;">{{ user.metadata.lastSignInTime }}</p>
           </div>
+          <hr/>
+          <div class="row justify-content-between">
+            <p class="font-weight-bold">Pin</p>
+          </div>
+          <div *ngFor="let registration of registrations;">
+            <ng-container *ngFor="let keyVal of keyVals(registration)">
+              <p>{{registration.pin}}</p>
+            </ng-container>
+          </div>
+
+          <hr/>
+          <!--<div class="view-registration">-->
+            <!--<table class="table-responsive centered registration-table">-->
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<th>Check-in pin</th>-->
+                <!--<ng-container *ngFor="let keyVal of keyVals(registration)">-->
+                  <!--<th scope="col"-->
+                      <!--*ngIf="regPropertyNameResolve[keyVal[0]]">{{regPropertyNameResolve[keyVal[0]]}}</th>-->
+                <!--</ng-container>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+              <!--<tr>-->
+                <!--<td>{{registration.pin}}</td>-->
+                <!--<ng-container-->
+                  <!--*ngFor="let keyVal of keyVals(registration)">-->
+                  <!--<td-->
+                    <!--*ngIf="regPropertyNameResolve[keyVal[0]]">-->
+                    <!--{{keyVal[1]}}-->
+                  <!--</td>-->
+                <!--</ng-container>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
       </div>
         <div class="col m8 s12 col-md-8">
           <app-user-registration-view></app-user-registration-view>
