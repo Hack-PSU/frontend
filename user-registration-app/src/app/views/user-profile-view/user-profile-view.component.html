@@ -60,15 +60,10 @@
             <p style="font-size: x-small;">{{ user.metadata.lastSignInTime }}</p>
           </div>
           <hr/>
-          <div class="row justify-content-between">
+          <div class="row justify-content-between" *ngFor="let registration of registrations;">
             <p class="font-weight-bold">Check in Pin</p>
+            <p>{{registration.pin}}</p>
           </div>
-          <div *ngFor="let registration of registrations;">
-            <ng-container>
-              <p>{{registration.pin}}</p>
-            </ng-container>
-          </div>
-
           <hr/>
           <!--<div class="view-registration">-->
             <!--<table class="table-responsive centered registration-table">-->
