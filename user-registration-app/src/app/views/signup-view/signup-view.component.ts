@@ -5,6 +5,7 @@ import { AppConstants } from '../../AppConstants';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
 import {AuthProviders} from "../../services/AuthService/auth.service";
+import { AlertService } from "ngx-alerts";
 
 @Component({
   selector: 'app-signup-view',
@@ -19,6 +20,7 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
   constructor(authService: AuthService,
               router: Router,
               errorHandler: CustomErrorHandlerService,
+              private readonly alertsService: AlertService,
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
@@ -71,6 +73,12 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
     } else {
       this.errorHandler.handleError(Error('Enter username and password'));
       this.progressBar.complete();
+    }
+  }
+  onEmailEntered(email: string) {
+    if (/@psu.edu$/.test(email)) {
+      this.alertsService.warning('Our login system is not affiliated with Penn State. ' +
+        'Please make sure the password you choose is not your WebAccess password');
     }
   }
 }
