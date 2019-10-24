@@ -9,6 +9,7 @@
             <input type="email" required class="validate" id="lg_username"
                    autocomplete="email" name="lg_username"
                    (blur)="onEmailEntered(emailBox.value)"
+                   #emailBox
                    placeholder="yourname@email.com" [(ngModel)]="email">
             <label for="lg_username" data-error="Enter valid email">Email</label>
           </div>
