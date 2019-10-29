@@ -595,7 +595,10 @@ body {
     font-weight: lighter;
     font-size:   large;
     margin:      0 4%;
+    //text-align: left;
     text-align:   right;
+    //white-space: nowrap;
+
   }
 }
 
@@ -641,7 +644,7 @@ body {
   .profile {
     width:          100%;
     padding-top:    3%;
-    padding-bottom: 0;  
+    padding-bottom: 0;
     height:         70%;
   }
 
