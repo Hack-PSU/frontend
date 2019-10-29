@@ -24,7 +24,8 @@
                      placeholder="Enter your password" [(ngModel)]="model.password">
             </div>
             <div class="etc-login-form">
-              <p>Forgot your password? <a href="/forgot">Click Here</a></p>
+              <p class="etc-login-form-item">Forgot your password? <a href="/forgot">Reset Password</a></p>
+              <p class="etc-login-form-item">Never created an account? <a href="/signup">Sign Up</a></p>
             </div>
           </div>
         <button [disabled]="!loginForm.valid"
@@ -39,20 +40,12 @@
     <div class="row">
       <p class="text-center">Alternately, login with</p>
       <div class="offset-1 col-10 signup-btn-container">
-        <a class="btn btn-block btn-social btn-google" (click)="loginGoogle()">
+        <a class="btn btn-block btn-social btn-google" (click)="loginGoogle()" title="Google">
           <span class="fa fa-google"></span>
         </a>
-        <a class="btn btn-block btn-social btn-github" (click)="loginGithub()">
+        <a class="btn btn-block btn-social btn-github" (click)="loginGithub()" title="Github">
           <span class="fa fa-github"></span>
         </a>
-      </div>
-    </div>
-    <div class="row">
-      <p class="text-center">Never created an account with us? Sign up with your email</p>
-      <div class="offset-1 col-10 signup-btn-container">
-      <a class="btn btn-block btn-social btn-email" href="/signup">
-        <span class="fa fa-envelope"></span>
-      </a>
       </div>
     </div>
   </div>
