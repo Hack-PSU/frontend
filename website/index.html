@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      //const currentTime = new Date().getHours();
       //Uncomment to force nighttime or daytime
-      // var currentTime = 10;
+      var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -887,7 +887,7 @@
 
 
     <!-- Gold Sponsors -->
-    <div class="row gold" style="padding-top: 2%">
+    <div class="row gold d-flex justify-content-center" style="padding-top: 2%">
       <div class="col-sm-6">
       <!-- Geico -->
         <a href="https://www.geico.com/" target="_blank">
