@@ -110,6 +110,13 @@
 
 .etc-login-form {
   margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.etc-login-form-item {
+  margin: 0 4px 0 4px;
 }
 
 .alert-danger {
