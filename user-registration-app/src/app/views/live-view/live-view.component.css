@@ -7,7 +7,14 @@ many of the utlities in Bootstrap, so undoing it here.*/
 :host {
   width: 100%;
 }
-
+.car{
+  text-align: right;
+}
+.header {
+  background-size:cover;
+  background-image: url('../../../assets/images/stars_1.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);
+  background-repeat: no-repeat;
+}
 #hackpsu-logo {
   margin-top: 10px;
   max-width: 45%;
@@ -216,7 +223,6 @@ td {
   position: relative;
   background: #236577;
 }
-
 .header-text {
   font-family: 'Cornerstone', sans-serif;
   font-size:   1.5em;
@@ -362,7 +368,9 @@ td {
   background-color: #255a8f;
   color: white
 }
-
+.wrksp-req{
+  text-align: left;
+}
 .info-card {
   margin-top: 10px;
   padding: 10px 0;
@@ -485,13 +493,7 @@ footer {
 }
 
 .first-border {
-  margin-top: -15vh;
-}
-
-@media screen and (max-width: 568px) {
-  .first-border {
-    margin-top: -5vh;
-  }
+  margin-top: 5vh;
 }
 
 .boxed-text {
@@ -591,8 +593,19 @@ footer {
   color: #ffffff;
 }
 
+.card-requirements {
+  padding-top: 1rem;
+  font-size: 1em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  color: red;
+}
+
 .card-reveal .card-title {
   color: #424242;
+}
+
+.card-reveal p {
+  text-align: left;
 }
 
 .card-content {
@@ -659,6 +672,10 @@ and make images go away. */
     width: 60px;
     height: 60px;
   }
+}
+
+.btn-margin {
+  margin: 8px 0;
 }
 
 .tabs .tab a {
