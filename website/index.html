@@ -126,7 +126,7 @@
     function getStylesheet() {
       const currentTime = new Date().getHours();
       //Uncomment to force nighttime or daytime
-      // var currentTime = 10;
+      //var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -887,7 +887,7 @@
 
 
     <!-- Gold Sponsors -->
-    <div class="row gold" style="padding-top: 2%">
+    <div class="row gold d-flex justify-content-center" style="padding-top: 2%">
       <div class="col-sm-6">
       <!-- Geico -->
         <a href="https://www.geico.com/" target="_blank">
@@ -898,6 +898,12 @@
         <!-- GCP -->
         <a href="https://cloud.google.com/" target="_blank">
           <img src="assets/images/sponsors/gcp_F19.svg" alt="GCP" class="img-fluid GCP-night">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <!-- Textron -->
+        <a href="https://cloud.google.com/" target="_blank">
+          <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron-night">
         </a>
       </div>
     </div>
