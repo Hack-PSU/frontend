@@ -9,7 +9,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 .header {
   background-size:cover;
-  background-image: url('../../../assets/images/stars_1-01.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);
+  background-image: url('../../../assets/images/stars_1.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);
   background-repeat: no-repeat;
 }
 #hackpsu-logo {
