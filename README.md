@@ -57,8 +57,8 @@ By default, ESLint will attempt to fix whatever errors possible; the rest should
 #### Links
 Resource | URL
 ------------ | -------------
- API | https://api.hackpsu.org/v1
- API Documentation | https://api.hackpsu.org/v1/doc
+ API | https://api.hackpsu.org/v2
+ API Documentation | https://api.hackpsu.org/v2/doc
  API Documentation framework | https://apidocjs.com
  MochaJS | https://mochajs.org
  ChaiJS | https://chaijs.com
