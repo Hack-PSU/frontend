@@ -18,15 +18,8 @@ export const environment = {
     messagingSenderId: "614592542726"
   },
   // hackathonStartTime: new Date(2018, 10,6, 7),
-<<<<<<< HEAD
-  liveWebsiteGuardTime: new Date(2019, 9, 31, 21),
-=======
-<<<<<<< Updated upstream
-  liveWebsiteGuardTime: new Date(),
-=======
+
   liveWebsiteGuardTime: new Date(2019, 9, 29, 21),
->>>>>>> Stashed changes
->>>>>>> 9f464b3... First Workshop updates
   hackathonStartTime: new Date(),
   timerStartTime: new Date(2019, 10, 2, 14),
   hackathonEndTime: new Date(2019, 10, 3, 14),
