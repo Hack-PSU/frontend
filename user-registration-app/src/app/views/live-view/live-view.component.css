@@ -7,7 +7,11 @@ many of the utlities in Bootstrap, so undoing it here.*/
 :host {
   width: 100%;
 }
-
+.header {
+  background-size:cover;
+  background-image: url('../../../assets/images/stars.svg') , linear-gradient(0deg ,#11334A 20%,#000000 100%);
+  background-repeat: no-repeat;
+}
 #hackpsu-logo {
   margin-top: 10px;
   max-width: 45%;
@@ -216,7 +220,6 @@ td {
   position: relative;
   background: #236577;
 }
-
 .header-text {
   font-family: 'Cornerstone', sans-serif;
   font-size:   1.5em;
