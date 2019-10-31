@@ -21,7 +21,7 @@ export const environment = {
 
   liveWebsiteGuardTime: new Date(2019, 9, 29, 21),
   hackathonStartTime: new Date(),
-  timerStartTime: new Date(2019, 10, 2, 2),
-  hackathonEndTime: new Date(2019, 10, 3, 2),
+  timerStartTime: new Date(2019, 10, 2, 14),
+  hackathonEndTime: new Date(2019, 10, 3, 14),
   rsvpStartTime: new Date(),
 };
