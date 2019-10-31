@@ -588,8 +588,19 @@ footer {
   color: #ffffff;
 }
 
+.card-requirements {
+  padding-top: 1rem;
+  font-size: 1em;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
+  color: red;
+}
+
 .card-reveal .card-title {
   color: #424242;
+}
+
+.card-reveal p {
+  text-align: left;
 }
 
 .card-content {
@@ -656,6 +667,10 @@ and make images go away. */
     width: 60px;
     height: 60px;
   }
+}
+
+.btn-margin {
+  margin: 8px 0;
 }
 
 .tabs .tab a {
