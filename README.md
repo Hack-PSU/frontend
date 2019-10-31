@@ -1,7 +1,8 @@
-##HackPSU Fall 2019
+# HackPSU Fall 2019
 Repository for the main website for HackPSU Fall 2019
 
 [![Build Status](https://travis-ci.org/Hack-PSU/frontend.svg?branch=master)](https://travis-ci.org/Hack-PSU/frontend)
+
 ## Frontend
 
 This version of the frontend allows users to submit their information for registrations. Users can also login and view their profile. Form data is POSTed to the API, which registers the user's emails on the database. The frontend is currently live at https://hackpsu18.firebaseapp.com.
@@ -35,14 +36,16 @@ The CI is programmed to run all tests for the API, and deploy the current versio
 All deployments happen on the _master_ branch. Therefore, as much as possible, commits should not be made directly to _master_. All development should be run on _dev_
 and then PRed into _master_.
 
-To run the tests, run `npm test` in the main directory.
-To compile and run the main website, run `npm run watch-sass` in the main directory.
-To run anything from app.hackpsu.org, run `npm run start` in the user-registration-app directory.
+To run the **tests**, run `npm test` in the main directory. </br>
+
+## Running Locally
+To compile and run the **main website**, run `npm run watch-sass` in the main directory. </br>
+To compile run anything from **app.hackpsu.org**, run `npm run start` in the user-registration-app directory.
 
 ## Testing
 
 Testing is handled by the CI platform Travis-CI. Tests are Javascript files under api/test. Tests should use the [MochaJS](http://Mochajs.org) testing framework. In addition, use
-[ChaiJS](http://chaijs.com) for assertions. RESTful testing is handled by the [chai-http](http://chaijs.com/plugins/chai-http/) module.
+[ChaiJS](http://chaijs.com) for assertions. RESTful testing also uses the mocha-typescript package formatted using [mocha-typescript](https://www.npmjs.com/package/mocha-typescript).
 All PRs should include the appropriate passing tests, and should be reviewed by the Director for Technology (@jmm8046).
 
 
