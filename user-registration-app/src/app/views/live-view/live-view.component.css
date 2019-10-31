@@ -488,13 +488,7 @@ footer {
 }
 
 .first-border {
-  margin-top: -15vh;
-}
-
-@media screen and (max-width: 568px) {
-  .first-border {
-    margin-top: -5vh;
-  }
+  margin-top: 5vh;
 }
 
 .boxed-text {
