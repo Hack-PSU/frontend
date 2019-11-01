@@ -1,6 +1,6 @@
 {
   "hosting": [{
-    "target": "website",
+    "target": "app",
     "public": "website",
     "ignore": [
       "firebase.json",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "target": "app",
+    "target": "website",
     "public": "user-registration-app/dist",
     "ignore": [
       "firebase.json",
