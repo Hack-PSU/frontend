@@ -42,14 +42,17 @@
     <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
     <li *ngIf="DateGuard.validateDate()">
       <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' :
-      'LIVE'}}</a></li>
+      'LIVE'}}</a>
+    </li>
     <!--<li *ngIf="router.url !== '/register'">-->
       <!--<a class="dropdown-button" href="#!" data-activates="dropdown1-mobile">OTHER-->
         <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
         <!--</i>-->
       <!--</a>-->
     <!--</li>-->
-    <li *ngIf="router.url !== '/register'"><a href="#" (click)="logout()">LOGOUT</a></li>
+    <div class="mobile-login-button">
+      <app-user-view></app-user-view>
+    </div>
   </ul>
   <div class="content" [@routeAnimations]="prepareRoute(outlet)">
     <!--<div class="row full-height">-->
