@@ -608,10 +608,6 @@ footer {
   text-align: left;
 }
 
-.card-content {
-  max-width: 500px;
-}
-
 .card-content div:nth-of-type(1) {
   padding-top: 10px;
 }

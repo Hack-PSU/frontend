@@ -54,7 +54,8 @@ export class ScheduleViewComponent implements OnInit {
 
   getStartTime(event: EventModel) {
     return new Date(parseInt(event.event_start_time, 10))
-      .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+      .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+      .replace(/^0(?:0:0?)?/, '');
   }
 
   showMore(type: string) {
@@ -78,7 +79,8 @@ export class ScheduleViewComponent implements OnInit {
 
   getEndTime(event: EventModel) {
     return new Date(parseInt(event.event_end_time, 10))
-      .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+      .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+      .replace(/^0(?:0:0?)?/, '');
   }
 
   getEventDay(event: EventModel) {
