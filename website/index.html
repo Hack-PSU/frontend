@@ -125,8 +125,8 @@
   <script>
     function getStylesheet() {
       const currentTime = new Date().getHours();
-      //Uncomment to force nighttime or daytime
-      //var currentTime = 20;
+      // Uncomment to force nighttime or daytime
+      // var currentTime = 8;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -877,13 +877,13 @@
     </div>
   </div>
 
-  <!-- Custom $1000 -->
+  <!-- Custom $500 -->
   <div class="row basic d-flex justify-content-center">
     <div class="col-sm-2">
       <!-- Loop -->
       <a href="https://loopstore.com/" target=_blank>
         <img src="assets/images/sponsors/loop-day.svg" alt="Loop"
-             class="img-fluid loop-night">
+             class="img-fluid loop-night" style="padding-bottom: 12%">
       </a>
     </div>
   </div>
@@ -891,12 +891,11 @@
   <!-- In kind sponsors -->
   <div class="row in-kind d-flex justify-content-center">
     <div class="col-sm-1">
-      <!-- Wolfram -->
+      <!-- Jetbrains -->
       <a href="https://www.jetbrains.com/" target=_blank>
         <img src="assets/images/sponsors/jetbrains.svg" alt="wolfram" class="img-fluid jetbrains">
       </a>
     </div>
-  </div>
   </div>
 </section>
 
