@@ -606,6 +606,16 @@ body {
     margin:      0 4%;
     text-align: center;
   }
+
+  .nav-pills > li > a {
+    color: #fff;
+    background-color: #194E6B;
+  }
+
+  .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
+    color: #194E6B;
+    background-color: #fff;
+  }
 }
 
 /* Workshops */
