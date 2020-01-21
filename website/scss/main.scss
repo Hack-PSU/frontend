@@ -623,11 +623,7 @@ body {
     background-color: #fff;
   }
 
-  .nav-pills > li > a:hover {
-    color: steelblue;
-  }
-
-  .tab-content > .tab-pane > .row > .col-8:hover {
+  .nav-pills > li > a:hover, .tab-content > .tab-pane > .row > .col-8:hover {
     color: steelblue;
   }
 
