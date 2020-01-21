@@ -607,14 +607,32 @@ body {
     text-align: center;
   }
 
+  .nav-pills {
+    margin-bottom: 12px;
+  }
+
   .nav-pills > li > a {
     color: #fff;
     background-color: #194E6B;
+    margin-left: 24px;
+    margin-right: 24px;
   }
 
   .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
     color: #194E6B;
     background-color: #fff;
+  }
+
+  .nav-pills > li > a:hover {
+    color: steelblue;
+  }
+
+  .tab-content > .tab-pane > .row > .col-8:hover {
+    color: steelblue;
+  }
+
+  #schedule-tab-view {
+    margin-top: 12px;
   }
 }
 
