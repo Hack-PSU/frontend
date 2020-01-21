@@ -25,6 +25,7 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
   <!-- Owl Carousel Stylesheet-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -126,7 +127,7 @@
     function getStylesheet() {
       const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 8;
+      // var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -666,135 +667,57 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-
-      <!-- Left Column of Schedule -->
-      <div class="col-md-6 col-lg-4 pl-0">
-        <div class="schedule-header d-flex justify-content-center">
-            <p>Saturday</p>
+    <div class="container-fluid">
+      <ul class="nav nav-pills justify-content-center" id="schedule-tab-view" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link  active" id="saturday-tab" data-toggle="tab" href="#saturday" role="tab" aria-controls="saturday" aria-selected="true">Saturday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " id="sunday-tab" data-toggle="tab" href="#sunday" role="tab" aria-controls="sunday" aria-selected="false">Sunday</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="schedule-tab-view-content">
+        <div class="tab-pane fade show active container-fluid" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
+          <div class="row">
+            <div class="col-4 text-right">11:00 AM</div>
+            <div class="col-8">Check-In/Registration Opens</div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-right">12:30 PM</div>
+            <div class="col-8">Opening Ceremony</div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-right">2:00 PM</div>
+            <div class="col-8">Hacking Starts / Lunch</div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-right">7:00 PM</div>
+            <div class="col-8">Dinner</div>
+          </div>
         </div>
-
-          <div class="schedule-left">
-            <div class="d-flex justify-content-between">
-                <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
-                    <p class="time">11 AM</p>
-                </div>
-                <div class="event col-8">
-                    <p class="event text-md-left">Check-In/Registration Opens</p>
-                </div>
-            </div>
-
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">12:30 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Opening Ceremony</p>
-            </div>
+        <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
+          <div class="row">
+            <div class="col-4 text-right">12:00 AM</div>
+            <div class="col-8">Midnight Snack</div>
           </div>
-
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">2 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Hacking Starts</p>
-            </div>
+          <div class="row">
+            <div class="col-4 text-right">10:00 AM</div>
+            <div class="col-8">Brunch</div>
           </div>
-
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">2 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Lunch</p>
-            </div>
+          <div class="row">
+            <div class="col-4 text-right">2:00 PM</div>
+            <div class="col-8">Hacking Ends / Judging Expo</div>
           </div>
-
-            <!-- <div class="d-flex justify-content-between">
-              <div class="col-md-4 col-xs-4">
-                <p class="time">5 PM</p>
-              </div>
-              <div class="event col-8">
-                <p class="event">1<sup>st</sup> Round Case Comp Judging</p>
-              </div>
-            </div> -->
-
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">7 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Dinner</p>
-            </div>
-          </div>
-            <!-- <div class="d-flex justify-content-between">
-              <div class="col-md-4 col-xs-4">
-                <p class="time">8:30 PM</p>
-              </div>
-              <div class="event col-8">
-                <p class="event">2<sup>nd</sup> Round Case Comp Judging</p>
-              </div>
-            </div> -->
-
-        </div>
-      </div>
-
-      <!-- Right Column of Schedule -->
-      <div class="col-md-6 col-lg-4 pl-0">
-        <div class="schedule-header d-flex justify-content-center">
-          <p>Sunday</p>
-        </div>
-        <div class="schedule-right">
-
-          <div class="d-flex justify-content-between">
-
-            <div class="col-md-4 col-xs-4">
-              <p class="time">12 AM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Midnight Snack</p>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4 pr-md-auto pr-0">
-              <p class="time">10 AM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Brunch</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">2 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Hacking Ends</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">2 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Judging Expo</p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class="col-md-4 col-xs-4">
-              <p class="time">4 PM</p>
-            </div>
-            <div class="event col-8">
-              <p class="event">Closing Ceremony</p>
-            </div>
+          <div class="row">
+            <div class="col-4 text-right">4:00 PM</div>
+            <div class="col-8">Closing Ceremony</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
- <!--End of Schedule-->
+<!--End Schedule-->
 
 <!-- Workshops -->
 <!--<section id="workshops">-->
@@ -865,7 +788,7 @@
       <!-- DSG -->
       <div class="col-sm-3">
         <a href="https://www.dickssportinggoods.com/" target="_blank">
-          <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG" class="img-fluid Dicks-day">
+          <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG">
         </a>
       </div>
       <div class="col-sm-3">
@@ -893,7 +816,7 @@
     <div class="col-sm-1">
       <!-- Jetbrains -->
       <a href="https://www.jetbrains.com/" target=_blank>
-        <img src="assets/images/sponsors/jetbrains.svg" alt="wolfram" class="img-fluid jetbrains">
+        <img src="assets/images/sponsors/jetbrains.svg" alt="jetbrains" class="img-fluid jetbrains">
       </a>
     </div>
   </div>
