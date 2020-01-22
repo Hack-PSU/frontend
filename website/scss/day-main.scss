@@ -256,6 +256,8 @@ header {
 }
 
 .second-border {
+  position: relative;
+  top: -5px;
   content: url("../assets/images/border6.svg");
 }
 
@@ -320,6 +322,8 @@ header {
 /* Sponsors */
 
 #sponsors {
+  position: relative;
+  top: -10px;
   padding-top: 50px;
   background: #FFFFFF;
   @-moz-document url-prefix() {

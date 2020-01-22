@@ -272,6 +272,8 @@ header {
 }
 
 .second-border {
+  position: relative;
+  top: -5px;
   content: url("../assets/images/border6-night.svg");
 }
 
@@ -333,6 +335,8 @@ header {
 
 #sponsors {
   padding-top: 50px;
+  position: relative;
+  top: -10px;
   background: $dark-blue-tertiary;
   .header-text {
     color: #FFFFFF;
