@@ -106,7 +106,12 @@ Who taught you how to code? */
 }
 
 /* ====================== COMPONENTS ==============*/
+html {
+  overflow-x: hidden;
+}
+
 body {
+  overflow-x: hidden;
   font-family: $font-stack-primary;
   color:       white;
   font-size:   xx-large;

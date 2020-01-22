@@ -258,6 +258,8 @@ header {
 .second-border {
   position: relative;
   top: -5px;
+  left: -0.5%;
+  width: 101%;
   content: url("../assets/images/border6.svg");
 }
 
@@ -269,6 +271,10 @@ header {
 }
 
 .third-border {
+  position: relative;
+  top: 7px;
+  left: -0.5%;
+  width: 101%;
   content: url("../assets/images/border7.svg");
 }
 
