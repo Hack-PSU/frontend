@@ -6,6 +6,8 @@ import { fadeInDown, fadeOutUp } from "ng-animate";
 import { NgProgress } from "@ngx-progressbar/core";
 import { finalize, switchMap } from "rxjs/operators";
 import { AlertService } from "ngx-alerts";
+import {RegistrationApiResponse} from "../../models/registration";
+import {HttpService} from "../../services/HttpService/HttpService";
 
 @Component({
   selector: 'app-user-profile-view',
@@ -31,14 +33,26 @@ export class UserProfileViewComponent implements OnInit {
   private emailEditToggled: boolean;
   private passwordEditToggled: boolean;
   private nameEditToggled: boolean;
+  registrations: RegistrationApiResponse[];
 
-  constructor(public authService: AuthService, private progressService: NgProgress, private alertsService: AlertService) {
+  constructor(public authService: AuthService, private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
   }
 
   ngOnInit() {
     this.emailEditToggled = false;
     this.passwordEditToggled = false;
     this.nameEditToggled = false;
+    const regObservable = this.httpService.getUserRegistrations()
+    .subscribe(registrations => {
+      this.registrations = registrations;
+      console.log("*****");
+      console.log(this.registrations);
+      regObservable.unsubscribe();
+    }, ({ error }) => {
+      if (error.status === 404) {
+        this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+      }
+    });
   }
 
   public getUserPhotoUrl(user: User | null) {

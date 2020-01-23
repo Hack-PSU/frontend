@@ -56,9 +56,17 @@
           </div>
           <hr/>
           <div class="row justify-content-between">
+            <p class="font-weight-bold">Check in Pin</p>
+            <p *ngFor="let registration of registrations;">
+              {{registration.pin}}
+            </p>
+          </div>
+          <hr/>
+          <div class="row justify-content-between">
             <p class="font-weight-bold">Last signed in on</p>
             <p style="font-size: x-small;">{{ user.metadata.lastSignInTime }}</p>
           </div>
+          <hr/>  
       </div>
         <div class="col m8 s12 col-md-8">
           <app-user-registration-view></app-user-registration-view>
