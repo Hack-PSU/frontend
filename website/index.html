@@ -124,9 +124,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 20;
+      var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -841,8 +841,6 @@
         </a>
       </div>
     </div>
-
-
     <!-- Gold Sponsors -->
     <div class="row gold d-flex justify-content-center" style="padding-top: 2%">
       <div class="col-sm-6">
@@ -855,7 +853,7 @@
       <div class="col-sm-6">
         <!-- Textron -->
         <a href="https://cloud.google.com/" target="_blank">
-          <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron-night" style="padding-top: 12%">
+          <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron-night" style="padding-top: 7%; max-width: 60%;">
         </a>
       </div>
     </div>
@@ -875,7 +873,22 @@
         </a>
       </div>
     </div>
-  </div>
+
+    <!-- Bronze Sponsors -->
+    <div class="row bronze d-flex justify-content-center">
+      <!-- Capital One -->
+      <div class="col-sm-3">
+        <a href="https://campus.capitalone.com/" target="_blank">
+          <img src="assets/images/sponsors/Capital_One-day.svg" alt="CapOne" class="img-fluid capone-night">
+        </a>
+      </div>
+      <!-- Agora -->
+      <div class="col-sm-3">
+        <a href="https://www.agora.io/en/" target="_blank">
+          <img src="assets/images/sponsors/agora-day.svg" alt="Agora" class="img-fluid agora-night" style="max-width: 25%;">
+        </a>
+      </div>
+    </div>
 
   <!-- Custom $500 -->
   <div class="row basic d-flex justify-content-center">
@@ -884,6 +897,13 @@
       <a href="https://loopstore.com/" target=_blank>
         <img src="assets/images/sponsors/loop-day.svg" alt="Loop"
              class="img-fluid loop-night" style="padding-bottom: 12%">
+      </a>
+    </div>
+    <div class="col-sm-2">
+      <!-- Linode -->
+      <a href="https://www.linode.com/" target=_blank>
+        <img src="assets/images/sponsors/linode-day.svg" alt="Linode"
+             class="img-fluid linode-night">
       </a>
     </div>
   </div>
@@ -896,6 +916,7 @@
         <img src="assets/images/sponsors/jetbrains.svg" alt="jetbrains" class="img-fluid jetbrains">
       </a>
     </div>
+  </div>
   </div>
 </section>
 
