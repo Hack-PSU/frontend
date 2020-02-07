@@ -50,8 +50,6 @@ export class UserProfileViewComponent implements OnInit {
     const regObservable = this.httpService.getUserRegistrations()
     .subscribe(registrations => {
       this.registrations = registrations;
-      console.log("*****");
-      console.log(this.registrations);
       regObservable.unsubscribe();
       this.getCurrentPin();
     }, ({ error }) => {
