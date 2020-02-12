@@ -159,4 +159,12 @@ export class HttpService extends BaseHttpService {
         map(regs => regs.map(RegistrationApiResponse.parseJSON)),
       );
   }
+
+  getHackathons() {
+    const API_ENDPOINT = 'admin/hackathon';
+    return this.get<Hackathon[]>(API_ENDPOINT, false, true, true)
+      .pipe(
+        map(hackathons => hackathons.map(h => Hackathon.parseJSON(h))),
+      )
+  }
 }
