@@ -133,21 +133,14 @@ export class RegistrationFormComponent implements OnInit {
     // loop through the ethnicities object; append sel ethnicities to the ethnicity string
     for (let selEthnicity in this.registrationForm.ethnicities) {
       if (this.registrationForm.ethnicities[selEthnicity]) {
-        //this.registrationForm.ethnicity += `${selEthnicity}, `;
         consolidatedEthnicity += `${selEthnicity}, `;
       }
-      console.log(`${selEthnicity}: ${this.registrationForm.ethnicities[selEthnicity]}`);
     }
-
-    console.log(consolidatedEthnicity.slice(-2));
 
     // remove the trailing comma before returning
     if (consolidatedEthnicity.slice(-2) === ", ") {
-      console.log("abcdefghijk");
       consolidatedEthnicity = consolidatedEthnicity.slice(0, -2);
     }
-
-    console.log(consolidatedEthnicity);
 
     return consolidatedEthnicity;
   }
@@ -195,14 +188,12 @@ export class RegistrationFormComponent implements OnInit {
         Materialize.updateTextFields();
       },         750);
     });
-
-    this.consolidateEthnicities();
   }
 
   nukeData(registrationForm, registration){
     this.registrationForm.firstName = registration.firstName;
     this.registrationForm.lastName = registration.lastName;
-    this.registrationForm.ethnicity = registration.ethnicity;
+    this.registrationForm.ethnicity = this.consolidateEthnicities();
     this.registrationForm.gender = registration.gender;
     this.registrationForm.allergies = registration.allergies;
     // this.registrationForm.major = registration.major;
