@@ -19,7 +19,8 @@ export class Registration {
   public resume: any;
   public mlhcoc: boolean;
   public mlhdcp: boolean;
-  public ethnicity: string;
+  public ethnicity: string;   //////
+  public ethnicities: object; //////
   public codingExperience: string;
   public referral: string;
   public projectDesc: string;
@@ -48,6 +49,15 @@ export class Registration {
     this.mlhcoc = false;
     this.mlhdcp = null;
     this.ethnicity = null;
+    this.ethnicities = {
+      "native-american": true,
+      "asian": true,
+      "african-american": true,
+      "latinx": true,
+      "pacific-islander": true,
+      "caucasian": true,
+      "no-disclose-ethnicity": true
+    };
     this.codingExperience = null;
     this.referral = null;
     this.projectDesc = null;
