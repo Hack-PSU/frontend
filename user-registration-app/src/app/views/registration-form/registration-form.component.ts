@@ -127,6 +127,24 @@ export class RegistrationFormComponent implements OnInit {
     }
   }
 
+  private consolidateEthnicities(): string {
+    let consolidatedEthnicity = "";
+
+    // loop through the ethnicities object; append sel ethnicities to the ethnicity string
+    for (let selEthnicity in this.registrationForm.ethnicities) {
+      if (this.registrationForm.ethnicities[selEthnicity]) {
+        consolidatedEthnicity += `${selEthnicity}, `;
+      }
+    }
+
+    // remove the trailing comma before returning
+    if (consolidatedEthnicity.slice(-2) === ", ") {
+      consolidatedEthnicity = consolidatedEthnicity.slice(0, -2);
+    }
+
+    return consolidatedEthnicity;
+  }
+
   sanitizeUrl(resume_link: any) {
     if (!(resume_link instanceof URL)) {
       throw new Error('Must be a URL');
@@ -190,6 +208,9 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   submit() {
+    if (!this.registrationForm.ethnicity) {
+      this.registrationForm.ethnicity = this.consolidateEthnicities();
+    }
     this.progress.start();
     this.authService.currentUser
       .pipe(

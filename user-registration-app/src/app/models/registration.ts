@@ -20,6 +20,7 @@ export class Registration {
   public mlhcoc: boolean;
   public mlhdcp: boolean;
   public ethnicity: string;
+  public ethnicities: object;
   public codingExperience: string;
   public referral: string;
   public projectDesc: string;
@@ -48,6 +49,15 @@ export class Registration {
     this.mlhcoc = false;
     this.mlhdcp = null;
     this.ethnicity = null;
+    this.ethnicities = {
+      "native-american": false,
+      "asian": false,
+      "african-american": false,
+      "latinx": false,
+      "pacific-islander": false,
+      "caucasian": false,
+      "no-disclose-ethnicity": false
+    };
     this.codingExperience = null;
     this.referral = null;
     this.projectDesc = null;
