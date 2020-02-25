@@ -193,7 +193,7 @@ export class RegistrationFormComponent implements OnInit {
   nukeData(registrationForm, registration){
     this.registrationForm.firstName = registration.firstName;
     this.registrationForm.lastName = registration.lastName;
-    this.registrationForm.ethnicity = this.consolidateEthnicities();
+    this.registrationForm.ethnicity = registration.ethnicity;
     this.registrationForm.gender = registration.gender;
     this.registrationForm.allergies = registration.allergies;
     // this.registrationForm.major = registration.major;
@@ -208,6 +208,9 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   submit() {
+    if (!this.registrationForm.ethnicity) {
+      this.registrationForm.ethnicity = this.consolidateEthnicities();
+    }
     this.progress.start();
     this.authService.currentUser
       .pipe(
