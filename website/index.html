@@ -125,9 +125,9 @@
   <!-- day and night custom styles -->
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // const currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 20;
+      var currentTime = 20;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -773,14 +773,14 @@
       <div class="col-sm-6">
         <!-- Geico -->
         <a href="https://www.geico.com/" target="_blank">
-          <img src="assets/images/sponsors/Geico-day.svg" alt="Geico" class="img-fluid Geico-night">
+          <img src="assets/images/sponsors/Geico-day.svg" alt="Geico" class="img-fluid Geico-night" >
         </a>
       </div>
 
       <div class="col-sm-6">
         <!-- Textron -->
         <a href="https://www.textron.com/" target="_blank">
-          <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron-night" style="padding-top: 7%; max-width: 60%;">
+          <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron-night" style="padding-top: 5%;max-width: 60%;">
         </a>
       </div>
     </div>
@@ -796,7 +796,7 @@
       <div class="col-sm-3">
         <!-- NittanyAI -->
         <a href="https://nittanyai.psu.edu/" target="_blank">
-          <img src="assets/images/sponsors/nittanyai-day.svg" alt="NitannyAI" class="img-fluid nittany-ai-night" style="padding-top: 12%">
+          <img src="assets/images/sponsors/nittanyai-day.svg" alt="NitannyAI" class="img-fluid nittany-ai-night" style="padding-top: 10%">
         </a>
       </div>
     </div>
@@ -806,13 +806,19 @@
       <!-- Capital One -->
       <div class="col-sm-3">
         <a href="https://campus.capitalone.com/" target="_blank">
-          <img src="assets/images/sponsors/Capital_One-day.svg" alt="CapOne" class="img-fluid capone-night">
+          <img src="assets/images/sponsors/Capital_One-day.svg" alt="CapOne" class="img-fluid capone-night" style="padding-top: 5%">
         </a>
       </div>
-      <!-- Agora -->
+      <!-- PwC -->
       <div class="col-sm-3">
-        <a href="https://www.agora.io/en/" target="_blank">
-          <img src="assets/images/sponsors/agora-day.svg" alt="Agora" class="img-fluid agora-night" style="max-width: 25%;">
+        <a href="https://www.pwc.com/" target="_blank">
+          <img src="assets/images/sponsors/PWC_original.svg" alt="pwc" class="img-fluid pwc-night">
+        </a>
+      </div>
+      <!-- EECS -->
+      <div class="col-sm-3">
+        <a href="https://www.eecs.psu.edu/" target="_blank">
+          <img src="assets/images/sponsors/EECS-day.svg" alt="EECS" class="img-fluid eecs-night" style="max-width: 50%; padding-top: 12%" >
         </a>
       </div>
     </div>
@@ -831,6 +837,20 @@
       <a href="https://www.linode.com/" target=_blank>
         <img src="assets/images/sponsors/linode-day.svg" alt="Linode"
              class="img-fluid linode-night">
+      </a>
+    </div>
+    <div class="col-sm-2">
+      <!-- LLP -->
+      <a href="https://lionlaunchpad.psu.edu/" target=_blank>
+        <img src="assets/images/sponsors/LionLaunchpad.svg" alt="LLP"
+             class="img-fluid LionLaunchpad-night" style="padding-top: 7%">
+      </a>
+    </div>
+    <div class="col-sm-2">
+      <!-- Plantvillage -->
+      <a href="plantvillage.psu.edu" target=_blank>
+        <img src="assets/images/sponsors/plan_t_logo_day.svg" alt="plant-village"
+             class="img-fluid plantvillage-night">
       </a>
     </div>
   </div>
