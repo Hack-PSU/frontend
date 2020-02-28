@@ -56,7 +56,7 @@ export class Registration {
       "latinx": false,
       "pacific": false,
       "caucasian": false,
-      "no-disclose-ethnicity": false
+      "noDisclose": false
     };
     this.codingExperience = null;
     this.referral = null;
