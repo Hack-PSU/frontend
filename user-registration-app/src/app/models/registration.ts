@@ -20,7 +20,7 @@ export class Registration {
   public mlhcoc: boolean;
   public mlhdcp: boolean;
   public ethnicity: string;
-  public ethnicities: object;
+  public ethnicities: any;
   public codingExperience: string;
   public referral: string;
   public projectDesc: string;
