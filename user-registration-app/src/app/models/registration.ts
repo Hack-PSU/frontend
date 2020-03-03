@@ -50,13 +50,13 @@ export class Registration {
     this.mlhdcp = null;
     this.ethnicity = null;
     this.ethnicities = {
-      "native-american": false,
+      "native": false,
       "asian": false,
-      "african-american": false,
+      "african": false,
       "latinx": false,
-      "pacific-islander": false,
+      "pacific": false,
       "caucasian": false,
-      "no-disclose-ethnicity": false
+      "noDisclose": false
     };
     this.codingExperience = null;
     this.referral = null;
