@@ -1,24 +1,47 @@
+  <style>
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, #133753 50%, #000000 100%);
+}
+
+.vertical-text {
+  transform: rotate(-90deg);
+  float: left;
+}
+    </style>
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
 <!-- Landing -->
 <section id="home" class="header">
   <div class="container-fluid">
     <!-- MLH Badge -->
     <div class="white">
-      <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:10px;top:60px;width:10%;z-index:10000"
+      <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:10px;top:0px;width:10%;z-index:10000"
          href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=white"
          target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
                               alt="Major League Hacking 2020 Hackathon Season" style="width:100%"></a>
     </div>
+    <!-- Particles -->
+    <div id="particles-js"></div>
     <!-- Emblem/Logo -->
-    <div class="row">
+    <div class="row" style="padding-top:15%">
 
-      <div class="col-12">
-        <img src="assets/images/spooky_emblem_f2019.svg" id="hackpsu-logo"
+      <div class="col-6">
+        <img src="assets/images/space_emblem_s2020.png" id="hackpsu-logo"
              class="animated rubberBand d-block mx-auto mb-0"
              alt="hackpsulogo">
       </div>
-    </div>
-    <!-- Countdown Timer -->
-    <div class="row">
+
+     <!-- Countdown Timer -->
+    <div class="col-6">
       <div id='countdown-timer' class="d-flex justify-items-center mt-0">
         <div id='days' class='unit'>
           <div>{{days}}</div>
@@ -37,22 +60,27 @@
           Seconds
         </div>
       </div>
+
+      <!-- Slack Button & Banner Text -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-12">
+          <p id='countdown-text' class="text-center">{{bannerText}}</p>
+        </div>
+
+
+        <a class="btn waves-effect waves-red submit-btn text-center" target="_blank"
+              href="https://join.slack.com/t/hackpsu-group/shared_invite/enQtODE3Mzc5NDI1NjQ4LTJmMDkzYmQ0ODRmNGNjOTE0MzkyMGY0Y2ZiODJjYmQwNDM5MzFiODc2MTY5YzdjYWJiN2FlZmM4MTNhMzU0YmU">
+              <div class="font">Slack</div>
+            </a>
+          <br>
+         <a class="btn waves-effect waves-red submit-btn" target="_blank"
+              href="https://hackpsu-fall-2019.devpost.com/"><div class="font">Submit Your Project</div></a>
+
+      </div>
+      <div class="page-header"></div>
+
     </div>
-    <!-- Slack Button & Banner Text -->
-    <div class="row d-flex justify-content-center">
-      <div class="col-12">
-        <p id='countdown-text' class="text-center">{{bannerText}}</p>
-      </div>
-      <div class="col-md-4 d-flex">
-        <a class="btn waves-effect waves-light submit-btn" target="_blank"
-           href="https://join.slack.com/t/hackpsu-group/shared_invite/enQtODE3Mzc5NDI1NjQ4LTJmMDkzYmQ0ODRmNGNjOTE0MzkyMGY0Y2ZiODJjYmQwNDM5MzFiODc2MTY5YzdjYWJiN2FlZmM4MTNhMzU0YmU">Slack</a>
-      </div>
-      <div class="col-md-4 d-flex">
-        <a class="btn waves-effect waves-light submit-btn" target="_blank"
-           href="https://hackpsu-fall-2019.devpost.com/">Submit Your Project</a>
-      </div>
     </div>
-    <div class="page-header"></div>
   </div>
 </section>
 
@@ -62,18 +90,26 @@
        class="section-separator-background first-border">
 </div>
 <!-- Schedule -->
-<section id="schedule">
+<section id="schedule" style="margin-top:120px;">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 section-title">
-        <div class="section-title-word">
-          <div class="header-text">Schedule</div>
+      
+      <div class="col-2" >
+        <div class="vertical-text">
+          <div class="section-title-word">
+            <div class="header-text">Schedule</div>
+          </div>
+          <div class="header-bar"></div>
         </div>
-        <div class="header-bar"></div>
       </div>
-    </div>
+
+      <div class="col-10">
+          <!-- Switch -->
+
+        <app-schedule-view></app-schedule-view>
+      </div>
   </div>
-  <app-schedule-view></app-schedule-view>
+  </div>
 </section>
 
 <!-- Live Updates -->

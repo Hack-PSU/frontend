@@ -18,7 +18,7 @@ export const environment = {
     messagingSenderId: "614592542726"
   },
   // hackathonStartTime: new Date(2018, 10,6, 7),
-  liveWebsiteGuardTime: new Date(2020, 3, 3, 15),
+  liveWebsiteGuardTime: new Date(2018, 3, 3, 15),
   hackathonStartTime: new Date(2020, 3, 4, 7),
   timerStartTime: new Date(2020, 3, 4, 14),
   hackathonEndTime: new Date(2020, 3, 5, 14),

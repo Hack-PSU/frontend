@@ -58,7 +58,9 @@ p {
 }
 
 nav {
-  background-color: #B1C8CB;
+  padding-top: 50px;
+  background-color: rgba(0,0,0,0.0);
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0px rgba(0, 0, 0, 0);
   height: 60px;
   width: 100%;
 }
