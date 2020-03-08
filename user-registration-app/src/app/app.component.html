@@ -27,6 +27,43 @@
       margin:0;
     }
 
+    a:hover{
+      text-decoration: none;
+      color:#0071ba;
+    }
+
+
+
+li {
+  text-decoration: none;
+  position: relative;
+
+}
+
+li:hover {
+  opacity: 1;
+}
+
+li:before {
+  transition: 300ms;
+  height: 5px;
+  content: "";
+  position: absolute;
+  background-color: #0071ba;
+}
+
+li::before {
+  width: 0%;
+  top: 30px;
+}
+
+li:hover::before {
+  width: 100%;
+}
+
+
+
+
 
     </style>
   <div class="navbar-fixed">
