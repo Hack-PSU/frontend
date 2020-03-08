@@ -11,6 +11,9 @@
   <!-- adding css -->
   <link rel="stylesheet" type="text/css" href="css/animate.css">
 
+  <!-- particles js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <!-- other scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -122,6 +125,12 @@
     gtag('config', 'UA-114978268-1');
   </script>
 
+  <script>
+    particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
+
   <!--
   <script>
     function getStylesheet() {
@@ -163,13 +172,12 @@
   <meta name="theme-color" content="#ffffff">
   <!-- End Favicon Data -->
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
 </head>
 
 <body>
 
-      <div class="page-content">
+<!-- This div wraps all page content; necessary for particles js to work in background -->
+<div class="page-content">
 
 <header id="home" class="landing">
   <div class="holder container-fluid">
@@ -916,12 +924,6 @@
 </div>
 
 <div id="particles-js"></div>
-
-<script>
-  particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
-</script>
 
 </body>
 </html>
