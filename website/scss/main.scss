@@ -800,9 +800,8 @@ body {
 }
 
 .page-content {
-  background-color: transparent !important;
-  position: absolute !important;
-  z-index:9999;
+  position: absolute;
+  z-index: 100;
 }
 
 /* Debug code */

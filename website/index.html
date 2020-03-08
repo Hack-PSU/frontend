@@ -122,12 +122,13 @@
     gtag('config', 'UA-114978268-1');
   </script>
 
-  <!-- day and night custom styles -->
+  <!--
   <script>
     function getStylesheet() {
-      const currentTime = new Date().getHours();
+      // day and night custom styles
+      let currentTime = new Date().getHours();
       // Uncomment to force nighttime or daytime
-      // var currentTime = 20;
+      //currentTime = 2;
       if (8 <= currentTime && currentTime < 19) {
         document.write('<link rel=\'stylesheet\' href=\'css/day-main-compiled.css\' type=\'text/css\'>');
       }
@@ -138,10 +139,10 @@
 
     getStylesheet();
   </script>
+  -->
+  
+  <link href="css/night-main-compiled.css" rel="stylesheet">
 
-  <noscript>
-    <link href="day-main-compiled.css" rel="stylesheet">
-  </noscript>
   <!-- Favicon Data -->
   <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
@@ -914,7 +915,7 @@
 
 </div>
 
-<div id="particles-js" style=""></div>
+<div id="particles-js"></div>
 
 <script>
   particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
