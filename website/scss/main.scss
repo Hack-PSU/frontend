@@ -548,7 +548,7 @@ body {
   font-weight:      bold;
   padding-top:      50px;
   padding-bottom:   50px;
-  background-color: #194E6B;
+  //background-color: #194E6B;
 
   .header-bar {
     background-color: $mountain-blue;
@@ -613,13 +613,13 @@ body {
 
   .nav-pills > li > a {
     color: #fff;
-    background-color: #194E6B;
+    background-color: #133753;
     margin-left: 24px;
     margin-right: 24px;
   }
 
   .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
-    color: #194E6B;
+    color: #133753;
     background-color: #fff;
   }
 
@@ -763,7 +763,7 @@ body {
 /************* FOOTER *************/
 #footer {
   padding:          40px;
-  background-color: #6FA7B3;
+  //background-color: #6FA7B3;
 
   .social-media-icon {
     width: 40px;
@@ -787,6 +787,22 @@ body {
   .small-text {
     font-size: x-small;
   }
+}
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #133753;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.page-content {
+  background-color: transparent !important;
+  position: absolute !important;
+  z-index:9999;
 }
 
 /* Debug code */

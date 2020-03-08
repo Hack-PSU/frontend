@@ -161,9 +161,15 @@
   <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <!-- End Favicon Data -->
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 </head>
 
 <body>
+
+      <div class="page-content">
+
 <header id="home" class="landing">
   <div class="holder container-fluid">
     <!-- MLH Badge -->
@@ -282,7 +288,7 @@
 <div class="section-separator-bar">
 </div>
 
-<section id="tracks">
+<section id="tracks" style="background-color: transparent">
   <div class="container-fluid">
     <div class="row">
       <div class="section-header col-xs-12">
@@ -351,7 +357,7 @@
   </div>
 </section>
 
-<section id="faqs">
+<section id="faqs" style="background-color: transparent">
   <div class="container-fluid">
 
     <div class="row">
@@ -742,10 +748,11 @@
 <!--</section>-->
   <!-- End of Workshops -->
 
-
+<!--
 <div class="section-separator">
   <img class="section-separator-background second-border">
 </div>
+-->
 
 <section id="sponsors">
   <div class="container-fluid">
@@ -870,12 +877,14 @@
   </div>
 </section>
 
+<!--
 <div class="section-separator">
   <img class="section-separator-background third-border">
 </div>
+-->
 
 <section id="footer">
-  <div class="container-fluid">
+  <div class="container-fluid"><br><br>
     <div class="row">
       <div id="social-media" class="col-12">
         <a target="_blank" href="https://www.facebook.com/HackPSU/"><img
@@ -902,5 +911,16 @@
     </div>
   </div>
 </section>
+
+</div>
+
+<div id="particles-js" style=""></div>
+
+<script>
+  particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+</script>
+
 </body>
 </html>

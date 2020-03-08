@@ -77,10 +77,12 @@ $break-large: 1200px;
   font-size: $responsive;
 }
 
+/*
 header {
   @include background-size(cover);
   background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg ,#133753 69%,#000000 100%);
 }
+*/
 
 .landing {
   .holder {
@@ -260,9 +262,11 @@ header {
 
 }
 
+/*
 .section-separator {
   background: #133753;
 }
+*/
 
 .first-border {
   content: url("../assets/images/section-sep-1-mountain-night.svg");
@@ -290,7 +294,7 @@ header {
 }
 
 #about {
-  background: #133753;
+  //background: #133753;
   /*//background-color: #103147;*/
   // padding-bottom: 5%;
   // This margin removes that thin white line that appears at some screen sizes where the
@@ -336,7 +340,7 @@ header {
 #sponsors {
   padding-top: 50px;
   position: relative;
-  background: $dark-blue-tertiary;
+  //background: $dark-blue-tertiary;
   .header-text {
     color: #FFFFFF;
   }
