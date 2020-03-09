@@ -7,7 +7,16 @@
            (click)="updateClicked(update)">
         <div class="container-fluid update-holder-inner-styling">
           <div class="row">
-            <div class="col-8">
+            <div class="col-md-4">
+              <img [src]="update.update_image" class="update-img">
+            </div>
+            <div class="col-md-8">
+              HackPSU
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
               <div class="row">
                 <div class="col-md-12 col-sm-12">
                   <div class="update-title"> {{update.update_title}}</div>
@@ -18,9 +27,6 @@
                   <div class="update-body"> {{update.update_text}}</div>
                 </div>
               </div>
-            </div>
-            <div class="col-4">
-              <img [src]="update.update_image" class="update-img">
             </div>
           </div>
         </div>

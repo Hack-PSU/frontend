@@ -566,9 +566,11 @@ footer {
 
 
 .card {
-  border-width: 8px;
-  border-radius: 10px;
+border-radius: 10px;
+padding:20px;
   transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
 .card:hover {
@@ -582,10 +584,20 @@ footer {
 .card-image {
   max-height: 100% !important;
   overflow: visible;
+  align: center;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .card-image img {
-  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+
 }
 
 .card-title {
