@@ -94,7 +94,7 @@
   <div class="container-fluid">
     <div class="row">
       
-      <div class="col-2" >
+      <div class="col-1" >
         <div class="vertical-text" style="position: absolute; top: 50%;">
           <div class="section-title-word">
             <div class="header-text">Schedule</div>
@@ -103,7 +103,7 @@
         </div>
       </div>
 
-      <div class="col-10">
+      <div class="col-11">
         <app-schedule-view></app-schedule-view>
       </div>
   </div>
@@ -113,17 +113,92 @@
 <!-- Live Updates -->
 <section id="updates">
   <div class="container-fluid">
-    <div class="col-12 section-title">
-      <div class="section-title-word">
-        <div class="header-text">Live Updates</div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-12 section-title">
+              <div class="section-title-word">
+                <div class="header-text">Live Updates</div>
+              </div>
+              <div class="header-bar"></div>
+            </div>
+          </div>
+          <app-live-update></app-live-update>
+        </div>
+
+        <div class="col-md-6">
+          
+          <!-- Map -->
+          <section id="map-rules">
+            <div class="container-fluid">
+              <div class="row">
+
+                  <div class="row">
+                    <div class="col-12 section-title">
+                      <div class="section-title-word">
+                        <div class="header-text">Map</div>
+                      </div>
+                      <div class="header-bar"></div>
+                    </div>
+                  </div>
+
+                    <div class="map-block">
+                      <img class="materialboxed" src="../../../assets/images/BuildingMap.png">
+                    </div>
+
+              </div>
+            </div>
+          </section>
+
+        </div>
       </div>
-      <div class="header-bar"></div>
     </div>
-    <app-live-update></app-live-update>
   </div>
 </section>
 
-<!-- FAQ -->
+
+<div class="row">
+  <div class="col-md-6">
+    <!-- Rules -->
+<div class="row">
+  <div class="col-12 section-title">
+    <div class="section-title-word">
+      <div class="header-text">Rules</div>
+    </div>
+    <div class="header-bar"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="info-card col-12">
+      <ol class="info-list">
+        <li> All participants must be older than 18, and must bring a valid form of
+          identification.
+        </li>
+        <li> Participants must abide by the expectations set in the <a
+          href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147">MLH
+          Code of Conduct</a>,
+          or you will be asked to leave the event.
+        </li>
+        <li> Teams may be comprised of up to five members.</li>
+        <li> Projects should be original works created on site. Coming with an idea in mind
+          is perfectly fine,
+          working on an existing project is not.
+        </li>
+        <li> All submissions must be received through DevPost by 2:00PM on Sunday.</li>
+        <li> Students are permitted to come and go from the venue as they please.</li>
+        <li> Anything you create is your work, HackPSU and its partners have no claim over
+          intellectual property
+          produced at the event.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="col-md-6">
+    <!-- FAQ -->
 <section id="faq">
   <div class="container-fluid">
     <div class="col-12 section-title">
@@ -135,7 +210,7 @@
   </div>
   <div class="container-fluid">
     <!-- Left column of questions -->
-    <div class="row question-container">
+    <div class="row">
       <div class="col-md-6">
         <div>
           <p class="question"><i class="fas fa-plus icon-rotate"></i>Where can I get hardware?</p>
@@ -188,66 +263,11 @@
     </div>
   </div>
 </section>
-
-<!-- Map & Rules & Info Section -->
-<section id="map-rules">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-12 section-title">
-            <div class="section-title-word">
-              <div class="header-text">Map</div>
-            </div>
-            <div class="header-bar"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="map-block">
-            <img class="materialboxed" src="../../../assets/images/BuildingMap.png">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-12 section-title">
-            <div class="section-title-word">
-              <div class="header-text">Rules</div>
-            </div>
-            <div class="header-bar"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="info-card col-12">
-              <ol class="info-list">
-                <li> All participants must be older than 18, and must bring a valid form of
-                  identification.
-                </li>
-                <li> Participants must abide by the expectations set in the <a
-                  href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147">MLH
-                  Code of Conduct</a>,
-                  or you will be asked to leave the event.
-                </li>
-                <li> Teams may be comprised of up to five members.</li>
-                <li> Projects should be original works created on site. Coming with an idea in mind
-                  is perfectly fine,
-                  working on an existing project is not.
-                </li>
-                <li> All submissions must be received through DevPost by 2:00PM on Sunday.</li>
-                <li> Students are permitted to come and go from the venue as they please.</li>
-                <li> Anything you create is your work, HackPSU and its partners have no claim over
-                  intellectual property
-                  produced at the event.
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</section>
+</div>
+
+
+
 
 <!-- Prizes -->
 <section id="prizes">

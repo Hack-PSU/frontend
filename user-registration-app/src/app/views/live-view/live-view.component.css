@@ -227,10 +227,9 @@ td {
 }
 .header-text {
   font-family: 'Cornerstone', sans-serif;
-  font-size:   1.5em;
+  font-size:   2.0em;
   line-height: 100%;
   margin-top:  25px;
-  word-wrap: break-word;
   white-space: initial;
 }
 
