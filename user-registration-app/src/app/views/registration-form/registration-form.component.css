@@ -1,12 +1,13 @@
 :host {
-  margin-top: 30vh;
+  margin-top: 20vh;
   width: 100%;
-  margin-left: 25%;
+  margin-left: 35%;
   padding-bottom: 25px;
 }
-
-
-
+.message {
+  font-family: 'Lato', sans-serif;
+  display: inline-block;
+}
 :host .card {
   -webkit-transition: translate 0.1s;
   -moz-transition: translate 0.1s;
@@ -25,7 +26,7 @@ textarea {
 .registration-form {
   margin: auto 0 auto;
   display: block;
-  color: #333333;
+  color: #ffffff;
   font-size: large;
   width: 50%;
   z-index: 1;
