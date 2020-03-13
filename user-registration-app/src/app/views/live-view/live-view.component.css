@@ -586,16 +586,18 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   overflow: visible;
   align: center;
 
-  display: block;
+
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
 
 .card-image img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  display: inline;
+  margin-bottom: 10px;
 
 
 }
