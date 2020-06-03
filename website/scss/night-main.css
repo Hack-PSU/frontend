@@ -28,10 +28,10 @@ header {
   z-index: 400;
 }
 .landing .holder .logo-holder img {
-  content: url("../assets/images/logo-all-white-no-padding.svg");
+  content: url("../assets/images/Panels-Logo.svg");
 }
 .landing .holder .logo-holder img:after {
-  content: url("../assets/images/logo-all-white-no-padding.svg");
+  content: url("../assets/images/Panels-Logo.svg");
 }
 .landing .holder .celestial-body {
   position: absolute;
