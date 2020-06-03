@@ -337,7 +337,7 @@ body {
 }
 
 #moon_container {
-  background: url('../assets/images/Panels_Moon Square.svg') no-repeat;
+  background: url('../assets/images/about/Panels_Moon Square.svg') no-repeat;
   background-size: 100% 100%;
   padding: 6em;
 }
@@ -348,23 +348,91 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-/* Delay animation of 2nd & 3rd clouds to make more realistic affect. */
-.floating:nth-of-type(2) {
+
+.flying {
+  animation-name:            flying;
+  animation-duration:        5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+/* astronaut floating animation */
+.floating:nth-child(2) {
   animation-delay: -1s;
 }
-.floating:nth-of-type(3) {
-  animation-delay: -2s;
-}
 @keyframes floating {
-  from {
-    background-position: 0vw, 0;
+  0% {
+    transform: translateY(2vh) rotate(30deg);
   }
   50% {
-    background-position: 2vw, 0;
+    transform: translateY(-2vh) rotate(30deg);
   }
-  to {
-    background-position: -0vw, 0;
+  100% {
+    transform: translateY(2vh) rotate(30deg);
   }
+}
+
+@keyframes flying {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate(40vw, -40vw) rotate(45deg);
+  }
+}
+
+#astronaut_laptop {
+  position: absolute;
+  top: -10%;
+  left: 40%;
+  width: 10vw;
+}
+
+#astronaut_wave {
+  position: absolute;
+  right: 3vw;
+  top: 60vh;
+  width: 10vw;
+}
+
+#astronaut_swim {
+  position: absolute;
+  left: 3vw;
+  top: 30vh;
+  width: 12vw;
+}
+
+#rocket_flying {
+  position: absolute;
+  z-index: -1;
+  right: 24vw;
+  top: 10vh;
+  width: 10vw;
+}
+
+#rocket_docked {
+  position: absolute;
+  top: -30%;
+  right: 20%;
+  width: 30vw;
+}
+
+#moon {
+  width: 65vw;
+}
+
+#about {
+  position: relative;
+}
+
+#about_text_container {
+  position: absolute;
+  text-align: left;
+  top: 15%;
+  width: 50vw;
+  height: 70%;
+  overflow-y: scroll;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Tracks */
