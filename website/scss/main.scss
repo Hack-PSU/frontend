@@ -336,6 +336,12 @@ body {
   margin-bottom: 0px;
 }
 
+#moon_container {
+  background: url('../assets/images/Panels_Moon Square.svg') no-repeat;
+  background-size: 100% 100%;
+  padding: 6em;
+}
+
 .floating {
   animation-name:            floating;
   animation-duration:        3s;

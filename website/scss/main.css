@@ -1,0 +1,711 @@
+@charset "UTF-8";
+/* ====================== CONSTANTS ==================*/
+@font-face {
+  font-family: "Cornerstone";
+  src: url("../assets/fonts/Cornerstone.ttf");
+}
+/* ====================== MIXINS ====================*/
+/* ====================== GLOBAL STYLES ============*/
+.accent {
+  color: #AACACC;
+  background-color: #AACACC;
+}
+
+.spacer {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%;
+}
+
+.spacer-xl {
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+  width: 100%;
+}
+
+/* I know what you're thinking. Why would you ever do this?
+Who taught you how to code? */
+/* ====================== COMPONENTS ==============*/
+body {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: xx-large;
+  text-align: center;
+}
+body .center {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+body a:hover {
+  text-decoration: none;
+}
+body .section-separator-bar {
+  height: 5vh;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 -1px -3px rgba(0, 0, 0, 0.12), 0 -1px -2px rgba(0, 0, 0, 0.24);
+  z-index: 500;
+  position: relative;
+  background: #236577;
+}
+body .section-header {
+  font-family: "Cornerstone", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  width: 50%;
+}
+body .section-header .header-text {
+  font-size: 6vh;
+}
+body .section-header .header-bar {
+  width: 40%;
+  height: 5px;
+  margin: auto;
+}
+@media screen and (max-width: 576px) {
+  body .section-header .header-bar {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  body .section-header {
+    width: 100%;
+  }
+}
+
+/* ID Based Selectors */
+#mlh-trust-badge {
+  display: block;
+  position: absolute;
+  float: right;
+  right: 5%;
+  top: 0px;
+  width: 10%;
+  max-width: 100px;
+  height: 120px;
+  z-index: 1;
+  margin-top: 0px;
+}
+@media screen and (max-width: 768px) {
+  #mlh-trust-badge {
+    width: 12%;
+    right: 5%;
+  }
+}
+
+.landing .holder {
+  padding-top: 22%;
+}
+.landing .holder .logo-holder {
+  position: absolute;
+  width: 25%;
+  left: 0;
+  right: 0;
+  top: 2.5vh;
+  margin: auto;
+  z-index: 400;
+}
+.landing .holder .header-content .event-info {
+  padding-top: 6vh;
+}
+.landing .holder .header-content .event-info div {
+  padding-left: 0px;
+}
+.landing .holder .header-content .cta {
+  padding-top: 5vh;
+}
+@media screen and (max-width: 576px) {
+  .landing .holder .header-content .cta {
+    padding-bottom: 5.5vh;
+  }
+}
+.landing .holder .register-btn {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  height: 10vh;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+  margin-bottom: 2vh;
+  /* Some CSS I made up to get that wrapped box effect in the header.
+  This can be applied to any text structured in the same way as the
+  event info. */
+}
+.landing .holder .register-btn:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #aacacc;
+}
+.landing .holder .register-btn .header-text {
+  font-family: "Cornerstone", sans-serif;
+  font-size: 1em;
+  font-size: 0.85em;
+  max-font-size: 2em;
+}
+@media (max-width: 94.1176470588em) {
+  .landing .holder .register-btn .header-text {
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 147.0588235294em) {
+  .landing .holder .register-btn .header-text {
+    font-size: 1.25em;
+  }
+}
+.landing .holder .register-btn .header-text p, .landing .holder .register-btn .header-text #footer a, #footer .landing .holder .register-btn .header-text a {
+  line-height: 9vh;
+}
+.landing .holder .register-btn .wrapped-box {
+  padding-left: 0px;
+}
+.landing .holder .register-btn .wrapped-box p span, .landing .holder .register-btn .wrapped-box #footer a span, #footer .landing .holder .register-btn .wrapped-box a span {
+  color: #FFFFFF;
+  background: #297284;
+  border: solid 1px #297284;
+  border-radius: 0px 15px 15px 0px;
+  padding: 10px;
+  padding-bottom: 4px;
+  font-weight: 400;
+}
+.landing .holder .register-btn .wrapped-box p:first-of-type span, .landing .holder .register-btn .wrapped-box #footer a:first-of-type span, #footer .landing .holder .register-btn .wrapped-box a:first-of-type span {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 15px;
+}
+.landing .holder .register-btn .wrapped-box p:last-of-type span, .landing .holder .register-btn .wrapped-box #footer a:last-of-type span, #footer .landing .holder .register-btn .wrapped-box a:last-of-type span {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 15px;
+}
+.landing .holder .register-btn .header-content .event-info {
+  padding-top: 6vh;
+}
+.landing .holder .register-btn .header-content .event-info div {
+  padding-left: 0px;
+}
+.landing .holder .register-btn .header-content .event-info div {
+  padding-left: 0px;
+}
+.landing .holder .register-btn .header-content .cta {
+  padding-top: 5vh;
+}
+@media screen and (max-width: 576px) {
+  .landing .holder .register-btn .header-content .cta {
+    padding-bottom: 5.5vh;
+  }
+}
+.landing .holder .register-btn .header-hover:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.landing .holder .register-btn .header-hover:hover .bottom-bar {
+  background-color: #133753;
+}
+.landing .holder .register-btn .header-hover:hover p, .landing .holder .register-btn .header-hover:hover #footer a, #footer .landing .holder .register-btn .header-hover:hover a {
+  color: #133753;
+}
+
+.register-btn-design {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  height: 10vh;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+}
+.register-btn-design:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #aacacc;
+}
+.register-btn-design .header-text {
+  font-family: "Cornerstone", sans-serif;
+}
+.register-btn-design .header-text p, .register-btn-design .header-text #footer a, #footer .register-btn-design .header-text a {
+  line-height: 9vh !important;
+  font-size: 1em;
+  font-size: 0.85em;
+  max-font-size: 2em;
+  white-space: normal !important;
+}
+@media (max-width: 94.1176470588em) {
+  .register-btn-design .header-text p, .register-btn-design .header-text #footer a, #footer .register-btn-design .header-text a {
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 147.0588235294em) {
+  .register-btn-design .header-text p, .register-btn-design .header-text #footer a, #footer .register-btn-design .header-text a {
+    font-size: 1.25em;
+  }
+}
+
+.section-separator-first img {
+  margin-top: -15%;
+}
+@media screen and (max-width: 1200px) {
+  .section-separator-first img {
+    margin-top: 0;
+  }
+}
+
+.section-separator-bar {
+  height: 50px;
+  width: 100%;
+  background: #297284;
+  position: relative;
+  z-index: 500;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+#moon_container {
+  background: url("../assets/images/Panels_Moon Square.svg") no-repeat;
+  background-size: 100% 100%;
+  padding: 6em;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Delay animation of 2nd & 3rd clouds to make more realistic affect. */
+.floating:nth-of-type(2) {
+  animation-delay: -1s;
+}
+
+.floating:nth-of-type(3) {
+  animation-delay: -2s;
+}
+
+@keyframes floating {
+  from {
+    background-position: 0vw, 0;
+  }
+  50% {
+    background-position: 2vw, 0;
+  }
+  to {
+    background-position: 0vw, 0;
+  }
+}
+/* Tracks */
+#tracks {
+  padding-top: 10vh;
+}
+#tracks .header-bar {
+  background-color: #297284;
+  margin-bottom: 20px;
+}
+#tracks .track-header {
+  font-family: "Cornerstone", sans-serif;
+  font-size: 1em;
+  text-align: center;
+  padding-top: 5vh;
+}
+#tracks .track-content {
+  font-size: 0.6em;
+  line-height: 1.35 em;
+  padding-top: 5vh;
+}
+#tracks .track-img {
+  width: 18%;
+}
+#tracks .track-register {
+  color: #f5f5f5;
+  font-family: "Cornerstone", sans-serif;
+  line-height: 9vh !important;
+  font-size: 1em;
+  font-size: 0.85em;
+  max-font-size: 2em;
+}
+@media (max-width: 94.1176470588em) {
+  #tracks .track-register {
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 147.0588235294em) {
+  #tracks .track-register {
+    font-size: 1.25em;
+  }
+}
+#tracks .register-btn {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  height: 10vh;
+  background: transparent;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+  margin: 5vh 2vh;
+  font-size: smaller;
+}
+#tracks .register-btn:hover {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #aacacc;
+}
+#tracks p, #tracks #footer a, #footer #tracks a {
+  font-family: "Lato", sans-serif;
+  font-size: 0.6em;
+  font-weight: 100;
+  text-align: left;
+  line-height: 200%;
+  color: white;
+}
+#tracks p span, #tracks #footer a span, #footer #tracks a span {
+  font-weight: 800;
+  font-size: 3.2vh;
+}
+
+/* FAQ */
+#faqs {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#faqs .header-bar {
+  background-color: #297284;
+  margin-bottom: 20px;
+}
+#faqs #location {
+  margin-top: 30px;
+}
+#faqs #location .title {
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+}
+#faqs #location p, #faqs #location #footer a, #footer #faqs #location a {
+  font-size: large;
+  text-align: left;
+  font-weight: 500;
+}
+#faqs .horizontal-line {
+  position: relative;
+  background-color: #B7C7CA;
+  height: 2px;
+  width: 100%;
+}
+#faqs .question-container {
+  margin-top: 10px;
+  padding: 0 10%;
+}
+@media screen and (max-width: 768px) {
+  #faqs .question-container {
+    padding: 0px;
+  }
+}
+#faqs .question + .fa-chevron-right {
+  display: inline-block;
+  margin-top: 10px;
+}
+#faqs .question:before {
+  font-family: "Font Awesome 5 Free", cursive;
+  display: inline-block;
+  font-size: large;
+  margin-right: 5px;
+  content: "";
+  color: #C94331;
+  transition: all 0.3s;
+}
+#faqs .open:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#faqs .question {
+  background: #E1E9EA;
+  border: solid 1px #297284;
+  border-radius: 7px 7px 7px 7px;
+  color: #004D6D;
+  text-align: left;
+  padding: 10px;
+  cursor: hand;
+  font-size: large;
+}
+#faqs .FAQanswer {
+  color: white;
+  display: none;
+  font-weight: lighter;
+  font-size: medium;
+  margin: 0 4%;
+  text-align: left;
+  padding-bottom: 4%;
+}
+#faqs .FAQanswer a {
+  color: #99C4CC;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#faqs .FAQanswer a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+#faqs #map-container {
+  width: 90%;
+  height: 400px;
+  margin: auto auto 2vh;
+}
+#faqs #map-container p, #faqs #map-container #footer a, #footer #faqs #map-container a {
+  color: #333333;
+}
+
+/* Schedule */
+#schedule {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#schedule .header-bar {
+  background-color: #297284;
+}
+#schedule .schedule-right {
+  padding-left: 10%;
+  border-left: 3px solid #F5F5F5;
+}
+@media screen and (max-width: 768px) {
+  #schedule .schedule-right {
+    padding-left: 0px;
+    border: none;
+  }
+  #schedule .schedule-right div {
+    padding-top: 0.5vh;
+  }
+  #schedule .schedule-left {
+    padding-top: 10px;
+  }
+  #schedule .schedule-left div {
+    padding-top: 0.5vh;
+  }
+  #schedule .schedule-header {
+    margin-top: 3%;
+  }
+}
+#schedule .time {
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: large;
+  margin: 0 4%;
+  text-align: left;
+  color: #99C4CC;
+}
+#schedule .event {
+  display: inline;
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: large;
+  margin: 0 4%;
+  text-align: right;
+}
+#schedule .event-center {
+  display: inline;
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: large;
+  margin: 0 4%;
+  text-align: center;
+}
+#schedule .nav-pills {
+  margin-bottom: 12px;
+}
+#schedule .nav-pills > li > a {
+  color: #fff;
+  background-color: #133753;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+#schedule .nav-pills > li > a.active, #schedule .nav-pills > active > a.active:focus {
+  color: #133753;
+  background-color: #fff;
+}
+#schedule .nav-pills > li > a:hover, #schedule .tab-content > .tab-pane > .row > .col-8:hover {
+  color: steelblue;
+}
+#schedule #schedule-tab-view {
+  margin-top: 12px;
+}
+
+/* Workshops */
+#workshops {
+  padding-top: 100px;
+  padding-bottom: 25px;
+  background-color: #194E6B;
+}
+#workshops .section-header {
+  width: 100%;
+}
+#workshops .header-bar {
+  background-color: #297284;
+  margin-bottom: 40px;
+  min-width: 40%;
+}
+#workshops .item {
+  font-family: "Lato", sans-serif;
+  background: white;
+  border-radius: 7px 7px 7px 7px;
+  color: #424242;
+  padding: 3% 6% 3% 6%;
+  cursor: hand;
+  font-size: large;
+  height: 32%;
+  text-align: left;
+}
+#workshops .item h5 {
+  font-size: 17px;
+  height: 25%;
+  font-weight: 900;
+}
+#workshops .tag {
+  font-size: 16px;
+}
+#workshops .profile {
+  width: 100%;
+  padding-top: 3%;
+  padding-bottom: 0;
+  height: 70%;
+}
+#workshops .profile img {
+  border-radius: 50%;
+  border: solid 1px #333333;
+}
+#workshops .presenter p, #workshops .presenter #footer a, #footer #workshops .presenter a {
+  padding: 1% 4% 0 3%;
+  margin: 0;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  #workshops .item {
+    height: 40%;
+  }
+  #workshops .profile img {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  #workshops .item {
+    height: 41%;
+  }
+  #workshops .item h5 {
+    height: 8%;
+  }
+  #workshops .profile img {
+    padding: 0;
+    width: 30%;
+  }
+  #workshops .presenter {
+    padding: 0;
+    width: 60%;
+  }
+}
+
+/* Sponsors */
+#sponsors {
+  padding-top: 50px;
+}
+#sponsors .header-text {
+  color: #424242;
+}
+#sponsors .header-bar {
+  background: #24577C;
+}
+#sponsors .platinum img {
+  max-width: 75%;
+}
+#sponsors .gold img {
+  max-width: 45%;
+}
+#sponsors .silver img {
+  max-width: 55%;
+}
+#sponsors .bronze img {
+  max-width: 45%;
+}
+#sponsors .platinum .nittany-ai-day {
+  max-width: 50%;
+}
+#sponsors .oracle-day {
+  max-width: 100%;
+  margin-top: 7%;
+}
+#sponsors .accuweather-day {
+  padding-top: 10%;
+}
+
+/************* FOOTER *************/
+#footer {
+  padding: 40px;
+}
+#footer .social-media-icon {
+  width: 40px;
+}
+#footer .row {
+  width: 100%;
+}
+#footer p, #footer a {
+  font-size: small;
+  display: inline-block;
+  margin: auto;
+}
+#footer a {
+  color: white;
+}
+#footer .small-text {
+  font-size: x-small;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #133753;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.page-content {
+  position: absolute;
+  z-index: 100;
+}
+
+/* Debug code */
+
+/*# sourceMappingURL=main.css.map */

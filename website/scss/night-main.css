@@ -1,0 +1,386 @@
+/* ====================== CONSTANTS ==================*/
+@font-face {
+  font-family: "Cornerstone";
+  src: url("../assets/fonts/Cornerstone.ttf");
+}
+/* ====================== MIXINS ====================*/
+/*
+header {
+  @include background-size(cover);
+  background: url("../assets/images/stars.svg") no-repeat, linear-gradient(0deg ,#133753 69%,#000000 100%);
+}
+*/
+.landing {
+  /* Some CSS I made up to get that wrapped box effect in the header.
+  This can be applied to any text structured in the same way as the
+  event info. */
+}
+.landing .holder {
+  padding-top: 22%;
+}
+.landing .holder .logo-holder {
+  position: absolute;
+  width: 25%;
+  left: 0;
+  right: 0;
+  top: 2.5vh;
+  margin: auto;
+  z-index: 400;
+}
+.landing .holder .logo-holder img {
+  content: url("../assets/images/logo-all-white-no-padding.svg");
+}
+.landing .holder .logo-holder img:after {
+  content: url("../assets/images/logo-all-white-no-padding.svg");
+}
+.landing .holder .celestial-body {
+  position: absolute;
+  width: 12.5%;
+  left: 7%;
+  right: 0;
+  top: 11.5vh;
+  margin: 0;
+}
+.landing .holder .celestial-body img {
+  content: url("../assets/images/moon.svg");
+}
+.landing .holder .celestial-body img:after {
+  content: url("../assets/images/moon.svg");
+}
+@media screen and (max-width: 576px) {
+  .landing .holder .celestial-body {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .landing .holder {
+    padding-top: 25%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .landing .holder {
+    height: auto;
+  }
+}
+@media screen and (max-width: 576px) {
+  .landing .holder {
+    padding-top: 55%;
+  }
+  .landing .holder .logo-holder {
+    width: 60%;
+  }
+}
+.landing .header-text {
+  font-family: "Cornerstone", sans-serif;
+  font-size: 1em;
+  font-size: 0.85em;
+  max-font-size: 2em;
+}
+@media (max-width: 94.1176470588em) {
+  .landing .header-text {
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 147.0588235294em) {
+  .landing .header-text {
+    font-size: 1.25em;
+  }
+}
+.landing .header-text p {
+  text-align: start;
+  padding: 0;
+  line-height: 1em;
+  transition: all 0.4s;
+  color: #424242;
+  white-space: nowrap;
+}
+.landing .header-text .bottom-bar {
+  width: 100%;
+  height: 5px;
+  transition: all 0.4s;
+  background-color: white;
+}
+.landing .wrapped-box p {
+  position: relative;
+  z-index: 100;
+  margin-bottom: 18px;
+}
+.landing .wrapped-box p:first-of-type {
+  z-index: 200;
+}
+.landing .wrapped-box p:last-of-type {
+  z-index: 200;
+}
+.landing .wrapped-box p span {
+  color: #424242;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 0px 15px 15px 0px;
+  padding: 10px;
+  padding-bottom: 4px;
+  font-weight: 400;
+}
+.landing .wrapped-box p:first-of-type span {
+  border-bottom-width: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 15px;
+  z-index: 200;
+}
+.landing .wrapped-box p:last-of-type span {
+  border-top-width: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+  z-index: 200;
+}
+@media screen and (max-width: 1121px) {
+  .landing .wrapped-box p {
+    line-height: 0.95em;
+  }
+}
+.landing .header-graphic {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.landing .header-graphic .cloud-1 {
+  position: absolute;
+  width: 48%;
+  height: 22%;
+  top: -2%;
+  left: 33%;
+  z-index: 100;
+  background-image: url("../assets/images/cloud-2-night.svg");
+  background-repeat: no-repeat;
+  background-size: 65%;
+}
+.landing .header-graphic .cloud-2 {
+  position: absolute;
+  width: 43%;
+  height: 22%;
+  top: 20%;
+  right: -8%;
+  z-index: 300;
+  background-image: url("../assets/images/cloud-1-night.svg");
+  background-repeat: no-repeat;
+  background-size: 65%;
+}
+.landing .header-graphic .cloud-3 {
+  position: absolute;
+  width: 28%;
+  height: 22%;
+  top: 30%;
+  left: 10%;
+  z-index: 300;
+  background-image: url("../assets/images/cloud-5-night.svg");
+  background-repeat: no-repeat;
+  background-size: 65%;
+}
+.landing .header-graphic .mountain {
+  position: relative;
+  top: 0px;
+  margin: auto;
+  width: 100%;
+  z-index: 200;
+  content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
+}
+.landing .header-graphic .mountain:after {
+  content: url("../assets/images/flat-mountain-graphic-snow-night.svg");
+}
+@media screen and (max-width: 992px) {
+  .landing .header-graphic .mountain {
+    margin-top: 10vh;
+  }
+  .landing .header-graphic .cloud-1, .landing .header-graphic .cloud-2, .landing .header-graphic .cloud-3 {
+    margin-top: 6vh;
+  }
+}
+
+/*
+.section-separator {
+  background: #133753;
+}
+*/
+.first-border {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
+}
+
+.first-border::after {
+  content: url("../assets/images/section-sep-1-mountain-night.svg");
+}
+
+.second-border {
+  position: relative;
+  top: -5px;
+  content: url("../assets/images/border6-night.svg");
+}
+
+.second-border:after {
+  content: url("../assets/images/border6-night.svg");
+}
+
+.third-border {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7-night.svg");
+}
+
+#about {
+  /*//background-color: #103147;*/
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+@media screen and (max-width: 768px) {
+  #about {
+    padding-top: 10%;
+  }
+}
+#about .header-text {
+  color: white;
+}
+#about .section-header {
+  text-align: left;
+  margin: 0%;
+}
+#about .header-bar {
+  background-color: #718a9a;
+  width: 30%;
+  margin: 0%;
+}
+@media screen and (max-width: 576px) {
+  #about .header-bar {
+    width: 100%;
+  }
+}
+#about p {
+  font-family: "Lato", sans-serif;
+  font-size: 3vh;
+  font-weight: 100;
+  text-align: left;
+  padding-top: 5vh;
+  line-height: 200%;
+  color: white;
+}
+#about p span {
+  font-weight: 800;
+  font-size: 3.2vh;
+}
+
+/* Sponsors */
+#sponsors {
+  padding-top: 50px;
+  position: relative;
+}
+#sponsors .header-text {
+  color: #FFFFFF;
+}
+#sponsors .header-bar {
+  background: #24577C;
+}
+#sponsors .gold img {
+  max-width: 60%;
+}
+#sponsors .silver img {
+  max-width: 55%;
+}
+#sponsors .bronze img {
+  max-width: 50%;
+}
+
+.eecs-night {
+  content: url("../assets/images/sponsors/EECS-night.svg");
+}
+
+.stickerMule-night {
+  content: url("../assets/images/sponsors/StickerMule-night.svg");
+}
+
+.GEW-night {
+  content: url("../assets/images/sponsors/GEW-night.svg");
+}
+
+.InventPSU-night {
+  content: url("../assets/images/sponsors/InventPSU-night.svg");
+}
+
+.LionLaunchpad-night {
+  content: url("../assets/images/sponsors/LionLaunchpad-night.svg");
+}
+
+.Vertex-night {
+  content: url("../assets/images/sponsors/Vertex-night.svg");
+}
+
+.EY-night {
+  content: url("../assets/images/sponsors/EY-night.svg");
+}
+
+.Geico-night {
+  content: url("../assets/images/sponsors/Geico-night.svg");
+}
+
+.psuit-night {
+  content: url("../assets/images/sponsors/psuit-night.svg");
+}
+
+.GCP-night {
+  content: url("../assets/images/sponsors/GCP-night.svg");
+}
+
+.ICS-night {
+  content: url("../assets/images/sponsors/ICS-night.svg");
+}
+
+.Accuweather-night {
+  content: url("../assets/images/sponsors/Accuweather-night.svg");
+}
+
+.wolfram {
+  content: url("../assets/images/sponsors/wolfram.svg");
+}
+
+.Vanguard-night {
+  content: url("../assets/images/sponsors/Vanguard-night.svg");
+}
+
+.loop-night {
+  content: url("../assets/images/sponsors/loop-night.svg");
+}
+
+.JP-Morgan-Chase-night {
+  content: url("../assets/images/sponsors/JP-Morgan-Chase-night.svg");
+}
+
+.nittany-ai-night {
+  content: url("../assets/images/sponsors/nittanyai-night.svg");
+}
+
+.textron-night {
+  content: url("../assets/images/sponsors/textron_night.svg");
+}
+
+.capone-night {
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+
+.linode-night {
+  content: url("../assets/images/sponsors/linode-night.svg");
+}
+
+.agora-night {
+  content: url("../assets/images/sponsors/agora-night.svg");
+}
+
+.plantvillage-night {
+  content: url("../assets/images/sponsors/plan_t_logo_night.svg");
+}
+
+.pwc-night {
+  content: url("../assets/images/sponsors/PWC_night.svg");
+}
+
+/*# sourceMappingURL=night-main.css.map */
