@@ -181,7 +181,15 @@
       </div>
       <!-- Sun and Moon Graphic -->
       <div class="celestial-body">
-        <img src="assets/images/moon.svg">
+        <script>
+          var current= new Date()
+          var day_night=current.getHours()
+          if (day_night<19)
+            document.write("<img src=\"assets/images/sun.svg\">")
+          else
+            document.write("<img src=\"assets/images/moon.svg\">")
+        </script>
+
 
       </div>
     </div>
