@@ -1,648 +1,664 @@
-<form class="registration-form col m5 offset-m3 offset-l3 l5"
-      (ngSubmit)="validateAndSubmit()"
-      name="registrationFormDOM"
-      #registrationModel="ngForm"
->
-  <div class="row scrollspy" id="name-container" materialize="scrollSpy">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5>What is your name?</h5>
-        <div class="input-field">
-          <input name="firstName"
-                 id="firstname-input"
-                 class="validate required"
-                 required
-                 [(ngModel)]="registrationForm.firstName"
-                 #firstName="ngModel"
-                 autocomplete="given-name"
-                 type="text"
-          >
-          <label for="firstname-input" data-error="First name is required">Enter your First
-            Name</label>
-        </div>
-        <div class="input-field">
-          <input name="lastName"
-                 class="validate required"
-                 id="lastname-input"
-                 required
-                 [(ngModel)]="registrationForm.lastName"
-                 autocomplete="family-name"
-                 #firstnameinput="ngModel"
-                 type="text"
-          >
-          <label for="lastname-input" data-error="Last name is required">Enter your Last
-            Name</label>
-        </div>
-        <label class="data-error" *ngIf="!firstnameinput.valid">Required</label>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/Name.svg">
-    </div>
+  <div class="col-12 registration-form">
+    <p>Dear Hackers,</p>
+    <p></p>
+    <p>This message is to inform you that HackPSU Spring 2020 has been <span>cancelled</span>.
+      In light of growing concerns regarding COVID-19, the Pennsylvania State University
+      has decided to postpone all on-campus events for the time being.
+      As HackPSU brings together over 900 students from across the country,
+      we know that this is the best decision for the health and safety of our attendees.
+      However, as organizers dedicated to HackPSU, we know this comes as a disappointment
+      and we sincerely apologize for any inconvenience this may cause.</p>
+    <p>Our team is focusing our efforts towards organizing the best ever HackPSU in Fall 2020.
+      We hope to see you there! Stay tuned for more information coming soon.</p>
+    <p>Meanwhile, as a part of the MLH community,
+      we encourage you to continue to <span>“Learn. Build. Share.”</span>
+      by attending hackathons that have decided to go virtual.
+      Check out <a href="https://mlh.io/seasons/na-2020/events">MLH events</a> for more info!</p>
+    <p>Thank you for your support and understanding.
+      Please feel free to contact us at <a href="mailto:team@hackpsu.org"> team@hackpsu.org</a>
+      if you have any questions.</p>
+    <p>Best,</p>
+    <p>HackPSU Organization Team</p>
   </div>
 
-  <!--&lt;!&ndash; Email &ndash;&gt;-->
-  <!--<div class="row scrollspy" materialize="scrollSpy" id="email-container">-->
+<!--<form class="registration-form col m5 offset-m3 offset-l3 l5"-->
+      <!--(ngSubmit)="validateAndSubmit()"-->
+      <!--name="registrationFormDOM"-->
+      <!--#registrationModel="ngForm"-->
+<!--&gt;-->
+  <!--<div class="row scrollspy" id="name-container" materialize="scrollSpy">-->
     <!--<div class="card medium darken-1">-->
       <!--<div class="card-content">-->
-        <!--<h5>What is your school email?</h5>-->
+        <!--<h5>What is your name?</h5>-->
         <!--<div class="input-field">-->
-          <!--&lt;!&ndash; <i class="material-icons prefix">email</i> &ndash;&gt;-->
-          <!--<input type="email"-->
-                 <!--class="validate"-->
-                 <!--name="email"-->
-                 <!--email-->
-                 <!--id="email-input"-->
+          <!--<input name="firstName"-->
+                 <!--id="firstname-input"-->
+                 <!--class="validate required"-->
                  <!--required-->
-                 <!--autocomplete="email"-->
-                 <!--placeholder="student@university.edu"-->
-                 <!--[(ngModel)]="registrationForm.email"-->
-                 <!--#emailinput="ngModel"-->
+                 <!--[(ngModel)]="registrationForm.firstName"-->
+                 <!--#firstName="ngModel"-->
+                 <!--autocomplete="given-name"-->
+                 <!--type="text"-->
           <!--&gt;-->
-          <!--<label for="email-input" data-error="Valid email is required">Enter your email</label>-->
+          <!--<label for="firstname-input" data-error="First name is required">Enter your First-->
+            <!--Name</label>-->
         <!--</div>-->
-        <!--<label class="data-error" *ngIf="!emailinput.valid">Required</label>-->
+        <!--<div class="input-field">-->
+          <!--<input name="lastName"-->
+                 <!--class="validate required"-->
+                 <!--id="lastname-input"-->
+                 <!--required-->
+                 <!--[(ngModel)]="registrationForm.lastName"-->
+                 <!--autocomplete="family-name"-->
+                 <!--#firstnameinput="ngModel"-->
+                 <!--type="text"-->
+          <!--&gt;-->
+          <!--<label for="lastname-input" data-error="Last name is required">Enter your Last-->
+            <!--Name</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!firstnameinput.valid">Required</label>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/Name.svg">-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;&lt;!&ndash; Email &ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="row scrollspy" materialize="scrollSpy" id="email-container">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="card medium darken-1">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="card-content">&ndash;&gt;-->
+        <!--&lt;!&ndash;<h5>What is your school email?</h5>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="input-field">&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash; <i class="material-icons prefix">email</i> &ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;<input type="email"&ndash;&gt;-->
+                 <!--&lt;!&ndash;class="validate"&ndash;&gt;-->
+                 <!--&lt;!&ndash;name="email"&ndash;&gt;-->
+                 <!--&lt;!&ndash;email&ndash;&gt;-->
+                 <!--&lt;!&ndash;id="email-input"&ndash;&gt;-->
+                 <!--&lt;!&ndash;required&ndash;&gt;-->
+                 <!--&lt;!&ndash;autocomplete="email"&ndash;&gt;-->
+                 <!--&lt;!&ndash;placeholder="student@university.edu"&ndash;&gt;-->
+                 <!--&lt;!&ndash;[(ngModel)]="registrationForm.email"&ndash;&gt;-->
+                 <!--&lt;!&ndash;#emailinput="ngModel"&ndash;&gt;-->
+          <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;<label for="email-input" data-error="Valid email is required">Enter your email</label>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<label class="data-error" *ngIf="!emailinput.valid">Required</label>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash; Gender &ndash;&gt;-->
+  <!--<div class="row scrollspy" id="gender-container" materialize="scrollSpy">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="gender">Which gender do you identify with?</h5>-->
+        <!--<div class="form-group required" id="gender-input" data-error="Gender is required">-->
+          <!--<input type="radio" class="with-gap" name="gender" required value="male" id="male"-->
+                 <!--[(ngModel)]="registrationForm.gender"-->
+                 <!--#genderControl="ngModel">-->
+          <!--<label for="male">Male</label><br>-->
+
+          <!--<input type="radio" class="with-gap" name="gender" required value="female" id="female"-->
+                 <!--[(ngModel)]="registrationForm.gender">-->
+          <!--<label for="female">Female</label><br>-->
+
+          <!--<input type="radio" class="with-gap" name="gender" required value="non-binary"-->
+                 <!--id="non-binary"-->
+                 <!--[(ngModel)]="registrationForm.gender">-->
+          <!--<label for="non-binary">Non-Binary</label><br>-->
+
+          <!--<input type="radio" class="with-gap" name="gender" required value="no-disclose"-->
+                 <!--id="option4"-->
+                 <!--[(ngModel)]="registrationForm.gender">-->
+          <!--<label for="option4">Prefer not to disclose</label><br>-->
+
+          <!--<label class="data-error" *ngIf="!genderControl.valid">Required</label>-->
+        <!--</div>-->
       <!--</div>-->
     <!--</div>-->
   <!--</div>-->
 
-  <!-- Gender -->
-  <div class="row scrollspy" id="gender-container" materialize="scrollSpy">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="gender">Which gender do you identify with?</h5>
-        <div class="form-group required" id="gender-input" data-error="Gender is required">
-          <input type="radio" class="with-gap" name="gender" required value="male" id="male"
-                 [(ngModel)]="registrationForm.gender"
-                 #genderControl="ngModel">
-          <label for="male">Male</label><br>
+  <!--&lt;!&ndash; Phone Number &ndash;&gt;-->
+  <!--<div class="row scrollspy" materialize="scrollSpy" id="phone-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="phone">What is your phone number?</h5>-->
+        <!--<p class="alert">This information is required by MLH. Rest assured we won't be spamming your-->
+          <!--phone.</p>-->
+        <!--<div class="input-field">-->
+          <!--<input type="tel"-->
+                 <!--autocomplete="tel-national"-->
+                 <!--id="phone-input"-->
+                 <!--name="phone"-->
+                 <!--[value]="prettifiedPhone"-->
+                 <!--required-->
+                 <!--[(ngModel)]="phoneNoUse"-->
+                 <!--(keyup)="parsePhone($event.target.value)"-->
+                 <!--class="validate required"-->
+                 <!--#phoneinput="ngModel"-->
+                 <!--pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"-->
+          <!--&gt;-->
+          <!--<label for="phone-input" data-error="Valid phone number is required">Enter your phone-->
+            <!--number</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!phoneinput.valid">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-          <input type="radio" class="with-gap" name="gender" required value="female" id="female"
-                 [(ngModel)]="registrationForm.gender">
-          <label for="female">Female</label><br>
+  <!--&lt;!&ndash; Race/Ethnicities &ndash;&gt;-->
+  <!--<div class="row scrollspy" materialize="scrollSpy" id="ethnicity-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content">-->
+        <!--<h5>What is your Race/Ethnicity?</h5>-->
+        <!--<div class="form-group">-->
+          <!--<input type="checkbox" class="with-gap" id="native" name="ethnicity" value="native"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.native">-->
+          <!--<label for="native">Native American or Alaska Native</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="asian" name="ethnicity" value="asian"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.asian">-->
+          <!--<label for="asian">Asian</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="african" name="ethnicity" value="african"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.african">-->
+          <!--<label for="african">Black or African American</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="latinx" name="ethnicity" value="latinx"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.latinx">-->
+          <!--<label for="latinx">Hispanic or Latinx</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="pacific" name="ethnicity" value="pacific"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.pacific">-->
+          <!--<label for="pacific">Native Hawaiian or Other Pacific Islander</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.caucasian">-->
+          <!--<label for="caucasian">Caucasian</label><br>-->
+          <!--<input type="checkbox" class="with-gap" id="noDisclose" name="ethnicity" value="noDisclose"-->
+                 <!--[(ngModel)]="registrationForm.ethnicities.noDisclose">-->
+          <!--<label for="noDisclose">Prefer not to disclose</label><br>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-          <input type="radio" class="with-gap" name="gender" required value="non-binary"
-                 id="non-binary"
-                 [(ngModel)]="registrationForm.gender">
-          <label for="non-binary">Non-Binary</label><br>
+  <!--&lt;!&ndash; Veteran &ndash;&gt;-->
+  <!--<div class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="veteran-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content">-->
+        <!--<h5>Are you a veteran?</h5>-->
+        <!--<div class="form-group">-->
+          <!--<input type="radio" class="with-gap" id="true" name="veteran" value="true"-->
+                 <!--required-->
+                 <!--[(ngModel)]="registrationForm.veteran" #veteranControl="ngModel">-->
+          <!--<label for="true">Yes</label><br>-->
+          <!--<input type="radio" class="with-gap" id="false" name="veteran" value="false"-->
+                 <!--required-->
+                 <!--[(ngModel)]="registrationForm.veteran">-->
+          <!--<label for="false">No</label><br>-->
+          <!--<input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose"-->
+                 <!--required-->
+                 <!--[(ngModel)]="registrationForm.veteran">-->
+          <!--<label for="no-disclose">Prefer not to disclose</label><br>-->
+          <!--<label class="data-error" *ngIf="!veteranControl.valid">Required</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-          <input type="radio" class="with-gap" name="gender" required value="no-disclose"
-                 id="option4"
-                 [(ngModel)]="registrationForm.gender">
-          <label for="option4">Prefer not to disclose</label><br>
+  <!--&lt;!&ndash; Age &ndash;&gt;-->
+  <!--<div class="row scrollspy" materialize="scrollSpy" id="age-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="age">Will you be at least 18 or a current Penn State University student before April 4, 2020?</h5>-->
+        <!--&lt;!&ndash; Switch &ndash;&gt;-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox"-->
+                   <!--required-->
+                   <!--name="eighteenBeforeEvent"-->
+                   <!--[(ngModel)]="registrationForm.eighteenBeforeEvent"-->
+                   <!--#ageinput="ngModel"-->
+            <!--&gt;-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+        <!--<div *ngIf="!registrationForm.eighteenBeforeEvent">-->
+          <!--<p class="alert danger">-->
+            <!--You must be 18 to attend. If you are under 18 and still wish to attend, please contact-->
+            <!--us at <a-->
+            <!--href="mailto://team@hackpsu.org">team@hackpsu.org</a>-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!registrationForm.eighteenBeforeEvent">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-          <label class="data-error" *ngIf="!genderControl.valid">Required</label>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Shirt Size &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy"-->
+       <!--materialize="scrollSpy"-->
+       <!--id="shirt-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="shirt-size">What is your shirt size?</h5>-->
+        <!--<div class="form-group required">-->
+          <!--<input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS"-->
+                 <!--#shirtControl="ngModel"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="xsmall">X-Small</label><br>-->
+          <!--<input type="radio" class="with-gap" id="small" required name="shirtSize" value="S"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="small">Small</label><br>-->
+          <!--<input type="radio" class="with-gap" id="medium" required name="shirtSize" value="M"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="medium">Medium</label><br>-->
+          <!--<input type="radio" class="with-gap" id="large" required name="shirtSize" value="L"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="large">Large</label><br>-->
+          <!--<input type="radio" class="with-gap" id="xlarge" required name="shirtSize" value="XL"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="xlarge">X-Large</label><br>-->
+          <!--<input type="radio" class="with-gap" id="xxlarge" required name="shirtSize" value="XXL"-->
+                 <!--[(ngModel)]="registrationForm.shirtSize">-->
+          <!--<label for="xxlarge">XX-Large</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!shirtControl.valid">Required</label>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/Shirt.svg">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Phone Number -->
-  <div class="row scrollspy" materialize="scrollSpy" id="phone-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="phone">What is your phone number?</h5>
-        <p class="alert">This information is required by MLH. Rest assured we won't be spamming your
-          phone.</p>
-        <div class="input-field">
-          <input type="tel"
-                 autocomplete="tel-national"
-                 id="phone-input"
-                 name="phone"
-                 [value]="prettifiedPhone"
-                 required
-                 [(ngModel)]="phoneNoUse"
-                 (keyup)="parsePhone($event.target.value)"
-                 class="validate required"
-                 #phoneinput="ngModel"
-                 pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
-          >
-          <label for="phone-input" data-error="Valid phone number is required">Enter your phone
-            number</label>
-        </div>
-        <label class="data-error" *ngIf="!phoneinput.valid">Required</label>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Travel Reimbursement &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="travel-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="travel">Will you need travel reimbursement?</h5>-->
+        <!--&lt;!&ndash; Switch &ndash;&gt;-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox" name="travel_reimbursement"-->
+                   <!--[(ngModel)]="registrationForm.travelReimbursement">-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/TravelReimbursement.svg">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Race/Ethnicities -->
-  <div class="row scrollspy" materialize="scrollSpy" id="ethnicity-container">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5>What is your Race/Ethnicity?</h5>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="native-american" name="ethnicity" value="native-american"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="native-american">Native American or Alaska Native</label><br>
-          <input type="radio" class="with-gap" id="asian" name="ethnicity" value="asian"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="asian">Asian</label><br>
-          <input type="radio" class="with-gap" id="african-american" name="ethnicity" value="african-american"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="african-american">Black or African American</label><br>
-          <input type="radio" class="with-gap" id="latinx" name="ethnicity" value="latinx"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="latinx">Hispanic or Latinx</label><br>
-          <input type="radio" class="with-gap" id="pacific-islander" name="ethnicity" value="pacific-islander"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="pacific-islander">Native Hawaiian or Other Pacific Islander</label><br>
-          <input type="radio" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="caucasian">Caucasian</label><br>
-          <input type="radio" class="with-gap" id="no-disclose-ethnicity" name="ethnicity" value="no-disclose-ethnicity"
-                 #ethnicityControl="ngModel"
-                 [(ngModel)]="registrationForm.ethnicity">
-          <label for="no-disclose-ethnicity">Prefer not to disclose</label><br>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; First Hackathon &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content">-->
+        <!--<h5 class="attended">Is this your first hackathon?</h5>-->
+        <!--&lt;!&ndash; Switch &ndash;&gt;-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox" name="firstHackathon"-->
+                   <!--[(ngModel)]="registrationForm.firstHackathon">-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Veteran -->
-  <div class="row scrollspy" materialize="scrollSpy"
-       id="veteran-container">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5>Are you a veteran?</h5>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="true" name="veteran" value="true"
-                 required
-                 [(ngModel)]="registrationForm.veteran" #veteranControl="ngModel">
-          <label for="true">Yes</label><br>
-          <input type="radio" class="with-gap" id="false" name="veteran" value="false"
-                 required
-                 [(ngModel)]="registrationForm.veteran">
-          <label for="false">No</label><br>
-          <input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose"
-                 required
-                 [(ngModel)]="registrationForm.veteran">
-          <label for="no-disclose">Prefer not to disclose</label><br>
-          <label class="data-error" *ngIf="!veteranControl.valid">Required</label>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Dietary Restrictions &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="diet-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="diet">Do you have any dietary restrictions or allergies?</h5>-->
+        <!--&lt;!&ndash; Switch &ndash;&gt;-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox" name="diet_restr" [(ngModel)]="diet_restr">-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+        <!--<div class="form-group" *ngIf="diet_restr">-->
+          <!--<p class="alert">NOTE: We will try our best to accommodate all dietary restrictions as-->
+            <!--long as your registration is submitted at least a month before the event. In case you-->
+            <!--need to select multiple options, just type them all under "other"</p>-->
+          <!--<input type="radio" class="with-gap" id="vegetarian" required name="dietaryRestriction"-->
+                 <!--value="vegetarian"-->
+                 <!--(change)="dietaryRestriction($event)">-->
+          <!--<label for="vegetarian">Vegetarian</label><br>-->
+          <!--<input type="radio" class="with-gap" id="vegan" required name="dietaryRestriction"-->
+                 <!--value="vegan"-->
+                 <!--(change)="dietaryRestriction($event)">-->
+          <!--<label for="vegan">Vegan</label><br>-->
+          <!--<input type="radio" class="with-gap" id="kosher" required name="dietaryRestriction"-->
+                 <!--value="kosher"-->
+                 <!--(change)="dietaryRestriction($event)">-->
+          <!--<label for="kosher">Kosher</label><br>-->
+          <!--<input type="radio" class="with-gap" id="halal" required name="dietaryRestriction"-->
+                 <!--value="halal"-->
+                 <!--(change)="dietaryRestriction($event)">-->
+          <!--<label for="halal">Halal</label><br>-->
+          <!--<input type="radio" class="with-gap" id="gluten-free" required name="dietaryRestriction"-->
+                 <!--(change)="dietaryRestriction($event)"-->
+                 <!--value="gluten-free">-->
+          <!--<label for="gluten-free">Gluten Free</label><br>-->
+          <!--<input type="radio" class="with-gap" id="other" required name="dietaryRestriction"-->
+                 <!--value="other"-->
+                 <!--(change)="dietaryRestriction($event)">-->
+          <!--<label for="other">Other</label><br>-->
+        <!--</div>-->
+        <!--<div *ngIf="diet_restr && otherDietRestr" [@enterAnimation] class="input-field">-->
+          <!--<input name="dietary_restrictions"-->
+                 <!--id="other-diet-restr"-->
+                 <!--class="validate"-->
+                 <!--[(ngModel)]="registrationForm.dietaryRestriction"-->
+                 <!--autocomplete="name"-->
+                 <!--type="text"-->
+          <!--&gt;-->
+          <!--<label for="other-diet-restr">Describe them</label>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/DietaryRestrictions.svg">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Age -->
-  <div class="row scrollspy" materialize="scrollSpy" id="age-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="age">Will you be at least 18  or a current university student before November 2, 2019?</h5>
-        <!-- Switch -->
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox"
-                   required
-                   name="eighteenBeforeEvent"
-                   [(ngModel)]="registrationForm.eighteenBeforeEvent"
-                   #ageinput="ngModel"
-            >
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-        <div *ngIf="!registrationForm.eighteenBeforeEvent">
-          <p class="alert danger">
-            You must be 18 to attend. If you are under 18 and still wish to attend, please contact
-            us at <a
-            href="mailto://team@hackpsu.org">team@hackpsu.org</a>
-          </p>
-        </div>
-        <label class="data-error" *ngIf="!registrationForm.eighteenBeforeEvent">Required</label>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Allergies &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="travel">If you have allergies, describe them here.</h5>-->
+        <!--<input name="allergies"-->
+               <!--id="allergy-input"-->
+               <!--class="validate"-->
+               <!--[(ngModel)]="registrationForm.allergies"-->
+               <!--type="text"-->
+        <!--&gt;-->
+        <!--<label for="allergy-input">Describe them</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Shirt Size -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy"
-       materialize="scrollSpy"
-       id="shirt-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="shirt-size">What is your shirt size?</h5>
-        <div class="form-group required">
-          <input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS"
-                 #shirtControl="ngModel"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="xsmall">X-Small</label><br>
-          <input type="radio" class="with-gap" id="small" required name="shirtSize" value="S"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="small">Small</label><br>
-          <input type="radio" class="with-gap" id="medium" required name="shirtSize" value="M"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="medium">Medium</label><br>
-          <input type="radio" class="with-gap" id="large" required name="shirtSize" value="L"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="large">Large</label><br>
-          <input type="radio" class="with-gap" id="xlarge" required name="shirtSize" value="XL"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="xlarge">X-Large</label><br>
-          <input type="radio" class="with-gap" id="xxlarge" required name="shirtSize" value="XXL"
-                 [(ngModel)]="registrationForm.shirtSize">
-          <label for="xxlarge">XX-Large</label>
-        </div>
-        <label class="data-error" *ngIf="!shirtControl.valid">Required</label>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/Shirt.svg">
-    </div>
-  </div>
+  <!--&lt;!&ndash; Major &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="major-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="major">What is your (intended) major?</h5>-->
+        <!--<p class="alert">Type your response if the dropdown does not contain your major.</p>-->
+        <!--<div class="input-field">-->
+          <!--<input type="text"-->
+                 <!--name="major"-->
+                 <!--[(ngModel)]="registrationForm.major"-->
+                 <!--#majorinput="ngModel"-->
+                 <!--id="autocomplete-input-major"-->
+                 <!--required-->
+                 <!--class="validate required"-->
+                 <!--materialize="autocomplete"-->
+                 <!--[materializeParams]="[majAutoCompInit]">-->
+          <!--<label for="autocomplete-input-major" data-error="Major is required">Enter your-->
+            <!--major</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!majorinput.valid">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash; School &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="university-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="school">What university do you attend?</h5>-->
+        <!--<div class="input-field">-->
+          <!--<label for="autocomplete-input-university">Name of university</label>-->
+          <!--<input type="text"-->
+                 <!--name="university"-->
+                 <!--required-->
+                 <!--[(ngModel)]="registrationForm.university"-->
+                 <!--#schoolinput="ngModel"-->
+                 <!--id="autocomplete-input-university"-->
+                 <!--materialize="autocomplete"-->
+                 <!--[materializeParams]="[univAutoCompInit]">-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!schoolinput.valid">Required</label>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/University.svg">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Travel Reimbursement -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="travel-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="travel">Will you need travel reimbursement?</h5>
-        <!-- Switch -->
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox" name="travel_reimbursement"
-                   [(ngModel)]="registrationForm.travelReimbursement">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/TravelReimbursement.svg">
-    </div>
-  </div>
+  <!--&lt;!&ndash; Academic Year &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="year-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="year">Academic Year</h5>-->
+        <!--<div class="form-group">-->
+          <!--<input type="radio" class="with-gap" id="freshman" required name="academic_year"-->
+                 <!--value="freshman"-->
+                 <!--#yearinput="ngModel"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="freshman">Freshman</label><br>-->
+          <!--<input type="radio" class="with-gap" id="sophomore" required name="academic_year"-->
+                 <!--value="sophomore"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="sophomore">Sophomore</label><br>-->
+          <!--<input type="radio" class="with-gap" id="junior" required name="academic_year"-->
+                 <!--value="junior"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="junior">Junior</label><br>-->
+          <!--<input type="radio" class="with-gap" id="senior" required name="academic_year"-->
+                 <!--value="senior"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="senior">Senior</label><br>-->
+          <!--<input type="radio" class="with-gap" id="graduate" required name="academic_year"-->
+                 <!--value="graduate"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="graduate">Graduate</label><br>-->
+          <!--<input type="radio" class="with-gap" id="other_year" required name="academic_year"-->
+                 <!--value="other"-->
+                 <!--[(ngModel)]="registrationForm.academicYear">-->
+          <!--<label for="other_year">Other</label><br>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!yearinput.valid">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- First Hackathon -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5 class="attended">Is this your first hackathon?</h5>
-        <!-- Switch -->
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox" name="firstHackathon"
-                   [(ngModel)]="registrationForm.firstHackathon">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Resume &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="resume-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content">-->
+        <!--<h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}}-->
+          <!--resume</h5>-->
+        <!--<p class="alert">This field is completely optional. You may submit your resume if you want-->
+          <!--us to share it-->
+          <!--with employers at HackPSU.</p>-->
+        <!--<div class="file-field input-field row">-->
+          <!--<div class="btn col-sm-6 offset-sm-3">-->
+            <!--<span class="hide-on-large-only"><i class="material-icons center">file_upload</i></span>-->
+            <!--<span class="hide-on-med-and-down">Select file</span>-->
+            <!--<input type="file" name="resume" (change)="fileAdded($event)" accept="application/pdf">-->
+          <!--</div>-->
+          <!--<div class="file-path-wrapper col-sm-12">-->
+            <!--<input class="file-path validate" type="text" placeholder="Upload a pdf file">-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Dietary Restrictions -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="diet-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="diet">Do you have any dietary restrictions or allergies?</h5>
-        <!-- Switch -->
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox" name="diet_restr" [(ngModel)]="diet_restr">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-        <div class="form-group" *ngIf="diet_restr">
-          <p class="alert">NOTE: We will try our best to accommodate all dietary restrictions as
-            long as your registration is submitted at least a month before the event. In case you
-            need to select multiple options, just type them all under "other"</p>
-          <input type="radio" class="with-gap" id="vegetarian" required name="dietaryRestriction"
-                 value="vegetarian"
-                 (change)="dietaryRestriction($event)">
-          <label for="vegetarian">Vegetarian</label><br>
-          <input type="radio" class="with-gap" id="vegan" required name="dietaryRestriction"
-                 value="vegan"
-                 (change)="dietaryRestriction($event)">
-          <label for="vegan">Vegan</label><br>
-          <input type="radio" class="with-gap" id="kosher" required name="dietaryRestriction"
-                 value="kosher"
-                 (change)="dietaryRestriction($event)">
-          <label for="kosher">Kosher</label><br>
-          <input type="radio" class="with-gap" id="halal" required name="dietaryRestriction"
-                 value="halal"
-                 (change)="dietaryRestriction($event)">
-          <label for="halal">Halal</label><br>
-          <input type="radio" class="with-gap" id="gluten-free" required name="dietaryRestriction"
-                 (change)="dietaryRestriction($event)"
-                 value="gluten-free">
-          <label for="gluten-free">Gluten Free</label><br>
-          <input type="radio" class="with-gap" id="other" required name="dietaryRestriction"
-                 value="other"
-                 (change)="dietaryRestriction($event)">
-          <label for="other">Other</label><br>
-        </div>
-        <div *ngIf="diet_restr && otherDietRestr" [@enterAnimation] class="input-field">
-          <input name="dietary_restrictions"
-                 id="other-diet-restr"
-                 class="validate"
-                 [(ngModel)]="registrationForm.dietaryRestriction"
-                 autocomplete="name"
-                 type="text"
-          >
-          <label for="other-diet-restr">Describe them</label>
-        </div>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/DietaryRestrictions.svg">
-    </div>
-  </div>
+  <!--&lt;!&ndash; MLH Code of Conduct &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="mlh-container-coc">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="mlh-coc">Do you agree to MLH Code of Conduct?</h5>-->
+        <!--<p class="small-text"> MLH Code of Conduct: <a-->
+          <!--href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"-->
+          <!--target="_blank">https://static.mlh.io/docs/mlh-code-of-conduct.pdf</a><br>-->
+        <!--<p class="alert">To participate at HackPSU, you must agree to this policy.</p>-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox"-->
+                   <!--name="mlhcoc"-->
+                   <!--required-->
+                   <!--[(ngModel)]="registrationForm.mlhcoc"-->
+                   <!--#mlhcocinput="ngModel">-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!mlhcocinput.valid">Required</label>-->
+      <!--</div>-->
+      <!--<img class="bouncy-bits hide-on-small-only animated bounce"-->
+           <!--src="../../../assets/images/MLHCodeofConduct.svg">-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Allergies -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="travel">If you have allergies, describe them here.</h5>
-        <input name="allergies"
-               id="allergy-input"
-               class="validate"
-               [(ngModel)]="registrationForm.allergies"
-               type="text"
-        >
-        <label for="allergy-input">Describe them</label>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; MLH Data Sharing Notice &ndash;&gt;-->
+  <!--<div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"-->
+       <!--id="mlh-container-dsp">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="mlh-coc">Do you agree to MLH Data Sharing Notice?</h5>-->
+        <!--<p class="small-text">-->
+          <!--Data Sharing Notice:<br>-->
+          <!--We participate in Major League Hacking (MLH) as a MLH Member Event. You authorize us to-->
+          <!--share certain-->
+          <!--application/registration information for event administration, ranking, MLH-->
+          <!--administration, pre and-->
+          <!--post-event informational e-mails, and occasional messages about hackathons in line with-->
+          <!--the MLH Privacy-->
+          <!--Policy.<br>-->
+        <!--<p class="alert">Note that to participate at HackPSU, you must agree to this policy.</p>-->
+        <!--<div class="switch">-->
+          <!--<label>-->
+            <!--No-->
+            <!--<input type="checkbox"-->
+                   <!--name="mlhdcp"-->
+                   <!--required-->
+                   <!--[(ngModel)]="registrationForm.mlhdcp"-->
+                   <!--#mlhdcpinput="ngModel">-->
+            <!--<span class="lever"></span>-->
+            <!--Yes-->
+          <!--</label>-->
+        <!--</div>-->
+        <!--<label class="data-error" *ngIf="!mlhdcpinput.valid">Required</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Major -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="major-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="major">What is your (intended) major?</h5>
-        <p class="alert">Type your response if the dropdown does not contain your major.</p>
-        <div class="input-field">
-          <input type="text"
-                 name="major"
-                 [(ngModel)]="registrationForm.major"
-                 #majorinput="ngModel"
-                 id="autocomplete-input-major"
-                 required
-                 class="validate required"
-                 materialize="autocomplete"
-                 [materializeParams]="[majAutoCompInit]">
-          <label for="autocomplete-input-major" data-error="Major is required">Enter your
-            major</label>
-        </div>
-        <label class="data-error" *ngIf="!majorinput.valid">Required</label>
-      </div>
-    </div>
-  </div>
-  <!-- School -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="university-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="school">What university do you attend?</h5>
-        <div class="input-field">
-          <label for="autocomplete-input-university">Name of university</label>
-          <input type="text"
-                 name="university"
-                 required
-                 [(ngModel)]="registrationForm.university"
-                 #schoolinput="ngModel"
-                 id="autocomplete-input-university"
-                 materialize="autocomplete"
-                 [materializeParams]="[univAutoCompInit]">
-        </div>
-        <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/University.svg">
-    </div>
-  </div>
+  <!--&lt;!&ndash; Coding Experience &ndash;&gt;-->
+  <!--<div-->
+    <!--*ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"-->
+    <!--class="row scrollspy"-->
+    <!--materialize="scrollSpy" id="additional-questions-container">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="experience">Coding Experience</h5>-->
+        <!--<div class="form-group">-->
+          <!--<input type="radio" class="with-gap" id="none" name="codingExperience" value="none"-->
+                 <!--[(ngModel)]="registrationForm.codingExperience">-->
+          <!--<label for="none">None</label><br>-->
+          <!--<input type="radio" class="with-gap" id="beginner" name="codingExperience"-->
+                 <!--value="beginner"-->
+                 <!--[(ngModel)]="registrationForm.codingExperience">-->
+          <!--<label for="beginner">Beginner (0-2 years) </label><br>-->
+          <!--<input type="radio" class="with-gap" id="intermediate" name="codingExperience"-->
+                 <!--value="intermediate"-->
+                 <!--[(ngModel)]="registrationForm.codingExperience">-->
+          <!--<label for="intermediate">Intermediate (2-4 years)</label><br>-->
+          <!--<input type="radio" class="with-gap" id="advanced" name="codingExperience"-->
+                 <!--value="advanced"-->
+                 <!--[(ngModel)]="registrationForm.codingExperience">-->
+          <!--<label for="advanced">Advanced (> 4 years) </label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Academic Year -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="year-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="year">Academic Year</h5>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="freshman" required name="academic_year"
-                 value="freshman"
-                 #yearinput="ngModel"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="freshman">Freshman</label><br>
-          <input type="radio" class="with-gap" id="sophomore" required name="academic_year"
-                 value="sophomore"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="sophomore">Sophomore</label><br>
-          <input type="radio" class="with-gap" id="junior" required name="academic_year"
-                 value="junior"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="junior">Junior</label><br>
-          <input type="radio" class="with-gap" id="senior" required name="academic_year"
-                 value="senior"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="senior">Senior</label><br>
-          <input type="radio" class="with-gap" id="graduate" required name="academic_year"
-                 value="graduate"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="graduate">Graduate</label><br>
-          <input type="radio" class="with-gap" id="other_year" required name="academic_year"
-                 value="other"
-                 [(ngModel)]="registrationForm.academicYear">
-          <label for="other_year">Other</label><br>
-        </div>
-        <label class="data-error" *ngIf="!yearinput.valid">Required</label>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Reference &ndash;&gt;-->
+  <!--<div-->
+    <!--*ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"-->
+    <!--class="row">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="reference">Where did you hear about HackPSU?</h5>-->
+        <!--<div class="input-field">-->
+          <!--<label for="reference-input"></label>-->
+          <!--<input id="reference-input" name="referral" materialize="autocomplete"-->
+                 <!--[materializeParams]="[referralAutoCompleteInit]"-->
+                 <!--[(ngModel)]="registrationForm.referral">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Resume -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="resume-container">
-    <div class="card medium darken-1">
-      <div class="card-content">
-        <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}}
-          resume</h5>
-        <p class="alert">This field is completely optional. You may submit your resume if you want
-          us to share it
-          with employers at HackPSU.</p>
-        <div class="file-field input-field row">
-          <div class="btn col-sm-6 offset-sm-3">
-            <span class="hide-on-large-only"><i class="material-icons center">file_upload</i></span>
-            <span class="hide-on-med-and-down">Select file</span>
-            <input type="file" name="resume" (change)="fileAdded($event)" accept="application/pdf">
-          </div>
-          <div class="file-path-wrapper col-sm-12">
-            <input class="file-path validate" type="text" placeholder="Upload a pdf file">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Accomplishment &ndash;&gt;-->
+  <!--<div-->
+    <!--*ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"-->
+    <!--class="row">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="accomplish">What is a project you're proud of?</h5>-->
+        <!--<div class="input-field">-->
+            <!--<textarea class="form-control" rows="4" id="accomplish-input" name="accomplishment"-->
+                      <!--[(ngModel)]="registrationForm.projectDesc"></textarea>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- MLH Code of Conduct -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="mlh-container-coc">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="mlh-coc">Do you agree to MLH Code of Conduct?</h5>
-        <p class="small-text"> MLH Code of Conduct: <a
-          href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
-          target="_blank">https://static.mlh.io/docs/mlh-code-of-conduct.pdf</a><br>
-        <p class="alert">To participate at HackPSU, you must agree to this policy.</p>
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox"
-                   name="mlhcoc"
-                   required
-                   [(ngModel)]="registrationForm.mlhcoc"
-                   #mlhcocinput="ngModel">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-        <label class="data-error" *ngIf="!mlhcocinput.valid">Required</label>
-      </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce"
-           src="../../../assets/images/MLHCodeofConduct.svg">
-    </div>
-  </div>
+  <!--&lt;!&ndash; Returns &ndash;&gt;-->
+  <!--<div-->
+    <!--*ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"-->
+    <!--class="row">-->
+    <!--<div class="card medium darken-1">-->
+      <!--<div class="card-content ">-->
+        <!--<h5 class="accomplish">What would you like to get out of HackPSU?</h5>-->
+        <!--<div class="input-field">-->
+            <!--<textarea class="form-control" rows="4" id="return-input" name="return"-->
+                      <!--[(ngModel)]="registrationForm.expectations"></textarea>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash; Submit &ndash;&gt;-->
+  <!--<div-->
+    <!--*ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"-->
+    <!--class="center">-->
+    <!--<div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">-->
+      <!--<button [disabled]="progress.isStarted()" class="btn waves-effect waves-light submit-btn"-->
+              <!--type="submit"-->
+              <!--name="action">Submit-->
+        <!--<i class="material-icons right">send</i>-->
+      <!--</button>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</form>-->
+<!--<div class="col hide-on-small-only m2 l2 scrollspy-container">-->
+  <!--<ul class="section table-of-contents">-->
+    <!--<li><a href="#name-container">General</a></li>-->
+    <!--<li><a href="#shirt-container">Shirt Size</a></li>-->
+    <!--<li><a href="#travel-container">Travel Reimbursement</a></li>-->
+    <!--<li><a href="#diet-container">Dietary Restrictions</a></li>-->
+    <!--<li><a href="#university-container">Education</a></li>-->
+    <!--<li><a href="#resume-container">Resume</a></li>-->
+    <!--<li><a href="#mlh-container-coc">MLH Code of Conduct</a></li>-->
+    <!--<li><a href="#mlh-container-coc">MLH Data Sharing Policy</a></li>-->
+    <!--<li><a href="#additional-questions-container">Additional Questions</a></li>-->
+  <!--</ul>-->
 
-  <!-- MLH Data Sharing Notice -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-       id="mlh-container-dsp">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="mlh-coc">Do you agree to MLH Data Sharing Notice?</h5>
-        <p class="small-text">
-          Data Sharing Notice:<br>
-          We participate in Major League Hacking (MLH) as a MLH Member Event. You authorize us to
-          share certain
-          application/registration information for event administration, ranking, MLH
-          administration, pre and
-          post-event informational e-mails, and occasional messages about hackathons in line with
-          the MLH Privacy
-          Policy.<br>
-        <p class="alert">Note that to participate at HackPSU, you must agree to this policy.</p>
-        <div class="switch">
-          <label>
-            No
-            <input type="checkbox"
-                   name="mlhdcp"
-                   required
-                   [(ngModel)]="registrationForm.mlhdcp"
-                   #mlhdcpinput="ngModel">
-            <span class="lever"></span>
-            Yes
-          </label>
-        </div>
-        <label class="data-error" *ngIf="!mlhdcpinput.valid">Required</label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Coding Experience -->
-  <div
-    *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="row scrollspy"
-    materialize="scrollSpy" id="additional-questions-container">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="experience">Coding Experience</h5>
-        <div class="form-group">
-          <input type="radio" class="with-gap" id="none" name="codingExperience" value="none"
-                 [(ngModel)]="registrationForm.codingExperience">
-          <label for="none">None</label><br>
-          <input type="radio" class="with-gap" id="beginner" name="codingExperience"
-                 value="beginner"
-                 [(ngModel)]="registrationForm.codingExperience">
-          <label for="beginner">Beginner (0-2 years) </label><br>
-          <input type="radio" class="with-gap" id="intermediate" name="codingExperience"
-                 value="intermediate"
-                 [(ngModel)]="registrationForm.codingExperience">
-          <label for="intermediate">Intermediate (2-4 years)</label><br>
-          <input type="radio" class="with-gap" id="advanced" name="codingExperience"
-                 value="advanced"
-                 [(ngModel)]="registrationForm.codingExperience">
-          <label for="advanced">Advanced (> 4 years) </label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reference -->
-  <div
-    *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="row">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="reference">Where did you hear about HackPSU?</h5>
-        <div class="input-field">
-          <label for="reference-input"></label>
-          <input id="reference-input" name="referral" materialize="autocomplete"
-                 [materializeParams]="[referralAutoCompleteInit]"
-                 [(ngModel)]="registrationForm.referral">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Accomplishment -->
-  <div
-    *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="row">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="accomplish">What is a project you're proud of?</h5>
-        <div class="input-field">
-            <textarea class="form-control" rows="4" id="accomplish-input" name="accomplishment"
-                      [(ngModel)]="registrationForm.projectDesc"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Returns -->
-  <div
-    *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="row">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="accomplish">What would you like to get out of HackPSU?</h5>
-        <div class="input-field">
-            <textarea class="form-control" rows="4" id="return-input" name="return"
-                      [(ngModel)]="registrationForm.expectations"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Submit -->
-  <div
-    *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="center">
-    <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-      <button [disabled]="progress.isStarted()" class="btn waves-effect waves-light submit-btn"
-              type="submit"
-              name="action">Submit
-        <i class="material-icons right">send</i>
-      </button>
-    </div>
-  </div>
-</form>
-<div class="col hide-on-small-only m2 l2 scrollspy-container">
-  <ul class="section table-of-contents">
-    <li><a href="#name-container">General</a></li>
-    <li><a href="#shirt-container">Shirt Size</a></li>
-    <li><a href="#travel-container">Travel Reimbursement</a></li>
-    <li><a href="#diet-container">Dietary Restrictions</a></li>
-    <li><a href="#university-container">Education</a></li>
-    <li><a href="#resume-container">Resume</a></li>
-    <li><a href="#mlh-container-coc">MLH Code of Conduct</a></li>
-    <li><a href="#mlh-container-coc">MLH Data Sharing Policy</a></li>
-    <li><a href="#additional-questions-container">Additional Questions</a></li>
-  </ul>
-
-  <p class="email-us-text"> Any issues? - Email us at <br/> <a href="mailto:technology@hackpsu.org"> <b>technology@hackpsu.org </b> </a> </p>
-</div>
+  <!--<p class="email-us-text"> Any issues? - Email us at <br/> <a href="mailto:technology@hackpsu.org"> <b>technology@hackpsu.org </b> </a> </p>-->
+<!--</div>-->

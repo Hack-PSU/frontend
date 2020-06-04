@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -28,7 +28,7 @@ declare var $: any;
     // animation triggers go here
   ]
 })
-export class AppComponent implements AngularFireAuthModule, OnInit {
+export class AppComponent implements AngularFireAuthModule, AfterViewInit {
 
   static scrollToID(id, speed) {
     const elem = $(id);
@@ -40,18 +40,17 @@ export class AppComponent implements AngularFireAuthModule, OnInit {
     }
   }
 
-  ngOnInit(): void {
-    $(document).ready(() => {
-      $('.button-collapse').sideNav();
-      $('.dropdown-button').dropdown();
-      $('nav').find('.scroller').click((e) => {
-        e.preventDefault();
-        AppComponent.scrollToID($(e.target).attr('href'), 500);
-      });
-      $('#mobile-demo').find('.scroller').click((e) => {
-        e.preventDefault();
-        AppComponent.scrollToID($(e.target).attr('href'), 500);
-      });
+  ngAfterViewInit(): void {
+    $('.button-collapse').sideNav();
+  
+    $('.dropdown-button').dropdown();
+    $('nav').find('.scroller').click((e) => {
+      e.preventDefault();
+      AppComponent.scrollToID($(e.target).attr('href'), 500);
+    });
+    $('#mobile-demo').find('.scroller').click((e) => {
+      e.preventDefault();
+      AppComponent.scrollToID($(e.target).attr('href'), 500);
     });
   }
 

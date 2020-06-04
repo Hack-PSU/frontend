@@ -272,6 +272,8 @@ header {
 }
 
 .second-border {
+  position: relative;
+  top: -5px;
   content: url("../assets/images/border6-night.svg");
 }
 
@@ -333,6 +335,7 @@ header {
 
 #sponsors {
   padding-top: 50px;
+  position: relative;
   background: $dark-blue-tertiary;
   .header-text {
     color: #FFFFFF;
@@ -405,4 +408,22 @@ header {
 }
 .nittany-ai-night{
   content: url("../assets/images/sponsors/nittanyai-night.svg");
+}
+.textron-night{
+  content: url("../assets/images/sponsors/textron_night.svg");
+}
+.capone-night{
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+.linode-night{
+  content: url("../assets/images/sponsors/linode-night.svg");
+}
+.agora-night{
+  content: url("../assets/images/sponsors/agora-night.svg");
+}
+.plantvillage-night{
+  content: url("../assets/images/sponsors/plan_t_logo_night.svg");
+}
+.pwc-night{
+  content: url("../assets/images/sponsors/PWC_night.svg");
 }
