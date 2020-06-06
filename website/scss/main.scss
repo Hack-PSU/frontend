@@ -6,7 +6,7 @@ $font-stack-tertiary: 'Cornerstone', sans-serif;
 $white: #FFFFFF;
 $orange: #E5705C;
 $light-blue-primary: #6C88B7;
-$dark-blue-primary: #133753;
+$dark-blue-primary: #020A21;
 $light-blue: #AACACC;
 $dark-blue-secondary: #24577C;
 $light-blue-secondary: #D0EAF1;
@@ -111,6 +111,7 @@ body {
   color:       white;
   font-size:   xx-large;
   text-align:  center;
+  overflow-x: hidden;
 
   .center {
     width:      100%;
@@ -336,48 +337,20 @@ body {
   margin-bottom: 0px;
 }
 
-#moon_container {
-  background: url('../assets/images/about/Panels_Moon Square.svg') no-repeat;
-  background-size: 100% 100%;
-  padding: 6em;
+/* ====================== ABOUT SECTION ====================*/
+#about {
+  position: relative;
 }
 
-.floating {
-  animation-name:            floating;
-  animation-duration:        3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-.flying {
-  animation-name:            flying;
-  animation-duration:        5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-/* astronaut floating animation */
-.floating:nth-child(2) {
-  animation-delay: -1s;
-}
-@keyframes floating {
-  0% {
-    transform: translateY(2vh) rotate(30deg);
-  }
-  50% {
-    transform: translateY(-2vh) rotate(30deg);
-  }
-  100% {
-    transform: translateY(2vh) rotate(30deg);
-  }
-}
-
-@keyframes flying {
-  0% {
-    transform: translate(0, 0) rotate(45deg);
-  }
-  100% {
-    transform: translate(40vw, -40vw) rotate(45deg);
-  }
+#about_text_container {
+  position: absolute;
+  text-align: left;
+  top: 15%;
+  width: 50vw;
+  height: 70%;
+  overflow-y: scroll;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #astronaut_laptop {
@@ -387,6 +360,13 @@ body {
   width: 10vw;
 }
 
+#astronaut_swim {
+  position: absolute;
+  left: 3vw;
+  top: 30vh;
+  width: 12vw;
+}
+
 #astronaut_wave {
   position: absolute;
   right: 3vw;
@@ -394,11 +374,8 @@ body {
   width: 10vw;
 }
 
-#astronaut_swim {
-  position: absolute;
-  left: 3vw;
-  top: 30vh;
-  width: 12vw;
+#moon {
+  width: 65vw;
 }
 
 #rocket_flying {
@@ -416,23 +393,42 @@ body {
   width: 30vw;
 }
 
-#moon {
-  width: 65vw;
+.floating {
+  animation-name:            floating;
+  animation-duration:        3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-#about {
-  position: relative;
+.floating:nth-child(2) {
+  animation-delay: -1s;
+}
+@keyframes floating {
+  0% {
+    transform: translateY(2vh) rotate(30deg);
+  }
+  50% {
+    transform: translateY(-2vh) rotate(30deg);
+  }
+  100% {
+    transform: translateY(2vh) rotate(30deg);
+  }
 }
 
-#about_text_container {
-  position: absolute;
-  text-align: left;
-  top: 15%;
-  width: 50vw;
-  height: 70%;
-  overflow-y: scroll;
-  left: 50%;
-  transform: translateX(-50%);
+.flying {
+  animation-name:            flying;
+  animation-duration:        5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flying {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate(40vw, -40vw) rotate(45deg);
+  }
 }
 
 /* Tracks */
