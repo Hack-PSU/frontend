@@ -61,21 +61,24 @@ transition: 0.5s ease;
 -o-transition: 0.5s ease;
 transition: 0.5s ease;
   }
+  .schedule-title{
+    text-align: center;
+  }
 
   </style>
 
   <div  id="schedule-container" class="container-fluid">
     <div class="row">
-      <div class="col-md-9">
-        <div class="row">
+
+
           <h5>Select items:</h5>
           <button type="button" class="selButton" id="buttAct" onclick="clkBtnScdAct()" >ACTIVITIES</button>
 
           <button type="button" class="selButton" id="buttMeal" onclick="clkBtnScdMeal()" >MEALS</button>
           <button type="button" class="selButton" id="buttWork" onclick="clkBtnScdWork()" >WORKSHOPS</button>
-        </div>
-      </div>
-      <div class="col-md-3">
+
+
+
         <div class="switch" style="float: right;">
           <label>
             Day 1
@@ -84,7 +87,7 @@ transition: 0.5s ease;
             Day 2
           </label>
         </div>
-      </div>
+
     </div>
   </div>
 
