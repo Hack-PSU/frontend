@@ -268,13 +268,6 @@ header {
 }
 */
 
-.first-border {
-  content: url("../assets/images/section-sep-1-mountain-night.svg");
-}
-.first-border::after {
-  content: url("../assets/images/section-sep-1-mountain-night.svg");
-}
-
 .second-border {
   position: relative;
   top: -5px;
