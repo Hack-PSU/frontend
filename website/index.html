@@ -32,7 +32,8 @@
 
   <!-- Owl Carousel Stylesheet-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <!-- JS Carousel -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
@@ -40,8 +41,8 @@
 
   <!-- Compiled and minified JavaScript -->
   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async
-      defer></script>
+          src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async
+          defer></script>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -67,7 +68,7 @@
       if (f.fbq) return;
       n = f.fbq = function () {
         n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments);
       };
       if (!f._fbq) f._fbq = n;
       n.push = n;
@@ -80,36 +81,58 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+            'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '795330067294686');
     fbq('track', 'PageView');
   </script>
   <script type="text/javascript">
     $(document)
-      .ready(function () {
-        $('.button-collapse')
-          .sideNav({ edge: 'left' });
-        $('.scrollspy')
-          .scrollSpy({ scrollOffset: 0 });
-      });
+            .ready(function () {
+              $('.button-collapse')
+                      .sideNav({ edge: 'left' });
+              $('.scrollspy')
+                      .scrollSpy({ scrollOffset: 0 });
+            });
   </script>
 
   <!--Browser compatibility popup-->
   <script>
-    var $buoop = {required:{e:0,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.09 };
-    function $buo_f(){
-      var e = document.createElement("script");
-      e.src = "//browser-update.org/update.min.js";
+    var $buoop = {
+      required: {
+        e: 0,
+        f: -3,
+        o: -3,
+        s: -1,
+        c: -3
+      },
+      insecure: true,
+      unsupported: true,
+      api: 2018.09
+    };
+
+    function $buo_f() {
+      var e = document.createElement('script');
+      e.src = '//browser-update.org/update.min.js';
       document.body.appendChild(e);
     };
-    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-    catch(e){window.attachEvent("onload", $buo_f)}
+    try {
+      document.addEventListener('DOMContentLoaded', $buo_f, false);
+    } catch (e) {
+      window.attachEvent('onload', $buo_f);
+    }
   </script>
   <noscript>
     <img height="1" width="1"
          src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Facebook Pixel Code -->
+
+  <!-- Message for Internet Explorer -->
+  <script>
+    if (is-iexplorer) {
+      alert("Website not compatible with Internet Explorer.\nPlease switch to a different browser.");
+    }
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
@@ -126,7 +149,7 @@
   </script>
 
   <script>
-    particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
+    particlesJS.load('particles-js', '../json/particlesjs-config.json', function () {
       console.log('callback - particles.js config loaded');
     });
   </script>
