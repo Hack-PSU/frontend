@@ -129,7 +129,7 @@
 
   <!-- Message for Internet Explorer -->
   <script>
-    if (is-iexplorer) {
+    if (window.document.documentMode) {
       alert("Website not compatible with Internet Explorer.\nPlease switch to a different browser.");
     }
   </script>
