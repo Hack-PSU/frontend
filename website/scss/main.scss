@@ -208,7 +208,6 @@ body {
       border:        solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
       margin-bottom: 2vh;
-      margin-top: 1vh;
 
       &:hover {
         @include transition(all, 0.4s);
@@ -316,12 +315,13 @@ body {
 }
 
 .section-separator-bar {
-  height: 50px;
+  height: 100px;
   width: 100%;
-  background: #006837;
+  background: linear-gradient(#009245, transparent);
   position: relative;
   z-index: 500;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border: none;
 }
 
 .row {
