@@ -51,12 +51,12 @@
 }
 
 .activity {
-  color: white;
+  color: black;
 }
 
 .activity .event {
-  background-color: #6c88b7;
-  border: 5px solid #6c88b7;
+  background-color: rgba(178, 206, 233);
+  border-left: 7px solid #6c88b7;
   border-radius: 10px;
 }
 
@@ -71,16 +71,16 @@
 }
 
 .food .event {
-  background-color: #aacacc;
+  background-color: rgb(190,222,224);
   color: #333333;
-  border: 5px solid #aacacc;
+  border-left: 7px solid rgb(140,172,174);
   border-radius: 10px;
 }
 
 .workshops .event {
-  background-color: #e5704c;
-  color: white;
-  border: 5px solid #e5704c;
+  background-color: rgb(249,132,96);
+  color: black;
+  border-left: 7px solid rgb(209,102,56);
   border-radius: 10px;
 }
 
@@ -118,12 +118,12 @@
 }
 
 .event-time {
-  color: white;
+  color: black;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .activity .event-time {
-  color: white;
+  color: black;
 }
 
 
@@ -169,14 +169,14 @@ i {
   font-size: 1.1rem;
   line-height:110%;
   margin-bottom: .3rem;
-  color: white;
+  color: black;
 }
 
 .event-time {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: white;
+  color: black;
 }
 
 .event-location {

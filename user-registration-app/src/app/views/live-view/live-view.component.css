@@ -505,6 +505,7 @@ footer {
 .design-prompt-box {
   border: 5px solid #6C88B7;
   border-radius: 10px;
+  background-color: #194E6B;
 }
 .design-prompt p {
   font-family: 'Cornerstone', sans-serif !important;
@@ -538,7 +539,7 @@ footer {
 
 .prize-img {
   max-width: 50%;
-  box-shadow: -1px 3px 5px 0px rgba(10, 10, 10, 0.55)
+  /* box-shadow: -1px 3px 5px 0px rgba(10, 10, 10, 0.55) */
 }
 
 .prizes-text {
