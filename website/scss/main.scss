@@ -201,6 +201,14 @@ body {
       }
     }
 
+    .planet {
+      animation-name:            planet_floating;
+      animation-duration:        2s;
+      animation-iteration-count: 0;
+      animation-timing-function: ease-in-out;
+      animation-play-state: paused;
+    }
+
     .register-btn {
       @include transition(all, 0.4s);
       height:        10vh;
@@ -212,7 +220,12 @@ body {
 
       &:hover {
         @include transition(all, 0.4s);
-        background: rgba(170, 202, 204, 1)
+        background: rgba(170, 202, 204, 1);
+
+        .planet {
+          animation-iteration-count: infinite;
+          animation-play-state: running;
+        }
       }
       .header-text {
         font-family:   $font-stack-tertiary;
@@ -225,6 +238,8 @@ body {
           line-height: 9vh;
         }
       }
+
+      
 
       /* Some CSS I made up to get that wrapped box effect in the header.
       This can be applied to any text structured in the same way as the
@@ -328,6 +343,21 @@ body {
   margin-bottom: 0;
 }
 
+@keyframes planet_floating {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-2vh);
+  }
+  66% {
+    transform: translateY(2vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* ====================== ABOUT SECTION ====================*/
 #about {
   position: relative;
@@ -368,6 +398,8 @@ body {
 #moon {
   width: 65vw;
 }
+
+
 
 #rocket_flying {
   position: absolute;
