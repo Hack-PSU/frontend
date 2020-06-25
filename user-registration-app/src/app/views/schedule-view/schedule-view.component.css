@@ -165,7 +165,7 @@ i {
 }
 
 .event-title {
-  font-weight: 300;
+  font-weight: 600;
   font-size: 1.1rem;
   line-height:110%;
   margin-bottom: .3rem;
@@ -174,13 +174,13 @@ i {
 
 .event-time {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   color: black;
 }
 
 .event-location {
-  font-weight: 300;
+  font-weight: 600;
   font-size: 1rem;
 }
 
