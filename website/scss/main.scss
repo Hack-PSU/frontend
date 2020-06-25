@@ -315,13 +315,11 @@ body {
 }
 
 .section-separator-bar {
-  height: 100px;
+  height: 120px;
   width: 100%;
   background: linear-gradient(#009245, transparent);
   position: relative;
   z-index: 500;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border: none;
 }
 
 .row {
@@ -372,9 +370,9 @@ body {
 #rocket_flying {
   position: absolute;
   z-index: -1;
-  right: 24vw;
-  top: 10vh;
-  width: 10vw;
+  right: 26vw;
+  top: 12vh;
+  width: 6vw;
 }
 
 #rocket_docked {
@@ -382,6 +380,12 @@ body {
   top: -30%;
   right: 20%;
   width: 30vw;
+}
+
+/* fixes the dreaded line between the first
+border and the section separator bar */
+.first-border {
+  width: calc(100% + 1px);
 }
 
 .floating {
@@ -824,7 +828,7 @@ body {
 /************* FOOTER *************/
 #footer {
   padding: 4em;
-  background: url('../assets/images/about/Panels_Earth Core.svg');
+  background: url('../assets/images/about/earth_core.svg');
   background-size: cover;
 
   .social-media-icon {
