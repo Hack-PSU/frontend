@@ -217,10 +217,10 @@
         </div>
 
         <div class="row cta">
-          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet">
             <div class="row">
               <a href="https://app.hackpsu.org/login">
-                <img src="./assets/images/planet6small.svg" style="height: 15vh; width: auto; position: relative;left: -50;bottom: 32" class="planet"/>
+                <img src="./assets/images/planet6small.svg" class="planet"/>
               </a>
               <a href="https://app.hackpsu.org/login">
                 <div class="header-text text-center">
@@ -236,10 +236,10 @@
               <!--</div>-->
             <!--</a>-->
           <!--</div>-->
-          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn" style="left: 8vh;">
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet" style="left: 8vh;">
             <div class="row">
               <a href="https://app.hackpsu.org/signup">
-                <img src="./assets/images/planet7small.svg" style="height: 16vh; width: auto; position: relative;left: -50;bottom: 32"/>
+                <img src="./assets/images/planet7small.svg" style="height: 16vh; width: auto; position: relative;left: -50;bottom: 32" class="planet"/>
               </a>
               <a href="https://app.hackpsu.org/signup">
                 <div class="header-text text-center">
@@ -253,6 +253,20 @@
     </div>
   </div>
 </header>
+
+<!--Planet animation trigger-->
+<script>
+  $(".planet").on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", 
+    function(){
+      $(this).removeClass("animated")
+    });
+
+  $(".btn-with-planet").on('mouseenter', function(event){
+    //get planet corresponding to button (child element)
+    var planet = this.querySelector(".planet")
+    planet.classList.add("animated")  
+  })
+</script>
 
 <section id="about">
 

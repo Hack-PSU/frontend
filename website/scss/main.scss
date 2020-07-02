@@ -202,13 +202,18 @@ body {
     }
 
     .planet {
-      animation-name:            planet_floating;
-      animation-duration:        2s;
-      animation-iteration-count: 0;
-      animation-timing-function: ease-in-out;
-      animation-play-state: paused;
-    }
+      height: 15vh; 
+      width: auto; 
+      position: relative;
+      left: -50;
+      bottom: 32;
 
+      &.animated {
+        animation-name:            planet_floating;
+        animation-duration:        2s;
+        animation-iteration-count: 2;
+      }
+    }
     .register-btn {
       @include transition(all, 0.4s);
       height:        10vh;
@@ -221,11 +226,6 @@ body {
       &:hover {
         @include transition(all, 0.4s);
         background: rgba(170, 202, 204, 1);
-
-        .planet {
-          animation-iteration-count: infinite;
-          animation-play-state: running;
-        }
       }
       .header-text {
         font-family:   $font-stack-tertiary;
@@ -343,18 +343,60 @@ body {
   margin-bottom: 0;
 }
 
-@keyframes planet_floating {
+@-webkit-keyframes planet_floating {
   0% {
     transform: translateY(0);
+    animation-timing-function: ease-out;
   }
   33% {
     transform: translateY(-2vh);
+    animation-timing-function: ease-in;
   }
   66% {
     transform: translateY(2vh);
+    animation-timing-function: ease-out;
   }
   100% {
     transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+}
+
+@-moz-keyframes planet_floating {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: translateY(-2vh);
+    animation-timing-function: ease-in;
+  }
+  66% {
+    transform: translateY(2vh);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes planet_floating {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: translateY(-1vh);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: translateY(1vh);
+    animation-timing-function: ease-in;
   }
 }
 
