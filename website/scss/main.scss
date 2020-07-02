@@ -1,4 +1,4 @@
-/* ====================== CONSTANTS ====================*/
+/* ====================== CONSTANTS ==================== */
 
 /* font stacks */
 $font-stack-primary: 'Lato', sans-serif;
@@ -38,7 +38,7 @@ $break-large: 1200px;
 
 
 
-/* ====================== MIXINS ====================*/
+/* ====================== MIXINS ==================== */
 @mixin accent($color) {
   color: $color;
   background-color: $color;
@@ -89,26 +89,7 @@ $break-large: 1200px;
 
 
 
-/* ====================== GLOBAL STYLES ====================*/
-.accent {
-  @include accent($light-blue);
-}
-
-.spacer {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  width: 100%;
-}
-
-.spacer-xl {
-  margin-top: 30vh;
-  margin-bottom: 30vh;
-  width: 100%;
-}
-
-
-
-/* ====================== COMPONENTS ====================*/
+/* ====================== COMPONENTS ==================== */
 body {
   font-family: $font-stack-primary;
   color: white;
@@ -117,14 +98,14 @@ body {
   overflow-x: hidden;
   background: $dark-blue-primary;
 
+  a:hover {
+    text-decoration: none;
+  }
+
   .center {
     width: 100%;
     margin: auto;
     text-align: center;
-  }
-
-  a:hover {
-    text-decoration: none;
   }
 
   .section-header {
@@ -186,6 +167,42 @@ body {
       top: 2.5vh;
       margin: auto;
       z-index: 400;
+
+      img {
+        content: url("../assets/images/Logo_v2.svg");
+      }
+    }
+
+    .celestial-body {
+      position: absolute;
+      width: 12.5%;
+      left: 7%;
+      right: 0;
+      top: 11.5vh;
+      margin: 0;
+
+      img {
+        content: url("../assets/images/moon.svg");
+      }
+
+      @media screen and (max-width: $break-small){
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: $lg-break){
+      padding-top: 25%;
+    }
+
+    @media screen and (max-width: $break-large) {
+      height: auto;
+    }
+
+    @media screen and (max-width: $sm-break) {
+      padding-top: 55%;
+      .logo-holder {
+        width: 60%;
+      }
     }
 
     .header-content {
@@ -205,6 +222,68 @@ body {
       }
     }
 
+    .header-text {
+      font-family:   $font-stack-tertiary;
+      @include responsive-font(.85em, .8em, 1.25em, 1em);
+      max-font-size: 2em;
+
+      p {
+        text-align:  start;
+        padding:     0;
+        line-height: 1em;
+        transition:  all 0.4s;
+        color:       #424242;
+        white-space: nowrap;
+      }
+    }
+
+    .wrapped-box {
+      p {
+        position: relative;
+        z-index: 100;
+        margin-bottom: 18px;
+      }
+
+      p:first-of-type {
+        z-index: 200;
+      }
+
+      p:last-of-type {
+        z-index: 200;
+      }
+
+      p span {
+        @include accent-text(#424242);
+        background: white;
+        border: solid 8px rgba(170, 202, 204, 0.6);
+        border-radius: 0 15px 15px 0;
+        padding: 10px 10px 4px 10px;
+        font-weight: 400;
+      }
+
+      p:first-of-type span {
+        border-bottom-width: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 15px;
+        z-index: 200;
+      }
+
+      p:last-of-type span {
+        border-top-width: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 15px;
+        z-index: 200;
+      }
+
+      @media screen and (max-width: 1121px) {
+        p {
+          line-height: .95em;
+        }
+      }
+    }
+
     .register-btn {
       @include transition(all, 0.4s);
       height: 10vh;
@@ -218,42 +297,10 @@ body {
         background: rgba(170, 202, 204, 1)
       }
 
-      .header-text {
-        font-family: $font-stack-tertiary;
-        @include responsive-font(.85em, .8em, 1.25em, 1em);
-        max-font-size: 2em;
-
-        p {
-          // This centers text in button. Typically this should be equal
-          // to the height of the button, however the border throws it off.
+      .header-text p {
+          /* This centers text in button. Typically this should be equal
+          to the height of the button, however the border throws it off. */
           line-height: 9vh;
-        }
-      }
-
-      /* Some CSS I made up to get that wrapped box effect in the header.
-      This can be applied to any text structured in the same way as the
-      event info. */
-      .wrapped-box {
-        padding-left: 0;
-
-        p span {
-          @include accent-text($white);
-          background: $mountain-blue;
-          border: solid 1px $mountain-blue;
-          border-radius: 0 15px 15px 0;
-          padding: 10px 10px 4px 10px;
-          font-weight: 400;
-        }
-
-        p:first-of-type span {
-          border-bottom-left-radius: 0;
-          border-top-left-radius: 15px;
-        }
-
-        p:last-of-type span {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 15px;
-        }
       }
 
       .header-content {
@@ -282,40 +329,11 @@ body {
         &:hover {
           @include transition(all, 0.4s);
 
-          .bottom-bar {
-            background-color: #133753;
-          }
-
           p {
             color: $dark-blue-primary;
           }
         }
       }
-    }
-  }
-}
-
-.register-btn-design {
-  @include transition(all, 0.4s);
-  height: 10vh;
-  background: white;
-  border: solid 8px rgba(170, 202, 204, 0.6);
-  border-radius: 50px;
-
-  &:hover {
-    @include transition(all, 0.4s);
-    background: rgba(170, 202, 204, 1)
-  }
-  .header-text {
-    font-family:   $font-stack-tertiary;
-
-    p {
-      // This centers text in button. Typically this should be equal
-      // to the height of the button, however the border throws it off.
-      line-height: 9vh !important;
-      @include responsive-font(.85em, .8em, 1.25em, 1em);
-      max-font-size: 2em;
-      white-space: normal !important;
     }
   }
 }
@@ -346,9 +364,49 @@ body {
 
 
 
-/* ====================== ABOUT SECTION ====================*/
+/* ====================== ABOUT SECTION ==================== */
 #about {
   position: relative;
+  margin-top: -1px;
+  margin-bottom: -1px;
+
+  @media screen and (max-width: $md-break) {
+    padding-top: 10%;
+  }
+
+  .header-text {
+    color: white;
+  }
+
+  .section-header {
+    text-align: left;
+    margin: 0;
+  }
+
+  .header-bar {
+    background-color: #718a9a;
+    width: 30%;
+    margin: 0;
+
+    @media screen and (max-width: $break-small){
+      width: 100%;
+    }
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 3vh;
+    font-weight: 100;
+    text-align: left;
+    padding-top: 5vh;
+    line-height: 200%;
+    color: white;
+
+    span {
+      font-weight: 800;
+      font-size: 3.2vh;
+    }
+  }
 }
 
 #about_text_container {
@@ -357,7 +415,7 @@ body {
   top: 15%;
   width: 50vw;
   height: 70%;
-  overflow-y: scroll;
+  overflow-y: auto;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -405,7 +463,8 @@ body {
 /* fixes the dreaded line between the first
 border and the section separator bar */
 .first-border {
-  width: calc(100% + 2px);
+  width: calc(100% + 1px);
+  transform: translateY(1px);
 }
 
 .floating {
@@ -418,6 +477,7 @@ border and the section separator bar */
 .floating:nth-child(2) {
   animation-delay: -1s;
 }
+
 @keyframes floating {
   0% {
     transform: translateY(2vh) rotate(30deg);
@@ -448,13 +508,13 @@ border and the section separator bar */
 
 
 
-/* ====================== TRACKS ====================*/
+/* ====================== TRACKS ==================== */
 #tracks {
   padding-top: 10vh;
 
   .header-bar {
     background-color: $mountain-blue;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 
   .track-header {
@@ -510,12 +570,11 @@ border and the section separator bar */
       font-size: 3.2vh;
     }
   }
-
 }
 
 
 
-/* ====================== FAQ ====================*/
+/* ====================== FAQ ==================== */
 #faqs {
   color: white;
   font-family: 'Raleway', sans-serif;
@@ -565,11 +624,6 @@ border and the section separator bar */
     }
   }
 
-  .question + .fa-chevron-right {
-    display: inline-block;
-    margin-top: 10px;
-  }
-
   .question:before {
     font-family:  "Font Awesome 5 Free", cursive;
     display:      inline-block;
@@ -582,48 +636,48 @@ border and the section separator bar */
 
   .open:before {
     -webkit-transform: rotate(45deg);
-    -moz-transform:    rotate(45deg);
-    -ms-transform:     rotate(45deg);
-    -o-transform:      rotate(45deg);
-    transform:         rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .question {
-    background:     $grayish-white-question;
-    border:       solid 1px $mountain-blue;
-    border-radius:  7px 7px 7px 7px;
-    color:      #004D6D;
+    background: $grayish-white-question;
+    border: solid 1px $mountain-blue;
+    border-radius: 7px 7px 7px 7px;
+    color: #004D6D;
     text-align: left;
-    padding:    10px;
-    cursor:     hand;
-    font-size:  large;
+    padding: 10px;
+    cursor: hand;
+    font-size: large;
   }
 
-  .FAQanswer {
-    color:       white;
-    display:     none;
+  .faq-answer {
+    color: white;
+    display: none;
     font-weight: lighter;
-    font-size:   medium;
-    margin:      0 4%;
-    text-align:  left;
+    font-size: medium;
+    margin: 0 4%;
+    text-align: left;
     padding-bottom: 4%;
   }
 
-  .FAQanswer a {
-    color:              $pale-blue-link;
+  .faq-answer a {
+    color: $pale-blue-link;
     -webkit-transition: all 0.5s;
-    -moz-transition:    all 0.5s;
-    -ms-transition:     all 0.5s;
-    -o-transition:      all 0.5s;
-    transition:         all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
   }
 
-  .FAQanswer a:hover {
+  .faq-answer a:hover {
     color: rgba(255, 255, 255, 0.5)
   }
 
   #map-container {
-    width:  90%;
+    width: 90%;
     height: 400px;
     margin: auto auto 2vh;
     p {
@@ -634,69 +688,39 @@ border and the section separator bar */
 
 
 
-/* ====================== SCHEDULE ====================*/
+/* ====================== SCHEDULE ==================== */
 #schedule {
-  color:            white;
-  font-family:      'Lato', sans-serif;
-  font-weight:      bold;
-  padding-top:      50px;
-  padding-bottom:   50px;
-  //background-color: #194E6B;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   .header-bar {
     background-color: $mountain-blue;
   }
 
-  .schedule-right {
-    padding-left: 10%;
-    border-left: 3px solid #F5F5F5;
-  }
-
-  @media screen and (max-width: 768px) {
-    .schedule-right {
-      padding-left: 0px;
-      border: none;
-    }
-    .schedule-right div {
-      padding-top: .5vh;
-    }
-
-    .schedule-left {
-      padding-top: 10px;
-    }
-    .schedule-left div {
-      padding-top: .5vh;
-    }
-
-    .schedule-header {
-      margin-top: 3%;
-    }
-  }
-
   .time {
-    margin-top:   10px;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
+    font-size: large;
+    margin: 0 4%;
     text-align: left;
-    color:    $pale-blue-link;
+    color: $pale-blue-link;
   }
 
   .event {
-    display:      inline;
-    margin-top:   10px;
+    display: inline;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
-    text-align:   right;
+    font-size: large;
+    margin: 0 4%;
+    text-align: right;
   }
 
   .event-center {
-    display:      inline;
-    margin-top:   10px;
+    display: inline;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
+    font-size: large;
+    margin: 0 4%;
     text-align: center;
   }
 
@@ -727,7 +751,187 @@ border and the section separator bar */
 
 
 
-/* ====================== WORKSHOPS ====================*/
+/* ====================== SPONSORS ==================== */
+#sponsors {
+  padding-top: 50px;
+  position: relative;
+
+  .header-text {
+    color: #424242;
+  }
+
+  .header-bar {
+    background: #24577C;
+  }
+
+  .header-text {
+    color: #FFFFFF;
+  }
+
+  .header-bar {
+    background: $dark-blue-secondary;
+  }
+
+  .platinum img {
+    max-width: 75%;
+  }
+
+  .gold img {
+    max-width: 60%;
+  }
+
+  .silver img {
+    max-width: 55%;
+  }
+
+  .bronze img {
+    max-width: 50%;
+  }
+}
+
+.eecs {
+  content: url("../assets/images/sponsors/EECS-night.svg");
+}
+
+.sticker-mule {
+  content: url("../assets/images/sponsors/StickerMule-night.svg");
+}
+
+.lion-launchpad {
+  content: url("../assets/images/sponsors/LionLaunchpad-night.svg");
+}
+
+.geico {
+  content: url("../assets/images/sponsors/Geico-night.svg");
+}
+
+.psuit {
+  content: url("../assets/images/sponsors/psuit-night.svg");
+}
+
+.loop {
+  content: url("../assets/images/sponsors/loop-night.svg");
+}
+
+.nittany-ai {
+  content: url("../assets/images/sponsors/nittanyai-night.svg");
+}
+
+.textron {
+  content: url("../assets/images/sponsors/textron_night.svg");
+}
+
+.capone {
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+
+.linode {
+  content: url("../assets/images/sponsors/linode-night.svg");
+}
+
+.plantvillage {
+  content: url("../assets/images/sponsors/plan_t_logo_night.svg");
+}
+
+.pwc {
+  content: url("../assets/images/sponsors/PWC_night.svg");
+}
+
+
+
+/* ====================== FOOTER ==================== */
+#footer {
+  padding: 4em;
+  background: url('../assets/images/about/earth_core.svg');
+  background-size: cover;
+
+  .social-media-icon {
+    width: 40px;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  p {
+    font-size: small;
+    display: inline-block;
+    margin: auto;
+  }
+
+  a {
+    @extend p;
+    color: white;
+  }
+
+  .small-text {
+    font-size: x-small;
+  }
+}
+
+
+
+/* ====================== PARTICLES.JS ==================== */
+#particles-js{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: $dark-blue-primary;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+
+/* ====================== COMMENTED OUT IN INDEX.HTML ====================
+
+.second-border {
+  position: relative;
+  top: -5px;
+  content: url("../assets/images/border6-night.svg");
+}
+
+.second-border:after{
+  content: url("../assets/images/border6-night.svg");
+}
+
+.third-border {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.third-border:after {
+  content: url("../assets/images/border7-night.svg");
+}
+
+.register-btn-design {
+  @include transition(all, 0.4s);
+  height: 10vh;
+  background: white;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+
+  &:hover {
+    @include transition(all, 0.4s);
+    background: rgba(170, 202, 204, 1)
+  }
+  .header-text {
+    font-family:   $font-stack-tertiary;
+
+    p {
+      // This centers text in button. Typically this should be equal
+      // to the height of the button, however the border throws it off.
+      line-height: 9vh !important;
+      @include responsive-font(.85em, .8em, 1.25em, 1em);
+      max-font-size: 2em;
+      white-space: normal !important;
+    }
+  }
+}
+
+
+
+====================== WORKSHOPS ====================
 #workshops {
   padding-top:      100px;
   padding-bottom:   25px;
@@ -815,86 +1019,6 @@ border and the section separator bar */
   }
 }
 
+*/
 
 
-/* ====================== SPONSORS ====================*/
-#sponsors {
-  padding-top: 50px;
-  .header-text {
-    color: #424242;
-  }
-  .header-bar {
-    background: #24577C;
-  }
-  .platinum img {
-    max-width: 75%;
-  }
-
-  .gold img {
-    max-width: 45%;
-  }
-  .silver img {
-    max-width: 55%;
-  }
-  .bronze img {
-    max-width: 45%;
-  }
-
-  // Minor Nittany AI override {
-  .platinum .nittany-ai-day {
-    max-width: 50%;
-  }
-
-  // Minor oracle override
-  .oracle-day {
-    max-width: 100%;
-    margin-top: 7%;
-  }
-
-  .accuweather-day {
-    padding-top: 10%;
-  }
-}
-
-
-
-/* ====================== FOOTER ====================*/
-#footer {
-  padding: 4em;
-  background: url('../assets/images/about/earth_core.svg');
-  background-size: cover;
-
-  .social-media-icon {
-    width: 40px;
-  }
-
-  .row {
-    width: 100%;
-  }
-
-  p {
-    font-size: small;
-    display:   inline-block;
-    margin:    auto;
-  }
-
-  a {
-    @extend p;
-    color: white;
-  }
-
-  .small-text {
-    font-size: x-small;
-  }
-}
-
-/* ====================== ABOUT SECTION ====================*/
-#particles-js{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background-color: $dark-blue-primary;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
