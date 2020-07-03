@@ -39,9 +39,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
-  <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async
-      defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" async defer></script>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -66,8 +64,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
       };
       if (!f._fbq) f._fbq = n;
       n.push = n;
@@ -79,8 +76,7 @@
       t.src = v;
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+    } (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '795330067294686');
     fbq('track', 'PageView');
   </script>
@@ -96,20 +92,42 @@
 
   <!--Browser compatibility popup-->
   <script>
-    var $buoop = {required:{e:0,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2018.09 };
-    function $buo_f(){
-      var e = document.createElement("script");
-      e.src = "//browser-update.org/update.min.js";
+    var $buoop = {
+      required: {
+        e: 0,
+        f: -3,
+        o: -3,
+        s: -1,
+        c: -3
+      },
+      insecure: true,
+      unsupported: true,
+      api: 2018.09
+    };
+
+    function $buo_f() {
+      var e = document.createElement('script');
+      e.src = '//browser-update.org/update.min.js';
       document.body.appendChild(e);
     };
-    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-    catch(e){window.attachEvent("onload", $buo_f)}
+    try {
+      document.addEventListener('DOMContentLoaded', $buo_f, false);
+    } catch (e) {
+      window.attachEvent('onload', $buo_f);
+    }
   </script>
   <noscript>
     <img height="1" width="1"
          src="https://www.facebook.com/tr?id=795330067294686&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Facebook Pixel Code -->
+
+  <!-- Message for Internet Explorer -->
+  <script>
+    if (window.document.documentMode) {
+      alert("Website not compatible with Internet Explorer.\nPlease switch to a different browser.");
+    }
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
@@ -126,7 +144,7 @@
   </script>
 
   <script>
-    particlesJS.load('particles-js', '../json/particlesjs-config.json', function() {
+    particlesJS.load('particles-js', '../json/particlesjs-config.json', function () {
       console.log('callback - particles.js config loaded');
     });
   </script>
@@ -216,8 +234,8 @@
           </div>
         </div>
 
-        <div class="row cta">
-          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet">
+        <div class="row cta" style="margin: 3vh">
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet" >
             <div class="row">
               <a href="https://app.hackpsu.org/login">
                 <img src="./assets/images/planet6small.svg" class="planet"/>
@@ -229,6 +247,7 @@
               </a>
             </div>
           </div>
+
           <!--<div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn-design">-->
             <!--<a href="#tracks">-->
               <!--<div class="header-text text-center">-->
@@ -236,7 +255,7 @@
               <!--</div>-->
             <!--</a>-->
           <!--</div>-->
-          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet" style="left: 8vh;">
+          <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn btn-with-planet" style="left:15vh;margin:18px" >
             <div class="row">
               <a href="https://app.hackpsu.org/signup">
                 <img src="./assets/images/planet7small.svg" style="height: 16vh; width: auto; position: relative;left: -50;bottom: 32" class="planet"/>
