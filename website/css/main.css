@@ -170,7 +170,7 @@ body {
         font-size: 3vh;
     }
 
-    .FAQanswer {
+    .faq-answer {
         font-size: 2vh;
     }
 }
@@ -1018,7 +1018,7 @@ nav ul li {
     font-size: x-large;
 }
 
-.FAQanswer {
+.faq-answer {
     color: #aacacc;
     display: none;
     font-weight: lighter;
@@ -1027,7 +1027,7 @@ nav ul li {
     text-align: left;
 }
 
-.FAQanswer a {
+.faq-answer a {
     color: #6C88B7;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -1036,7 +1036,7 @@ nav ul li {
     transition: all 0.5s;
 }
 
-.FAQanswer a:hover {
+.faq-answer a:hover {
     color: rgba(255, 255, 255, 0.5);
 }
 

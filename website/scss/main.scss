@@ -1,24 +1,28 @@
-$font-stack-primary: 'Lato', sans-serif;
-$font-stack-secondary: 'Raleway', sans-serif;
-$font-stack-tertiary: 'Cornerstone', sans-serif;
+/* ====================== CONSTANTS ==================== */
 
-/* ====================== CONSTANTS ==================*/
-$white: #FFFFFF;
-$orange: #E5705C;
-$light-blue-primary: #6C88B7;
-$dark-blue-primary: #020A21;
-$light-blue: #AACACC;
-$dark-blue-secondary: #24577C;
-$light-blue-secondary: #D0EAF1;
-$orange-secondary: #C94331;
+/* font stacks */
+$font-stack-primary: "Lato", sans-serif;
+$font-stack-secondary: "Raleway", sans-serif;
+$font-stack-tertiary: "Cornerstone", sans-serif;
+
+/* colors */
+$white: #ffffff;
+$orange: #e5705c;
+$light-blue-primary: #6c88b7;
+$dark-blue-primary: #020a21;
+$light-blue: #aacacc;
+$dark-blue-secondary: #24577c;
+$light-blue-secondary: #d0eaf1;
+$orange-secondary: #c94331;
 $gray: #333333;
 $mountain-blue: #297284;
 
-//faq colors
-$pale-blue-link: #99C4CC;
-$red-plus: #C94331;
-$grayish-white-question: #E1E9EA;
+/* faq colors */
+$pale-blue-link: #99c4cc;
+$red-plus: #c94331;
+$grayish-white-question: #e1e9ea;
 
+/* sizing */
 $xl-break: 1440px;
 $lg-break: 992px;
 $md-break: 768px;
@@ -28,14 +32,13 @@ $break-medium: 768px;
 $break-large: 1200px;
 
 @font-face {
-  font-family: 'Cornerstone';
-  src:         url('../assets/fonts/Cornerstone.ttf');
+  font-family: "Cornerstone";
+  src: url("../assets/fonts/Cornerstone.ttf");
 }
 
-
-/* ====================== MIXINS ====================*/
+/* ====================== MIXINS ==================== */
 @mixin accent($color) {
-  color:            $color;
+  color: $color;
   background-color: $color;
 }
 
@@ -44,23 +47,23 @@ $break-large: 1200px;
 }
 
 @mixin background-size($style) {
-  background-size:         $style;
+  background-size: $style;
   -webkit-background-size: $style;
-  -moz-background-size:    $style;
-  -o-background-size:      $style;
+  -moz-background-size: $style;
+  -o-background-size: $style;
 }
 
 @mixin transition($property, $time) {
   -webkit-transition: $property $time;
-  -moz-transition:    $property $time;
-  -ms-transition:     $property $time;
-  -o-transition:      $property $time;
-  transition:         $property $time;
+  -moz-transition: $property $time;
+  -ms-transition: $property $time;
+  -o-transition: $property $time;
+  transition: $property $time;
 }
 
 @mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
-  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $dimension: if(unit($responsive) == "vh", "height", "width");
   $min-breakpoint: $min / $responsive-unitless * 100;
 
   @media (max-#{$dimension}: #{$min-breakpoint}) {
@@ -82,89 +85,65 @@ $break-large: 1200px;
   font-size: $responsive;
 }
 
-/* ====================== GLOBAL STYLES ============*/
-.accent {
-  @include accent($light-blue);
-}
-
-.spacer {
-  margin-top:    5vh;
-  margin-bottom: 5vh;
-  width:         100%;
-}
-
-.spacer-xl {
-  margin-top:    30vh;
-  margin-bottom: 30vh;
-  width:         100%;
-}
-
-/* I know what you're thinking. Why would you ever do this?
-Who taught you how to code? */
-.row {
-  //margin-bottom: -1px!important;
-}
-
-/* ====================== COMPONENTS ==============*/
+/* ====================== COMPONENTS ==================== */
 body {
   font-family: $font-stack-primary;
-  color:       white;
-  font-size:   xx-large;
-  text-align:  center;
+  color: white;
+  font-size: xx-large;
+  text-align: center;
   overflow-x: hidden;
   background: $dark-blue-primary;
-
-  .center {
-    width:      100%;
-    margin:     auto;
-    text-align: center;
-  }
 
   a:hover {
     text-decoration: none;
   }
 
+  .center {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
   .section-header {
     font-family: $font-stack-tertiary;
     font-weight: 600;
-    text-align:  center;
-    display:     inline-block;
-    margin:      auto;
-    width:       50%;
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+
     .header-text {
       font-size: 6vh;
     }
+
     .header-bar {
-      width:  40%;
+      width: 40%;
       height: 5px;
       margin: auto;
+
       @media screen and (max-width: $sm-break) {
         width: 100%;
       }
     }
+
     @media screen and (max-width: $sm-break) {
       width: 100%;
     }
   }
-
-  //.section-separator img {
-  //  margin-top:    -5%;
-  //  margin-bottom: -2%;
-  //}
 }
 
 /* ID Based Selectors */
 #mlh-trust-badge {
-  display:    block;
-  position:   absolute;
-  float:      right;
-  right:      5%;
-  top:        0px;
-  width:      10%;
-  max-width:  100px;
-  height:     120px;
-  z-index:    1;
-  margin-top: 0px;
+  display: block;
+  position: absolute;
+  float: right;
+  right: 5%;
+  top: 0;
+  width: 10%;
+  max-width: 100px;
+  height: 120px;
+  z-index: 1;
+  margin-top: 0;
 
   @media screen and (max-width: $break-medium) {
     width: 12%;
@@ -178,21 +157,59 @@ body {
 
     .logo-holder {
       position: absolute;
-      width:    25%;
-      left:     0;
-      right:    0;
-      top:      2.5vh;
-      margin:   auto;
-      z-index:  400;
+      width: 25%;
+      left: 0;
+      right: 0;
+      top: 2.5vh;
+      margin: auto;
+      z-index: 400;
+
+      img {
+        content: url("../assets/images/Logo_v2.svg");
+      }
+    }
+
+    .celestial-body {
+      position: absolute;
+      width: 12.5%;
+      left: 7%;
+      right: 0;
+      top: 11.5vh;
+      margin: 0;
+
+      img {
+        content: url("../assets/images/moon.svg");
+      }
+
+      @media screen and (max-width: $break-small) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: $lg-break) {
+      padding-top: 25%;
+    }
+
+    @media screen and (max-width: $break-large) {
+      height: auto;
+    }
+
+    @media screen and (max-width: $sm-break) {
+      padding-top: 55%;
+      .logo-holder {
+        width: 60%;
+      }
     }
 
     .header-content {
       .event-info {
         padding-top: 6vh;
+
         div {
-          padding-left: 0px;
+          padding-left: 0;
         }
       }
+
       .cta {
         padding-top: 5vh;
         @media screen and (max-width: $sm-break) {
@@ -202,81 +219,115 @@ body {
     }
 
     .planet {
-      height: 15vh; 
-      width: auto; 
+      height: 15vh;
+      width: auto;
       position: relative;
       left: -50;
       bottom: 32;
 
       &.animated {
-        animation-name:            planet_floating;
-        animation-duration:        2s;
+        animation-name: planet_floating;
+        animation-duration: 2s;
         animation-iteration-count: 2;
       }
     }
+    .header-text {
+      font-family: $font-stack-tertiary;
+      @include responsive-font(0.85em, 0.8em, 1.25em, 1em);
+      max-font-size: 2em;
+
+      p {
+        text-align: start;
+        padding: 0;
+        line-height: 1em;
+        transition: all 0.4s;
+        color: #424242;
+        white-space: nowrap;
+      }
+    }
+
+    .wrapped-box {
+      p {
+        position: relative;
+        z-index: 100;
+        margin-bottom: 18px;
+      }
+
+      p:first-of-type {
+        z-index: 200;
+      }
+
+      p:last-of-type {
+        z-index: 200;
+      }
+
+      p span {
+        @include accent-text(#424242);
+        background: white;
+        border: solid 8px rgba(170, 202, 204, 0.6);
+        border-radius: 0 15px 15px 0;
+        padding: 10px 10px 4px 10px;
+        font-weight: 400;
+      }
+
+      p:first-of-type span {
+        border-bottom-width: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 15px;
+        z-index: 200;
+      }
+
+      p:last-of-type span {
+        border-top-width: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 15px;
+        z-index: 200;
+      }
+
+      @media screen and (max-width: 1121px) {
+        p {
+          line-height: 0.95em;
+        }
+      }
+    }
+
     .register-btn {
       @include transition(all, 0.4s);
-      height:        10vh;
-      background:    white;
-      border:        solid 8px rgba(170, 202, 204, 0.6);
+      height: 10vh;
+      background: white;
+      border: solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
       margin-bottom: 2vh;
-      margin-top: 1vh;
 
       &:hover {
         @include transition(all, 0.4s);
         background: rgba(170, 202, 204, 1);
       }
-      .header-text {
-        font-family:   $font-stack-tertiary;
-        @include responsive-font(.85em, .8em, 1.25em, 1em);
-        max-font-size: 2em;
 
-        p {
-          // This centers text in button. Typically this should be equal
-          // to the height of the button, however the border throws it off.
-          line-height: 9vh;
-        }
-      }
-
-      
-
-      /* Some CSS I made up to get that wrapped box effect in the header.
-      This can be applied to any text structured in the same way as the
-      event info. */
-      .wrapped-box {
-        padding-left: 0px;
-        p span {
-          @include accent-text($white);
-          background:     $mountain-blue;
-          border:         solid 1px $mountain-blue;
-          border-radius:  0px 15px 15px 0px;
-          padding:        10px;
-          padding-bottom: 4px;
-          font-weight:    400;
-        }
-        p:first-of-type span {
-          border-bottom-left-radius: 0px;
-          border-top-left-radius:    15px;
-        }
-        p:last-of-type span {
-          border-top-left-radius:    0px;
-          border-bottom-left-radius: 15px;
-        }
+      .header-text p {
+        /* This centers text in button. Typically this should be equal
+          to the height of the button, however the border throws it off. */
+        line-height: 9vh;
       }
 
       .header-content {
         .event-info {
           padding-top: 6vh;
+
           div {
-            padding-left: 0px;
+            padding-left: 0;
           }
         }
+
         .event-info div {
-          padding-left: 0px;
+          padding-left: 0;
         }
+
         .cta {
           padding-top: 5vh;
+
           @media screen and (max-width: $sm-break) {
             padding-bottom: 5.5vh;
           }
@@ -286,9 +337,7 @@ body {
       .header-hover {
         &:hover {
           @include transition(all, 0.4s);
-          .bottom-bar {
-            background-color: #133753;
-          }
+
           p {
             color: $dark-blue-primary;
           }
@@ -298,30 +347,10 @@ body {
   }
 }
 
-.register-btn-design {
-  @include transition(all, 0.4s);
-  height:        10vh;
-  background:    white;
-  border:        solid 8px rgba(170, 202, 204, 0.6);
-  border-radius: 50px;
-  &:hover {
-    @include transition(all, 0.4s);
-    background: rgba(170, 202, 204, 1)
-  }
-  .header-text {
-    font-family:   $font-stack-tertiary;
-
-    p {
-      // This centers text in button. Typically this should be equal
-      // to the height of the button, however the border throws it off.
-      line-height: 9vh !important;
-      @include responsive-font(.85em, .8em, 1.25em, 1em);
-      max-font-size: 2em;
-      white-space: normal !important;
-    }
-  }
+.page-content {
+  position: absolute;
+  z-index: 100;
 }
-
 
 .section-separator-first img {
   margin-top: -15%;
@@ -331,12 +360,11 @@ body {
 }
 
 .section-separator-bar {
-  height: 50px;
+  height: 150px;
   width: 100%;
-  background: #006837;
+  background: linear-gradient(#009245, transparent);
   position: relative;
   z-index: 500;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .row {
@@ -403,6 +431,46 @@ body {
 /* ====================== ABOUT SECTION ====================*/
 #about {
   position: relative;
+  margin-top: -1px;
+  margin-bottom: -1px;
+
+  @media screen and (max-width: $md-break) {
+    padding-top: 10%;
+  }
+
+  .header-text {
+    color: white;
+  }
+
+  .section-header {
+    text-align: left;
+    margin: 0;
+  }
+
+  .header-bar {
+    background-color: #718a9a;
+    width: 30%;
+    margin: 0;
+
+    @media screen and (max-width: $break-small) {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-family: "Lato", sans-serif;
+    font-size: 3vh;
+    font-weight: 100;
+    text-align: left;
+    padding-top: 5vh;
+    line-height: 200%;
+    color: white;
+
+    span {
+      font-weight: 800;
+      font-size: 3.2vh;
+    }
+  }
 }
 
 #about_text_container {
@@ -411,7 +479,7 @@ body {
   top: 15%;
   width: 50vw;
   height: 70%;
-  overflow-y: scroll;
+  overflow-y: auto;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -441,14 +509,12 @@ body {
   width: 65vw;
 }
 
-
-
 #rocket_flying {
   position: absolute;
   z-index: -1;
-  right: 24vw;
-  top: 10vh;
-  width: 10vw;
+  right: 26vw;
+  top: 12vh;
+  width: 6vw;
 }
 
 #rocket_docked {
@@ -458,9 +524,16 @@ body {
   width: 30vw;
 }
 
+/* fixes the dreaded line between the first
+border and the section separator bar */
+.first-border {
+  width: calc(100% + 1px);
+  transform: translateY(1px);
+}
+
 .floating {
-  animation-name:            floating;
-  animation-duration:        3s;
+  animation-name: floating;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -468,6 +541,7 @@ body {
 .floating:nth-child(2) {
   animation-delay: -1s;
 }
+
 @keyframes floating {
   0% {
     transform: translateY(2vh) rotate(30deg);
@@ -481,8 +555,8 @@ body {
 }
 
 .flying {
-  animation-name:            flying;
-  animation-duration:        5s;
+  animation-name: flying;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -496,79 +570,81 @@ body {
   }
 }
 
-/* Tracks */
+/* ====================== TRACKS ==================== */
 #tracks {
   padding-top: 10vh;
-  //background-color: #194E6B;
+
   .header-bar {
     background-color: $mountain-blue;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
+
   .track-header {
     font-family: $font-stack-tertiary;
     font-size: 1em;
     text-align: center;
     padding-top: 5vh;
   }
+
   .track-content {
-    font-size: .6em;
+    font-size: 0.6em;
     line-height: 1.35em;
     padding-top: 5vh;
   }
+
   .track-img {
     width: 18%;
   }
+
   .track-register {
     color: #f5f5f5;
-    font-family:   $font-stack-tertiary;
+    font-family: $font-stack-tertiary;
     line-height: 9vh !important;
-    @include responsive-font(.85em, .8em, 1.25em, 1em);
+    @include responsive-font(0.85em, 0.8em, 1.25em, 1em);
     max-font-size: 2em;
   }
+
   .register-btn {
     @include transition(all, 0.4s);
-    height:        10vh;
-    background:    transparent;
-    border:        solid 8px rgba(170, 202, 204, 0.6);
+    height: 10vh;
+    background: transparent;
+    border: solid 8px rgba(170, 202, 204, 0.6);
     border-radius: 50px;
     margin: 5vh 2vh;
     font-size: smaller;
 
     &:hover {
       @include transition(all, 0.4s);
-      background: rgba(170, 202, 204, 1)
+      background: rgba(170, 202, 204, 1);
     }
   }
+
   p {
-    font-family: 'Lato', sans-serif;
-    font-size:   .6em;
+    font-family: "Lato", sans-serif;
+    font-size: 0.6em;
     font-weight: 100;
-    text-align:  left;
+    text-align: left;
     line-height: 200%;
     color: white;
+
     span {
-      //@include accent-text(#718a9a);
       font-weight: 800;
       font-size: 3.2vh;
     }
   }
-
 }
 
-/* FAQ */
-
+/* ====================== FAQ ==================== */
 #faqs {
-  color:            white;
-  font-family:      'Raleway', sans-serif;
-  font-weight:      bold;
-  padding-top:      50px;
-  padding-bottom:   50px;
-  //background-color: #194E6B;
-
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   .header-bar {
     background-color: $mountain-blue;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 
   #location {
@@ -576,97 +652,92 @@ body {
   }
 
   #location .title {
-    font-size:     x-large;
-    text-align:    center;
+    font-size: x-large;
+    text-align: center;
     margin-bottom: 30px;
-    width:         100%;
-    color:         white;
-    font-weight:   700;
+    width: 100%;
+    color: white;
+    font-weight: 700;
   }
 
   #location p {
-    font-size:   large;
-    text-align:  left;
+    font-size: large;
+    text-align: left;
     font-weight: 500;
   }
 
   .horizontal-line {
-    position:         relative;
-    background-color: #B7C7CA;
-    height:           2px;
-    width:            100%;
+    position: relative;
+    background-color: #b7c7ca;
+    height: 2px;
+    width: 100%;
   }
 
   .question-container {
     margin-top: 10px;
-    padding:    0 10%;
+    padding: 0 10%;
   }
 
   @media screen and (max-width: 768px) {
     .question-container {
-      padding: 0px;
+      padding: 0;
     }
   }
 
-  .question + .fa-chevron-right {
-    display:    inline-block;
-    margin-top: 10px;
-  }
-
   .question:before {
-    font-family:  "Font Awesome 5 Free", cursive;
-    display:      inline-block;
-    font-size:    large;
+    font-family: "Font Awesome 5 Free", cursive;
+    display: inline-block;
+    font-size: large;
     margin-right: 5px;
-    content:      "\f067";
-    color:        $red-plus;
-    transition:   all 0.3s;
+    content: "\f067";
+    color: $red-plus;
+    transition: all 0.3s;
   }
 
   .open:before {
     -webkit-transform: rotate(45deg);
-    -moz-transform:    rotate(45deg);
-    -ms-transform:     rotate(45deg);
-    -o-transform:      rotate(45deg);
-    transform:         rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .question {
-    background:     $grayish-white-question;
-    border:       solid 1px $mountain-blue;
-    border-radius:  7px 7px 7px 7px;
-    color:      #004D6D;
+    background: $grayish-white-question;
+    border: solid 1px $mountain-blue;
+    border-radius: 7px 7px 7px 7px;
+    color: #004d6d;
     text-align: left;
-    padding:    10px;
-    cursor:     hand;
-    font-size:  large;
+    padding: 10px;
+    cursor: hand;
+    font-size: large;
   }
 
-  .FAQanswer {
-    color:       white;
-    display:     none;
+  .faq-answer {
+    color: white;
+    display: none;
     font-weight: lighter;
-    font-size:   medium;
-    margin:      0 4%;
-    text-align:  left;
+    font-size: medium;
+    margin: 0 4%;
+    text-align: left;
     padding-bottom: 4%;
   }
 
-  .FAQanswer a {
-    color:              $pale-blue-link;
+  .faq-answer a {
+    color: $pale-blue-link;
     -webkit-transition: all 0.5s;
-    -moz-transition:    all 0.5s;
-    -ms-transition:     all 0.5s;
-    -o-transition:      all 0.5s;
-    transition:         all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
   }
 
-  .FAQanswer a:hover {
-    color: rgba(255, 255, 255, 0.5)
+  .faq-answer a:hover {
+    color: rgba(255, 255, 255, 0.5);
   }
 
   #map-container {
-    width:  90%;
+    width: 90%;
     height: 400px;
     margin: auto auto 2vh;
     p {
@@ -675,70 +746,39 @@ body {
   }
 }
 
-/* Schedule */
-
+/* ====================== SCHEDULE ==================== */
 #schedule {
-  color:            white;
-  font-family:      'Lato', sans-serif;
-  font-weight:      bold;
-  padding-top:      50px;
-  padding-bottom:   50px;
-  //background-color: #194E6B;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   .header-bar {
     background-color: $mountain-blue;
   }
 
-  .schedule-right {
-    padding-left: 10%;
-    border-left: 3px solid #F5F5F5;
-  }
-
-  @media screen and (max-width: 768px) {
-    .schedule-right {
-      padding-left: 0px;
-      border: none;
-    }
-    .schedule-right div {
-      padding-top: .5vh;
-    }
-
-    .schedule-left {
-      padding-top: 10px;
-    }
-    .schedule-left div {
-      padding-top: .5vh;
-    }
-
-    .schedule-header {
-      margin-top: 3%;
-    }
-  }
-
   .time {
-    margin-top:   10px;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
+    font-size: large;
+    margin: 0 4%;
     text-align: left;
-    color:    $pale-blue-link;
+    color: $pale-blue-link;
   }
 
   .event {
-    display:      inline;
-    margin-top:   10px;
+    display: inline;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
-    text-align:   right;
+    font-size: large;
+    margin: 0 4%;
+    text-align: right;
   }
 
   .event-center {
-    display:      inline;
-    margin-top:   10px;
+    display: inline;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
+    font-size: large;
+    margin: 0 4%;
     text-align: center;
   }
 
@@ -753,12 +793,14 @@ body {
     margin-right: 24px;
   }
 
-  .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
+  .nav-pills > li > a.active,
+  .nav-pills > active > a.active:focus {
     color: #133753;
     background-color: #fff;
   }
 
-  .nav-pills > li > a:hover, .tab-content > .tab-pane > .row > .col-8:hover {
+  .nav-pills > li > a:hover,
+  .tab-content > .tab-pane > .row > .col-8:hover {
     color: steelblue;
   }
 
@@ -767,138 +809,96 @@ body {
   }
 }
 
-/* Workshops */
-#workshops {
-  padding-top:      100px;
-  padding-bottom:   25px;
-  background-color: #194E6B;
-
-  .section-header {
-    width: 100%;
-  }
-
-  .header-bar {
-    background-color: $mountain-blue;
-    margin-bottom:    40px;
-    min-width:        40%;
-
-  }
-
-  .item {
-    font-family:    'Lato', sans-serif;
-    background:     white;
-    border-radius:  7px 7px 7px 7px;
-    color:          #424242;
-    padding:        3% 6% 3% 6%;
-    cursor:         hand;
-    font-size:      large;
-    height:         32%;
-    text-align:     left;
-  }
-
-  .item h5 {
-    font-size:      17px;
-    height:         25%;
-    font-weight:    900;
-  }
-
-  .tag {
-    font-size:      16px;
-  }
-
-  .profile {
-    width:          100%;
-    padding-top:    3%;
-    padding-bottom: 0;
-    height:         70%;
-  }
-
-  .profile img {
-    border-radius:  50%;
-    border:        solid 1px $gray;
-  }
-
-  .presenter p {
-    padding:   1% 4% 0 3%;
-    margin:    0;
-    font-size: 15px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .item {
-      height: 40%;
-    }
-
-    .profile img {
-      padding: 0;
-    }
-  }
-
-  @media screen and (max-width: 550px) {
-    .item {
-      height: 41%;
-    }
-
-    .item h5 {
-      height: 8%;
-    }
-
-    .profile img {
-      padding: 0;
-      width: 30%;
-    }
-
-    .presenter {
-      padding:0;
-      width: 60%;
-    }
-  }
-}
-
-/* Sponsors */
-
+/* ====================== SPONSORS ==================== */
 #sponsors {
   padding-top: 50px;
+  position: relative;
+
   .header-text {
     color: #424242;
   }
+
   .header-bar {
-    background: #24577C;
+    background: #24577c;
   }
+
+  .header-text {
+    color: #ffffff;
+  }
+
+  .header-bar {
+    background: $dark-blue-secondary;
+  }
+
   .platinum img {
     max-width: 75%;
   }
 
   .gold img {
-    max-width: 45%;
+    max-width: 60%;
   }
+
   .silver img {
     max-width: 55%;
   }
+
   .bronze img {
-    max-width: 45%;
-  }
-
-  // Minor Nittany AI override {
-  .platinum .nittany-ai-day {
     max-width: 50%;
-  }
-
-  // Minor oracle override
-  .oracle-day {
-    max-width: 100%;
-    margin-top: 7%;
-  }
-
-  .accuweather-day {
-    padding-top: 10%;
   }
 }
 
-/************* FOOTER *************/
+.eecs {
+  content: url("../assets/images/sponsors/EECS-night.svg");
+}
+
+.sticker-mule {
+  content: url("../assets/images/sponsors/StickerMule-night.svg");
+}
+
+.lion-launchpad {
+  content: url("../assets/images/sponsors/LionLaunchpad-night.svg");
+}
+
+.geico {
+  content: url("../assets/images/sponsors/Geico-night.svg");
+}
+
+.psuit {
+  content: url("../assets/images/sponsors/psuit-night.svg");
+}
+
+.loop {
+  content: url("../assets/images/sponsors/loop-night.svg");
+}
+
+.nittany-ai {
+  content: url("../assets/images/sponsors/nittanyai-night.svg");
+}
+
+.textron {
+  content: url("../assets/images/sponsors/textron_night.svg");
+}
+
+.capone {
+  content: url("../assets/images/sponsors/Capital_One-night.svg");
+}
+
+.linode {
+  content: url("../assets/images/sponsors/linode-night.svg");
+}
+
+.plantvillage {
+  content: url("../assets/images/sponsors/plan_t_logo_night.svg");
+}
+
+.pwc {
+  content: url("../assets/images/sponsors/PWC_night.svg");
+}
+
+/* ====================== FOOTER ==================== */
 #footer {
   padding: 4em;
-  background: url('../assets/images/about/Panels_Earth Core.svg');
+  background: url("../assets/images/about/earth_core.svg");
   background-size: cover;
 
   .social-media-icon {
@@ -911,8 +911,8 @@ body {
 
   p {
     font-size: small;
-    display:   inline-block;
-    margin:    auto;
+    display: inline-block;
+    margin: auto;
   }
 
   a {
@@ -925,7 +925,8 @@ body {
   }
 }
 
-#particles-js{
+/* ====================== PARTICLES.JS ==================== */
+#particles-js {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -934,16 +935,3 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
-
-.page-content {
-  position: absolute;
-  z-index: 100;
-}
-
-/* Debug code */
-
-// * {
-// 	//background: #000 !important;
-// 	color: #0f0 !important;
-// 	outline: solid #f00 1px !important;
-// }
