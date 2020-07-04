@@ -223,8 +223,8 @@ body {
     }
 
     .planet {
-      height: 15vh; 
-      width: auto; 
+      height: 15vh;
+      width: auto;
       position: relative;
       left: -50;
       bottom: 32;
@@ -623,7 +623,7 @@ border and the section separator bar */
 
     &:hover {
       @include transition(all, 0.4s);
-      background: rgba(170, 202, 204, 1)
+      background: rgba(170, 202, 204, 1);
     }
   }
 
@@ -743,7 +743,7 @@ border and the section separator bar */
   }
 
   .faq-answer a:hover {
-    color: rgba(255, 255, 255, 0.5)
+    color: rgba(255, 255, 255, 0.5);
   }
 
   #map-container {
