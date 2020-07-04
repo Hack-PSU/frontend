@@ -132,27 +132,6 @@ header {
     }
   }
 
-  .header-text {
-    font-family:   $font-stack-tertiary;
-    @include responsive-font(.85em, .8em, 1.25em, 1em);
-    max-font-size: 2em;
-
-    p {
-      text-align:  start;
-      padding:     0;
-      line-height: 1em;
-      transition:  all 0.4s;
-      color:       #424242;
-      white-space: nowrap;
-    }
-    .bottom-bar {
-      width:            100%;
-      height:           5px;
-      transition:       all 0.4s;
-      background-color: white;
-    }
-  }
-
   /* Some CSS I made up to get that wrapped box effect in the header.
   This can be applied to any text structured in the same way as the
   event info. */
