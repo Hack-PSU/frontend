@@ -22,7 +22,7 @@ export class LiveWorkshopComponent implements OnInit {
     @Input() presenter2Name: String;
     @Input() presenter3img: String;
     @Input() presenter3Name: String;
-    @Input() id: String;
+    @Input() collapseID: String;
 
 
     constructor() {}
