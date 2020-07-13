@@ -19,6 +19,7 @@ import {
   ForgotPasswordViewComponent,
   LiveUpdateComponent,
   LiveViewComponent,
+  LiveWorkshopComponent,
   LoginComponent,
   RegistrationFormComponent,
   RsvpComponent,
@@ -27,6 +28,7 @@ import {
   TableAssignmentViewComponent,
   TravelReimbursementViewComponent,
   UserViewComponent,
+
 } from './views/views';
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
@@ -47,6 +49,7 @@ import { UserRegistrationViewComponent } from './views/user-registration-view/us
     TableAssignmentViewComponent,
     RsvpComponent,
     LiveUpdateComponent,
+    LiveWorkshopComponent,
     TruncatePipe,
     ScheduleViewComponent,
     UserProfileViewComponent,

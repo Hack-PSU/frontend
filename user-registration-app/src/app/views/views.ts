@@ -9,3 +9,4 @@ export { RsvpComponent } from './rsvp/rsvp.component';
 export { LoginComponent } from './login/login.component';
 export { LiveUpdateComponent } from './live-update/live-update.component';
 export { UserViewComponent } from './user-view/user-view.component';
+export { LiveWorkshopComponent } from './live-workshop/live-workshop.component';

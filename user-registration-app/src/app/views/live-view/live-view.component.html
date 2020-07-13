@@ -1,22 +1,6 @@
-  <style>
 
-#particles-js {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -10;
-    top: 0;
-    left: 0;
-    background: linear-gradient(0deg, #133753 50%, #000000 100%);
-}
 
-.vertical-text {
-  transform: rotate(-90deg);
-  float: left;
-}
-    </style>
-
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 
 <!-- Landing -->
@@ -30,7 +14,7 @@
                               alt="Major League Hacking 2020 Hackathon Season" style="width:100%"></a>
     </div>
     <!-- Particles -->
-    <div id="particles-js"></div>
+    <!-- <div id="particles-js"></div> -->
     <!-- Emblem/Logo -->
     <div class="row" style="padding-top:15%">
 
@@ -390,61 +374,36 @@
                 }
             </style>
 
-
-              <div class="card" style="text-align: left;">
-                <div style="display: inline;">
-                  <p class="card-title" style="display: inline;">Team Building!</p>
-                  <p class="time" style="text-align: right; display: inline; float: right;">88/88/2020<br>88:88pm</p>  
-                </div>
-
-                <div id="module">
-                  <p class="collapse" id="collapseExample" aria-expanded="false">
-                    You'll make friends here! Lots and lots of friends! Imagine being in a world, where all you see
-                    are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free 
-                    world. Imagine a world without hate, but only love. Imagine a world where you can sit and eat in peace, without
-                    the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a 
-                    place to make friends! So go wild!
-                  </p>
-                  <div style="text-align: center;">
-                    <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
-                  </div>
-                </div>
-
-                <div style="display: inline; text-align: left;">
-                  <div class="card-image tooltipped" style="display: inline;" data-position="bottom" data-tooltip="Rahul Walia">
-                    <img class="z-depth-5 activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg" style="width: 70px; height: 70px; margin: 5px;">
-                  </div>
-                  <a href="http://google.com" target="_blank"><i class="material-icons small" style="margin-top:25px; float: right; color: white;">send</i></a>
-                </div>
-              </div>
+              <app-live-workshop 
+                title="Team Building!" 
+                descrip="You'll make friends here! Lots and lots of friends! Imagine being in a world, where all you see
+                are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free 
+                world. Imagine a world without hate, but only love. Imagine a world where you can sit and eat in peace, without
+                the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a 
+                place to make friends! So go wild!" 
+                date="88/88/8888" 
+                time="88:88PM" 
+                link="http://www.google.com"
+                presenter1img="../../../assets/images/workshop_leaders/RahulWalia.jpg"
+                presenter1Name="Rahul Walia"
+                id="teamBuild"
+                >
+              </app-live-workshop>
 
 
-
-
-              <div class="card" style="text-align: left;">
-                <div style="display: inline;">
-                  <p class="card-title" style="text-align: left; display: inline;">Team Building!</p>
-                  <p class="time" style="text-align: right; display: inline; float: right;">88/88/2020<br>88:88pm</p>  
-                </div>
-
-                <p>
-                  Don’t have a team? Fear not! Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!
-                </p>
-
-                <div style="display: inline;">
-
-                  <div class="card-image tooltipped" style="display: inline;" data-position="bottom" data-tooltip="Rahul Walia">
-                    <img class="z-depth-5 activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg" style="width: 70px; height: 70px; margin: 5px;">
-                  </div>
-
-                  <div class="card-image tooltipped" style="display: inline;" data-position="bottom" data-tooltip="AccuWeather">
-                    <img class="z-depth-5 activator" src="../../../assets/images/Accuweather.jpeg" style="width: 70px; height: 70px; margin: 5px;">
-                  </div>
-
-                  <a href="http://google.com" target="_blank"><i class="material-icons small" style="margin-top:25px; float: right; color: white; ">send</i></a>
-
-                </div>
-              </div>
+              <app-live-workshop 
+                title="Team Building!" 
+                descrip="Don’t have a team? Fear not! Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!" 
+                date="88/88/8888" 
+                time="88:88PM" 
+                link="http://www.google.com"
+                presenter1img="../../../assets/images/workshop_leaders/RahulWalia.jpg"
+                presenter1Name="Rahul Walia"
+                presenter2img="../../../assets/images/Accuweather.jpeg"
+                presenter2Name="AccuWeather"
+                id="teamBuildd"
+                >
+              </app-live-workshop>
 
 
   
