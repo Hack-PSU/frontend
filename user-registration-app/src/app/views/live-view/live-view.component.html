@@ -364,21 +364,53 @@
         <div class="container-fluid py-4">
           <div class="col-12 p-md-0 px-4">
 
+            <style>
+                #module {
+                  line-height: 1.5;
+                }
+
+                #module #collapseExample.collapse:not(.show) {
+                  display: block;
+                  height: 4.6rem;
+                  overflow: hidden;
+                }
+
+                #module #collapseExample.collapsing {
+                  height: 4.6rem;
+                }
+
+                #module a.collapsed::after {
+                  content: '+ Show More +';
+                  color:black;
+                }
+
+                #module a:not(.collapsed)::after {
+                  content: '- Show Less -';
+                  color:black;
+                }
+            </style>
+
 
               <div class="card" style="text-align: left;">
                 <div style="display: inline;">
-                  <p class="card-title" style="text-align: left; display: inline;">Team Building!</p>
+                  <p class="card-title" style="display: inline;">Team Building!</p>
                   <p class="time" style="text-align: right; display: inline; float: right;">88/88/2020<br>88:88pm</p>  
                 </div>
 
-                <p>You'll make friends here! Lots and lots of friends! Imagine being in a world, where all you see
-                  are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free 
-                  world. Imagine a world without hate, but only love. Imagine a world where you can sit and eat in peace, without
-                  the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a 
-                  place to make friends! So go wild!
-                </p>
+                <div id="module">
+                  <p class="collapse" id="collapseExample" aria-expanded="false">
+                    You'll make friends here! Lots and lots of friends! Imagine being in a world, where all you see
+                    are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free 
+                    world. Imagine a world without hate, but only love. Imagine a world where you can sit and eat in peace, without
+                    the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a 
+                    place to make friends! So go wild!
+                  </p>
+                  <div style="text-align: center;">
+                    <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
+                  </div>
+                </div>
 
-                <div style="display: inline;">
+                <div style="display: inline; text-align: left;">
                   <div class="card-image tooltipped" style="display: inline;" data-position="bottom" data-tooltip="Rahul Walia">
                     <img class="z-depth-5 activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg" style="width: 70px; height: 70px; margin: 5px;">
                   </div>
@@ -410,111 +442,22 @@
                   </div>
 
                   <a href="http://google.com" target="_blank"><i class="material-icons small" style="margin-top:25px; float: right; color: white; ">send</i></a>
-                    <!-- <div class="card-image" style="display: inline;">
-                      <img class="z-depth-5 activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg" style="width: 70px; height: 70px; margin: 5px;">
-                      <img class="activator" src="../../../assets/images/Accuweather.jpeg" style="width: 70px; height: 70px; margin: 5px;">
-                    </div>
-                    <p style="display: inline;"> Rahul Walia and AccuWeather</p> -->
-                </div>
-              </div>
-
-
-              <div class="card">
-                <div class="row" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
-                  <div class="col-md-1">
-                    <div class="card-image" >
-                      <img class="z-depth-5 activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg">
-                    </div>
-                  </div>
-                  <div class="col-md-11">
-                    <p class="card-title activator" style="text-shadow: 0px 8px 30px #000000; font-weight:bold; font-size: 24px; ">Team Building!</p>
-                    <p style="text-shadow: 2px 0px 18px #000000; font-weight:bold; font-size: 19px;">Rahul Walia and HackPSU</p>
-                    <a>></a>
-                  </div>
-                </div>
-              </div>
-
-
-
-            <style>
-
-              
-              .speakerLookinGoon {
-                height: auto;
-                width: auto;                
-                background: linear-gradient(90deg,rgba(217,50,116,1) 2%,  rgba(75,37,45,0.6) 2%);
-                color: rgba(227,245,254,1);
-                margin-bottom: 2vh;
-                font-size: 1.5rem;
-                padding:20px;
-                -webkit-transition: all 0.5s ease;
-                -moz-transition: all 0.5s ease;
-                -ms-transition: all 0.5s ease;
-                -o-transition: all 0.5s ease;
-                transition: all 0.5s ease;
-              }
-
-              .speakerLookinGoon:hover {
-                background-color: #0093E9;
-                background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-                -webkit-transition: all 0.5s ease;
-                -moz-transition: all 0.5s ease;
-                -ms-transition: all 0.5s ease;
-                -o-transition: all 0.5s ease;
-                transition: all 0.5s ease;
-              }
-              .speakerLookinGoon img{
-                width: 11vh;
-                height: 11vh;
-                background-color: darkkhaki;
-                background-repeat: no-repeat;
-                background-size: cover;
-                margin-top: 30px;
-              }
-              .arrow{
-                width: 8vh;
-                height: 8vh;
-                margin-top: 40px;
-              }
-            </style>
-            <div class="speakerLookinGoon">
-              <div class="row">
-                <div class="col-md-1">
-                  <img src="../../../assets/images/workshop_leaders/RahulWalia.jpg">
-                </div>
-                <div class="col-md-10">
-                  <span style="font-weight:bold; font-size: 14px;">Team Building!</span>
-                  <div style="font-weight:bold; font-size: 14px;">Rahul Walia and HackPSU</div>
-                  <div style="font-weight:bold; font-size: 14px;">Location: 124 Business Building <br> (Workshop Room 1)</div>
-                  <div style="font-weight:bold; font-size: 14px;">Time: 2:00 PM - 2:45 PM Saturday</div>
-                </div>
-                <div class="col-md-1 arrow">
-                  <a>></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card beginner">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="card-image" >
-                    <img class="activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg">
-                  </div>
-
-                  <span class="card-title activator" style="font-weight:bold;">Team Building!</span>
-                  <div style="font-weight:bold;">Rahul Walia and HackPSU</div>
-                  <div style="font-weight:bold;">Location: 124 Business Building <br> (Workshop Room 1)</div>
-                  <div style="font-weight:bold;">Time: 2:00 PM - 2:45 PM Saturday</div>
-                  <a class="waves-effect waves-light activator red btn">▼</a>
 
                 </div>
               </div>
-            </div>
 
+
+  
             <div class="card beginner">
               <div class="card-image">
                 <img class="activator" src="../../../assets/images/workshop_leaders/RahulWalia.jpg">
-                <a class="waves-effect waves-light activator red btn">click to learn more</a>
+              </div>
+              <a class="waves-effect waves-light activator red btn">Click To learn more</a>
+              <div class="card-reveal">
+                <span class="card-title">Team Building!<i
+                  class="material-icons right">close</i></span>
+                <p> Don’t have a team? Fear not! Come to our Team Building workshop to
+                  connect with Hackers and to find the people you will build your winning project with!</p>
               </div>
 
               <div class="card-content pt-5">
@@ -523,14 +466,7 @@
                 <div style="font-weight:bold;">Location: 124 Business Building (Workshop Room 1)</div>
                 <div style="font-weight:bold;">Time: 2:00 PM - 2:45 PM Saturday</div>
               </div>
-
-              <div class="card-reveal">
-                <span class="card-title">Team Building!<i
-                  class="material-icons right">close</i></span>
-                <p> Don’t have a team? Fear not! Come to our Team Building workshop to
-                  connect with Hackers and to find the people you will build your winning project with!</p>
-              </div>
-
+              
             </div>
 
 
