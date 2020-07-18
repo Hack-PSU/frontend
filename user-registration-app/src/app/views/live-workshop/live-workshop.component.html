@@ -3,7 +3,7 @@
     #module {
         line-height: 1.5;
     }
-
+/* 
     #module #collapseExample.collapse:not(.show) {
         display: block;
         height: 4.6rem;
@@ -12,7 +12,7 @@
 
     #module #collapseExample.collapsing {
         height: 4.6rem;
-    }
+    } */
 
     #module a.collapsed::after {
         content: '+ Show More +';
@@ -52,9 +52,9 @@
     </div>
 
     <div id="module">
-      <p class="collapse" id="collapseExample" aria-expanded="false">{{ descrip }}</p>
+      <p class="collapse" id="{{collapseID}}" aria-expanded="false">{{ descrip }}</p>
       <div class="center">
-        <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
+        <a role="button" class="collapsed" data-toggle="collapse" href="#{{collapseID}}" aria-expanded="false" [attr.aria-controls]="collapseID"></a>
       </div>
     </div>
 

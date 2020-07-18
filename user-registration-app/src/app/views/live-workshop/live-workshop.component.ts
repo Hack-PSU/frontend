@@ -25,9 +25,12 @@ export class LiveWorkshopComponent implements OnInit {
     @Input() collapseID: String;
 
 
+
+
     constructor() {}
 
     ngOnInit() {
+
       if( !this.presenter3Name || !this.presenter3img){
         var elem = document.getElementById("presenter3");
         elem.parentNode.removeChild(elem);
@@ -42,5 +45,38 @@ export class LiveWorkshopComponent implements OnInit {
         var elem = document.getElementById("presenter1");
         elem.parentNode.removeChild(elem);
       }
+
+      var elementHeader = "#module #" + this.collapseID +".collapse:not(.show) {";
+ 
+      // Create our stylesheet
+      var style = document.createElement('style');
+      style.innerHTML =
+        elementHeader +
+          'display: block;' +
+          'height: 4.6rem;' +
+          'overflow: hidden;' +
+        '}';
+
+      // Get the first script tag
+      var ref = document.querySelector('script');
+
+      // Insert our new styles before the first script tag
+      ref.parentNode.insertBefore(style, ref);
+
+
+      elementHeader = "#module #" + this.collapseID +".collapsing {";
+
+      // Create our stylesheet
+      var style = document.createElement('style');
+      style.innerHTML =
+        elementHeader +
+          'height: 4.6rem;' +
+        '}';
+
+      // Get the first script tag
+      var ref = document.querySelector('script');
+
+      // Insert our new styles before the first script tag
+      ref.parentNode.insertBefore(style, ref);
     }
 }
