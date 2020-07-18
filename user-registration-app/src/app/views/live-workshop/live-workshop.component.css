@@ -62,3 +62,36 @@ and make images go away. */
 
 }
          
+#module {
+    line-height: 1.5;
+}
+
+#module a.collapsed::after {
+    content: '+ Show More +';
+    color:black;
+}
+
+#module a:not(.collapsed)::after {
+    content: '- Show Less -';
+    color:black;
+}
+
+.linkToWorkshop{
+    margin-top:25px; 
+    float: right; 
+    color: white;
+}
+
+.center{
+    text-align: center;
+}
+
+.dateTime{
+    text-align: right;
+    display: inline;
+    float: right;
+}
+
+.inline{
+    display: inline;
+}
