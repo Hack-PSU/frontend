@@ -141,7 +141,6 @@ body {
   display: block;
   position: absolute;
   float: right;
-  right: 5%;
   top: 0;
   width: 10%;
   max-width: 100px;
@@ -151,7 +150,7 @@ body {
 
   @media screen and (max-width: $break-medium) {
     width: 12%;
-    right: 5%;
+    right: 5% !important;
   }
 }
 
@@ -168,8 +167,9 @@ body {
       margin: auto;
       z-index: 400;
 
-      img {
-        content: url("../assets/images/Logo_v2.svg");
+      @media screen and (max-width: $md-break) {
+        margin-top: 0.5em;
+        width: 75% !important;
       }
     }
 
@@ -223,18 +223,22 @@ body {
     }
 
     .planet {
-      height: 15vh;
-      width: auto;
       position: relative;
-      left: -50;
-      bottom: 32;
+      height: 13vh;
+      top: calc(-8px - 1.5vh);
+      left: -50px;
+
+      @media screen and (max-width: $md-break) {
+        left: -0.75em;
+      }
 
       &.animated {
-        animation-name:            planet_floating;
-        animation-duration:        2s;
+        animation-name: planet_floating;
+        animation-duration: 2s;
         animation-iteration-count: 2;
       }
     }
+
     .header-text {
       font-family:   $font-stack-tertiary;
       @include responsive-font(.85em, .8em, 1.25em, 1em);
@@ -299,11 +303,19 @@ body {
 
     .register-btn {
       @include transition(all, 0.4s);
+      box-sizing: border-box;
       height: 10vh;
       background: white;
       border: solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
       margin-bottom: 2vh;
+      width: 10em;
+
+      @media screen and (max-width: $md-break) {
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 0 1em 0 !important;
+      }
 
       &:hover {
         @include transition(all, 0.4s);
@@ -439,7 +451,7 @@ body {
   margin-bottom: -1px;
 
   @media screen and (max-width: $md-break) {
-    padding-top: 10%;
+    margin-top: 5%;
   }
 
   .header-text {
@@ -486,6 +498,10 @@ body {
   overflow-y: auto;
   left: 50%;
   transform: translateX(-50%);
+
+  @media screen and (max-width: $md-break) {
+    width: 85% !important;
+  }
 }
 
 #astronaut_laptop {
@@ -493,6 +509,11 @@ body {
   top: -10%;
   left: 40%;
   width: 10vw;
+
+  @media screen and (max-width: $md-break) {
+    width: 20vw;
+    left: 20%;
+  }
 }
 
 #astronaut_swim {
@@ -500,6 +521,10 @@ body {
   left: 3vw;
   top: 30vh;
   width: 12vw;
+
+  @media screen and (max-width: $md-break) {
+    display: none;
+  }
 }
 
 #astronaut_wave {
@@ -507,10 +532,18 @@ body {
   right: 3vw;
   top: 60vh;
   width: 10vw;
+
+  @media screen and (max-width: $md-break) {
+    display: none;
+  }
 }
 
 #moon {
   width: 65vw;
+
+  @media screen and (max-width: $md-break) {
+    width: 100%;
+  }
 }
 
 #rocket_flying {
@@ -519,6 +552,10 @@ body {
   right: 26vw;
   top: 12vh;
   width: 6vw;
+
+  @media screen and (max-width: $md-break) {
+    display: none;
+  }
 }
 
 #rocket_docked {
@@ -526,6 +563,12 @@ body {
   top: -30%;
   right: 20%;
   width: 30vw;
+
+  @media screen and (max-width: $md-break) {
+    width: 50vw;
+    right: 5%;
+    top: -14vh;
+  }
 }
 
 /* fixes the dreaded line between the first
@@ -764,6 +807,11 @@ border and the section separator bar */
   padding-top: 50px;
   padding-bottom: 50px;
 
+  .row {
+    font-size: 20px;
+    text-align: right;
+  }
+
   .header-bar {
     background-color: $mountain-blue;
   }
@@ -810,6 +858,18 @@ border and the section separator bar */
 
   .nav-pills > li > a:hover, .tab-content > .tab-pane > .row > .col-8:hover {
     color: steelblue;
+  }
+
+  .nav-item {
+    @media screen and (max-width: $md-break) {
+      display: inline-block;
+    }
+  }
+
+  .nav {
+    @media screen and (max-width: $md-break) {
+      flex-wrap: nowrap;
+    }
   }
 
   #schedule-tab-view {
@@ -912,6 +972,10 @@ border and the section separator bar */
   padding: 4em;
   background: url('../assets/images/about/earth_core.svg');
   background-size: cover;
+
+  @media screen and (max-width: $md-break) {
+    padding: 1em;
+  }
 
   .social-media-icon {
     width: 40px;
