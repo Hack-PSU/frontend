@@ -734,7 +734,10 @@ border and the section separator bar */
       padding: 0;
     }
   }
-
+  .question + .fa-chevron-right {
+    display:    inline-block;
+    margin-top: 10px;
+  }
   .question:before {
     font-family:  "Font Awesome 5 Free", cursive;
     display:      inline-block;
@@ -801,42 +804,67 @@ border and the section separator bar */
 
 /* ====================== SCHEDULE ==================== */
 #schedule {
-  color: white;
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
-  padding-top: 50px;
-  padding-bottom: 50px;
-
-  .row {
-    font-size: 20px;
-    text-align: right;
-  }
+  color:            white;
+  font-family:      'Lato', sans-serif;
+  font-weight:      bold;
+  padding-top:      50px;
+  padding-bottom:   50px;
+  // background-color: #194E6B;
 
   .header-bar {
     background-color: $mountain-blue;
   }
 
+  .schedule-right {
+  padding-left: 10%;
+  border-left: 3px solid #F5F5F5;
+  }
+
+  @media screen and (max-width: 768px) {
+    .schedule-right {
+      padding-left: 0px;
+      border: none;
+    }
+    .schedule-right div {
+      padding-top: .5vh;
+    }
+
+    .schedule-left {
+      padding-top: 10px;
+    }
+    .schedule-left div {
+      padding-top: .5vh;
+    }
+
+    .schedule-header {
+      margin-top: 3%;
+    }
+  }
+
   .time {
+    margin-top:   10px;
     font-weight: lighter;
-    font-size: large;
-    margin: 0 4%;
+    font-size:   large;
+    margin:      0 4%;
     text-align: left;
-    color: $pale-blue-link;
+    color:    $pale-blue-link;
   }
 
   .event {
-    display: inline;
+    display:      inline;
+    margin-top:   10px;
     font-weight: lighter;
-    font-size: large;
-    margin: 0 4%;
-    text-align: right;
+    font-size:   large;
+    margin:      0 4%;
+    text-align:   right;
   }
 
   .event-center {
-    display: inline;
+    display:      inline;
+    margin-top:   10px;
     font-weight: lighter;
-    font-size: large;
-    margin: 0 4%;
+    font-size:   large;
+    margin:      0 4%;
     text-align: center;
   }
 
@@ -846,13 +874,13 @@ border and the section separator bar */
 
   .nav-pills > li > a {
     color: #fff;
-    background-color: #133753;
+    // background-color: #194E6B;
     margin-left: 24px;
     margin-right: 24px;
   }
 
   .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
-    color: #133753;
+    color: #194E6B;
     background-color: #fff;
   }
 
@@ -860,22 +888,11 @@ border and the section separator bar */
     color: steelblue;
   }
 
-  .nav-item {
-    @media screen and (max-width: $md-break) {
-      display: inline-block;
-    }
-  }
-
-  .nav {
-    @media screen and (max-width: $md-break) {
-      flex-wrap: nowrap;
-    }
-  }
-
   #schedule-tab-view {
     margin-top: 12px;
   }
 }
+
 
 
 
