@@ -1,4 +1,4 @@
-# HackPSU Fall 2019
+# HackPSU Fall 2020
 Repository for the main website for HackPSU Fall 2020
 
 [![Build Status](https://travis-ci.org/Hack-PSU/frontend.svg?branch=master)](https://travis-ci.org/Hack-PSU/frontend)
