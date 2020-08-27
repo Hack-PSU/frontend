@@ -5,9 +5,9 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
-  api_v2_url: 'http://staging.hackpsu18.appspot.com/v2/',
-//   api_v2_url: 'http://localhost:5000/v2/',
+  api_url: "https://staging-dot-hackpsu18.appspot.com/v1/",
+  api_v2_url: "http://staging.hackpsu18.appspot.com/v2/",
+  //   api_v2_url: 'http://localhost:5000/v2/',
   // api_url: 'http://localhost:5000/v1/',
   firebase: {
     apiKey: "AIzaSyAWejnwBUrfUoULnMRumGFpOchYjjHlfTI",
@@ -15,12 +15,12 @@ export const environment = {
     databaseURL: "https://hackpsu18-staging.firebaseio.com",
     projectId: "hackpsu18-staging",
     storageBucket: "hackpsu18-staging.appspot.com",
-    messagingSenderId: "614592542726"
+    messagingSenderId: "614592542726",
   },
   // hackathonStartTime: new Date(2018, 10,6, 7),
-  liveWebsiteGuardTime: new Date(2020, 3, 3, 15),
-  hackathonStartTime: new Date(2020, 3, 4, 7),
-  timerStartTime: new Date(2020, 3, 4, 14),
-  hackathonEndTime: new Date(2020, 3, 5, 14),
+  liveWebsiteGuardTime: new Date(2020, 10, 4, 15),
+  hackathonStartTime: new Date(2020, 10, 7, 16),
+  timerStartTime: new Date(2020, 10, 7, 18),
+  hackathonEndTime: new Date(2020, 10, 8, 20),
   rsvpStartTime: new Date(2019, 10),
 };

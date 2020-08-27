@@ -221,8 +221,9 @@ td {
 
   z-index: 500;
   position: relative;
-  background: #236577;
+  background: #005E2A;
 }
+
 .header-text {
   font-family: 'Cornerstone', sans-serif;
   font-size:   1.5em;
@@ -317,7 +318,7 @@ td {
   font-size:  large;
 }
 
-.FAQanswer {
+.faq-answer {
   color:       white;
   display:     none;
   font-weight: lighter;
@@ -327,7 +328,7 @@ td {
   padding-bottom: 4%;
 }
 
-.FAQanswer a {
+.faq-answer a {
   color:              #99C4CC;
   -webkit-transition: all 0.5s;
   -moz-transition:    all 0.5s;
@@ -336,7 +337,7 @@ td {
   transition:         all 0.5s;
 }
 
-.FAQanswer a:hover {
+.faq-answer a:hover {
   color: rgba(255, 255, 255, 0.5)
 }
 
