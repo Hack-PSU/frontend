@@ -41,6 +41,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         }),
         catchError((error) => {
           this.progress.complete();
+          console.log(error);
           // Registration not found.
           return observableOf(new Registration());
         }),
