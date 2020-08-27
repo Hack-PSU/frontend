@@ -180,8 +180,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = new Registration();
-      console.log("*******");
-      console.log(registration);
+
       //Data to keep
       this.nukeData(this.registrationForm, registration)
       

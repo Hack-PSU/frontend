@@ -31,7 +31,7 @@ export class RegistrationResolver implements Resolve<Registration> {
           return this.httpService.getRegistrationStatus();
         }),
         map((registration) => {
-          console.log("yayayaya",registration);
+          console.log(registration);
           if (registration.isCurrentRegistration() && registration.submitted) {
             this.progress.complete();
             this.router.navigate([AppConstants.PIN_ENDPOINT]);

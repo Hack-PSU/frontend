@@ -36,7 +36,6 @@ export class RsvpComponent implements OnInit {
     this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {
       const { registration } = data;
       this.registrationData = registration;
-      console.log(this.registrationData.pin)
     });
     $(document).ready(() => {
       $('ul.tabs').tabs();
