@@ -37,7 +37,7 @@ export class HttpService extends BaseHttpService {
     const API_ENDPOINT = 'users/register';
     return this.get(API_ENDPOINT, true, true, true)
       .pipe(
-        map(registrations => registrations[0]),
+        map(registrations => registrations.find(registration => registration.active)),
         map(RegistrationApiResponse.parseJSON),
       );
   }
