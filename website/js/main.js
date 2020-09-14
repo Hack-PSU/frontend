@@ -38,7 +38,7 @@ $(document).ready(function () {
 
         550:{
             items:2
-        },  
+        },
 
         768:{
             items:3
