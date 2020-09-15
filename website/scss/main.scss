@@ -97,6 +97,7 @@ body {
   text-align: center;
   overflow-x: hidden;
   background: $dark-blue-primary;
+  width: 100%;
 
   a:hover {
     text-decoration: none;
@@ -366,6 +367,8 @@ body {
 .page-content {
   position: absolute;
   z-index: 100;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section-separator-first img {
