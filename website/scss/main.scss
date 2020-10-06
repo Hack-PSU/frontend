@@ -626,12 +626,75 @@ border and the section separator bar */
 
 
 /* ====================== PLANETS ==================== */
-#planet-1 {
+#planet-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
   position: absolute;
   z-index: -1;
-  left: 10%;
   width: 10vw;
-  top: 150vw;
+
+  @media screen and (max-width: $md-break) {
+    width: 20vw;
+  }
+}
+
+#planet-1 {
+  top: 35em;
+  left: 10%;
+
+  @media screen and (max-width: $md-break) {
+    top: 25em;
+  }
+}
+
+#planet-2 {
+  top: 25em;
+  right: 20%;
+
+  @media screen and (max-width: $md-break) {
+    top: 20em;
+  }
+}
+
+#planet-3 {
+  top: 35em;
+  right: 10%;
+
+  @media screen and (max-width: $md-break) {
+    top: 40em;
+    left: 30%;
+  }
+}
+
+#planet-4 {
+  top: 55em;
+  right: 2%;
+
+  @media screen and (max-width: $md-break) {
+    top: 35em;
+  }
+}
+
+#planet-5 {
+  top: 45em;
+  left: 2%;
+
+  @media screen and (max-width: $md-break) {
+    top: 30em;
+  }
+}
+
+#satellite {
+  top: 60em;
+  left: 20%;
+
+  @media screen and (max-width: $md-break) {
+    top: 35em;
+    left: 30%;
+  }
 }
 
 
@@ -1026,11 +1089,7 @@ border and the section separator bar */
   }
 
   .social-media-icon {
-    width: 4em;
-
-    @media screen and (max-width: $md-break) {
-      width: 3em;
-    }
+    width: 3em;
   }
 
   .row {
