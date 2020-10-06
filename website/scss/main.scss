@@ -378,14 +378,6 @@ body {
   }
 }
 
-.section-separator-bar {
-  height: 150px;
-  width: 100%;
-  background: linear-gradient(#009245, transparent);
-  position: relative;
-  z-index: 500;
-}
-
 .row {
   margin-bottom: 0;
 }
@@ -507,6 +499,17 @@ body {
   }
 }
 
+#hacky {
+  position: absolute;
+  top: -22%;
+  right: 33%;
+  width: 3vw;
+
+  @media screen and (max-width: $md-break) {
+    display: none;
+  }
+}
+
 #astronaut_laptop {
   position: absolute;
   top: -10%;
@@ -617,6 +620,80 @@ border and the section separator bar */
   }
   100% {
     transform: translate(40vw, -40vw) rotate(45deg);
+  }
+}
+
+
+
+/* ====================== PLANETS ==================== */
+#planet-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
+  position: absolute;
+  z-index: -1;
+  width: 10vw;
+
+  @media screen and (max-width: $md-break) {
+    width: 20vw;
+  }
+}
+
+#planet-1 {
+  top: 35em;
+  left: 10%;
+
+  @media screen and (max-width: $md-break) {
+    top: 25em;
+  }
+}
+
+#planet-2 {
+  top: 25em;
+  right: 20%;
+
+  @media screen and (max-width: $md-break) {
+    top: 20em;
+  }
+}
+
+#planet-3 {
+  top: 35em;
+  right: 10%;
+
+  @media screen and (max-width: $md-break) {
+    top: 40em;
+    left: 30%;
+  }
+}
+
+#planet-4 {
+  top: 55em;
+  right: 2%;
+
+  @media screen and (max-width: $md-break) {
+    top: 35em;
+  }
+}
+
+#planet-5 {
+  top: 45em;
+  left: 2%;
+
+  @media screen and (max-width: $md-break) {
+    top: 30em;
+  }
+}
+
+#satellite {
+  top: 60em;
+  left: 20%;
+
+  @media screen and (max-width: $md-break) {
+    top: 35em;
+    left: 30%;
   }
 }
 
@@ -988,17 +1065,31 @@ border and the section separator bar */
 
 
 /* ====================== FOOTER ==================== */
-#footer {
-  padding: 4em;
-  background: url('../assets/images/about/earth_core.svg');
-  background-size: cover;
 
-  @media screen and (max-width: $md-break) {
-    padding: 1em;
+#footer {
+  position: relative;
+
+  #footer-link-container {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5vw;
+
+    @media screen and (max-width: $md-break) {
+      bottom: 1em;
+    }
+  }
+
+  #footer-mobile-padding {
+    @media screen and (max-width: $md-break) {
+      height: 3em;
+      background: #009245;
+    }
   }
 
   .social-media-icon {
-    width: 40px;
+    width: 3em;
   }
 
   .row {
@@ -1006,7 +1097,7 @@ border and the section separator bar */
   }
 
   p {
-    font-size: small;
+    font-size: medium;
     display: inline-block;
     margin: auto;
   }
@@ -1017,7 +1108,13 @@ border and the section separator bar */
   }
 
   .small-text {
-    font-size: x-small;
+    font-size: small;
+  }
+
+  img {
+    @media screen and (max-width: $md-break) {
+      transform: translateY(2px);
+    }
   }
 }
 
