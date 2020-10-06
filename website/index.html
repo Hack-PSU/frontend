@@ -14,6 +14,9 @@
   <!-- particles js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
+  <!-- rellax -->
+  <script src="js/rellax.min.js"></script>
+
   <!-- other scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/main.js"></script>
@@ -270,6 +273,7 @@
   <img src="assets/images/about/astronaut_swimming.svg" alt="Astronaut" class="floating" id="astronaut_swim">
   <img src="assets/images/about/rocket_docked.svg" alt="Rocket" id="rocket_docked">
   <img src="assets/images/about/rocket_flying.svg" alt="Rocket" class="flying" id="rocket_flying">
+  <img src="assets/images/about/hacky.svg" alt="Hacky" id="hacky">
 
   <!-- moon and about section text -->
   <img src="assets/images/about/moon_square.svg" alt="Moon" id="moon">
@@ -299,12 +303,13 @@
   </div>
 </section>
 
-<div class="section-separator">
-  <img class="section-separator first-border" src="assets/images/about/earth_crust.svg" alt="Earth">
-</div>
-
-<div class="section-separator-bar">
-</div>
+<!-- floating planets behind track, faq, and sponsors -->
+<img src="assets/images/planets/planet_1.svg" alt="Planet" id="planet-1" class="rellax" data-rellax-speed="3">
+<!--<img src="assets/images/planets/planet_2.svg" alt="Planet" id="planet-2">-->
+<!--<img src="assets/images/planets/planet_3.svg" alt="Planet" id="planet-3">-->
+<!--<img src="assets/images/planets/planet_4.svg" alt="Planet" id="planet-4">-->
+<!--<img src="assets/images/planets/planet_5.svg" alt="Planet" id="planet-5">-->
+<!--<img src="assets/images/planets/satellite.svg" alt="Satellite" id="satellite">-->
 
 <section id="tracks">
   <div class="container-fluid">
@@ -796,7 +801,8 @@
 -->
 
 <section id="footer">
-  <div class="container-fluid"><br><br>
+  <img src="assets/images/about/earth_crust.svg" alt="Earth">
+  <div id="footer-link-container">
     <div class="row">
       <div id="social-media" class="col-12">
         <a target="_blank" href="https://www.facebook.com/HackPSU/"><img
@@ -822,6 +828,7 @@
       <a class="small-text" target="_blank" href="/privacy">Privacy Policy</a>
     </div>
   </div>
+  <div id="footer-mobile-padding"></div>
 </section>
 
 </div>
