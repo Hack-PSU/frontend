@@ -311,6 +311,7 @@ body {
       border-radius: 50px;
       margin-bottom: 2vh;
       width: 10em;
+      cursor: pointer;
 
       @media screen and (max-width: $md-break) {
         left: 0 !important;
