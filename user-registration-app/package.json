@@ -38,7 +38,6 @@
     "ng-animate": "0.3.4",
     "ngx-alerts": "3.0.0",
     "ngx-pagination": "3.2.0",
-    "particles.js": "^2.0.0",
     "request": "2.87.0",
     "rxjs": "^6.4.0",
     "sinon": "6.1.3",

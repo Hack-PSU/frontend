@@ -27,9 +27,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/hammerjs/hammer.js",
-              "node_modules/materialize-css/dist/js/materialize.js",
-              "node_modules/particles.js/particles.js",
-              "src/assets/scripts/main.js"
+              "node_modules/materialize-css/dist/js/materialize.js"
             ]
           },
           "configurations": {
@@ -79,8 +77,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/hammerjs/hammer.js",
-              "node_modules/materialize-css/dist/js/materialize.js",
-              "node_modules/particles.js/particles.js"
+              "node_modules/materialize-css/dist/js/materialize.js"
             ],
             "styles": [
               "src/styles.css",

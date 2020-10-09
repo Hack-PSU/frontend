@@ -5,21 +5,24 @@
       <div id="{{update.uid}}"
            class="row vertical-align update-holder"
            (click)="updateClicked(update)">
-        <div class="container-fluid update-holder-inner-styling">
+        <div class="container-fluid col-sm-8 col-sm-offset-2 col-12 update-holder-inner-styling">
           <div class="row">
-            <div class="col-md-4">
-              <!-- <img [src]="update.update_image" class="update-img"> -->
-              <img src="../../../assets/images/spaceBallPink.svg" class="liveUpdateImg">
-            </div>
-            <div class="col-md-8">
-              <div class="update-title"> {{update.update_title}}</div>
-              <div id="toggle_{{update.uid}}" class="expandable-update">
+            <div class="col-8">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="update-title"> {{update.update_title}}</div>
+                </div>
+              </div>
+              <div id="toggle_{{update.uid}}" class="row expandable-update">
+                <div class="col-md-12 col-sm-12">
                   <div class="update-body"> {{update.update_text}}</div>
+                </div>
               </div>
             </div>
+            <div class="col-4">
+              <img [src]="update.update_image" class="update-img">
+            </div>
           </div>
-
- 
         </div>
       </div>
     </div>
