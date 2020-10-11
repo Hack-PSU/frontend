@@ -145,6 +145,22 @@ export class RegistrationFormComponent implements OnInit {
     return consolidatedEthnicity;
   }
 
+  private consolidateAddress() {
+    let consolidatedAddress = "";
+
+    for (let addrField in this.registrationForm.addressFields) {
+      if (this.registrationForm.addressFields[addrField]) {
+        consolidatedAddress += `${this.registrationForm.addressFields[addrField]}, `;
+      }
+    }
+
+    if (consolidatedAddress.slice(-2) === ", ") {
+      consolidatedAddress = consolidatedAddress.slice(0, -2);
+    }
+
+    this.registrationForm.address = consolidatedAddress;
+  }
+
   sanitizeUrl(resume_link: any) {
     if (!(resume_link instanceof URL)) {
       throw new Error('Must be a URL');
@@ -202,6 +218,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.veteran = registration.veteran;
     this.registrationForm.shirtSize = registration.shirtSize;
   }
+
   parsePhone(val: any) {
     this.asYouType.reset();
     this.prettifiedPhone = this.asYouType.input(val);

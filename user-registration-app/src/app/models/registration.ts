@@ -26,6 +26,10 @@ export class Registration {
   public projectDesc: string;
   public expectations: string;
   public veteran: string;
+  public address: string;
+  public addressFields: any;
+  public shareAddressMlh: boolean;
+  public shareAddressSponsors: boolean;
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
@@ -58,6 +62,17 @@ export class Registration {
       "caucasian": false,
       "noDisclose": false
     };
+    this.address = "";
+    this.addressFields = {
+      "addressLine1": "",
+      "addressLine2": "",
+      "city": "",
+      "stateProvince": "",
+      "zipcode": "",
+      "country": ""
+    };
+    this.shareAddressMlh = false;
+    this.shareAddressSponsors = false;
     this.codingExperience = null;
     this.referral = null;
     this.projectDesc = null;
@@ -66,6 +81,7 @@ export class Registration {
     this.submitted = false;
     this.hackathon = null;
   }
+
   private static parseHackathon(value: any): string{
     value.hackathon = Hackathon.parseJSON(value);
     return value.hackathon;
@@ -74,6 +90,7 @@ export class Registration {
   hasExistingResume(): boolean {
     return this.resume instanceof URL;
   }
+
   public static parseFromApiResponse(value: RegistrationApiResponse) : Registration{
     const registration = new Registration();
     registration.firstName = value.firstname;
