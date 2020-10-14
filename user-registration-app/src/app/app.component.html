@@ -12,55 +12,55 @@
     </div>
         
     
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper" style="width: 90%;">
-        <a href="http://hackpsu.org" class="brand-logo"> <img src="../assets/images/logo.svg" alt="hackpsulogo"> </a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
-          <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
-          <li *ngIf="DateGuard.validateDate()">
-            <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">
-              {{router.url === '/live' ? 'REGISTER' : 'LIVE'}}
-            </a>
-          </li>
-          <!--<li *ngIf="router.url === '/live'">-->
-          <!--<a class="dropdown-button" href="#!" data-activates="dropdown1">OTHER-->
-          <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
-          <!--</i>-->
-          <!--</a>-->
-          <!--</li>-->
-          </ul>
-          <ul class="right hide-on-med-and-down">
-            <app-user-view></app-user-view>
-          </ul>
-      </div>
-    </nav>
-  </div>
-  <ul class="side-nav" *ngIf="DateGuard.validateDate()" id="mobile-demo" style="transform: translateX(-100%);">
-    <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-    <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
-    <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
-    <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
-    <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
-    <li *ngIf="DateGuard.validateDate()">
-      <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' :
-      'LIVE'}}</a>
-    </li>
-    <!--<li *ngIf="router.url !== '/register'">-->
-    <!--<a class="dropdown-button" href="#!" data-activates="dropdown1-mobile">OTHER-->
-    <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
-    <!--</i>-->
-    <!--</a>-->
-    <!--</li>-->
-    <div class="mobile-login-button">
-      <app-user-view></app-user-view>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper" style="width: 90%;">
+          <a href="http://hackpsu.org" class="brand-logo"> <img src="../assets/images/logo.svg" alt="hackpsulogo"> </a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+            <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+            <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
+            <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
+            <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
+            <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+            <li *ngIf="DateGuard.validateDate()">
+              <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">
+                {{router.url === '/live' ? 'REGISTER' : 'LIVE'}}
+              </a>
+            </li>
+            <!--<li *ngIf="router.url === '/live'">-->
+            <!--<a class="dropdown-button" href="#!" data-activates="dropdown1">OTHER-->
+            <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
+            <!--</i>-->
+            <!--</a>-->
+            <!--</li>-->
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <app-user-view></app-user-view>
+            </ul>
+        </div>
+      </nav>
     </div>
-  </ul>
+    <ul class="side-nav" *ngIf="DateGuard.validateDate()" id="mobile-demo" style="transform: translateX(-100%);">
+      <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+      <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
+      <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
+      <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
+      <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+      <li *ngIf="DateGuard.validateDate()">
+        <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' :
+        'LIVE'}}</a>
+      </li>
+      <!--<li *ngIf="router.url !== '/register'">-->
+      <!--<a class="dropdown-button" href="#!" data-activates="dropdown1-mobile">OTHER-->
+      <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
+      <!--</i>-->
+      <!--</a>-->
+      <!--</li>-->
+      <div class="mobile-login-button">
+        <app-user-view></app-user-view>
+      </div>
+    </ul>
   </div>
   <div class="content" [@routeAnimations]="prepareRoute(outlet)">
     <!--<div class="row full-height">-->
