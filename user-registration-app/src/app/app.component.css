@@ -57,23 +57,28 @@ p {
   width: 100%;
 }
 
+/* This is used on the livesite when the MLH logo appears on the left side of the screen */
+.navbar-mlh-hotfix {
+  margin-left:auto;
+  margin-right:30px;
+}
+
 nav {
-  padding-top: 50px;
-  background-color: rgba(0,0,0,0.0);
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0px rgba(0, 0, 0, 0);
-  height: 60px;
-  width: 100%;
+  padding-top: 20px;
+  background-color: #002136af;
+  box-shadow: none;
+  height: 93px;
 }
 
 nav .brand-logo {
   display: block;
   margin-left: 5%;
   width: 45px;
+  margin-top: 2px;
 }
 
 nav img{
   vertical-align: top;
-  margin-top: 5px;
 }
 
 nav ul li {
