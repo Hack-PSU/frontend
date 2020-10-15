@@ -60,7 +60,7 @@ export class HttpService extends BaseHttpService {
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in submitData) {
-      if (submitData.hasOwnProperty(key) && submitData[key] !== null && key !== 'resume') {
+      if (submitData.hasOwnProperty(key) && submitData[key] && key !== 'resume') {
         formObject.append(key, submitData[key]);
       }
     }
@@ -71,10 +71,6 @@ export class HttpService extends BaseHttpService {
         formObject.append('resume', submitData.resume, submitData.resume.name);
       }
     }
-    console.log(formObject);
-    formObject.forEach((key, val) => {
-      console.log(val, ": ", key);
-    });
     return this.post(API_ENDPOINT, formObject, true);
   }
 
