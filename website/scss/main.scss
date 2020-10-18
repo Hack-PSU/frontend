@@ -629,7 +629,6 @@ border and the section separator bar */
 /* ====================== PLANETS ==================== */
 #planet-container {
   position: relative;
-  overflow: hidden;
 }
 
 #planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
@@ -643,7 +642,7 @@ border and the section separator bar */
 }
 
 #planet-1 {
-  top: 35em;
+  top: 40em;
   left: 10%;
 
   @media screen and (max-width: $md-break) {
@@ -652,7 +651,7 @@ border and the section separator bar */
 }
 
 #planet-2 {
-  top: 25em;
+  top: 30em;
   right: 20%;
 
   @media screen and (max-width: $md-break) {
@@ -661,7 +660,7 @@ border and the section separator bar */
 }
 
 #planet-3 {
-  top: 35em;
+  top: 40em;
   right: 10%;
 
   @media screen and (max-width: $md-break) {
@@ -671,7 +670,7 @@ border and the section separator bar */
 }
 
 #planet-4 {
-  top: 55em;
+  top: 60em;
   right: 2%;
 
   @media screen and (max-width: $md-break) {
@@ -680,7 +679,7 @@ border and the section separator bar */
 }
 
 #planet-5 {
-  top: 45em;
+  top: 50em;
   left: 2%;
 
   @media screen and (max-width: $md-break) {
@@ -689,7 +688,7 @@ border and the section separator bar */
 }
 
 #satellite {
-  top: 60em;
+  top: 65em;
   left: 20%;
 
   @media screen and (max-width: $md-break) {
@@ -1012,6 +1011,12 @@ border and the section separator bar */
 
   .bronze img {
     max-width: 50%;
+  }
+
+  .sticker-mule {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
   }
 }
 
