@@ -1,0 +1,32 @@
+
+<div class="card" style="text-align: left;">
+    <div class="inline">
+      <p class="card-title inline">{{ title  }}</p>
+      <p class="dateTime">{{ date }}<br>{{ time }}</p>  
+    </div>
+
+    <div id="module">
+      <p class="collapse" id="{{collapseID}}" aria-expanded="false">{{ descrip }}</p>
+      <div class="center">
+        <a role="button" class="collapsed" data-toggle="collapse" href="#{{collapseID}}" aria-expanded="false" [attr.aria-controls]="collapseID"></a>
+      </div>
+    </div>
+
+    <div class="inline">
+        
+        <div class="card-image tooltipped inline"  data-position="bottom" [attr.data-tooltip]=" presenter1Name " id="presenter1">
+            <img class="z-depth-5 activator" src="{{ presenter1img }}" style="width: 70px; height: 70px; margin: 5px;">
+        </div>
+
+        <div class="card-image tooltipped inline"  data-position="bottom" [attr.data-tooltip]=" presenter2Name " id="presenter2">
+            <img class="z-depth-5 activator" src="{{ presenter2img }}" style="width: 70px; height: 70px; margin: 5px;">
+        </div>
+
+        <div class="card-image tooltipped inline"  data-position="bottom" [attr.data-tooltip]=" presenter3Name " id="presenter3">
+            <img class="z-depth-5 activator" src="{{ presenter3img }}" style="width: 70px; height: 70px; margin: 5px;">
+        </div>
+
+        <a href="{{link}}" target="_blank"><i class="material-icons small linkToWorkshop">send</i></a>
+    </div>
+  </div>
+
