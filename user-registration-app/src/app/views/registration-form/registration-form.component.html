@@ -180,7 +180,7 @@
   <div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy" materialize="scrollSpy"
     id="shirt-container">
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="shirt-size">What is your shirt size?</h5>
         <div class="form-group required">
           <input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS" #shirtControl="ngModel"
@@ -205,6 +205,62 @@
         <label class="data-error" *ngIf="!shirtControl.valid">Required</label>
       </div>
       <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Shirt.svg">
+    </div>
+  </div>
+
+  <!-- Address -->
+  <div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy" materialize="scrollSpy">
+    <div class="card medium darken-1">
+      <div class="card-content">
+        <h5 class="address">What is your address?</h5>
+        <div class="input-field">
+          <label for="addressLine1">Address line 1</label>
+          <input type="text" class="" id="addressLine1" name="addressLine1" 
+            [(ngModel)]="registrationForm.addressFields.addressLine1"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="input-field">
+          <label for="addressLine2">Address line 2</label>
+          <input type="text" class="" id="addressLine2" name="addressLine2"
+            [(ngModel)]="registrationForm.addressFields.addressLine2"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="input-field">
+          <label for="zipcode">Zipcode</label>
+          <input type="text" class="" id="zipcode" name="zipcode"
+            [(ngModel)]="registrationForm.addressFields.zipcode"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="input-field">
+          <label for="city">City</label>
+          <input type="text" class="" id="city" name="city"
+            [(ngModel)]="registrationForm.addressFields.city"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="input-field">
+          <label for="stateProvince">State/Province</label>
+          <input type="text" class="" id="stateProvince" name="stateProvince"
+            [(ngModel)]="registrationForm.addressFields.stateProvince"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="input-field">
+          <label for="country">Country</label>
+          <input type="text" class="" id="country" name="country"
+            [(ngModel)]="registrationForm.addressFields.country"
+            (keyup)="consolidateAddress()">
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="with-gap" id="shareAddressMlh" name="shareAddressMlh"
+            [(ngModel)]="registrationForm.shareAddressMlh">
+          <label for="shareAddressMlh">Share your address with MLH?</label><br>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="with-gap" id="shareAddressSponsors" name="shareAddressSponsors"
+            [(ngModel)]="registrationForm.shareAddressSponsors">
+          <label for="shareAddressSponsors">Share your address with our sponsors?</label><br>
+        </div>
+        <p class="alert">This information is for us to send you goodies! This is optional.</p>
+      </div>
     </div>
   </div>
 
@@ -397,8 +453,7 @@
     <div class="card medium darken-1">
       <div class="card-content ">
         <h5 class="mlh-coc">Do you agree to MLH Code of Conduct?</h5>
-        <p class="small-text"> MLH Code of Conduct: <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
-            target="_blank">https://static.mlh.io/docs/mlh-code-of-conduct.pdf</a><br>
+        <p class="small-text"> I have read and agree to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">MLH Code of Conduct</a> <br>
         <p class="alert">To participate at HackPSU, you must agree to this policy.</p>
         <div class="switch">
           <label>
@@ -422,13 +477,9 @@
         <h5 class="mlh-coc">Do you agree to MLH Data Sharing Notice?</h5>
         <p class="small-text">
           Data Sharing Notice:<br>
-          We participate in Major League Hacking (MLH) as a MLH Member Event. You authorize us to
-          share certain
-          application/registration information for event administration, ranking, MLH
-          administration, pre and
-          post-event informational e-mails, and occasional messages about hackathons in line with
-          the MLH Privacy
-          Policy.<br>
+          I authorize you to share my application/registration information for event administration, ranking, MLH administration, pre- and post-event informational e-mails, 
+          and occasional messages about hackathons in-line with the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>. 
+          I further agree to the terms of both the <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions" target="_blank">MLH Contest Terms and Conditions</a> and the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>.<br>
         <p class="alert">Note that to participate at HackPSU, you must agree to this policy.</p>
         <div class="switch">
           <label>

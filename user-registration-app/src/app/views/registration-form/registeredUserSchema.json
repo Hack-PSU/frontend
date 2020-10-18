@@ -29,6 +29,20 @@
         "XXL"
       ]
     },
+    "address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "shareAddressMlh": {
+      "type": "boolean"
+    },
+    "shareAddressSponsors": {
+      "type": "boolean"
+    },
     "dietaryRestriction": {
       "type": [
         "string",
