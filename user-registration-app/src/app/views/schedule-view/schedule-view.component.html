@@ -1,6 +1,6 @@
 <div id="schedule-container" class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <span class="schedule-title">ACTIVITIES</span>
       <div class="row event-row activity">
         <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)"
@@ -22,7 +22,7 @@
                 <div class="event-location">{{activity.location_name}}</div>
               </div>
               <div class="col-6">
-                <div class="event-title">{{activity.event_title}}</div>
+                <div class="event-title right">{{activity.event_title}}</div>
                 <div class="event-description"></div>
               </div>
             </div>
@@ -34,6 +34,7 @@
         </button>
       </div>
     </div>
+    <!--
     <div class="col-md-4">
       <span class="schedule-title">MEALS</span>
       <div class="row event-row food">
@@ -70,7 +71,10 @@
         </button>
       </div>
     </div>
-    <div class="col-md-4">
+    -->
+
+
+    <div class="col-md-6">
       <span class="schedule-title">WORKSHOPS</span>
       <div class="row event-row workshops">
         <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)"
@@ -80,9 +84,9 @@
              [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
           <ng-container>
             <div class="container-fluid">
-              <div class="row">
+              <div class="row ">
                 <div class="col-12">
-                  <div class="event-day-title">{{getEventDay(activity)}}</div>
+                  <div class="event-day-title center">{{getEventDay(activity)}}</div>
                 </div>
               </div>
               <div class="row">
@@ -93,7 +97,7 @@
                   <div class="event-location">{{activity.location_name}}</div>
                 </div>
                 <div class="col-6">
-                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-title right">{{activity.event_title}}</div>
                   <div class="event-description"></div>
                 </div>
               </div>
