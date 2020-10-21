@@ -15,7 +15,6 @@ many of the utlities in Bootstrap, so undoing it here.*/
   /*background-image: url('../../../assets/images/stars_1.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);*/
   background-repeat: no-repeat;
 }
-
 .font{
   font-family: 'Cornerstone', sans-serif;
 }
@@ -80,43 +79,6 @@ many of the utlities in Bootstrap, so undoing it here.*/
   font-weight: 700;
 }
 
-@media screen and (max-width: 768px) {
-
-  #countdown-timer .unit {
-    display: inline-block;
-    text-align: center;
-    color: white;
-    font-size: medium;
-    width: 22.5%;
-  }
-
-  #countdown-timer {
-    text-align: left;
-    width: 80%;
-    padding: 10px;
-    margin: 20px auto;
-    border-radius: 10px;
-    position: relative;
-    white-space: nowrap;
-  }
-
-  #countdown-timer h3 {
-    color: white;
-    padding-top: 10px;
-    font-size: medium;
-    text-align: center;
-  }
-
-  #countdown-timer > div > div {
-    height: 50px;
-    font-size: larger;
-    line-height: 30px;
-    color: white;
-    /*margin:10px 0;*/
-    font-family: 'Cornerstone', sans-serif;
-  }
-}
-
 @media screen and (min-width: 768px) {
   #countdown-timer .unit {
     display: inline-block;
@@ -145,19 +107,18 @@ many of the utlities in Bootstrap, so undoing it here.*/
     text-align: center;
   }
 
-  #countdown-timer > div > div {
+  #countdown-timer .number {
     width: 150px;
     height: 75px;
     font-size: 50px;
     line-height: 70px;
     color: white;
     margin: 10px 0;
-    font-family: 'Cornerstone', sans-serif;
   }
 }
 
 .submit-btn {
-  height:        10vh;
+  height:        auto;
   width: 500px;
   background:    black;
   border:        solid 8px rgba(170, 202, 204, 0.6);
@@ -165,6 +126,17 @@ many of the utlities in Bootstrap, so undoing it here.*/
   margin-bottom: 2vh;
   line-height: 9vh;
   font-size: 1.5rem;
+
+}
+.submit-btn-text {
+  white-space: pre-line;
+  width:100%;
+}
+@media screen and (max-width: 670px) {
+  .text-res {
+    font-size: 1.1rem;
+    line-height: 5vh;
+  }
 }
 
 .submit-btn:hover {
