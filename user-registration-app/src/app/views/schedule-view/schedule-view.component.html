@@ -5,15 +5,15 @@
   .switch label input[type=checkbox]:checked+.lever {
     background-color: #fa3;
   }
-  
+
   .switch label input[type=checkbox]:checked+.lever:after {
     background-color: rgb(189, 125, 35);
   }
-  
+
   .switch label input[type=checkbox]:checked + .lever:after {
     background-color: #18ffff;
   }
-  
+
   .switch label .lever {
     content: "";
     display: inline-block;
@@ -28,7 +28,7 @@
     vertical-align: middle;
     margin: 0 16px;
   }
-  
+
   .switch label .lever:after {
     background-color: #006064;
     -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -91,7 +91,7 @@ transition: 0.5s ease;
     </div>
   </div>
 
-    
+
     <div id="schedule-container" class="container-fluid">
   <div class="row">
     <div class="col-md-6">
@@ -99,9 +99,7 @@ transition: 0.5s ease;
       <div class="row event-row activity">
         <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)"
              id="event_key-{{activity.uid}}" class="event"
-             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)"
-             data-toggle="modal"
-             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)">
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
@@ -113,11 +111,22 @@ transition: 0.5s ease;
                 <div class="event-time">
                   {{getStartTime(activity)}} - {{getEndTime(activity)}}
                 </div>
-                <div class="event-location">{{activity.location_name}}</div>
               </div>
               <div class="col-6">
                 <div class="event-title right">{{activity.event_title}}</div>
                 <div class="event-description"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <button class="event-btn" (click)="openZoomLink(activity.location_name)">
+                  Join Via Zoom
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="event-btn" [attr.data-target]="'#event_key-'+activity.uid+'-modal'" data-toggle="modal">
+                  Details
+                </button>
               </div>
             </div>
           </div>
@@ -134,9 +143,7 @@ transition: 0.5s ease;
       <div class="row event-row food">
         <div *ngFor="let activity of (meals | limitTo: mealsViewNum)"
              id="event_key-{{activity.uid}}" class="event"
-             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)"
-             data-toggle="modal"
-             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)">
           <ng-container>
             <div class="container-fluid">
               <div class="row">
@@ -149,11 +156,22 @@ transition: 0.5s ease;
                   <div class="event-time">
                     {{getStartTime(activity)}} - {{getEndTime(activity)}}
                   </div>
-                  <div class="event-location">{{activity.location_name}}</div>
                 </div>
                 <div class="col-6">
                   <div class="event-title">{{activity.event_title}}</div>
                   <div class="event-description"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button class="event-btn" (click)="openZoomLink(activity.location_name)">
+                    Join Via Zoom
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="event-btn" [attr.data-target]="'#event_key-'+activity.uid+'-modal'" data-toggle="modal">
+                    Details
+                  </button>
                 </div>
               </div>
             </div>
@@ -173,9 +191,7 @@ transition: 0.5s ease;
       <div class="row event-row workshops">
         <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)"
              id="event_key-{{activity.uid}}" class="event"
-             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)"
-             data-toggle="modal"
-             [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)">
           <ng-container>
             <div class="container-fluid">
               <div class="row">
@@ -188,11 +204,22 @@ transition: 0.5s ease;
                   <div class="event-time">
                     {{getStartTime(activity)}} - {{getEndTime(activity)}}
                   </div>
-                  <div class="event-location">{{activity.location_name}}</div>
                 </div>
                 <div class="col-6">
                   <div class="event-title right">{{activity.event_title}}</div>
                   <div class="event-description"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button class="event-btn" (click)="openZoomLink(activity.location_name)">
+                    Join Via Zoom
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="event-btn" [attr.data-target]="'#event_key-'+activity.uid+'-modal'" data-toggle="modal">
+                    Details
+                  </button>
                 </div>
               </div>
             </div>

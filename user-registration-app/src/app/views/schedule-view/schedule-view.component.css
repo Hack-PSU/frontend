@@ -20,12 +20,7 @@
   -webkit-box-shadow: 0px 3px 5px 0 rgba(34, 34, 34, 0.55);
   -moz-box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
   box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
-  cursor: pointer;
   transition: all .15s;
-}
-
-.event:active {
-  transform: scale(0.96);
 }
 
 .event:hover {
@@ -104,7 +99,7 @@
   padding: 0;
 }
 
-.description-text, .event-location {
+.description-text {
   font-size: 14px;
   letter-spacing: 0.5px;
 }
@@ -179,9 +174,23 @@ i {
   color: black;
 }
 
-.event-location {
-  font-weight: 600;
-  font-size: 1rem;
+.event-btn {
+  transition: 0.2s;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+}
+
+.event-btn:hover {
+  transform: scale(1.1);
+}
+
+.event-btn:active {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .event-description {
