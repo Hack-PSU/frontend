@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CountdownService } from "../../services/CountdownService/countdown.service";
 
 declare var $: any;
+declare var particlesJS: any;
 
 @Component({
   selector: 'app-live-view',
@@ -43,6 +44,10 @@ export class LiveViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+
     $(document).ready(() => {
       $('.materialboxed').materialbox();
       $('.question').click(function () {
