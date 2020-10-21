@@ -94,7 +94,7 @@ transition: 0.5s ease;
 
     <div id="schedule-container" class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <span class="schedule-title">ACTIVITIES</span>
       <div class="row event-row activity">
         <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)"
@@ -113,7 +113,7 @@ transition: 0.5s ease;
                 </div>
               </div>
               <div class="col-6">
-                <div class="event-title">{{activity.event_title}}</div>
+                <div class="event-title right">{{activity.event_title}}</div>
                 <div class="event-description"></div>
               </div>
             </div>
@@ -137,6 +137,7 @@ transition: 0.5s ease;
         </button>
       </div>
     </div>
+    <!--
     <div class="col-md-4">
       <span class="schedule-title">MEALS</span>
       <div class="row event-row food">
@@ -182,7 +183,10 @@ transition: 0.5s ease;
         </button>
       </div>
     </div>
-    <div class="col-md-4">
+    -->
+
+
+    <div class="col-md-6">
       <span class="schedule-title">WORKSHOPS</span>
       <div class="row event-row workshops">
         <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)"
@@ -202,7 +206,7 @@ transition: 0.5s ease;
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-title right">{{activity.event_title}}</div>
                   <div class="event-description"></div>
                 </div>
               </div>
