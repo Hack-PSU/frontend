@@ -921,22 +921,11 @@ border and the section separator bar */
     }
   }
 
-  .time {
-    margin-top:   10px;
-    font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
-    text-align: left;
-    color:    $pale-blue-link;
-  }
-
-  .event {
-    display:      inline;
-    margin-top:   10px;
-    font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
-    text-align:   right;
+  .time-event-text {
+    margin-top: 5px;
+    @media screen and (max-width: $sm-break) {
+      font-size: large;
+    }
   }
 
   .event-center {
@@ -970,6 +959,9 @@ border and the section separator bar */
 
   #schedule-tab-view {
     margin-top: 12px;
+    @media screen and (max-width: $sm-break) {
+      font-size: large;
+    }
   }
 }
 
