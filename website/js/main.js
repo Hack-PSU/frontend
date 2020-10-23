@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  var rellax = new Rellax('.rellax');
+
   $(".button-collapse").sideNav();
   $('.slider').slider();
   $('.question').click(function () {
