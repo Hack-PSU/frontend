@@ -80,8 +80,8 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 /* DESKTOP/LAPTOP */
-/* if the screen size is 769 or more */
-@media screen and (min-width: 769px) {
+/* if the screen size is 1220 or more */
+@media screen and (min-width: 1220px) {
   #countdown-timer .unit {
     display: inline-block;
     text-align: center;
@@ -120,8 +120,8 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 /* TABLETS ONLY */
-/* if the screen is 768 or less AND 415 or more */
-@media screen and (max-width: 768px) and (min-width:415px){
+/* if the screen is 1219 or less AND 415 or more */
+@media screen and (max-width: 1219px) and (min-width:415px){
   #countdown-timer .unit {
     display: inline-block;
     text-align: center;
