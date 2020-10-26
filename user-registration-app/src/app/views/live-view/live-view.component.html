@@ -26,39 +26,49 @@
 
      <!-- Countdown Timer -->
     <div class="col-6">
-      <div id='countdown-timer' class="d-flex justify-items-center mt-0">
-        <div id='days' class='unit'>
-          <div>{{days}}</div>
-          Days
-        </div>
-        <div id='hours' class='unit'>
-          <div>{{hours}}</div>
-          Hours
-        </div>
-        <div id='minutes' class='unit'>
-          <div>{{minutes}}</div>
-          Minutes
-        </div>
-        <div id='seconds' class='unit'>
-          <div>{{seconds}}</div>
-          Seconds
+      <div id="countdown-timer" class="d-flex justify-items-center mt-0">
+        <div class="row">
+          <div id="days" class="col-md-3 unit">
+            <div class="row">
+              <div class="font number">{{days}}</div>
+              <div style="margin: 0 auto;">Days</div>
+            </div>
+          </div>
+          <div id="hours" class="col-md-3 unit">
+            <div class="row">
+              <div class="font number">{{hours}}</div>
+              <div style="margin: 0 auto;">Hours</div>
+            </div>
+          </div>
+          <div id="minutes" class="col-md-3 unit">
+            <div class="row">
+              <div class="font number">{{minutes}}</div>
+              <div style="margin: 0 auto;">Minutes</div>
+            </div>
+          </div>
+          <div id="seconds" class="col-md-3 unit">
+            <div class="row second-res">
+              <div class="font number">{{seconds}}</div>
+              <div style="margin: 0 auto;">Seconds</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Slack Button & Banner Text -->
       <div class="row d-flex justify-content-center">
         <div class="col-12">
-          <p id='countdown-text' class="text-center">{{bannerText}}</p>
+          <p id="countdown-text" class="text-center">{{bannerText}}</p>
         </div>
 
 
         <a class="btn waves-effect waves-red submit-btn text-center" target="_blank"
               href="https://join.slack.com/t/hackpsu-group/shared_invite/enQtODE3Mzc5NDI1NjQ4LTJmMDkzYmQ0ODRmNGNjOTE0MzkyMGY0Y2ZiODJjYmQwNDM5MzFiODc2MTY5YzdjYWJiN2FlZmM4MTNhMzU0YmU">
-              <div class="font">Slack</div>
+              <div class="font text-res">Slack</div>
             </a>
           <br>
          <a class="btn waves-effect waves-red submit-btn" target="_blank"
-              href="https://hackpsu-fall-2019.devpost.com/"><div class="font">Submit Your Project</div></a>
+              href="https://hackpsu-fall-2019.devpost.com/"><div class="font submit-btn-text text-res">Submit Your Project</div></a>
 
       </div>
       <div class="page-header"></div>
