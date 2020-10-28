@@ -1005,7 +1005,40 @@ border and the section separator bar */
     max-width: 50%;
   }
 
+  .nittany-ai{
+    padding-top: 10%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+  
+  .plant-village{
+    padding-top: 28%;
+    @media screen and (max-width: $md-break) {
+      padding-top: 20%;
+      width: 60%;
+    }
+  }
+
+  .capital-one{
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+
   .sticker-mule {
+    @media screen and (max-width: $md-break) {
+      padding-top: 20%;
+      max-width: 40%;
+      max-height: 40%;
+    }
+    padding-top: 33%;
+    max-width: 45%;
+    max-height: 45%;
+  }
+  
+  .jetbrains{
+    padding-top: 10%;
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
