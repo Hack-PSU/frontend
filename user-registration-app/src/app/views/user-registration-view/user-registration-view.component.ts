@@ -88,15 +88,20 @@ export class UserRegistrationViewComponent implements OnInit {
 
   getAddress(): string {
     const noAddr = 'No address on file. Please add your address if you would like to receive some swag!'
-    return this.registrations[0].address || noAddr;
+    if (this.registrations.length > 0) {
+      return (this.registrations[0].address ? this.registrations[0].address : noAddr);
+    } else {
+      return noAddr;
+    }
   }
+
 
   validateAddress(): boolean {
     // how to validate address?
     return true;
   }
 
-  attachNewAddress() {
+  attachNewAddress(reg: Registration): Registration {
     const addrFields = this.updateAddressFields;
     let newAddress = '';
 
@@ -110,7 +115,8 @@ export class UserRegistrationViewComponent implements OnInit {
       newAddress = newAddress.slice(0, -2);
     }
 
-    this.registrations[0].address = newAddress;
+    reg.address = newAddress;
+    return reg
   }
 
   submitAddress() {
@@ -119,11 +125,11 @@ export class UserRegistrationViewComponent implements OnInit {
       this.alertsService.danger('Please fill all necessary fields')
     }
 
-    this.attachNewAddress()
-
     this.progressService.start();
-    const reg = Registration.parseFromApiResponse(this.registrations[0]);
+    let reg = Registration.parseFromApiResponse(this.registrations[0]);
     reg.hackathon = this.registrations[0].hackathon.uid;
+    reg = this.attachNewAddress(reg);
+    console.log("reg to be passed: ", reg)
     this.httpService.submitAddress(reg)
       .subscribe(() => {
         this.progressService.complete();
