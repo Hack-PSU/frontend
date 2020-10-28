@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { IRegistrationDb, RegistrationApiResponse } from "../../models/registration";
-import { ExtraCreditClass } from "../../models/extra-credit-class";
-import { HttpService } from "../../services/HttpService/HttpService";
-import { forkJoin } from "rxjs";
-import { NgProgress } from "@ngx-progressbar/core";
-import { AlertService } from "ngx-alerts";
+import { IRegistrationDb, Registration, RegistrationApiResponse } from '../../models/registration';
+import { ExtraCreditClass } from '../../models/extra-credit-class';
+import { HttpService } from '../../services/HttpService/HttpService';
+import { forkJoin } from 'rxjs';
+import { NgProgress } from '@ngx-progressbar/core';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-user-registration-view',
   templateUrl: './user-registration-view.component.html',
-  styleUrls: ['./user-registration-view.component.css']
+  styleUrls: ['./user-registration-view.component.css'],
 })
 export class UserRegistrationViewComponent implements OnInit {
   registrations: RegistrationApiResponse[];
@@ -28,12 +28,12 @@ export class UserRegistrationViewComponent implements OnInit {
     this.classes = [];
     this.submittedClasses = new Map();
     this.updateAddressFields = {
-      "addressLine1": "",
-      "addressLine2": "",
-      "city": "",
-      "stateProvince": "",
-      "zipcode": "",
-      "country": ""
+      addressLine1: '',
+      addressLine2: '',
+      city: '',
+      stateProvince: '',
+      zipcode: '',
+      country: '',
     };
     this.willUpdateAddressFields = false;
     this.regPropertyNameResolve = {
@@ -63,7 +63,6 @@ export class UserRegistrationViewComponent implements OnInit {
       university: 'University',
       veteran: 'Veteran status',
     }
-    console.log(this.regPropertyNameResolve);
   }
 
   ngOnInit() {
@@ -75,9 +74,8 @@ export class UserRegistrationViewComponent implements OnInit {
     const regObservable = this.httpService.getUserRegistrations()
       .subscribe(registrations => {
         this.registrations = registrations;
-        console.log("aaaaa", registrations)
         regObservable.unsubscribe();
-      }, ({ error }) => {
+      },         ({ error }) => {
         if (error.status === 404) {
           this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
         }
@@ -89,14 +87,8 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   getAddress(): string {
-    let address = this.registrations[0].address;
-    if (address == "") {
-      return "No address on file. Please add your address if you would like to receive some swag!";
-    } else {
-      return address;
-    }
-    console.log(this.registrations[0].address);
-    return this.registrations[0].address;
+    const noAddr = 'No address on file. Please add your address if you would like to receive some swag!'
+    return this.registrations[0].address || noAddr;
   }
 
   validateAddress(): boolean {
@@ -106,25 +98,22 @@ export class UserRegistrationViewComponent implements OnInit {
 
   attachNewAddress() {
     const addrFields = this.updateAddressFields;
-    let newAddress = "";
-    
-    for (let field in addrFields) {
+    let newAddress = '';
+
+    for (const field in addrFields) {
       if (addrFields[field]) {
         newAddress += `${addrFields[field]}, `;
       }
     }
 
-    if (newAddress.slice(-2) === ", ") {
+    if (newAddress.slice(-2) === ', ') {
       newAddress = newAddress.slice(0, -2);
     }
 
-    console.log("newaddress: ", newAddress);
     this.registrations[0].address = newAddress;
-    console.log("this.registrations[0].address: ", this.registrations[0].address)
   }
 
   submitAddress() {
-    console.log("zzzzz", this.registrations[0])
 
     if (!this.validateAddress()) {
       this.alertsService.danger('Please fill all necessary fields')
@@ -132,15 +121,14 @@ export class UserRegistrationViewComponent implements OnInit {
 
     this.attachNewAddress()
 
-    console.log("abcabc", this.registrations[0])
-
     this.progressService.start();
-    this.httpService.submitAddress(this.registrations[0])
+    const reg = Registration.parseFromApiResponse(this.registrations[0]);
+    reg.hackathon = this.registrations[0].hackathon.uid;
+    this.httpService.submitAddress(reg)
       .subscribe(() => {
         this.progressService.complete();
         this.alertsService.success('Your address has been updated');
-      }, ({ error }) => {
-        console.log(error);
+      },         ({ error }) => {
         this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
       })
   }
@@ -157,15 +145,14 @@ export class UserRegistrationViewComponent implements OnInit {
           if (value) {
             return this.httpService.registerExtraCreditClass(c);
           }
-        })
+        }),
     ).subscribe(() => {
       this.progressService.complete();
       this.alertsService.success('You are now getting tracked for the selected classes');
-    }, ({error}) => {
+    },          ({ error }) => {
       if (error.status === 409) {
         this.alertsService.success('You are now getting tracked for the selected classes');
       } else {
-        console.log(error);
         this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
       }
     });
@@ -178,24 +165,23 @@ export class UserRegistrationViewComponent implements OnInit {
   businessChallengeRegister() {
     this.progressService.start();
     this.httpService.registerExtraCreditClass(
-      this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString(),
+      this.classes.find(c => c.class_name === 'Business Challenge').uid.toString(),
     )
       .subscribe(() => {
         this.progressService.complete();
         this.alertsService.success('You are registered for the business challenge');
-      }, ({error}) => {
+      },         ({ error }) => {
         if (error.status === 409) {
           this.alertsService.success('You are registered for the business challenge');
         } else {
-          console.log(error);
           this.alertsService.warning('Something may have gone wrong in that process. Email technology@hackpsu.org or Contact a member of staff to check');
         }
       });
   }
 
   showClassName(class_name: string): boolean {
-    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n','EE 300W',
-    'CMPSC 131','STAT 463','IST 256','IST 210','STAT 380','CMPSC 311','CMPSC 442'];
+    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n', 'EE 300W',
+      'CMPSC 131', 'STAT 463', 'IST 256', 'IST 210', 'STAT 380', 'CMPSC 311', 'CMPSC 442'];
     return hiddenClassNames.indexOf(class_name) === -1;
   }
 }

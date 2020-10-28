@@ -34,6 +34,7 @@ export class Registration {
   public hackathon: string;
   public pin: string;
   public uid: string
+  public time: number;
 
   constructor() {
     this.firstName = null;
@@ -122,6 +123,7 @@ export class Registration {
     registration.hackathon = this.parseHackathon(registration);
     registration.pin = value.pin.toString();
     registration.uid = value.uid
+    registration.time = Date.now();
     return registration;
   }
 }
@@ -237,6 +239,7 @@ export class RegistrationApiResponse {
     registration.hackathon.uid = value.hackathon;
     registration.pinAi = value.pin;
     registration.uid = value.uid;
+    registration.time = parseInt(value.time, 10);
     return registration;
   }
 
