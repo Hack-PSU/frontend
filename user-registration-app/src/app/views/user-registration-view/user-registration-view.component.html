@@ -36,7 +36,7 @@
         <a (click)="editAddressToggle()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
       </div>
       <br />
-      <form *ngIf="willUpdateAddressFields" class="" (submit)="submitAddress()">
+      <form *ngIf="willUpdateAddressFields" (submit)="submitAddress()" ngNativeValidate>
         <label for="addressLine1"><span>Address Line 1</span></label>
           <input type="text" name="addressLine1" id="addressLine1-box" required
             [(ngModel)]="updateAddressFields.addressLine1">

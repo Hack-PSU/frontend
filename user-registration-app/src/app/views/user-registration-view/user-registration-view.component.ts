@@ -95,12 +95,6 @@ export class UserRegistrationViewComponent implements OnInit {
     }
   }
 
-
-  validateAddress(): boolean {
-    // how to validate address?
-    return true;
-  }
-
   attachNewAddress(reg: Registration): Registration {
     const addrFields = this.updateAddressFields;
     let newAddress = '';
@@ -120,20 +114,16 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   submitAddress() {
-
-    if (!this.validateAddress()) {
-      this.alertsService.danger('Please fill all necessary fields')
-    }
-
     this.progressService.start();
+
     let reg = Registration.parseFromApiResponse(this.registrations[0]);
     reg.hackathon = this.registrations[0].hackathon.uid;
     reg = this.attachNewAddress(reg);
-    console.log("reg to be passed: ", reg)
+
     this.httpService.submitAddress(reg)
       .subscribe(() => {
         this.progressService.complete();
-        this.alertsService.success('Your address has been updated');
+        this.alertsService.success('Your address has been updated.');
       },         ({ error }) => {
         this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
       })
