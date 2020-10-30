@@ -16,12 +16,59 @@
           <!--</label>-->
         <!--</p>-->
         <!--</ng-container>-->
-      <!--<button class="btn waves-effect waves-light submit-btn"-->
-              <!--type="submit"-->
-              <!--name="action">Submit-->
-        <!--<i class="material-icons right">send</i>-->
-      <!--</button>-->
+      <!-- <button class="btn waves-effect waves-light submit-btn" -->
+              <!-- type="submit" -->
+              <!-- name="action">Submit -->
+        <!-- <i class="material-icons right">send</i> -->
+      <!-- </button> -->
     <!--</form>-->
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">rate_review</i>
+      Update Address
+      <i class="material-icons right">keyboard_arrow_down</i>
+    </div>
+    <div class="collapsible-body">
+      <div>
+        {{getAddress()}}
+        <a (click)="editAddressToggle()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
+      </div>
+      <br />
+      <form *ngIf="willUpdateAddressFields" (submit)="submitAddress()" ngNativeValidate>
+        <label for="addressLine1"><span>Address Line 1</span></label>
+          <input type="text" name="addressLine1" id="addressLine1-box" required
+            [(ngModel)]="updateAddressFields.addressLine1">
+        <label for="addressLine2"><span>Address Line 2</span></label>
+          <input type="text" name="addressLine2" id="addressLine2-box"
+            [(ngModel)]="updateAddressFields.addressLine2">
+        <label for="city"><span>City</span></label>
+          <input type="text" name="city" id="city-box" required
+            [(ngModel)]="updateAddressFields.city">
+        <label for="stateProvince"><span>State or Province</span></label>
+          <input type="text" name="stateProvince" id="stateProvince-box" required
+            [(ngModel)]="updateAddressFields.stateProvince">
+        <label for="zipcode"><span>Zipcode</span></label>
+          <input type="text" name="zipcode" id="zipcode-box" required
+            [(ngModel)]="updateAddressFields.zipcode">
+        <label for="country"><span>Country</span></label>
+          <input type="text" name="country" id="country" required
+            [(ngModel)]="updateAddressFields.country">
+        <div class="form-group">
+          <input type="checkbox" id="shareAddressMlh" name="shareAddressMlh"
+            [(ngModel)]="shareAddressMlh">
+          <label for="shareAddressMlh">Share your address with MLH?</label>
+          <br />
+          <input type="checkbox" id="shareAddressSponsors" name="shareAddressSponsors"
+            [(ngModel)]="shareAddressSponsors">
+          <label for="shareAddressSponsors">Share your address with our sponsors?</label>
+        </div>
+        <button class="btn waves-effect waves-light submit-btn"
+                type="submit"
+                name="action">Submit
+        </button>
+      </form>
     </div>
   </li>
   <li>

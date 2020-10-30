@@ -33,6 +33,8 @@ export class Registration {
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
+  public uid: string
+  public time: number;
 
   constructor() {
     this.firstName = null;
@@ -93,6 +95,7 @@ export class Registration {
 
   public static parseFromApiResponse(value: RegistrationApiResponse) : Registration{
     const registration = new Registration();
+    registration.address = value.address;
     registration.firstName = value.firstname;
     registration.lastName = value.lastname;
     registration.gender = value.gender;
@@ -119,11 +122,14 @@ export class Registration {
     registration.submitted = value.submitted;
     registration.hackathon = this.parseHackathon(registration);
     registration.pin = value.pin.toString();
+    registration.uid = value.uid
+    registration.time = Date.now();
     return registration;
   }
 }
 
 export interface IRegistrationDb {
+  address: string;
   firstname: string;
   lastname: string;
   gender: string;
@@ -159,6 +165,7 @@ export interface IRegistrationDb {
 }
 
 export class RegistrationApiResponse {
+  address: string;
   academic_year: string;
   active: boolean;
   allergies: string | null;
@@ -204,6 +211,7 @@ export class RegistrationApiResponse {
     const registration = new RegistrationApiResponse();
     registration.firstname = value.firstname;
     registration.lastname = value.lastname;
+    registration.address = value.address
     registration.gender = value.gender;
     registration.email = value.email;
     registration.eighteenBeforeEvent = !!value.eighteenBeforeEvent;
@@ -229,6 +237,8 @@ export class RegistrationApiResponse {
     registration.hackathon = Hackathon.parseJSON(value);
     registration.hackathon.uid = value.hackathon;
     registration.pinAi = value.pin;
+    registration.uid = value.uid;
+    registration.time = parseInt(value.time, 10);
     return registration;
   }
 
