@@ -55,6 +55,15 @@
         <label for="country"><span>Country</span></label>
           <input type="text" name="country" id="country" required
             [(ngModel)]="updateAddressFields.country">
+        <div class="form-group">
+          <input type="checkbox" id="shareAddressMlh" name="shareAddressMlh"
+            [(ngModel)]="shareAddressMlh">
+          <label for="shareAddressMlh">Share your address with MLH?</label>
+          <br />
+          <input type="checkbox" id="shareAddressSponsors" name="shareAddressSponsors"
+            [(ngModel)]="shareAddressSponsors">
+          <label for="shareAddressSponsors">Share your address with our sponsors?</label>
+        </div>
         <button class="btn waves-effect waves-light submit-btn"
                 type="submit"
                 name="action">Submit

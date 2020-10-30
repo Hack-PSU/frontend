@@ -30,6 +30,13 @@
   display: block;
 }
 
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #6C88B7;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: #133753;
+}
+
 @media screen and (max-width: 576px) {
   .btn {
     max-width: 100%;

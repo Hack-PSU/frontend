@@ -18,6 +18,8 @@ export class UserRegistrationViewComponent implements OnInit {
   regPropertyNameResolve: any;
   willUpdateAddressFields: boolean
   updateAddressFields: any
+  shareAddressMlh: boolean;
+  shareAddressSponsors: boolean;
 
   public keyVals(object: any) {
     return Object.entries(object);
@@ -35,6 +37,8 @@ export class UserRegistrationViewComponent implements OnInit {
       zipcode: '',
       country: '',
     };
+    this.shareAddressMlh = false;
+    this.shareAddressSponsors = false;
     this.willUpdateAddressFields = false;
     this.regPropertyNameResolve = {
       academic_year: 'Academic Year',
@@ -110,6 +114,8 @@ export class UserRegistrationViewComponent implements OnInit {
     }
 
     reg.address = newAddress;
+    reg.shareAddressMlh = this.shareAddressMlh;
+    reg.shareAddressSponsors = this.shareAddressSponsors;
     return reg
   }
 
@@ -123,7 +129,7 @@ export class UserRegistrationViewComponent implements OnInit {
     this.httpService.submitAddress(reg)
       .subscribe(() => {
         this.progressService.complete();
-        this.alertsService.success('Your address has been updated.');
+        this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
       },         ({ error }) => {
         this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
       })
