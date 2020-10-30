@@ -26,6 +26,16 @@
   color: #ffffff;
 }
 
+.collapse:not(.show) {
+  display: block;
+  height: 4.6rem;
+  overflow: hidden;
+}
+
+.collapsing {
+  height: 4.6rem;
+}
+
 
 /* Properly scale our text and icons on smaller screens,
 and make images go away. */
