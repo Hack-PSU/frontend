@@ -6,22 +6,21 @@
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
-      Check back soon for Extra Credit!
-      <!--<form class="extra-credit-form" (submit)="submitClasses()">-->
-        <!--<ng-container *ngFor="let c of classes">-->
-          <!--<p *ngIf="showClassName(c.class_name)">-->
-          <!--<input type="checkbox" name="{{c.class_name}}" id="{{c.class_name}}-checkbox" [(ngModel)]="submittedClasses[c.uid]">-->
-          <!--<label for="{{c.class_name}}-checkbox">-->
-            <!--<span>{{c.class_name}}</span>-->
-          <!--</label>-->
-        <!--</p>-->
-        <!--</ng-container>-->
-      <!-- <button class="btn waves-effect waves-light submit-btn" -->
-              <!-- type="submit" -->
-              <!-- name="action">Submit -->
-        <!-- <i class="material-icons right">send</i> -->
-      <!-- </button> -->
-    <!--</form>-->
+      <!-- Check back soon for Extra Credit! -->
+      <form class="extra-credit-form" (submit)="submitClasses()">
+        <ng-container *ngFor="let c of classes">
+          <p *ngIf="showClassName(c.class_name)">
+            <input type="checkbox" name="{{c.class_name}}" id="{{c.class_name}}-checkbox"
+              [(ngModel)]="submittedClasses[c.uid]">
+            <label for="{{c.class_name}}-checkbox">
+              <span>{{c.class_name}}</span>
+            </label>
+          </p>
+        </ng-container>
+        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
     </div>
   </li>
   <li>

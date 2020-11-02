@@ -182,8 +182,20 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   showClassName(class_name: string): boolean {
-    const hiddenClassNames = ['Business Challenge', 'CMPEN 362', 'STAT 463', 'SCM 421\n', 'EE 300W',
-      'CMPSC 131', 'STAT 463', 'IST 256', 'IST 210', 'STAT 380', 'CMPSC 311', 'CMPSC 442'];
-    return hiddenClassNames.indexOf(class_name) === -1;
+    // We don't remove classes from the DB, we just filter them here.
+    const shownClassNames = [
+      "IST 110 (Garbrick)",
+      "IST 110 (Karpinski)",
+      "IST 240 (Smith)",
+      "SRA 231",
+      "CYBER 342W",
+      "CMPSC 132",
+      "DS 340W",
+      "DS 310 (Ma)",
+      "IST 220 (Zhang)",
+      "COMM 361",
+    ];
+    console.log(this.classes);
+    return shownClassNames.indexOf(class_name) === -1;
   }
 }
