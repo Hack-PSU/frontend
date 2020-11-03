@@ -196,6 +196,6 @@ export class UserRegistrationViewComponent implements OnInit {
       "COMM 361",
     ];
     console.log(this.classes);
-    return shownClassNames.indexOf(class_name) === -1;
+    return shownClassNames.indexOf(class_name) !== -1;
   }
 }
