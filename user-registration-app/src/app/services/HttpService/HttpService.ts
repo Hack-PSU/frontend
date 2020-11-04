@@ -86,6 +86,13 @@ export class HttpService extends BaseHttpService {
       }));
   }
 
+  submitAddress(updatedRegistration: Object) {
+    const API_ENDPOINT = 'admin/register/update'
+    return this.post(API_ENDPOINT,
+                    { registration: updatedRegistration },
+                    true)
+  }
+
   getCategories() {
     const API_ENDPOINT = 'users/event/categories';
     return this.get(API_ENDPOINT);

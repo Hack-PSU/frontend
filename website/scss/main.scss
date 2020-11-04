@@ -688,7 +688,7 @@ border and the section separator bar */
 }
 
 #satellite {
-  top: 65em;
+  top: 75em;
   left: 20%;
 
   @media screen and (max-width: $md-break) {
@@ -705,7 +705,7 @@ border and the section separator bar */
 
   .header-bar {
     background-color: $mountain-blue;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   .track-header {
@@ -725,13 +725,6 @@ border and the section separator bar */
     width: 18%;
   }
 
-  .track-register {
-    color: #f5f5f5;
-    font-family: $font-stack-tertiary;
-    line-height: 9vh !important;
-    @include responsive-font(.85em, .8em, 1.25em, 1em);
-    max-font-size: 2em;
-  }
 
   .register-btn {
     @include transition(all, 0.4s);
@@ -760,6 +753,71 @@ border and the section separator bar */
       font-weight: 800;
       font-size: 3.2vh;
     }
+  }
+}
+
+
+
+/* ====================== CAPTURE THE FLAG ==================== */
+#capture-the-flag {
+  padding-top: 50px;
+
+  .section-header {
+    width: 100%;
+  }
+
+  .header-text {
+    @media screen and (max-width: $sm-break) {
+      font-size: larger;
+    }
+  }
+
+  .header-bar {
+    background-color: $mountain-blue;
+    margin-bottom: 20px;
+  }
+
+  .description-header {
+    font-family: $font-stack-tertiary;
+    font-size: .75em;
+    text-align: center;
+
+    @media screen and (max-width: $sm-break) {
+      font-size: large;
+    }
+  }
+
+  .ctf-register {
+    color: #f5f5f5;
+    font-family: $font-stack-tertiary;
+    line-height: 9vh !important;
+    @include responsive-font(.85em, .8em, 1.25em, 1em);
+    max-font-size: 2em;
+  }
+
+  .ctf-register-btn {
+    @include transition(all, 0.4s);
+    height: 10vh;
+    background: transparent;
+    border: solid 8px rgba(170, 202, 204, 0.6);
+    border-radius: 50px;
+    margin: 5vh 2vh;
+    font-size: smaller;
+
+    &:hover {
+      @include transition(all, 0.4s);
+      background: rgba(170, 202, 204, 1);
+    }
+  }
+
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: .6em;
+    font-weight: 100;
+    text-align: left;
+    line-height: 1.35em;
+    color: white;
   }
 }
 
@@ -1005,7 +1063,40 @@ border and the section separator bar */
     max-width: 50%;
   }
 
+  .nittany-ai{
+    padding-top: 10%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+
+  .plant-village{
+    padding-top: 28%;
+    @media screen and (max-width: $md-break) {
+      padding-top: 20%;
+      width: 60%;
+    }
+  }
+
+  .capital-one{
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+
   .sticker-mule {
+    @media screen and (max-width: $md-break) {
+      padding-top: 20%;
+      max-width: 40%;
+      max-height: 40%;
+    }
+    padding-top: 33%;
+    max-width: 45%;
+    max-height: 45%;
+  }
+
+  .jetbrains{
+    padding-top: 10%;
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
