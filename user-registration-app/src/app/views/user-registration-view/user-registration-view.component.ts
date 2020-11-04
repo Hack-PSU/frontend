@@ -195,7 +195,6 @@ export class UserRegistrationViewComponent implements OnInit {
       "IST 220 (Zhang)",
       "COMM 361",
     ];
-    console.log(this.classes);
     return shownClassNames.indexOf(class_name) !== -1;
   }
 }
