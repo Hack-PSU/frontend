@@ -1101,6 +1101,35 @@ border and the section separator bar */
       width: 60%;
     }
   }
+
+  .leidos {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+
+  .loop-sw {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 23%;
+  }
+
+  /* textron */
+
+  .echoAR {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 50%;
+  }
+
+  .ics {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 0%;
+  }
 }
 
 
