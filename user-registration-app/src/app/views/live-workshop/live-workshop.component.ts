@@ -8,18 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class LiveWorkshopComponent implements OnInit {
-  @Input() title: String;
-  @Input() description: String;
-  @Input() date: String;
-  @Input() time: String;
-  @Input() link: String;
-  @Input() presenter1img: String;
-  @Input() presenter1Name: String;
-  @Input() presenter2img: String;
-  @Input() presenter2Name: String;
-  @Input() presenter3img: String;
-  @Input() presenter3Name: String;
-  @Input() collapseID: String;
+  @Input() title: string;
+  @Input() description: string;
+  @Input() date: string;
+  @Input() time: string;
+  @Input() link: string;
+  @Input() skills: string;
+  @Input() downloads: string[];
+  @Input() presenter1img: string;
+  @Input() presenter1Name: string;
+  @Input() presenter2img: string;
+  @Input() presenter2Name: string;
+  @Input() presenter3img: string;
+  @Input() presenter3Name: string;
+  @Input() collapseID: string;
 
   ngOnInit() {
     this.removePresenter(1, this.presenter1Name, this.presenter1img)
@@ -27,10 +29,11 @@ export class LiveWorkshopComponent implements OnInit {
     this.removePresenter(3, this.presenter3Name, this.presenter3img)
   }
 
-  removePresenter(presenterNo: number, presenterName: String, presenterImg: String) {
+  removePresenter(presenterNo: number, presenterName: string, presenterImg: string) {
     if (!presenterName || !presenterImg) {
-      const elem = document.getElementById('presenter' + presenterNo);
-      elem.parentNode.removeChild(elem);
+      // TODO: Fix this, it looks like this is preventing more than 1 profile pic from showing up
+      // const elem = document.getElementById('presenter' + presenterNo);
+      // elem.parentNode.removeChild(elem);
     }
   }
 }
