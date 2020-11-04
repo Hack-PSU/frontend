@@ -742,9 +742,9 @@ and make images go away. */
   z-index: -1;
   width: 10vw;
 
-@media screen and (max-width: $md-break) {
-  width: 20vw;
-}
+  @media screen and (max-width: $md-break) {
+    width: 20vw;
+  }
 }
 
 /* blue planet */
@@ -752,9 +752,9 @@ and make images go away. */
   top: 6em;
   left: 12%;
 
-@media screen and (max-width: $md-break) {
-  top: 25em;
-}
+  @media screen and (max-width: $md-break) {
+    top: 25em;
+  }
 }
 
 /* orange planet */
@@ -762,9 +762,9 @@ and make images go away. */
   top: -3em;
   left: 39%;
 
-@media screen and (max-width: $md-break) {
-  top: 20em;
-}
+  @media screen and (max-width: $md-break) {
+    top: 20em;
+  }
 }
 
 /* pink planet */
@@ -772,8 +772,8 @@ and make images go away. */
   top: 14em;
   right: 15%;
 
-@media screen and (max-width: $md-break) {
-  top: 40em;
-  left: 30%;
-}
+  @media screen and (max-width: $md-break) {
+    top: 40em;
+    left: 30%;
+  }
 }
