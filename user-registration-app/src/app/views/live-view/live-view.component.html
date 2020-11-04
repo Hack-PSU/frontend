@@ -2,6 +2,11 @@
 
 <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+<!-- rellax -->
+<script src="assets/scripts/rellax.min.js"></script>
+<script>
+  var rellax = new Rellax('.rellax');
+</script>
 
 <!-- Landing -->
 <section id="home" class="header">
@@ -79,12 +84,22 @@
 </section>
 
 <!-- Section separator -->
+<!--
 <div class="section-separator">
-  <img src="../../../assets/images/old_main_night.svg"
-       class="section-separator-background first-border">
+  <img src="../../../assets/images/earth_crust_livesite.svg"
+    class="section-separator-background first-border">
 </div>
+-->
+
+<div id="planet-container">
+    <img src="assets/images/planet_1.svg" alt="Planet" id="planet-1" class="rellax" data-rellax-speed="4">
+    <img src="assets/images/planet_3.svg" alt="Planet" id="planet-3" class="rellax" data-rellax-speed="6">
+    <img src="assets/images/planet_5.svg" alt="Planet" id="planet-5" class="rellax" data-rellax-speed="2">
+</div>
+
+
 <!-- Schedule -->
-<section id="schedule" style="margin-top:120px;">
+<section id="schedule" style="margin-top:21em;">
   <div class="container-fluid">
     <div>
 
@@ -387,15 +402,15 @@
                 }
             </style>
 
-              <app-live-workshop 
-                title="Team Building!" 
+              <app-live-workshop
+                title="Team Building!"
                 descrip="You'll make friends here! Lots and lots of friends! Imagine being in a world, where all you see
-                are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free 
+                are butterflies and rainbows and happiness. Waterfalls made out of sugar and dogs roaming the free
                 world. Imagine a world without hate, but only love. Imagine a world where you can sit and eat in peace, without
-                the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a 
-                place to make friends! So go wild!" 
-                date="88/88/8888" 
-                time="88:88PM" 
+                the constant buzzing of your phone. Unfortuatly, hackPSU can not provide that world, but we can provide a
+                place to make friends! So go wild!"
+                date="88/88/8888"
+                time="88:88PM"
                 link="http://www.google.com"
                 presenter1img="../../../assets/images/workshop_leaders/RahulWalia.jpg"
                 presenter1Name="Rahul Walia"
@@ -404,16 +419,16 @@
               </app-live-workshop>
 
 
-              <app-live-workshop 
-                title="Geico: Weather API" 
+              <app-live-workshop
+                title="Geico: Weather API"
                 descrip="Finding a data source is easy, but harnessing that data into a valuable perspective
                 is an art. Is today a good day for a Sunday drive? Do I need an umbrella in
                 my car or a kayak? How do you dive deep on data but maintain a lightweight UI
                 to provide context without concern? Join the GEICO Mobile team in their challenge
                 to craft an engaging and informative fusion of data sources to provide value to
-                their customers and the products they insure." 
-                date="Saturday" 
-                time="3:00PM-3:45pm" 
+                their customers and the products they insure."
+                date="Saturday"
+                time="3:00PM-3:45pm"
                 link="http://www.google.com"
                 presenter1img="../../../assets/images/workshop_leaders/DavidKing.jpg"
                 presenter1Name="David King"
@@ -421,11 +436,11 @@
                 >
               </app-live-workshop>
 
-              <app-live-workshop 
-                title="Team Building!" 
-                descrip="Don’t have a team? Fear not! Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!" 
-                date="88/88/8888" 
-                time="88:88PM" 
+              <app-live-workshop
+                title="Team Building!"
+                descrip="Don’t have a team? Fear not! Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!"
+                date="88/88/8888"
+                time="88:88PM"
                 link="http://www.google.com"
                 presenter1img="../../../assets/images/workshop_leaders/RahulWalia.jpg"
                 presenter1Name="Rahul Walia"
@@ -437,7 +452,7 @@
 
 
 
-            
+
             <div class="card beginner">
               <div class="card-image">
                 <img class="activator" src="../../../assets/images/workshop_leaders/DavidKing.jpg">

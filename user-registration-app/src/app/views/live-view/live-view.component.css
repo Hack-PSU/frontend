@@ -731,3 +731,49 @@ and make images go away. */
   left: 0;
   background: linear-gradient(0deg, #133753 50%, #000000 100%);
 }
+
+/* ====================== PLANETS ==================== */
+#planet-container {
+  position: relative;
+}
+
+#planet-1, #planet-3, #planet-5 {
+  position: absolute;
+  z-index: -1;
+  width: 10vw;
+
+@media screen and (max-width: $md-break) {
+  width: 20vw;
+}
+}
+
+/* blue planet */
+#planet-1 {
+  top: 6em;
+  left: 12%;
+
+@media screen and (max-width: $md-break) {
+  top: 25em;
+}
+}
+
+/* orange planet */
+#planet-3 {
+  top: -3em;
+  left: 39%;
+
+@media screen and (max-width: $md-break) {
+  top: 20em;
+}
+}
+
+/* pink planet */
+#planet-5 {
+  top: 14em;
+  right: 15%;
+
+@media screen and (max-width: $md-break) {
+  top: 40em;
+  left: 30%;
+}
+}
