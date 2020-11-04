@@ -13,6 +13,8 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() date: String;
   @Input() time: String;
   @Input() link: String;
+  @Input() skills: String;
+  @Input() downloads: String[];
   @Input() presenter1img: String;
   @Input() presenter1Name: String;
   @Input() presenter2img: String;
