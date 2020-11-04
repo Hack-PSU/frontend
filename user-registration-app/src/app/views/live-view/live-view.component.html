@@ -2,6 +2,11 @@
 
 <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+<!-- rellax -->
+<script src="assets/scripts/rellax.min.js"></script>
+<script>
+  var rellax = new Rellax('.rellax');
+</script>
 
 <!-- Landing -->
 <section id="home" class="header">
@@ -79,12 +84,22 @@
 </section>
 
 <!-- Section separator -->
+<!--
 <div class="section-separator">
-  <img src="../../../assets/images/old_main_night.svg"
-       class="section-separator-background first-border">
+  <img src="../../../assets/images/earth_crust_livesite.svg"
+    class="section-separator-background first-border">
 </div>
+-->
+
+<div id="planet-container">
+    <img src="assets/images/planet_1.svg" alt="Planet" id="planet-1" class="rellax" data-rellax-speed="4">
+    <img src="assets/images/planet_3.svg" alt="Planet" id="planet-3" class="rellax" data-rellax-speed="6">
+    <img src="assets/images/planet_5.svg" alt="Planet" id="planet-5" class="rellax" data-rellax-speed="2">
+</div>
+
+
 <!-- Schedule -->
-<section id="schedule" style="margin-top:120px;">
+<section id="schedule" style="margin-top:21em;">
   <div class="container-fluid">
     <div>
 
