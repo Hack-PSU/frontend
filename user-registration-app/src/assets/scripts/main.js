@@ -1,4 +1,3 @@
-
 function clkBtnScdAct(){
     if(document.getElementById("buttAct").style.backgroundColor == "white"){
         document.getElementById("buttAct").style.backgroundColor = "#0071ba";

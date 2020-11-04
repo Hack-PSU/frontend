@@ -10,7 +10,15 @@
         <a role="button" class="collapsed" data-toggle="collapse" href="#{{collapseID}}" aria-expanded="false" [attr.aria-controls]="collapseID"></a>
       </div>
     </div>
-
+    <br>
+    <div>
+      <p>
+        <b>Skills/Software: </b> {{skills}}
+      </p>
+      <p *ngFor= "let download of downloads; index as i">
+        <a href = "{{download}}"  style = "color: #e5704c">Download {{i+1}}</a>
+      </p>
+    </div>
     <div class="inline">
       <div class="card-image tooltipped" [ngStyle]="{'background': 'url(' + presenter1img + ')'}"
            data-position="bottom" [attr.data-tooltip]="presenter1Name" id="presenter1"></div>
