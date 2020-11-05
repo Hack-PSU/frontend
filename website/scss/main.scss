@@ -1082,6 +1082,7 @@ border and the section separator bar */
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
+    padding-top: 10%;
   }
 
   .sticker-mule {
@@ -1100,6 +1101,69 @@ border and the section separator bar */
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
+  }
+
+  .leidos {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 10%;
+  }
+
+  .linode {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 8%;
+  }
+
+  .textron {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 14%;
+  }
+
+  .loop-sw {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 28%;
+  }
+
+  .echoAR {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 8%;
+  }
+
+  .ics {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 0%;
+  }
+
+  .psu-cie {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 35%;
+  }
+
+  .hvc {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 30%;
+  }
+
+  .psu-it {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 12%;
   }
 }
 
