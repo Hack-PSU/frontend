@@ -121,7 +121,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 
 /* TABLETS ONLY */
 /* if the screen is 1219 or less AND 415 or more */
-@media screen and (max-width: 1219px) and (min-width:415px){
+@media screen and (max-width: 1219px) and (min-width: 768px){
   #countdown-timer .unit {
     display: inline-block;
     text-align: center;
@@ -179,7 +179,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 /* responsive text for submit project button */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 768px) {
   .text-res {
     font-size: 1.1rem;
     line-height: 5vh;
