@@ -23,9 +23,9 @@
                 <div class="event-description"></div>
               </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-6">
-                <button class="event-btn" (click)="openZoomLink(activity.location_name)">
+                <button *ngIf="isLink(activity.location_name)" class="event-btn" (click)="openZoomLink(activity.location_name)">
                   Join Via Zoom
                 </button>
               </div>
