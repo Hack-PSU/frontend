@@ -25,8 +25,11 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-6">
-                <button *ngIf="isLink(activity.location_name)" class="event-btn" (click)="openZoomLink(activity.location_name)">
+                <button *ngIf="isZoomLink(activity.location_name)" class="event-btn" (click)="openZoomLink(activity.location_name)">
                   Join Via Zoom
+                </button>
+                <button *ngIf="isLink(activity.location_name) && !isZoomLink(activity.location_name)" class="event-btn" (click)="openZoomLink(activity.location_name)">
+                  Join
                 </button>
               </div>
               <div class="col-6">

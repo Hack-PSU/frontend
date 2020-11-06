@@ -127,4 +127,8 @@ export class ScheduleViewComponent implements OnInit {
 
     return url.protocol === "http:" || url.protocol === "https:";
   }
+
+  isZoomLink(linkString: string): boolean {
+    return linkString.includes("zoom") && this.isLink(linkString)
+  }
 }
