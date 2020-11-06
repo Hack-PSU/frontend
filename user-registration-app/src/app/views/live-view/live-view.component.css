@@ -20,7 +20,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 #hackpsu-logo {
   margin-top: 30px;
-  max-width: 55%;
+  max-width: 70%;
   margin-bottom: 10px;
 }
 
@@ -121,7 +121,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 
 /* TABLETS ONLY */
 /* if the screen is 1219 or less AND 415 or more */
-@media screen and (max-width: 1219px) and (min-width:415px){
+@media screen and (max-width: 1219px) and (min-width: 768px){
   #countdown-timer .unit {
     display: inline-block;
     text-align: center;
@@ -179,7 +179,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 /* responsive text for submit project button */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 768px) {
   .text-res {
     font-size: 1.1rem;
     line-height: 5vh;
@@ -742,43 +742,85 @@ and make images go away. */
   position: relative;
 }
 
-#planet-1, #planet-3, #planet-5 {
+#planet-blue, #planet-orange, #planet-pink {
   position: absolute;
   z-index: -1;
   width: 10vw;
+}
 
-  @media screen and (max-width: $md-break) {
+@media screen and (max-width: 768px) {
+  #planet-blue, #planet-orange, #planet-pink {
     width: 20vw;
+  }
+
+  #planet-orange {
+    top: 0 !important;
+  }
+
+  #planet-blue {
+    top: 8em !important;
+  }
+
+  #planet-pink {
+    top: 12em !important;
   }
 }
 
 /* blue planet */
-#planet-1 {
+#planet-blue {
   top: 6em;
   left: 12%;
-
-  @media screen and (max-width: $md-break) {
-    top: 25em;
-  }
 }
 
 /* orange planet */
-#planet-3 {
+#planet-orange {
   top: -3em;
   left: 39%;
-
-  @media screen and (max-width: $md-break) {
-    top: 20em;
-  }
 }
 
 /* pink planet */
-#planet-5 {
+#planet-pink {
   top: 14em;
   right: 15%;
+}
 
-  @media screen and (max-width: $md-break) {
-    top: 40em;
-    left: 30%;
+/* ====================== MOBILE FIXES ==================== */
+
+.time-label {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .time-label {
+    margin: 0 auto 0 1em;
+    font-size: 18px;
+  }
+
+  #countdown-timer .font {
+    font-size: 20px;
+  }
+
+  #countdown-timer .row {
+    margin-bottom: 0.5em;
+  }
+
+  .number {
+    margin-left: auto;
+  }
+
+  #hackpsu-logo {
+    margin-bottom: 2em !important;
+    max-width: 80%;
+  }
+
+  .header-text {
+    font-size: 48px;
   }
 }
+
+

@@ -118,3 +118,13 @@ nav .right {
 .mobile-login-button ::ng-deep .btn {
   margin-top: 0 !important;
 }
+
+.nav-wrapper {
+  width: 95%;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-wrapper {
+    width: 100%;
+  }
+}
