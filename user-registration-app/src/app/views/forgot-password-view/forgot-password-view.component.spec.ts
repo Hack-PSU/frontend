@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForgotPasswordViewComponent } from './forgot-password-view.component';
 import { FormsModule } from '@angular/forms';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 
 describe('ForgotPasswordViewComponent', () => {

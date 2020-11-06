@@ -43,6 +43,11 @@ export class LoginComponent extends BaseComponent {
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
+  loginApple() {
+    this.progressBar.start();
+    this.loginHandler(this.authService.signInWithProvider(AuthProviders.APPLE_PROVIDER));
+  }
+
   loginEmail() {
     this.progressBar.start();
     if (this.model.email && this.model.password) {

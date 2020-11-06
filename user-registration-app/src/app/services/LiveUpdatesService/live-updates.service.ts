@@ -1,7 +1,7 @@
 import { take, switchMap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpService } from '../HttpService/HttpService';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { UpdateModel } from '../../models/update-model';
 
 @Injectable()

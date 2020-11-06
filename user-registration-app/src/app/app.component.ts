@@ -1,7 +1,7 @@
 import { Component, NgModule, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppConstants } from './AppConstants';
 import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
