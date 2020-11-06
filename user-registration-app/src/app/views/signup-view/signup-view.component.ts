@@ -59,6 +59,11 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
+  loginApple() {
+    this.progressBar.start();
+    this.loginHandler(this.authService.signInWithProvider(AuthProviders.APPLE_PROVIDER));
+  }
+
   signUp() {
     this.progressBar.start();
     if (this.email && this.email !== '' && this.password && this.password !== '') {

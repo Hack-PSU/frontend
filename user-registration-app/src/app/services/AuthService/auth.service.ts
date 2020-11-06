@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 
 export enum AuthProviders {
   GOOGLE_PROVIDER,
   GITHUB_PROVIDER,
+  APPLE_PROVIDER,
 }
 
 @Injectable()
@@ -37,6 +38,12 @@ export class AuthService {
         break;
       case AuthProviders.GITHUB_PROVIDER:
         authProvider = new firebase.auth.GithubAuthProvider();
+        break;
+      case AuthProviders.APPLE_PROVIDER:
+        const provider = new firebase.auth.OAuthProvider('apple.com');
+        provider.addScope('email');
+        provider.addScope('name');
+        authProvider = provider;
         break;
     }
     return this.afAuth.auth.signInWithPopup(authProvider);
