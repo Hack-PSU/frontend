@@ -1,13 +1,8 @@
 {
   "hosting": [{
-    "target": "website",
+    "target": "app",
     "public": "website",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/scss/**",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/scss/**", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -16,14 +11,9 @@
     ]
   },
   {
-    "target": "app",
+    "target": "website",
     "public": "user-registration-app/dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/scss/**",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/scss/**", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
