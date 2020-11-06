@@ -1163,7 +1163,14 @@ border and the section separator bar */
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
-    padding-top: 12%;
+    padding-top: 30%;
+  }
+
+  .eecs {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 10%;
   }
 }
 
