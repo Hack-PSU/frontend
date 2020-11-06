@@ -631,7 +631,7 @@ border and the section separator bar */
   position: relative;
 }
 
-#planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
+#planet-blue, #planet-2, #planet-orange, #planet-4, #planet-pink, #satellite {
   position: absolute;
   z-index: -1;
   width: 10vw;
@@ -641,7 +641,7 @@ border and the section separator bar */
   }
 }
 
-#planet-1 {
+#planet-blue {
   top: 40em;
   left: 10%;
 
@@ -659,7 +659,7 @@ border and the section separator bar */
   }
 }
 
-#planet-3 {
+#planet-orange {
   top: 40em;
   right: 10%;
 
@@ -678,7 +678,7 @@ border and the section separator bar */
   }
 }
 
-#planet-5 {
+#planet-pink {
   top: 50em;
   left: 2%;
 
