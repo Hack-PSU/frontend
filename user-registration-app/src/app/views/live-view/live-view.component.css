@@ -252,6 +252,11 @@ td {
   margin: auto;
 }
 
+.header-details {
+  font-size: 1.25em;
+  margin-top: 17px;
+}
+
 .section-title-letter {
   display: inline-block;
 }
