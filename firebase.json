@@ -1,6 +1,6 @@
 {
   "hosting": [{
-    "target": "app",
+    "target": "website",
     "public": "website",
     "ignore": ["firebase.json", "**/.*", "**/scss/**", "**/node_modules/**"],
     "rewrites": [
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "target": "website",
+    "target": "app",
     "public": "user-registration-app/dist",
     "ignore": ["firebase.json", "**/.*", "**/scss/**", "**/node_modules/**"],
     "rewrites": [
