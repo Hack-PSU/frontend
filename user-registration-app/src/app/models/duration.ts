@@ -21,13 +21,11 @@ export class Duration {
   }
 
   public get minutes() {
-    return Math.floor(((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR )/ this.NUM_SECS_IN_MINUTE);
+    return Math.floor(((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) / this.NUM_SECS_IN_MINUTE);
   }
 
   public get seconds() {
-    return Math.floor(
-      ((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR ) % this.NUM_SECS_IN_MINUTE
-    );
+    return Math.floor(((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) % this.NUM_SECS_IN_MINUTE);
   }
 
 }

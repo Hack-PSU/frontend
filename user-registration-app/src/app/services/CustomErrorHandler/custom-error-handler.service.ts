@@ -4,7 +4,7 @@ import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
 import { AlertService } from 'ngx-alerts';
 import { Observable, throwError } from 'rxjs';
-import { IApiResponse } from "../../models/api-response.v2";
+import { IApiResponse } from '../../models/api-response.v2';
 
 @Injectable()
 export class CustomErrorHandlerService {

@@ -25,7 +25,6 @@
     "@ngx-progressbar/core": "5.0.1",
     "@ngx-progressbar/http": "5.0.1",
     "@ngx-progressbar/router": "5.0.1",
-    "address-validator": "0.2.2",
     "ajv": "6.5.2",
     "angular2-materialize": "15.1.10",
     "core-js": "^2.4.1",
@@ -48,7 +47,7 @@
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.1100.2",
+    "@angular-devkit/build-angular": "~0.13.0",
     "@angular/cli": "7.3.3",
     "@angular/compiler-cli": "^7.2.6",
     "@types/jasmine": "2.6.0",

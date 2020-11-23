@@ -1,10 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
-import { environment } from "../../../environments/environment";
-import { Duration } from "../../models/duration";
-import { Observable, timer } from "rxjs";
+import { environment } from '../../../environments/environment';
+import { Duration } from '../../models/duration';
+import { Observable, timer } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CountdownService {
   private readonly startTime: Date;

@@ -6,7 +6,7 @@ import { Login } from '../../models/login';
 import { AuthProviders, AuthService } from '../../services/AuthService/auth.service';
 import { CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
-import { AlertService } from "ngx-alerts";
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-login',

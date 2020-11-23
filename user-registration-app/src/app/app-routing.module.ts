@@ -16,8 +16,8 @@ import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-gua
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
-import { TableAssignmentResolver } from "./services/resolvers/TableAssignmentResolver/table-assignment.resolver";
-import { UserProfileViewComponent } from "./views/user-profile-view/user-profile-view.component";
+import { TableAssignmentResolver } from './services/resolvers/TableAssignmentResolver/table-assignment.resolver';
+import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component';
 
 const routes: Routes = [
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: 'forgot',
-    component: ForgotPasswordViewComponent
+    component: ForgotPasswordViewComponent,
   },
   {
     path: 'live',

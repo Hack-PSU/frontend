@@ -14,12 +14,12 @@ export class BaseHttpService {
     ({
        maxRetryAttempts = 3,
        scalingDuration = 1000,
-       excludedStatusCodes = []
+       excludedStatusCodes = [],
      }: {
-      maxRetryAttempts?: number,
-      scalingDuration?: number,
-      excludedStatusCodes?: number[]
-    } = {}) => (attempts: Observable<any>) => {
+       maxRetryAttempts?: number,
+       scalingDuration?: number,
+       excludedStatusCodes?: number[]
+     } = {}) => (attempts: Observable<any>) => {
       return attempts.pipe(
         mergeMap((error, i) => {
           const retryAttempt = i + 1;
@@ -31,10 +31,7 @@ export class BaseHttpService {
           ) {
             return throwError(error);
           }
-          console.log(
-            `Attempt ${retryAttempt}: retrying in ${retryAttempt *
-            scalingDuration}ms`
-          );
+          console.log(`Attempt ${retryAttempt}: retrying in ${retryAttempt * scalingDuration}ms`);
           // retry after 1s, 2s, etc...
           return timer(retryAttempt * scalingDuration);
         }),
@@ -55,7 +52,7 @@ export class BaseHttpService {
     if (!this.memCache.has(API_ENDPOINT)) { // Set the value in the memory cache
       let headers = new HttpHeaders();
       let params = new HttpParams();
-      let fullUrl = v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)
+      const fullUrl = v2 ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT) : AppConstants.API_BASE_URL.concat(API_ENDPOINT)
       if (ignoreCache) {
         params = params.set('ignoreCache', 'true');
       }
@@ -70,7 +67,7 @@ export class BaseHttpService {
         this.getInternal(fullUrl, headers, params);
       observable = observable.pipe(
         v2 ? map((apiResponse: any) => apiResponse.body.data) : tap(() => undefined),
-        catchError(err => {
+        catchError((err) => {
           return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
         }),
       );
@@ -88,7 +85,6 @@ export class BaseHttpService {
       )
   }
 
-
   protected post(API_ENDPOINT: string, formObject: FormData | any, v2: boolean = false) {
     this.memCache.set(API_ENDPOINT, null);
     return this.authService.idToken.pipe(
@@ -99,7 +95,7 @@ export class BaseHttpService {
                               formObject,
                               { headers, reportProgress: true });
       }),
-      catchError(err => {
+      catchError((err) => {
         return v2 ? this.errorHandler.handleV2HttpError(err) : this.errorHandler.handleHttpError(err);
       }),
     );

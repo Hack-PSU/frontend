@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     return this.checkLogin(url);
   }
 
-  checkLogin(url): Observable<boolean> {
+  checkLogin(url: string): Observable<boolean> {
     return this.authService.currentUser.pipe(
       map<any, boolean>((user) => {
         if (!user) {

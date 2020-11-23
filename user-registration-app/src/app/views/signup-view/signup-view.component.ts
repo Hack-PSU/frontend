@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstants } from '../../AppConstants';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
-import {AuthProviders} from "../../services/AuthService/auth.service";
-import { AlertService } from "ngx-alerts";
+import { AuthProviders } from '../../services/AuthService/auth.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-signup-view',

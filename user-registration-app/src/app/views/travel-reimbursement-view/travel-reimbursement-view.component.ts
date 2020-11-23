@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressValidator } from 'address-validator';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { AppConstants } from '../../AppConstants';
 import { Router } from '@angular/router';
@@ -51,7 +50,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   onSubmit() {
     console.log(this.travelForm);
     this.loading = true;
-    switch(this.travelForm.groupMembers) {
+    switch (this.travelForm.groupMembers) {
       case 4:
         this.travelForm.groupMembers = '4+';
       default:

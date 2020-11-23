@@ -6,6 +6,6 @@ export { TravelReimbursementViewComponent } from './travel-reimbursement-view/tr
 export { TableAssignmentViewComponent } from './table-assignment-view/table-assignment-view.component';
 export { ScheduleViewComponent } from './schedule-view/schedule-view.component';
 export { RsvpComponent } from './rsvp/rsvp.component';
-export { LoginComponent } from "./login/login.component";
+export { LoginComponent } from './login/login.component';
 export { UserViewComponent } from './user-view/user-view.component';
 export { LiveWorkshopComponent } from './live-workshop/live-workshop.component';

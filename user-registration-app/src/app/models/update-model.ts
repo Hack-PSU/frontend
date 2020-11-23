@@ -15,6 +15,6 @@ export class UpdateModel {
   }
 
   static instance() {
-    return new UpdateModel('','','','','');
+    return new UpdateModel('', '', '', '', '');
   }
 }

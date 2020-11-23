@@ -1,13 +1,12 @@
-import {of as observableOf,  Observable ,  forkJoin } from 'rxjs';
+import { of as observableOf, Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Registration, RegistrationApiResponse } from '../../../models/registration';
-import { catchError, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { Registration } from '../../../models/registration';
+import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
-import { User } from "firebase";
 
 @Injectable()
 /**
@@ -31,7 +30,6 @@ export class RegistrationResolver implements Resolve<Registration> {
           return this.httpService.getRegistrationStatus();
         }),
         map((registration) => {
-          console.log(registration);
           if (registration.isCurrentRegistration() && registration.submitted) {
             this.progress.complete();
             this.router.navigate([AppConstants.PIN_ENDPOINT]);

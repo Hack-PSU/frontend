@@ -1,5 +1,5 @@
-import { Hackathon } from "./hackathon";
-import { Url } from "url";
+import { Hackathon } from './hackathon';
+import { Url } from 'url';
 
 export class Registration {
   public firstName: string;
@@ -56,22 +56,22 @@ export class Registration {
     this.mlhdcp = null;
     this.ethnicity = null;
     this.ethnicities = {
-      "native": false,
-      "asian": false,
-      "african": false,
-      "latinx": false,
-      "pacific": false,
-      "caucasian": false,
-      "noDisclose": false
+      native: false,
+      asian: false,
+      african: false,
+      latinx: false,
+      pacific: false,
+      caucasian: false,
+      noDisclose: false,
     };
-    this.address = "";
+    this.address = '';
     this.addressFields = {
-      "addressLine1": "",
-      "addressLine2": "",
-      "city": "",
-      "stateProvince": "",
-      "zipcode": "",
-      "country": ""
+      addressLine1: '',
+      addressLine2: '',
+      city: '',
+      stateProvince: '',
+      zipcode: '',
+      country: '',
     };
     this.shareAddressMlh = false;
     this.shareAddressSponsors = false;
@@ -84,7 +84,7 @@ export class Registration {
     this.hackathon = null;
   }
 
-  private static parseHackathon(value: any): string{
+  private static parseHackathon(value: any): string {
     value.hackathon = Hackathon.parseJSON(value);
     return value.hackathon;
   }
@@ -93,7 +93,7 @@ export class Registration {
     return this.resume instanceof URL;
   }
 
-  public static parseFromApiResponse(value: RegistrationApiResponse) : Registration{
+  public static parseFromApiResponse(value: RegistrationApiResponse): Registration {
     const registration = new Registration();
     registration.address = value.address;
     registration.firstName = value.firstname;

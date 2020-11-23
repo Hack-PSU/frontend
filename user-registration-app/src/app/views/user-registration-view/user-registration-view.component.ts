@@ -71,19 +71,22 @@ export class UserRegistrationViewComponent implements OnInit {
 
   ngOnInit() {
     const ecObservable = this.httpService.getExtraCreditClasses()
-      .subscribe(classes => {
+      .subscribe((classes) => {
         this.classes = classes;
         ecObservable.unsubscribe();
       });
     const regObservable = this.httpService.getUserRegistrations()
-      .subscribe(registrations => {
-        this.registrations = registrations;
-        regObservable.unsubscribe();
-      },         ({ error }) => {
-        if (error.status === 404) {
-          this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
-        }
-      });
+      .subscribe(
+        (registrations) => {
+          this.registrations = registrations;
+          regObservable.unsubscribe();
+        },
+        ({ error }) => {
+          if (error.status === 404) {
+            this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+          }
+        },
+      );
   }
 
   editAddressToggle() {
@@ -94,9 +97,8 @@ export class UserRegistrationViewComponent implements OnInit {
     const noAddr = 'No address on file. Please add your address if you would like to receive some swag!'
     if (this.registrations.length > 0) {
       return (this.registrations[0].address ? this.registrations[0].address : noAddr);
-    } else {
-      return noAddr;
     }
+    return noAddr;
   }
 
   attachNewAddress(reg: Registration): Registration {
@@ -127,12 +129,14 @@ export class UserRegistrationViewComponent implements OnInit {
     reg = this.attachNewAddress(reg);
 
     this.httpService.submitAddress(reg)
-      .subscribe(() => {
-        this.progressService.complete();
-        this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
-      },         ({ error }) => {
-        this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
-      })
+      .subscribe(
+        () => {
+          this.progressService.complete();
+          this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
+        },
+        ({ error }) => {
+          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+        })
   }
 
   submitClasses() {
@@ -148,16 +152,19 @@ export class UserRegistrationViewComponent implements OnInit {
             return this.httpService.registerExtraCreditClass(c);
           }
         }),
-    ).subscribe(() => {
-      this.progressService.complete();
-      this.alertsService.success('You are now getting tracked for the selected classes');
-    },          ({ error }) => {
-      if (error.status === 409) {
+    ).subscribe(
+      () => {
+        this.progressService.complete();
         this.alertsService.success('You are now getting tracked for the selected classes');
-      } else {
-        this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
-      }
-    });
+      },
+      ({ error }) => {
+        if (error.status === 409) {
+          this.alertsService.success('You are now getting tracked for the selected classes');
+        } else {
+          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+        }
+      },
+    );
   }
 
   parseInt(string: string, radix: number) {
@@ -169,32 +176,37 @@ export class UserRegistrationViewComponent implements OnInit {
     this.httpService.registerExtraCreditClass(
       this.classes.find(c => c.class_name === 'Business Challenge').uid.toString(),
     )
-      .subscribe(() => {
-        this.progressService.complete();
-        this.alertsService.success('You are registered for the business challenge');
-      },         ({ error }) => {
-        if (error.status === 409) {
+      .subscribe(
+        () => {
+          this.progressService.complete();
           this.alertsService.success('You are registered for the business challenge');
-        } else {
-          this.alertsService.warning('Something may have gone wrong in that process. Email technology@hackpsu.org or Contact a member of staff to check');
-        }
-      });
+        },
+        ({ error }) => {
+          if (error.status === 409) {
+            this.alertsService.success('You are registered for the business challenge');
+          } else {
+            this.alertsService.warning(
+              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check',
+            );
+          }
+        },
+      );
   }
 
   showClassName(class_name: string): boolean {
     // We don't remove classes from the DB, we just filter them here.
     const shownClassNames = [
-      "IST 110 (Garbrick)",
-      "IST 110 (Karpinski)",
-      "IST 240 (Smith)",
-      "SRA 231",
-      "CYBER 342W",
-      "CMPSC 132",
-      "DS 340W",
-      "DS 310 (Ma)",
-      "IST 220 (Zhang)",
-      "COMM 361",
-      "DS 220",
+      'IST 110 (Garbrick)',
+      'IST 110 (Karpinski)',
+      'IST 240 (Smith)',
+      'SRA 231',
+      'CYBER 342W',
+      'CMPSC 132',
+      'DS 340W',
+      'DS 310 (Ma)',
+      'IST 220 (Zhang)',
+      'COMM 361',
+      'DS 220',
     ];
     return shownClassNames.indexOf(class_name) !== -1;
   }

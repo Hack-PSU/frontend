@@ -5,9 +5,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppConstants } from './AppConstants';
 import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
-import { environment } from "../environments/environment";
-import { LiveWebsiteDateGuard } from "./services/route-guards/guards";
-import { fadeOutAnimation } from "./animations";
+import { environment } from '../environments/environment';
+import { LiveWebsiteDateGuard } from './services/route-guards/guards';
+import { fadeOutAnimation } from './animations';
 
 declare var $: any;
 
@@ -26,7 +26,7 @@ declare var $: any;
   animations: [
     fadeOutAnimation,
     // animation triggers go here
-  ]
+  ],
 })
 export class AppComponent implements AngularFireAuthModule, AfterViewInit {
 
@@ -42,7 +42,6 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
 
   ngAfterViewInit(): void {
     $('.button-collapse').sideNav();
-  
     $('.dropdown-button').dropdown();
     $('nav').find('.scroller').click((e) => {
       e.preventDefault();

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { AppConstants } from '../../../AppConstants';
-import { AlertService } from "ngx-alerts";
+import { AlertService } from 'ngx-alerts';
 
 /**
  * Validates whether it is past the day of the hackathon

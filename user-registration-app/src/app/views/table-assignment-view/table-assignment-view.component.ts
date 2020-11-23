@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressValidator } from 'address-validator';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from "../../../environments/environment";

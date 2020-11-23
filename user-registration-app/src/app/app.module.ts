@@ -27,10 +27,10 @@ import {
   TableAssignmentViewComponent,
   TravelReimbursementViewComponent,
   UserViewComponent,
-} from "./views/views";
+} from './views/views';
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
-import { TruncatePipe } from "./services/pipes/truncate.pipe";
+import { TruncatePipe } from './services/pipes/truncate.pipe';
 import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component';
 import { UserRegistrationViewComponent } from './views/user-registration-view/user-registration-view.component';
 

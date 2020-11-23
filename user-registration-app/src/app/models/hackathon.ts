@@ -6,7 +6,7 @@ export class Hackathon {
   public basePin: number;
   public active: boolean;
 
-  public static parseJSON(value): Hackathon {
+  public static parseJSON(value: any): Hackathon {
     return new Hackathon(
       value['uid'],
       value['name'],

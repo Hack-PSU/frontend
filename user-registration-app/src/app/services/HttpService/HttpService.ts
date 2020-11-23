@@ -10,9 +10,9 @@ import { NgProgress } from '@ngx-progressbar/core';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { Rsvp } from '../../models/rsvp';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
-import { EventModel } from "../../models/event-model";
-import { ProjectModel } from "../../models/project-model";
-import { ExtraCreditClass } from "../../models/extra-credit-class";
+import { EventModel } from '../../models/event-model';
+import { ProjectModel } from '../../models/project-model';
+import { ExtraCreditClass } from '../../models/extra-credit-class';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -80,7 +80,8 @@ export class HttpService extends BaseHttpService {
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+        return this.http.post<Registration>(
+          AppConstants.API_BASE_URL.concat(API_ENDPOINT),
           { status },
           { headers, reportProgress: true });
       }));
@@ -88,9 +89,10 @@ export class HttpService extends BaseHttpService {
 
   submitAddress(updatedRegistration: Object) {
     const API_ENDPOINT = 'admin/register/update'
-    return this.post(API_ENDPOINT,
-                    { registration: updatedRegistration },
-                    true)
+    return this.post(
+      API_ENDPOINT,
+      { registration: updatedRegistration },
+      true)
   }
 
   getCategories() {
@@ -154,7 +156,7 @@ export class HttpService extends BaseHttpService {
     const API_ENDPOINT = 'users/extra-credit';
     return this.post(
       API_ENDPOINT,
-      { cid: c},
+      { cid: c },
       true,
     )
   }

@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { environment } from "../../../../environments/environment";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { AppConstants } from "../../../AppConstants";
-import { AlertService } from "ngx-alerts";
+import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { AppConstants } from '../../../AppConstants';
+import { AlertService } from 'ngx-alerts';
 
 /**
  * Validates whether it is past the day that the live website should be visible
@@ -18,9 +18,6 @@ export class LiveWebsiteDateGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (!LiveWebsiteDateGuard.validateDate(new Date())) {
-      // if (state.url.match(/\/.+/)) {
-      //   this.alertsService.danger(`You may only visit this page on or after ${environment.liveWebsiteGuardTime.toDateString()}`);
-      // }
       this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
       return false;
     }

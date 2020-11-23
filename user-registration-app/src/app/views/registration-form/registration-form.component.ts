@@ -11,7 +11,7 @@ import { default as majors } from '../../../assets/majors.json';
 import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
 import { AuthService, HttpService } from '../../services/services';
-import { AppConstants } from "../../AppConstants";
+import { AppConstants } from '../../AppConstants';
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
@@ -44,9 +44,9 @@ export class RegistrationFormComponent implements OnInit {
   public univAutoCompInit = {
     data,
     limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-      onAutocomplete(val) {
-        this.registrationForm.university = val;
-      },
+    onAutocomplete(val) {
+      this.registrationForm.university = val;
+    },
     minLength: 1,
   };
   public majAutoCompInit = {
@@ -58,24 +58,24 @@ export class RegistrationFormComponent implements OnInit {
     minLength: 1,
   };
   public referralAutoCompleteInit = {
-      data: {
-        'Participated previously': null,
-        'On-campus flyers': null,
-        'Tech workshops': null,
-        Facebook: null,
-        Instagram: null,
-        'Snapchat advertising': null,
-        'Banners downtown': null,
-        'HUB info booth': null,
-        'Email from my college/major': null,
-        'Heard from a professor': null,
-        'Heard from a friend': null,
-        'Branch campus': null,
-      },
+    data: {
+      'Participated previously': null,
+      'On-campus flyers': null,
+      'Tech workshops': null,
+      Facebook: null,
+      Instagram: null,
+      'Snapchat advertising': null,
+      'Banners downtown': null,
+      'HUB info booth': null,
+      'Email from my college/major': null,
+      'Heard from a professor': null,
+      'Heard from a friend': null,
+      'Branch campus': null,
+    },
     limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-      onAutocomplete(val) {
-        this.registrationForm.referral = val;
-      },
+    onAutocomplete(val) {
+      this.registrationForm.referral = val;
+    },
     minLength: 1,
   };
 
@@ -128,17 +128,17 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private consolidateEthnicities(): string {
-    let consolidatedEthnicity = "";
+    let consolidatedEthnicity = '';
 
     // loop through the ethnicities object; append sel ethnicities to the ethnicity string
-    for (let selEthnicity in this.registrationForm.ethnicities) {
+    for (const selEthnicity in this.registrationForm.ethnicities) {
       if (this.registrationForm.ethnicities[selEthnicity]) {
         consolidatedEthnicity += `${selEthnicity}, `;
       }
     }
 
     // remove the trailing comma before returning
-    if (consolidatedEthnicity.slice(-2) === ", ") {
+    if (consolidatedEthnicity.slice(-2) === ', ') {
       consolidatedEthnicity = consolidatedEthnicity.slice(0, -2);
     }
 
@@ -146,15 +146,15 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private consolidateAddress() {
-    let consolidatedAddress = "";
+    let consolidatedAddress = '';
 
-    for (let addrField in this.registrationForm.addressFields) {
+    for (const addrField in this.registrationForm.addressFields) {
       if (this.registrationForm.addressFields[addrField]) {
         consolidatedAddress += `${this.registrationForm.addressFields[addrField]}, `;
       }
     }
 
-    if (consolidatedAddress.slice(-2) === ", ") {
+    if (consolidatedAddress.slice(-2) === ', ') {
       consolidatedAddress = consolidatedAddress.slice(0, -2);
     }
 
@@ -197,9 +197,9 @@ export class RegistrationFormComponent implements OnInit {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = new Registration();
 
-      //Data to keep
+      // Data to keep
       this.nukeData(this.registrationForm, registration)
-      
+
       setTimeout(() => {
         this.progress.complete();
         Materialize.updateTextFields();
@@ -207,7 +207,7 @@ export class RegistrationFormComponent implements OnInit {
     });
   }
 
-  nukeData(registrationForm, registration){
+  nukeData(registrationForm, registration) {
     this.registrationForm.firstName = registration.firstName;
     this.registrationForm.lastName = registration.lastName;
     this.registrationForm.ethnicity = registration.ethnicity;
