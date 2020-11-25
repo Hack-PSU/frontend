@@ -10,45 +10,18 @@
         <div class="input-field">
           <input name="firstName" id="firstname-input" class="validate required" required
             [(ngModel)]="registrationForm.firstName" #firstName="ngModel" autocomplete="given-name" type="text">
-          <label for="firstname-input" data-error="First name is required">Enter your First
-            Name</label>
+          <label for="firstname-input" data-error="First name is required">Enter your First Name</label>
         </div>
         <div class="input-field">
           <input name="lastName" class="validate required" id="lastname-input" required
-            [(ngModel)]="registrationForm.lastName" autocomplete="family-name" #firstnameinput="ngModel" type="text">
-          <label for="lastname-input" data-error="Last name is required">Enter your Last
-            Name</label>
+            [(ngModel)]="registrationForm.lastName" autocomplete="family-name" #firstnameInput="ngModel" type="text">
+          <label for="lastname-input" data-error="Last name is required">Enter your Last Name</label>
         </div>
-        <label class="data-error" *ngIf="!firstnameinput.valid">Required</label>
+        <label class="data-error" *ngIf="!firstnameInput.valid">Required</label>
       </div>
       <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Name.svg">
     </div>
   </div>
-
-  <!--&lt;!&ndash; Email &ndash;&gt;-->
-  <!--<div class="row scrollspy" materialize="scrollSpy" id="email-container">-->
-  <!--<div class="card medium darken-1">-->
-  <!--<div class="card-content">-->
-  <!--<h5>What is your school email?</h5>-->
-  <!--<div class="input-field">-->
-  <!--&lt;!&ndash; <i class="material-icons prefix">email</i> &ndash;&gt;-->
-  <!--<input type="email"-->
-  <!--class="validate"-->
-  <!--name="email"-->
-  <!--email-->
-  <!--id="email-input"-->
-  <!--required-->
-  <!--autocomplete="email"-->
-  <!--placeholder="student@university.edu"-->
-  <!--[(ngModel)]="registrationForm.email"-->
-  <!--#emailinput="ngModel"-->
-  <!--&gt;-->
-  <!--<label for="email-input" data-error="Valid email is required">Enter your email</label>-->
-  <!--</div>-->
-  <!--<label class="data-error" *ngIf="!emailinput.valid">Required</label>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
 
   <!-- Gender -->
   <div class="row scrollspy" id="gender-container" materialize="scrollSpy">
@@ -59,19 +32,15 @@
           <input type="radio" class="with-gap" name="gender" required value="male" id="male"
             [(ngModel)]="registrationForm.gender" #genderControl="ngModel">
           <label for="male">Male</label><br>
-
           <input type="radio" class="with-gap" name="gender" required value="female" id="female"
             [(ngModel)]="registrationForm.gender">
           <label for="female">Female</label><br>
-
           <input type="radio" class="with-gap" name="gender" required value="non-binary" id="non-binary"
             [(ngModel)]="registrationForm.gender">
           <label for="non-binary">Non-Binary</label><br>
-
-          <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="option4"
+          <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="no-disclose"
             [(ngModel)]="registrationForm.gender">
-          <label for="option4">Prefer not to disclose</label><br>
-
+          <label for="no-disclose">Prefer not to disclose</label><br>
           <label class="data-error" *ngIf="!genderControl.valid">Required</label>
         </div>
       </div>
@@ -87,11 +56,11 @@
         <div class="input-field">
           <input type="tel" autocomplete="tel-national" id="phone-input" name="phone" [value]="prettifiedPhone" required
             [(ngModel)]="registrationForm.phone" (keyup)="parsePhone($event.target.value)" class="validate required"
-            #phoneinput="ngModel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
+            #phoneInput="ngModel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
           <label for="phone-input" data-error="Valid phone number is required">Enter your phone
             number</label>
         </div>
-        <label class="data-error" *ngIf="!phoneinput.valid">Required</label>
+        <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
       </div>
     </div>
   </div>
@@ -182,8 +151,8 @@
       <div class="card-content">
         <h5 class="shirt-size">What is your shirt size?</h5>
         <div class="form-group required">
-          <input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS" #shirtControl="ngModel"
-            [(ngModel)]="registrationForm.shirtSize">
+          <input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS"
+            [(ngModel)]="registrationForm.shirtSize" #shirtControl="ngModel">
           <label for="xsmall">X-Small</label><br>
           <input type="radio" class="with-gap" id="small" required name="shirtSize" value="S"
             [(ngModel)]="registrationForm.shirtSize">
@@ -214,32 +183,32 @@
         <h5 class="address">What is your address?</h5>
         <div class="input-field">
           <label for="addressLine1">Address line 1</label>
-          <input type="text" class="" id="addressLine1" name="addressLine1" 
+          <input type="text" id="addressLine1" name="addressLine1" 
             [(ngModel)]="registrationForm.addressFields.addressLine1">
         </div>
         <div class="input-field">
           <label for="addressLine2">Address line 2</label>
-          <input type="text" class="" id="addressLine2" name="addressLine2"
+          <input type="text" id="addressLine2" name="addressLine2"
             [(ngModel)]="registrationForm.addressFields.addressLine2">
         </div>
         <div class="input-field">
           <label for="zipcode">Zipcode</label>
-          <input type="text" class="" id="zipcode" name="zipcode"
+          <input type="text" id="zipcode" name="zipcode"
             [(ngModel)]="registrationForm.addressFields.zipcode">
         </div>
         <div class="input-field">
           <label for="city">City</label>
-          <input type="text" class="" id="city" name="city"
+          <input type="text" id="city" name="city"
             [(ngModel)]="registrationForm.addressFields.city">
         </div>
         <div class="input-field">
           <label for="stateProvince">State/Province</label>
-          <input type="text" class="" id="stateProvince" name="stateProvince"
+          <input type="text" id="stateProvince" name="stateProvince"
             [(ngModel)]="registrationForm.addressFields.stateProvince">
         </div>
         <div class="input-field">
           <label for="country">Country</label>
-          <input type="text" class="" id="country" name="country"
+          <input type="text" id="country" name="country"
             [(ngModel)]="registrationForm.addressFields.country">
         </div>
         <div class="form-group">
@@ -281,7 +250,6 @@
     <div class="card medium darken-1">
       <div class="card-content">
         <h5 class="attended">Is this your first hackathon?</h5>
-        <!-- Switch -->
         <div class="switch">
           <label>
             No
@@ -290,6 +258,17 @@
             Yes
           </label>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Allergies -->
+  <div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">
+    <div class="card medium darken-1">
+      <div class="card-content ">
+        <h5 class="travel">If you have allergies, describe them here.</h5>
+        <input name="allergies" id="allergy-input" class="validate" [(ngModel)]="registrationForm.allergies" type="text">
+        <label for="allergy-input">Describe them</label>
       </div>
     </div>
   </div>
@@ -341,18 +320,6 @@
     </div>
   </div> -->
 
-  <!-- Allergies -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">
-    <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="travel">If you have allergies, describe them here.</h5>
-        <input name="allergies" id="allergy-input" class="validate" [(ngModel)]="registrationForm.allergies"
-          type="text">
-        <label for="allergy-input">Describe them</label>
-      </div>
-    </div>
-  </div>
-
   <!-- Major -->
   <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="major-container">
     <div class="card medium darken-1">
@@ -360,13 +327,13 @@
         <h5 class="major">What is your (intended) major?</h5>
         <p class="alert">Type your response if the dropdown does not contain your major.</p>
         <div class="input-field">
-          <input type="text" name="major" [(ngModel)]="registrationForm.major" #majorinput="ngModel"
+          <input type="text" name="major" [(ngModel)]="registrationForm.major" #majorInput="ngModel"
             id="autocomplete-input-major" required class="validate required" materialize="autocomplete"
             [materializeParams]="[majorAutoCompleteInit]">
           <label for="autocomplete-input-major" data-error="Major is required">Enter your
             major</label>
         </div>
-        <label class="data-error" *ngIf="!majorinput.valid">Required</label>
+        <label class="data-error" *ngIf="!majorInput.valid">Required</label>
       </div>
     </div>
   </div>
@@ -379,10 +346,10 @@
         <h5 class="school">What university do you attend?</h5>
         <div class="input-field">
           <label for="autocomplete-input-university">Name of university</label>
-          <input type="text" name="university" required [(ngModel)]="registrationForm.university" #schoolinput="ngModel"
+          <input type="text" name="university" required [(ngModel)]="registrationForm.university" #schoolInput="ngModel"
             id="autocomplete-input-university" materialize="autocomplete" [materializeParams]="[univAutoCompleteInit]">
         </div>
-        <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
+        <label class="data-error" *ngIf="!schoolInput.valid">Required</label>
       </div>
       <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/University.svg">
     </div>
@@ -395,7 +362,7 @@
         <h5 class="year">Academic Year</h5>
         <div class="form-group">
           <input type="radio" class="with-gap" id="freshman" required name="academic_year" value="freshman"
-            #yearinput="ngModel" [(ngModel)]="registrationForm.academicYear">
+            [(ngModel)]="registrationForm.academicYear" #yearInput="ngModel">
           <label for="freshman">Freshman</label><br>
           <input type="radio" class="with-gap" id="sophomore" required name="academic_year" value="sophomore"
             [(ngModel)]="registrationForm.academicYear">
@@ -413,7 +380,7 @@
             [(ngModel)]="registrationForm.academicYear">
           <label for="other_year">Other</label><br>
         </div>
-        <label class="data-error" *ngIf="!yearinput.valid">Required</label>
+        <label class="data-error" *ngIf="!yearInput.valid">Required</label>
       </div>
     </div>
   </div>
@@ -425,8 +392,7 @@
         <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}}
           resume</h5>
         <p class="alert">This field is completely optional. You may submit your resume if you want
-          us to share it
-          with employers at HackPSU.</p>
+          us to share it with employers at HackPSU.</p>
         <div class="file-field input-field row">
           <div class="btn col-sm-6 offset-sm-3">
             <span class="hide-on-large-only"><i class="material-icons center">file_upload</i></span>
@@ -452,12 +418,12 @@
         <div class="switch">
           <label>
             No
-            <input type="checkbox" name="mlhcoc" required [(ngModel)]="registrationForm.mlhcoc" #mlhcocinput="ngModel">
+            <input type="checkbox" name="mlhcoc" required [(ngModel)]="registrationForm.mlhcoc" #mlhcocInput="ngModel">
             <span class="lever"></span>
             Yes
           </label>
         </div>
-        <label class="data-error" *ngIf="!mlhcocinput.valid">Required</label>
+        <label class="data-error" *ngIf="!mlhcocInput.valid">Required</label>
       </div>
       <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/MLHCodeofConduct.svg">
     </div>
@@ -478,12 +444,12 @@
         <div class="switch">
           <label>
             No
-            <input type="checkbox" name="mlhdcp" required [(ngModel)]="registrationForm.mlhdcp" #mlhdcpinput="ngModel">
+            <input type="checkbox" name="mlhdcp" required [(ngModel)]="registrationForm.mlhdcp" #mlhdcpInput="ngModel">
             <span class="lever"></span>
             Yes
           </label>
         </div>
-        <label class="data-error" *ngIf="!mlhdcpinput.valid">Required</label>
+        <label class="data-error" *ngIf="!mlhdcpInput.valid">Required</label>
       </div>
     </div>
   </div>
@@ -555,8 +521,8 @@
   <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
     class="center">
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-      <button [disabled]="progress.ref().isStarted" class="btn waves-effect waves-light submit-btn" type="submit"
-        name="action">Submit
+      <button [disabled]="progress.ref().isStarted" class="btn waves-effect waves-light submit-btn" type="submit" name="action">
+        Submit
         <i class="material-icons right">send</i>
       </button>
     </div>
@@ -575,6 +541,8 @@
     <li><a href="#additional-questions-container">Additional Questions</a></li>
   </ul>
 
-  <p class="email-us-text"> Any issues? - Email us at <br /> <a href="mailto:technology@hackpsu.org">
-      <b>technology@hackpsu.org </b> </a> </p>
+  <p class="email-us-text">
+    Any issues? - Email us at <br> 
+    <a href="mailto:technology@hackpsu.org"><b>technology@hackpsu.org</b></a>
+  </p>
 </div>

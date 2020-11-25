@@ -1,5 +1,4 @@
 import { Hackathon } from './hackathon';
-import { Url } from 'url';
 
 export class Registration {
   public firstName: string;

@@ -66,7 +66,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     NgProgressHttpModule,
     NgProgressRouterModule,
     NgxPaginationModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ maxOpened: 5 }),
   ],
   providers: [
     HttpClient,

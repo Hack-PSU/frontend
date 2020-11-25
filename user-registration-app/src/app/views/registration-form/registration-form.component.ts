@@ -71,8 +71,6 @@ export class RegistrationFormComponent implements OnInit {
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
       case '.firstHackathon':
         return 'Is this your first hackathon? Do let us know!';
-      case '.email':
-        return 'Please provide your email! We send very important details there closer to the event.';
       case '.academicYear':
         return 'Please tell us what year you are in college.';
       case '.major':
@@ -121,7 +119,7 @@ export class RegistrationFormComponent implements OnInit {
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
     this.asYouType = new AsYouType('US');
-    this.validator = ajv.compile(registeredUserSchema);
+    this.validator = ajv.compile(registeredUserSchema.default);
   }
 
   ngOnInit() {
