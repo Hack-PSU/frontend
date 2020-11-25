@@ -188,7 +188,7 @@ export class RegistrationApiResponse {
   project: string | null;
   race: string | null;
   referral: string | null;
-  resume: Url | null;
+  resume: URL | null;
   shirt_size: string;
   start_time: string;
   submitted: boolean;

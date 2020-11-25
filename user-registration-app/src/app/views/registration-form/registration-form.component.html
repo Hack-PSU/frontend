@@ -83,11 +83,10 @@
     <div class="card medium darken-1">
       <div class="card-content ">
         <h5 class="phone">What is your phone number?</h5>
-        <p class="alert">This information is required by MLH. Rest assured we won't be spamming your
-          phone.</p>
+        <p class="alert">This information is required by MLH. Rest assured we won't be spamming your phone.</p>
         <div class="input-field">
           <input type="tel" autocomplete="tel-national" id="phone-input" name="phone" [value]="prettifiedPhone" required
-            [(ngModel)]="phoneNoUse" (keyup)="parsePhone($event.target.value)" class="validate required"
+            [(ngModel)]="registrationForm.phone" (keyup)="parsePhone($event.target.value)" class="validate required"
             #phoneinput="ngModel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
           <label for="phone-input" data-error="Valid phone number is required">Enter your phone
             number</label>
@@ -216,38 +215,32 @@
         <div class="input-field">
           <label for="addressLine1">Address line 1</label>
           <input type="text" class="" id="addressLine1" name="addressLine1" 
-            [(ngModel)]="registrationForm.addressFields.addressLine1"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.addressLine1">
         </div>
         <div class="input-field">
           <label for="addressLine2">Address line 2</label>
           <input type="text" class="" id="addressLine2" name="addressLine2"
-            [(ngModel)]="registrationForm.addressFields.addressLine2"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.addressLine2">
         </div>
         <div class="input-field">
           <label for="zipcode">Zipcode</label>
           <input type="text" class="" id="zipcode" name="zipcode"
-            [(ngModel)]="registrationForm.addressFields.zipcode"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.zipcode">
         </div>
         <div class="input-field">
           <label for="city">City</label>
           <input type="text" class="" id="city" name="city"
-            [(ngModel)]="registrationForm.addressFields.city"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.city">
         </div>
         <div class="input-field">
           <label for="stateProvince">State/Province</label>
           <input type="text" class="" id="stateProvince" name="stateProvince"
-            [(ngModel)]="registrationForm.addressFields.stateProvince"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.stateProvince">
         </div>
         <div class="input-field">
           <label for="country">Country</label>
           <input type="text" class="" id="country" name="country"
-            [(ngModel)]="registrationForm.addressFields.country"
-            (keyup)="consolidateAddress()">
+            [(ngModel)]="registrationForm.addressFields.country">
         </div>
         <div class="form-group">
           <input type="checkbox" class="with-gap" id="shareAddressMlh" name="shareAddressMlh"
@@ -369,7 +362,7 @@
         <div class="input-field">
           <input type="text" name="major" [(ngModel)]="registrationForm.major" #majorinput="ngModel"
             id="autocomplete-input-major" required class="validate required" materialize="autocomplete"
-            [materializeParams]="[majAutoCompInit]">
+            [materializeParams]="[majorAutoCompleteInit]">
           <label for="autocomplete-input-major" data-error="Major is required">Enter your
             major</label>
         </div>
@@ -377,6 +370,7 @@
       </div>
     </div>
   </div>
+
   <!-- School -->
   <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
     id="university-container">
@@ -386,7 +380,7 @@
         <div class="input-field">
           <label for="autocomplete-input-university">Name of university</label>
           <input type="text" name="university" required [(ngModel)]="registrationForm.university" #schoolinput="ngModel"
-            id="autocomplete-input-university" materialize="autocomplete" [materializeParams]="[univAutoCompInit]">
+            id="autocomplete-input-university" materialize="autocomplete" [materializeParams]="[univAutoCompleteInit]">
         </div>
         <label class="data-error" *ngIf="!schoolinput.valid">Required</label>
       </div>

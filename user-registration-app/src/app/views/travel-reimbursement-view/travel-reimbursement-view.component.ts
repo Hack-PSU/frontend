@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/AuthService/auth.service';
 import { take } from 'rxjs/operators';
 
-declare var $: any;
-
 @Component({
   selector: 'app-travel-reimbursement-view',
   templateUrl: './travel-reimbursement-view.component.html',
@@ -38,9 +36,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   }
 
   onError() {
-    $('html, body').animate({
-      scrollTop: 0,
-    },                      1000);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   fileAdded(event) {

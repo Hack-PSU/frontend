@@ -8,6 +8,7 @@ import { AuthService } from './services/AuthService/auth.service';
 import { environment } from '../environments/environment';
 import { LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { fadeOutAnimation } from './animations';
+import { UserViewComponent } from './views/views';
 
 declare var $: any;
 
@@ -17,7 +18,10 @@ declare var $: any;
     RouterModule,
     NgProgressModule,
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    UserViewComponent,
+  ],
   bootstrap: [AppComponent],
 })
 @Component({
