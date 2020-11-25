@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { AppConstants } from '../../AppConstants';
 import { Login } from '../../models/login';
 import { AuthProviders, AuthService } from '../../services/AuthService/auth.service';
@@ -34,22 +34,22 @@ export class LoginComponent extends BaseComponent {
   }
 
   loginGoogle() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
   }
 
   loginGithub() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
   loginApple() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.APPLE_PROVIDER));
   }
 
   loginEmail() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     if (this.model.email && this.model.password) {
       this.loginHandler(this.authService.signIn(this.model.email, this.model.password));
     }
@@ -63,7 +63,7 @@ export class LoginComponent extends BaseComponent {
       .catch((error) => {
         console.error(error);
         this.errorHandler.handleError(error);
-        this.progressBar.complete();
+        this.progressBar.ref().complete();
       });
   }
 

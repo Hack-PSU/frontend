@@ -1,13 +1,14 @@
 import { Component, NgModule, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NgProgress } from 'ngx-progressbar';
 import { AppConstants } from './AppConstants';
-import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
 import { environment } from '../environments/environment';
 import { LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { fadeOutAnimation } from './animations';
+import { UserViewComponent } from './views/user-view/user-view.component';
 
 declare var $: any;
 
@@ -35,13 +36,12 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
     if (elem) {
       const targetOffset = elem.offset().top;
       $('html,body').animate({ scrollTop: targetOffset }, speed);
-      setTimeout(() => {
-      },         speed);
+      setTimeout(() => {}, speed);
     }
   }
 
   ngAfterViewInit(): void {
-    $('.button-collapse').sideNav();
+    $('.button-collapse').sidenav();
     $('.dropdown-button').dropdown();
     $('nav').find('.scroller').click((e) => {
       e.preventDefault();
@@ -58,12 +58,12 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
       .subscribe((event) => {
         switch (event.constructor.name) {
           case 'NavigationStart':
-            this.progressBar.start();
+            this.progressBar.ref().start();
             break;
           case 'NavigationEnd':
           case 'NavigationCancel':
           case 'NavigationError':
-            this.progressBar.complete();
+            this.progressBar.ref().complete();
             break;
           default:
             break;

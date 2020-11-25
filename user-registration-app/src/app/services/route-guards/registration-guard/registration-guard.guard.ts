@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { HttpService } from '../../HttpService/HttpService';
 import { RegistrationApiResponse } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { AlertService } from 'ngx-alerts';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class RegistrationGuard implements CanActivate {
             // Navigates users to registration
             this.router.navigate([AppConstants.REGISTER_ENDPOINT])
               .then(() => {
-                this.ngProgress.complete();
+                this.ngProgress.ref().complete();
               });
             return false;
           }
@@ -42,7 +42,7 @@ export class RegistrationGuard implements CanActivate {
           this.alertsService.warning('You must register first');
           this.router.navigate([AppConstants.REGISTER_ENDPOINT])
           .then(() => {
-            this.ngProgress.complete();
+            this.ngProgress.ref().complete();
           });
           return of(false);
         }),

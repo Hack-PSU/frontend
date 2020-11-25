@@ -6,7 +6,7 @@ import { AppConstants } from '../../AppConstants';
 import { Registration, RegistrationApiResponse } from '../../models/registration';
 import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { Rsvp } from '../../models/rsvp';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';

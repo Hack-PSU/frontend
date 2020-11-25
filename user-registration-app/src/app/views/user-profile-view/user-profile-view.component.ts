@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'firebase';
+import app from 'firebase/app';
 import { AuthService } from '../../services/AuthService/auth.service';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeInDown, fadeOutUp } from 'ng-animate';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { finalize, switchMap } from 'rxjs/operators';
 import { AlertService } from 'ngx-alerts';
 import { RegistrationApiResponse } from '../../models/registration';
@@ -88,7 +88,7 @@ export class UserProfileViewComponent implements OnInit {
     })
   }
 
-  public getUserPhotoUrl(user: User | null) {
+  public getUserPhotoUrl(user: app.User | null) {
     if (user.photoURL) {
       return user.photoURL;
     }
@@ -108,14 +108,14 @@ export class UserProfileViewComponent implements OnInit {
   }
 
   submitNewName(value: string) {
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
         switchMap((user) => {
           return user.updateProfile({ displayName: value, photoURL: user.photoURL });
         }),
         finalize(() => {
-          this.progressService.complete();
+          this.progressService.ref().complete();
           this.nameEditToggled = false;
         }),
       ).subscribe(
@@ -132,14 +132,14 @@ export class UserProfileViewComponent implements OnInit {
   }
 
   submitNewEmail(value: string) {
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
         switchMap((user) => {
           return user.updateEmail(value);
         }),
         finalize(() => {
-          this.progressService.complete();
+          this.progressService.ref().complete();
           this.nameEditToggled = false;
         }),
       ).subscribe(
@@ -164,14 +164,14 @@ export class UserProfileViewComponent implements OnInit {
       this.alertsService.danger('Passwords do not match');
       return;
     }
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
         switchMap((user) => {
           return user.updatePassword(value1);
         }),
         finalize(() => {
-          this.progressService.complete();
+          this.progressService.ref().complete();
           this.nameEditToggled = false;
         }),
       ).subscribe(

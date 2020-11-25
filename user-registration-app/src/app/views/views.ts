@@ -9,3 +9,5 @@ export { RsvpComponent } from './rsvp/rsvp.component';
 export { LoginComponent } from './login/login.component';
 export { UserViewComponent } from './user-view/user-view.component';
 export { LiveWorkshopComponent } from './live-workshop/live-workshop.component';
+export { UserProfileViewComponent } from './user-profile-view/user-profile-view.component';
+export { UserRegistrationViewComponent } from './user-registration-view/user-registration-view.component';

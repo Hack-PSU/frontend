@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { AppConstants } from '../../../AppConstants';
 import { finalize, map, mergeMap, take } from 'rxjs/operators';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
 import { ProjectModel } from "../../../models/project-model";

@@ -3,7 +3,7 @@ import { Observable, throwError, timer } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthService } from '../AuthService/auth.service';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { AppConstants } from '../../AppConstants';
 
 export class BaseHttpService {

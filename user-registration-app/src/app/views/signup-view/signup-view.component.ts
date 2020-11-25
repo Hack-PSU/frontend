@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstants } from '../../AppConstants';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
@@ -37,7 +37,7 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
       .catch((error) => {
         console.error(error);
         this.errorHandler.handleError(error);
-        this.progressBar.complete();
+        this.progressBar.ref().complete();
       });
   }
   onLogin() {
@@ -50,34 +50,34 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
     });
   }
   loginGoogle() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
   }
 
   loginGithub() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
   loginApple() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.APPLE_PROVIDER));
   }
 
   signUp() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     if (this.email && this.email !== '' && this.password && this.password !== '') {
       this.authService.createUser(this.email, this.password)
           .then((user) => {
             this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
-            this.progressBar.complete();
+            this.progressBar.ref().complete();
           }).catch((error) => {
             this.errorHandler.handleError(error);
-            this.progressBar.complete();
+            this.progressBar.ref().complete();
           });
     } else {
       this.errorHandler.handleError(Error('Enter username and password'));
-      this.progressBar.complete();
+      this.progressBar.ref().complete();
     }
   }
   onEmailEntered(email: string) {

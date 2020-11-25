@@ -1,7 +1,7 @@
 import { mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as firebase from 'firebase/app';
+import app from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
 import { AlertService } from 'ngx-alerts';
@@ -15,7 +15,7 @@ import { AppConstants } from '../../AppConstants';
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
-declare var Materialize: any;
+declare var M: any;
 
 @Component({
   selector: 'app-registration-form',
@@ -80,7 +80,7 @@ export class RegistrationFormComponent implements OnInit {
   };
 
   public registrationForm: Registration;
-  public user: firebase.User;
+  public user: app.User;
   public prettifiedPhone: string;
   public loading: boolean;
   public diet_restr: boolean;
@@ -185,7 +185,6 @@ export class RegistrationFormComponent implements OnInit {
               private httpService: HttpService,
               private alertsService: AlertService,
               private authService: AuthService) {
-    console.log(data);
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
@@ -201,8 +200,8 @@ export class RegistrationFormComponent implements OnInit {
       this.nukeData(this.registrationForm, registration)
 
       setTimeout(() => {
-        this.progress.complete();
-        Materialize.updateTextFields();
+        this.progress.ref().complete();
+        M.updateTextFields();
       },         750);
     });
   }
@@ -229,7 +228,7 @@ export class RegistrationFormComponent implements OnInit {
     if (!this.registrationForm.ethnicity) {
       this.registrationForm.ethnicity = this.consolidateEthnicities();
     }
-    this.progress.start();
+    this.progress.ref().start();
     this.authService.currentUser
       .pipe(
         mergeMap((user) => {
@@ -240,7 +239,7 @@ export class RegistrationFormComponent implements OnInit {
       )
       .subscribe(() => {
         this.router.navigate([AppConstants.PIN_ENDPOINT])
-          .then(() => this.progress.complete());
+          .then(() => this.progress.ref().complete());
       });
   }
 

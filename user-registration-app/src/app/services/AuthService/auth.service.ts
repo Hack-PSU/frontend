@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase/app';
+import app from 'firebase/app';
 
 export enum AuthProviders {
   GOOGLE_PROVIDER,
@@ -27,33 +27,33 @@ export class AuthService {
   }
 
   signIn(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
   signInWithProvider(provider: AuthProviders): Promise<any> {
-    let authProvider: firebase.auth.AuthProvider = null;
+    let authProvider: app.auth.AuthProvider = null;
     switch (provider) {
       case AuthProviders.GOOGLE_PROVIDER:
-        authProvider = new firebase.auth.GoogleAuthProvider();
+        authProvider = new app.auth.GoogleAuthProvider();
         break;
       case AuthProviders.GITHUB_PROVIDER:
-        authProvider = new firebase.auth.GithubAuthProvider();
+        authProvider = new app.auth.GithubAuthProvider();
         break;
       case AuthProviders.APPLE_PROVIDER:
-        const provider = new firebase.auth.OAuthProvider('apple.com');
-        provider.addScope('email');
-        provider.addScope('name');
-        authProvider = provider;
+        const oAuthProvider = new app.auth.OAuthProvider('apple.com');
+        oAuthProvider.addScope('email');
+        oAuthProvider.addScope('name');
+        authProvider = oAuthProvider;
         break;
     }
-    return this.afAuth.auth.signInWithPopup(authProvider);
+    return this.afAuth.signInWithPopup(authProvider);
   }
 
   signOut(): Promise<void> {
-    return this.afAuth.auth.signOut();
+    return this.afAuth.signOut();
   }
 
   createUser(email: string, password: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 }

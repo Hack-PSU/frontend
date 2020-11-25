@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IRegistrationDb, Registration, RegistrationApiResponse } from '../../models/registration';
+import { Registration, RegistrationApiResponse } from '../../models/registration';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { forkJoin } from 'rxjs';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { AlertService } from 'ngx-alerts';
 
 @Component({
@@ -122,7 +122,7 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   submitAddress() {
-    this.progressService.start();
+    this.progressService.ref().start();
 
     let reg = Registration.parseFromApiResponse(this.registrations[0]);
     reg.hackathon = this.registrations[0].hackathon.uid;
@@ -131,7 +131,7 @@ export class UserRegistrationViewComponent implements OnInit {
     this.httpService.submitAddress(reg)
       .subscribe(
         () => {
-          this.progressService.complete();
+          this.progressService.ref().complete();
           this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
         },
         ({ error }) => {
@@ -144,7 +144,7 @@ export class UserRegistrationViewComponent implements OnInit {
       this.alertsService.danger('Select a class to submit');
       return;
     }
-    this.progressService.start();
+    this.progressService.ref().start();
     forkJoin(
       Object.entries(this.submittedClasses)
         .map(([c, value]: [string, boolean]) => {
@@ -154,7 +154,7 @@ export class UserRegistrationViewComponent implements OnInit {
         }),
     ).subscribe(
       () => {
-        this.progressService.complete();
+        this.progressService.ref().complete();
         this.alertsService.success('You are now getting tracked for the selected classes');
       },
       ({ error }) => {
@@ -172,13 +172,13 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   businessChallengeRegister() {
-    this.progressService.start();
+    this.progressService.ref().start();
     this.httpService.registerExtraCreditClass(
       this.classes.find(c => c.class_name === 'Business Challenge').uid.toString(),
     )
       .subscribe(
         () => {
-          this.progressService.complete();
+          this.progressService.ref().complete();
           this.alertsService.success('You are registered for the business challenge');
         },
         ({ error }) => {

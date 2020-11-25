@@ -5,7 +5,7 @@ import { Registration } from '../../../models/registration';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class RegistrationResolver implements Resolve<Registration> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
-    this.progress.start();
+    this.progress.ref().start();
     return this.authService.currentUser
       .pipe(
         switchMap((user) => {
@@ -31,14 +31,14 @@ export class RegistrationResolver implements Resolve<Registration> {
         }),
         map((registration) => {
           if (registration.isCurrentRegistration() && registration.submitted) {
-            this.progress.complete();
+            this.progress.ref().complete();
             this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
           return Registration.parseFromApiResponse(registration);
         }),
         catchError((error) => {
-          this.progress.complete();
+          this.progress.ref().complete();
           console.log(error);
           // Registration not found.
           return observableOf(new Registration());

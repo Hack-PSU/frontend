@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { AppConstants } from '../../../AppConstants';
 import { finalize, map, mergeMap, take } from 'rxjs/operators';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
 import { RegistrationApiResponse } from '../../../models/registration';
@@ -18,7 +18,7 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RegistrationApiResponse> {
-    this.progress.start();
+    this.progress.ref().start();
     return this.authService.currentUser.pipe(
       mergeMap((user) => {
         if (!user) {
@@ -36,7 +36,7 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
       }),
       take(1),
       finalize(() => {
-        this.progress.complete();
+        this.progress.ref().complete();
       }));
   }
 }
