@@ -2,7 +2,7 @@ import { Component, NgModule, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { NgProgress } from 'ngx-progressbar';
+import { NgProgress, NgProgressModule } from 'ngx-progressbar';
 import { AppConstants } from './AppConstants';
 import { AuthService } from './services/AuthService/auth.service';
 import { environment } from '../environments/environment';
@@ -15,6 +15,7 @@ declare var $: any;
   imports: [
     BrowserModule,
     RouterModule,
+    NgProgressModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

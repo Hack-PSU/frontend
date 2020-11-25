@@ -6,8 +6,8 @@ import { AuthService } from '../../AuthService/auth.service';
 import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
-import { ProjectModel } from "../../../models/project-model";
-import { ToastrService } from "ngx-toastr";
+import { ProjectModel } from '../../../models/project-model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class TableAssignmentResolver implements Resolve<ProjectModel> {
