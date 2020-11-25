@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import app from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 import * as Ajv from 'ajv';
 import { default as data } from '../../../assets/schools.json';
 import { default as majors } from '../../../assets/majors.json';
@@ -15,7 +15,7 @@ import { AppConstants } from '../../AppConstants';
 
 const ajv = new Ajv({ allErrors: true });
 declare var $: any;
-declare var M: any;
+declare var Materialize: any;
 
 @Component({
   selector: 'app-registration-form',
@@ -183,7 +183,7 @@ export class RegistrationFormComponent implements OnInit {
   constructor(public router: Router,
               private route: ActivatedRoute,
               private httpService: HttpService,
-              private alertsService: AlertService,
+              private toastrService: ToastrService,
               private authService: AuthService) {
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
@@ -201,7 +201,7 @@ export class RegistrationFormComponent implements OnInit {
 
       setTimeout(() => {
         this.progress.ref().complete();
-        M.updateTextFields();
+        Materialize.updateTextFields();
       },         750);
     });
   }
@@ -246,19 +246,19 @@ export class RegistrationFormComponent implements OnInit {
   private showError(message: string, level: number) {
     switch (level) {
       case 0:
-        this.alertsService.success(message);
+        this.toastrService.success(message);
         break;
       case 1:
-        this.alertsService.info(message);
+        this.toastrService.info(message);
         break;
       case 2:
-        this.alertsService.warning(message);
+        this.toastrService.warning(message);
         break;
       case 3:
-        this.alertsService.danger(message);
+        this.toastrService.error(message);
         break;
       default:
-        this.alertsService.warning(message);
+        this.toastrService.warning(message);
     }
   }
 

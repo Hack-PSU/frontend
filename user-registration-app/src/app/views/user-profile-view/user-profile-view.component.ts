@@ -5,7 +5,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeInDown, fadeOutUp } from 'ng-animate';
 import { NgProgress } from 'ngx-progressbar';
 import { finalize, switchMap } from 'rxjs/operators';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 import { RegistrationApiResponse } from '../../models/registration';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { Hackathon } from '../../models/hackathon';
@@ -42,7 +42,7 @@ export class UserProfileViewComponent implements OnInit {
     public authService: AuthService,
     private httpService: HttpService,
     private progressService: NgProgress,
-    private alertsService: AlertService,
+    private toastrService: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ export class UserProfileViewComponent implements OnInit {
       },
       ({ error }) => {
         if (error.status === 404) {
-          this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+          this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
         }
       });
     const hackObservable = this.httpService.getHackathons()
@@ -73,7 +73,7 @@ export class UserProfileViewComponent implements OnInit {
         },
         ({ error }) => {
           if (error.status === 404) {
-            this.alertsService.info('No hackathons retrieved');
+            this.toastrService.info('No hackathons retrieved');
           }
         })
     this.currentPin = 'No active pin! Don\'t forget to register!';
@@ -120,12 +120,12 @@ export class UserProfileViewComponent implements OnInit {
         }),
       ).subscribe(
         () => {
-          this.alertsService.info('Successfully changed display name');
+          this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
         },
         (error) => {
           console.error(error);
-          this.alertsService.danger('Something went wrong. Try again');
+          this.toastrService.error('Something went wrong. Try again');
           observable.unsubscribe();
         },
       );
@@ -144,12 +144,12 @@ export class UserProfileViewComponent implements OnInit {
         }),
       ).subscribe(
         () => {
-          this.alertsService.info('Successfully changed display name');
+          this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
         },
         (error) => {
           console.error(error);
-          this.alertsService.danger(error.message);
+          this.toastrService.error(error.message);
           observable.unsubscribe();
         },
       );
@@ -157,11 +157,11 @@ export class UserProfileViewComponent implements OnInit {
 
   submitNewPassword(value1: string, value2: string) {
     if (value1.length === 0 || value2.length === 0) {
-      this.alertsService.danger('Password not entered');
+      this.toastrService.error('Password not entered');
       return;
     }
     if (value1 !== value2) {
-      this.alertsService.danger('Passwords do not match');
+      this.toastrService.error('Passwords do not match');
       return;
     }
     this.progressService.ref().start();
@@ -176,12 +176,12 @@ export class UserProfileViewComponent implements OnInit {
         }),
       ).subscribe(
         () => {
-          this.alertsService.info('Successfully changed display name');
+          this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
         },
         (error) => {
           console.error(error);
-          this.alertsService.danger(error.message);
+          this.toastrService.error(error.message);
           observable.unsubscribe();
         },
       );

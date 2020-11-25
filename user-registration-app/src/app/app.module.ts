@@ -6,11 +6,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterializeModule } from 'angular2-materialize';
 import { NgProgress, NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { NgProgressRouterModule } from 'ngx-progressbar/router';
-import { AlertModule, AlertService } from 'ngx-alerts';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
@@ -60,11 +61,18 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    NgProgressModule,
+    MaterializeModule,
+    NgProgressModule.withConfig({
+      color: '#4286f4',
+      trickleSpeed: 300,
+      spinner: false,
+      thick: true,
+      ease: 'easeOutExpo',
+    }),
     NgProgressHttpModule,
     NgProgressRouterModule,
     NgxPaginationModule,
-    AlertModule.forRoot({ maxMessages: 5, timeout: 5000 }),
+    ToastrModule.forRoot(),
   ],
   providers: [
     HttpClient,
@@ -75,7 +83,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     NgProgress,
     DateGuard,
     LiveWebsiteDateGuard,
-    AlertService,
+    ToastrService,
     CustomErrorHandlerService,
   ],
   bootstrap: [AppComponent],

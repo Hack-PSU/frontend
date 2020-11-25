@@ -561,7 +561,7 @@
   <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
     class="center">
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-      <button [disabled]="progress.isStarted()" class="btn waves-effect waves-light submit-btn" type="submit"
+      <button [disabled]="progress.ref().isStarted" class="btn waves-effect waves-light submit-btn" type="submit"
         name="action">Submit
         <i class="material-icons right">send</i>
       </button>

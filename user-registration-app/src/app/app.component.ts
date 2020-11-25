@@ -8,7 +8,6 @@ import { AuthService } from './services/AuthService/auth.service';
 import { environment } from '../environments/environment';
 import { LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { fadeOutAnimation } from './animations';
-import { UserViewComponent } from './views/user-view/user-view.component';
 
 declare var $: any;
 
@@ -41,7 +40,7 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    $('.button-collapse').sidenav();
+    $('.button-collapse').sideNav();
     $('.dropdown-button').dropdown();
     $('nav').find('.scroller').click((e) => {
       e.preventDefault();

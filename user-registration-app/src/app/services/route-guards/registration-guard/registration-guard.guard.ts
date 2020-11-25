@@ -6,7 +6,7 @@ import { HttpService } from '../../HttpService/HttpService';
 import { RegistrationApiResponse } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
 import { NgProgress } from 'ngx-progressbar';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class RegistrationGuard implements CanActivate {
     private httpService: HttpService,
     private router: Router,
     private ngProgress: NgProgress,
-    private alertsService: AlertService,
+    private toastrService: ToastrService,
   ) {}
 
   canActivate(
@@ -39,7 +39,7 @@ export class RegistrationGuard implements CanActivate {
         }),
         catchError((error) => {
           console.error(error);
-          this.alertsService.warning('You must register first');
+          this.toastrService.warning('You must register first');
           this.router.navigate([AppConstants.REGISTER_ENDPOINT])
           .then(() => {
             this.ngProgress.ref().complete();

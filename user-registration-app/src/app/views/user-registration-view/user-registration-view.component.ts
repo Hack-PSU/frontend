@@ -4,7 +4,7 @@ import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { forkJoin } from 'rxjs';
 import { NgProgress } from 'ngx-progressbar';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-registration-view',
@@ -25,7 +25,7 @@ export class UserRegistrationViewComponent implements OnInit {
     return Object.entries(object);
   }
 
-  constructor(private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
+  constructor(private httpService: HttpService, private progressService: NgProgress, private toastrService: ToastrService) {
     this.registrations = [];
     this.classes = [];
     this.submittedClasses = new Map();
@@ -83,7 +83,7 @@ export class UserRegistrationViewComponent implements OnInit {
         },
         ({ error }) => {
           if (error.status === 404) {
-            this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+            this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
           }
         },
       );
@@ -132,16 +132,16 @@ export class UserRegistrationViewComponent implements OnInit {
       .subscribe(
         () => {
           this.progressService.ref().complete();
-          this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
+          this.toastrService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
         },
         ({ error }) => {
-          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+          this.toastrService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
         })
   }
 
   submitClasses() {
     if (Object.values(this.submittedClasses).filter(a => a).length === 0) {
-      this.alertsService.danger('Select a class to submit');
+      this.toastrService.error('Select a class to submit');
       return;
     }
     this.progressService.ref().start();
@@ -155,13 +155,13 @@ export class UserRegistrationViewComponent implements OnInit {
     ).subscribe(
       () => {
         this.progressService.ref().complete();
-        this.alertsService.success('You are now getting tracked for the selected classes');
+        this.toastrService.success('You are now getting tracked for the selected classes');
       },
       ({ error }) => {
         if (error.status === 409) {
-          this.alertsService.success('You are now getting tracked for the selected classes');
+          this.toastrService.success('You are now getting tracked for the selected classes');
         } else {
-          this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+          this.toastrService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
         }
       },
     );
@@ -179,13 +179,13 @@ export class UserRegistrationViewComponent implements OnInit {
       .subscribe(
         () => {
           this.progressService.ref().complete();
-          this.alertsService.success('You are registered for the business challenge');
+          this.toastrService.success('You are registered for the business challenge');
         },
         ({ error }) => {
           if (error.status === 409) {
-            this.alertsService.success('You are registered for the business challenge');
+            this.toastrService.success('You are registered for the business challenge');
           } else {
-            this.alertsService.warning(
+            this.toastrService.warning(
               'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check',
             );
           }

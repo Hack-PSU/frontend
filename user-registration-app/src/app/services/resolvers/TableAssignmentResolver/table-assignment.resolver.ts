@@ -7,7 +7,7 @@ import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
 import { ProjectModel } from "../../../models/project-model";
-import { AlertService } from "ngx-alerts";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable()
 export class TableAssignmentResolver implements Resolve<ProjectModel> {
@@ -15,12 +15,12 @@ export class TableAssignmentResolver implements Resolve<ProjectModel> {
               private progress: NgProgress,
               private httpService: HttpService,
               private router: Router,
-              private alertService: AlertService,
+              private toastrService: ToastrService,
   ) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProjectModel> {
-    this.alertService.danger('Table assignment is broken. Please use Devpost instead');
+    this.toastrService.error('Table assignment is broken. Please use Devpost instead');
     this.router.navigate([AppConstants.LIVE_ENDPOINT]);
     return null;
     // return this.authService.currentUser.pipe(
