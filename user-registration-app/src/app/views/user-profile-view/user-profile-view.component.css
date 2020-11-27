@@ -92,9 +92,31 @@
 }
 
 .info-section {
-  padding:          2rem;
+  padding: 2rem;
   flex-basis: auto;
   background-color: #333333;
+}
+
+.collapsible-header {
+  background-color: #333333;
+  border-bottom: 1px solid #666666;
+  padding: 1rem 0 1rem 0;
+  justify-content: space-between;
+}
+
+.collapsible-body {
+  border: none;
+}
+
+.collapsible {
+  border: none;
+  border-top: 1px solid #666666;
+  box-shadow: none;
+  display: block;
+}
+
+.flex {
+  display: flex;
 }
 
 .profile-image {
@@ -104,7 +126,6 @@
 
 .profile-name {
   font-size: x-large;
-  margin-right: 10px;
 }
 
 p {
