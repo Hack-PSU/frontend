@@ -37,8 +37,10 @@ export class UserProfileViewComponent implements OnInit {
           regObservable.unsubscribe();
         },
         ({ error }) => {
-          if (error.status === 404) {
+          if (error && error.status === 404) {
             this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for you');
+          } else {
+            this.toastrService.error('Something has gone terribly wrong');
           }
         },
       );
@@ -53,7 +55,7 @@ export class UserProfileViewComponent implements OnInit {
           });
         },
         ({ error }) => {
-          if (error.status === 404) {
+          if (error && error.status === 404) {
             this.toastrService.info('No hackathons retrieved');
           }
         },

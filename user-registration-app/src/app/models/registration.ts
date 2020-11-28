@@ -83,11 +83,6 @@ export class Registration {
     this.hackathon = null;
   }
 
-  private static parseHackathon(value: any): string {
-    value.hackathon = Hackathon.parseJSON(value);
-    return value.hackathon;
-  }
-
   hasExistingResume(): boolean {
     return this.resume instanceof URL;
   }
@@ -119,7 +114,7 @@ export class Registration {
     registration.expectations = value.expectations;
     registration.veteran = value.veteran;
     registration.submitted = value.submitted;
-    registration.hackathon = this.parseHackathon(registration);
+    registration.hackathon = Hackathon.parseJSON(registration).uid;
     registration.pin = value.pin.toString();
     registration.uid = value.uid
     registration.time = Date.now();

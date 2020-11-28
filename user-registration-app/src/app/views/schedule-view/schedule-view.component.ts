@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../../services/EventService/events.service';
 import { CustomErrorHandlerService, HttpService } from '../../services/services';
 import { EventModel } from '../../models/event-model';
 
@@ -7,7 +6,6 @@ import { EventModel } from '../../models/event-model';
   selector: 'app-schedule-view',
   templateUrl: './schedule-view.component.html',
   styleUrls: ['./schedule-view.component.css'],
-  providers: [EventsService],
 })
 export class ScheduleViewComponent implements OnInit {
   private static days = [

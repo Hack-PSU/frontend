@@ -89,7 +89,7 @@ export class CustomErrorHandlerService {
   handleV2HttpError(err: { error: IApiResponse<Error> }) {
     const error = { error: err.error, message: err.error.body.data.message };
     console.error(error);
-    this.toastrService.error(error.message);
+    // this.toastrService.error(error.message);
     return throwError(error);
   }
 }

@@ -1,11 +1,11 @@
 import { of as observableOf, Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Injectable } from '@angular/core';
-import { Registration } from '../../../models/registration';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { NgProgress } from 'ngx-progressbar';
+import { Registration } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 
 @Injectable()

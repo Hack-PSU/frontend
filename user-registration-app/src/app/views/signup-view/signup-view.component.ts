@@ -31,9 +31,7 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
 
   private loginHandler(loginPromise: Promise<any>) {
     loginPromise
-      .then(() => {
-        this.onLogin();
-      })
+      .then(() => this.onLogin())
       .catch((error) => {
         console.error(error);
         this.errorHandler.handleError(error);
@@ -67,14 +65,11 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
   signUp() {
     this.progressBar.ref().start();
     if (this.email && this.email !== '' && this.password && this.password !== '') {
-      this.authService.createUser(this.email, this.password)
-          .then((user) => {
-            this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
-            this.progressBar.ref().complete();
-          }).catch((error) => {
-            this.errorHandler.handleError(error);
-            this.progressBar.ref().complete();
-          });
+      this.authService
+        .createUser(this.email, this.password)
+        .then(user => this.router.navigate([AppConstants.REGISTER_ENDPOINT]))
+        .catch(error => this.errorHandler.handleError(error))
+        .finally(() => this.progressBar.ref().complete());
     } else {
       this.errorHandler.handleError(Error('Enter username and password'));
       this.progressBar.ref().complete();

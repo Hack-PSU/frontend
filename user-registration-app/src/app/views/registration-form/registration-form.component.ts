@@ -95,9 +95,7 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private consolidateAddress() {
-    const addressFields = Object.keys(this.registrationForm.addressFields);
-    const nonEmptyFields = addressFields.filter(field => this.registrationForm.addressFields[field]);
-    return nonEmptyFields.map(field => this.registrationForm.addressFields[field]).join(', ');
+    return Object.values(this.registrationForm.addressFields).filter(field => field).join(', ');
   }
 
   private validate() {
@@ -157,8 +155,6 @@ export class RegistrationFormComponent implements OnInit {
       limit: 5,
       onAutocomplete(val: any) {
         RegistrationFormComponent.getInstance().registrationForm[field] = val;
-        RegistrationFormComponent.getInstance().registrationForm.address = RegistrationFormComponent.getInstance().consolidateAddress();
-        console.log(RegistrationFormComponent.getInstance().registrationForm);
       },
       minLength: 1,
     };

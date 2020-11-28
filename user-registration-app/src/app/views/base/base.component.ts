@@ -11,7 +11,7 @@ export abstract class BaseComponent {
   }
 
   protected readRouteAndNavigate(callback) {
-    this.progressBar.ref('test').complete();
+    this.progressBar.ref().complete();
     this.activatedRoute.queryParams
         .subscribe(callback);
   }

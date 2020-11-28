@@ -12,12 +12,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-registration-view.component.css'],
 })
 export class UserRegistrationViewComponent implements OnInit {
-  registrations: RegistrationApiResponse[];
+  activeRegistration: RegistrationApiResponse;
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
   willUpdateAddressFields: boolean
-  updateAddressFields: any
+  updatedAddressFields: any
   shareAddressMlh: boolean;
   shareAddressSponsors: boolean;
 
@@ -26,10 +26,10 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   constructor(private httpService: HttpService, private progressService: NgProgress, private toastrService: ToastrService) {
-    this.registrations = [];
+    this.activeRegistration = null;
     this.classes = [];
     this.submittedClasses = new Map();
-    this.updateAddressFields = {
+    this.updatedAddressFields = {
       addressLine1: '',
       addressLine2: '',
       city: '',
@@ -76,17 +76,13 @@ export class UserRegistrationViewComponent implements OnInit {
         ecObservable.unsubscribe();
       });
     const regObservable = this.httpService.getUserRegistrations()
-      .subscribe(
-        (registrations) => {
-          this.registrations = registrations;
-          regObservable.unsubscribe();
-        },
-        ({ error }) => {
-          if (error.status === 404) {
-            this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
-          }
-        },
-      );
+      .subscribe((registrations: RegistrationApiResponse[]) => {
+        if (registrations) {
+          this.activeRegistration = registrations.filter(registration => registration.hackathon.active)[0];
+        }
+        regObservable.unsubscribe();
+      });
+      // The error for registrations gets handled in user-profile-view
   }
 
   editAddressToggle() {
@@ -94,39 +90,22 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   getAddress(): string {
-    const noAddr = 'No address on file. Please add your address if you would like to receive some swag!'
-    if (this.registrations.length > 0) {
-      return (this.registrations[0].address ? this.registrations[0].address : noAddr);
+    if (this.activeRegistration && this.activeRegistration.address) {
+      return this.activeRegistration.address;
     }
-    return noAddr;
+    return 'No address on file. Please add your address if you would like to receive some swag!';
   }
 
-  attachNewAddress(reg: Registration): Registration {
-    const addrFields = this.updateAddressFields;
-    let newAddress = '';
-
-    for (const field in addrFields) {
-      if (addrFields[field]) {
-        newAddress += `${addrFields[field]}, `;
-      }
-    }
-
-    if (newAddress.slice(-2) === ', ') {
-      newAddress = newAddress.slice(0, -2);
-    }
-
-    reg.address = newAddress;
-    reg.shareAddressMlh = this.shareAddressMlh;
-    reg.shareAddressSponsors = this.shareAddressSponsors;
-    return reg
+  private consolidateAddress() {
+    return Object.values(this.updatedAddressFields).filter(field => field).join(', ');
   }
 
   submitAddress() {
     this.progressService.ref().start();
-
-    let reg = Registration.parseFromApiResponse(this.registrations[0]);
-    reg.hackathon = this.registrations[0].hackathon.uid;
-    reg = this.attachNewAddress(reg);
+    const reg = Registration.parseFromApiResponse(this.activeRegistration);
+    reg.address = this.consolidateAddress();
+    reg.shareAddressMlh = this.shareAddressMlh;
+    reg.shareAddressSponsors = this.shareAddressSponsors;
 
     this.httpService.submitAddress(reg)
       .subscribe(
