@@ -7,8 +7,6 @@ $(document).ready(function () {
   $('.question').click(function () {
     $(this).siblings().slideToggle('0.3s', 'linear');
     $(this).toggleClass('open');
-    // console.log($(this).find('.question:before'));
-    // $(this).find('.question:before').css('transform', 'rotate(90deg)');
   });
   $(window).on('scroll', function (e) {
     var scrollTop = $(this).scrollTop();

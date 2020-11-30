@@ -44,8 +44,6 @@ export class LiveViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particles.json', () => console.log('particles.js config loaded'));
-
     $(document).ready(() => {
       $('.materialboxed').materialbox();
       $('.question').click(function () {
