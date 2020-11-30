@@ -9,14 +9,12 @@ import {
   RegistrationFormComponent,
   RsvpComponent,
   SignupViewComponent,
-  TableAssignmentViewComponent,
   TravelReimbursementViewComponent,
 } from './views/views';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
 import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
 import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
-import { TableAssignmentResolver } from './services/resolvers/TableAssignmentResolver/table-assignment.resolver';
 import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component';
 
 const routes: Routes = [
@@ -51,12 +49,6 @@ const routes: Routes = [
     canActivate: [AuthGuard, DateGuard, RegistrationGuard],
   },
   {
-    path: 'table',
-    component: TableAssignmentViewComponent,
-    canActivate: [AuthGuard, DateGuard, RegistrationGuard],
-    resolve: { tableAssignment: TableAssignmentResolver },
-  },
-  {
     path: 'pin',
     component: RsvpComponent,
     canActivate: [AuthGuard, RegistrationGuard],
@@ -79,7 +71,6 @@ const routes: Routes = [
   providers: [
     AngularFireAuth,
     RegistrationResolver,
-    TableAssignmentResolver,
     RsvpResolver,
   ],
 })

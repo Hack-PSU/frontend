@@ -50,11 +50,6 @@ export class HttpService extends BaseHttpService {
       );
   }
 
-  getTableAssignment() {
-    const API_ENDPOINT = 'users/project';
-    return this.get(API_ENDPOINT);
-  }
-
   submitRegistration(submitData: Registration, uid: string) {
     const API_ENDPOINT = 'users/register';
     const formObject: FormData = new FormData();
@@ -113,11 +108,6 @@ export class HttpService extends BaseHttpService {
       Array.from(travelForm.receipt).forEach((r: any) => formObject.append('receipt', r, r.name));
     }
     return this.post(API_ENDPOINT, formObject);
-  }
-
-  submitTableAssignment(tableForm: any) {
-    const API_ENDPOINT = 'users/project';
-    return this.post(API_ENDPOINT, tableForm);
   }
 
   getRsvpStatus(): Observable<Rsvp> {
