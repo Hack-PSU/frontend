@@ -92,4 +92,9 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
+
+  isOnLiveSite(): boolean {
+    // Use includes instead of === because href's could make router url "/live#schedule" or something like that
+    return this.router.url.includes('/live');
+  }
 }
