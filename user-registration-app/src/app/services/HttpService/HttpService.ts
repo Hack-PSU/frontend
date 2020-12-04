@@ -87,7 +87,8 @@ export class HttpService extends BaseHttpService {
     return this.post(
       API_ENDPOINT,
       { registration: updatedRegistration },
-      true)
+      true
+    );
   }
 
   getCategories() {
