@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstants } from '../../AppConstants';
 import { AuthService, CustomErrorHandlerService } from '../../services/services';
 import { BaseComponent } from '../base/base.component';
-import {AuthProviders} from "../../services/AuthService/auth.service";
-import { AlertService } from "ngx-alerts";
+import { AuthProviders } from '../../services/AuthService/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup-view',
@@ -20,7 +20,7 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
   constructor(authService: AuthService,
               router: Router,
               errorHandler: CustomErrorHandlerService,
-              private readonly alertsService: AlertService,
+              private readonly toastrService: ToastrService,
               activatedRoute: ActivatedRoute,
               progressBar: NgProgress) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
@@ -31,13 +31,11 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
 
   private loginHandler(loginPromise: Promise<any>) {
     loginPromise
-      .then(() => {
-        this.onLogin();
-      })
+      .then(() => this.onLogin())
       .catch((error) => {
         console.error(error);
         this.errorHandler.handleError(error);
-        this.progressBar.complete();
+        this.progressBar.ref().complete();
       });
   }
   onLogin() {
@@ -50,39 +48,36 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
     });
   }
   loginGoogle() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GOOGLE_PROVIDER));
   }
 
   loginGithub() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.GITHUB_PROVIDER));
   }
 
   loginApple() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     this.loginHandler(this.authService.signInWithProvider(AuthProviders.APPLE_PROVIDER));
   }
 
   signUp() {
-    this.progressBar.start();
+    this.progressBar.ref().start();
     if (this.email && this.email !== '' && this.password && this.password !== '') {
-      this.authService.createUser(this.email, this.password)
-          .then((user) => {
-            this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
-            this.progressBar.complete();
-          }).catch((error) => {
-            this.errorHandler.handleError(error);
-            this.progressBar.complete();
-          });
+      this.authService
+        .createUser(this.email, this.password)
+        .then(user => this.router.navigate([AppConstants.REGISTER_ENDPOINT]))
+        .catch(error => this.errorHandler.handleError(error))
+        .finally(() => this.progressBar.ref().complete());
     } else {
       this.errorHandler.handleError(Error('Enter username and password'));
-      this.progressBar.complete();
+      this.progressBar.ref().complete();
     }
   }
   onEmailEntered(email: string) {
     if (/@psu.edu$/.test(email)) {
-      this.alertsService.warning('Our login system is not affiliated with Penn State. ' +
+      this.toastrService.warning('Our login system is not affiliated with Penn State. ' +
         'Please make sure the password you choose is not your WebAccess password');
     }
   }

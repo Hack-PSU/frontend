@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, throwError } from 'rxjs';
-import { IApiResponse } from "../../models/api-response.v2";
+import { IApiResponse } from '../../models/api-response.v2';
 
 @Injectable()
 export class CustomErrorHandlerService {
@@ -26,7 +26,7 @@ export class CustomErrorHandlerService {
     }
   }
 
-  constructor(private alerts: AlertService) {
+  constructor(private toastrService: ToastrService) {
   }
 
   private parseCustomServerError(error: HttpErrorResponse): any {
@@ -70,7 +70,7 @@ export class CustomErrorHandlerService {
   }
 
   private showToast(error: Error): void {
-    this.alerts.danger(error.error.message);
+    this.toastrService.error(error.error.message);
   }
 
   public handleHttpError(error: HttpErrorResponse): Observable<Error> {
@@ -89,7 +89,7 @@ export class CustomErrorHandlerService {
   handleV2HttpError(err: { error: IApiResponse<Error> }) {
     const error = { error: err.error, message: err.error.body.data.message };
     console.error(error);
-    // this.alerts.danger(error.message);
+    // this.toastrService.error(error.message);
     return throwError(error);
   }
 }

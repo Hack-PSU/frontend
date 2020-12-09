@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Subscription } from 'rxjs';
-import { CountdownService } from "../../services/CountdownService/countdown.service";
+import { CountdownService } from '../../services/CountdownService/countdown.service';
 
 declare var $: any;
 declare var particlesJS: any;
@@ -44,9 +44,7 @@ export class LiveViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particles.json', function() {
-      console.log('callback - particles.js config loaded');
-    });
+    particlesJS.load("particles-js", "assets/particles.json");
 
     $(document).ready(() => {
       $('.materialboxed').materialbox();

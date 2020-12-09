@@ -4,10 +4,10 @@ export class ProjectModel {
   public projectName: string;
   public tableNumber: Number;
 
-
   static parseFromJSON(json) {
-    if (JSON.stringify(json) === '{}')
+    if (JSON.stringify(json) === '{}') {
       return null;
+    }
     const project = new ProjectModel();
     project.categories = json.categoryName;
     project.projectId = json.projectID;

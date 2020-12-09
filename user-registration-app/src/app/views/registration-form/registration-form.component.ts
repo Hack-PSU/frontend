@@ -1,20 +1,19 @@
 import { mergeMap, take } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as firebase from 'firebase/app';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AsYouType } from 'libphonenumber-js';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 import * as Ajv from 'ajv';
-import { default as data } from '../../../assets/schools.json';
+import { default as schools } from '../../../assets/schools.json';
 import { default as majors } from '../../../assets/majors.json';
+import { default as referrals } from '../../../assets/referrals.json';
 import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
 import { AuthService, HttpService } from '../../services/services';
-import { AppConstants } from "../../AppConstants";
+import { AppConstants } from '../../AppConstants';
 
 const ajv = new Ajv({ allErrors: true });
-declare var $: any;
 declare var Materialize: any;
 
 @Component({
@@ -41,52 +40,15 @@ export class RegistrationFormComponent implements OnInit {
 
   private static regFormComp: RegistrationFormComponent;
   private asYouType: AsYouType;
-  public univAutoCompInit = {
-    data,
-    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-      onAutocomplete(val) {
-        this.registrationForm.university = val;
-      },
-    minLength: 1,
-  };
-  public majAutoCompInit = {
-    data: majors,
-    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-    onAutocomplete(val) {
-      this.registrationForm.major = val;
-    },
-    minLength: 1,
-  };
-  public referralAutoCompleteInit = {
-      data: {
-        'Participated previously': null,
-        'On-campus flyers': null,
-        'Tech workshops': null,
-        Facebook: null,
-        Instagram: null,
-        'Snapchat advertising': null,
-        'Banners downtown': null,
-        'HUB info booth': null,
-        'Email from my college/major': null,
-        'Heard from a professor': null,
-        'Heard from a friend': null,
-        'Branch campus': null,
-      },
-    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
-      onAutocomplete(val) {
-        this.registrationForm.referral = val;
-      },
-    minLength: 1,
-  };
-
+  public univAutoCompleteInit = this.makeAutoCompleteSettings('university', schools);
+  public majorAutoCompleteInit = this.makeAutoCompleteSettings('major', majors);
+  public referralAutoCompleteInit = this.makeAutoCompleteSettings('referral', referrals);
   public registrationForm: Registration;
-  public user: firebase.User;
   public prettifiedPhone: string;
   public loading: boolean;
   public diet_restr: boolean;
   public otherDietRestr: boolean;
-  public phoneNoUse;
-  @ViewChild('registrationModel') form;
+  @ViewChild('registrationModel') form: any;
   private readonly validator: Ajv.ValidateFunction;
 
   static getInstance() {
@@ -109,8 +71,6 @@ export class RegistrationFormComponent implements OnInit {
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
       case '.firstHackathon':
         return 'Is this your first hackathon? Do let us know!';
-      case '.email':
-        return 'Please provide your email! We send very important details there closer to the event.';
       case '.academicYear':
         return 'Please tell us what year you are in college.';
       case '.major':
@@ -120,6 +80,7 @@ export class RegistrationFormComponent implements OnInit {
       case '.university':
         return 'Please tell us where you\'re attending school. Use the fancy dropdown!';
       case '.mlhcoc':
+        return 'You gotta agree to the Code of Conduct. We can\'t all be hooligans y\'know';
       case '.mlhdcp':
         return 'You gotta agree to the MLH terms. It\'s legal stuff ya know.';
       default:
@@ -128,54 +89,21 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private consolidateEthnicities(): string {
-    let consolidatedEthnicity = "";
-
-    // loop through the ethnicities object; append sel ethnicities to the ethnicity string
-    for (let selEthnicity in this.registrationForm.ethnicities) {
-      if (this.registrationForm.ethnicities[selEthnicity]) {
-        consolidatedEthnicity += `${selEthnicity}, `;
-      }
-    }
-
-    // remove the trailing comma before returning
-    if (consolidatedEthnicity.slice(-2) === ", ") {
-      consolidatedEthnicity = consolidatedEthnicity.slice(0, -2);
-    }
-
-    return consolidatedEthnicity;
+    const possibleEthnicities = Object.keys(this.registrationForm.ethnicities);
+    const selectedEthnicities = possibleEthnicities.filter(ethnicity => this.registrationForm.ethnicities[ethnicity]);
+    return selectedEthnicities.join(', ');
   }
 
   private consolidateAddress() {
-    let consolidatedAddress = "";
-
-    for (let addrField in this.registrationForm.addressFields) {
-      if (this.registrationForm.addressFields[addrField]) {
-        consolidatedAddress += `${this.registrationForm.addressFields[addrField]}, `;
-      }
-    }
-
-    if (consolidatedAddress.slice(-2) === ", ") {
-      consolidatedAddress = consolidatedAddress.slice(0, -2);
-    }
-
-    this.registrationForm.address = consolidatedAddress;
-  }
-
-  sanitizeUrl(resume_link: any) {
-    if (!(resume_link instanceof URL)) {
-      throw new Error('Must be a URL');
-    }
-    return resume_link.href;
+    return Object.values(this.registrationForm.addressFields).filter(field => field).join(', ');
   }
 
   private validate() {
     const result = this.validator(this.registrationForm);
     if (!result) {
-      this.validator.errors
-        .map(error => this.showError(
-          RegistrationFormComponent.getFormattedErrorText(error),
-          2),
-        );
+      this.validator.errors.map(
+        error => this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error)),
+      )
     }
     return result;
   }
@@ -183,53 +111,65 @@ export class RegistrationFormComponent implements OnInit {
   constructor(public router: Router,
               private route: ActivatedRoute,
               private httpService: HttpService,
-              private alertsService: AlertService,
+              private toastrService: ToastrService,
               private authService: AuthService) {
-    console.log(data);
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
     this.asYouType = new AsYouType('US');
-    this.validator = ajv.compile(registeredUserSchema);
+    this.validator = ajv.compile(registeredUserSchema.default);
   }
 
   ngOnInit() {
     this.route.data.subscribe(({ registration }) => {
       this.registrationForm = new Registration();
 
-      //Data to keep
-      this.nukeData(this.registrationForm, registration)
-      
+      // Data to keep
+      this.registrationForm.firstName = registration.firstName;
+      this.registrationForm.lastName = registration.lastName;
+      this.registrationForm.ethnicity = registration.ethnicity;
+      this.registrationForm.gender = registration.gender;
+      this.registrationForm.allergies = registration.allergies;
+      this.registrationForm.major = registration.major;
+      this.registrationForm.university = registration.university;
+      this.registrationForm.veteran = registration.veteran;
+      this.registrationForm.shirtSize = registration.shirtSize;
+
+      // Turn on prefilled ethnicity checkboxes
+      if (this.registrationForm.ethnicity) {
+        this.registrationForm.ethnicity.split(',').forEach((ethnicity) => {
+          this.registrationForm.ethnicities[ethnicity.trim()] = true;
+        });
+      }
+
       setTimeout(() => {
-        this.progress.complete();
+        this.progress.ref().complete();
         Materialize.updateTextFields();
       },         750);
     });
   }
 
-  nukeData(registrationForm, registration){
-    this.registrationForm.firstName = registration.firstName;
-    this.registrationForm.lastName = registration.lastName;
-    this.registrationForm.ethnicity = registration.ethnicity;
-    this.registrationForm.gender = registration.gender;
-    this.registrationForm.allergies = registration.allergies;
-    // this.registrationForm.major = registration.major;
-    // this.registrationForm.university = registration.university;
-    this.registrationForm.veteran = registration.veteran;
-    this.registrationForm.shirtSize = registration.shirtSize;
+  makeAutoCompleteSettings(field: string, data: any) {
+    return {
+      data,
+      limit: 5,
+      onAutocomplete(val: any) {
+        RegistrationFormComponent.getInstance().registrationForm[field] = val;
+      },
+      minLength: 1,
+    };
   }
 
-  parsePhone(val: any) {
+  parsePhone(val: string) {
     this.asYouType.reset();
     this.prettifiedPhone = this.asYouType.input(val);
     this.registrationForm.phone = this.asYouType.getNationalNumber();
   }
 
   submit() {
-    if (!this.registrationForm.ethnicity) {
-      this.registrationForm.ethnicity = this.consolidateEthnicities();
-    }
-    this.progress.start();
+    this.registrationForm.ethnicity = this.consolidateEthnicities();
+    this.registrationForm.address = this.consolidateAddress();
+    this.progress.ref().start();
     this.authService.currentUser
       .pipe(
         mergeMap((user) => {
@@ -240,37 +180,16 @@ export class RegistrationFormComponent implements OnInit {
       )
       .subscribe(() => {
         this.router.navigate([AppConstants.PIN_ENDPOINT])
-          .then(() => this.progress.complete());
+          .then(() => this.progress.ref().complete());
       });
   }
 
-  private showError(message: string, level: number) {
-    switch (level) {
-      case 0:
-        this.alertsService.success(message);
-        break;
-      case 1:
-        this.alertsService.info(message);
-        break;
-      case 2:
-        this.alertsService.warning(message);
-        break;
-      case 3:
-        this.alertsService.danger(message);
-        break;
-      default:
-        this.alertsService.warning(message);
-    }
-  }
-
-  fileAdded(event) {
+  fileAdded(event: any) {
     this.registrationForm.resume = event.target.files[0];
   }
 
   error() {
-    $('html, body').animate({
-      scrollTop: 0,
-    },                      1000);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   dietaryRestriction(event) {

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as firebase from 'firebase/app';
+import app from 'firebase/app';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../services/AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { Rsvp } from '../../models/rsvp';
 import { AppConstants } from '../../AppConstants';
 import { finalize } from 'rxjs/operators';
-import { Registration, RegistrationApiResponse } from "../../models/registration";
+import { Registration, RegistrationApiResponse } from '../../models/registration';
 
 declare var $: any;
 
@@ -21,7 +21,7 @@ declare var $: any;
 export class RsvpComponent implements OnInit {
 
   public loading = false;
-  public user: firebase.User;
+  public user: app.User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
   public registrationData: RegistrationApiResponse;

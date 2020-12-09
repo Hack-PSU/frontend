@@ -1,13 +1,12 @@
-import {of as observableOf,  Observable ,  forkJoin } from 'rxjs';
+import { of as observableOf, Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
+import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Registration, RegistrationApiResponse } from '../../../models/registration';
-import { catchError, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { NgProgress } from 'ngx-progressbar';
+import { Registration } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
 import { HttpService } from '../../HttpService/HttpService';
-import { User } from "firebase";
 
 @Injectable()
 /**
@@ -20,7 +19,7 @@ export class RegistrationResolver implements Resolve<Registration> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
-    this.progress.start();
+    this.progress.ref().start();
     return this.authService.currentUser
       .pipe(
         switchMap((user) => {
@@ -31,16 +30,15 @@ export class RegistrationResolver implements Resolve<Registration> {
           return this.httpService.getRegistrationStatus();
         }),
         map((registration) => {
-          console.log(registration);
           if (registration.isCurrentRegistration() && registration.submitted) {
-            this.progress.complete();
+            this.progress.ref().complete();
             this.router.navigate([AppConstants.PIN_ENDPOINT]);
             return null;
           }
           return Registration.parseFromApiResponse(registration);
         }),
         catchError((error) => {
-          this.progress.complete();
+          this.progress.ref().complete();
           console.log(error);
           // Registration not found.
           return observableOf(new Registration());

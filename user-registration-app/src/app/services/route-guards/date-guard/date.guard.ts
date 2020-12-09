@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { AppConstants } from '../../../AppConstants';
-import { AlertService } from "ngx-alerts";
+import { ToastrService } from 'ngx-toastr';
 
 /**
  * Validates whether it is past the day of the hackathon
@@ -13,14 +13,14 @@ export class DateGuard implements CanActivate {
     return environment.hackathonStartTime.getTime() <= date.getTime();
   }
 
-  constructor(private router: Router, private alertsService: AlertService) {
+  constructor(private router: Router, private toastrService: ToastrService) {
   }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     if (!DateGuard.validateDate(new Date())) {
-      this.alertsService.danger(`You may only visit this page on or after ${environment.hackathonStartTime.toDateString()}`);
+      this.toastrService.error(`You may only visit this page on or after ${environment.hackathonStartTime.toDateString()}`);
       this.router.navigate([AppConstants.LIVE_ENDPOINT]);
       return false;
     }

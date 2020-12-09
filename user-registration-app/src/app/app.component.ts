@@ -1,13 +1,14 @@
 import { Component, NgModule, AfterViewInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NgProgress, NgProgressModule } from 'ngx-progressbar';
 import { AppConstants } from './AppConstants';
-import { NgProgress } from '@ngx-progressbar/core';
 import { AuthService } from './services/AuthService/auth.service';
-import { environment } from "../environments/environment";
-import { LiveWebsiteDateGuard } from "./services/route-guards/guards";
-import { fadeOutAnimation } from "./animations";
+import { environment } from '../environments/environment';
+import { LiveWebsiteDateGuard } from './services/route-guards/guards';
+import { fadeOutAnimation } from './animations';
+import { UserViewComponent } from './views/views';
 
 declare var $: any;
 
@@ -15,8 +16,12 @@ declare var $: any;
   imports: [
     BrowserModule,
     RouterModule,
+    NgProgressModule,
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    UserViewComponent,
+  ],
   bootstrap: [AppComponent],
 })
 @Component({
@@ -26,7 +31,7 @@ declare var $: any;
   animations: [
     fadeOutAnimation,
     // animation triggers go here
-  ]
+  ],
 })
 export class AppComponent implements AngularFireAuthModule, AfterViewInit {
 
@@ -35,14 +40,12 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
     if (elem) {
       const targetOffset = elem.offset().top;
       $('html,body').animate({ scrollTop: targetOffset }, speed);
-      setTimeout(() => {
-      },         speed);
+      setTimeout(() => {}, speed);
     }
   }
 
   ngAfterViewInit(): void {
     $('.button-collapse').sideNav();
-  
     $('.dropdown-button').dropdown();
     $('nav').find('.scroller').click((e) => {
       e.preventDefault();
@@ -59,12 +62,12 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
       .subscribe((event) => {
         switch (event.constructor.name) {
           case 'NavigationStart':
-            this.progressBar.start();
+            this.progressBar.ref().start();
             break;
           case 'NavigationEnd':
           case 'NavigationCancel':
           case 'NavigationError':
-            this.progressBar.complete();
+            this.progressBar.ref().complete();
             break;
           default:
             break;
@@ -88,5 +91,10 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  isOnLiveSite(): boolean {
+    // Use includes instead of === because href's could make router url "/live#schedule" or something like that
+    return this.router.url.includes('/live');
   }
 }

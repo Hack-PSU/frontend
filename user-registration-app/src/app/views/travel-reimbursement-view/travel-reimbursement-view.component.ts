@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressValidator } from 'address-validator';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { AppConstants } from '../../AppConstants';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/AuthService/auth.service';
 import { take } from 'rxjs/operators';
-
-declare var $: any;
 
 @Component({
   selector: 'app-travel-reimbursement-view',
@@ -39,9 +36,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   }
 
   onError() {
-    $('html, body').animate({
-      scrollTop: 0,
-    },                      1000);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   fileAdded(event) {
@@ -51,7 +46,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   onSubmit() {
     console.log(this.travelForm);
     this.loading = true;
-    switch(this.travelForm.groupMembers) {
+    switch (this.travelForm.groupMembers) {
       case 4:
         this.travelForm.groupMembers = '4+';
       default:

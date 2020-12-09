@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     return this.checkLogin(url);
   }
 
-  checkLogin(url): Observable<boolean> {
+  checkLogin(url: string): Observable<boolean> {
     return this.authService.currentUser.pipe(
       map<any, boolean>((user) => {
         if (!user) {
@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
           // Navigate to the login page with extras
           this.router.navigate([AppConstants.LOGIN_ENDPOINT], navExtras)
             .then(() => {
-              this.ngProgress.complete();
+              this.ngProgress.ref().complete();
             });
           return false;
         }
