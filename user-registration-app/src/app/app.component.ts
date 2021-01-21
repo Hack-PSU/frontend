@@ -1,22 +1,15 @@
-import { Component, NgModule, AfterViewInit } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
-import { Router, RouterModule, RouterOutlet } from '@angular/router'
+import { Component, AfterViewInit } from '@angular/core'
+import { Router, RouterOutlet } from '@angular/router'
 import { AngularFireAuthModule } from '@angular/fire/auth'
-import { NgProgress, NgProgressModule } from 'ngx-progressbar'
+import { NgProgress } from 'ngx-progressbar'
 import { AppConstants } from './AppConstants'
 import { AuthService } from './services/AuthService/auth.service'
 import { environment } from '../environments/environment'
 import { LiveWebsiteDateGuard } from './services/route-guards/guards'
 import { fadeOutAnimation } from './animations'
-import { UserViewComponent } from './views/views'
 
 declare let $: any
 
-@NgModule({
-  imports: [BrowserModule, RouterModule, NgProgressModule],
-  declarations: [AppComponent, UserViewComponent],
-  bootstrap: [AppComponent],
-})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

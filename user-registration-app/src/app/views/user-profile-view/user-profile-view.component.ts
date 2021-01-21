@@ -19,10 +19,10 @@ export class UserProfileViewComponent implements OnInit {
   currentPin = "No active pin! Don't forget to register!"
 
   constructor(
-    private authService: AuthService,
-    private httpService: HttpService,
-    private progressService: NgProgress,
-    private toastrService: ToastrService
+    public authService: AuthService,
+    public httpService: HttpService,
+    public progressService: NgProgress,
+    public toastrService: ToastrService
   ) {}
 
   ngOnInit() {
