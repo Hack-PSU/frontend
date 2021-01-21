@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
-import app from 'firebase/app';
+import { Injectable } from '@angular/core'
+import { AngularFireAuth } from '@angular/fire/auth'
+import { Observable } from 'rxjs'
+import app from 'firebase/app'
 
 export enum AuthProviders {
   GOOGLE_PROVIDER,
@@ -11,49 +11,50 @@ export enum AuthProviders {
 
 @Injectable()
 export class AuthService {
-
   constructor(public afAuth: AngularFireAuth) {}
 
-  get idToken(): Observable<String> {
-    return this.afAuth.idToken;
+  get idToken(): Observable<string> {
+    return this.afAuth.idToken
   }
 
   get currentUser() {
-    return this.afAuth.user;
+    return this.afAuth.user
   }
 
   get authState() {
-    return this.afAuth.authState;
+    return this.afAuth.authState
   }
 
   signIn(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    return this.afAuth.signInWithEmailAndPassword(email, password)
   }
 
   signInWithProvider(provider: AuthProviders): Promise<any> {
-    let authProvider: app.auth.AuthProvider = null;
+    let authProvider: app.auth.AuthProvider = null
     switch (provider) {
       case AuthProviders.GOOGLE_PROVIDER:
-        authProvider = new app.auth.GoogleAuthProvider();
-        break;
+        authProvider = new app.auth.GoogleAuthProvider()
+        break
       case AuthProviders.GITHUB_PROVIDER:
-        authProvider = new app.auth.GithubAuthProvider();
-        break;
+        authProvider = new app.auth.GithubAuthProvider()
+        break
       case AuthProviders.APPLE_PROVIDER:
-        const oAuthProvider = new app.auth.OAuthProvider('apple.com');
-        oAuthProvider.addScope('email');
-        oAuthProvider.addScope('name');
-        authProvider = oAuthProvider;
-        break;
+        {
+          const oAuthProvider = new app.auth.OAuthProvider('apple.com')
+          oAuthProvider.addScope('email')
+          oAuthProvider.addScope('name')
+          authProvider = oAuthProvider
+        }
+        break
     }
-    return this.afAuth.signInWithPopup(authProvider);
+    return this.afAuth.signInWithPopup(authProvider)
   }
 
   signOut(): Promise<void> {
-    return this.afAuth.signOut();
+    return this.afAuth.signOut()
   }
 
   createUser(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
   }
 }

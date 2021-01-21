@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CustomErrorHandlerService, HttpService } from '../../services/services';
-import { EventModel } from '../../models/event-model';
+import { Component, OnInit } from '@angular/core'
+import { CustomErrorHandlerService, HttpService } from '../../services/services'
+import { EventModel } from '../../models/event-model'
 
 @Component({
   selector: 'app-schedule-view',
@@ -16,55 +16,52 @@ export class ScheduleViewComponent implements OnInit {
     'Thursday',
     'Friday',
     'Saturday',
-  ];
+  ]
 
-  public activities: EventModel[];
-  public activitiesViewNum = 5;
-  public meals: EventModel[];
-  public mealsViewNum = 5;
-  public workshops: EventModel[];
-  public workshopsViewNum = 5;
+  public activities: EventModel[]
+  public activitiesViewNum = 5
+  public meals: EventModel[]
+  public mealsViewNum = 5
+  public workshops: EventModel[]
+  public workshopsViewNum = 5
 
-  constructor(
-    private httpService: HttpService,
-    private errorHandler: CustomErrorHandlerService,
-  ) {
-    this.activities = [];
-    this.meals = [];
-    this.workshops = [];
+  constructor(private httpService: HttpService, private errorHandler: CustomErrorHandlerService) {
+    this.activities = []
+    this.meals = []
+    this.workshops = []
   }
 
   ngOnInit() {
     this.httpService.getEvents().subscribe(
       (events: EventModel[]) => {
         events
-          .filter(activity => parseInt(activity.event_end_time, 10) >= Date.now())
+          .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
           .forEach((event) => {
             switch (event.event_type) {
               case 'activity':
-                this.activities = this.activities.concat(event);
-                break;
+                this.activities = this.activities.concat(event)
+                break
               case 'food':
-                this.meals = this.meals.concat(event);
-                break;
+                this.meals = this.meals.concat(event)
+                break
               case 'workshop':
-                this.workshops = this.workshops.concat(event);
-                break;
+                this.workshops = this.workshops.concat(event)
+                break
               default:
-                break;
+                break
             }
-          });
+          })
       },
       (error) => {
-        this.errorHandler.handleHttpError(error);
-      },
-    );
+        this.errorHandler.handleHttpError(error)
+      }
+    )
   }
 
   getStartTime(event: EventModel) {
     return new Date(parseInt(event.event_start_time, 10))
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-      .replace(/^0(?:0:0?)?/, '');
+      .replace(/^0(?:0:0?)?/, '')
   }
 
   showMore(type: string) {
@@ -72,54 +69,54 @@ export class ScheduleViewComponent implements OnInit {
       case 'activities':
         return (this.activitiesViewNum = ScheduleViewComponent.increment(
           this.activitiesViewNum,
-          this.activities.length,
-        ));
+          this.activities.length
+        ))
       case 'meals':
         return (this.mealsViewNum = ScheduleViewComponent.increment(
           this.mealsViewNum,
-          this.meals.length,
-        ));
+          this.meals.length
+        ))
       case 'workshops':
         return (this.workshopsViewNum = ScheduleViewComponent.increment(
           this.workshopsViewNum,
-          this.workshops.length,
-        ));
+          this.workshops.length
+        ))
     }
   }
 
   private static increment(viewNum: number, arrLength: number) {
-    const INCREMENTOR = 5;
+    const INCREMENTOR = 5
     if (viewNum + INCREMENTOR > arrLength) {
-      return arrLength;
+      return arrLength
     }
-    return viewNum + INCREMENTOR;
+    return viewNum + INCREMENTOR
   }
 
   getEndTime(event: EventModel) {
     return new Date(parseInt(event.event_end_time, 10))
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-      .replace(/^0(?:0:0?)?/, '');
+      .replace(/^0(?:0:0?)?/, '')
   }
 
   getEventDay(event: EventModel) {
-    return ScheduleViewComponent.days[new Date(parseInt(event.event_start_time, 10)).getDay()];
+    return ScheduleViewComponent.days[new Date(parseInt(event.event_start_time, 10)).getDay()]
   }
 
   openZoomLink(link: string) {
-    window.open(link, '_blank');
+    window.open(link, '_blank')
   }
 
   // Stole shamelessly from: https://stackoverflow.com/a/43467144
   isLink(linkString: string): boolean {
-    let url: URL;
+    let url: URL
 
     try {
-      url = new URL(linkString);
+      url = new URL(linkString)
     } catch (_) {
-      return false;
+      return false
     }
 
-    return url.protocol === 'http:' || url.protocol === 'https:';
+    return url.protocol === 'http:' || url.protocol === 'https:'
   }
 
   isZoomLink(linkString: string): boolean {

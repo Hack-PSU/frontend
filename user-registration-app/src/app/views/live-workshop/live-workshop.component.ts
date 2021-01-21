@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
   selector: 'app-live-workshop',
@@ -6,22 +6,21 @@ import { Component, OnInit, Input } from '@angular/core';
   // providers: [LiveUpdatesService],
   styleUrls: ['./live-workshop.component.css'],
 })
-
 export class LiveWorkshopComponent implements OnInit {
-  @Input() title: string;
-  @Input() description: string;
-  @Input() date: string;
-  @Input() time: string;
-  @Input() link: string;
-  @Input() skills: string;
-  @Input() downloads: string[];
-  @Input() presenter1img: string;
-  @Input() presenter1Name: string;
-  @Input() presenter2img: string;
-  @Input() presenter2Name: string;
-  @Input() presenter3img: string;
-  @Input() presenter3Name: string;
-  @Input() collapseID: string;
+  @Input() title: string
+  @Input() description: string
+  @Input() date: string
+  @Input() time: string
+  @Input() link: string
+  @Input() skills: string
+  @Input() downloads: string[]
+  @Input() presenter1img: string
+  @Input() presenter1Name: string
+  @Input() presenter2img: string
+  @Input() presenter2Name: string
+  @Input() presenter3img: string
+  @Input() presenter3Name: string
+  @Input() collapseID: string
 
   ngOnInit() {
     this.removePresenter(1, this.presenter1Name, this.presenter1img)
