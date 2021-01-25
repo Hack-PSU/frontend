@@ -6,7 +6,7 @@ import {
   style,
   transition,
   trigger,
-} from '@angular/animations'
+} from '@angular/animations';
 
 export const fadeOutAnimation = trigger('routeAnimations', [
   transition('* => *', [
@@ -25,4 +25,4 @@ export const fadeOutAnimation = trigger('routeAnimations', [
     ]),
     query(':enter', animateChild(), { optional: true }),
   ]),
-])
+]);

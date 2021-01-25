@@ -3,7 +3,7 @@
   position: relative;
   text-align: center;
   margin-top: 20px;
-  font-family: "Lato", 'Helvetica', sans-serif;
+  font-family: 'Lato', 'Helvetica', sans-serif;
 }
 
 .schedule-title {
@@ -21,13 +21,13 @@
   -webkit-box-shadow: 0px 3px 5px 0 rgba(34, 34, 34, 0.55);
   -moz-box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
   box-shadow: 0px 3px 5px 0px rgba(34, 34, 34, 0.55);
-  transition: all .15s;
+  transition: all 0.15s;
 }
 
 .event:hover {
-  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .expired-event {
@@ -56,7 +56,6 @@
   border-radius: 10px;
 }
 
-
 .mini {
   background-color: #6c88b7;
   color: white;
@@ -67,16 +66,16 @@
 }
 
 .food .event {
-  background-color: rgb(190,222,224);
+  background-color: rgb(190, 222, 224);
   color: #333333;
-  border-left: 7px solid rgb(140,172,174);
+  border-left: 7px solid rgb(140, 172, 174);
   border-radius: 10px;
 }
 
 .workshops .event {
-  background-color: rgb(249,132,96);
+  background-color: rgb(249, 132, 96);
   color: black;
-  border-left: 7px solid rgb(209,102,56);
+  border-left: 7px solid rgb(209, 102, 56);
   border-radius: 10px;
 }
 
@@ -88,12 +87,12 @@
 .description-header {
   font-size: xx-large;
   text-transform: capitalize;
-  color: #3A2D40;
+  color: #3a2d40;
 }
 
 .event-row {
   text-align: center;
-  margin: .5%;
+  margin: 0.5%;
 }
 
 .nopadding {
@@ -122,7 +121,6 @@
   color: black;
 }
 
-
 .event a {
   color: white;
 }
@@ -134,7 +132,7 @@ i {
 @media screen and (max-width: 768px) {
   .event-row {
     text-align: left;
-    margin: .5%;
+    margin: 0.5%;
     border: 0px solid black;
   }
 
@@ -152,19 +150,18 @@ i {
 }
 
 .workshop {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .event-day-title {
-  font-size:x-large;
-
+  font-size: x-large;
 }
 
 .event-title {
   font-weight: 600;
   font-size: 1.1rem;
-  line-height:110%;
-  margin-bottom: .3rem;
+  line-height: 110%;
+  margin-bottom: 0.3rem;
   color: black;
 }
 
@@ -199,7 +196,6 @@ i {
   font-size: 0.9rem;
 }
 
-
 .nopaddingright {
   padding-right: 0;
   margin-right: 0;
@@ -215,8 +211,8 @@ i {
   width: 50%;
   color: black;
   -webkit-border-radius: 10px;
-  -moz-border-radius:    10px;
-  border-radius:         10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .modal-dialog {
@@ -240,7 +236,7 @@ i {
 }
 
 .modal-dialog .header {
-  padding:          24px;
+  padding: 24px;
   background-color: #9f9f9f;
   height: 100%;
 }

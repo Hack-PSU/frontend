@@ -1,10 +1,10 @@
-import { Component, NgZone, OnInit } from '@angular/core'
-import { animate, style, transition, trigger } from '@angular/animations'
-import { Subscription } from 'rxjs'
-import { CountdownService } from '../../services/CountdownService/countdown.service'
+import { Component, NgZone, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Subscription } from 'rxjs';
+import { CountdownService } from '../../services/CountdownService/countdown.service';
 
-declare let $: any
-declare let particlesJS: any
+declare let $: any;
+declare let particlesJS: any;
 
 @Component({
   selector: 'app-live-view',
@@ -25,40 +25,40 @@ declare let particlesJS: any
   ],
 })
 export class LiveViewComponent implements OnInit {
-  currentTime: number
-  startTime: number
-  endTime: number
-  isBeforeEvent: boolean
-  subscription: Subscription
+  currentTime: number;
+  startTime: number;
+  endTime: number;
+  isBeforeEvent: boolean;
+  subscription: Subscription;
 
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 
-  bannerText: string
+  bannerText: string;
 
   constructor(private zone: NgZone, private countdownService: CountdownService) {}
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particles.json')
+    particlesJS.load('particles-js', 'assets/particles.json');
 
     $(document).ready(() => {
-      $('.materialboxed').materialbox()
+      $('.materialboxed').materialbox();
       $('.question').click(function () {
-        $(this).siblings().slideToggle('0.3s', 'linear')
-        $(this).toggleClass('open')
-      })
+        $(this).siblings().slideToggle('0.3s', 'linear');
+        $(this).toggleClass('open');
+      });
       $('.icon-rotate').click(function () {
-        $(this).toggleClass('right-rotate')
-      })
-    })
+        $(this).toggleClass('right-rotate');
+      });
+    });
     this.countdownService.startCountDown().subscribe(({ duration, bannerText }) => {
-      this.days = duration.days
-      this.hours = duration.hours
-      this.minutes = duration.minutes
-      this.seconds = duration.seconds
-      this.bannerText = bannerText
-    })
+      this.days = duration.days;
+      this.hours = duration.hours;
+      this.minutes = duration.minutes;
+      this.seconds = duration.seconds;
+      this.bannerText = bannerText;
+    });
   }
 }

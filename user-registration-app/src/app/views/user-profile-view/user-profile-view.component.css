@@ -1,7 +1,7 @@
 /* Login form styles */
 
 :host {
-  width:  100%;
+  width: 100%;
   margin: auto;
 }
 
@@ -11,8 +11,8 @@
 
 .text-center {
   align-self: center;
-  margin:     0 auto;
-  width:      50%;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .logo {
@@ -24,27 +24,27 @@
 }
 
 .preloader-wrapper {
-  margin:  0 auto;
+  margin: 0 auto;
   display: block;
 }
 
 .btn {
-  background-color:   rgba(255, 255, 255, 0);
-  color:              #fff;
-  border:             2px solid #fff;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  border: 2px solid #fff;
   border-right-width: 8px;
-  border-left-width:  8px;
-  border-radius:      12px;
-  max-width:          66%;
-  margin-left:        auto;
-  margin-right:       auto;
-  display:            block;
-  margin-top:         10px;
+  border-left-width: 8px;
+  border-radius: 12px;
+  max-width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
 }
 
 .btn:disabled {
   background-color: rgba(255, 255, 255, 0) !important;
-  border-color:     #9F9F9F !important;
+  border-color: #9f9f9f !important;
 }
 
 /* Removes the faint grey line next to the media icon on buttons */
@@ -62,11 +62,11 @@
 
 .btn:hover {
   background-color: #ffffff;
-  color:            #333333;
+  color: #333333;
 }
 
 .login-button {
-  margin:  0 auto;
+  margin: 0 auto;
   display: block;
 }
 

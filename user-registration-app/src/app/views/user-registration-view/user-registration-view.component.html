@@ -10,14 +10,19 @@
       <form class="extra-credit-form" (submit)="submitClasses()">
         <ng-container *ngFor="let c of classes">
           <p *ngIf="showClassName(c.class_name)">
-            <input type="checkbox" name="{{c.class_name}}" id="{{c.class_name}}-checkbox"
-              [(ngModel)]="submittedClasses[c.uid]">
-            <label for="{{c.class_name}}-checkbox">
-              <span>{{c.class_name}}</span>
+            <input
+              type="checkbox"
+              name="{{ c.class_name }}"
+              id="{{ c.class_name }}-checkbox"
+              [(ngModel)]="submittedClasses[c.uid]"
+            />
+            <label for="{{ c.class_name }}-checkbox">
+              <span>{{ c.class_name }}</span>
             </label>
           </p>
         </ng-container>
-        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">Submit
+        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">
+          Submit
           <i class="material-icons right">send</i>
         </button>
       </form>
@@ -31,44 +36,84 @@
     </div>
     <div class="collapsible-body">
       <div>
-        {{getAddress()}}
-        <a (click)="editAddressToggle()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
+        {{ getAddress() }}
+        <a (click)="editAddressToggle()"
+          ><i class="material-icons" style="cursor: pointer">edit</i></a
+        >
       </div>
       <br />
       <form *ngIf="willUpdateAddressFields" (submit)="submitAddress()" ngNativeValidate>
         <label for="addressLine1"><span>Address Line 1</span></label>
-          <input type="text" name="addressLine1" id="addressLine1-box" required
-            [(ngModel)]="updatedAddressFields.addressLine1">
+        <input
+          type="text"
+          name="addressLine1"
+          id="addressLine1-box"
+          required
+          [(ngModel)]="updatedAddressFields.addressLine1"
+        />
         <label for="addressLine2"><span>Address Line 2</span></label>
-          <input type="text" name="addressLine2" id="addressLine2-box"
-            [(ngModel)]="updatedAddressFields.addressLine2">
+        <input
+          type="text"
+          name="addressLine2"
+          id="addressLine2-box"
+          [(ngModel)]="updatedAddressFields.addressLine2"
+        />
         <label for="city"><span>City</span></label>
-          <input type="text" name="city" id="city-box" required
-            [(ngModel)]="updatedAddressFields.city">
+        <input
+          type="text"
+          name="city"
+          id="city-box"
+          required
+          [(ngModel)]="updatedAddressFields.city"
+        />
         <label for="stateProvince"><span>State or Province</span></label>
-          <input type="text" name="stateProvince" id="stateProvince-box" required
-            [(ngModel)]="updatedAddressFields.stateProvince">
+        <input
+          type="text"
+          name="stateProvince"
+          id="stateProvince-box"
+          required
+          [(ngModel)]="updatedAddressFields.stateProvince"
+        />
         <label for="zipcode"><span>Zipcode</span></label>
-          <input type="text" name="zipcode" id="zipcode-box" required
-            [(ngModel)]="updatedAddressFields.zipcode">
+        <input
+          type="text"
+          name="zipcode"
+          id="zipcode-box"
+          required
+          [(ngModel)]="updatedAddressFields.zipcode"
+        />
         <label for="country"><span>Country</span></label>
-          <input type="text" name="country" id="country" required
-            [(ngModel)]="updatedAddressFields.country">
+        <input
+          type="text"
+          name="country"
+          id="country"
+          required
+          [(ngModel)]="updatedAddressFields.country"
+        />
         <div class="form-group">
-          <input type="checkbox" id="shareAddressMlh" name="shareAddressMlh"
-            [(ngModel)]="shareAddressMlh">
+          <input
+            type="checkbox"
+            id="shareAddressMlh"
+            name="shareAddressMlh"
+            [(ngModel)]="shareAddressMlh"
+          />
           <label for="shareAddressMlh">Share your address with MLH?</label>
           <br />
-          <input type="checkbox" id="shareAddressSponsors" name="shareAddressSponsors"
-            [(ngModel)]="shareAddressSponsors">
+          <input
+            type="checkbox"
+            id="shareAddressSponsors"
+            name="shareAddressSponsors"
+            [(ngModel)]="shareAddressSponsors"
+          />
           <label for="shareAddressSponsors">Share your address with our sponsors?</label>
         </div>
-        <button class="btn waves-effect waves-light submit-btn"
-                type="submit"
-                name="action">Submit
+        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">
+          Submit
         </button>
       </form>
     </div>
-    <p class="center" style="margin-top: 20px;">Join the <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a></p>
+    <p class="center" style="margin-top: 20px">
+      Join the <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a>
+    </p>
   </li>
 </ul>

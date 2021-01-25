@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
-import { NgProgress } from 'ngx-progressbar'
-import { ActivatedRoute, Router } from '@angular/router'
-import { ToastrService } from 'ngx-toastr'
-import { AppConstants } from '../../AppConstants'
-import { AuthService } from '../../services/AuthService/auth.service'
-import { CustomErrorHandlerService } from '../../services/services'
-import { BaseComponent } from '../base/base.component'
+import { Component, OnInit } from '@angular/core';
+import { NgProgress } from 'ngx-progressbar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AppConstants } from '../../AppConstants';
+import { AuthService } from '../../services/AuthService/auth.service';
+import { CustomErrorHandlerService } from '../../services/services';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
   selector: 'app-forgot-password-view',
@@ -13,8 +13,8 @@ import { BaseComponent } from '../base/base.component'
   styleUrls: ['./forgot-password-view.component.css'],
 })
 export class ForgotPasswordViewComponent extends BaseComponent implements OnInit {
-  public email: string
-  public result: string
+  public email: string;
+  public result: string;
 
   constructor(
     authService: AuthService,
@@ -24,13 +24,13 @@ export class ForgotPasswordViewComponent extends BaseComponent implements OnInit
     progressBar: NgProgress,
     private toastrService: ToastrService
   ) {
-    super(authService, progressBar, errorHandler, activatedRoute, router)
+    super(authService, progressBar, errorHandler, activatedRoute, router);
   }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.email = params['email'] || ''
-    })
+      this.email = params['email'] || '';
+    });
   }
 
   forgotPassword() {
@@ -40,12 +40,12 @@ export class ForgotPasswordViewComponent extends BaseComponent implements OnInit
         .then((complete) => {
           this.toastrService.success(
             'An email was sent to the provided email. Check there to reset your password.'
-          )
-          this.router.navigate([AppConstants.LOGIN_ENDPOINT])
+          );
+          this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
         })
         .catch((error) => {
-          this.errorHandler.handleError(error)
-        })
+          this.errorHandler.handleError(error);
+        });
     }
   }
 }

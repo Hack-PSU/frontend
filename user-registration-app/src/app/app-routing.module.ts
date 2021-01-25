@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { AngularFireAuth } from '@angular/fire/auth'
-import { AppConstants } from './AppConstants'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AppConstants } from './AppConstants';
 import {
   ForgotPasswordViewComponent,
   LiveViewComponent,
@@ -10,12 +10,12 @@ import {
   RsvpComponent,
   SignupViewComponent,
   TravelReimbursementViewComponent,
-} from './views/views'
-import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards'
-import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver'
-import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver'
-import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard'
-import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component'
+} from './views/views';
+import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
+import { RegistrationResolver } from './services/resolvers/RegistrationResolver/registration.resolver';
+import { RsvpResolver } from './services/resolvers/RsvpResolver/rsvp.resolver';
+import { RegistrationGuard } from './services/route-guards/registration-guard/registration-guard.guard';
+import { UserProfileViewComponent } from './views/user-profile-view/user-profile-view.component';
 
 const routes: Routes = [
   {
@@ -65,7 +65,7 @@ const routes: Routes = [
       ? AppConstants.LIVE_ENDPOINT
       : AppConstants.REGISTER_ENDPOINT,
   },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), RouterModule],

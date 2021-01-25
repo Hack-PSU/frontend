@@ -1,6 +1,6 @@
-import { ActivatedRoute, Router } from '@angular/router'
-import { NgProgress } from 'ngx-progressbar'
-import { AuthService, CustomErrorHandlerService } from '../../services/services'
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgProgress } from 'ngx-progressbar';
+import { AuthService, CustomErrorHandlerService } from '../../services/services';
 
 export abstract class BaseComponent {
   constructor(
@@ -12,7 +12,7 @@ export abstract class BaseComponent {
   ) {}
 
   protected readRouteAndNavigate(callback) {
-    this.progressBar.ref().complete()
-    this.activatedRoute.queryParams.subscribe(callback)
+    this.progressBar.ref().complete();
+    this.activatedRoute.queryParams.subscribe(callback);
   }
 }

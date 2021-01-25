@@ -1,46 +1,99 @@
-<form class="registration-form col m5 offset-m3 offset-l3 l5" 
-(ngSubmit)="validateAndSubmit()"
-  name="registrationFormDOM" 
-  #registrationModel="ngForm">
-  
+<form
+  class="registration-form col m5 offset-m3 offset-l3 l5"
+  (ngSubmit)="validateAndSubmit()"
+  name="registrationFormDOM"
+  #registrationModel="ngForm"
+>
   <div class="row scrollspy" id="name-container" materialize="scrollSpy">
     <div class="card medium darken-1">
       <div class="card-content">
         <h5>What is your name?</h5>
         <div class="input-field">
-          <input name="firstName" id="firstname-input" class="validate required" required
-            [(ngModel)]="registrationForm.firstName" #firstName="ngModel" autocomplete="given-name" type="text">
-          <label for="firstname-input" data-error="First name is required">Enter your First Name</label>
+          <input
+            name="firstName"
+            id="firstname-input"
+            class="validate required"
+            required
+            [(ngModel)]="registrationForm.firstName"
+            #firstName="ngModel"
+            autocomplete="given-name"
+            type="text"
+          />
+          <label for="firstname-input" data-error="First name is required"
+            >Enter your First Name</label
+          >
         </div>
         <div class="input-field">
-          <input name="lastName" class="validate required" id="lastname-input" required
-            [(ngModel)]="registrationForm.lastName" autocomplete="family-name" #firstnameInput="ngModel" type="text">
-          <label for="lastname-input" data-error="Last name is required">Enter your Last Name</label>
+          <input
+            name="lastName"
+            class="validate required"
+            id="lastname-input"
+            required
+            [(ngModel)]="registrationForm.lastName"
+            autocomplete="family-name"
+            #firstnameInput="ngModel"
+            type="text"
+          />
+          <label for="lastname-input" data-error="Last name is required"
+            >Enter your Last Name</label
+          >
         </div>
         <label class="data-error" *ngIf="!firstnameInput.valid">Required</label>
       </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Name.svg">
+      <img
+        class="bouncy-bits hide-on-small-only animated bounce"
+        src="../../../assets/images/Name.svg"
+      />
     </div>
   </div>
 
   <!-- Gender -->
   <div class="row scrollspy" id="gender-container" materialize="scrollSpy">
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="gender">Which gender do you identify with?</h5>
         <div class="form-group required" id="gender-input" data-error="Gender is required">
-          <input type="radio" class="with-gap" name="gender" required value="male" id="male"
-            [(ngModel)]="registrationForm.gender" #genderControl="ngModel">
-          <label for="male">Male</label><br>
-          <input type="radio" class="with-gap" name="gender" required value="female" id="female"
-            [(ngModel)]="registrationForm.gender">
-          <label for="female">Female</label><br>
-          <input type="radio" class="with-gap" name="gender" required value="non-binary" id="non-binary"
-            [(ngModel)]="registrationForm.gender">
-          <label for="non-binary">Non-Binary</label><br>
-          <input type="radio" class="with-gap" name="gender" required value="no-disclose" id="no-disclose"
-            [(ngModel)]="registrationForm.gender">
-          <label for="no-disclose">Prefer not to disclose</label><br>
+          <input
+            type="radio"
+            class="with-gap"
+            name="gender"
+            required
+            value="male"
+            id="male"
+            [(ngModel)]="registrationForm.gender"
+            #genderControl="ngModel"
+          />
+          <label for="male">Male</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            name="gender"
+            required
+            value="female"
+            id="female"
+            [(ngModel)]="registrationForm.gender"
+          />
+          <label for="female">Female</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            name="gender"
+            required
+            value="non-binary"
+            id="non-binary"
+            [(ngModel)]="registrationForm.gender"
+          />
+          <label for="non-binary">Non-Binary</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            name="gender"
+            required
+            value="no-disclose"
+            id="no-disclose"
+            [(ngModel)]="registrationForm.gender"
+          />
+          <label for="no-disclose">Prefer not to disclose</label><br />
           <label class="data-error" *ngIf="!genderControl.valid">Required</label>
         </div>
       </div>
@@ -50,15 +103,28 @@
   <!-- Phone Number -->
   <div class="row scrollspy" materialize="scrollSpy" id="phone-container">
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="phone">What is your phone number?</h5>
-        <p class="alert">This information is required by MLH. Rest assured we won't be spamming your phone.</p>
+        <p class="alert">
+          This information is required by MLH. Rest assured we won't be spamming your phone.
+        </p>
         <div class="input-field">
-          <input type="tel" autocomplete="tel-national" id="phone-input" name="phone" [value]="prettifiedPhone" required
-            [(ngModel)]="registrationForm.phone" (keyup)="parsePhone($event.target.value)" class="validate required"
-            #phoneInput="ngModel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
-          <label for="phone-input" data-error="Valid phone number is required">Enter your phone
-            number</label>
+          <input
+            type="tel"
+            autocomplete="tel-national"
+            id="phone-input"
+            name="phone"
+            [value]="prettifiedPhone"
+            required
+            [(ngModel)]="registrationForm.phone"
+            (keyup)="parsePhone($event.target.value)"
+            class="validate required"
+            #phoneInput="ngModel"
+            pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
+          />
+          <label for="phone-input" data-error="Valid phone number is required"
+            >Enter your phone number</label
+          >
         </div>
         <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
       </div>
@@ -71,27 +137,69 @@
       <div class="card-content">
         <h5>What is your Race/Ethnicity?</h5>
         <div class="form-group">
-          <input type="checkbox" class="with-gap" id="native" name="ethnicity" value="native"
-            [(ngModel)]="registrationForm.ethnicities.native">
-          <label for="native">Native American or Alaska Native</label><br>
-          <input type="checkbox" class="with-gap" id="asian" name="ethnicity" value="asian"
-            [(ngModel)]="registrationForm.ethnicities.asian">
-          <label for="asian">Asian</label><br>
-          <input type="checkbox" class="with-gap" id="african" name="ethnicity" value="african"
-            [(ngModel)]="registrationForm.ethnicities.african">
-          <label for="african">Black or African American</label><br>
-          <input type="checkbox" class="with-gap" id="latinx" name="ethnicity" value="latinx"
-            [(ngModel)]="registrationForm.ethnicities.latinx">
-          <label for="latinx">Hispanic or Latinx</label><br>
-          <input type="checkbox" class="with-gap" id="pacific" name="ethnicity" value="pacific"
-            [(ngModel)]="registrationForm.ethnicities.pacific">
-          <label for="pacific">Native Hawaiian or Other Pacific Islander</label><br>
-          <input type="checkbox" class="with-gap" id="caucasian" name="ethnicity" value="caucasian"
-            [(ngModel)]="registrationForm.ethnicities.caucasian">
-          <label for="caucasian">Caucasian</label><br>
-          <input type="checkbox" class="with-gap" id="noDisclose" name="ethnicity" value="noDisclose"
-            [(ngModel)]="registrationForm.ethnicities.noDisclose">
-          <label for="noDisclose">Prefer not to disclose</label><br>
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="native"
+            name="ethnicity"
+            value="native"
+            [(ngModel)]="registrationForm.ethnicities.native"
+          />
+          <label for="native">Native American or Alaska Native</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="asian"
+            name="ethnicity"
+            value="asian"
+            [(ngModel)]="registrationForm.ethnicities.asian"
+          />
+          <label for="asian">Asian</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="african"
+            name="ethnicity"
+            value="african"
+            [(ngModel)]="registrationForm.ethnicities.african"
+          />
+          <label for="african">Black or African American</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="latinx"
+            name="ethnicity"
+            value="latinx"
+            [(ngModel)]="registrationForm.ethnicities.latinx"
+          />
+          <label for="latinx">Hispanic or Latinx</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="pacific"
+            name="ethnicity"
+            value="pacific"
+            [(ngModel)]="registrationForm.ethnicities.pacific"
+          />
+          <label for="pacific">Native Hawaiian or Other Pacific Islander</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="caucasian"
+            name="ethnicity"
+            value="caucasian"
+            [(ngModel)]="registrationForm.ethnicities.caucasian"
+          />
+          <label for="caucasian">Caucasian</label><br />
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="noDisclose"
+            name="ethnicity"
+            value="noDisclose"
+            [(ngModel)]="registrationForm.ethnicities.noDisclose"
+          />
+          <label for="noDisclose">Prefer not to disclose</label><br />
         </div>
       </div>
     </div>
@@ -103,15 +211,37 @@
       <div class="card-content">
         <h5>Are you a veteran?</h5>
         <div class="form-group">
-          <input type="radio" class="with-gap" id="true" name="veteran" value="true" required
-            [(ngModel)]="registrationForm.veteran" #veteranControl="ngModel">
-          <label for="true">Yes</label><br>
-          <input type="radio" class="with-gap" id="false" name="veteran" value="false" required
-            [(ngModel)]="registrationForm.veteran">
-          <label for="false">No</label><br>
-          <input type="radio" class="with-gap" id="no-disclose" name="veteran" value="no-disclose" required
-            [(ngModel)]="registrationForm.veteran">
-          <label for="no-disclose">Prefer not to disclose</label><br>
+          <input
+            type="radio"
+            class="with-gap"
+            id="true"
+            name="veteran"
+            value="true"
+            required
+            [(ngModel)]="registrationForm.veteran"
+            #veteranControl="ngModel"
+          />
+          <label for="true">Yes</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="false"
+            name="veteran"
+            value="false"
+            required
+            [(ngModel)]="registrationForm.veteran"
+          />
+          <label for="false">No</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="no-disclose"
+            name="veteran"
+            value="no-disclose"
+            required
+            [(ngModel)]="registrationForm.veteran"
+          />
+          <label for="no-disclose">Prefer not to disclose</label><br />
           <label class="data-error" *ngIf="!veteranControl.valid">Required</label>
         </div>
       </div>
@@ -121,14 +251,22 @@
   <!-- Age -->
   <div class="row scrollspy" materialize="scrollSpy" id="age-container">
     <div class="card medium darken-1">
-      <div class="card-content ">
-        <h5 class="age">Will you be at least 18 or a current Penn State University student before November 6, 2020?</h5>
+      <div class="card-content">
+        <h5 class="age">
+          Will you be at least 18 or a current Penn State University student before November 6,
+          2020?
+        </h5>
         <!-- Switch -->
         <div class="switch">
           <label>
             No
-            <input type="checkbox" required name="eighteenBeforeEvent"
-              [(ngModel)]="registrationForm.eighteenBeforeEvent" #ageinput="ngModel">
+            <input
+              type="checkbox"
+              required
+              name="eighteenBeforeEvent"
+              [(ngModel)]="registrationForm.eighteenBeforeEvent"
+              #ageinput="ngModel"
+            />
             <span class="lever"></span>
             Yes
           </label>
@@ -145,83 +283,175 @@
   </div>
 
   <!-- Shirt Size -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy" materialize="scrollSpy"
-    id="shirt-container">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    [@enterAnimation]
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="shirt-container"
+  >
     <div class="card medium darken-1">
       <div class="card-content">
         <h5 class="shirt-size">What is your shirt size?</h5>
         <div class="form-group required">
-          <input type="radio" class="with-gap" id="xsmall" required name="shirtSize" value="XS"
-            [(ngModel)]="registrationForm.shirtSize" #shirtControl="ngModel">
-          <label for="xsmall">X-Small</label><br>
-          <input type="radio" class="with-gap" id="small" required name="shirtSize" value="S"
-            [(ngModel)]="registrationForm.shirtSize">
-          <label for="small">Small</label><br>
-          <input type="radio" class="with-gap" id="medium" required name="shirtSize" value="M"
-            [(ngModel)]="registrationForm.shirtSize">
-          <label for="medium">Medium</label><br>
-          <input type="radio" class="with-gap" id="large" required name="shirtSize" value="L"
-            [(ngModel)]="registrationForm.shirtSize">
-          <label for="large">Large</label><br>
-          <input type="radio" class="with-gap" id="xlarge" required name="shirtSize" value="XL"
-            [(ngModel)]="registrationForm.shirtSize">
-          <label for="xlarge">X-Large</label><br>
-          <input type="radio" class="with-gap" id="xxlarge" required name="shirtSize" value="XXL"
-            [(ngModel)]="registrationForm.shirtSize">
+          <input
+            type="radio"
+            class="with-gap"
+            id="xsmall"
+            required
+            name="shirtSize"
+            value="XS"
+            [(ngModel)]="registrationForm.shirtSize"
+            #shirtControl="ngModel"
+          />
+          <label for="xsmall">X-Small</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="small"
+            required
+            name="shirtSize"
+            value="S"
+            [(ngModel)]="registrationForm.shirtSize"
+          />
+          <label for="small">Small</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="medium"
+            required
+            name="shirtSize"
+            value="M"
+            [(ngModel)]="registrationForm.shirtSize"
+          />
+          <label for="medium">Medium</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="large"
+            required
+            name="shirtSize"
+            value="L"
+            [(ngModel)]="registrationForm.shirtSize"
+          />
+          <label for="large">Large</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="xlarge"
+            required
+            name="shirtSize"
+            value="XL"
+            [(ngModel)]="registrationForm.shirtSize"
+          />
+          <label for="xlarge">X-Large</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="xxlarge"
+            required
+            name="shirtSize"
+            value="XXL"
+            [(ngModel)]="registrationForm.shirtSize"
+          />
           <label for="xxlarge">XX-Large</label>
         </div>
         <label class="data-error" *ngIf="!shirtControl.valid">Required</label>
       </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/Shirt.svg">
+      <img
+        class="bouncy-bits hide-on-small-only animated bounce"
+        src="../../../assets/images/Shirt.svg"
+      />
     </div>
   </div>
 
   <!-- Address -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" [@enterAnimation] class="row scrollspy" materialize="scrollSpy">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    [@enterAnimation]
+    class="row scrollspy"
+    materialize="scrollSpy"
+  >
     <div class="card medium darken-1">
       <div class="card-content">
         <h5 class="address">What is your address?</h5>
         <div class="input-field">
           <label for="addressLine1">Address line 1</label>
-          <input type="text" id="addressLine1" name="addressLine1" 
-            [(ngModel)]="registrationForm.addressFields.addressLine1">
+          <input
+            type="text"
+            id="addressLine1"
+            name="addressLine1"
+            [(ngModel)]="registrationForm.addressFields.addressLine1"
+          />
         </div>
         <div class="input-field">
           <label for="addressLine2">Address line 2</label>
-          <input type="text" id="addressLine2" name="addressLine2"
-            [(ngModel)]="registrationForm.addressFields.addressLine2">
+          <input
+            type="text"
+            id="addressLine2"
+            name="addressLine2"
+            [(ngModel)]="registrationForm.addressFields.addressLine2"
+          />
         </div>
         <div class="input-field">
           <label for="zipcode">Zipcode</label>
-          <input type="text" id="zipcode" name="zipcode"
-            [(ngModel)]="registrationForm.addressFields.zipcode">
+          <input
+            type="text"
+            id="zipcode"
+            name="zipcode"
+            [(ngModel)]="registrationForm.addressFields.zipcode"
+          />
         </div>
         <div class="input-field">
           <label for="city">City</label>
-          <input type="text" id="city" name="city"
-            [(ngModel)]="registrationForm.addressFields.city">
+          <input
+            type="text"
+            id="city"
+            name="city"
+            [(ngModel)]="registrationForm.addressFields.city"
+          />
         </div>
         <div class="input-field">
           <label for="stateProvince">State/Province</label>
-          <input type="text" id="stateProvince" name="stateProvince"
-            [(ngModel)]="registrationForm.addressFields.stateProvince">
+          <input
+            type="text"
+            id="stateProvince"
+            name="stateProvince"
+            [(ngModel)]="registrationForm.addressFields.stateProvince"
+          />
         </div>
         <div class="input-field">
           <label for="country">Country</label>
-          <input type="text" id="country" name="country"
-            [(ngModel)]="registrationForm.addressFields.country">
+          <input
+            type="text"
+            id="country"
+            name="country"
+            [(ngModel)]="registrationForm.addressFields.country"
+          />
         </div>
         <div class="form-group">
-          <input type="checkbox" class="with-gap" id="shareAddressMlh" name="shareAddressMlh"
-            [(ngModel)]="registrationForm.shareAddressMlh">
-          <label for="shareAddressMlh">Share your address with MLH?</label><br>
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="shareAddressMlh"
+            name="shareAddressMlh"
+            [(ngModel)]="registrationForm.shareAddressMlh"
+          />
+          <label for="shareAddressMlh">Share your address with MLH?</label><br />
         </div>
         <div class="form-group">
-          <input type="checkbox" class="with-gap" id="shareAddressSponsors" name="shareAddressSponsors"
-            [(ngModel)]="registrationForm.shareAddressSponsors">
-          <label for="shareAddressSponsors">Share your address with our sponsors?</label><br>
+          <input
+            type="checkbox"
+            class="with-gap"
+            id="shareAddressSponsors"
+            name="shareAddressSponsors"
+            [(ngModel)]="registrationForm.shareAddressSponsors"
+          />
+          <label for="shareAddressSponsors">Share your address with our sponsors?</label><br />
         </div>
-        <p class="alert">This information is for us to send you goodies (domestic shipping)! This is optional.</p>
+        <p class="alert">
+          This information is for us to send you goodies (domestic shipping)! This is optional.
+        </p>
       </div>
     </div>
   </div>
@@ -253,7 +483,11 @@
         <div class="switch">
           <label>
             No
-            <input type="checkbox" name="firstHackathon" [(ngModel)]="registrationForm.firstHackathon">
+            <input
+              type="checkbox"
+              name="firstHackathon"
+              [(ngModel)]="registrationForm.firstHackathon"
+            />
             <span class="lever"></span>
             Yes
           </label>
@@ -265,9 +499,15 @@
   <!-- Allergies -->
   <div *ngIf="registrationForm.eighteenBeforeEvent && diet_restr" [@enterAnimation] class="row">
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="travel">If you have allergies, describe them here.</h5>
-        <input name="allergies" id="allergy-input" class="validate" [(ngModel)]="registrationForm.allergies" type="text">
+        <input
+          name="allergies"
+          id="allergy-input"
+          class="validate"
+          [(ngModel)]="registrationForm.allergies"
+          type="text"
+        />
         <label for="allergy-input">Describe them</label>
       </div>
     </div>
@@ -321,17 +561,31 @@
   </div> -->
 
   <!-- Major -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="major-container">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="major-container"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="major">What is your (intended) major?</h5>
         <p class="alert">Type your response if the dropdown does not contain your major.</p>
         <div class="input-field">
-          <input type="text" name="major" [(ngModel)]="registrationForm.major" #majorInput="ngModel"
-            id="autocomplete-input-major" required class="validate required" materialize="autocomplete"
-            [materializeParams]="[majorAutoCompleteInit]">
-          <label for="autocomplete-input-major" data-error="Major is required">Enter your
-            major</label>
+          <input
+            type="text"
+            name="major"
+            [(ngModel)]="registrationForm.major"
+            #majorInput="ngModel"
+            id="autocomplete-input-major"
+            required
+            class="validate required"
+            materialize="autocomplete"
+            [materializeParams]="[majorAutoCompleteInit]"
+          />
+          <label for="autocomplete-input-major" data-error="Major is required"
+            >Enter your major</label
+          >
         </div>
         <label class="data-error" *ngIf="!majorInput.valid">Required</label>
       </div>
@@ -339,46 +593,109 @@
   </div>
 
   <!-- School -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-    id="university-container">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="university-container"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="school">What university do you attend?</h5>
         <div class="input-field">
           <label for="autocomplete-input-university">Name of university</label>
-          <input type="text" name="university" required [(ngModel)]="registrationForm.university" #schoolInput="ngModel"
-            id="autocomplete-input-university" materialize="autocomplete" [materializeParams]="[univAutoCompleteInit]">
+          <input
+            type="text"
+            name="university"
+            required
+            [(ngModel)]="registrationForm.university"
+            #schoolInput="ngModel"
+            id="autocomplete-input-university"
+            materialize="autocomplete"
+            [materializeParams]="[univAutoCompleteInit]"
+          />
         </div>
         <label class="data-error" *ngIf="!schoolInput.valid">Required</label>
       </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/University.svg">
+      <img
+        class="bouncy-bits hide-on-small-only animated bounce"
+        src="../../../assets/images/University.svg"
+      />
     </div>
   </div>
 
   <!-- Academic Year -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="year-container">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="year-container"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="year">Academic Year</h5>
         <div class="form-group">
-          <input type="radio" class="with-gap" id="freshman" required name="academic_year" value="freshman"
-            [(ngModel)]="registrationForm.academicYear" #yearInput="ngModel">
-          <label for="freshman">Freshman</label><br>
-          <input type="radio" class="with-gap" id="sophomore" required name="academic_year" value="sophomore"
-            [(ngModel)]="registrationForm.academicYear">
-          <label for="sophomore">Sophomore</label><br>
-          <input type="radio" class="with-gap" id="junior" required name="academic_year" value="junior"
-            [(ngModel)]="registrationForm.academicYear">
-          <label for="junior">Junior</label><br>
-          <input type="radio" class="with-gap" id="senior" required name="academic_year" value="senior"
-            [(ngModel)]="registrationForm.academicYear">
-          <label for="senior">Senior</label><br>
-          <input type="radio" class="with-gap" id="graduate" required name="academic_year" value="graduate"
-            [(ngModel)]="registrationForm.academicYear">
-          <label for="graduate">Graduate</label><br>
-          <input type="radio" class="with-gap" id="other_year" required name="academic_year" value="other"
-            [(ngModel)]="registrationForm.academicYear">
-          <label for="other_year">Other</label><br>
+          <input
+            type="radio"
+            class="with-gap"
+            id="freshman"
+            required
+            name="academic_year"
+            value="freshman"
+            [(ngModel)]="registrationForm.academicYear"
+            #yearInput="ngModel"
+          />
+          <label for="freshman">Freshman</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="sophomore"
+            required
+            name="academic_year"
+            value="sophomore"
+            [(ngModel)]="registrationForm.academicYear"
+          />
+          <label for="sophomore">Sophomore</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="junior"
+            required
+            name="academic_year"
+            value="junior"
+            [(ngModel)]="registrationForm.academicYear"
+          />
+          <label for="junior">Junior</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="senior"
+            required
+            name="academic_year"
+            value="senior"
+            [(ngModel)]="registrationForm.academicYear"
+          />
+          <label for="senior">Senior</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="graduate"
+            required
+            name="academic_year"
+            value="graduate"
+            [(ngModel)]="registrationForm.academicYear"
+          />
+          <label for="graduate">Graduate</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="other_year"
+            required
+            name="academic_year"
+            value="other"
+            [(ngModel)]="registrationForm.academicYear"
+          />
+          <label for="other_year">Other</label><br />
         </div>
         <label class="data-error" *ngIf="!yearInput.valid">Required</label>
       </div>
@@ -386,21 +703,34 @@
   </div>
 
   <!-- Resume -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="resume-container">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="resume-container"
+  >
     <div class="card medium darken-1">
       <div class="card-content">
-        <h5 class="resume">Submit {{registrationForm.hasExistingResume() ? 'new' : 'your'}}
-          resume</h5>
-        <p class="alert">This field is completely optional. You may submit your resume if you want
-          us to share it with employers at HackPSU.</p>
+        <h5 class="resume">
+          Submit {{ registrationForm.hasExistingResume() ? 'new' : 'your' }} resume
+        </h5>
+        <p class="alert">
+          This field is completely optional. You may submit your resume if you want us to share it
+          with employers at HackPSU.
+        </p>
         <div class="file-field input-field row">
           <div class="btn col-sm-6 offset-sm-3">
             <span class="hide-on-large-only"><i class="material-icons center">file_upload</i></span>
             <span class="hide-on-med-and-down">Select file</span>
-            <input type="file" name="resume" (change)="fileAdded($event)" accept="application/pdf">
+            <input
+              type="file"
+              name="resume"
+              (change)="fileAdded($event)"
+              accept="application/pdf"
+            />
           </div>
           <div class="file-path-wrapper col-sm-12">
-            <input class="file-path validate" type="text" placeholder="Upload a pdf file">
+            <input class="file-path validate" type="text" placeholder="Upload a pdf file" />
           </div>
         </div>
       </div>
@@ -408,43 +738,82 @@
   </div>
 
   <!-- MLH Code of Conduct -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-    id="mlh-container-coc">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="mlh-container-coc"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="mlh-coc">Do you agree to MLH Code of Conduct?</h5>
-        <p class="small-text"> I have read and agree to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">MLH Code of Conduct</a> <br>
+        <p class="small-text">
+          I have read and agree to the
+          <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank"
+            >MLH Code of Conduct</a
+          >
+          <br />
+        </p>
         <p class="alert">To participate at HackPSU, you must agree to this policy.</p>
         <div class="switch">
           <label>
             No
-            <input type="checkbox" name="mlhcoc" required [(ngModel)]="registrationForm.mlhcoc" #mlhcocInput="ngModel">
+            <input
+              type="checkbox"
+              name="mlhcoc"
+              required
+              [(ngModel)]="registrationForm.mlhcoc"
+              #mlhcocInput="ngModel"
+            />
             <span class="lever"></span>
             Yes
           </label>
         </div>
         <label class="data-error" *ngIf="!mlhcocInput.valid">Required</label>
       </div>
-      <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/MLHCodeofConduct.svg">
+      <img
+        class="bouncy-bits hide-on-small-only animated bounce"
+        src="../../../assets/images/MLHCodeofConduct.svg"
+      />
     </div>
   </div>
 
   <!-- MLH Data Sharing Notice -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy"
-    id="mlh-container-dsp">
+  <div
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="mlh-container-dsp"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="mlh-coc">Do you agree to MLH Data Sharing Notice?</h5>
         <p class="small-text">
-          Data Sharing Notice:<br>
-          I authorize you to share my application/registration information for event administration, ranking, MLH administration, pre- and post-event informational e-mails, 
-          and occasional messages about hackathons in-line with the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>. 
-          I further agree to the terms of both the <a href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions" target="_blank">MLH Contest Terms and Conditions</a> and the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>.<br>
+          Data Sharing Notice:<br />
+          I authorize you to share my application/registration information for event administration,
+          ranking, MLH administration, pre- and post-event informational e-mails, and occasional
+          messages about hackathons in-line with the
+          <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>. I further agree
+          to the terms of both the
+          <a
+            href="https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions"
+            target="_blank"
+            >MLH Contest Terms and Conditions</a
+          >
+          and the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>.<br />
+        </p>
+
         <p class="alert">Note that to participate at HackPSU, you must agree to this policy.</p>
         <div class="switch">
           <label>
             No
-            <input type="checkbox" name="mlhdcp" required [(ngModel)]="registrationForm.mlhdcp" #mlhdcpInput="ngModel">
+            <input
+              type="checkbox"
+              name="mlhdcp"
+              required
+              [(ngModel)]="registrationForm.mlhdcp"
+              #mlhdcpInput="ngModel"
+            />
             <span class="lever"></span>
             Yes
           </label>
@@ -455,23 +824,53 @@
   </div>
 
   <!-- Coding Experience -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="row scrollspy" materialize="scrollSpy" id="additional-questions-container">
+  <div
+    *ngIf="
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+    "
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="additional-questions-container"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="experience">Coding Experience</h5>
         <div class="form-group">
-          <input type="radio" class="with-gap" id="none" name="codingExperience" value="none"
-            [(ngModel)]="registrationForm.codingExperience">
-          <label for="none">None</label><br>
-          <input type="radio" class="with-gap" id="beginner" name="codingExperience" value="beginner"
-            [(ngModel)]="registrationForm.codingExperience">
-          <label for="beginner">Beginner (0-2 years) </label><br>
-          <input type="radio" class="with-gap" id="intermediate" name="codingExperience" value="intermediate"
-            [(ngModel)]="registrationForm.codingExperience">
-          <label for="intermediate">Intermediate (2-4 years)</label><br>
-          <input type="radio" class="with-gap" id="advanced" name="codingExperience" value="advanced"
-            [(ngModel)]="registrationForm.codingExperience">
+          <input
+            type="radio"
+            class="with-gap"
+            id="none"
+            name="codingExperience"
+            value="none"
+            [(ngModel)]="registrationForm.codingExperience"
+          />
+          <label for="none">None</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="beginner"
+            name="codingExperience"
+            value="beginner"
+            [(ngModel)]="registrationForm.codingExperience"
+          />
+          <label for="beginner">Beginner (0-2 years) </label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="intermediate"
+            name="codingExperience"
+            value="intermediate"
+            [(ngModel)]="registrationForm.codingExperience"
+          />
+          <label for="intermediate">Intermediate (2-4 years)</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="advanced"
+            name="codingExperience"
+            value="advanced"
+            [(ngModel)]="registrationForm.codingExperience"
+          />
           <label for="advanced">Advanced (> 4 years) </label>
         </div>
       </div>
@@ -479,49 +878,88 @@
   </div>
 
   <!-- Reference -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp" class="row">
+  <div
+    *ngIf="
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+    "
+    class="row"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="reference">Where did you hear about HackPSU?</h5>
         <div class="input-field">
           <label for="reference-input"></label>
-          <input id="reference-input" name="referral" materialize="autocomplete"
-            [materializeParams]="[referralAutoCompleteInit]" [(ngModel)]="registrationForm.referral">
+          <input
+            id="reference-input"
+            name="referral"
+            materialize="autocomplete"
+            [materializeParams]="[referralAutoCompleteInit]"
+            [(ngModel)]="registrationForm.referral"
+          />
         </div>
       </div>
     </div>
   </div>
 
   <!-- Accomplishment -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp" class="row">
+  <div
+    *ngIf="
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+    "
+    class="row"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="accomplish">What is a project you're proud of?</h5>
         <div class="input-field">
-          <textarea class="form-control" rows="4" id="accomplish-input" name="accomplishment"
-            [(ngModel)]="registrationForm.projectDesc"></textarea>
+          <textarea
+            class="form-control"
+            rows="4"
+            id="accomplish-input"
+            name="accomplishment"
+            [(ngModel)]="registrationForm.projectDesc"
+          ></textarea>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Returns -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp" class="row">
+  <div
+    *ngIf="
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+    "
+    class="row"
+  >
     <div class="card medium darken-1">
-      <div class="card-content ">
+      <div class="card-content">
         <h5 class="accomplish">What would you like to get out of HackPSU?</h5>
         <div class="input-field">
-          <textarea class="form-control" rows="4" id="return-input" name="return"
-            [(ngModel)]="registrationForm.expectations"></textarea>
+          <textarea
+            class="form-control"
+            rows="4"
+            id="return-input"
+            name="return"
+            [(ngModel)]="registrationForm.expectations"
+          ></textarea>
         </div>
       </div>
     </div>
   </div>
   <!-- Submit -->
-  <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp"
-    class="center">
+  <div
+    *ngIf="
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+    "
+    class="center"
+  >
     <div *ngIf="registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc" class="center">
-      <button [disabled]="progress.ref().isStarted" class="btn waves-effect waves-light submit-btn" type="submit" name="action">
+      <button
+        [disabled]="progress.ref().isStarted"
+        class="btn waves-effect waves-light submit-btn"
+        type="submit"
+        name="action"
+      >
         Submit
         <i class="material-icons right">send</i>
       </button>
@@ -542,7 +980,7 @@
   </ul>
 
   <p class="email-us-text">
-    Any issues? - Email us at <br> 
+    Any issues? - Email us at <br />
     <a href="mailto:technology@hackpsu.org"><b>technology@hackpsu.org</b></a>
   </p>
 </div>

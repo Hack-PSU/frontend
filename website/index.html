@@ -80,29 +80,29 @@
     <!-- Facebook Pixel Code -->
     <script>
       !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return
+        if (f.fbq) return;
         n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        }
-        if (!f._fbq) f._fbq = n
-        n.push = n
-        n.loaded = !0
-        n.version = '2.0'
-        n.queue = []
-        t = b.createElement(e)
-        t.async = !0
-        t.src = v
-        s = b.getElementsByTagName(e)[0]
-        s.parentNode.insertBefore(t, s)
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
-      fbq('init', '680224462928114 ')
-      fbq('track', 'PageView')
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '680224462928114 ');
+      fbq('track', 'PageView');
     </script>
     <script type="text/javascript">
       $(document).ready(function () {
-        $('.button-collapse').sideNav({ edge: 'left' })
-        $('.scrollspy').scrollSpy({ scrollOffset: 0 })
-      })
+        $('.button-collapse').sideNav({ edge: 'left' });
+        $('.scrollspy').scrollSpy({ scrollOffset: 0 });
+      });
     </script>
 
     <!--Browser compatibility popup-->
@@ -118,17 +118,17 @@
         insecure: true,
         unsupported: true,
         api: 2018.09,
-      }
+      };
 
       function $buo_f() {
-        var e = document.createElement('script')
-        e.src = '//browser-update.org/update.min.js'
-        document.body.appendChild(e)
+        var e = document.createElement('script');
+        e.src = '//browser-update.org/update.min.js';
+        document.body.appendChild(e);
       }
       try {
-        document.addEventListener('DOMContentLoaded', $buo_f, false)
+        document.addEventListener('DOMContentLoaded', $buo_f, false);
       } catch (e) {
-        window.attachEvent('onload', $buo_f)
+        window.attachEvent('onload', $buo_f);
       }
     </script>
     <noscript>
@@ -145,26 +145,26 @@
       if (window.document.documentMode) {
         alert(
           'Website not compatible with Internet Explorer.\nPlease switch to a different browser.'
-        )
+        );
       }
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114978268-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
+      window.dataLayer = window.dataLayer || [];
 
       function gtag() {
-        dataLayer.push(arguments)
+        dataLayer.push(arguments);
       }
 
-      gtag('js', new Date())
+      gtag('js', new Date());
 
-      gtag('config', 'UA-114978268-1')
+      gtag('config', 'UA-114978268-1');
     </script>
 
     <script>
-      particlesJS.load('particles-js', '../json/particlesjs-config.json', function () {})
+      particlesJS.load('particles-js', '../json/particlesjs-config.json', function () {});
     </script>
 
     <!--
@@ -296,15 +296,15 @@
         $('.planet').on(
           'animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',
           function () {
-            $(this).removeClass('animated')
+            $(this).removeClass('animated');
           }
-        )
+        );
 
         $('.btn-with-planet').on('mouseenter', function (event) {
           //get planet corresponding to button (child element)
-          var planet = this.querySelector('.planet')
-          planet.classList.add('animated')
-        })
+          var planet = this.querySelector('.planet');
+          planet.classList.add('animated');
+        });
       </script>
 
       <section id="about">
