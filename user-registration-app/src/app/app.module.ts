@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -65,6 +66,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     NgProgressRouterModule,
     NgxPaginationModule,
     ToastrModule.forRoot({ maxOpened: 5 }),
+    RouterModule,
   ],
   providers: [
     HttpClient,

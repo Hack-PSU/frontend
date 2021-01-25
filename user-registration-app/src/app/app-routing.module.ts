@@ -59,8 +59,11 @@ const routes: Routes = [
     component: UserProfileViewComponent,
     canActivate: [AuthGuard],
   },
-  { path: '**',
-    redirectTo: LiveWebsiteDateGuard.validateDate() ? AppConstants.LIVE_ENDPOINT : AppConstants.REGISTER_ENDPOINT,
+  {
+    path: '**',
+    redirectTo: LiveWebsiteDateGuard.validateDate()
+      ? AppConstants.LIVE_ENDPOINT
+      : AppConstants.REGISTER_ENDPOINT,
   },
 ];
 
@@ -68,12 +71,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), RouterModule],
   exports: [RouterModule],
   declarations: [],
-  providers: [
-    AngularFireAuth,
-    RegistrationResolver,
-    RsvpResolver,
-  ],
+  providers: [AngularFireAuth, RegistrationResolver, RsvpResolver],
 })
-
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

@@ -10,14 +10,17 @@ import { RegistrationApiResponse } from '../../../models/registration';
 
 @Injectable()
 export class RsvpResolver implements Resolve<RegistrationApiResponse> {
-  constructor(private authService: AuthService,
-              private progress: NgProgress,
-              private httpService: HttpService,
-              private router: Router,
-  ) {
-  }
+  constructor(
+    private authService: AuthService,
+    private progress: NgProgress,
+    private httpService: HttpService,
+    private router: Router
+  ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RegistrationApiResponse> {
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<RegistrationApiResponse> {
     this.progress.ref().start();
     return this.authService.currentUser.pipe(
       mergeMap((user) => {
@@ -37,6 +40,7 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
       take(1),
       finalize(() => {
         this.progress.ref().complete();
-      }));
+      })
+    );
   }
 }

@@ -12,11 +12,11 @@ import { AuthService } from '../../services/AuthService/auth.service';
 export class UserViewComponent {
   private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
 
-  constructor(public authService: AuthService, private _router: Router) {
-  }
+  constructor(public authService: AuthService, private _router: Router) {}
 
   logout() {
-    this.authService.signOut()
+    this.authService
+      .signOut()
       .then(() => this._router.navigate([AppConstants.LOGIN_ENDPOINT]))
       .catch(() => this._router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }

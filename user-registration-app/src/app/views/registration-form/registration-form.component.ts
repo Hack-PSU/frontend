@@ -14,7 +14,7 @@ import { AuthService, HttpService } from '../../services/services';
 import { AppConstants } from '../../AppConstants';
 
 const ajv = new Ajv({ allErrors: true });
-declare var Materialize: any;
+declare let Materialize: any;
 
 @Component({
   selector: 'app-registration-form',
@@ -22,22 +22,19 @@ declare var Materialize: any;
   styleUrls: ['./registration-form.component.css'],
   providers: [HttpService, AuthService],
   animations: [
-    trigger(
-      'enterAnimation', [
-        transition(':enter', [
-          style({ transform: 'scale(0)', opacity: 0 }),
-          animate('500ms', style({ transform: 'scale(1)', opacity: 1 })),
-        ]),
-        transition(':leave', [
-          style({ transform: 'scale(1)', opacity: 1 }),
-          animate('500ms', style({ transform: 'scale(0)', opacity: 0 })),
-        ]),
-      ],
-    ),
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ transform: 'scale(0)', opacity: 0 }),
+        animate('500ms', style({ transform: 'scale(1)', opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)', opacity: 1 }),
+        animate('500ms', style({ transform: 'scale(0)', opacity: 0 })),
+      ]),
+    ]),
   ],
 })
 export class RegistrationFormComponent implements OnInit {
-
   private static regFormComp: RegistrationFormComponent;
   private asYouType: AsYouType;
   public univAutoCompleteInit = this.makeAutoCompleteSettings('university', schools);
@@ -64,9 +61,9 @@ export class RegistrationFormComponent implements OnInit {
       case '.phone':
         return 'MLH requires us to provide your phone number.';
       case '.gender':
-        return 'Please tell us your gender. We think we\'ve covered all the options';
+        return "Please tell us your gender. We think we've covered all the options";
       case '.shirtSize':
-        return 'Please provide a shirt size. Wouldn\'t wanna miss out on that :)';
+        return "Please provide a shirt size. Wouldn't wanna miss out on that :)";
       case '.travelReimbursement':
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
       case '.firstHackathon':
@@ -76,43 +73,49 @@ export class RegistrationFormComponent implements OnInit {
       case '.major':
         return 'Please provide your major.';
       case '.eighteenBeforeEvent':
-        return 'Please certify that you\'re eighteen before the day of the event.';
+        return "Please certify that you're eighteen before the day of the event.";
       case '.university':
-        return 'Please tell us where you\'re attending school. Use the fancy dropdown!';
+        return "Please tell us where you're attending school. Use the fancy dropdown!";
       case '.mlhcoc':
-        return 'You gotta agree to the Code of Conduct. We can\'t all be hooligans y\'know';
+        return "You gotta agree to the Code of Conduct. We can't all be hooligans y'know";
       case '.mlhdcp':
-        return 'You gotta agree to the MLH terms. It\'s legal stuff ya know.';
+        return "You gotta agree to the MLH terms. It's legal stuff ya know.";
       default:
-        return 'Are you sure you\'ve filled out all the required fields?';
+        return "Are you sure you've filled out all the required fields?";
     }
   }
 
   private consolidateEthnicities(): string {
     const possibleEthnicities = Object.keys(this.registrationForm.ethnicities);
-    const selectedEthnicities = possibleEthnicities.filter(ethnicity => this.registrationForm.ethnicities[ethnicity]);
+    const selectedEthnicities = possibleEthnicities.filter(
+      (ethnicity) => this.registrationForm.ethnicities[ethnicity]
+    );
     return selectedEthnicities.join(', ');
   }
 
   private consolidateAddress() {
-    return Object.values(this.registrationForm.addressFields).filter(field => field).join(', ');
+    return Object.values(this.registrationForm.addressFields)
+      .filter((field) => field)
+      .join(', ');
   }
 
   private validate() {
     const result = this.validator(this.registrationForm);
     if (!result) {
-      this.validator.errors.map(
-        error => this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error)),
-      )
+      this.validator.errors.map((error) =>
+        this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
+      );
     }
     return result;
   }
 
-  constructor(public router: Router,
-              private route: ActivatedRoute,
-              private httpService: HttpService,
-              private toastrService: ToastrService,
-              private authService: AuthService) {
+  constructor(
+    public router: Router,
+    private route: ActivatedRoute,
+    private httpService: HttpService,
+    private toastrService: ToastrService,
+    private authService: AuthService
+  ) {
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
@@ -145,7 +148,7 @@ export class RegistrationFormComponent implements OnInit {
       setTimeout(() => {
         this.progress.ref().complete();
         Materialize.updateTextFields();
-      },         750);
+      }, 750);
     });
   }
 
@@ -176,10 +179,11 @@ export class RegistrationFormComponent implements OnInit {
           this.registrationForm.email = user.email;
           return this.httpService.submitRegistration(this.registrationForm, user.uid);
         }),
-        take(1),
+        take(1)
       )
       .subscribe(() => {
-        this.router.navigate([AppConstants.PIN_ENDPOINT])
+        this.router
+          .navigate([AppConstants.PIN_ENDPOINT])
           .then(() => this.progress.ref().complete());
       });
   }

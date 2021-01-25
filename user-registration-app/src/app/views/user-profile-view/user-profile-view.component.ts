@@ -16,51 +16,51 @@ import { Hackathon } from '../../models/hackathon';
 export class UserProfileViewComponent implements OnInit {
   private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
   currentHackathon: Hackathon;
-  currentPin = 'No active pin! Don\'t forget to register!';
+  currentPin = "No active pin! Don't forget to register!";
 
   constructor(
-    private authService: AuthService,
-    private httpService: HttpService,
-    private progressService: NgProgress,
-    private toastrService: ToastrService,
-  ) { }
+    public authService: AuthService,
+    public httpService: HttpService,
+    public progressService: NgProgress,
+    public toastrService: ToastrService
+  ) {}
 
   ngOnInit() {
-    const regObservable = this.httpService.getUserRegistrations()
-      .subscribe(
-        (registrations: RegistrationApiResponse[]) => {
-          registrations.forEach((registration) => {
-            if (registration.hackathon.active) {
-              this.currentPin = registration.pin.toString();
-            }
-          })
-          regObservable.unsubscribe();
-        },
-        ({ error }) => {
-          if (error && error.status === 404) {
-            this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for you');
-          } else {
-            this.toastrService.error('Something has gone terribly wrong');
+    const regObservable = this.httpService.getUserRegistrations().subscribe(
+      (registrations: RegistrationApiResponse[]) => {
+        registrations.forEach((registration) => {
+          if (registration.hackathon.active) {
+            this.currentPin = registration.pin.toString();
           }
-        },
-      );
-    const hackObservable = this.httpService.getHackathons()
-      .subscribe(
-        (hackathons: Hackathon[]) => {
-          hackathons.forEach((hackathon) => {
-            if (hackathon.active) {
-              this.currentHackathon = hackathon;
-              hackObservable.unsubscribe();
-            }
-          });
-        },
-        ({ error }) => {
-          if (error && error.status === 404) {
-            this.toastrService.info('No hackathons retrieved');
+        });
+        regObservable.unsubscribe();
+      },
+      ({ error }) => {
+        if (error && error.status === 404) {
+          this.toastrService.info(
+            'You have not registered for a hackathon yet. We could not find any data for you'
+          );
+        } else {
+          this.toastrService.error('Something has gone terribly wrong');
+        }
+      }
+    );
+    const hackObservable = this.httpService.getHackathons().subscribe(
+      (hackathons: Hackathon[]) => {
+        hackathons.forEach((hackathon) => {
+          if (hackathon.active) {
+            this.currentHackathon = hackathon;
+            hackObservable.unsubscribe();
           }
-        },
-      )
-  };
+        });
+      },
+      ({ error }) => {
+        if (error && error.status === 404) {
+          this.toastrService.info('No hackathons retrieved');
+        }
+      }
+    );
+  }
 
   public getUserPhotoUrl(user: app.User | null) {
     return user.photoURL || UserProfileViewComponent.DEFAULT_PROFILE_URL;
@@ -70,11 +70,12 @@ export class UserProfileViewComponent implements OnInit {
     this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap(user => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
+        switchMap((user) => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
         finalize(() => {
           this.progressService.ref().complete();
-        }),
-      ).subscribe(
+        })
+      )
+      .subscribe(
         () => {
           this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
@@ -83,7 +84,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error('Something went wrong. Try again');
           observable.unsubscribe();
-        },
+        }
       );
   }
 
@@ -91,9 +92,10 @@ export class UserProfileViewComponent implements OnInit {
     this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap(user => user.updateEmail(value)),
-        finalize(() => this.progressService.ref().complete()),
-      ).subscribe(
+        switchMap((user) => user.updateEmail(value)),
+        finalize(() => this.progressService.ref().complete())
+      )
+      .subscribe(
         () => {
           this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
@@ -102,7 +104,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error(error.message);
           observable.unsubscribe();
-        },
+        }
       );
   }
 
@@ -118,9 +120,10 @@ export class UserProfileViewComponent implements OnInit {
     this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap(user => user.updatePassword(newPassword)),
-        finalize(() => this.progressService.ref().complete()),
-      ).subscribe(
+        switchMap((user) => user.updatePassword(newPassword)),
+        finalize(() => this.progressService.ref().complete())
+      )
+      .subscribe(
         () => {
           this.toastrService.info('Successfully changed display name');
           observable.unsubscribe();
@@ -129,7 +132,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error(error.message);
           observable.unsubscribe();
-        },
+        }
       );
   }
 }

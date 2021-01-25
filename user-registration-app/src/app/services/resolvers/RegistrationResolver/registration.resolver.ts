@@ -15,35 +15,38 @@ import { HttpService } from '../../HttpService/HttpService';
  * their registration is submitted, then routes the user to RSVP page.
  */
 export class RegistrationResolver implements Resolve<Registration> {
-  constructor(private authService: AuthService, private progress: NgProgress, private router: Router, private httpService: HttpService) {
-  }
+  constructor(
+    private authService: AuthService,
+    private progress: NgProgress,
+    private router: Router,
+    private httpService: HttpService
+  ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
     this.progress.ref().start();
-    return this.authService.currentUser
-      .pipe(
-        switchMap((user) => {
-          if (!user) {
-            this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
-            return null;
-          }
-          return this.httpService.getRegistrationStatus();
-        }),
-        map((registration) => {
-          if (registration.isCurrentRegistration() && registration.submitted) {
-            this.progress.ref().complete();
-            this.router.navigate([AppConstants.PIN_ENDPOINT]);
-            return null;
-          }
-          return Registration.parseFromApiResponse(registration);
-        }),
-        catchError((error) => {
+    return this.authService.currentUser.pipe(
+      switchMap((user) => {
+        if (!user) {
+          this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
+          return null;
+        }
+        return this.httpService.getRegistrationStatus();
+      }),
+      map((registration) => {
+        if (registration.isCurrentRegistration() && registration.submitted) {
           this.progress.ref().complete();
-          console.log(error);
-          // Registration not found.
-          return observableOf(new Registration());
-        }),
-        take(1),
-      );
+          this.router.navigate([AppConstants.PIN_ENDPOINT]);
+          return null;
+        }
+        return Registration.parseFromApiResponse(registration);
+      }),
+      catchError((error) => {
+        this.progress.ref().complete();
+        console.log(error);
+        // Registration not found.
+        return observableOf(new Registration());
+      }),
+      take(1)
+    );
   }
 }

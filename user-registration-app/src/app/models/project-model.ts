@@ -2,7 +2,7 @@ export class ProjectModel {
   public categories: string[];
   public projectId: string;
   public projectName: string;
-  public tableNumber: Number;
+  public tableNumber: number;
 
   static parseFromJSON(json) {
     if (JSON.stringify(json) === '{}') {

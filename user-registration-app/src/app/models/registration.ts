@@ -32,7 +32,7 @@ export class Registration {
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
-  public uid: string
+  public uid: string;
   public time: number;
 
   constructor() {
@@ -116,7 +116,7 @@ export class Registration {
     registration.submitted = value.submitted;
     registration.hackathon = Hackathon.parseJSON(registration).uid;
     registration.pin = value.pin.toString();
-    registration.uid = value.uid
+    registration.uid = value.uid;
     registration.time = Date.now();
     return registration;
   }
@@ -205,7 +205,7 @@ export class RegistrationApiResponse {
     const registration = new RegistrationApiResponse();
     registration.firstname = value.firstname;
     registration.lastname = value.lastname;
-    registration.address = value.address
+    registration.address = value.address;
     registration.gender = value.gender;
     registration.email = value.email;
     registration.eighteenBeforeEvent = !!value.eighteenBeforeEvent;

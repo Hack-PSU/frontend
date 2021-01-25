@@ -3,7 +3,7 @@ export class Duration {
   private readonly NUM_SECS_IN_HOUR = 3600;
   private readonly NUM_SECS_IN_MINUTE = 60;
 
-  constructor(private startDate: Date, private endDate: Date) { }
+  constructor(private startDate: Date, private endDate: Date) {}
 
   /**
    * Returns the seconds in the interval
@@ -21,11 +21,14 @@ export class Duration {
   }
 
   public get minutes() {
-    return Math.floor(((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) / this.NUM_SECS_IN_MINUTE);
+    return Math.floor(
+      ((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) / this.NUM_SECS_IN_MINUTE
+    );
   }
 
   public get seconds() {
-    return Math.floor(((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) % this.NUM_SECS_IN_MINUTE);
+    return Math.floor(
+      ((this.timeTill % this.NUM_SECS_IN_DAY) % this.NUM_SECS_IN_HOUR) % this.NUM_SECS_IN_MINUTE
+    );
   }
-
 }

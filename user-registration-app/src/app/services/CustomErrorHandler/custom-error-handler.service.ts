@@ -8,7 +8,6 @@ import { IApiResponse } from '../../models/api-response.v2';
 
 @Injectable()
 export class CustomErrorHandlerService {
-
   private static tryParseError(error: HttpErrorResponse): Error {
     try {
       return { error: error.error, message: error.message };
@@ -23,11 +22,10 @@ export class CustomErrorHandlerService {
         message: error.message,
       },
       message: error.message,
-    }
+    };
   }
 
-  constructor(private toastrService: ToastrService) {
-  }
+  constructor(private toastrService: ToastrService) {}
 
   private parseCustomServerError(error: HttpErrorResponse): any {
     if (error.status >= 500) {
@@ -59,7 +57,8 @@ export class CustomErrorHandlerService {
       const responseOptions = {
         error: {
           title: 'Unknown Error!',
-          message: 'A Server Error Occurred. If this keeps repeating, send us an email at technology@hackpsu.org.',
+          message:
+            'A Server Error Occurred. If this keeps repeating, send us an email at technology@hackpsu.org.',
         },
         status: 400,
         headers: null,

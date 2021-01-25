@@ -13,21 +13,21 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./signup-view.component.css'],
 })
 export class SignupViewComponent extends BaseComponent implements OnInit {
-
   public email: string;
   public password: string;
 
-  constructor(authService: AuthService,
-              router: Router,
-              errorHandler: CustomErrorHandlerService,
-              private readonly toastrService: ToastrService,
-              activatedRoute: ActivatedRoute,
-              progressBar: NgProgress) {
+  constructor(
+    authService: AuthService,
+    router: Router,
+    errorHandler: CustomErrorHandlerService,
+    private readonly toastrService: ToastrService,
+    activatedRoute: ActivatedRoute,
+    progressBar: NgProgress
+  ) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   private loginHandler(loginPromise: Promise<any>) {
     loginPromise
@@ -67,8 +67,8 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
     if (this.email && this.email !== '' && this.password && this.password !== '') {
       this.authService
         .createUser(this.email, this.password)
-        .then(user => this.router.navigate([AppConstants.REGISTER_ENDPOINT]))
-        .catch(error => this.errorHandler.handleError(error))
+        .then((user) => this.router.navigate([AppConstants.REGISTER_ENDPOINT]))
+        .catch((error) => this.errorHandler.handleError(error))
         .finally(() => this.progressBar.ref().complete());
     } else {
       this.errorHandler.handleError(Error('Enter username and password'));
@@ -77,8 +77,10 @@ export class SignupViewComponent extends BaseComponent implements OnInit {
   }
   onEmailEntered(email: string) {
     if (/@psu.edu$/.test(email)) {
-      this.toastrService.warning('Our login system is not affiliated with Penn State. ' +
-        'Please make sure the password you choose is not your WebAccess password');
+      this.toastrService.warning(
+        'Our login system is not affiliated with Penn State. ' +
+          'Please make sure the password you choose is not your WebAccess password'
+      );
     }
   }
 }

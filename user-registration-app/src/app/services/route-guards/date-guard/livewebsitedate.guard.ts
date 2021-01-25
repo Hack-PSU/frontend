@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
  */
 @Injectable()
 export class LiveWebsiteDateGuard implements CanActivate {
-
   constructor(private router: Router, private toastrService: ToastrService) {}
 
   static validateDate(date: Date = new Date()): boolean {

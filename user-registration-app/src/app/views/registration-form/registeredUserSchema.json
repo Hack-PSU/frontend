@@ -12,28 +12,13 @@
       "maxLength": 45
     },
     "gender": {
-      "enum": [
-        "male",
-        "female",
-        "non-binary",
-        "no-disclose"
-      ]
+      "enum": ["male", "female", "non-binary", "no-disclose"]
     },
     "shirtSize": {
-      "enum": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ]
+      "enum": ["XS", "S", "M", "L", "XL", "XXL"]
     },
     "address": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 200
     },
@@ -44,18 +29,12 @@
       "type": "boolean"
     },
     "dietaryRestriction": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 45
     },
     "allergies": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "minLength": 1
     },
     "travelReimbursement": {
@@ -70,14 +49,7 @@
       "maxLength": 200
     },
     "academicYear": {
-      "enum": [
-        "freshman",
-        "sophomore",
-        "junior",
-        "senior",
-        "graduate",
-        "other"
-      ]
+      "enum": ["freshman", "sophomore", "junior", "senior", "graduate", "other"]
     },
     "major": {
       "type": "string",
@@ -90,36 +62,16 @@
       "maxLength": 50
     },
     "ethnicity": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": ["string", "null"],
       "maxLength": 150
     },
     "codingExperience": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "none",
-        "beginner",
-        "intermediate",
-        "advanced",
-        "god",
-        null
-      ]
+      "type": ["string", "null"],
+      "enum": ["none", "beginner", "intermediate", "advanced", "god", null]
     },
     "veteran": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "true",
-        "false",
-        "no-disclose"
-      ]
+      "type": ["string", "null"],
+      "enum": ["true", "false", "no-disclose"]
     },
     "eighteenBeforeEvent": {
       "type": "boolean"
@@ -131,22 +83,13 @@
       "type": "boolean"
     },
     "referral": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "projectDesc": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "expectations": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "time": {
       "type": "number"

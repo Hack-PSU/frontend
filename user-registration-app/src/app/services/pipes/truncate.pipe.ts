@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'limitTo'
+  name: 'limitTo',
 })
 export class TruncatePipe implements PipeTransform {
-
   private static readonly defaultValue = 5;
 
   transform(value: any[], args: string): any[] {

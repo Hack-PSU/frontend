@@ -12,21 +12,22 @@ import { take } from 'rxjs/operators';
   providers: [HttpService],
 })
 export class TravelReimbursementViewComponent implements OnInit {
-
   public travelForm: any;
   public user: any;
   public loading = false;
   public errors = null;
   public response = null;
 
-  constructor(private httpService: HttpService, private authService: AuthService, private router: Router) {
+  constructor(
+    private httpService: HttpService,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.travelForm = {};
   }
 
   ngOnInit() {
-    this.authService.currentUser.pipe(
-      take(1),
-    ).subscribe((user) => {
+    this.authService.currentUser.pipe(take(1)).subscribe((user) => {
       if (!user) {
         this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
       } else {
@@ -49,21 +50,23 @@ export class TravelReimbursementViewComponent implements OnInit {
     switch (this.travelForm.groupMembers) {
       case 4:
         this.travelForm.groupMembers = '4+';
+        break;
       default:
         this.travelForm.groupMembers = this.travelForm.groupMembers.toString();
     }
-    this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid)
-      .subscribe((value) => {
+    this.httpService.submitTravelReimbursement(this.travelForm, this.user.uid).subscribe(
+      (value) => {
         this.response = value;
         this.loading = false;
-      }, () => {
+      },
+      () => {
         this.loading = false;
-      });
+      }
+    );
   }
 
   show() {
     return new Date().getTime() > new Date('April 8, 2018 08:00:00').getTime();
     // return new Date().getTime() > new Date('October 6, 2018 18:00:00').getTime();
   }
-
 }

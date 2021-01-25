@@ -13,11 +13,18 @@ export class Hackathon {
       parseInt(value['start_time'], 10),
       parseInt(value['end_time'], 10),
       value['base_pin'],
-      value['active'],
+      value['active']
     );
   }
 
-  constructor(uid: string, name: string, start_time: number, end_time: number, base_pin: number, active: boolean) {
+  constructor(
+    uid: string,
+    name: string,
+    start_time: number,
+    end_time: number,
+    base_pin: number,
+    active: boolean
+  ) {
     this.uid = uid;
     this.name = name;
     this.startTime = new Date(start_time);

@@ -13,14 +13,13 @@ export class DateGuard implements CanActivate {
     return environment.hackathonStartTime.getTime() <= date.getTime();
   }
 
-  constructor(private router: Router, private toastrService: ToastrService) {
-  }
+  constructor(private router: Router, private toastrService: ToastrService) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (!DateGuard.validateDate(new Date())) {
-      this.toastrService.error(`You may only visit this page on or after ${environment.hackathonStartTime.toDateString()}`);
+      this.toastrService.error(
+        `You may only visit this page on or after ${environment.hackathonStartTime.toDateString()}`
+      );
       this.router.navigate([AppConstants.LIVE_ENDPOINT]);
       return false;
     }

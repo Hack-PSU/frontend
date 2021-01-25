@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   // providers: [LiveUpdatesService],
   styleUrls: ['./live-workshop.component.css'],
 })
-
 export class LiveWorkshopComponent implements OnInit {
   @Input() title: string;
   @Input() description: string;
@@ -24,9 +23,9 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() collapseID: string;
 
   ngOnInit() {
-    this.removePresenter(1, this.presenter1Name, this.presenter1img)
-    this.removePresenter(2, this.presenter2Name, this.presenter2img)
-    this.removePresenter(3, this.presenter3Name, this.presenter3img)
+    this.removePresenter(1, this.presenter1Name, this.presenter1img);
+    this.removePresenter(2, this.presenter2Name, this.presenter2img);
+    this.removePresenter(3, this.presenter3Name, this.presenter3img);
   }
 
   removePresenter(presenterNo: number, presenterName: string, presenterImg: string) {

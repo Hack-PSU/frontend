@@ -11,10 +11,9 @@ export enum AuthProviders {
 
 @Injectable()
 export class AuthService {
-
   constructor(public afAuth: AngularFireAuth) {}
 
-  get idToken(): Observable<String> {
+  get idToken(): Observable<string> {
     return this.afAuth.idToken;
   }
 
@@ -40,10 +39,12 @@ export class AuthService {
         authProvider = new app.auth.GithubAuthProvider();
         break;
       case AuthProviders.APPLE_PROVIDER:
-        const oAuthProvider = new app.auth.OAuthProvider('apple.com');
-        oAuthProvider.addScope('email');
-        oAuthProvider.addScope('name');
-        authProvider = oAuthProvider;
+        {
+          const oAuthProvider = new app.auth.OAuthProvider('apple.com');
+          oAuthProvider.addScope('email');
+          oAuthProvider.addScope('name');
+          authProvider = oAuthProvider;
+        }
         break;
     }
     return this.afAuth.signInWithPopup(authProvider);

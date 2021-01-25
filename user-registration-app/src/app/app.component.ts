@@ -1,29 +1,15 @@
-import { Component, NgModule, AfterViewInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Component, AfterViewInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { NgProgress, NgProgressModule } from 'ngx-progressbar';
+import { NgProgress } from 'ngx-progressbar';
 import { AppConstants } from './AppConstants';
 import { AuthService } from './services/AuthService/auth.service';
 import { environment } from '../environments/environment';
 import { LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { fadeOutAnimation } from './animations';
-import { UserViewComponent } from './views/views';
 
-declare var $: any;
+declare let $: any;
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule,
-    NgProgressModule,
-  ],
-  declarations: [
-    AppComponent,
-    UserViewComponent,
-  ],
-  bootstrap: [AppComponent],
-})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -34,7 +20,6 @@ declare var $: any;
   ],
 })
 export class AppComponent implements AngularFireAuthModule, AfterViewInit {
-
   static scrollToID(id, speed) {
     const elem = $(id);
     if (elem) {
@@ -47,36 +32,44 @@ export class AppComponent implements AngularFireAuthModule, AfterViewInit {
   ngAfterViewInit(): void {
     $('.button-collapse').sideNav();
     $('.dropdown-button').dropdown();
-    $('nav').find('.scroller').click((e) => {
-      e.preventDefault();
-      AppComponent.scrollToID($(e.target).attr('href'), 500);
-    });
-    $('#mobile-demo').find('.scroller').click((e) => {
-      e.preventDefault();
-      AppComponent.scrollToID($(e.target).attr('href'), 500);
-    });
-  }
-
-  constructor(public authService: AuthService, public router: Router, private progressBar: NgProgress) {
-    this.router.events
-      .subscribe((event) => {
-        switch (event.constructor.name) {
-          case 'NavigationStart':
-            this.progressBar.ref().start();
-            break;
-          case 'NavigationEnd':
-          case 'NavigationCancel':
-          case 'NavigationError':
-            this.progressBar.ref().complete();
-            break;
-          default:
-            break;
-        }
+    $('nav')
+      .find('.scroller')
+      .click((e) => {
+        e.preventDefault();
+        AppComponent.scrollToID($(e.target).attr('href'), 500);
+      });
+    $('#mobile-demo')
+      .find('.scroller')
+      .click((e) => {
+        e.preventDefault();
+        AppComponent.scrollToID($(e.target).attr('href'), 500);
       });
   }
 
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    private progressBar: NgProgress
+  ) {
+    this.router.events.subscribe((event) => {
+      switch (event.constructor.name) {
+        case 'NavigationStart':
+          this.progressBar.ref().start();
+          break;
+        case 'NavigationEnd':
+        case 'NavigationCancel':
+        case 'NavigationError':
+          this.progressBar.ref().complete();
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
   logout() {
-    this.authService.signOut()
+    this.authService
+      .signOut()
       .then(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]))
       .catch(() => this.router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }

@@ -16,8 +16,8 @@ export class UserRegistrationViewComponent implements OnInit {
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
-  willUpdateAddressFields: boolean
-  updatedAddressFields: any
+  willUpdateAddressFields: boolean;
+  updatedAddressFields: any;
   shareAddressMlh: boolean;
   shareAddressSponsors: boolean;
 
@@ -25,7 +25,11 @@ export class UserRegistrationViewComponent implements OnInit {
     return Object.entries(object);
   }
 
-  constructor(private httpService: HttpService, private progressService: NgProgress, private toastrService: ToastrService) {
+  constructor(
+    private httpService: HttpService,
+    private progressService: NgProgress,
+    private toastrService: ToastrService
+  ) {
     this.activeRegistration = null;
     this.classes = [];
     this.submittedClasses = new Map();
@@ -66,23 +70,25 @@ export class UserRegistrationViewComponent implements OnInit {
       uid: 'Uid',
       university: 'University',
       veteran: 'Veteran status',
-    }
+    };
   }
 
   ngOnInit() {
-    const ecObservable = this.httpService.getExtraCreditClasses()
-      .subscribe((classes) => {
-        this.classes = classes;
-        ecObservable.unsubscribe();
-      });
-    const regObservable = this.httpService.getUserRegistrations()
+    const ecObservable = this.httpService.getExtraCreditClasses().subscribe((classes) => {
+      this.classes = classes;
+      ecObservable.unsubscribe();
+    });
+    const regObservable = this.httpService
+      .getUserRegistrations()
       .subscribe((registrations: RegistrationApiResponse[]) => {
         if (registrations) {
-          this.activeRegistration = registrations.filter(registration => registration.hackathon.active)[0];
+          this.activeRegistration = registrations.filter(
+            (registration) => registration.hackathon.active
+          )[0];
         }
         regObservable.unsubscribe();
       });
-      // The error for registrations gets handled in user-profile-view
+    // The error for registrations gets handled in user-profile-view
   }
 
   editAddressToggle() {
@@ -97,7 +103,9 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   private consolidateAddress() {
-    return Object.values(this.updatedAddressFields).filter(field => field).join(', ');
+    return Object.values(this.updatedAddressFields)
+      .filter((field) => field)
+      .join(', ');
   }
 
   submitAddress() {
@@ -107,30 +115,33 @@ export class UserRegistrationViewComponent implements OnInit {
     reg.shareAddressMlh = this.shareAddressMlh;
     reg.shareAddressSponsors = this.shareAddressSponsors;
 
-    this.httpService.submitAddress(reg)
-      .subscribe(
-        () => {
-          this.progressService.ref().complete();
-          this.toastrService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
-        },
-        ({ error }) => {
-          this.toastrService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
-        })
+    this.httpService.submitAddress(reg).subscribe(
+      () => {
+        this.progressService.ref().complete();
+        this.toastrService.success(
+          'Your address has been updated. Please navigate away from the page to refresh this view.'
+        );
+      },
+      ({ error }) => {
+        this.toastrService.warning(
+          'Something may have gone wrong in that process. Contact a member of staff to check'
+        );
+      }
+    );
   }
 
   submitClasses() {
-    if (Object.values(this.submittedClasses).filter(a => a).length === 0) {
+    if (Object.values(this.submittedClasses).filter((a) => a).length === 0) {
       this.toastrService.error('Select a class to submit');
       return;
     }
     this.progressService.ref().start();
     forkJoin(
-      Object.entries(this.submittedClasses)
-        .map(([c, value]: [string, boolean]) => {
-          if (value) {
-            return this.httpService.registerExtraCreditClass(c);
-          }
-        }),
+      Object.entries(this.submittedClasses).map(([c, value]: [string, boolean]) => {
+        if (value) {
+          return this.httpService.registerExtraCreditClass(c);
+        }
+      })
     ).subscribe(
       () => {
         this.progressService.ref().complete();
@@ -140,9 +151,11 @@ export class UserRegistrationViewComponent implements OnInit {
         if (error.status === 409) {
           this.toastrService.success('You are now getting tracked for the selected classes');
         } else {
-          this.toastrService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+          this.toastrService.warning(
+            'Something may have gone wrong in that process. Contact a member of staff to check'
+          );
         }
-      },
+      }
     );
   }
 
@@ -152,9 +165,10 @@ export class UserRegistrationViewComponent implements OnInit {
 
   businessChallengeRegister() {
     this.progressService.ref().start();
-    this.httpService.registerExtraCreditClass(
-      this.classes.find(c => c.class_name === 'Business Challenge').uid.toString(),
-    )
+    this.httpService
+      .registerExtraCreditClass(
+        this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString()
+      )
       .subscribe(
         () => {
           this.progressService.ref().complete();
@@ -165,10 +179,10 @@ export class UserRegistrationViewComponent implements OnInit {
             this.toastrService.success('You are registered for the business challenge');
           } else {
             this.toastrService.warning(
-              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check',
+              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check'
             );
           }
-        },
+        }
       );
   }
 
@@ -187,6 +201,6 @@ export class UserRegistrationViewComponent implements OnInit {
       'COMM 361',
       'DS 220',
     ];
-    return shownClassNames.indexOf(class_name) !== -1;
+    return shownClassNames.includes(class_name);
   }
 }

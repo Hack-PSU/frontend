@@ -25,10 +25,7 @@ export class ScheduleViewComponent implements OnInit {
   public workshops: EventModel[];
   public workshopsViewNum = 5;
 
-  constructor(
-    private httpService: HttpService,
-    private errorHandler: CustomErrorHandlerService,
-  ) {
+  constructor(private httpService: HttpService, private errorHandler: CustomErrorHandlerService) {
     this.activities = [];
     this.meals = [];
     this.workshops = [];
@@ -38,7 +35,7 @@ export class ScheduleViewComponent implements OnInit {
     this.httpService.getEvents().subscribe(
       (events: EventModel[]) => {
         events
-          .filter(activity => parseInt(activity.event_end_time, 10) >= Date.now())
+          .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
           .forEach((event) => {
             switch (event.event_type) {
               case 'activity':
@@ -57,7 +54,7 @@ export class ScheduleViewComponent implements OnInit {
       },
       (error) => {
         this.errorHandler.handleHttpError(error);
-      },
+      }
     );
   }
 
@@ -72,17 +69,17 @@ export class ScheduleViewComponent implements OnInit {
       case 'activities':
         return (this.activitiesViewNum = ScheduleViewComponent.increment(
           this.activitiesViewNum,
-          this.activities.length,
+          this.activities.length
         ));
       case 'meals':
         return (this.mealsViewNum = ScheduleViewComponent.increment(
           this.mealsViewNum,
-          this.meals.length,
+          this.meals.length
         ));
       case 'workshops':
         return (this.workshopsViewNum = ScheduleViewComponent.increment(
           this.workshopsViewNum,
-          this.workshops.length,
+          this.workshops.length
         ));
     }
   }
@@ -123,6 +120,6 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   isZoomLink(linkString: string): boolean {
-    return linkString.includes('zoom') && this.isLink(linkString)
+    return linkString.includes('zoom') && this.isLink(linkString);
   }
 }

@@ -5,13 +5,9 @@ import app from 'firebase/app';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../services/AuthService/auth.service';
-import { NgProgress } from 'ngx-progressbar';
-import { Rsvp } from '../../models/rsvp';
-import { AppConstants } from '../../AppConstants';
-import { finalize } from 'rxjs/operators';
-import { Registration, RegistrationApiResponse } from '../../models/registration';
+import { RegistrationApiResponse } from '../../models/registration';
 
-declare var $: any;
+declare let $: any;
 
 @Component({
   selector: 'app-rsvp',
@@ -19,18 +15,18 @@ declare var $: any;
   styleUrls: ['./rsvp.component.css'],
 })
 export class RsvpComponent implements OnInit {
-
   public loading = false;
   public user: app.User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
   public registrationData: RegistrationApiResponse;
 
-  constructor(public authService: AuthService,
-              public router: Router,
-              private httpService: HttpService,
-              private activatedRoute: ActivatedRoute) {
-  }
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    private httpService: HttpService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {

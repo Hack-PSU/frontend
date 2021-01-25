@@ -1,35 +1,40 @@
-<div style="color:#ffffff">
+<div style="color: #ffffff">
   <!--*ngIf="rsvpReady(); else rsvpNotOpen"-->
   <div class="page-margins">
     <div class="page-header text-center">
-      <div style="font-family:'Cornerstone',sans-serif;font-size:4em;"> HackPSU Information </div>
+      <div style="font-family: 'Cornerstone', sans-serif; font-size: 4em">HackPSU Information</div>
     </div>
-      <div class="medium blue-grey darken-4 white-text nature-boi" style="color:black;width:70vw;margin:0 auto;display:block;">
-        <div class="card-content">
-          <img src="../../../assets/images/all-white-emblem-f2018.svg" class="emblem-image"/>
-          <h5 class="center">We are very excited to see you this year on November 6th!</h5>
-          <h4 class="center">Your pin is {{registrationData.pin}}. Present this at check in.</h4>
-          <h5 class="center">Join the <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a></h5>
-          <h5 class="center">Have a question? Email us at 
-            <a href='mailto:team@hackpsu.org'>team@hackpsu.org</a></h5>
-          <!--<h5 class="center">-->
-            <!--<a class="white-text" routerLink="/profile">If you are participating in the business-->
-              <!--challenge, click here to register!</a>-->
-          <!--</h5>-->
-          <br/>
-        </div>
+    <div
+      class="medium blue-grey darken-4 white-text nature-boi"
+      style="color: black; width: 70vw; margin: 0 auto; display: block"
+    >
+      <div class="card-content">
+        <img src="../../../assets/images/all-white-emblem-f2018.svg" class="emblem-image" />
+        <h5 class="center">We are very excited to see you this year on November 6th!</h5>
+        <h4 class="center">Your pin is {{ registrationData.pin }}. Present this at check in.</h4>
+        <h5 class="center">Join the <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a></h5>
+        <h5 class="center">
+          Have a question? Email us at <a href="mailto:team@hackpsu.org">team@hackpsu.org</a>
+        </h5>
+        <!--<h5 class="center">-->
+        <!--<a class="white-text" routerLink="/profile">If you are participating in the business-->
+        <!--challenge, click here to register!</a>-->
+        <!--</h5>-->
+        <br />
       </div>
-      <div style="width:70vw; margin:0 auto;display:block;">
-        <div class="row justify-content-center info-card blue-grey darken-2">
-          <div class="col-md-4">
-            <div class="header-text">Location</div>
-            <div>
-              <p>
-              The hackathon will be virtual! Join the <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a>
-              </p>
-            </div>
+    </div>
+    <div style="width: 70vw; margin: 0 auto; display: block">
+      <div class="row justify-content-center info-card blue-grey darken-2">
+        <div class="col-md-4">
+          <div class="header-text">Location</div>
+          <div>
+            <p>
+              The hackathon will be virtual! Join the
+              <a href="https://discord.gg/eyPSrNm9Cd">Discord here!</a>
+            </p>
           </div>
-          <!--
+        </div>
+        <!--
           <div class="col-md-4 items">
             <div class="header-text">Things to Bring</div>
             <ul class="items-list">
@@ -45,25 +50,21 @@
             </ul>
           </div>
           -->
-          <div class="col-md-4">
-            <div class="header-text">Date & Time</div>
-            <div class="cornerstone">
-              November 6-8
-            </div>
-            <p>
-              Check the livesite and Discord for more info!
-            </p>
-          </div>
+        <div class="col-md-4">
+          <div class="header-text">Date & Time</div>
+          <div class="cornerstone">November 6-8</div>
+          <p>Check the livesite and Discord for more info!</p>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
 <ng-template #rsvpNotOpen>
-  <div style="color:#ffffff">
+  <div style="color: #ffffff">
     <div class="page-margins">
       <div class="page-header text-center">
-        <div style="font-family:'Cornerstone',sans-serif;font-size:75px;"> Thank you! </div>
+        <div style="font-family: 'Cornerstone', sans-serif; font-size: 75px">Thank you!</div>
       </div>
       <h4 class="center">We've received your registration.</h4>
       <h5 class="center">Keep an eye on your email for more information close to the event!</h5>
