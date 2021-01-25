@@ -1,1 +1,1 @@
-export { Error } from './error.interface'
+export { Error } from './error.interface';

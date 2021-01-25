@@ -1,10 +1,10 @@
 export class Hackathon {
-  public uid: string
-  public name: string
-  public startTime: Date
-  public endTime: Date | null
-  public basePin: number
-  public active: boolean
+  public uid: string;
+  public name: string;
+  public startTime: Date;
+  public endTime: Date | null;
+  public basePin: number;
+  public active: boolean;
 
   public static parseJSON(value: any): Hackathon {
     return new Hackathon(
@@ -14,7 +14,7 @@ export class Hackathon {
       parseInt(value['end_time'], 10),
       value['base_pin'],
       value['active']
-    )
+    );
   }
 
   constructor(
@@ -25,11 +25,11 @@ export class Hackathon {
     base_pin: number,
     active: boolean
   ) {
-    this.uid = uid
-    this.name = name
-    this.startTime = new Date(start_time)
-    this.endTime = end_time ? new Date(end_time) : null
-    this.basePin = base_pin
-    this.active = active
+    this.uid = uid;
+    this.name = name;
+    this.startTime = new Date(start_time);
+    this.endTime = end_time ? new Date(end_time) : null;
+    this.basePin = base_pin;
+    this.active = active;
   }
 }

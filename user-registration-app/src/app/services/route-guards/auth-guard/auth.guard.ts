@@ -1,10 +1,10 @@
-import { map } from 'rxjs/operators'
-import { Injectable } from '@angular/core'
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
-import { AppConstants } from '../../../AppConstants'
-import { AuthService } from '../../AuthService/auth.service'
-import { NgProgress } from 'ngx-progressbar'
-import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AppConstants } from '../../../AppConstants';
+import { AuthService } from '../../AuthService/auth.service';
+import { NgProgress } from 'ngx-progressbar';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -15,8 +15,8 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const url: string = state.url
-    return this.checkLogin(url)
+    const url: string = state.url;
+    return this.checkLogin(url);
   }
 
   checkLogin(url: string): Observable<boolean> {
@@ -27,15 +27,15 @@ export class AuthGuard implements CanActivate {
             queryParams: {
               redirectUrl: url,
             },
-          }
+          };
           // Navigate to the login page with extras
           this.router.navigate([AppConstants.LOGIN_ENDPOINT], navExtras).then(() => {
-            this.ngProgress.ref().complete()
-          })
-          return false
+            this.ngProgress.ref().complete();
+          });
+          return false;
         }
-        return true
+        return true;
       })
-    )
+    );
   }
 }
