@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // let rellax = new Rellax('.rellax')
+  let rellax = new Rellax('.rellax');
 
   $('.button-collapse').sideNav();
   $('.slider').slider();
