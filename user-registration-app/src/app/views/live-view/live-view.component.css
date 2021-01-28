@@ -7,20 +7,20 @@ many of the utlities in Bootstrap, so undoing it here.*/
 :host {
   width: 100%;
 }
-.car{
+.car {
   text-align: right;
 }
 .header {
-  background-size:cover;
+  background-size: cover;
   /*background-image: url('../../../assets/images/stars_1.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);*/
   background-repeat: no-repeat;
 }
-.font{
+.font {
   font-family: 'Cornerstone', sans-serif;
 }
 #hackpsu-logo {
   margin-top: 30px;
-  max-width: 55%;
+  max-width: 70%;
   margin-bottom: 10px;
 }
 
@@ -48,17 +48,17 @@ many of the utlities in Bootstrap, so undoing it here.*/
   width: 100%;
 }
 
-#rules li{
+#rules li {
   padding: 0 10px;
   font-weight: bold;
 }
-.left-side{
+.left-side {
   /* background:#9FC2CC; */
   display: inline-block;
   font-size: 1em;
   margin: 10px 0;
 }
-.right-side{
+.right-side {
   /* text-align: right; */
   font-size: 1em;
   /* background-color: #6FA7B3; */
@@ -121,7 +121,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 
 /* TABLETS ONLY */
 /* if the screen is 1219 or less AND 415 or more */
-@media screen and (max-width: 1219px) and (min-width:415px){
+@media screen and (max-width: 1219px) and (min-width: 768px) {
   #countdown-timer .unit {
     display: inline-block;
     text-align: center;
@@ -157,29 +157,28 @@ many of the utlities in Bootstrap, so undoing it here.*/
     color: white;
     margin: 10px 0;
   }
-  .second-res{
-    padding-left:10px
+  .second-res {
+    padding-left: 10px;
   }
 }
 
 .submit-btn {
-  height:        auto;
+  height: auto;
   width: 500px;
-  background:    black;
-  border:        solid 8px rgba(170, 202, 204, 0.6);
+  background: black;
+  border: solid 8px rgba(170, 202, 204, 0.6);
   border-radius: 50px;
   margin-bottom: 2vh;
   line-height: 9vh;
   font-size: 1.5rem;
-
 }
 .submit-btn-text {
   white-space: pre-line;
-  width:100%;
+  width: 100%;
 }
 
 /* responsive text for submit project button */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 768px) {
   .text-res {
     font-size: 1.1rem;
     line-height: 5vh;
@@ -192,24 +191,24 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 th {
-    vertical-align: middle;
-    text-align: center;
+  vertical-align: middle;
+  text-align: center;
 }
 
 td {
-    vertical-align: top;
+  vertical-align: top;
 }
 
 .leader {
-    border-radius:50%;
-    height:10vh;
-    margin-right:3vh;
-    margin-top:auto;
-    margin-bottom:auto;
+  border-radius: 50%;
+  height: 10vh;
+  margin-right: 3vh;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .section-title {
-  margin-top: 1.5vh;;
+  margin-top: 1.5vh;
   margin-bottom: 1.5vh;
   text-align: center;
 }
@@ -224,19 +223,19 @@ td {
 .section-separator-bar {
   height: 5vh;
   width: 100%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  box-shadow: 0 -1px -3px rgba(0,0,0,0.12), 0 -1px -2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 -1px -3px rgba(0, 0, 0, 0.12), 0 -1px -2px rgba(0, 0, 0, 0.24);
 
   z-index: 500;
   position: relative;
-  background: #005E2A;
+  background: #005e2a;
 }
 
 .header-text {
   font-family: 'Cornerstone', sans-serif;
-  font-size:   2.0em;
+  font-size: 2em;
   line-height: 100%;
-  margin-top:  25px;
+  margin-top: 25px;
   white-space: initial;
 }
 
@@ -246,10 +245,15 @@ td {
 }
 
 .header-bar {
-  width:  40%;
+  width: 40%;
   height: 5px;
-  background-color: #6C88B7;
+  background-color: #6c88b7;
   margin: auto;
+}
+
+.header-details {
+  font-size: 1.25em;
+  margin-top: 17px;
 }
 
 .section-title-letter {
@@ -282,14 +286,14 @@ td {
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:focus,
 .nav-tabs.nav-justified > .active > a:hover {
-  background-color: #6FA7B3;
+  background-color: #6fa7b3;
   color: white;
 }
 
 /* FAQ */
 .question-container {
   margin-top: 10px;
-  padding:    0 10%;
+  padding: 0 10%;
 }
 
 @media screen and (max-width: 768px) {
@@ -300,54 +304,53 @@ td {
 
 .question i {
   padding-right: 5px;
-  color:        #C94331;
+  color: #c94331;
 }
 
 .icon-rotate {
-  transition:   all 0.3s;
+  transition: all 0.3s;
 }
 .icon-rotate.right-rotate {
   -webkit-transform: rotate(45deg);
-  -moz-transform:    rotate(45deg);
-  -ms-transform:     rotate(45deg);
-  -o-transform:      rotate(45deg);
-  transform:         rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .question {
-  background:     #E1E9EA;
-  border:       solid 1px #297284;
-  border-radius:  7px 7px 7px 7px;
-  color:      #004D6D;
+  background: #e1e9ea;
+  border: solid 1px #297284;
+  border-radius: 7px 7px 7px 7px;
+  color: #004d6d;
   text-align: left;
-  padding:    10px;
-  cursor:     hand;
-  font-size:  large;
+  padding: 10px;
+  cursor: hand;
+  font-size: large;
 }
 
 .faq-answer {
-  color:       white;
-  display:     none;
+  color: white;
+  display: none;
   font-weight: lighter;
-  font-size:   medium;
-  margin:      0 4%;
-  text-align:  left;
+  font-size: medium;
+  margin: 0 4%;
+  text-align: left;
   padding-bottom: 4%;
 }
 
 .faq-answer a {
-  color:              #99C4CC;
+  color: #99c4cc;
   -webkit-transition: all 0.5s;
-  -moz-transition:    all 0.5s;
-  -ms-transition:     all 0.5s;
-  -o-transition:      all 0.5s;
-  transition:         all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .faq-answer a:hover {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.5);
 }
-
 
 .info-title {
   font-size: large;
@@ -374,9 +377,9 @@ td {
 
 #info li .active {
   background-color: #255a8f;
-  color: white
+  color: white;
 }
-.wrksp-req{
+.wrksp-req {
   text-align: left;
 }
 .info-card {
@@ -410,25 +413,26 @@ td {
 }
 
 .info-list a {
-  color: #D0EAF1;
+  color: #d0eaf1;
 }
 
 /* Workshop stuff*/
 #workshop-container {
   position: relative;
   text-align: center;
-  font-family: "Lato", "Helvetica", sans-serif;
+  font-family: 'Lato', 'Helvetica', sans-serif;
 }
 
 .workshop-track {
-  font-family: "Cornerstone", sans-serif;
+  font-family: 'Cornerstone', sans-serif;
   font-size: 1.75em;
   font-weight: bold;
   background-color: #e5704c;
   border: 5px solid #e5704c;
   border-width: 9px 20px 5px 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .nopadding {
@@ -440,28 +444,28 @@ td {
 }
 
 .beginner {
-  background: #6FA7B3;
-  border-color: #6FA7B3;
-  vertical-align:middle;
+  background: #6fa7b3;
+  border-color: #6fa7b3;
+  vertical-align: middle;
 }
 
 .intermediate {
-  background: #1D5B7C;
-  border-color: #1D5B7C;
-  vertical-align:middle;
+  background: #1d5b7c;
+  border-color: #1d5b7c;
+  vertical-align: middle;
 }
 
 .advanced {
   background: #15425f;
   border-color: #15425f;
-  vertical-align:middle;
+  vertical-align: middle;
   color: #ffffff;
 }
 
 .sponsored {
   background: #103247;
   border-color: #103247;
-  vertical-align:middle;
+  vertical-align: middle;
   color: #ffffff;
 }
 /* End workshop stuff */
@@ -505,14 +509,14 @@ footer {
 }
 
 .boxed-text {
-  border: 5px solid #6C88B7;
+  border: 5px solid #6c88b7;
   border-radius: 15px;
 }
 
 .design-prompt-box {
-  border: 5px solid #6C88B7;
+  border: 5px solid #6c88b7;
   border-radius: 10px;
-  background-color: #194E6B;
+  background-color: #194e6b;
 }
 .design-prompt p {
   font-family: 'Cornerstone', sans-serif !important;
@@ -572,17 +576,16 @@ footer {
   font-family: 'Raleway', sans-serif;
 }
 
-
 .card {
-border-radius: 10px;
-padding:20px;
-  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  border-radius: 10px;
+  padding: 20px;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
 
 .card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card .card-reveal {
@@ -593,7 +596,6 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   max-height: 100% !important;
   overflow: visible;
   align: center;
-
 
   margin-left: auto;
   margin-right: auto;
@@ -606,8 +608,6 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
   border-radius: 50%;
   display: inline;
   margin-bottom: 10px;
-
-
 }
 
 .card-title {
@@ -651,7 +651,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 .activator {
   cursor: pointer;
 }
-#workshop-container .card .card-content{
+#workshop-container .card .card-content {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -719,7 +719,7 @@ and make images go away. */
 }
 
 .update-paginator /deep/ .ngx-pagination a {
-  color: white
+  color: white;
 }
 
 #particles-js {
@@ -737,43 +737,87 @@ and make images go away. */
   position: relative;
 }
 
-#planet-1, #planet-3, #planet-5 {
+#planet-blue,
+#planet-orange,
+#planet-pink {
   position: absolute;
   z-index: -1;
   width: 10vw;
+}
 
-  @media screen and (max-width: $md-break) {
+@media screen and (max-width: 768px) {
+  #planet-blue,
+  #planet-orange,
+  #planet-pink {
     width: 20vw;
+  }
+
+  #planet-orange {
+    top: 0 !important;
+  }
+
+  #planet-blue {
+    top: 8em !important;
+  }
+
+  #planet-pink {
+    top: 12em !important;
   }
 }
 
 /* blue planet */
-#planet-1 {
+#planet-blue {
   top: 6em;
   left: 12%;
-
-  @media screen and (max-width: $md-break) {
-    top: 25em;
-  }
 }
 
 /* orange planet */
-#planet-3 {
+#planet-orange {
   top: -3em;
   left: 39%;
-
-  @media screen and (max-width: $md-break) {
-    top: 20em;
-  }
 }
 
 /* pink planet */
-#planet-5 {
+#planet-pink {
   top: 14em;
   right: 15%;
+}
 
-  @media screen and (max-width: $md-break) {
-    top: 40em;
-    left: 30%;
+/* ====================== MOBILE FIXES ==================== */
+
+.time-label {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .time-label {
+    margin: 0 auto 0 1em;
+    font-size: 18px;
+  }
+
+  #countdown-timer .font {
+    font-size: 20px;
+  }
+
+  #countdown-timer .row {
+    margin-bottom: 0.5em;
+  }
+
+  .number {
+    margin-left: auto;
+  }
+
+  #hackpsu-logo {
+    margin-bottom: 2em !important;
+    max-width: 80%;
+  }
+
+  .header-text {
+    font-size: 48px;
   }
 }

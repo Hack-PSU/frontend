@@ -6,53 +6,41 @@ import { AppConstants } from '../../AppConstants';
 import { Registration, RegistrationApiResponse } from '../../models/registration';
 import { AuthService } from '../AuthService/auth.service';
 import { Hackathon } from '../../models/hackathon';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress } from 'ngx-progressbar';
 import { CustomErrorHandlerService } from '../CustomErrorHandler/custom-error-handler.service';
 import { Rsvp } from '../../models/rsvp';
 import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
-import { EventModel } from "../../models/event-model";
-import { ProjectModel } from "../../models/project-model";
-import { ExtraCreditClass } from "../../models/extra-credit-class";
+import { EventModel } from '../../models/event-model';
+import { ProjectModel } from '../../models/project-model';
+import { ExtraCreditClass } from '../../models/extra-credit-class';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
-
-  constructor(http: HttpClient,
-              authService: AuthService,
-              errorHandler: CustomErrorHandlerService,
-              ngProgress: NgProgress,
+  constructor(
+    http: HttpClient,
+    authService: AuthService,
+    errorHandler: CustomErrorHandlerService,
+    ngProgress: NgProgress
   ) {
     super(http, authService, errorHandler, ngProgress);
   }
 
   getUpdatesReference(): Observable<string> {
     const API_ENDPOINT = 'live/updates/reference';
-    return this.get(API_ENDPOINT)
-      .pipe(
-        map(object => object.reference),
-      );
+    return this.get(API_ENDPOINT).pipe(map((object: any) => object.reference));
   }
 
   getRegistrationStatus(): Observable<RegistrationApiResponse> {
     const API_ENDPOINT = 'users/register';
-    return this.get(API_ENDPOINT, true, true, true)
-      .pipe(
-        map(registrations => registrations.find(registration => registration.active)),
-        map(RegistrationApiResponse.parseJSON),
-      );
+    return this.get(API_ENDPOINT, true, true, true).pipe(
+      map((registrations: any[]) => registrations.find((registration) => registration.active)),
+      map(RegistrationApiResponse.parseJSON)
+    );
   }
 
   getCurrentHackathon(): Observable<Hackathon> {
     const API_ENDPOINT = 'users/hackathon/active';
-    return this.get(API_ENDPOINT)
-      .pipe(
-        map(Hackathon.parseJSON),
-      );
-  }
-
-  getTableAssignment() {
-    const API_ENDPOINT = 'users/project';
-    return this.get(API_ENDPOINT);
+    return this.get(API_ENDPOINT).pipe(map(Hackathon.parseJSON));
   }
 
   submitRegistration(submitData: Registration, uid: string) {
@@ -60,7 +48,11 @@ export class HttpService extends BaseHttpService {
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in submitData) {
-      if (submitData.hasOwnProperty(key) && submitData[key] && key !== 'resume') {
+      if (
+        Object.prototype.hasOwnProperty.call(submitData, key) &&
+        submitData[key] &&
+        key !== 'resume'
+      ) {
         formObject.append(key, submitData[key]);
       }
     }
@@ -80,17 +72,18 @@ export class HttpService extends BaseHttpService {
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
         headers = headers.set('idtoken', idToken);
-        return this.http.post<Registration>(AppConstants.API_BASE_URL.concat(API_ENDPOINT),
+        return this.http.post<Registration>(
+          AppConstants.API_BASE_URL.concat(API_ENDPOINT),
           { status },
-          { headers, reportProgress: true });
-      }));
+          { headers, reportProgress: true }
+        );
+      })
+    );
   }
 
   submitAddress(updatedRegistration: Object) {
-    const API_ENDPOINT = 'admin/register/update'
-    return this.post(API_ENDPOINT,
-                    { registration: updatedRegistration },
-                    true)
+    const API_ENDPOINT = 'admin/register/update';
+    return this.post(API_ENDPOINT, { registration: updatedRegistration }, true);
   }
 
   getCategories() {
@@ -103,7 +96,11 @@ export class HttpService extends BaseHttpService {
     const formObject: FormData = new FormData();
     formObject.append('uid', uid);
     for (const key in travelForm) {
-      if (travelForm.hasOwnProperty(key) && travelForm[key] !== null && key !== 'receipt') {
+      if (
+        Object.prototype.hasOwnProperty.call(travelForm, key) &&
+        travelForm[key] !== null &&
+        key !== 'receipt'
+      ) {
         formObject.append(key, travelForm[key]);
       }
     }
@@ -113,65 +110,44 @@ export class HttpService extends BaseHttpService {
     return this.post(API_ENDPOINT, formObject);
   }
 
-  submitTableAssignment(tableForm: any) {
-    const API_ENDPOINT = 'users/project';
-    return this.post(API_ENDPOINT, tableForm);
-  }
-
   getRsvpStatus(): Observable<Rsvp> {
     const API_ENDPOINT = 'users/rsvp';
-    return this.get(API_ENDPOINT)
-      .pipe(
-        map(Rsvp.parseJSON),
-      );
+    return this.get(API_ENDPOINT).pipe(map(Rsvp.parseJSON));
   }
 
   getEvents() {
     const API_ENDPOINT = 'live/events';
-    return this.get(API_ENDPOINT, false, false)
-      .pipe(
-        map(EventModel.parseFromJSONArray),
-      );
+    return this.get(API_ENDPOINT, false, false).pipe(map(EventModel.parseFromJSONArray));
   }
 
   getProjectDetails() {
     const API_ENDPOINT = 'users/project';
-    return this.get(API_ENDPOINT, false, true)
-      .pipe(
-        map(ProjectModel.parseFromJSON),
-      )
+    return this.get(API_ENDPOINT, false, true).pipe(map(ProjectModel.parseFromJSON));
   }
 
   getExtraCreditClasses() {
     const API_ENDPOINT = 'users/extra-credit';
-    return this.get(API_ENDPOINT, false, true, true)
-      .pipe(
-        map((classes: any[]) => classes.map(c => ExtraCreditClass.parseJSON(c))),
-      );
+    return this.get(API_ENDPOINT, false, true, true).pipe(
+      map((classes: any[]) => classes.map((c) => ExtraCreditClass.parseJSON(c)))
+    );
   }
 
   registerExtraCreditClass(c: string) {
     const API_ENDPOINT = 'users/extra-credit';
-    return this.post(
-      API_ENDPOINT,
-      { cid: c},
-      true,
-    )
+    return this.post(API_ENDPOINT, { cid: c }, true);
   }
 
   getUserRegistrations() {
     const API_ENDPOINT = 'users/register';
-    return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true)
-      .pipe(
-        map(regs => regs.map(RegistrationApiResponse.parseJSON)),
-      );
+    return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true).pipe(
+      map((regs) => regs.map(RegistrationApiResponse.parseJSON))
+    );
   }
 
   getHackathons() {
     const API_ENDPOINT = 'admin/hackathon';
-    return this.get<Hackathon[]>(API_ENDPOINT, false, true, true)
-      .pipe(
-        map(hackathons => hackathons.map(h => Hackathon.parseJSON(h))),
-      )
+    return this.get<Hackathon[]>(API_ENDPOINT, false, true, true).pipe(
+      map((hackathons) => hackathons.map((h) => Hackathon.parseJSON(h)))
+    );
   }
 }

@@ -4,33 +4,51 @@
   <!-- Main Form -->
   <div class="row">
     <form #loginForm="ngForm" (ngSubmit)="signUp()" id="login-form" class="col-12">
-        <div class="login-group">
-          <div class="form-group input-field">
-            <input type="email" required class="validate" id="lg_username"
-                   autocomplete="email" name="lg_username"
-                   (blur)="onEmailEntered(emailBox.value)"
-                   #emailBox
-                   placeholder="yourname@email.com" [(ngModel)]="email">
-            <label for="lg_username" data-error="Enter valid email">Email</label>
-          </div>
-          <div class="form-group input-field">
-            <label for="lg_password">Password</label>
-            <input type="password" required class="form-control validate" id="lg_password"
-                   autocomplete="current-password" name="lg_password"
-                   placeholder="Password" [(ngModel)]="password">
-          </div>
+      <div class="login-group">
+        <div class="form-group input-field">
+          <input
+            type="email"
+            required
+            class="validate"
+            id="lg_username"
+            autocomplete="email"
+            name="lg_username"
+            (blur)="onEmailEntered(emailBox.value)"
+            #emailBox
+            placeholder="yourname@email.com"
+            [(ngModel)]="email"
+          />
+          <label for="lg_username" data-error="Enter valid email">Email</label>
         </div>
-        <div class="row">
-          <div class="col">
-            <a class="btn" href="/login">BACK</a>
-          </div>
-          <div class="col">
-            <button [disabled]="!loginForm.valid || progressBar.isStarted()" class="btn waves-effect waves-light"
-                    type="submit"
-                    name="action">Submit
-            </button>
-          </div>
+        <div class="form-group input-field">
+          <label for="lg_password">Password</label>
+          <input
+            type="password"
+            required
+            class="form-control validate"
+            id="lg_password"
+            autocomplete="current-password"
+            name="lg_password"
+            placeholder="Password"
+            [(ngModel)]="password"
+          />
         </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a class="btn" href="/login">BACK</a>
+        </div>
+        <div class="col">
+          <button
+            [disabled]="!loginForm.valid || progressBar.ref().isStarted"
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
     </form>
     <div class="row">
       <p class="text-center">Alternately, sign in with</p>
@@ -40,6 +58,9 @@
         </a>
         <a class="btn btn-block btn-social btn-google" (click)="loginGithub()">
           <span class="fa fa-github"></span>
+        </a>
+        <a class="btn btn-block btn-social btn-apple" (click)="loginApple()" title="Apple">
+          <span class="fa fa-apple"></span>
         </a>
       </div>
     </div>

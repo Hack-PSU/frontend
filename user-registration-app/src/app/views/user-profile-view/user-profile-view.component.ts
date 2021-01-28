@@ -1,178 +1,138 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "firebase";
-import { AuthService } from "../../services/AuthService/auth.service";
-import { transition, trigger, useAnimation } from "@angular/animations";
-import { fadeInDown, fadeOutUp } from "ng-animate";
-import { NgProgress } from "@ngx-progressbar/core";
-import { finalize, switchMap } from "rxjs/operators";
-import { AlertService } from "ngx-alerts";
-import {RegistrationApiResponse} from "../../models/registration";
-import {HttpService} from "../../services/HttpService/HttpService";
+import app from 'firebase/app';
+import { NgProgress } from 'ngx-progressbar';
+import { finalize, switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/AuthService/auth.service';
+import { RegistrationApiResponse } from '../../models/registration';
+import { HttpService } from '../../services/HttpService/HttpService';
 import { Hackathon } from '../../models/hackathon';
 
 @Component({
   selector: 'app-user-profile-view',
   templateUrl: './user-profile-view.component.html',
   styleUrls: ['./user-profile-view.component.css'],
-  animations: [
-    trigger(
-      'fadeIn', [
-        transition(
-          ':enter',
-          useAnimation(fadeInDown, { params: { timing: 0.25 } })
-        ),
-        transition(
-          ':leave',
-          useAnimation(fadeOutUp, { params: { timing: 0.25 } })
-        )
-      ],
-    )
-  ],
 })
 export class UserProfileViewComponent implements OnInit {
   private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
-  private emailEditToggled: boolean;
-  private passwordEditToggled: boolean;
-  private nameEditToggled: boolean;
-  public currentPin: string;
-  public i: number;
-  registrations: RegistrationApiResponse[];
   currentHackathon: Hackathon;
+  currentPin = "No active pin! Don't forget to register!";
 
-  constructor(public authService: AuthService, private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
-    
-  }
+  constructor(
+    public authService: AuthService,
+    public httpService: HttpService,
+    public progressService: NgProgress,
+    public toastrService: ToastrService
+  ) {}
 
   ngOnInit() {
-    this.emailEditToggled = false;
-    this.passwordEditToggled = false;
-    this.nameEditToggled = false;
-    const regObservable = this.httpService.getUserRegistrations()
-    .subscribe(registrations => {
-      this.registrations = registrations;
-      regObservable.unsubscribe();
-      this.getCurrentPin();
-    }, ({ error }) => {
-      if (error.status === 404) {
-        this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
-      }
-    });
-    const hackObservable = this.httpService.getHackathons()
-      .subscribe(hackathons => {
-          hackathons.forEach((hackathon: Hackathon) => {
-            if (hackathon.active) {
-              this.currentHackathon = hackathon;
-              hackObservable.unsubscribe();
-            } 
+    const regObservable = this.httpService.getUserRegistrations().subscribe(
+      (registrations: RegistrationApiResponse[]) => {
+        registrations.forEach((registration) => {
+          if (registration.hackathon.active) {
+            this.currentPin = registration.pin.toString();
+          }
         });
-      }, ({ error }) => {
-        if (error.status == 404) {
-          this.alertsService.info('No hackathons retrieved');
+        regObservable.unsubscribe();
+      },
+      ({ error }) => {
+        if (error && error.status === 404) {
+          this.toastrService.info(
+            'You have not registered for a hackathon yet. We could not find any data for you'
+          );
+        } else {
+          this.toastrService.error('Something has gone terribly wrong');
         }
-      })
-      this.currentPin = "No active pin! Don't forget to register!";
-      this.getCurrentPin();
-  };
-  
-
-  getCurrentPin(){
-    for(this.i = 0;this.registrations.length;this.i ++){
-      if(this.registrations[this.i].hackathon.active){
-        this.currentPin = (String)(this.registrations[this.i].pin);
       }
-    }  
+    );
+    const hackObservable = this.httpService.getHackathons().subscribe(
+      (hackathons: Hackathon[]) => {
+        hackathons.forEach((hackathon) => {
+          if (hackathon.active) {
+            this.currentHackathon = hackathon;
+            hackObservable.unsubscribe();
+          }
+        });
+      },
+      ({ error }) => {
+        if (error && error.status === 404) {
+          this.toastrService.info('No hackathons retrieved');
+        }
+      }
+    );
   }
 
-  public getUserPhotoUrl(user: User | null) {
-    if (!user.photoURL) {
-      return UserProfileViewComponent.DEFAULT_PROFILE_URL;
-    }
-    return user.photoURL;
-  }
-
-  editEmail() {
-    this.emailEditToggled = true;
-  }
-
-  editPassword() {
-    this.passwordEditToggled = true;
-  }
-
-  editName() {
-    this.nameEditToggled = true;
+  public getUserPhotoUrl(user: app.User | null) {
+    return user.photoURL || UserProfileViewComponent.DEFAULT_PROFILE_URL;
   }
 
   submitNewName(value: string) {
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap((user) => {
-          return user.updateProfile({ displayName: value, photoURL: user.photoURL });
-        }),
+        switchMap((user) => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
         finalize(() => {
-          this.progressService.complete();
-          this.nameEditToggled = false;
-        }),
-      ).subscribe(() => {
-        this.alertsService.info('Successfully changed display name');
-        observable.unsubscribe();
-      }, (error) => {
-        console.error(error);
-        this.alertsService.danger('Something went wrong. Try again');
-        observable.unsubscribe();
-        return undefined;
-      });
+          this.progressService.ref().complete();
+        })
+      )
+      .subscribe(
+        () => {
+          this.toastrService.info('Successfully changed display name');
+          observable.unsubscribe();
+        },
+        (error) => {
+          console.error(error);
+          this.toastrService.error('Something went wrong. Try again');
+          observable.unsubscribe();
+        }
+      );
   }
 
   submitNewEmail(value: string) {
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap((user) => {
-          return user.updateEmail(value);
-        }),
-        finalize(() => {
-          this.progressService.complete();
-          this.nameEditToggled = false;
-        }),
-      ).subscribe(() => {
-        this.alertsService.info('Successfully changed display name');
-        observable.unsubscribe();
-      }, (error) => {
-        console.error(error);
-        this.alertsService.danger(error.message);
-        observable.unsubscribe();
-        return undefined;
-      });
+        switchMap((user) => user.updateEmail(value)),
+        finalize(() => this.progressService.ref().complete())
+      )
+      .subscribe(
+        () => {
+          this.toastrService.info('Successfully changed display name');
+          observable.unsubscribe();
+        },
+        (error) => {
+          console.error(error);
+          this.toastrService.error(error.message);
+          observable.unsubscribe();
+        }
+      );
   }
 
-  submitNewPassword(value1: string, value2: string) {
-    if (value1.length === 0 || value2.length === 0) {
-      this.alertsService.danger('Password not entered');
+  submitNewPassword(newPassword: string, confirmedPassword: string) {
+    if (newPassword.length === 0 || confirmedPassword.length === 0) {
+      this.toastrService.error('Password not entered');
       return;
     }
-    if (value1 !== value2) {
-      this.alertsService.danger('Passwords do not match');
+    if (newPassword !== confirmedPassword) {
+      this.toastrService.error('Passwords do not match');
       return;
     }
-    this.progressService.start();
+    this.progressService.ref().start();
     const observable = this.authService.currentUser
       .pipe(
-        switchMap((user) => {
-          return user.updatePassword(value1);
-        }),
-        finalize(() => {
-          this.progressService.complete();
-          this.nameEditToggled = false;
-        }),
-      ).subscribe(() => {
-        this.alertsService.info('Successfully changed display name');
-        observable.unsubscribe();
-      }, (error) => {
-        console.error(error);
-        this.alertsService.danger(error.message);
-        observable.unsubscribe();
-        return undefined;
-      });
+        switchMap((user) => user.updatePassword(newPassword)),
+        finalize(() => this.progressService.ref().complete())
+      )
+      .subscribe(
+        () => {
+          this.toastrService.info('Successfully changed display name');
+          observable.unsubscribe();
+        },
+        (error) => {
+          console.error(error);
+          this.toastrService.error(error.message);
+          observable.unsubscribe();
+        }
+      );
   }
 }

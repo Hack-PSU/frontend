@@ -1,55 +1,83 @@
 <div class="wrapper">
-  <ng-progress [color]="'#4286f4'" [trickleSpeed]="300" [spinner]="false" [thick]="true" [ease]="'easeOutExpo'">
-  </ng-progress>
+  <ng-progress
+    [color]="'#4286f4'"
+    [trickleSpeed]="300"
+    [spinner]="false"
+    [thick]="true"
+    [ease]="'easeOutExpo'"
+  ></ng-progress>
 
-  <div class="row">   
+  <div class="row">
     <div class="navbar-fixed">
       <nav>
         <!-- MLH Badge -->
         <!-- Will only appear on the livesite on xl screens -->
-        <div class="col-md-1 d-none d-xl-block" *ngIf="router.url === '/live'">
-          <a id="mlh-trust-badge"
-            style="display:block;max-width:100px;min-width:60px;position:fixed;left:10px;top:0px;width:10%;z-index:1;"
+        <div class="col-md-1 d-none d-xl-block" *ngIf="isOnLiveSite()">
+          <a
+            id="mlh-trust-badge"
+            style="
+              display: block;
+              max-width: 100px;
+              min-width: 60px;
+              position: fixed;
+              left: 10px;
+              top: 0px;
+              width: 10%;
+              z-index: 1;
+            "
             href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=white"
-            target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
-              alt="Major League Hacking 2020 Hackathon Season" style="width:100%"></a>
+            target="_blank"
+            ><img
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
+              alt="Major League Hacking 2020 Hackathon Season"
+              style="width: 100%"
+          /></a>
         </div>
-        <div class="nav-wrapper" [ngClass]="{'navbar-mlh-hotfix': router.url === '/live'}" style="width: 95%;">
-          <a href="http://hackpsu.org" class="brand-logo"> <img src="../assets/images/logo.svg" alt="hackpsulogo"> </a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="nav-wrapper" [ngClass]="{ 'navbar-mlh-hotfix': isOnLiveSite() }">
+          <a href="http://hackpsu.org" class="brand-logo">
+            <img src="../assets/images/logo.svg" alt="hackpsulogo" />
+          </a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"
+            ><i class="material-icons">menu</i></a
+          >
           <ul class="left hide-on-med-and-down">
-            <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-            <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
-            <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
-            <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
-            <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#schedule">SCHEDULE</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#map-rules">INFO</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
             <li *ngIf="DateGuard.validateDate()">
-              <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">
-                {{router.url === '/live' ? 'REGISTER' : 'LIVE'}}
+              <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">
+                {{ isOnLiveSite() ? 'REGISTER' : 'LIVE' }}
               </a>
             </li>
-            <!--<li *ngIf="router.url === '/live'">-->
+            <!--<li *ngIf="isOnLiveSite()">-->
             <!--<a class="dropdown-button" href="#!" data-activates="dropdown1">OTHER-->
             <!--<i class="material-icons right" style="width: 5vw;">arrow_drop_down-->
             <!--</i>-->
             <!--</a>-->
             <!--</li>-->
-            </ul>
-            <ul class="right hide-on-med-and-down">
-              <app-user-view></app-user-view>
-            </ul>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <app-user-view></app-user-view>
+          </ul>
         </div>
       </nav>
     </div>
-    <ul class="side-nav" *ngIf="DateGuard.validateDate()" id="mobile-demo" style="transform: translateX(-100%);">
-      <li *ngIf="router.url === '/live'" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-      <li *ngIf="router.url === '/live'" class="scroller"><a href="#updates">UPDATES</a></li>
-      <li *ngIf="router.url === '/live'" class="scroller"><a href="#map-rules">INFO</a></li>
-      <li *ngIf="router.url === '/live'" class="scroller"><a href="#prizes">PRIZES</a></li>
-      <li *ngIf="router.url === '/live'" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+    <ul
+      class="side-nav"
+      *ngIf="DateGuard.validateDate()"
+      id="mobile-demo"
+      style="transform: translateX(-100%)"
+    >
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#schedule">SCHEDULE</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#updates">UPDATES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#map-rules">INFO</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#prizes">PRIZES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
       <li *ngIf="DateGuard.validateDate()">
-        <a routerLink="{{router.url === '/live' ? '/register' : '/live'}}">{{router.url === '/live' ? 'REGISTER' :
-        'LIVE'}}</a>
+        <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">{{
+          isOnLiveSite() ? 'REGISTER' : 'LIVE'
+        }}</a>
       </li>
       <!--<li *ngIf="router.url !== '/register'">-->
       <!--<a class="dropdown-button" href="#!" data-activates="dropdown1-mobile">OTHER-->
@@ -77,4 +105,3 @@
   <li><a routerLink="/travel">Travel Reimbursement</a></li>
   <li><a routerLink="/table">Table Assignment</a></li>
 </ul>
-<ngx-alerts></ngx-alerts>

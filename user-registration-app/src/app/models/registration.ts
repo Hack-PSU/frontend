@@ -1,5 +1,4 @@
-import { Hackathon } from "./hackathon";
-import { Url } from "url";
+import { Hackathon } from './hackathon';
 
 export class Registration {
   public firstName: string;
@@ -33,7 +32,7 @@ export class Registration {
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
-  public uid: string
+  public uid: string;
   public time: number;
 
   constructor() {
@@ -56,22 +55,22 @@ export class Registration {
     this.mlhdcp = null;
     this.ethnicity = null;
     this.ethnicities = {
-      "native": false,
-      "asian": false,
-      "african": false,
-      "latinx": false,
-      "pacific": false,
-      "caucasian": false,
-      "noDisclose": false
+      native: false,
+      asian: false,
+      african: false,
+      latinx: false,
+      pacific: false,
+      caucasian: false,
+      noDisclose: false,
     };
-    this.address = "";
+    this.address = '';
     this.addressFields = {
-      "addressLine1": "",
-      "addressLine2": "",
-      "city": "",
-      "stateProvince": "",
-      "zipcode": "",
-      "country": ""
+      addressLine1: '',
+      addressLine2: '',
+      city: '',
+      stateProvince: '',
+      zipcode: '',
+      country: '',
     };
     this.shareAddressMlh = false;
     this.shareAddressSponsors = false;
@@ -84,16 +83,11 @@ export class Registration {
     this.hackathon = null;
   }
 
-  private static parseHackathon(value: any): string{
-    value.hackathon = Hackathon.parseJSON(value);
-    return value.hackathon;
-  }
-
   hasExistingResume(): boolean {
     return this.resume instanceof URL;
   }
 
-  public static parseFromApiResponse(value: RegistrationApiResponse) : Registration{
+  public static parseFromApiResponse(value: RegistrationApiResponse): Registration {
     const registration = new Registration();
     registration.address = value.address;
     registration.firstName = value.firstname;
@@ -120,9 +114,9 @@ export class Registration {
     registration.expectations = value.expectations;
     registration.veteran = value.veteran;
     registration.submitted = value.submitted;
-    registration.hackathon = this.parseHackathon(registration);
+    registration.hackathon = Hackathon.parseJSON(registration).uid;
     registration.pin = value.pin.toString();
-    registration.uid = value.uid
+    registration.uid = value.uid;
     registration.time = Date.now();
     return registration;
   }
@@ -188,7 +182,7 @@ export class RegistrationApiResponse {
   project: string | null;
   race: string | null;
   referral: string | null;
-  resume: Url | null;
+  resume: URL | null;
   shirt_size: string;
   start_time: string;
   submitted: boolean;
@@ -211,7 +205,7 @@ export class RegistrationApiResponse {
     const registration = new RegistrationApiResponse();
     registration.firstname = value.firstname;
     registration.lastname = value.lastname;
-    registration.address = value.address
+    registration.address = value.address;
     registration.gender = value.gender;
     registration.email = value.email;
     registration.eighteenBeforeEvent = !!value.eighteenBeforeEvent;

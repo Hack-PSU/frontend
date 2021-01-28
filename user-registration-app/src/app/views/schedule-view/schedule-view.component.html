@@ -3,42 +3,64 @@
     <div class="col-md-6">
       <span class="schedule-title">ACTIVITIES</span>
       <div class="row event-row activity">
-        <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)"
-             id="event_key-{{activity.uid}}" class="event"
-             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)">
+        <div
+          *ngFor="let activity of activities | limitTo: activitiesViewNum"
+          id="event_key-{{ activity.uid }}"
+          class="event"
+          [attr.start_time]="getStartTime(activity)"
+          [attr.end_time]="getEndTime(activity)"
+        >
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <div class="event-day-title center">{{getEventDay(activity)}}</div>
+                <div class="event-day-title center">{{ getEventDay(activity) }}</div>
               </div>
             </div>
             <div class="row">
               <div class="col-6 nopadding">
                 <div class="event-time">
-                  {{getStartTime(activity)}} - {{getEndTime(activity)}}
+                  {{ getStartTime(activity) }} - {{ getEndTime(activity) }}
                 </div>
               </div>
               <div class="col-6">
-                <div class="event-title right">{{activity.event_title}}</div>
+                <div class="event-title right">{{ activity.event_title }}</div>
                 <div class="event-description"></div>
               </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-6">
-                <button class="event-btn" (click)="openZoomLink(activity.location_name)">
+                <button
+                  *ngIf="isZoomLink(activity.location_name)"
+                  class="event-btn"
+                  (click)="openZoomLink(activity.location_name)"
+                >
                   Join Via Zoom
+                </button>
+                <button
+                  *ngIf="isLink(activity.location_name) && !isZoomLink(activity.location_name)"
+                  class="event-btn"
+                  (click)="openZoomLink(activity.location_name)"
+                >
+                  Join
                 </button>
               </div>
               <div class="col-6">
-                <button class="event-btn" [attr.data-target]="'#event_key-'+activity.uid+'-modal'" data-toggle="modal">
+                <button
+                  class="event-btn"
+                  [attr.data-target]="'#event_key-' + activity.uid + '-modal'"
+                  data-toggle="modal"
+                >
                   Details
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <button *ngIf="activitiesViewNum < activities.length"
-                class="btn btn-flat white-text transparent" (click)="showMore('activities')">
+        <button
+          *ngIf="activitiesViewNum < activities.length"
+          class="btn btn-flat white-text transparent"
+          (click)="showMore('activities')"
+        >
           Show more
         </button>
       </div>
@@ -91,39 +113,46 @@
     </div>
     -->
 
-
     <div class="col-md-6">
       <span class="schedule-title">WORKSHOPS</span>
       <div class="row event-row workshops">
-        <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)"
-             id="event_key-{{activity.uid}}" class="event"
-             [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)">
+        <div
+          *ngFor="let activity of workshops | limitTo: workshopsViewNum"
+          id="event_key-{{ activity.uid }}"
+          class="event"
+          [attr.start_time]="getStartTime(activity)"
+          [attr.end_time]="getEndTime(activity)"
+        >
           <ng-container>
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
-                  <div class="event-day-title center">{{getEventDay(activity)}}</div>
+                  <div class="event-day-title center">{{ getEventDay(activity) }}</div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-6 nopadding">
                   <div class="event-time">
-                    {{getStartTime(activity)}} - {{getEndTime(activity)}}
+                    {{ getStartTime(activity) }} - {{ getEndTime(activity) }}
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="event-title right">{{activity.event_title}}</div>
+                  <div class="event-title right">{{ activity.event_title }}</div>
                   <div class="event-description"></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-6">
                   <button class="event-btn" (click)="openZoomLink(activity.location_name)">
-                    Join Via Zoom
+                    Register Via Zoom
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="event-btn" [attr.data-target]="'#event_key-'+activity.uid+'-modal'" data-toggle="modal">
+                  <button
+                    class="event-btn"
+                    [attr.data-target]="'#event_key-' + activity.uid + '-modal'"
+                    data-toggle="modal"
+                  >
                     Details
                   </button>
                 </div>
@@ -131,8 +160,11 @@
             </div>
           </ng-container>
         </div>
-        <button *ngIf="workshopsViewNum < workshops.length"
-                class="btn btn-flat white-text transparent" (click)="showMore('workshops')">
+        <button
+          *ngIf="workshopsViewNum < workshops.length"
+          class="btn btn-flat white-text transparent"
+          (click)="showMore('workshops')"
+        >
           Show more
         </button>
       </div>
@@ -140,25 +172,33 @@
   </div>
 </div>
 
-<div *ngFor="let event of activities?.concat(meals)?.concat(workshops)" class="modal fade"
-     id="event_key-{{event.uid}}-modal" role="dialog" tabindex="-1" data-backdrop="static">
+<div
+  *ngFor="let event of activities?.concat(meals)?.concat(workshops)"
+  class="modal fade"
+  id="event_key-{{ event.uid }}-modal"
+  role="dialog"
+  tabindex="-1"
+  data-backdrop="static"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content row" role="document">
       <div class="header col-lg-3">
         <div class="modal-header ' + snapshot.type + '">
-          <div class="modal-title">{{event.event_title}}</div>
+          <div class="modal-title">{{ event.event_title }}</div>
         </div>
         <div class="modal-small-screen-hide modal-location-title">
-          <div class="modal-day">{{getEventDay(event)}}</div>
-          <div class="modal-time">{{getStartTime(event)}} - {{getEndTime(event)}}</div>
-          <div class="modal-location">{{event.location_name}}</div>
+          <div class="modal-day">{{ getEventDay(event) }}</div>
+          <div class="modal-time">{{ getStartTime(event) }} - {{ getEndTime(event) }}</div>
+          <div class="modal-location">{{ event.location_name }}</div>
         </div>
       </div>
       <div class="content col-lg-9">
         <div class="modal-body">
           <p [innerHTML]="event.event_description"></p>
         </div>
-        <button type="button" href="" class="close small-screen-hide" data-dismiss="modal">&times;</button>
+        <button type="button" href="" class="close small-screen-hide" data-dismiss="modal">
+          &times;
+        </button>
         <div class="modal-footer large-screen-hide">
           <button type="button" class="btn btn-flat" data-dismiss="modal">Close</button>
         </div>

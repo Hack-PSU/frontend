@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700");
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 /* Application-wide Styles */
 h1 {
   color: #fff;
 }
-h2, h3 {
+h2,
+h3 {
   color: #444;
   font-family: Lato, Helvetica, sans-serif;
   font-weight: lighter;
@@ -47,7 +48,7 @@ p {
 
 .logo {
   margin: 10px 0;
- width: 70px;
+  width: 70px;
 }
 
 .header {
@@ -59,8 +60,8 @@ p {
 
 /* This is used on the livesite when the MLH logo appears on the left side of the screen */
 .navbar-mlh-hotfix {
-  margin-left:auto;
-  margin-right:30px;
+  margin-left: auto;
+  margin-right: 30px;
 }
 
 nav {
@@ -77,13 +78,13 @@ nav .brand-logo {
   margin-top: 2px;
 }
 
-nav img{
+nav img {
   vertical-align: top;
 }
 
 nav ul li {
   line-height: 55px;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 nav .left {
   margin-left: 10vw;
@@ -100,7 +101,8 @@ nav .right {
   }
 }
 
-.dropdown-content li>a, .dropdown-content li>span {
+.dropdown-content li > a,
+.dropdown-content li > span {
   color: #103147;
 }
 
@@ -112,9 +114,19 @@ nav .right {
   background-color: #103147;
 
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .mobile-login-button ::ng-deep .btn {
   margin-top: 0 !important;
+}
+
+.nav-wrapper {
+  width: 95%;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-wrapper {
+    width: 100%;
+  }
 }

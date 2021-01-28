@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../../services/EventService/events.service';
-import { CustomErrorHandlerService, HttpService } from "../../services/services";
-import { EventModel } from "../../models/event-model";
+import { CustomErrorHandlerService, HttpService } from '../../services/services';
+import { EventModel } from '../../models/event-model';
 
 @Component({
   selector: 'app-schedule-view',
   templateUrl: './schedule-view.component.html',
   styleUrls: ['./schedule-view.component.css'],
-  providers: [EventsService],
 })
 export class ScheduleViewComponent implements OnInit {
-
-  private static days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  private static days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
   public activities: EventModel[];
   public activitiesViewNum = 5;
@@ -27,10 +32,10 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getEvents()
-      .subscribe((events: EventModel[]) => {
+    this.httpService.getEvents().subscribe(
+      (events: EventModel[]) => {
         events
-          .filter(activity => parseInt(activity.event_end_time, 10) >= Date.now())
+          .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
           .forEach((event) => {
             switch (event.event_type) {
               case 'activity':
@@ -46,11 +51,12 @@ export class ScheduleViewComponent implements OnInit {
                 break;
             }
           });
-      }, (error) => {
+      },
+      (error) => {
         this.errorHandler.handleHttpError(error);
-      });
+      }
+    );
   }
-
 
   getStartTime(event: EventModel) {
     return new Date(parseInt(event.event_start_time, 10))
@@ -61,11 +67,20 @@ export class ScheduleViewComponent implements OnInit {
   showMore(type: string) {
     switch (type) {
       case 'activities':
-        return this.activitiesViewNum = ScheduleViewComponent.increment(this.activitiesViewNum, this.activities.length);
+        return (this.activitiesViewNum = ScheduleViewComponent.increment(
+          this.activitiesViewNum,
+          this.activities.length
+        ));
       case 'meals':
-        return this.mealsViewNum = ScheduleViewComponent.increment(this.mealsViewNum, this.meals.length);
+        return (this.mealsViewNum = ScheduleViewComponent.increment(
+          this.mealsViewNum,
+          this.meals.length
+        ));
       case 'workshops':
-        return this.workshopsViewNum = ScheduleViewComponent.increment(this.workshopsViewNum, this.workshops.length);
+        return (this.workshopsViewNum = ScheduleViewComponent.increment(
+          this.workshopsViewNum,
+          this.workshops.length
+        ));
     }
   }
 
@@ -89,5 +104,22 @@ export class ScheduleViewComponent implements OnInit {
 
   openZoomLink(link: string) {
     window.open(link, '_blank');
+  }
+
+  // Stole shamelessly from: https://stackoverflow.com/a/43467144
+  isLink(linkString: string): boolean {
+    let url: URL;
+
+    try {
+      url = new URL(linkString);
+    } catch (_) {
+      return false;
+    }
+
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  }
+
+  isZoomLink(linkString: string): boolean {
+    return linkString.includes('zoom') && this.isLink(linkString);
   }
 }
