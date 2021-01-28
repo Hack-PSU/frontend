@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  // Rellax line is needed to have the planet scrolling effects.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let rellax = new Rellax('.rellax');
 
   $('.button-collapse').sideNav();
