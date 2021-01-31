@@ -30,7 +30,7 @@ On error response | @apiError
 
 ## CI
 
-[Powered by ![Vercel Logo](/readme-assets/vercel.png)](https://vercel.com?utm_source=HackPSU&utm_campaign=oss)
+[![Vercel Logo](/website/assets/images/sponsors/powered-by-vercel.svg)](https://vercel.com?utm_source=HackPSU&utm_campaign=oss)
 
 
 This repository is configured for Continuous Integration (CI) with Vercel.
