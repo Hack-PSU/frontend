@@ -101,11 +101,21 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   private validate() {
+    // If address field is empty, fill address with single character,
+    // then revert to an empty string after validation.
+    let hasAddress = true;
+    if (this.registrationForm.address.length == 0) {
+      this.registrationForm.address = '@';
+      hasAddress = false;
+    }
     const result = this.validator(this.registrationForm);
     if (!result) {
       this.validator.errors.map((error) =>
         this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
       );
+    }
+    if (!hasAddress) {
+      this.registrationForm.address = '';
     }
     return result;
   }
