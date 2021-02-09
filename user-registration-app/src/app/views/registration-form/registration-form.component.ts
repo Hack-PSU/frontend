@@ -212,6 +212,7 @@ export class RegistrationFormComponent implements OnInit {
   validateAndSubmit() {
     this.registrationForm.ethnicity = this.consolidateEthnicities();
     this.registrationForm.address = this.consolidateAddress();
+
     if (this.validate() && this.form.valid) {
       this.submit();
     } else {
