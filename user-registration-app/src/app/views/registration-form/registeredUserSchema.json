@@ -19,7 +19,7 @@
     },
     "address": {
       "type": ["string", "null"],
-      "minLength": 1,
+      "minLength": 0,
       "maxLength": 200
     },
     "shareAddressMlh": {
