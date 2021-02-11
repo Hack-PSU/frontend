@@ -53,6 +53,7 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   static getFormattedErrorText(error: Ajv.ErrorObject) {
+    console.log(error.dataPath);
     switch (error.dataPath) {
       case '.firstName':
         return 'Please enter your first name. How will we address you otherwise?';
@@ -170,8 +171,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   submit() {
-    this.registrationForm.ethnicity = this.consolidateEthnicities();
-    this.registrationForm.address = this.consolidateAddress();
     this.progress.ref().start();
     this.authService.currentUser
       .pipe(
@@ -211,6 +210,9 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   validateAndSubmit() {
+    this.registrationForm.ethnicity = this.consolidateEthnicities();
+    this.registrationForm.address = this.consolidateAddress();
+
     if (this.validate() && this.form.valid) {
       this.submit();
     } else {
