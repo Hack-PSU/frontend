@@ -406,6 +406,20 @@
               }
             </style>
 
+            <div *ngFor="let workshop of workshops">
+              <!-- need to filter by skill level -->
+              <app-live-workshop
+                [title]="workshop.event_title"
+                [description]="workshop.event_description"
+                date="need date"
+                time="need time"
+                [link]="workshop.location_name"
+                skills="need skills"
+                collapseID="css/html"
+              >
+              </app-live-workshop>
+            </div>
+
             <app-live-workshop
               title="Intro to CSS/HTML"
               description="An introductory web development course using HTML and CSS.
