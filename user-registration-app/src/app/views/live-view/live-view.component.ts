@@ -60,6 +60,7 @@ export class LiveViewComponent implements OnInit {
   }
 
   particlesOptions = {
+    fpsLimit: 24,
     particles: {
       number: {
         value: 160,
@@ -137,10 +138,6 @@ export class LiveViewComponent implements OnInit {
           enable: true,
           mode: 'bubble',
         },
-        onClick: {
-          enable: true,
-          mode: 'repulse',
-        },
         resize: true,
       },
       modes: {
@@ -156,10 +153,6 @@ export class LiveViewComponent implements OnInit {
           duration: 2,
           opacity: 0,
           speed: 3,
-        },
-        repulse: {
-          distance: 400,
-          duration: 0.1,
         },
         push: {
           quanitity: 4,
