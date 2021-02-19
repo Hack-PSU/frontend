@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
+import { NgParticlesModule } from 'ng-particles';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { NgProgressRouterModule } from 'ngx-progressbar/router';
@@ -61,6 +62,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     MaterializeModule,
+    NgParticlesModule,
     NgProgressModule,
     NgProgressHttpModule,
     NgProgressRouterModule,

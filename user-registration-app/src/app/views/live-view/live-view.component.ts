@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { CountdownService } from '../../services/CountdownService/countdown.service';
 
 declare let $: any;
-declare let particlesJS: any;
 
 @Component({
   selector: 'app-live-view',
@@ -40,9 +39,120 @@ export class LiveViewComponent implements OnInit {
 
   constructor(private zone: NgZone, private countdownService: CountdownService) {}
 
-  ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particles.json');
+  particlesOptions = {
+    particles: {
+      number: {
+        value: 160,
+        density: {
+          enable: true,
+          area: 800,
+        },
+      },
+      color: {
+        value: '#ffffff',
+      },
+      shape: {
+        type: 'circle',
+        stroke: {
+          width: 0,
+          color: '#000000',
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+        image: {
+          src: 'img/github.svg',
+          width: 100,
+          height: 100,
+        },
+      },
+      opacity: {
+        value: 1,
+        random: true,
+        animation: {
+          enable: true,
+          speed: 1,
+          minimumValue: 0,
+          sync: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        animation: {
+          enable: false,
+          speed: 4,
+          minimumValue: 0.3,
+          sync: false,
+        },
+      },
+      lineLinked: {
+        enable: false,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: 'none',
+        random: true,
+        straight: false,
+        outMode: 'out',
+        bounce: false,
+        attract: {
+          enable: false,
+          rotate: {
+            x: 600,
+            y: 600,
+          },
+        },
+      },
+    },
+    interactivity: {
+      detectsOn: 'window',
+      events: {
+        onHover: {
+          enable: true,
+          mode: 'bubble',
+        },
+        onClick: {
+          enable: true,
+          mode: 'repulse',
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          lineLinked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 150,
+          size: 0,
+          duration: 2,
+          opacity: 0,
+          speed: 3,
+        },
+        repulse: {
+          distance: 400,
+          duration: 0.1,
+        },
+        push: {
+          quanitity: 4,
+        },
+        remove: {
+          quanitity: 2,
+        },
+      },
+    },
+    detectRetina: true,
+  };
 
+  ngOnInit() {
     $(document).ready(() => {
       $('.materialboxed').materialbox();
       $('.question').click(function () {
