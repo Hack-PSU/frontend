@@ -88,6 +88,17 @@ export class UserRegistrationViewComponent implements OnInit {
         }
         regObservable.unsubscribe();
       });
+    const regStatusObservable = this.httpService
+      .getRegistrationStatus()
+      .subscribe((registration) => {
+        const existingEcObservable = this.httpService
+          .getExtraCreditClassesForUser(registration.uid)
+          .subscribe((classes) => {
+            classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
+            existingEcObservable.unsubscribe();
+          });
+        regStatusObservable.unsubscribe();
+      });
     // The error for registrations gets handled in user-profile-view
   }
 

@@ -13,6 +13,7 @@ import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from '../../models/event-model';
 import { ProjectModel } from '../../models/project-model';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
+import { UserExtraCreditApiResponse } from '../../models/user-extra-credit';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -129,6 +130,13 @@ export class HttpService extends BaseHttpService {
     const API_ENDPOINT = 'users/extra-credit';
     return this.get(API_ENDPOINT, false, true, true).pipe(
       map((classes: any[]) => classes.map((c) => ExtraCreditClass.parseJSON(c)))
+    );
+  }
+
+  getExtraCreditClassesForUser(uid: string) {
+    const API_ENDPOINT = 'users/extra-credit/assignment?type=user';
+    return this.get(API_ENDPOINT, false, true, true, uid).pipe(
+      map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c)))
     );
   }
 
