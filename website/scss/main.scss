@@ -139,14 +139,9 @@ body {
 
 /* ID Based Selectors */
 #mlh-trust-badge {
-  display: block;
   position: absolute;
   float: right;
-  top: 0;
-  width: 10%;
-  max-width: 100px;
   height: 120px;
-  z-index: 1;
   margin-top: 0;
 
   @media screen and (max-width: $break-medium) {
