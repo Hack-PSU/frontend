@@ -74,11 +74,20 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    const ecObservable = this.httpService.getExtraCreditClasses().subscribe((classes) => {
+    this.loadActiveRegistration();
+    this.loadAvaliableExtraCreditClasses();
+    this.loadSubmittedExtraCreditClasses();
+    // The error for registrations gets handled in user-profile-view
+  }
+
+  loadAvaliableExtraCreditClasses() {
+    this.httpService.getExtraCreditClasses().subscribe((classes) => {
       this.classes = classes;
-      ecObservable.unsubscribe();
     });
-    const regObservable = this.httpService
+  }
+
+  loadActiveRegistration() {
+    this.httpService
       .getUserRegistrations()
       .subscribe((registrations: RegistrationApiResponse[]) => {
         if (registrations) {
@@ -86,20 +95,16 @@ export class UserRegistrationViewComponent implements OnInit {
             (registration) => registration.hackathon.active
           )[0];
         }
-        regObservable.unsubscribe();
       });
-    const regStatusObservable = this.httpService
-      .getRegistrationStatus()
-      .subscribe((registration) => {
-        const existingEcObservable = this.httpService
-          .getExtraCreditClassesForUser(registration.uid)
-          .subscribe((classes) => {
-            classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
-            existingEcObservable.unsubscribe();
-          });
-        regStatusObservable.unsubscribe();
+  }
+
+  loadSubmittedExtraCreditClasses() {
+    this.httpService.getRegistrationStatus().subscribe((registration) => {
+      this.httpService.getExtraCreditClassesForUser(registration.uid).subscribe((classes) => {
+        classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
+        console.log(this.submittedClasses);
       });
-    // The error for registrations gets handled in user-profile-view
+    });
   }
 
   editAddressToggle() {
