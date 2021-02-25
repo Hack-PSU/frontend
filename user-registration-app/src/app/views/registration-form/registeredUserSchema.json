@@ -71,7 +71,7 @@
     },
     "veteran": {
       "type": ["string", "null"],
-      "enum": ["true", "false", "no-disclose-veteran"]
+      "enum": ["true", "false", "no-disclose"]
     },
     "eighteenBeforeEvent": {
       "type": "boolean"
