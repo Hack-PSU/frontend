@@ -48,6 +48,8 @@ export class RegistrationFormComponent implements OnInit {
   @ViewChild('registrationModel') form: any;
   private readonly validator: Ajv.ValidateFunction;
 
+  private scrollHelper: ScrollHelper = new ScrollHelper();
+
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
   }
@@ -100,13 +102,23 @@ export class RegistrationFormComponent implements OnInit {
       .join(', ');
   }
 
+  ngAfterViewChecked() {
+    this.scrollHelper.doScroll();
+  }
+
   private validate() {
     const result = this.validator(this.registrationForm);
     if (!result) {
       this.validator.errors.map((error) =>
         this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
       );
+      // TODO: Remove console.log after done testing
+      console.log(this.validator.errors[0].dataPath.slice(1).concat('-container'));
+      this.scrollHelper.scrollToFirst(
+        this.validator.errors[0].dataPath.slice(1).concat('-container')
+      );
     }
+
     return result;
   }
 
@@ -191,10 +203,6 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.resume = event.target.files[0];
   }
 
-  error() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   dietaryRestriction(event) {
     if (event.target.value === 'other') {
       this.registrationForm.dietaryRestriction = '';
@@ -215,8 +223,31 @@ export class RegistrationFormComponent implements OnInit {
 
     if (this.validate() && this.form.valid) {
       this.submit();
-    } else {
-      this.error();
+    }
+  }
+}
+
+class ScrollHelper {
+  private classToScrollTo: string = null;
+
+  scrollToFirst(className: string) {
+    this.classToScrollTo = className;
+  }
+
+  doScroll() {
+    if (!this.classToScrollTo) {
+      return;
+    }
+    try {
+      console.log('asdf' + this.classToScrollTo);
+      let element = document.getElementById(this.classToScrollTo);
+      console.log(element);
+      if (element == null) {
+        return;
+      }
+      element.scrollIntoView();
+    } finally {
+      this.classToScrollTo = null;
     }
   }
 }
