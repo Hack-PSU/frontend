@@ -16,7 +16,7 @@ import { Hackathon } from '../../models/hackathon';
 export class UserProfileViewComponent implements OnInit {
   private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
   currentHackathon: Hackathon;
-  currentPin = "No active pin! Don't forget to register!";
+  currentPin: string = null;
 
   constructor(
     public authService: AuthService,
