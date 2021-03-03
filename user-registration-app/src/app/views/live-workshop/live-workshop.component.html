@@ -14,15 +14,16 @@
       <a href="{{ download }}" style="color: #e5704c">Download {{ i + 1 }}</a>
     </p>
   </div>
-  <div class="inline">
+  <div *ngFor="let presenterName of (presenters || [])" class="inline">
+    <p>{{presenterName}}</p>
     <div
       class="card-image tooltipped"
       [ngStyle]="{ background: 'url(' + presenter1img + ')' }"
       data-position="bottom"
-      [attr.data-tooltip]="presenter1Name"
+      [attr.data-tooltip]="presenterName"
       id="presenter1"
     ></div>
-    <div
+    <!-- <div
       class="card-image tooltipped"
       [ngStyle]="{ background: 'url(' + presenter2img + ')' }"
       data-position="bottom"
@@ -35,7 +36,7 @@
       data-position="bottom"
       [attr.data-tooltip]="presenter3Name"
       id="presenter3"
-    ></div>
+    ></div> -->
     <a href="{{ link }}" target="_blank"
       ><i class="material-icons medium linkToWorkshop">link</i></a
     >
