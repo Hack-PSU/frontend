@@ -1,125 +1,124 @@
-<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
 <!-- Landing -->
-<section id="home" class="header">
-  <div class="container-fluid">
-    <!-- MLH Badge -->
-    <!-- <div class="white">
+<div class="page-content">
+  <section id="home" class="header">
+    <div class="container-fluid">
+      <!-- MLH Badge -->
+      <!-- <div class="white">
       <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:10px;top:0px;width:10%;z-index:10000"
          href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=white"
          target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
                               alt="Major League Hacking 2020 Hackathon Season" style="width:100%"></a>
     </div> -->
-    <!-- Particles -->
-    <div id="particles-js"></div>
-    <!-- Emblem/Logo -->
-    <div class="row" style="padding-top: 15%">
-      <div class="col-6">
-        <img
-          src="assets/images/Logo_v2.svg"
-          id="hackpsu-logo"
-          class="animated rubberBand d-block mx-auto mb-0"
-          alt="hackpsulogo"
-        />
-      </div>
+      <!-- Particles -->
 
-      <!-- Countdown Timer -->
-      <div class="col-6">
-        <div id="countdown-timer" class="d-flex justify-items-center mt-0">
-          <div class="row">
-            <div id="days" class="col-md-3 unit">
-              <div class="row">
-                <div class="font number">{{ days }}</div>
-                <div class="time-label">Days</div>
+      <!-- Emblem/Logo -->
+      <div class="row" style="padding-top: 15%">
+        <div class="col-6">
+          <img
+            src="assets/images/Logo_v2.svg"
+            id="hackpsu-logo"
+            class="animated rubberBand d-block mx-auto mb-0"
+            alt="hackpsulogo"
+          />
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="col-6">
+          <div id="countdown-timer" class="d-flex justify-items-center mt-0">
+            <div class="row">
+              <div id="days" class="col-md-3 unit">
+                <div class="row">
+                  <div class="font number">{{ days }}</div>
+                  <div class="time-label">Days</div>
+                </div>
               </div>
-            </div>
-            <div id="hours" class="col-md-3 unit">
-              <div class="row">
-                <div class="font number">{{ hours }}</div>
-                <div class="time-label">Hours</div>
+              <div id="hours" class="col-md-3 unit">
+                <div class="row">
+                  <div class="font number">{{ hours }}</div>
+                  <div class="time-label">Hours</div>
+                </div>
               </div>
-            </div>
-            <div id="minutes" class="col-md-3 unit">
-              <div class="row">
-                <div class="font number">{{ minutes }}</div>
-                <div class="time-label">Minutes</div>
+              <div id="minutes" class="col-md-3 unit">
+                <div class="row">
+                  <div class="font number">{{ minutes }}</div>
+                  <div class="time-label">Minutes</div>
+                </div>
               </div>
-            </div>
-            <div id="seconds" class="col-md-3 unit">
-              <div class="row second-res">
-                <div class="font number">{{ seconds }}</div>
-                <div class="time-label">Seconds</div>
+              <div id="seconds" class="col-md-3 unit">
+                <div class="row second-res">
+                  <div class="font number">{{ seconds }}</div>
+                  <div class="time-label">Seconds</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slack Button & Banner Text -->
-        <div class="row d-flex justify-content-center">
-          <div class="col-12">
-            <p id="countdown-text" class="text-center">{{ bannerText }}</p>
+          <!-- Slack Button & Banner Text -->
+          <div class="row d-flex justify-content-center">
+            <div class="col-12">
+              <p id="countdown-text" class="text-center">{{ bannerText }}</p>
+            </div>
+
+            <a
+              class="btn waves-effect waves-red submit-btn text-center"
+              target="_blank"
+              href="https://discord.gg/eyPSrNm9Cd"
+            >
+              <div class="font text-res">Discord</div>
+            </a>
+            <br />
+            <a
+              class="btn waves-effect waves-red submit-btn"
+              target="_blank"
+              href="https://hackpsu-fall-2020.devpost.com/"
+              ><div class="font submit-btn-text text-res">Submit Your Project</div></a
+            >
           </div>
-
-          <a
-            class="btn waves-effect waves-red submit-btn text-center"
-            target="_blank"
-            href="https://discord.gg/eyPSrNm9Cd"
-          >
-            <div class="font text-res">Discord</div>
-          </a>
-          <br />
-          <a
-            class="btn waves-effect waves-red submit-btn"
-            target="_blank"
-            href="https://hackpsu-fall-2020.devpost.com/"
-            ><div class="font submit-btn-text text-res">Submit Your Project</div></a
-          >
+          <div class="page-header"></div>
         </div>
-        <div class="page-header"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Section separator -->
-<!--
+  <!-- Section separator -->
+  <!--
 <div class="section-separator">
   <img src="../../../assets/images/earth_crust_livesite.svg"
     class="section-separator-background first-border">
 </div>
 -->
 
-<div id="planet-container">
-  <img src="assets/images/planet_1.svg" alt="Planet" id="planet-blue" />
-  <img src="assets/images/planet_3.svg" alt="Planet" id="planet-orange" />
-  <img src="assets/images/planet_5.svg" alt="Planet" id="planet-pink" />
-</div>
-
-<!-- Schedule -->
-<section id="schedule" style="margin-top: 21em">
-  <div class="container-fluid">
-    <div>
-      <div class="col-12 section-title">
-        <div class="section-title-word">
-          <div class="header-text">Schedule</div>
-        </div>
-        <div class="header-bar"></div>
-        <p class="header-details">
-          These times are adjusted to your time zone! Check the Discord for more details.
-        </p>
-      </div>
-
-      <app-schedule-view></app-schedule-view>
-    </div>
+  <div id="planet-container">
+    <img src="assets/images/planet_1.svg" alt="Planet" id="planet-blue" />
+    <img src="assets/images/planet_3.svg" alt="Planet" id="planet-orange" />
+    <img src="assets/images/planet_5.svg" alt="Planet" id="planet-pink" />
   </div>
-</section>
-<!-- Live Updates -->
-<section id="updates">
-  <div class="container-fluid">
-    <div class="col-12">
-      <div class="row">
-        <!-- Map -->
-        <!--
+
+  <!-- Schedule -->
+  <section id="schedule" style="margin-top: 21em">
+    <div class="container-fluid">
+      <div>
+        <div class="col-12 section-title">
+          <div class="section-title-word">
+            <div class="header-text">Schedule</div>
+          </div>
+          <div class="header-bar"></div>
+          <p class="header-details">
+            These times are adjusted to your time zone! Check the Discord for more details.
+          </p>
+        </div>
+
+        <app-schedule-view></app-schedule-view>
+      </div>
+    </div>
+  </section>
+  <!-- Live Updates -->
+  <section id="updates">
+    <div class="container-fluid">
+      <div class="col-12">
+        <div class="row">
+          <!-- Map -->
+          <!--
         <div class="col-md-6">
           <section id="map-rules">
             <div class="container-fluid">
@@ -140,87 +139,87 @@
             </div>
           </section>
         </div>
-        -->
+        --></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="row">
-  <div class="col-md-6">
-    <!-- Rules -->
-    <div class="row">
-      <div class="col-12 section-title">
-        <div class="section-title-word">
-          <div class="header-text">Rules</div>
-        </div>
-        <div class="header-bar"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="info-card col-12">
-          <ol class="info-list">
-            <li>
-              All participants must be older than 18, and must bring a valid form of identification.
-            </li>
-            <li>
-              Participants must abide by the expectations set in the
-              <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147"
-                >MLH Code of Conduct</a
-              >, or you will be asked to leave the event.
-            </li>
-            <li>Teams may be comprised of up to five members.</li>
-            <li>
-              Projects should be original works created on site. Coming with an idea in mind is
-              perfectly fine, working on an existing project is not.
-            </li>
-            <li>All submissions must be received through DevPost by 5:00PM on Sunday.</li>
-            <li>Students are permitted to come and go from the venue as they please.</li>
-            <li>
-              Anything you create is your work, HackPSU and its partners have no claim over
-              intellectual property produced at the event.
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Rules -->
+      <div class="row">
         <div class="col-12 section-title">
           <div class="section-title-word">
-            <div class="header-text">FAQ</div>
+            <div class="header-text">Rules</div>
           </div>
           <div class="header-bar"></div>
         </div>
       </div>
-      <br />
-      <div class="container-fluid">
-        <!-- Left column of questions -->
-        <div class="row">
-          <div class="col-md-6">
-            <div>
-              <p class="question">
-                <i class="fas fa-plus icon-rotate"></i>Where can I go to get help?
-              </p>
-              <p class="FAQanswer">We have a help corner in discord!</p>
+      <div class="row">
+        <div class="col-12">
+          <div class="info-card col-12">
+            <ol class="info-list">
+              <li>
+                All participants must be older than 18, and must bring a valid form of
+                identification.
+              </li>
+              <li>
+                Participants must abide by the expectations set in the
+                <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" style="color: #103147"
+                  >MLH Code of Conduct</a
+                >, or you will be asked to leave the event.
+              </li>
+              <li>Teams may be comprised of up to five members.</li>
+              <li>
+                Projects should be original works created on site. Coming with an idea in mind is
+                perfectly fine, working on an existing project is not.
+              </li>
+              <li>All submissions must be received through DevPost by 5:00PM on Sunday.</li>
+              <li>Students are permitted to come and go from the venue as they please.</li>
+              <li>
+                Anything you create is your work, HackPSU and its partners have no claim over
+                intellectual property produced at the event.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container-fluid">
+          <div class="col-12 section-title">
+            <div class="section-title-word">
+              <div class="header-text">FAQ</div>
             </div>
-            <div>
-              <p class="question">
-                <i class="fas fa-plus icon-rotate"></i>Do I need to stay at the event?
-              </p>
-              <p class="FAQanswer">Nope! The event is completely virtual this year.</p>
-              <!--
+            <div class="header-bar"></div>
+          </div>
+        </div>
+        <br />
+        <div class="container-fluid">
+          <!-- Left column of questions -->
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>Where can I go to get help?
+                </p>
+                <p class="FAQanswer">We have a help corner in discord!</p>
+              </div>
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>Do I need to stay at the event?
+                </p>
+                <p class="FAQanswer">Nope! The event is completely virtual this year.</p>
+                <!--
           <p class="FAQanswer">You are free to come and go as you please to get some rest, fresh
             air, or take a break! If you feel like throwing in the towel for the weekend, that's
             fine too! All that we ask is that you only work on your project while on the
             premises.</p>
           -->
-            </div>
-            <!--
+              </div>
+              <!--
         <div>
           <p class="question"><i class="fas fa-plus icon-rotate"></i>Where can I get hardware?</p>
           <p class="FAQanswer">MLH provides hardware for rent free to all hackers! <a
@@ -246,69 +245,69 @@
             special consideration, please have any emails/messages shared open and ready!</p>
         </div>
         -->
-          </div>
-
-          <!-- Right column of questions -->
-          <div class="col-md-6">
-            <div>
-              <p class="question">
-                <i class="fas fa-plus icon-rotate"></i>How does extra credit work?
-              </p>
-              <p class="FAQanswer">
-                If you are attending and a professor is offering extra credit for being at HackPSU,
-                please refer to the requirements they set out for receiving extra credit. We will be
-                tracking attendance to events like workshops, and will be reporting back to
-                professors with data so that they may confirm you were participating.
-              </p>
-              <p class="FAQanswer">
-                Click <a routerLink="/profile">here </a>to sign up for extra credit!
-              </p>
             </div>
 
-            <div>
-              <p class="question">
-                <i class="fas fa-plus icon-rotate"></i>Where did the old website go?
-              </p>
-              <p class="FAQanswer">
-                It's right <a target="_blank" href="https://app.hackpsu.org">here!</a>
-              </p>
+            <!-- Right column of questions -->
+            <div class="col-md-6">
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>How does extra credit work?
+                </p>
+                <p class="FAQanswer">
+                  If you are attending and a professor is offering extra credit for being at
+                  HackPSU, please refer to the requirements they set out for receiving extra credit.
+                  We will be tracking attendance to events like workshops, and will be reporting
+                  back to professors with data so that they may confirm you were participating.
+                </p>
+                <p class="FAQanswer">
+                  Click <a routerLink="/profile">here </a>to sign up for extra credit!
+                </p>
+              </div>
+
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>Where did the old website go?
+                </p>
+                <p class="FAQanswer">
+                  It's right <a target="_blank" href="https://app.hackpsu.org">here!</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-</div>
-
-<!-- Prizes -->
-<section id="prizes">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 section-title">
-        <div class="section-title-word">
-          <div class="header-text">Prizes & Challenges</div>
-        </div>
-        <div class="header-bar"></div>
-      </div>
+      </section>
     </div>
-    <!-- Prizes -->
-    <div class="row justify-content-center">
-      <!-- Tech Prize (HackPSU) -->
-      <div class="prize-col col-md-4 col-10">
-        <div class="prize-title">
-          <p>HackPSU Tech Track</p>
-        </div>
-        <img
-          src="../../../assets/images/terminal-flat-icon-white.svg"
-          class="rounded-more mx-auto d-block prize-img"
-        />
-        <div class="prizes-text">
-          The standard HackPSU experience - work together alone or in a team to build something
-          awesome! We'll have tons of great mentors and other staff around to help you on your way.
-          Choose this track if you're passionate about technology and development.
+  </div>
+
+  <!-- Prizes -->
+  <section id="prizes">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 section-title">
+          <div class="section-title-word">
+            <div class="header-text">Prizes & Challenges</div>
+          </div>
+          <div class="header-bar"></div>
         </div>
       </div>
-      <!--
+      <!-- Prizes -->
+      <div class="row justify-content-center">
+        <!-- Tech Prize (HackPSU) -->
+        <div class="prize-col col-md-4 col-10">
+          <div class="prize-title">
+            <p>HackPSU Tech Track</p>
+          </div>
+          <img
+            src="../../../assets/images/terminal-flat-icon-white.svg"
+            class="rounded-more mx-auto d-block prize-img"
+          />
+          <div class="prizes-text">
+            The standard HackPSU experience - work together alone or in a team to build something
+            awesome! We'll have tons of great mentors and other staff around to help you on your
+            way. Choose this track if you're passionate about technology and development.
+          </div>
+        </div>
+        <!--
       <div class="prize-col col-md-4 col-10">
         <div class="prize-title">
           <p>HackPSU Business Track</p>
@@ -322,9 +321,8 @@
           technology, but may not have the technical skills to compete in a normal hackathon.
         </div>
       </div>
-      -->
-    </div>
-    <!--
+      --></div>
+      <!--
     <div class="row">
       <div class="offset-md-2 col-md-8">
         <div class="design-prompt-box">
@@ -340,71 +338,73 @@
     </div>
     -->
 
-    <div class="row prizes-text">
-      <div class="offset-md-2 col-md-8">
-        <p>
-          <span>SUBMISSION:</span> To submit please visit our DevPost, link below. All submissions
-          must be received before the hacking deadline (5pm Sunday). This is a hard deadline -
-          submissions received after this time will not be considered for prizes.
-        </p>
-        <div class="boxed-text">
-          <p class="text-center m-0">
-            For a complete list of prizes, including sponsor prizes, please visit our DevPost
-            <a class="" href="https://hackpsu-fall-2020.devpost.com/">here!</a><br />Link:
-            <a href="https://hackpsu-fall-2020.devpost.com/"
-              >https://hackpsu-fall-2020.devpost.com/</a
-            >
+      <div class="row prizes-text">
+        <div class="offset-md-2 col-md-8">
+          <p>
+            <span>SUBMISSION:</span> To submit please visit our DevPost, link below. All submissions
+            must be received before the hacking deadline (5pm Sunday). This is a hard deadline -
+            submissions received after this time will not be considered for prizes.
           </p>
+          <div class="boxed-text">
+            <p class="text-center m-0">
+              For a complete list of prizes, including sponsor prizes, please visit our DevPost
+              <a class="" href="https://hackpsu-fall-2020.devpost.com/">here!</a><br />Link:
+              <a href="https://hackpsu-fall-2020.devpost.com/"
+                >https://hackpsu-fall-2020.devpost.com/</a
+              >
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Workshops -->
+  <!-- Workshops -->
 
-<section id="workshops" class="container-fluid">
-  <div class="row">
-    <div class="col-12 section-title">
-      <div class="section-title-word">
-        <div class="header-text">Workshops</div>
+  <section id="workshops" class="container-fluid">
+    <div class="row">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Workshops</div>
+        </div>
+        <div class="header-bar"></div>
+        <p class="header-details">
+          These times are in EST. Be sure to adjust it to your time zone!
+        </p>
       </div>
-      <div class="header-bar"></div>
-      <p class="header-details">These times are in EST. Be sure to adjust it to your time zone!</p>
     </div>
-  </div>
 
-  <div id="workshop-container" class="container-fluid nopadding">
-    <div class="row no padding">
-      <div class="col-md-6 col-lg-4 nopadding">
-        <span class="workshop-track">Beginner</span>
-        <div class="container-fluid py-4">
-          <div class="col-12 p-md-0 px-4">
-            <style>
-              #module {
-                line-height: 1.5;
-              }
+    <div id="workshop-container" class="container-fluid nopadding">
+      <div class="row no padding">
+        <div class="col-md-6 col-lg-4 nopadding">
+          <span class="workshop-track">Beginner</span>
+          <div class="container-fluid py-4">
+            <div class="col-12 p-md-0 px-4">
+              <style>
+                #module {
+                  line-height: 1.5;
+                }
 
-              #module #collapseExample.collapse:not(.show) {
-                display: block;
-                height: 4.6rem;
-                overflow: hidden;
-              }
+                #module #collapseExample.collapse:not(.show) {
+                  display: block;
+                  height: 4.6rem;
+                  overflow: hidden;
+                }
 
-              #module #collapseExample.collapsing {
-                height: 4.6rem;
-              }
+                #module #collapseExample.collapsing {
+                  height: 4.6rem;
+                }
 
-              #module a.collapsed::after {
-                content: '+ Show More +';
-                color: black;
-              }
+                #module a.collapsed::after {
+                  content: '+ Show More +';
+                  color: black;
+                }
 
-              #module a:not(.collapsed)::after {
-                content: '- Show Less -';
-                color: black;
-              }
-            </style>
+                #module a:not(.collapsed)::after {
+                  content: '- Show Less -';
+                  color: black;
+                }
+              </style>
 
             <div *ngFor="let workshop of workshops">
               <!-- need to filter by skill level -->
@@ -425,370 +425,374 @@
               description="An introductory web development course using HTML and CSS.
                 Introduces both languages and covers the Box Model,
                 Layouts, basic Doc Structure, basic CSS Structure, and Intro Coding."
-              date="11/7/2020"
-              time="09:00 AM - 10:00 AM"
-              link="https://psu.zoom.us/webinar/register/WN__Knvh6CcSHaG0voqA7sCzA "
-              skills="Download VSCode if you would like to follow along, no previous skills necessary "
-              collapseID="css/html"
-            >
-            </app-live-workshop>
+                date="11/7/2020"
+                time="09:00 AM - 10:00 AM"
+                link="https://psu.zoom.us/webinar/register/WN__Knvh6CcSHaG0voqA7sCzA "
+                skills="Download VSCode if you would like to follow along, no previous skills necessary "
+                collapseID="css/html"
+              >
+              </app-live-workshop>
 
-            <app-live-workshop
-              title="Deploying Applications on Google Cloud Platform"
-              description="The Google Cloud Platform provides many different frameworks and options to fit your application’s needs.
+              <app-live-workshop
+                title="Deploying Applications on Google Cloud Platform"
+                description="The Google Cloud Platform provides many different frameworks and options to fit your application’s needs.
               In this introductory-level workshop, we will demonstrate how to deploy sample applications on Google App Engine
               and see how other web application frameworks can be integrated with GCP."
-              date="11/07/2020"
-              time="12:00PM-1:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_p6J_OKwPSG-JNqphV-Uk8A"
-              skills="N/A"
-              presenter1img="../../../assets/images/workshop_leaders/brittnie.JPG"
-              presenter2img="../../../assets/images/workshop_leaders/harsh.jpg"
-              presenter3img="../../../assets/images/workshop_leaders/natan.jpeg"
-              presenter1Name="Brittnie Yi"
-              presenter2Name="Harsh Gupta"
-              presenter3Name="Natan Berehe"
-              collapseID="GCP"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="DevPost Submission Checkpoint"
-              description="Don’t know how to use DevPost? Fear not! Come to our DevPost workshop
+                date="11/07/2020"
+                time="12:00PM-1:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_p6J_OKwPSG-JNqphV-Uk8A"
+                skills="N/A"
+                presenter1img="../../../assets/images/workshop_leaders/brittnie.JPG"
+                presenter2img="../../../assets/images/workshop_leaders/harsh.jpg"
+                presenter3img="../../../assets/images/workshop_leaders/natan.jpeg"
+                presenter1Name="Brittnie Yi"
+                presenter2Name="Harsh Gupta"
+                presenter3Name="Natan Berehe"
+                collapseID="GCP"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="DevPost Submission Checkpoint"
+                description="Don’t know how to use DevPost? Fear not! Come to our DevPost workshop
               to learn how to upload your winning project so that you can make sure your team can compete!
               "
-              date="11/08/2020"
-              time="12:00PM-1:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_zYaaL7GiS4G9AKCzPC1R-A "
-              skills="None"
-              presenter1img="../../../assets/images/workshop_leaders/JuliaMcCarthy.png"
-              presenter1Name="Julia McCarthy"
-              collapseID="DevPost"
-            >
-            </app-live-workshop>
+                date="11/08/2020"
+                time="12:00PM-1:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_zYaaL7GiS4G9AKCzPC1R-A "
+                skills="None"
+                presenter1img="../../../assets/images/workshop_leaders/JuliaMcCarthy.png"
+                presenter1Name="Julia McCarthy"
+                collapseID="DevPost"
+              >
+              </app-live-workshop>
 
-            <app-live-workshop
-              title="GitHub and Data Structures"
-              description="Come to this workshop if you want to know about the basics of GitHub and Data Structures.
+              <app-live-workshop
+                title="GitHub and Data Structures"
+                description="Come to this workshop if you want to know about the basics of GitHub and Data Structures.
               In the first half hour, we will give you everything you need to know about how to begin using GitHub and contribution to open source code.
               In the second half hour, we will run through the most essential data structures and give you tips to dive deeper yourself."
-              date="11/07/2020"
-              time="11:00AM - 12:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_VBkOkm4SQAyUGVuFShtDDw"
-              skills="Beginner/Intermediate"
-              presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
-              presenter1Name="Clayton Sulby"
-              collapseID="GitHub"
-            >
-            </app-live-workshop>
+                date="11/07/2020"
+                time="11:00AM - 12:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_VBkOkm4SQAyUGVuFShtDDw"
+                skills="Beginner/Intermediate"
+                presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
+                presenter1Name="Clayton Sulby"
+                collapseID="GitHub"
+              >
+              </app-live-workshop>
 
-            <app-live-workshop
-              title="Unlocking your Problem Solving Potential"
-              description="Join us to learn how to unlock your problem solving potential and how to become a natural problem solver."
-              date="11/07/2020"
-              time="12:00PM - 01:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_jgrEUgttRKimGBhvJzm_ig"
-              skills="N/A"
-              collapseID="problemsolving"
-            >
-            </app-live-workshop>
+              <app-live-workshop
+                title="Unlocking your Problem Solving Potential"
+                description="Join us to learn how to unlock your problem solving potential and how to become a natural problem solver."
+                date="11/07/2020"
+                time="12:00PM - 01:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_jgrEUgttRKimGBhvJzm_ig"
+                skills="N/A"
+                collapseID="problemsolving"
+              >
+              </app-live-workshop>
 
-            <app-live-workshop
-              title="Intro to Web Development"
-              description="Are you interested in building websites? Want to learn how to use CSS and HTML?
+              <app-live-workshop
+                title="Intro to Web Development"
+                description="Are you interested in building websites? Want to learn how to use CSS and HTML?
             Then join Intro to Web Development Workshop!
             We will teach you how to build websites from scratch, with no prior experience."
-              date="11/07/2020"
-              time="05:00PM - 06:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_GRORfyivTZyLzsr4cDYYiQ"
-              skills="Recommended: Sublime Text, or any other text editor, and Bracket"
-              presenter1img="../../../assets/images/workshop_leaders/Ali_Malik.jpg"
-              presenter1Name="Ali Malik"
-              collapseID="webdev"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="EchoAR: AR/VR"
-              description="The workshop will show how to quickly create AR/VR apps with no technical skills
+                date="11/07/2020"
+                time="05:00PM - 06:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_GRORfyivTZyLzsr4cDYYiQ"
+                skills="Recommended: Sublime Text, or any other text editor, and Bracket"
+                presenter1img="../../../assets/images/workshop_leaders/Ali_Malik.jpg"
+                presenter1Name="Ali Malik"
+                collapseID="webdev"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="EchoAR: AR/VR"
+                description="The workshop will show how to quickly create AR/VR apps with no technical skills
             or coding required and scale existing apps by connecting them to the cloud.
             Workshop participants will learn how to create real-time cloud-connected augmented a
             nd virtual reality (AR/VR) apps using the echoAR platform. Participants will also discover how
             AR/VR are changing the world through the demonstration of different use cases
             of 3D applications and live demos of AR/VR experiences.
             Participants are encouraged to bring a laptop and a smartphone."
-              date="11/07/2020"
-              time="03:00PM - 04:00PM"
-              link="https://meet.google.com/dez-aohx-sin"
-              skills="N/A"
-              collapseID="arvr"
-            >
-            </app-live-workshop>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 nopadding">
-        <span class="workshop-track">INTERMEDIATE</span>
-        <div class="container-fluid py-4">
-          <div class="col-12 p-md-0 px-4">
-            <app-live-workshop
-              title="Capture the Flag"
-              description="We’re having a capture the flag from 6pm to 10pm on Friday! Sign up to take part in this cyber security competition. You must also be registered for HackPSU to participate."
-              date="11/06/2020"
-              time="06:00PM - 10:00PM"
-              link="https://ctf.hackpsu.org"
-              skills="Basic programming knowledge"
-              presenter1Name="Ethan Hall"
-              collapseID="ctf"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Intro To Game Development"
-              description="This workshop welcomes all students with an intermediate level of programming to come and learn
-            the basics of game development.
-            By the end of the presentation, students will have all the necessary tools to start creating games from scratch,
-            through the Unity engine, in both 2D and 3D."
-              date="11/07/2020"
-              time="04:00PM - 05:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_5tJ_lxd3S8uG5glftFZlzQ"
-              skills="Familiar with Object-Oriented Programming. Latest free version of Unity is recommended,
-            but not required. A text editor that works with C# is also helpful."
-              presenter1img="../../../assets/images/workshop_leaders/Matan_Botansky.jpg"
-              presenter2img="../../../assets/images/workshop_leaders/David_Reinoso.jpg"
-              presenter3img="../../../assets/images/workshop_leaders/Jonathan_Tran.jpg"
-              presenter1Name="Matan Botansky"
-              presenter2Name="David Reinoso"
-              presenter3Name="Jonathan Tran"
-              collapseID="gamedev"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Intro To Data Visualization"
-              description="This workshop will give hackers a brief introduction to data visualization.  During the workshop, we will build an interactive COVID-19 dashboard that will visualize the current state of the disease across the United States.  This workshop assumes that attendees are familiar with Python or object-oriented programming.
-            Prior to the workshop, please install the following applications and libraries:
-            Anaconda, Jupyter Notebook, Python (this should install with Anaconda), Plotly, Dash, and Pandas.
-            Also download a CSV file of the most recent COVID-19 in the links below"
-              date="11/07/2020"
-              time="01:00PM - 02:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_mYLck8mtS5adqnef8njQew"
-              skills="Beginner/Intermediate"
-              [downloads]="[
-                'https://www.anaconda.com/products/individual',
-                'https://covidtracking.com/data.',
-                'https://anaconda.org/conda-forge/dash',
-                'https://anaconda.org/plotly/plotly',
-                'https://anaconda.org/anaconda/pandas'
-              ]"
-              presenter1img="../../../assets/images/workshop_leaders/garrett.png"
-              presenter1Name="Garrett Sullivan"
-              collapseID="datavis"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Swift Crash Course"
-              description=" Build an iPhone app in 45 minutes! For people who know enough about code to get by, this is
-             a great workshop to get a taste of app development."
-              date="11/07/2020"
-              time="09:00AM - 10:00AM"
-              link="https://psu.zoom.us/webinar/register/WN_9aezTxIxQxyz2HjqaE-bfw"
-              skills="Need an Apple product able to run Xcode 12. XCode 11.6 is okay but the example will not be downloadable."
-              [downloads]="['https://github.com/claytonsulby/splardcmy ']"
-              presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
-              presenter1Name="Clayton Sulby"
-              collapseID="swift"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Intro to Machine Learning"
-              description="Interested in machine learning? Want to understand how algorithms can learn
-            from and make predictions on data? Come to the Intro to Machine Learning Workshop! We'll teach you
-            how these algorithms work and show you how to create neural networks, decision trees, and more in only a few lines of code."
-              date="11/07/2020"
-              time="04:00PM - 05:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_7-Q3QsZMQnGBBRCo-APBEg"
-              skills="Beginner/Intermediate"
-              [downloads]="[
-                'https://www.anaconda.com/products/individual',
-                'https://github.com/neil-ash/Workshops/tree/master/HackPSU_Fall2020'
-              ]"
-              presenter1img="../../../assets/images/workshop_leaders/NeilAshtekar.png"
-              presenter1Name="Neil Ashtekar"
-              collapseID="ml"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Fundamental Blockchain Concepts"
-              description="Blockchain@PSU presents an introductory workshop on the foundational concepts of Blockchain.
-            The workshop will cover the basic building blocks of the technology and how it can be applied to solve
-            problems in various different industries."
-              date="11/07/2020"
-              time="05:00PM - 06:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_gahEZlTgSeCCDNUg-dFdQA"
-              skills="Beginner/Intermediate"
-              [downloads]="[
-                'https://code.visualstudio.com/download',
-                'https://nodejs.org/en/download/'
-              ]"
-              collapseID="blockchain"
-            >
-            </app-live-workshop>
-            <app-live-workshop
-              title="Intro to Angular"
-              description="Learn to use Angular, one of the most popular web development frameworks!
-            In this workshop, you will get to build a simple web application that will teach you the most common Angular concepts. "
-              date="11/07/2020"
-              time="01:00PM - 02:00PM"
-              link="https://psu.zoom.us/webinar/register/WN_F31HEiFJQ9iLNlh3Cn9OcA"
-              skills="Basic HTML, CSS, JavaScipt/TypeScript knowledge recommended, should have vscode and node.js installed"
-              [downloads]="[
-                'https://code.visualstudio.com/download',
-                'https://nodejs.org/en/download/',
-                'https://drive.google.com/drive/folders/1kIGpm_QCC4xv3O1g_L5JdYjdRys9J_5B?usp=sharing'
-              ]"
-              presenter1img="../../../assets/images/workshop_leaders/Paul_Scott_Headshot.jpg"
-              presenter1Name="Paul Scott"
-              collapseID="angular"
-            >
-            </app-live-workshop>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 nopadding">
-        <span class="workshop-track">ADVANCED</span>
-        <div class="row">
-          <div class="container-fluid py-4">
-            <div class="col-12 p-md-0 px-4">
-              <app-live-workshop
-                title="Natural Language Processing"
-                description="Humans typically communicate with other humans through human languages.
-              And while there are many human-to-human languages in the world, C++ is not one of them.
-              In this workshop we discuss the importance of natural language processing (NLP) in our increasingly
-              technological world, learn the basic NLP concepts, and get hands-on with some examples using Python."
-                date="11/07/2020"
-                time="10:00AM - 11:00AM"
-                link="https://psu.zoom.us/webinar/register/WN_M5d63My1QcizgubRx9Tf9w"
-                skills="Internet Browser (Python 3 installation optional)"
-                presenter1img="../../../assets/images/workshop_leaders/ThomasZhao.JPG"
-                presenter1Name="Thomas Zhao"
-                collapseID="nlp"
-              >
-              </app-live-workshop>
-              <app-live-workshop
-                title="Intro to Quantum Computing"
-                description="In this introduction to quantum computing you’ll learn about several quantum computing concepts
-                including quantum bits, quantum logic gates, quantum entanglement, and basic quantum algorithms."
-                date="11/07/2020"
-                time="11:00AM - 12:00PM"
-                link="https://psu.zoom.us/webinar/register/WN_WvFi56IkQKmjPOnwt7h5ug"
-                skills="Basic linear algebra knowledge is recommended"
-                presenter1img="../../../assets/images/workshop_leaders/Paul_Scott_Headshot.jpg"
-                presenter1Name="Paul Scott"
-                collapseID="quantum"
-              >
-              </app-live-workshop>
-              <br /><br />
-              <span class="workshop-track">Non-Technical</span>
-              <br /><br />
-              <app-live-workshop
-                title="Team Building!"
-                description="Don’t have a team? Fear not!
-              Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!"
-                date="11/06/2020"
-                time="05:00PM - 06:00PM"
-                link="https://psu.zoom.us/webinar/register/WN_nFfuto5rTpCFpiE8Wygulw"
-                skills="N/A"
-                presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
-                presenter1Name="Clayton Sulby"
-                collapseID="team"
-              >
-              </app-live-workshop>
-              <app-live-workshop
-                title="Capital One Info Session"
-                description="Come out to the Capital One Info Session!
-              A great opportunity to meet directly with Capital One representatives and learn more about their offerings. "
-                date="11/07/2020"
-                time="02:00PM - 03:00PM"
-                link="https://psu.zoom.us/webinar/register/WN_SH3a_Jv4TXq_MxqWdo_BgQ"
-                skills="N/A"
-                collapseID="capitalone"
-              >
-              </app-live-workshop>
-              <app-live-workshop
-                title="Vanguard Info Session"
-                description="Come out to the Vanguard Info Session!
-              A great opportunity to meet directly with Vanguard representatives and learn more about their offerings."
                 date="11/07/2020"
                 time="03:00PM - 04:00PM"
-                link="https://psu.zoom.us/webinar/register/WN_lxYadXxlQnufGOmnv7CQbw"
+                link="https://meet.google.com/dez-aohx-sin"
                 skills="N/A"
-                collapseID="vanguard"
-                presenter1img="../../../assets/images/workshop_leaders/Hannah_Angello.png"
-                presenter2img="../../../assets/images/workshop_leaders/Jessica-Tang-Headshot.jpg"
-                presenter1Name="Hannah Angelo"
-                presenter2Name="Jessica Tang"
-              >
-              </app-live-workshop>
-              <app-live-workshop
-                title="Nittany AI Info Session"
-                description="Brad Zdenek and past Nittany Ai Challenge winners will offer ideas on the
-              best ways to leverage HackPSU to give you an advantage in the 2021 Nittany AI Challenge, a
-              PSU competition offering $50,000 in prizes for improving the world using AI. In addition,
-              Brad and the teams will highlight tips and tricks for successfully competing both at HackPSU
-              and in the Nittany AI Challenge."
-                date="11/07/2020"
-                time="10:00AM - 11:00AM"
-                link="https://psu.zoom.us/webinar/register/WN_wNnNXYigQHGwnoviqoS8wQ"
-                skills="N/A"
-                presenter1img="../../../assets/images/workshop_leaders/BradZdenek.jpg"
-                presenter1Name="Brad Zdenek"
-                collapseID="nittanyai"
+                collapseID="arvr"
               >
               </app-live-workshop>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="footer">
-  <div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-      <div id="social-media" class="col-8 col-offset-2 col-md-8 col-md-offset-2">
-        <a target="_blank" href="https://www.facebook.com/HackPSU/"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/facebook.svg"
-        /></a>
-        <a target="_blank" href="http://twitter.com/hackpsu"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/twitter.svg"
-        /></a>
-        <a target="_blank" href="https://www.instagram.com/hack_psu/"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/instagram.svg"
-        /></a>
-        <a target="_blank" href="https://www.snapchat.com/add/hackpsu"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/snapchat.svg"
-        /></a>
-        <a target="_blank" href="https://hackpsu-fall-2020.devpost.com/"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/devpost.svg"
-        /></a>
-        <a href="mailto:team@hackpsu.org"
-          ><img class="social-media-icon animated animated-icon" src="assets/icons/email-icon.svg"
-        /></a>
+        <div class="col-md-6 col-lg-4 nopadding">
+          <span class="workshop-track">INTERMEDIATE</span>
+          <div class="container-fluid py-4">
+            <div class="col-12 p-md-0 px-4">
+              <app-live-workshop
+                title="Capture the Flag"
+                description="We’re having a capture the flag from 6pm to 10pm on Friday! Sign up to take part in this cyber security competition. You must also be registered for HackPSU to participate."
+                date="11/06/2020"
+                time="06:00PM - 10:00PM"
+                link="https://ctf.hackpsu.org"
+                skills="Basic programming knowledge"
+                presenter1Name="Ethan Hall"
+                collapseID="ctf"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Intro To Game Development"
+                description="This workshop welcomes all students with an intermediate level of programming to come and learn
+            the basics of game development.
+            By the end of the presentation, students will have all the necessary tools to start creating games from scratch,
+            through the Unity engine, in both 2D and 3D."
+                date="11/07/2020"
+                time="04:00PM - 05:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_5tJ_lxd3S8uG5glftFZlzQ"
+                skills="Familiar with Object-Oriented Programming. Latest free version of Unity is recommended,
+            but not required. A text editor that works with C# is also helpful."
+                presenter1img="../../../assets/images/workshop_leaders/Matan_Botansky.jpg"
+                presenter2img="../../../assets/images/workshop_leaders/David_Reinoso.jpg"
+                presenter3img="../../../assets/images/workshop_leaders/Jonathan_Tran.jpg"
+                presenter1Name="Matan Botansky"
+                presenter2Name="David Reinoso"
+                presenter3Name="Jonathan Tran"
+                collapseID="gamedev"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Intro To Data Visualization"
+                description="This workshop will give hackers a brief introduction to data visualization.  During the workshop, we will build an interactive COVID-19 dashboard that will visualize the current state of the disease across the United States.  This workshop assumes that attendees are familiar with Python or object-oriented programming.
+            Prior to the workshop, please install the following applications and libraries:
+            Anaconda, Jupyter Notebook, Python (this should install with Anaconda), Plotly, Dash, and Pandas.
+            Also download a CSV file of the most recent COVID-19 in the links below"
+                date="11/07/2020"
+                time="01:00PM - 02:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_mYLck8mtS5adqnef8njQew"
+                skills="Beginner/Intermediate"
+                [downloads]="[
+                  'https://www.anaconda.com/products/individual',
+                  'https://covidtracking.com/data.',
+                  'https://anaconda.org/conda-forge/dash',
+                  'https://anaconda.org/plotly/plotly',
+                  'https://anaconda.org/anaconda/pandas'
+                ]"
+                presenter1img="../../../assets/images/workshop_leaders/garrett.png"
+                presenter1Name="Garrett Sullivan"
+                collapseID="datavis"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Swift Crash Course"
+                description=" Build an iPhone app in 45 minutes! For people who know enough about code to get by, this is
+             a great workshop to get a taste of app development."
+                date="11/07/2020"
+                time="09:00AM - 10:00AM"
+                link="https://psu.zoom.us/webinar/register/WN_9aezTxIxQxyz2HjqaE-bfw"
+                skills="Need an Apple product able to run Xcode 12. XCode 11.6 is okay but the example will not be downloadable."
+                [downloads]="['https://github.com/claytonsulby/splardcmy ']"
+                presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
+                presenter1Name="Clayton Sulby"
+                collapseID="swift"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Intro to Machine Learning"
+                description="Interested in machine learning? Want to understand how algorithms can learn
+            from and make predictions on data? Come to the Intro to Machine Learning Workshop! We'll teach you
+            how these algorithms work and show you how to create neural networks, decision trees, and more in only a few lines of code."
+                date="11/07/2020"
+                time="04:00PM - 05:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_7-Q3QsZMQnGBBRCo-APBEg"
+                skills="Beginner/Intermediate"
+                [downloads]="[
+                  'https://www.anaconda.com/products/individual',
+                  'https://github.com/neil-ash/Workshops/tree/master/HackPSU_Fall2020'
+                ]"
+                presenter1img="../../../assets/images/workshop_leaders/NeilAshtekar.png"
+                presenter1Name="Neil Ashtekar"
+                collapseID="ml"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Fundamental Blockchain Concepts"
+                description="Blockchain@PSU presents an introductory workshop on the foundational concepts of Blockchain.
+            The workshop will cover the basic building blocks of the technology and how it can be applied to solve
+            problems in various different industries."
+                date="11/07/2020"
+                time="05:00PM - 06:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_gahEZlTgSeCCDNUg-dFdQA"
+                skills="Beginner/Intermediate"
+                [downloads]="[
+                  'https://code.visualstudio.com/download',
+                  'https://nodejs.org/en/download/'
+                ]"
+                collapseID="blockchain"
+              >
+              </app-live-workshop>
+              <app-live-workshop
+                title="Intro to Angular"
+                description="Learn to use Angular, one of the most popular web development frameworks!
+            In this workshop, you will get to build a simple web application that will teach you the most common Angular concepts. "
+                date="11/07/2020"
+                time="01:00PM - 02:00PM"
+                link="https://psu.zoom.us/webinar/register/WN_F31HEiFJQ9iLNlh3Cn9OcA"
+                skills="Basic HTML, CSS, JavaScipt/TypeScript knowledge recommended, should have vscode and node.js installed"
+                [downloads]="[
+                  'https://code.visualstudio.com/download',
+                  'https://nodejs.org/en/download/',
+                  'https://drive.google.com/drive/folders/1kIGpm_QCC4xv3O1g_L5JdYjdRys9J_5B?usp=sharing'
+                ]"
+                presenter1img="../../../assets/images/workshop_leaders/Paul_Scott_Headshot.jpg"
+                presenter1Name="Paul Scott"
+                collapseID="angular"
+              >
+              </app-live-workshop>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 nopadding">
+          <span class="workshop-track">ADVANCED</span>
+          <div class="row">
+            <div class="container-fluid py-4">
+              <div class="col-12 p-md-0 px-4">
+                <app-live-workshop
+                  title="Natural Language Processing"
+                  description="Humans typically communicate with other humans through human languages.
+              And while there are many human-to-human languages in the world, C++ is not one of them.
+              In this workshop we discuss the importance of natural language processing (NLP) in our increasingly
+              technological world, learn the basic NLP concepts, and get hands-on with some examples using Python."
+                  date="11/07/2020"
+                  time="10:00AM - 11:00AM"
+                  link="https://psu.zoom.us/webinar/register/WN_M5d63My1QcizgubRx9Tf9w"
+                  skills="Internet Browser (Python 3 installation optional)"
+                  presenter1img="../../../assets/images/workshop_leaders/ThomasZhao.JPG"
+                  presenter1Name="Thomas Zhao"
+                  collapseID="nlp"
+                >
+                </app-live-workshop>
+                <app-live-workshop
+                  title="Intro to Quantum Computing"
+                  description="In this introduction to quantum computing you’ll learn about several quantum computing concepts
+                including quantum bits, quantum logic gates, quantum entanglement, and basic quantum algorithms."
+                  date="11/07/2020"
+                  time="11:00AM - 12:00PM"
+                  link="https://psu.zoom.us/webinar/register/WN_WvFi56IkQKmjPOnwt7h5ug"
+                  skills="Basic linear algebra knowledge is recommended"
+                  presenter1img="../../../assets/images/workshop_leaders/Paul_Scott_Headshot.jpg"
+                  presenter1Name="Paul Scott"
+                  collapseID="quantum"
+                >
+                </app-live-workshop>
+                <br /><br />
+                <span class="workshop-track">Non-Technical</span>
+                <br /><br />
+                <app-live-workshop
+                  title="Team Building!"
+                  description="Don’t have a team? Fear not!
+              Come to our Team Building workshop to connect with Hackers and to find the people you will build your winning project with!"
+                  date="11/06/2020"
+                  time="05:00PM - 06:00PM"
+                  link="https://psu.zoom.us/webinar/register/WN_nFfuto5rTpCFpiE8Wygulw"
+                  skills="N/A"
+                  presenter1img="../../../assets/images/workshop_leaders/Clayton_Sulby.png"
+                  presenter1Name="Clayton Sulby"
+                  collapseID="team"
+                >
+                </app-live-workshop>
+                <app-live-workshop
+                  title="Capital One Info Session"
+                  description="Come out to the Capital One Info Session!
+              A great opportunity to meet directly with Capital One representatives and learn more about their offerings. "
+                  date="11/07/2020"
+                  time="02:00PM - 03:00PM"
+                  link="https://psu.zoom.us/webinar/register/WN_SH3a_Jv4TXq_MxqWdo_BgQ"
+                  skills="N/A"
+                  collapseID="capitalone"
+                >
+                </app-live-workshop>
+                <app-live-workshop
+                  title="Vanguard Info Session"
+                  description="Come out to the Vanguard Info Session!
+              A great opportunity to meet directly with Vanguard representatives and learn more about their offerings."
+                  date="11/07/2020"
+                  time="03:00PM - 04:00PM"
+                  link="https://psu.zoom.us/webinar/register/WN_lxYadXxlQnufGOmnv7CQbw"
+                  skills="N/A"
+                  collapseID="vanguard"
+                  presenter1img="../../../assets/images/workshop_leaders/Hannah_Angello.png"
+                  presenter2img="../../../assets/images/workshop_leaders/Jessica-Tang-Headshot.jpg"
+                  presenter1Name="Hannah Angelo"
+                  presenter2Name="Jessica Tang"
+                >
+                </app-live-workshop>
+                <app-live-workshop
+                  title="Nittany AI Info Session"
+                  description="Brad Zdenek and past Nittany Ai Challenge winners will offer ideas on the
+              best ways to leverage HackPSU to give you an advantage in the 2021 Nittany AI Challenge, a
+              PSU competition offering $50,000 in prizes for improving the world using AI. In addition,
+              Brad and the teams will highlight tips and tricks for successfully competing both at HackPSU
+              and in the Nittany AI Challenge."
+                  date="11/07/2020"
+                  time="10:00AM - 11:00AM"
+                  link="https://psu.zoom.us/webinar/register/WN_wNnNXYigQHGwnoviqoS8wQ"
+                  skills="N/A"
+                  presenter1img="../../../assets/images/workshop_leaders/BradZdenek.jpg"
+                  presenter1Name="Brad Zdenek"
+                  collapseID="nittanyai"
+                >
+                </app-live-workshop>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="center row d-flex justify-content-center mb-0">
-      <p>Made with <span>&#9829;</span> in Happy Valley.</p>
+  </section>
+
+  <section id="footer">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center">
+        <div id="social-media" class="col-8 col-offset-2 col-md-8 col-md-offset-2">
+          <a target="_blank" href="https://www.facebook.com/HackPSU/"
+            ><img class="social-media-icon animated animated-icon" src="assets/icons/facebook.svg"
+          /></a>
+          <a target="_blank" href="http://twitter.com/hackpsu"
+            ><img class="social-media-icon animated animated-icon" src="assets/icons/twitter.svg"
+          /></a>
+          <a target="_blank" href="https://www.instagram.com/hack_psu/"
+            ><img class="social-media-icon animated animated-icon" src="assets/icons/instagram.svg"
+          /></a>
+          <a target="_blank" href="https://www.snapchat.com/add/hackpsu"
+            ><img class="social-media-icon animated animated-icon" src="assets/icons/snapchat.svg"
+          /></a>
+          <a target="_blank" href="https://hackpsu-fall-2020.devpost.com/"
+            ><img class="social-media-icon animated animated-icon" src="assets/icons/devpost.svg"
+          /></a>
+          <a href="mailto:team@hackpsu.org"
+            ><img
+              class="social-media-icon animated animated-icon"
+              src="assets/icons/email-icon.svg"
+          /></a>
+        </div>
+      </div>
+      <div class="center row d-flex justify-content-center mb-0">
+        <p>Made with <span>&#9829;</span> in Happy Valley.</p>
+      </div>
+      <div class="center row d-flex justify-content-center">
+        <p>
+          Icons designed by
+          <a href="https://www.flaticon.com/authors/freepik" target="_blank" style="color: white"
+            >Freepik from Flaticon</a
+          >.
+        </p>
+      </div>
+      <div class="center row d-flex justify-content-center mb-0">
+        <a class="small-text" target="_blank" href="https://hackpsu.org/privacy">Privacy Policy</a>
+      </div>
     </div>
-    <div class="center row d-flex justify-content-center">
-      <p>
-        Icons designed by
-        <a href="https://www.flaticon.com/authors/freepik" target="_blank" style="color: white"
-          >Freepik from Flaticon</a
-        >.
-      </p>
-    </div>
-    <div class="center row d-flex justify-content-center mb-0">
-      <a class="small-text" target="_blank" href="https://hackpsu.org/privacy">Privacy Policy</a>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
+<Particles id="particles-js" [options]="particlesOptions"></Particles>
