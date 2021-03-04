@@ -4,6 +4,12 @@
   margin-left: 35%;
   padding-bottom: 25px;
 }
+
+.registration-title{
+  text-align: center;
+  font-family: 'Courier New'
+}
+
 .message {
   font-family: 'Lato', sans-serif;
   display: inline-block;
