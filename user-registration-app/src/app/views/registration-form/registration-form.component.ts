@@ -245,7 +245,7 @@ class ScrollHelper {
       if (element == null) {
         return;
       }
-      element.scrollIntoView();
+      element.scrollIntoView({ behavior: 'smooth' });
     } finally {
       this.classToScrollTo = null;
     }
