@@ -112,8 +112,6 @@ export class RegistrationFormComponent implements OnInit {
       this.validator.errors.map((error) =>
         this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
       );
-      // TODO: Remove console.log after done testing
-      console.log(this.validator.errors[0].dataPath.slice(1).concat('-container'));
       this.scrollHelper.scrollToFirst(
         this.validator.errors[0].dataPath.slice(1).concat('-container')
       );
@@ -239,9 +237,7 @@ class ScrollHelper {
       return;
     }
     try {
-      console.log('asdf' + this.classToScrollTo);
       let element = document.getElementById(this.classToScrollTo);
-      console.log(element);
       if (element == null) {
         return;
       }
