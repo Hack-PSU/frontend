@@ -48,6 +48,7 @@ export class RegistrationFormComponent implements OnInit {
   @ViewChild('registrationModel') form: any;
   private readonly validator: Ajv.ValidateFunction;
 
+  // This is to scroll to elements that aren't in the DOM because of *ngIf
   private scrollHelper: ScrollHelper = new ScrollHelper();
 
   static getInstance() {
@@ -102,16 +103,14 @@ export class RegistrationFormComponent implements OnInit {
       .join(', ');
   }
 
-  ngAfterViewChecked() {
-    this.scrollHelper.doScroll();
-  }
-
   private validate() {
     const result = this.validator(this.registrationForm);
     if (!result) {
       this.validator.errors.map((error) =>
         this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
       );
+      // All the id's we scroll to are appended with "-container" and we want to scroll to the error so
+      // it's more clear to the user on what they missed.
       this.scrollHelper.scrollToFirst(
         this.validator.errors[0].dataPath.slice(1).concat('-container')
       );
@@ -161,6 +160,11 @@ export class RegistrationFormComponent implements OnInit {
         Materialize.updateTextFields();
       }, 750);
     });
+  }
+
+  // To see why we need this, go to ScrollHelper and see the comments there.
+  ngAfterViewChecked() {
+    this.scrollHelper.doScroll();
   }
 
   makeAutoCompleteSettings(field: string, data: any) {
@@ -225,6 +229,11 @@ export class RegistrationFormComponent implements OnInit {
   }
 }
 
+// The reason why we need our own ScrollHelper class rather than just scrolling to the element is
+// because we use * ngIfs in our form. *ngIf removes elements completely from the DOM, so by default
+// we're unable to find it with the default scroll function. We need to find the element and scroll
+// After the element is visible.
+// See more here: https://stackoverflow.com/a/42918980/4907741
 class ScrollHelper {
   private classToScrollTo: string = null;
 
@@ -232,6 +241,7 @@ class ScrollHelper {
     this.classToScrollTo = className;
   }
 
+  // This is called in ngAfterViewChecked so we can actually find the element.
   doScroll() {
     if (!this.classToScrollTo) {
       return;
