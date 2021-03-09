@@ -132,7 +132,7 @@ export class LiveViewComponent implements OnInit {
       },
     },
     interactivity: {
-      detectsOn: 'window',
+      detectsOn: 'canvas',
       events: {
         onHover: {
           enable: true,
