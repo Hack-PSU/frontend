@@ -48,6 +48,9 @@ export class RegistrationFormComponent implements OnInit {
   @ViewChild('registrationModel') form: any;
   private readonly validator: Ajv.ValidateFunction;
 
+  // This is to scroll to elements that aren't in the DOM because of *ngIf
+  private scrollHelper: ScrollHelper = new ScrollHelper();
+
   static getInstance() {
     return RegistrationFormComponent.regFormComp;
   }
@@ -106,7 +109,13 @@ export class RegistrationFormComponent implements OnInit {
       this.validator.errors.map((error) =>
         this.toastrService.warning(RegistrationFormComponent.getFormattedErrorText(error))
       );
+      // All the id's we scroll to are appended with "-container" and we want to scroll to the error so
+      // it's more clear to the user on what they missed.
+      this.scrollHelper.scrollToFirst(
+        this.validator.errors[0].dataPath.slice(1).concat('-container')
+      );
     }
+
     return result;
   }
 
@@ -153,6 +162,11 @@ export class RegistrationFormComponent implements OnInit {
     });
   }
 
+  // To see why we need this, go to ScrollHelper and see the comments there.
+  ngAfterViewChecked() {
+    this.scrollHelper.doScroll();
+  }
+
   makeAutoCompleteSettings(field: string, data: any) {
     return {
       data,
@@ -191,10 +205,6 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm.resume = event.target.files[0];
   }
 
-  error() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   dietaryRestriction(event) {
     if (event.target.value === 'other') {
       this.registrationForm.dietaryRestriction = '';
@@ -215,8 +225,35 @@ export class RegistrationFormComponent implements OnInit {
 
     if (this.validate() && this.form.valid) {
       this.submit();
-    } else {
-      this.error();
+    }
+  }
+}
+
+// The reason why we need our own ScrollHelper class rather than just scrolling to the element is
+// because we use * ngIfs in our form. *ngIf removes elements completely from the DOM, so by default
+// we're unable to find it with the default scroll function. We need to find the element and scroll
+// After the element is visible.
+// See more here: https://stackoverflow.com/a/42918980/4907741
+class ScrollHelper {
+  private classToScrollTo: string = null;
+
+  scrollToFirst(className: string) {
+    this.classToScrollTo = className;
+  }
+
+  // This is called in ngAfterViewChecked so we can actually find the element.
+  doScroll() {
+    if (!this.classToScrollTo) {
+      return;
+    }
+    try {
+      let element = document.getElementById(this.classToScrollTo);
+      if (element == null) {
+        return;
+      }
+      element.scrollIntoView({ behavior: 'smooth' });
+    } finally {
+      this.classToScrollTo = null;
     }
   }
 }
