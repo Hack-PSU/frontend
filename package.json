@@ -15,9 +15,9 @@
   "author": "hackpsu-tech",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^4.0.1",
+    "mocha": "^8.3.1",
     "prettier": "2.2.1",
-    "stylelint": "9.4.0",
+    "stylelint": "^13.12.0",
     "stylelint-config-recommended": "2.1.0",
     "stylelint-scss": "3.2.0"
   },
