@@ -5,9 +5,9 @@
   #registrationModel="ngForm"
 >
   <!--Registation title-->
-  <div class = "registration-title">
+  <div class="registration-title">
     <h1>Registration</h1>
-    <h5>...for our <span class = "orange-background">Spring 2021 </span>Hackathon!</h5>
+    <h5>...for our <span class="orange-background">Spring 2021 </span>Hackathon!</h5>
   </div>
   <div class="row scrollspy" id="name-container" materialize="scrollSpy">
     <div class="card medium darken-1">
@@ -974,14 +974,34 @@
 <div class="col hide-on-small-only m2 l2 scrollspy-container">
   <ul class="section table-of-contents">
     <li><a href="#name-container">General</a></li>
-    <li><a href="#shirt-container">Shirt Size</a></li>
-    <!-- <li><a href="#travel-container">Travel Reimbursement</a></li> -->
-    <!-- <li><a href="#diet-container">Dietary Restrictions</a></li> -->
-    <li><a href="#university-container">Education</a></li>
-    <li><a href="#resume-container">Resume</a></li>
-    <li><a href="#mlh-container-coc">MLH Code of Conduct</a></li>
-    <li><a href="#mlh-container-coc">MLH Data Sharing Policy</a></li>
-    <li><a href="#additional-questions-container">Additional Questions</a></li>
+    <li>
+      <a href="#shirtSize-container" *ngIf="registrationForm.eighteenBeforeEvent">Shirt Size</a>
+    </li>
+    <!-- <li><a href="#travel-container" *ngIf="registrationForm.eighteenBeforeEvent">Travel Reimbursement</a></li> -->
+    <!-- <li><a href="#diet-container" *ngIf="registrationForm.eighteenBeforeEvent">Dietary Restrictions</a></li> -->
+    <li>
+      <a href="#university-container" *ngIf="registrationForm.eighteenBeforeEvent">Education</a>
+    </li>
+    <li><a href="#resume-container" *ngIf="registrationForm.eighteenBeforeEvent">Resume</a></li>
+    <li>
+      <a href="#mlh-container-coc" *ngIf="registrationForm.eighteenBeforeEvent"
+        >MLH Code of Conduct</a
+      >
+    </li>
+    <li>
+      <a href="#mlh-container-dsp" *ngIf="registrationForm.eighteenBeforeEvent"
+        >MLH Data Sharing Policy</a
+      >
+    </li>
+    <li>
+      <a
+        href="#additional-questions-container"
+        *ngIf="
+          registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+        "
+        >Additional Questions</a
+      >
+    </li>
   </ul>
 
   <p class="email-us-text">
