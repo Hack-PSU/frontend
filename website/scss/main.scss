@@ -1038,7 +1038,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: #009245;
+      background: $dark-blue-primary;
     }
   }
 
