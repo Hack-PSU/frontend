@@ -120,7 +120,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
-    this.asYouType = new AsYouType('US');
+    this.asYouType = new AsYouType();
     this.validator = ajv.compile(registeredUserSchema.default);
   }
 
@@ -167,7 +167,7 @@ export class RegistrationFormComponent implements OnInit {
   parsePhone(val: string) {
     this.asYouType.reset();
     this.prettifiedPhone = this.asYouType.input(val);
-    this.registrationForm.phone = this.asYouType.getNationalNumber();
+    this.registrationForm.phone = this.prettifiedPhone;
   }
 
   submit() {

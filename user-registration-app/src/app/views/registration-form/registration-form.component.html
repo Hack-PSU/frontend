@@ -108,10 +108,13 @@
         <p class="alert">
           This information is required by MLH. Rest assured we won't be spamming your phone.
         </p>
+        <p class ="alert">
+          *For USA phone numbers, please enter a +1 before your number 
+          (for example: if your number is (231) 456-7890, you would type +12314567890)
+        </p>
         <div class="input-field">
           <input
             type="tel"
-            autocomplete="tel-national"
             id="phone-input"
             name="phone"
             [value]="prettifiedPhone"
@@ -120,10 +123,9 @@
             (keyup)="parsePhone($event.target.value)"
             class="validate required"
             #phoneInput="ngModel"
-            pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
           />
           <label for="phone-input" data-error="Valid phone number is required"
-            >Enter your phone number</label
+            >Enter your *international phone number</label
           >
         </div>
         <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
