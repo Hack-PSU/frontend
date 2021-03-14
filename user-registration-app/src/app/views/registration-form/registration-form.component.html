@@ -113,9 +113,9 @@
         <p class="alert">
           This information is required by MLH. Rest assured we won't be spamming your phone.
         </p>
-        <p class ="alert">
-          *For USA phone numbers, please enter a +1 before your number 
-          (for example: if your number is (231) 456-7890, you would type +12314567890)
+        <p class="alert">
+          *For USA phone numbers, please enter a +1 before your number (for example: if your number
+          is (231) 456-7890, you would type +12314567890)
         </p>
         <div class="input-field">
           <input
@@ -378,6 +378,7 @@
     [@enterAnimation]
     class="row scrollspy"
     materialize="scrollSpy"
+    id="address-container"
   >
     <div class="card medium darken-1">
       <div class="card-content">
@@ -444,7 +445,8 @@
             name="shareAddressMlh"
             [(ngModel)]="registrationForm.shareAddressMlh"
           />
-          <label for="shareAddressMlh">Share your address with MLH?</label><br />
+          <label for="shareAddressMlh">Share your address with MLH?</label>
+          <label class="data-error">Note: Country is required by MLH</label><br />
         </div>
         <div class="form-group">
           <input
@@ -457,7 +459,8 @@
           <label for="shareAddressSponsors">Share your address with our sponsors?</label><br />
         </div>
         <p class="alert">
-          This information is for us to send you goodies (domestic shipping)! This is optional.
+          This information is for us to send you goodies (domestic shipping)! Everything except
+          country is optional.
         </p>
       </div>
     </div>

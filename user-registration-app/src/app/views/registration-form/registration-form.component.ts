@@ -68,6 +68,8 @@ export class RegistrationFormComponent implements OnInit {
         return "Please tell us your gender. We think we've covered all the options";
       case '.shirtSize':
         return "Please provide a shirt size. Wouldn't wanna miss out on that :)";
+      case '.address':
+        return 'Please provide a country (required by MLH)';
       case '.travelReimbursement':
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
       case '.firstHackathon':
