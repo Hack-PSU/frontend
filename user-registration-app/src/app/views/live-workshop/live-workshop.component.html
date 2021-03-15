@@ -5,7 +5,7 @@
   </div>
 
   <div id="module">
-    <p>{{ description }}</p>
+    <p><b>Description:</b> {{ description }}</p>
   </div>
   <br />
   <div>
@@ -13,6 +13,9 @@
     <p *ngFor="let download of downloads; index as i">
       <a href="{{ download }}" style="color: #e5704c">Download {{ i + 1 }}</a>
     </p>
+  </div>
+  <div>
+    <b>Presenters:</b>
   </div>
   <div *ngFor="let presenterName of (presenters || [])" class="inline">
     <p>{{presenterName}}</p>
