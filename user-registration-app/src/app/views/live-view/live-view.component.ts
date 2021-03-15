@@ -67,10 +67,6 @@ export class LiveViewComponent implements OnInit {
     });
     this.httpService.getEvents().subscribe((eventsArr) => {
       this.workshops = eventsArr.filter(event => event.event_type === "workshop");
-      console.log(this.workshops);
-      this.workshops.forEach(workshop => {
-        
-      })
     });
   }
 

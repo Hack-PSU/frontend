@@ -17,14 +17,15 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() skills: string;
   @Input() downloads: string[];
   @Input() presenters: string[];
+  @Input() collapseID: string;
   // @Input() presenter1img: string;
   // @Input() presenter1Name: string;
   // @Input() presenter2img: string;
   // @Input() presenter2Name: string;
   // @Input() presenter3img: string;
   // @Input() presenter3Name: string;
-  @Input() collapseID: string;
 
+  // not the most prettiest way to handle this date conversion
   @Input() set date(value: any) {
     this._date = new Date(0);
     this._date.setUTCMilliseconds(value);
