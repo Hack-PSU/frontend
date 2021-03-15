@@ -16,7 +16,7 @@ import { Hackathon } from '../../models/hackathon';
 export class UserProfileViewComponent implements OnInit {
   private static readonly DEFAULT_PROFILE_URL: string = '../../assets/icons/user.png';
   currentHackathon: Hackathon;
-  currentPin = "No active pin! Don't forget to register!";
+  currentPin: number = null;
 
   constructor(
     public authService: AuthService,
@@ -30,7 +30,7 @@ export class UserProfileViewComponent implements OnInit {
       (registrations: RegistrationApiResponse[]) => {
         registrations.forEach((registration) => {
           if (registration.hackathon.active) {
-            this.currentPin = registration.pin.toString();
+            this.currentPin = registration.pin;
           }
         });
         regObservable.unsubscribe();
