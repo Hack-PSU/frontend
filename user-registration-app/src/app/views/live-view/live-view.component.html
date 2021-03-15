@@ -412,9 +412,9 @@
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
-                    [time]="workshop.event_start_time"
+                    [endTime]="workshop.event_end_time"
                     [link]="workshop.location_name"
-                    skills="skills not implemented in api"
+                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
                     [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
                     collapseID="css/html">
                   </app-live-workshop>
@@ -434,9 +434,9 @@
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
-                    [time]="workshop.event_start_time"
+                    [endTime]="workshop.event_end_time"
                     [link]="workshop.location_name"
-                    skills="skills not implemented in api"
+                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
                     [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
                     collapseID="css/html">
                   </app-live-workshop>
@@ -457,9 +457,9 @@
                       [title]="workshop.event_title"
                       [description]="workshop.event_description"
                       [date]="workshop.event_start_time"
-                      [time]="workshop.event_start_time"
+                      [endTime]="workshop.event_end_time"
                       [link]="workshop.location_name"
-                      skills="skills not implemented in api"
+                      [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
                       [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
                       collapseID="css/html">
                     </app-live-workshop>

@@ -1,7 +1,7 @@
 <div class="card" style="text-align: left">
   <div class="inline">
     <p class="card-title inline">{{ title }}</p>
-    <p class="dateTime">{{ date }}<br />{{ time }}</p>
+    <p class="dateTime">{{ date }}<br />{{ startTime }} - {{ endTime }}</p>
   </div>
 
   <div id="module">
@@ -23,7 +23,7 @@
       [attr.data-tooltip]="presenterName"
       id="presenter1"
     ></div>
-    <!-- <div
+    <!-- <divgi
       class="card-image tooltipped"
       [ngStyle]="{ background: 'url(' + presenter2img + ')' }"
       data-position="bottom"

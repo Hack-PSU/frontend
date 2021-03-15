@@ -9,6 +9,7 @@ export class EventModel {
   public event_location_name: string;
   public ws_presenter_names: string;
   public ws_skill_level: string;
+  public ws_relevant_skills: string;
 
   static parseJSON(value: any) {
     const event = new EventModel();
