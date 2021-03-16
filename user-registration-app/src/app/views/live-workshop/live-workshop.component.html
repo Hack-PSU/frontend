@@ -17,10 +17,10 @@
   <div>
     <b>Presenters:</b>
   </div>
-  <div *ngFor="let presenterName of (presenters || [])" class="inline">
+  <div *ngFor="let presenterName of (presenters || []); let i = index" class="inline">
     <p>{{presenterName}}</p>
     <div class="card-image tooltipped" data-position="bottom"
-      [ngStyle]="{ background: 'url(' + presenter1img + ')' }"
+      [ngStyle]="{ background: 'url(' + eventIcon[i] + ')' }"
       [attr.data-tooltip]="presenterName" id="presenter1">
     </div>
     <a href="{{ link }}" target="_blank"><i class="material-icons medium linkToWorkshop">link</i></a>

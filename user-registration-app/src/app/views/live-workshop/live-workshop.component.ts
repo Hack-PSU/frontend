@@ -18,6 +18,7 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() downloads: string[];
   @Input() presenters: string[];
   @Input() collapseID: string;
+  @Input() eventIcon: string[];
   // @Input() presenter1img: string;
   // @Input() presenter1Name: string;
   // @Input() presenter2img: string;
