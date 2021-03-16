@@ -904,6 +904,13 @@ border and the section separator bar */
     max-width: 50%;
   }
 
+  .microsoft{
+    padding-top: 1%;
+    @media screen and (max-width: $md-break) {
+      height: fit-content;
+      width: fit-content;
+    }
+  }
   .nittany-ai{
     padding-top: 10%;
     @media screen and (max-width: $md-break) {
@@ -944,7 +951,7 @@ border and the section separator bar */
     }
   }
 
-  .leidos {
+  .startup {
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
@@ -956,13 +963,6 @@ border and the section separator bar */
       width: 60%;
     }
     padding-top: 8%;
-  }
-
-  .textron {
-    @media screen and (max-width: $md-break) {
-      width: 60%;
-    }
-    padding-top: 14%;
   }
 
   .loop-sw {
@@ -982,6 +982,7 @@ border and the section separator bar */
   .ics {
     @media screen and (max-width: $md-break) {
       width: 60%;
+      background-size: 300px 300px;
     }
     padding-top: 0%;
   }
