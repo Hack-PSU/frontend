@@ -19,12 +19,6 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() presenters: string[];
   @Input() collapseID: string;
   @Input() eventIcon: string[];
-  // @Input() presenter1img: string;
-  // @Input() presenter1Name: string;
-  // @Input() presenter2img: string;
-  // @Input() presenter2Name: string;
-  // @Input() presenter3img: string;
-  // @Input() presenter3Name: string;
 
   // not the most prettiest way to handle this date conversion
   @Input() set date(value: any) {
