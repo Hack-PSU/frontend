@@ -184,8 +184,9 @@
     <div class="modal-content" role="document">
       <div class="header col-12" style="height: 120px;">
         <div class="modal-header ' + snapshot.type + '">
+          <!--<div class="modal-icon">{{ event.event_icon }}</div>-->
           <div class="modal-title">{{ event.event_title }}</div>
-          <a href="#" class="close"></a>
+          <a data-dismiss="modal" aria-label="Close" class="close"></a>
           <div class="modal-day" style="position: absolute; margin-top: 40px; ">{{ getEventDay(event) }} , {{ getStartTime(event) }} - {{ getEndTime(event) }}</div>
           <button type="button" class="btn success" style="position: absolute; margin-top: 100px;">Zoom Link</button>
         </div>
