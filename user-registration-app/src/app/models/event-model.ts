@@ -1,5 +1,5 @@
 export class EventModel {
-  public event_uid: string;
+  public uid: string;
   public event_title: string;
   public event_type: string;
   public event_start_time: string;

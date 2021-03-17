@@ -240,6 +240,11 @@ i {
   background-color: #9f9f9f;
   height: 100%;
 }
+.modal-title{
+  font-family: 'Cornerstone', sans-serif;
+  font-size: medium;
+  font-weight: bold;
+}
 
 .modal-footer {
   position: absolute;
