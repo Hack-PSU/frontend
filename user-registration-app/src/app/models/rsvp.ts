@@ -16,5 +16,4 @@ export class Rsvp {
     this.user_id = null;
     this.rsvp_time = null;
   }
-
 }

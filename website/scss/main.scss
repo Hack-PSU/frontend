@@ -139,14 +139,9 @@ body {
 
 /* ID Based Selectors */
 #mlh-trust-badge {
-  display: block;
   position: absolute;
   float: right;
-  top: 0;
-  width: 10%;
-  max-width: 100px;
   height: 120px;
-  z-index: 1;
   margin-top: 0;
 
   @media screen and (max-width: $break-medium) {
@@ -625,7 +620,6 @@ border and the section separator bar */
 }
 
 
-
 /* ====================== PLANETS ==================== */
 #planet-container {
   position: relative;
@@ -753,71 +747,6 @@ border and the section separator bar */
       font-weight: 800;
       font-size: 3.2vh;
     }
-  }
-}
-
-
-
-/* ====================== CAPTURE THE FLAG ==================== */
-#capture-the-flag {
-  padding-top: 50px;
-
-  .section-header {
-    width: 100%;
-  }
-
-  .header-text {
-    @media screen and (max-width: $sm-break) {
-      font-size: larger;
-    }
-  }
-
-  .header-bar {
-    background-color: $mountain-blue;
-    margin-bottom: 20px;
-  }
-
-  .description-header {
-    font-family: $font-stack-tertiary;
-    font-size: .75em;
-    text-align: center;
-
-    @media screen and (max-width: $sm-break) {
-      font-size: large;
-    }
-  }
-
-  .ctf-register {
-    color: #f5f5f5;
-    font-family: $font-stack-tertiary;
-    line-height: 9vh !important;
-    @include responsive-font(.85em, .8em, 1.25em, 1em);
-    max-font-size: 2em;
-  }
-
-  .ctf-register-btn {
-    @include transition(all, 0.4s);
-    height: 10vh;
-    background: transparent;
-    border: solid 8px rgba(170, 202, 204, 0.6);
-    border-radius: 50px;
-    margin: 5vh 2vh;
-    font-size: smaller;
-
-    &:hover {
-      @include transition(all, 0.4s);
-      background: rgba(170, 202, 204, 1);
-    }
-  }
-
-
-  p {
-    font-family: 'Lato', sans-serif;
-    font-size: .6em;
-    font-weight: 100;
-    text-align: left;
-    line-height: 1.35em;
-    color: white;
   }
 }
 
@@ -1021,8 +950,21 @@ border and the section separator bar */
       font-size: large;
     }
   }
-}
 
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: .6em;
+    font-weight: 100;
+    text-align: center;
+    line-height: 200%;
+    color: white;
+
+    span {
+      font-weight: 800;
+      font-size: 3.2vh;
+    }
+  }
+}
 
 
 
@@ -1063,6 +1005,13 @@ border and the section separator bar */
     max-width: 50%;
   }
 
+  .microsoft{
+    padding-top: 1%;
+    @media screen and (max-width: $md-break) {
+      height: fit-content;
+      width: fit-content;
+    }
+  }
   .nittany-ai{
     padding-top: 10%;
     @media screen and (max-width: $md-break) {
@@ -1103,7 +1052,7 @@ border and the section separator bar */
     }
   }
 
-  .leidos {
+  .startup {
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
@@ -1117,18 +1066,18 @@ border and the section separator bar */
     padding-top: 8%;
   }
 
-  .textron {
-    @media screen and (max-width: $md-break) {
-      width: 60%;
-    }
-    padding-top: 14%;
-  }
-
   .loop-sw {
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
     padding-top: 28%;
+  }
+
+  .smeal{
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 10%;
   }
 
   .echoAR {
@@ -1141,6 +1090,7 @@ border and the section separator bar */
   .ics {
     @media screen and (max-width: $md-break) {
       width: 60%;
+      background-size: 300px 300px;
     }
     padding-top: 0%;
   }
@@ -1197,7 +1147,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: #009245;
+      background: $dark-blue-primary;
     }
   }
 

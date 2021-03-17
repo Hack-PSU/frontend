@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Error as GenericError } from 'tslint/lib/error';
 import { Error } from '../../models/interfaces';
-import { AlertService } from 'ngx-alerts';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, throwError } from 'rxjs';
-import { IApiResponse } from "../../models/api-response.v2";
+import { IApiResponse } from '../../models/api-response.v2';
 
 @Injectable()
 export class CustomErrorHandlerService {
-
   private static tryParseError(error: HttpErrorResponse): Error {
     try {
       return { error: error.error, message: error.message };
@@ -23,11 +22,10 @@ export class CustomErrorHandlerService {
         message: error.message,
       },
       message: error.message,
-    }
+    };
   }
 
-  constructor(private alerts: AlertService) {
-  }
+  constructor(private toastrService: ToastrService) {}
 
   private parseCustomServerError(error: HttpErrorResponse): any {
     if (error.status >= 500) {
@@ -59,7 +57,8 @@ export class CustomErrorHandlerService {
       const responseOptions = {
         error: {
           title: 'Unknown Error!',
-          message: 'A Server Error Occurred. If this keeps repeating, send us an email at technology@hackpsu.org.',
+          message:
+            'A Server Error Occurred. If this keeps repeating, send us an email at technology@hackpsu.org.',
         },
         status: 400,
         headers: null,
@@ -70,7 +69,7 @@ export class CustomErrorHandlerService {
   }
 
   private showToast(error: Error): void {
-    this.alerts.danger(error.error.message);
+    this.toastrService.error(error.error.message);
   }
 
   public handleHttpError(error: HttpErrorResponse): Observable<Error> {
@@ -89,7 +88,7 @@ export class CustomErrorHandlerService {
   handleV2HttpError(err: { error: IApiResponse<Error> }) {
     const error = { error: err.error, message: err.error.body.data.message };
     console.error(error);
-    // this.alerts.danger(error.message);
+    // this.toastrService.error(error.message);
     return throwError(error);
   }
 }

@@ -1,7 +1,6 @@
 # HackPSU Fall 2020
 Repository for the main website for HackPSU Fall 2020
 
-[![Build Status](https://travis-ci.org/Hack-PSU/frontend.svg?branch=master)](https://travis-ci.org/Hack-PSU/frontend)
 
 ## Frontend
 
@@ -31,22 +30,25 @@ On error response | @apiError
 
 ## CI
 
-This repository is configured for Continuous Integration (CI) with Travis CI. Click the above Build Status link for more details on the last build.
-The CI is programmed to run all tests for the API, and deploy the current version of the API to EB, as well as deploys the frontend from website directory to Firebase.
-All deployments happen on the _master_ branch. Therefore, as much as possible, commits should not be made directly to _master_. All development should be run on _dev_
-and then PRed into _master_.
+[![Vercel Logo](/website/assets/images/sponsors/powered-by-vercel.svg)](https://vercel.com?utm_source=HackPSU&utm_campaign=oss)
+
+
+This repository is configured for Continuous Integration (CI) with Vercel.
+The CI is programmed to run all tests for the API, and deploy the current version of the API to EB, as well as deploys the frontend from website directory to Vercel.
+All production deployments to hackpsu.org and app.hackpsu.org happen on the _master_ branch. Therefore, as much as possible, commits should not be made directly to _master_. All development should be run on _dev_
+and then PRed into _master_. Preview deployments to a Vercel URL happen in PRs, which help us review them faster.
 
 To run the **tests**, run `npm test` in the main directory. </br>
 
 ## Running Locally
-To compile and run the **main website**, run `npm run watch-sass` in the main directory. </br>
+To compile and run the **main website**, run `npm run watch-sass` then `python -m http.server` in the main directory. </br>
 To compile run anything from **app.hackpsu.org**, run `npm run start` in the user-registration-app directory.
 
 ## Testing
 
-Testing is handled by the CI platform Travis-CI. Tests are Javascript files under api/test. Tests should use the [MochaJS](http://Mochajs.org) testing framework. In addition, use
+Tests are Javascript files under api/test. Tests should use the [MochaJS](http://Mochajs.org) testing framework. In addition, use
 [ChaiJS](http://chaijs.com) for assertions. RESTful testing also uses the mocha-typescript package formatted using [mocha-typescript](https://www.npmjs.com/package/mocha-typescript).
-All PRs should include the appropriate passing tests, and should be reviewed by the Director for Technology (@jmm8046).
+All PRs should include the appropriate passing tests, and should be reviewed by the Director for Technology (@rsquared226).
 
 
 ## Practices

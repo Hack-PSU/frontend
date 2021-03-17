@@ -3,21 +3,21 @@ $font-stack-secondary: 'Raleway', sans-serif;
 $font-stack-tertiary: 'Cornerstone', sans-serif;
 
 /* ====================== CONSTANTS ==================*/
-$white: #FFFFFF;
-$orange: #E5705C;
-$light-blue-primary: #6C88B7;
+$white: #ffffff;
+$orange: #e5705c;
+$light-blue-primary: #6c88b7;
 $dark-blue-primary: #133753;
-$light-blue: #AACACC;
-$dark-blue-secondary: #24577C;
-$light-blue-secondary: #D0EAF1;
-$orange-secondary: #C94331;
+$light-blue: #aacacc;
+$dark-blue-secondary: #24577c;
+$light-blue-secondary: #d0eaf1;
+$orange-secondary: #c94331;
 $gray: #333333;
 $mountain-blue: #297284;
 
 //faq colors
-$pale-blue-link: #99C4CC;
-$red-plus: #C94331;
-$grayish-white-question: #E1E9EA;
+$pale-blue-link: #99c4cc;
+$red-plus: #c94331;
+$grayish-white-question: #e1e9ea;
 
 $xl-break: 1440px;
 $lg-break: 992px;
@@ -29,13 +29,12 @@ $break-large: 1200px;
 
 @font-face {
   font-family: 'Cornerstone';
-  src:         url('../assets/fonts/Cornerstone.ttf');
+  src: url('../assets/fonts/Cornerstone.ttf');
 }
-
 
 /* ====================== MIXINS ====================*/
 @mixin accent($color) {
-  color:            $color;
+  color: $color;
   background-color: $color;
 }
 
@@ -44,18 +43,18 @@ $break-large: 1200px;
 }
 
 @mixin background-size($style) {
-  background-size:         $style;
+  background-size: $style;
   -webkit-background-size: $style;
-  -moz-background-size:    $style;
-  -o-background-size:      $style;
+  -moz-background-size: $style;
+  -o-background-size: $style;
 }
 
 @mixin transition($property, $time) {
   -webkit-transition: $property $time;
-  -moz-transition:    $property $time;
-  -ms-transition:     $property $time;
-  -o-transition:      $property $time;
-  transition:         $property $time;
+  -moz-transition: $property $time;
+  -ms-transition: $property $time;
+  -o-transition: $property $time;
+  transition: $property $time;
 }
 
 @mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
@@ -85,118 +84,119 @@ $break-large: 1200px;
 //GLOBAL MIXINS AND STUFF
 
 #business-header {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
-.stepList li { 
-    display: flex; 
-  }
-  
-.step { 
-    position: relative;
-    color: #ccc;
-    padding: 0 1.5em; 
-    white-space: nowrap; 
-}
-  
-.step::after { 
-    content: "";
-    position: absolute;
-    z-index: 2;
-    right: 0;
-    top: 0;
-    transform: translateX(50%);
-    border-radius: 50%;
-    background: #fff;
-    border: 1px #ccc solid;
-    width: .8em;
-    height: .8em;
+.stepList li {
+  display: flex;
 }
 
+.step {
+  position: relative;
+  color: #ccc;
+  padding: 0 1.5em;
+  white-space: nowrap;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  transform: translateX(50%);
+  border-radius: 50%;
+  background: #fff;
+  border: 1px #ccc solid;
+  width: 0.8em;
+  height: 0.8em;
+}
 
 .stepList span {
-    padding: 0 1.5em 3em 1.5em;
-    position: relative;
-    text-align: left;
+  padding: 0 1.5em 3em 1.5em;
+  position: relative;
+  text-align: left;
 }
 
 #last-element {
-    padding: 0 1.5em 3em 1.5em;
-    position: relative;
-    text-align: left;
+  padding: 0 1.5em 3em 1.5em;
+  position: relative;
+  text-align: left;
 }
 
 .stepList span::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    height: 100%;
-    border-left: 1px #ccc solid;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  height: 100%;
+  border-left: 1px #ccc solid;
 }
 .stepList strong {
-    display: block;
-    font-weight: bolder;
-    color: white;
+  display: block;
+  font-weight: bolder;
+  color: white;
 }
 
 .stepList #last-element {
-    color: #ccc;
+  color: #ccc;
 }
 
 .register-btn {
+  @include transition(all, 0.4s);
+  height: 10vh;
+  background: #00324b;
+  border: solid 8px rgba(170, 202, 204, 0.6);
+  border-radius: 50px;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+
+  &:hover {
     @include transition(all, 0.4s);
-    height:        10vh;
-    background:    #00324B;;
-    border:        solid 8px rgba(170, 202, 204, 0.6);
-    border-radius: 50px;
-    margin-bottom: 2vh;
-    margin-top: 2vh;
+    background: rgba(170, 202, 204, 1);
+  }
+  .header-text {
+    font-family: $font-stack-tertiary;
+    @include responsive-font(0.85em, 0.8em, 1.25em, 1em);
+    max-font-size: 2em;
 
-    &:hover {
-        @include transition(all, 0.4s);
-        background: rgba(170, 202, 204, 1)
+    p {
+      // This centers text in button. Typically this should be equal
+      // to the height of the button, however the border throws it off.
+      line-height: 9vh;
+      white-space: nowrap;
     }
-    .header-text {
-        font-family:   $font-stack-tertiary;
-        @include responsive-font(.85em, .8em, 1.25em, 1em);
-        max-font-size: 2em;
-
-        p {
-        // This centers text in button. Typically this should be equal
-        // to the height of the button, however the border throws it off.
-        line-height: 9vh;
-        white-space: nowrap;
-        }
-    }
+  }
 }
 
-.stepList { 
-margin-top: 5vh;
-font-family: $font-stack-secondary; }
-.stepList, 
-.stepList *::before, 
-.stepList *::after { box-sizing: border-box; }
+.stepList {
+  margin-top: 5vh;
+  font-family: $font-stack-secondary;
+}
+.stepList,
+.stepList *::before,
+.stepList *::after {
+  box-sizing: border-box;
+}
 
+@media only screen and (max-width: 500px) {
+  .step {
+    padding: 0 0.75em 0 0;
+  }
 
-@media only screen and (max-width: 500px)  {
-    .step {
-        padding: 0 .75em 0 0;
-    }
+  .stepList span {
+    padding: 0 1.5em 3em 0.75em;
+  }
 
-    .stepList span {
-        padding: 0 1.5em 3em .75em;
-    }
+  #last-element {
+    padding: 0 1.5em 3em 0.75em;
+  }
 
-    #last-element {
-        padding: 0 1.5em 3em .75em;
-    }
+  .stepList {
+    font-size: x-large;
+  }
 
-    .stepList {
-        font-size: x-large;
-    }
-
-    #business-header .header-text {
-        font-size: 4vh;
-    }
+  #business-header .header-text {
+    font-size: 4vh;
+  }
 }

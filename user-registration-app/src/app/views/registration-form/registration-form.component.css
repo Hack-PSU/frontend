@@ -4,6 +4,18 @@
   margin-left: 35%;
   padding-bottom: 25px;
 }
+
+.registration-title{
+  text-align: center;
+  font-family: 'Cornerstone';
+}
+
+.orange-background{
+  text-align: center;
+  font-family: 'Cornerstone';
+  color: Orange;
+}
+
 .message {
   font-family: 'Lato', sans-serif;
   display: inline-block;
@@ -43,18 +55,17 @@ textarea {
   margin-top: 110px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .registration-form {
-      width: 100%;
-      margin:0px auto;
+    width: 100%;
+    margin: 0px auto;
     /*width: 90vw; /*Check if Angela fixed */
   }
-
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   .card {
-    margin:0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -71,13 +82,13 @@ textarea {
 
 .prev-container span:before {
   font-family: 'Glyphicons Halflings', serif;
-  content: "\e089";
+  content: '\e089';
   margin: 5px;
 }
 
 svg {
   position: absolute;
-  left:50%;
+  left: 50%;
 }
 
 .next-container {
@@ -91,9 +102,8 @@ svg {
   color: #ffffff;
 }
 
-
 .next-container span:before {
-  content: "\25cf";
+  content: '\25cf';
   margin-right: 10px;
 }
 
@@ -105,7 +115,7 @@ svg {
   transition: transform;
   background-color: white;
   color: #101010;
-  border:none;
+  border: none;
   height: auto;
 }
 
@@ -115,7 +125,7 @@ svg {
 }
 
 .card label {
-    color: #333333;
+  color: #333333;
 }
 .card .form-group label {
   margin: 2%;
@@ -129,15 +139,20 @@ svg {
   top: 40vh;
 }
 
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+[type='radio']:checked + label:after,
+[type='radio'].with-gap:checked + label:before,
+[type='radio'].with-gap:checked + label:after {
   border: 2px solid #133753;
 }
 
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+[type='radio']:checked + label:after,
+[type='radio'].with-gap:checked + label:after {
   background-color: #133753;
 }
 
-[type="radio"][_ngcontent-c2]:checked + label[_ngcontent-c2]:after, [type="radio"].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:before, [type="radio"].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:after {
+[type='radio'][_ngcontent-c2]:checked + label[_ngcontent-c2]:after,
+[type='radio'].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:before,
+[type='radio'].with-gap[_ngcontent-c2]:checked + label[_ngcontent-c2]:after {
   border: 2px solid #133753;
 }
 
@@ -162,8 +177,8 @@ input::placeholder {
 
 .btn {
   background-color: rgba(255, 255, 255, 0);
-  color: #E5704C;
-  border: 2px solid #E5704C;
+  color: #e5704c;
+  border: 2px solid #e5704c;
   border-right-width: 8px;
   border-left-width: 8px;
   border-radius: 12px;
@@ -194,16 +209,17 @@ input::placeholder {
   font-size: large;
 }
 
-.switch label input[type=checkbox]:checked+.lever {
-  background-color: #6C88B7;
+.switch label input[type='checkbox']:checked + .lever {
+  background-color: #6c88b7;
 }
-.switch label input[type=checkbox]:checked+.lever:after {
+.switch label input[type='checkbox']:checked + .lever:after {
   background-color: #133753;
 }
 
-.card h3, .card h5 {
-    margin-bottom: 25px;
-    text-align:center;
+.card h3,
+.card h5 {
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .small-text {
@@ -236,12 +252,12 @@ input::placeholder {
 }
 
 .card .data-error {
-  color: #F44336;
+  color: #f44336;
 }
 
 .card .alert {
   font-size: small;
-  color: #6C88B7;
+  color: #6c88b7;
 }
 
 .spinner-layer {
@@ -258,7 +274,8 @@ input::placeholder {
   -webkit-animation-iteration-count: infinite;
 }
 @-webkit-keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translateY(0);
   }
   50% {
@@ -266,7 +283,8 @@ input::placeholder {
   }
 }
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

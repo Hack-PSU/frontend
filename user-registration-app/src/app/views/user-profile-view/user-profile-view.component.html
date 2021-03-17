@@ -9,68 +9,109 @@
             <p class="header-text">PROFILE</p>
           </div>
           <div class="row justify-content-center">
-            <img class="profile-image circle"
-                 data-position="bottom"
-                 data-delay="50"
-                 attr.data-tooltip="{{user?.displayName}}"
-                 [src]="getUserPhotoUrl(user)" alt="user-image"/>
+            <img
+              class="profile-image circle"
+              data-position="bottom"
+              data-delay="50"
+              attr.data-tooltip="{{ user?.displayName }}"
+              [src]="getUserPhotoUrl(user)"
+              alt="user-image"
+            />
           </div>
-          <hr/>
-          <div class="row justify-content-center" *ngIf="user.displayName">
-            <p class="text-capitalize profile-name font-weight-bold">{{ user.displayName }}</p>
-            <a (click)="editName()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
-          </div>
-          <div *ngIf="nameEditToggled || !user.displayName" [@fadeIn]>
-            <div class="input-field col-sm-12">
-              <input placeholder="Enter name" id="name" type="text" class="validate" autocomplete="name" #nameInput>
-              <a class="waves-effect waves-light btn" (click)="submitNewName(nameInput.value)">Submit</a>
-              <a class="waves-effect waves-light btn" *ngIf="user.displayName" (click)="nameEditToggled = false;">Cancel</a>
-            </div>
-          </div>
-          <hr/>
-          <div class="row justify-content-between">
-            <p class="font-weight-bold">Email</p>
-            <p>{{user.email}}</p>
-            <a (click)="editEmail()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
-          </div>
-          <div *ngIf="emailEditToggled" [@fadeIn]>
-            <div class="input-field col-sm-12">
-              <input placeholder="Enter new email" id="email" type="email" class="validate" autocomplete="email" #emailInput>
-              <a class="waves-effect waves-light btn" (click)="submitNewEmail(emailInput.value)">Submit</a>
-              <a class="waves-effect waves-light btn" (click)="emailEditToggled = false;">Cancel</a>
-            </div>
-          </div>
-          <hr/>
-          <div class="row justify-content-between">
-            <p class="font-weight-bold">Password</p>
-            <p>********</p>
-            <a (click)="editPassword()"><i class="material-icons" style="cursor: pointer;">edit</i></a>
-          </div>
-          <div *ngIf="passwordEditToggled" [@fadeIn]>
-            <div class="input-field col-sm-12">
-              <input placeholder="Enter new password" id="password" type="password" class="validate" #passwordInput>
-              <input placeholder="Confirm password" id="password-confirm" type="password" class="validate" #passwordConfirmInput>
-              <a class="waves-effect waves-light btn" (click)="submitNewPassword(passwordInput.value, passwordConfirmInput.value)">Submit</a>
-              <a class="waves-effect waves-light btn" (click)="passwordEditToggled = false;">Cancel</a>
-            </div>
-          </div>
-          <hr/>
-          <div class="row justify-content-between">
+          <ul
+            materialize="collapsible"
+            class="collapsible color-background"
+            data-collapsible="accordion"
+          >
+            <li>
+              <div class="collapsible-header profile-name">
+                <p></p>
+                <p></p>
+                <p class="text-capitalize font-weight-bold">
+                  {{ user.displayName || 'Your name here' }}
+                </p>
+                <i class="material-icons right">edit</i>
+              </div>
+              <div class="collapsible-body">
+                <input
+                  placeholder="Enter name"
+                  id="name"
+                  type="text"
+                  class="validate"
+                  autocomplete="name"
+                  #nameInput
+                />
+                <a class="waves-effect waves-light btn" (click)="submitNewName(nameInput.value)"
+                  >Submit</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <p class="font-weight-bold">Email</p>
+                <p>{{ user.email }}</p>
+                <i class="material-icons right">edit</i>
+              </div>
+              <div class="collapsible-body">
+                <input
+                  placeholder="Enter new email"
+                  id="email"
+                  type="text"
+                  class="validate"
+                  autocomplete="name"
+                  #emailInput
+                />
+                <a class="waves-effect waves-light btn" (click)="submitNewEmail(emailInput.value)"
+                  >Submit</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <p class="font-weight-bold">Password</p>
+                <p>********</p>
+                <i class="material-icons right">edit</i>
+              </div>
+              <div class="collapsible-body">
+                <input
+                  placeholder="Enter new password"
+                  id="password"
+                  type="password"
+                  class="validate"
+                  #passwordInput
+                />
+                <input
+                  placeholder="Confirm password"
+                  id="password-confirm"
+                  type="password"
+                  class="validate"
+                  #passwordConfirmInput
+                />
+                <a
+                  class="waves-effect waves-light btn"
+                  (click)="submitNewPassword(passwordInput.value, passwordConfirmInput.value)"
+                  >Submit</a
+                >
+              </div>
+            </li>
+          </ul>
+          <div class="justify-content-between flex">
             <p class="font-weight-bold">Check in Pin</p>
-             <!-- <ng-container *ngFor=" let registration of registrations" contentEditable=true data-text="No current pin make sure to register for the event!">
-                <ng-container *ngIf="registration.hackathon.active">
-                  {{registration.pin}}
-                </ng-container>
-              </ng-container>-->
-              <p>{{currentPin}}</p>
+            <p *ngIf="currentPin !== null">{{ currentPin }}</p>
+            <p *ngIf="currentPin === null">
+              No active pin. Don't forget to <a href="/register">register</a>!
+            </p>
+            <!-- Here for aligning things -->
+            <p></p>
+            <p></p>
           </div>
-          <hr/>
-          <div class="row justify-content-between">
+          <hr />
+          <div class="justify-content-between flex">
             <p class="font-weight-bold">Last signed in on</p>
-            <p style="font-size: x-small;">{{ user.metadata.lastSignInTime }}</p>
+            <p>{{ user.metadata.lastSignInTime }}</p>
           </div>
-          <hr/>  
-      </div>
+          <hr />
+        </div>
         <div class="col m8 s12 col-md-8">
           <app-user-registration-view></app-user-registration-view>
         </div>

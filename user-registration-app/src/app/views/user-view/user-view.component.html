@@ -1,31 +1,32 @@
-<div *ngIf="authService.authState | async as user;else loginbutton">
+<div *ngIf="authService.authState | async as user; else loginbutton">
   <div class="profile-view valign-wrapper">
     <div class="profile-image-holder">
       <a href="/profile">
-        <img class="profile-image circle tooltipped" data-position="bottom"
-             data-delay="50"
-             attr.data-tooltip="{{user?.displayName}}"
-             [src]="getUserPhotoUrl(user)" alt="user-image"/>
+        <img
+          class="profile-image circle tooltipped"
+          data-position="bottom"
+          data-delay="50"
+          attr.data-tooltip="{{ user?.displayName }}"
+          [src]="getUserPhotoUrl(user)"
+          alt="user-image"
+        />
       </a>
     </div>
     <button class="btn btn-flat" (click)="logout()">Logout</button>
   </div>
 </div>
- <ng-template #loginbutton>
 
-<style>   
- button{
-  background-color: rgba(0,0,0,0);
-  border: none;
-}
-a:hover{
-      text-decoration: none;
-      color:#0071ba;
+<ng-template #loginbutton>
+  <style>
+    button {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
     }
+    a:hover {
+      text-decoration: none;
+      color: #0071ba;
+    }
+  </style>
 
-</style>
-  <button ><a href="/login">LOGIN</a></button>
-  
-
-</ng-template> 
-
+  <button><a href="/login">LOGIN</a></button>
+</ng-template>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IRegistrationDb, Registration, RegistrationApiResponse } from '../../models/registration';
+import { Registration, RegistrationApiResponse } from '../../models/registration';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { forkJoin } from 'rxjs';
-import { NgProgress } from '@ngx-progressbar/core';
-import { AlertService } from 'ngx-alerts';
+import { NgProgress } from 'ngx-progressbar';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-registration-view',
@@ -12,12 +12,12 @@ import { AlertService } from 'ngx-alerts';
   styleUrls: ['./user-registration-view.component.css'],
 })
 export class UserRegistrationViewComponent implements OnInit {
-  registrations: RegistrationApiResponse[];
+  activeRegistration: RegistrationApiResponse;
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
-  willUpdateAddressFields: boolean
-  updateAddressFields: any
+  willUpdateAddressFields: boolean;
+  updatedAddressFields: any;
   shareAddressMlh: boolean;
   shareAddressSponsors: boolean;
 
@@ -25,11 +25,15 @@ export class UserRegistrationViewComponent implements OnInit {
     return Object.entries(object);
   }
 
-  constructor(private httpService: HttpService, private progressService: NgProgress, private alertsService: AlertService) {
-    this.registrations = [];
+  constructor(
+    private httpService: HttpService,
+    private progressService: NgProgress,
+    private toastrService: ToastrService
+  ) {
+    this.activeRegistration = null;
     this.classes = [];
     this.submittedClasses = new Map();
-    this.updateAddressFields = {
+    this.updatedAddressFields = {
       addressLine1: '',
       addressLine2: '',
       city: '',
@@ -66,24 +70,25 @@ export class UserRegistrationViewComponent implements OnInit {
       uid: 'Uid',
       university: 'University',
       veteran: 'Veteran status',
-    }
+    };
   }
 
   ngOnInit() {
-    const ecObservable = this.httpService.getExtraCreditClasses()
-      .subscribe(classes => {
-        this.classes = classes;
-        ecObservable.unsubscribe();
-      });
-    const regObservable = this.httpService.getUserRegistrations()
-      .subscribe(registrations => {
-        this.registrations = registrations;
-        regObservable.unsubscribe();
-      },         ({ error }) => {
-        if (error.status === 404) {
-          this.alertsService.info('You have not registered for a hackathon yet. We could not find any data for those queries');
+    const ecObservable = this.httpService.getExtraCreditClasses().subscribe((classes) => {
+      this.classes = classes;
+      ecObservable.unsubscribe();
+    });
+    const regObservable = this.httpService
+      .getUserRegistrations()
+      .subscribe((registrations: RegistrationApiResponse[]) => {
+        if (registrations) {
+          this.activeRegistration = registrations.filter(
+            (registration) => registration.hackathon.active
+          )[0];
         }
+        regObservable.unsubscribe();
       });
+    // The error for registrations gets handled in user-profile-view
   }
 
   editAddressToggle() {
@@ -91,73 +96,67 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   getAddress(): string {
-    const noAddr = 'No address on file. Please add your address if you would like to receive some swag!'
-    if (this.registrations.length > 0) {
-      return (this.registrations[0].address ? this.registrations[0].address : noAddr);
-    } else {
-      return noAddr;
+    if (this.activeRegistration && this.activeRegistration.address) {
+      return this.activeRegistration.address;
     }
+    return 'No address on file. Please add your address if you would like to receive some swag!';
   }
 
-  attachNewAddress(reg: Registration): Registration {
-    const addrFields = this.updateAddressFields;
-    let newAddress = '';
-
-    for (const field in addrFields) {
-      if (addrFields[field]) {
-        newAddress += `${addrFields[field]}, `;
-      }
-    }
-
-    if (newAddress.slice(-2) === ', ') {
-      newAddress = newAddress.slice(0, -2);
-    }
-
-    reg.address = newAddress;
-    reg.shareAddressMlh = this.shareAddressMlh;
-    reg.shareAddressSponsors = this.shareAddressSponsors;
-    return reg
+  private consolidateAddress() {
+    return Object.values(this.updatedAddressFields)
+      .filter((field) => field)
+      .join(', ');
   }
 
   submitAddress() {
-    this.progressService.start();
+    this.progressService.ref().start();
+    const reg = Registration.parseFromApiResponse(this.activeRegistration);
+    reg.address = this.consolidateAddress();
+    reg.shareAddressMlh = this.shareAddressMlh;
+    reg.shareAddressSponsors = this.shareAddressSponsors;
 
-    let reg = Registration.parseFromApiResponse(this.registrations[0]);
-    reg.hackathon = this.registrations[0].hackathon.uid;
-    reg = this.attachNewAddress(reg);
-
-    this.httpService.submitAddress(reg)
-      .subscribe(() => {
-        this.progressService.complete();
-        this.alertsService.success('Your address has been updated. Please navigate away from the page to refresh this view.');
-      },         ({ error }) => {
-        this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
-      })
+    this.httpService.submitAddress(reg).subscribe(
+      () => {
+        this.progressService.ref().complete();
+        this.toastrService.success(
+          'Your address has been updated. Please navigate away from the page to refresh this view.'
+        );
+      },
+      ({ error }) => {
+        this.toastrService.warning(
+          'Something may have gone wrong in that process. Contact a member of staff to check'
+        );
+      }
+    );
   }
 
   submitClasses() {
-    if (Object.values(this.submittedClasses).filter(a => a).length === 0) {
-      this.alertsService.danger('Select a class to submit');
+    if (Object.values(this.submittedClasses).filter((a) => a).length === 0) {
+      this.toastrService.error('Select a class to submit');
       return;
     }
-    this.progressService.start();
+    this.progressService.ref().start();
     forkJoin(
-      Object.entries(this.submittedClasses)
-        .map(([c, value]: [string, boolean]) => {
-          if (value) {
-            return this.httpService.registerExtraCreditClass(c);
-          }
-        }),
-    ).subscribe(() => {
-      this.progressService.complete();
-      this.alertsService.success('You are now getting tracked for the selected classes');
-    },          ({ error }) => {
-      if (error.status === 409) {
-        this.alertsService.success('You are now getting tracked for the selected classes');
-      } else {
-        this.alertsService.warning('Something may have gone wrong in that process. Contact a member of staff to check');
+      Object.entries(this.submittedClasses).map(([c, value]: [string, boolean]) => {
+        if (value) {
+          return this.httpService.registerExtraCreditClass(c);
+        }
+      })
+    ).subscribe(
+      () => {
+        this.progressService.ref().complete();
+        this.toastrService.success('You are now getting tracked for the selected classes');
+      },
+      ({ error }) => {
+        if (error.status === 409) {
+          this.toastrService.success('You are now getting tracked for the selected classes');
+        } else {
+          this.toastrService.warning(
+            'Something may have gone wrong in that process. Contact a member of staff to check'
+          );
+        }
       }
-    });
+    );
   }
 
   parseInt(string: string, radix: number) {
@@ -165,36 +164,43 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   businessChallengeRegister() {
-    this.progressService.start();
-    this.httpService.registerExtraCreditClass(
-      this.classes.find(c => c.class_name === 'Business Challenge').uid.toString(),
-    )
-      .subscribe(() => {
-        this.progressService.complete();
-        this.alertsService.success('You are registered for the business challenge');
-      },         ({ error }) => {
-        if (error.status === 409) {
-          this.alertsService.success('You are registered for the business challenge');
-        } else {
-          this.alertsService.warning('Something may have gone wrong in that process. Email technology@hackpsu.org or Contact a member of staff to check');
+    this.progressService.ref().start();
+    this.httpService
+      .registerExtraCreditClass(
+        this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString()
+      )
+      .subscribe(
+        () => {
+          this.progressService.ref().complete();
+          this.toastrService.success('You are registered for the business challenge');
+        },
+        ({ error }) => {
+          if (error.status === 409) {
+            this.toastrService.success('You are registered for the business challenge');
+          } else {
+            this.toastrService.warning(
+              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check'
+            );
+          }
         }
-      });
+      );
   }
 
   showClassName(class_name: string): boolean {
     // We don't remove classes from the DB, we just filter them here.
     const shownClassNames = [
-      "IST 110 (Garbrick)",
-      "IST 110 (Karpinski)",
-      "IST 240 (Smith)",
-      "SRA 231",
-      "CYBER 342W",
-      "CMPSC 132",
-      "DS 340W",
-      "DS 310 (Ma)",
-      "IST 220 (Zhang)",
-      "COMM 361",
+      'IST 110 (Garbrick)',
+      'IST 110 (Karpinski)',
+      'IST 240 (Smith)',
+      'SRA 231',
+      'CYBER 342W',
+      'CMPSC 132',
+      'DS 340W',
+      'DS 310 (Ma)',
+      'IST 220 (Zhang)',
+      'COMM 361',
+      'DS 220',
     ];
-    return shownClassNames.indexOf(class_name) !== -1;
+    return shownClassNames.includes(class_name);
   }
 }
