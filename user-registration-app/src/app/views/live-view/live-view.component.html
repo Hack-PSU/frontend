@@ -219,6 +219,38 @@
             premises.</p>
           -->
               </div>
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>How do I submit a project?
+                </p>
+                <p class="FAQanswer">
+                  All projects will be submitted through the HackPSU Devpost. Do NOT submit your
+                  project via email, Discord, slide into a DM, messenger pigeon, drone, overnight
+                  express mail, etc. Both hardware and software projects are allowed. Only one
+                  Devpost submission per team is needed. Participants/teams will be asked to upload
+                  a 2 minute video showcasing their project as well as questions to answers about
+                  the logistics and specifications of your build. View more requirements when
+                  submitting a project in the Devpost Rules. Link:
+                  <a href="https://hackpsu-spring-2021.devpost.com/"
+                    >https://hackpsu-spring-2021.devpost.com/</a
+                  >
+                </p>
+              </div>
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>Why does my extra credit not update on my
+                  profile page?
+                </p>
+                <p class="FAQanswer">
+                  It does! As long as you see the green alert confirming that you’ve signed up for
+                  the extra credit you’re good
+                </p>
+                <p class="FAQanswer">
+                  (note: extra credit signup doesn’t show the classes you’re currently signed up for
+                  if you refresh the page (the checkboxes are empty). We’re def gonna make it so
+                  that it does show the classes you’re signed up for the next hackathon)
+                </p>
+              </div>
               <!--
         <div>
           <p class="question"><i class="fas fa-plus icon-rotate"></i>Where can I get hardware?</p>
@@ -263,13 +295,35 @@
                   Click <a routerLink="/profile">here </a>to sign up for extra credit!
                 </p>
               </div>
-
               <div>
                 <p class="question">
                   <i class="fas fa-plus icon-rotate"></i>Where did the old website go?
                 </p>
                 <p class="FAQanswer">
                   It's right <a target="_blank" href="https://app.hackpsu.org">here!</a>
+                </p>
+              </div>
+              <div>
+                <p class="question"><i class="fas fa-plus icon-rotate"></i>What’s a Devpost?</p>
+                <p class="FAQanswer">
+                  Devpost is a project-submitting platform used by many hackathons and
+                  technology-focused events. You and/or your team will be asked to submit your
+                  project through our Spring 2021 Devpost. For those who have never used Devpost
+                  before or would like a refresher, there will be a Devpost overview workshop hosted
+                  on Sunday, March 21st from 12:00-1:00PM EST via Zoom.
+                </p>
+              </div>
+              <div>
+                <p class="question">
+                  <i class="fas fa-plus icon-rotate"></i>I have more questions!
+                </p>
+                <p class="FAQanswer">
+                  Check out
+                  <a
+                    href="https://docs.google.com/document/d/1TBwwLxq97OIUc_RH2Z5Hc34knxuD9U8zPI8Efpy3XHA/edit?usp=sharing"
+                    >this doc</a
+                  >
+                  for more info!
                 </p>
               </div>
             </div>
@@ -407,17 +461,22 @@
                 }
               </style>
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="(workshop.ws_skill_level == 'Beginner') || (workshop.ws_skill_level == '')">
+                <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
                   <app-live-workshop
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
                     [link]="workshop.location_name"
-                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [skills]="
+                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                    "
+                    [presenters]="
+                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                    "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    collapseID="css/html">
+                    collapseID="css/html"
+                  >
                   </app-live-workshop>
                 </div>
               </div>
@@ -437,10 +496,15 @@
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
                     [link]="workshop.location_name"
-                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [skills]="
+                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                    "
+                    [presenters]="
+                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                    "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    collapseID="css/html">
+                    collapseID="css/html"
+                  >
                   </app-live-workshop>
                 </div>
               </div>
@@ -461,10 +525,15 @@
                       [date]="workshop.event_start_time"
                       [endTime]="workshop.event_end_time"
                       [link]="workshop.location_name"
-                      [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                      [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                      [skills]="
+                        workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                      "
+                      [presenters]="
+                        workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                      "
                       [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                      collapseID="css/html">
+                      collapseID="css/html"
+                    >
                     </app-live-workshop>
                   </div>
                 </div>
