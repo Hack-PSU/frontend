@@ -66,7 +66,7 @@ export class LiveViewComponent implements OnInit {
       this.bannerText = bannerText;
     });
     this.httpService.getEvents().subscribe((eventsArr) => {
-      this.workshops = eventsArr.filter(event => event.event_type === "workshop");
+      this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
       console.log(this.workshops);
     });
   }
@@ -75,11 +75,7 @@ export class LiveViewComponent implements OnInit {
     fpsLimit: 24,
     particles: {
       number: {
-        value: 160,
-        density: {
-          enable: true,
-          area: 800,
-        },
+        value: 100,
       },
       color: {
         value: '#ffffff',
@@ -140,37 +136,6 @@ export class LiveViewComponent implements OnInit {
             x: 600,
             y: 600,
           },
-        },
-      },
-    },
-    interactivity: {
-      detectsOn: 'canvas',
-      events: {
-        onHover: {
-          enable: true,
-          mode: 'bubble',
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 400,
-          lineLinked: {
-            opacity: 1,
-          },
-        },
-        bubble: {
-          distance: 150,
-          size: 0,
-          duration: 2,
-          opacity: 0,
-          speed: 3,
-        },
-        push: {
-          quanitity: 4,
-        },
-        remove: {
-          quanitity: 2,
         },
       },
     },
