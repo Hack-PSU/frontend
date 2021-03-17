@@ -1073,6 +1073,13 @@ border and the section separator bar */
     padding-top: 28%;
   }
 
+  .smeal{
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+    padding-top: 10%;
+  }
+
   .echoAR {
     @media screen and (max-width: $md-break) {
       width: 60%;
