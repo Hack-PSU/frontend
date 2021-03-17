@@ -1,11 +1,11 @@
 <div class="card" style="text-align: left">
   <div class="inline">
     <p class="card-title inline">{{ title }}</p>
-    <p class="dateTime">{{ date }}<br />{{ time }}</p>
+    <p class="dateTime">{{ date }}<br />{{ startTime }} - {{ endTime }}</p>
   </div>
 
   <div id="module">
-    <p>{{ description }}</p>
+    <p><b>Description:</b> {{ description }}</p>
   </div>
   <br />
   <div>
@@ -14,30 +14,15 @@
       <a href="{{ download }}" style="color: #e5704c">Download {{ i + 1 }}</a>
     </p>
   </div>
-  <div class="inline">
-    <div
-      class="card-image tooltipped"
-      [ngStyle]="{ background: 'url(' + presenter1img + ')' }"
-      data-position="bottom"
-      [attr.data-tooltip]="presenter1Name"
-      id="presenter1"
-    ></div>
-    <div
-      class="card-image tooltipped"
-      [ngStyle]="{ background: 'url(' + presenter2img + ')' }"
-      data-position="bottom"
-      [attr.data-tooltip]="presenter2Name"
-      id="presenter2"
-    ></div>
-    <div
-      class="card-image tooltipped"
-      [ngStyle]="{ background: 'url(' + presenter3img + ')' }"
-      data-position="bottom"
-      [attr.data-tooltip]="presenter3Name"
-      id="presenter3"
-    ></div>
-    <a href="{{ link }}" target="_blank"
-      ><i class="material-icons medium linkToWorkshop">link</i></a
-    >
+  <div>
+    <b>Presenters:</b>
+  </div>
+  <div *ngFor="let presenterName of (presenters || []); let i = index" class="inline">
+    <p>{{presenterName}}</p>
+    <div class="card-image tooltipped" data-position="bottom"
+      [ngStyle]="{ background: 'url(' + eventIcon[i] + ')' }"
+      [attr.data-tooltip]="presenterName" id="presenter1">
+    </div>
+    <a href="{{ link }}" target="_blank"><i class="material-icons medium linkToWorkshop">link</i></a>
   </div>
 </div>

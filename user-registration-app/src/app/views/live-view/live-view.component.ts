@@ -2,6 +2,8 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Subscription } from 'rxjs';
 import { CountdownService } from '../../services/CountdownService/countdown.service';
+import { HttpService } from '../../services/HttpService/HttpService';
+import { EventModel } from '../../models/event-model';
 
 declare let $: any;
 
@@ -9,7 +11,7 @@ declare let $: any;
   selector: 'app-live-view',
   templateUrl: './live-view.component.html',
   styleUrls: ['./live-view.component.css'],
-  providers: [CountdownService],
+  providers: [CountdownService, HttpService],
   animations: [
     trigger('enterAnimation', [
       transition(':enter', [
@@ -35,9 +37,15 @@ export class LiveViewComponent implements OnInit {
   minutes: number;
   seconds: number;
 
+  workshops: EventModel[];
+
   bannerText: string;
 
-  constructor(private zone: NgZone, private countdownService: CountdownService) {}
+  constructor(
+    private zone: NgZone,
+    private countdownService: CountdownService,
+    private httpService: HttpService
+  ) {}
 
   ngOnInit() {
     $(document).ready(() => {
@@ -56,6 +64,10 @@ export class LiveViewComponent implements OnInit {
       this.minutes = duration.minutes;
       this.seconds = duration.seconds;
       this.bannerText = bannerText;
+    });
+    this.httpService.getEvents().subscribe((eventsArr) => {
+      this.workshops = eventsArr.filter(event => event.event_type === "workshop");
+      console.log(this.workshops);
     });
   }
 

@@ -724,7 +724,6 @@ and make images go away. */
 
 .page-content {
   position: absolute;
-  z-index: 100;
   width: 100%;
   overflow-x: hidden;
 }
