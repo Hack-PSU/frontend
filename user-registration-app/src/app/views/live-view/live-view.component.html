@@ -407,17 +407,22 @@
                 }
               </style>
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="(workshop.ws_skill_level == 'Beginner') || (workshop.ws_skill_level == '')">
+                <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
                   <app-live-workshop
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
-                    [link]="workshop.event_location_name"
-                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [link]="workshop.location_name"
+                    [skills]="
+                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                    "
+                    [presenters]="
+                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                    "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    collapseID="css/html">
+                    collapseID="css/html"
+                  >
                   </app-live-workshop>
                 </div>
               </div>
@@ -436,11 +441,16 @@
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
-                    [link]="workshop.event_location_name"
-                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [link]="workshop.location_name"
+                    [skills]="
+                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                    "
+                    [presenters]="
+                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                    "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    collapseID="css/html">
+                    collapseID="css/html"
+                  >
                   </app-live-workshop>
                 </div>
               </div>
@@ -460,11 +470,16 @@
                       [description]="workshop.event_description"
                       [date]="workshop.event_start_time"
                       [endTime]="workshop.event_end_time"
-                      [link]="workshop.event_location_name"
-                      [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
-                      [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                      [link]="workshop.location_name"
+                      [skills]="
+                        workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                      "
+                      [presenters]="
+                        workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                      "
                       [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                      collapseID="css/html">
+                      collapseID="css/html"
+                    >
                     </app-live-workshop>
                   </div>
                 </div>
