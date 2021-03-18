@@ -220,6 +220,7 @@
           </button>
         </div>
         <div class="modal-major-content" style="padding-top: 70px">
+          <p *ngIf="!isLink(event.location_name)"><b>Location</b>: {{ event.location_name }}</p>
           <p style="font-weight: bold; display: inline" *ngIf="event.ws_relevant_skills !== null">
             Skills Needed:
           </p>
