@@ -182,26 +182,50 @@
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" role="document">
-      <div class="content col-md-12" style="height: 120px;">
+      <div class="content col-md-12" style="height: 120px">
         <div class="modal-header ' + snapshot.type + '">
           <!--<div class="modal-icon">{{ event.event_icon }}</div>-->
-          <img src="{{ event.event_icon }}" class= " img-fluid event-icon"  *ngIf="event.event_icon !== null">
+          <img
+            src="{{ event.event_icon }}"
+            class="img-fluid event-icon"
+            *ngIf="event.event_icon !== null"
+          />
           <!--changing position of date, time, skill level with and without image manually-->
-          <div class="modal-title" style="margin-left: 100px; position: absolute;" *ngIf="event.event_icon !== null">{{ event.event_title }}</div>
+          <div
+            class="modal-title"
+            style="margin-left: 100px; position: absolute"
+            *ngIf="event.event_icon !== null"
+          >
+            {{ event.event_title }}
+          </div>
           <div class="modal-title" *ngIf="event.event_icon == null">{{ event.event_title }}</div>
           <a data-dismiss="modal" aria-label="Close" class="close"></a>
           <!--changing position of date, time, skill level with and without image manually-->
-          <div class="modal-day"  style="position:absolute"*ngIf="event.event_icon == null">{{event.ws_skill_level}} - {{ getEventDay(event) }}, {{ getStartTime(event) }} - {{ getEndTime(event) }}</div>
-          <div class="modal-day" style="margin-left: 100px;" *ngIf="event.event_icon !== null">{{event.ws_skill_level}} - {{ getEventDay(event) }}, {{ getStartTime(event) }} - {{ getEndTime(event) }}</div>
-          <button type="button" class="btn success" style="position: absolute;  margin-top: 100px;">Zoom Link</button>
+          <div class="modal-day" style="position: absolute" *ngIf="event.event_icon == null">
+            {{ event.ws_skill_level }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
+            {{ getEndTime(event) }}
+          </div>
+          <div class="modal-day" style="margin-left: 100px" *ngIf="event.event_icon !== null">
+            {{ event.ws_skill_level }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
+            {{ getEndTime(event) }}
+          </div>
+          <button type="button" class="btn success" style="position: absolute; margin-top: 100px">
+            Zoom Link
+          </button>
         </div>
-        <div class="modal-major-content" style="padding-top: 70px;">
-          <p style="font-weight: bold; display: inline;" *ngIf="event.ws_relevant_skills!==null">Skills Needed: </p>{{ event.ws_relevant_skills }}<br>
-          <p style="font-weight: bold; display: inline;">Event Desciption: </p>{{ event.event_description }}<br>
-          <p style="font-weight:bold; display: inline;" *ngIf="event.ws_presenter_names!==null">Presenters:</p> {{event.ws_presenter_names}} <br>
+        <div class="modal-major-content" style="padding-top: 70px">
+          <p style="font-weight: bold; display: inline" *ngIf="event.ws_relevant_skills !== null">
+            Skills Needed:
+          </p>
+          {{ event.ws_relevant_skills }}<br />
+          <p style="font-weight: bold; display: inline">Event Desciption:</p>
+          {{ event.event_description }}<br />
+          <p style="font-weight: bold; display: inline" *ngIf="event.ws_presenter_names !== null">
+            Presenters:
+          </p>
+          {{ event.ws_presenter_names }} <br />
         </div>
       </div>
- 
     </div>
   </div>
 </div>
