@@ -145,6 +145,11 @@ export class HttpService extends BaseHttpService {
     return this.post(API_ENDPOINT, { cid: c }, true);
   }
 
+  removeExtraCreditClasses(uid: string) {
+    const API_ENDPOINT = 'users/extra-credit/delete';
+    return this.post(API_ENDPOINT, { uid: uid }, true);
+  }
+
   getUserRegistrations() {
     const API_ENDPOINT = 'users/register';
     return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true).pipe(

@@ -152,27 +152,29 @@ export class UserRegistrationViewComponent implements OnInit {
       return;
     }
     this.progressService.ref().start();
-    forkJoin(
-      Object.entries(this.submittedClasses).map(([c, value]: [string, boolean]) => {
-        if (value) {
-          return this.httpService.registerExtraCreditClass(c);
-        }
-      })
-    ).subscribe(
-      () => {
-        this.progressService.ref().complete();
-        this.toastrService.success('You are now getting tracked for the selected classes');
-      },
-      ({ error }) => {
-        if (error.status === 409) {
+    this.httpService.removeExtraCreditClasses(this.activeRegistration.uid).subscribe(() => {
+      forkJoin(
+        Object.entries(this.submittedClasses).map(([c, value]: [string, boolean]) => {
+          if (value) {
+            return this.httpService.registerExtraCreditClass(c);
+          }
+        })
+      ).subscribe(
+        () => {
+          this.progressService.ref().complete();
           this.toastrService.success('You are now getting tracked for the selected classes');
-        } else {
-          this.toastrService.warning(
-            'Something may have gone wrong in that process. Contact a member of staff to check'
-          );
+        },
+        ({ error }) => {
+          if (error.status === 409) {
+            this.toastrService.success('You are now getting tracked for the selected classes');
+          } else {
+            this.toastrService.warning(
+              'Something may have gone wrong in that process. Contact a member of staff to check'
+            );
+          }
         }
-      }
-    );
+      );
+    });
   }
 
   parseInt(string: string, radix: number) {
