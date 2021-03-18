@@ -206,6 +206,7 @@ i {
   transform-origin: left top 0;
 }
 
+
 .modal {
   padding-right: 0 !important;
   width: 50%;
@@ -239,13 +240,12 @@ i {
   padding: 1.5rem;
 }
 
-.modal-dialog .header {
+.modal-dialog .content {
   padding: 24px;
   background-color: #4e8bd1;
   height: 100%;
 }
 .modal-title{
-  
   font-family: 'Cornerstone', sans-serif;
   font-size: 1.95em;
   font-weight: bold;
@@ -256,9 +256,17 @@ i {
   bottom: 0;
 }
 .modal-day{
+  position: relative;  
+  margin-top: 40px;
   font-family: 'Lucida Sans Typewriter', sans-serif;
   font-size: 1.0em;
 }
+.modal-major-content{
+  position:relative; 
+  font-family: 'Raleway', sans-serif; 
+  font-size: 1.05em;
+}
+
 
 .close-btn {
   position: absolute;
@@ -268,6 +276,12 @@ i {
 
 .modal-location-title {
   margin: 10px 0;
+}
+.event-icon{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
 
 .large-screen-hide {
@@ -280,9 +294,9 @@ i {
   color: black;
   border-radius: 6px;
   cursor: pointer;
-}
+  
 
-/* Green */
+}
 .success {
   border-color: #0f4cd1;
   color: #0f4cd1;
