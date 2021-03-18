@@ -209,8 +209,14 @@
             {{ event.ws_skill_level }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
             {{ getEndTime(event) }}
           </div>
-          <button type="button" class="btn success" style="position: absolute; margin-top: 100px">
-            Zoom Link
+          <button
+            *ngIf="isLink(event.location_name)"
+            (click)="openZoomLink(event.location_name)"
+            type="button"
+            class="btn success"
+            style="position: absolute; margin-top: 100px"
+          >
+            Link
           </button>
         </div>
         <div class="modal-major-content" style="padding-top: 70px">
