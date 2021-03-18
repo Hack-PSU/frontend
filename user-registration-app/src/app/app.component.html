@@ -42,7 +42,7 @@
           >
           <ul class="left hide-on-med-and-down">
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#schedule">SCHEDULE</a></li>
-            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#map-rules">INFO</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
             <li *ngIf="DateGuard.validateDate()">
@@ -69,11 +69,11 @@
       id="mobile-demo"
       style="transform: translateX(-100%)"
     >
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#updates">UPDATES</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#map-rules">INFO</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#prizes">PRIZES</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#schedule">SCHEDULE</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#updates">UPDATES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
       <li *ngIf="DateGuard.validateDate()">
         <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">{{
           isOnLiveSite() ? 'REGISTER' : 'LIVE'
