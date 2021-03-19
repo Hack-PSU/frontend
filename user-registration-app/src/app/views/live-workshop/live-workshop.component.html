@@ -10,24 +10,25 @@
   <br />
   <div>
     <p><b>Skills/Software: </b> {{ skills }}</p>
-    <p *ngFor="let download of downloads; index as i">
-      <a href="{{ download }}" style="color: #e5704c">Download {{ i + 1 }}</a>
+    <p *ngFor="let download of downloads; index as i" style="margin-bottom: 0px">
+      <a href="{{ download }}" style="color: #ff3c00">Download {{ i + 1 }}</a>
     </p>
   </div>
-  <div>
+  <div style="margin-top: 10px">
     <b>Presenters:</b>
   </div>
   <div>
-    <div *ngFor="let presenterName of presenters || []; let i = index" class="inline">
-      <p>{{ presenterName }}</p>
-      <div
-        class="card-image tooltipped"
-        data-position="bottom"
-        [ngStyle]="{ background: 'url(' + eventIcon[i] + ')' }"
-        [attr.data-tooltip]="presenterName"
-        id="presenter1"
-      ></div>
+    <div class="row">
+      <div *ngFor="let presenterName of presenters || []; index as i">
+        {{ presenterName }}{{ i !== presenters.length - 1 ? ',&nbsp;' : '' }}
+      </div>
     </div>
+    <div
+      class="card-image tooltipped"
+      data-position="bottom"
+      [ngStyle]="{ background: 'url(' + eventIcon[0] + ')' }"
+      id="presenter1"
+    ></div>
     <a href="{{ link }}" target="_blank"
       ><i class="material-icons medium linkToWorkshop">link</i></a
     >

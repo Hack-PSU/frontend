@@ -352,6 +352,11 @@ td {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.mobile-app-text {
+  align-self: center;
+  font-size: 1.15em;
+}
+
 .info-title {
   font-size: large;
   color: #103147;
