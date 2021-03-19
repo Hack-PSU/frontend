@@ -10,6 +10,7 @@ export class EventModel {
   public ws_presenter_names: string;
   public ws_skill_level: string;
   public ws_relevant_skills: string;
+  public ws_urls: string[];
 
   static parseJSON(value: any) {
     const event = new EventModel();
@@ -19,7 +20,7 @@ export class EventModel {
   static parseFromJSONArray(array: any[]): EventModel[] {
     return array.map((value) => {
       const event = new EventModel();
-      return Object.assign(event, value);
+      return Object.assign(event, value, { ws_urls: value.ws_urls });
     });
   }
 }
