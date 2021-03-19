@@ -75,12 +75,12 @@ export class UserRegistrationViewComponent implements OnInit {
 
   ngOnInit() {
     this.loadActiveRegistration();
-    this.loadAvaliableExtraCreditClasses();
+    this.loadAvailableExtraCreditClasses();
     this.loadSubmittedExtraCreditClasses();
     // The error for registrations gets handled in user-profile-view
   }
 
-  loadAvaliableExtraCreditClasses() {
+  loadAvailableExtraCreditClasses() {
     this.httpService.getExtraCreditClasses().subscribe((classes) => {
       this.classes = classes;
     });
@@ -101,8 +101,8 @@ export class UserRegistrationViewComponent implements OnInit {
   loadSubmittedExtraCreditClasses() {
     this.httpService.getRegistrationStatus().subscribe((registration) => {
       this.httpService.getExtraCreditClassesForUser(registration.uid).subscribe((classes) => {
+        console.log(classes);
         classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
-        console.log(this.submittedClasses);
       });
     });
   }
@@ -165,7 +165,7 @@ export class UserRegistrationViewComponent implements OnInit {
           this.toastrService.success('You are now getting tracked for the selected classes');
         },
         ({ error }) => {
-          if (error.status === 409) {
+          if (error != undefined && error.status === 409) {
             this.toastrService.success('You are now getting tracked for the selected classes');
           } else {
             this.toastrService.warning(

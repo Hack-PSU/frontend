@@ -136,18 +136,23 @@ export class HttpService extends BaseHttpService {
   getExtraCreditClassesForUser(uid: string) {
     const API_ENDPOINT = 'users/extra-credit/assignment?type=user';
     return this.get(API_ENDPOINT, false, true, true, uid).pipe(
-      map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c)))
+      map((classes: any[]) =>
+        classes.map((c) => {
+          console.log(c);
+          return UserExtraCreditApiResponse.parseJSON(c);
+        })
+      )
     );
   }
 
   registerExtraCreditClass(c: string) {
     const API_ENDPOINT = 'users/extra-credit';
-    return this.post(API_ENDPOINT, { cid: c }, true);
+    return this.post(API_ENDPOINT, { classUid: c }, true);
   }
 
   removeExtraCreditClasses(uid: string) {
-    const API_ENDPOINT = 'users/extra-credit/delete';
-    return this.post(API_ENDPOINT, { uid: uid }, true);
+    const API_ENDPOINT = 'users/extra-credit/delete-user';
+    return this.post(API_ENDPOINT, { userUid: uid }, true);
   }
 
   getUserRegistrations() {
