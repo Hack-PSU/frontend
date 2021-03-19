@@ -1,5 +1,5 @@
-# HackPSU Fall 2020
-Repository for the main website for HackPSU Fall 2020
+# HackPSU Spring 2021
+Repository for the main website for HackPSU Spring 2021
 
 
 ## Frontend
