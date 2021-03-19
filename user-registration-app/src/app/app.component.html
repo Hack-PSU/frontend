@@ -45,6 +45,7 @@
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
             <li *ngIf="DateGuard.validateDate()">
               <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">
                 {{ isOnLiveSite() ? 'REGISTER' : 'LIVE' }}
@@ -74,6 +75,7 @@
       <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
       <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
       <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
       <li *ngIf="DateGuard.validateDate()">
         <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">{{
           isOnLiveSite() ? 'REGISTER' : 'LIVE'
