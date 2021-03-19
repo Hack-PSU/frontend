@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Registration, RegistrationApiResponse } from '../../models/registration';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { HttpService } from '../../services/HttpService/HttpService';
-import { forkJoin } from 'rxjs';
 import { NgProgress } from 'ngx-progressbar';
 import { ToastrService } from 'ngx-toastr';
 
@@ -74,11 +73,20 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    const ecObservable = this.httpService.getExtraCreditClasses().subscribe((classes) => {
+    this.loadActiveRegistration();
+    this.loadAvailableExtraCreditClasses();
+    this.loadSubmittedExtraCreditClasses();
+    // The error for registrations gets handled in user-profile-view
+  }
+
+  loadAvailableExtraCreditClasses() {
+    this.httpService.getExtraCreditClasses().subscribe((classes) => {
       this.classes = classes;
-      ecObservable.unsubscribe();
     });
-    const regObservable = this.httpService
+  }
+
+  loadActiveRegistration() {
+    this.httpService
       .getUserRegistrations()
       .subscribe((registrations: RegistrationApiResponse[]) => {
         if (registrations) {
@@ -86,9 +94,15 @@ export class UserRegistrationViewComponent implements OnInit {
             (registration) => registration.hackathon.active
           )[0];
         }
-        regObservable.unsubscribe();
       });
-    // The error for registrations gets handled in user-profile-view
+  }
+
+  loadSubmittedExtraCreditClasses() {
+    this.httpService.getRegistrationStatus().subscribe((registration) => {
+      this.httpService.getExtraCreditClassesForUser(registration.uid).subscribe((classes) => {
+        classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
+      });
+    });
   }
 
   editAddressToggle() {
@@ -130,33 +144,27 @@ export class UserRegistrationViewComponent implements OnInit {
     );
   }
 
-  submitClasses() {
-    if (Object.values(this.submittedClasses).filter((a) => a).length === 0) {
-      this.toastrService.error('Select a class to submit');
-      return;
-    }
+  async submitClasses() {
     this.progressService.ref().start();
-    forkJoin(
-      Object.entries(this.submittedClasses).map(([c, value]: [string, boolean]) => {
+    this.httpService.removeExtraCreditClasses(this.activeRegistration.uid).subscribe(() => {
+      Object.entries(this.submittedClasses).forEach(([classUid, value]: [string, boolean]) => {
         if (value) {
-          return this.httpService.registerExtraCreditClass(c);
-        }
-      })
-    ).subscribe(
-      () => {
-        this.progressService.ref().complete();
-        this.toastrService.success('You are now getting tracked for the selected classes');
-      },
-      ({ error }) => {
-        if (error.status === 409) {
-          this.toastrService.success('You are now getting tracked for the selected classes');
-        } else {
-          this.toastrService.warning(
-            'Something may have gone wrong in that process. Contact a member of staff to check'
+          this.httpService.registerExtraCreditClass(classUid).subscribe(
+            () => {
+              this.progressService.ref().complete();
+              this.toastrService.success(
+                `You are now getting tracked for ${this.getClassName(parseInt(classUid))}`
+              );
+            },
+            ({ error }) => {
+              this.toastrService.warning(
+                'Something may have gone wrong in that process. Contact a member of staff to check'
+              );
+            }
           );
         }
-      }
-    );
+      });
+    });
   }
 
   parseInt(string: string, radix: number) {
@@ -202,5 +210,9 @@ export class UserRegistrationViewComponent implements OnInit {
       'DS 220',
     ];
     return shownClassNames.includes(class_name);
+  }
+
+  getClassName(classUid: number): string {
+    return this.classes.filter((ecClass) => ecClass.uid == classUid)[0].class_name;
   }
 }
