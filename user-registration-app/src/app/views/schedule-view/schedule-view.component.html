@@ -227,6 +227,20 @@
           {{ event.ws_relevant_skills }}<br />
           <p style="font-weight: bold; display: inline">Event Desciption:</p>
           {{ event.event_description }}<br />
+          <p
+            *ngIf="event.ws_urls && event.ws_urls.length !== 0"
+            style="font-weight: bold; display: inline"
+          >
+            Downloads:
+          </p>
+          <a
+            *ngFor="let download of event.ws_urls; index as i"
+            href="{{ download }}"
+            style="color: #e5704c"
+          >
+            Download {{ i + 1 }},
+          </a>
+          <br />
           <p style="font-weight: bold; display: inline" *ngIf="event.ws_presenter_names !== null">
             Presenters:
           </p>
