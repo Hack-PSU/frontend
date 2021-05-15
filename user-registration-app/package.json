@@ -36,7 +36,6 @@
     "ngx-pagination": "^5.0.0",
     "ngx-progressbar": "^6.0.3",
     "ngx-toastr": "^13.1.0",
-    "rellax": "^1.12.1",
     "request": "^2.88.2",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.3",
