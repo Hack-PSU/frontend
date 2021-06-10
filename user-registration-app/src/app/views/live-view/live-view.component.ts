@@ -48,16 +48,6 @@ export class LiveViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    $(document).ready(() => {
-      $('.materialboxed').materialbox();
-      $('.question').click(function () {
-        $(this).siblings().slideToggle('0.3s', 'linear');
-        $(this).toggleClass('open');
-      });
-      $('.icon-rotate').click(function () {
-        $(this).toggleClass('right-rotate');
-      });
-    });
     this.countdownService.startCountDown().subscribe(({ duration, bannerText }) => {
       this.days = duration.days;
       this.hours = duration.hours;
