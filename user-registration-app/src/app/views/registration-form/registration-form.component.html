@@ -112,11 +112,7 @@
         <h5 class="phone">What is your phone number?</h5>
         <p class="alert">
           This information is required by MLH. Rest assured we won't be spamming your phone.
-        </p>
-        <p class="alert">
-          *For USA phone numbers, please enter a +1 before your number (for example: if your number
-          is (231) 456-7890, you would type +12314567890)
-        </p>
+        </p>       
         <div class="input-field">
           <input
             type="tel"
@@ -130,10 +126,21 @@
             #phoneInput="ngModel"
           />
           <label for="phone-input" data-error="Valid phone number is required"
-            >Enter your *international phone number</label
+            >Enter your phone number</label
           >
-        </div>
+        </div>      
         <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
+        <div class="phone-number">
+          <input
+            type="checkbox".
+            class="with-gap"
+            id="not-us-phone-number"
+            name="phone"
+            value="not-us-phone-number"
+            [(ngModel)]="isNotUsPhoneNumber"
+          />
+          <label for="not-us-phone-number">You do NOT have a US Phone Number</label>
+        </div>
       </div>
     </div>
   </div>
