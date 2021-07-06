@@ -126,9 +126,18 @@
             #phoneInput="ngModel"
           />
           <label for="phone-input" data-error="Valid phone number is required"
-            >Enter your *international phone number</label
+            >Enter your phone number</label
           >
-        </div>
+        </div>        
+        <input
+          type="checkbox"
+          class="with-gap"
+          id="phone-number-type"
+          name="phone-number"
+          value="phone-number-type"
+          [(ngModel)]="isNotUsPhoneNumber"
+        />
+        <label for="phone-number-type">I do NOT have a US phone number</label><br />
         <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
       </div>
     </div>
