@@ -41,7 +41,6 @@ export class RegistrationFormComponent implements OnInit {
   public majorAutoCompleteInit = this.makeAutoCompleteSettings('major', majors);
   public referralAutoCompleteInit = this.makeAutoCompleteSettings('referral', referrals);
   public registrationForm: Registration;
-  public isNotUsPhoneNumber: boolean;
   public prettifiedPhone: string;
   public loading: boolean;
   public diet_restr: boolean;
@@ -132,6 +131,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationForm = new Registration();
     RegistrationFormComponent.regFormComp = this;
     this.prettifiedPhone = '';
+    this.asYouType = new AsYouType();
     this.validator = ajv.compile(registeredUserSchema.default);
   }
 
@@ -181,13 +181,9 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   parsePhone(val: string) {
-    if (this.isNotUsPhoneNumber == true) {
-      this.prettifiedPhone = new AsYouType().input(val);
-      this.registrationForm.phone = this.prettifiedPhone;
-    } else {
-      this.prettifiedPhone = new AsYouType('US').input(val);
-      this.registrationForm.phone = this.prettifiedPhone;
-    }
+    this.asYouType.reset();
+    this.prettifiedPhone = this.asYouType.input(val);
+    this.registrationForm.phone = this.prettifiedPhone;
   }
 
   submit() {
