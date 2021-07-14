@@ -113,10 +113,6 @@
         <p class="alert">
           This information is required by MLH. Rest assured we won't be spamming your phone.
         </p>
-        <p class="alert">
-          *For USA phone numbers, please enter a +1 before your number (for example: if your number
-          is (231) 456-7890, you would type +12314567890)
-        </p>
         <div class="input-field">
           <input
             type="tel"
@@ -130,9 +126,18 @@
             #phoneInput="ngModel"
           />
           <label for="phone-input" data-error="Valid phone number is required"
-            >Enter your *international phone number</label
+            >Enter your phone number</label
           >
-        </div>
+        </div>        
+        <input
+          type="checkbox"
+          class="with-gap"
+          id="phone-number-type"
+          name="phone-number"
+          value="phone-number-type"
+          [(ngModel)]="isNotUsPhoneNumber"
+        />
+        <label for="phone-number-type">I do NOT have a US phone number</label><br />
         <label class="data-error" *ngIf="!phoneInput.valid">Required</label>
       </div>
     </div>
@@ -261,7 +266,7 @@
       <div class="card-content">
         <h5 class="age">
           Will you be at least 18 or a current Penn State University student before March 19th,
-          2020?
+          2021?
         </h5>
         <!-- Switch -->
         <div class="switch">

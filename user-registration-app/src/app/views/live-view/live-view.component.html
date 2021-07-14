@@ -62,7 +62,7 @@
             <a
               class="btn waves-effect waves-red submit-btn text-center"
               target="_blank"
-              href="https://discord.gg/eyPSrNm9Cd"
+              href="https://discord.gg/k6TBaS7T8N"
             >
               <div class="font text-res">Discord</div>
             </a>
@@ -70,7 +70,7 @@
             <a
               class="btn waves-effect waves-red submit-btn"
               target="_blank"
-              href="https://hackpsu-fall-2020.devpost.com/"
+              href="https://hackpsu-spring-2021.devpost.com/"
               ><div class="font submit-btn-text text-res">Submit Your Project</div></a
             >
           </div>
@@ -184,6 +184,39 @@
           </div>
         </div>
       </div>
+      <!-- Mobile app stuff -->
+      <div class="row">
+        <div class="col-12 section-title">
+          <div class="section-title-word">
+            <div class="header-text">Mobile App</div>
+          </div>
+          <div class="header-bar"></div>
+        </div>
+      </div>
+      <div class="row mobile-app-text justify-content-center">
+        Get our app on Google Play and the App Store!
+      </div>
+      <div class="row center">
+        <div class="col-sm-6">
+          <a
+            href="https://apps.apple.com/us/app/hackpsu-mobile/id1537639100?itsct=apps_box&amp;itscg=30200"
+            style="display: inline-block; overflow: hidden"
+            ><img
+              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1604620800&h=413f442f188f45f269ac02e9fafd7e0f"
+              alt="Download on the App Store"
+              width="180"
+          /></a>
+        </div>
+        <div class="col-sm-6">
+          <a
+            href="https://play.google.com/store/apps/details?id=org.hackpsu.HackPSU&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+            ><img
+              width="200"
+              alt="Get it on Google Play"
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+          /></a>
+        </div>
+      </div>
     </div>
     <div class="col-md-6">
       <!-- FAQ -->
@@ -234,21 +267,6 @@
                   <a href="https://hackpsu-spring-2021.devpost.com/"
                     >https://hackpsu-spring-2021.devpost.com/</a
                   >
-                </p>
-              </div>
-              <div>
-                <p class="question">
-                  <i class="fas fa-plus icon-rotate"></i>Why does my extra credit not update on my
-                  profile page?
-                </p>
-                <p class="FAQanswer">
-                  It does! As long as you see the green alert confirming that you’ve signed up for
-                  the extra credit you’re good
-                </p>
-                <p class="FAQanswer">
-                  (note: extra credit signup doesn’t show the classes you’re currently signed up for
-                  if you refresh the page (the checkboxes are empty). We’re def gonna make it so
-                  that it does show the classes you’re signed up for the next hackathon)
                 </p>
               </div>
               <!--
@@ -402,9 +420,9 @@
           <div class="boxed-text">
             <p class="text-center m-0">
               For a complete list of prizes, including sponsor prizes, please visit our DevPost
-              <a class="" href="https://hackpsu-fall-2020.devpost.com/">here!</a><br />Link:
-              <a href="https://hackpsu-fall-2020.devpost.com/"
-                >https://hackpsu-fall-2020.devpost.com/</a
+              <a class="" href="https://hackpsu-spring-2021.devpost.com/">here!</a><br />Link:
+              <a href="https://hackpsu-spring-2021.devpost.com/"
+                >https://hackpsu-spring-2021.devpost.com/</a
               >
             </p>
           </div>
@@ -475,6 +493,7 @@
                       workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
                     "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
+                    [downloads]="workshop.ws_urls"
                     collapseID="css/html"
                   >
                   </app-live-workshop>
@@ -503,6 +522,7 @@
                       workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
                     "
                     [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
+                    [downloads]="workshop.ws_urls"
                     collapseID="css/html"
                   >
                   </app-live-workshop>
@@ -532,6 +552,7 @@
                         workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
                       "
                       [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
+                      [downloads]="workshop.ws_urls"
                       collapseID="css/html"
                     >
                     </app-live-workshop>
@@ -541,6 +562,111 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sponsors" class="container-fluid">
+    <div class="row">
+      <div class="col-12 section-title">
+        <div class="section-title-word">
+          <div class="header-text">Sponsors</div>
+        </div>
+        <div class="header-bar"></div>
+      </div>
+    </div>
+    <!-- 2021 Sponsors-->
+    <div class="row d-flex justify-content-center center">
+      <div class="col-md-5">
+        <!--MICROSOFT-->
+        <a href="https://www.microsoft.com/en-us" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/Microsoft_blue.svg"
+            class="img-fluid"
+            alt="microsoft"
+            style="height: 250px; width: 300px"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center center">
+      <div class="col-md-2">
+        <!--NITTANY AI-->
+        <a href="https://nittanyai.psu.edu/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/nittanyai-night.svg"
+            class="img-fluid"
+            alt="NitannyAI"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-2">
+        <!--STARTUP WEEK-->
+        <a href="https://startupweek.psu.edu/" target="_blank">
+          <img src="../../../assets/images/sponsors/strtup.svg" class="img-fluid" alt="startup" />
+        </a>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-md-2">
+        <!--PSU ICS-->
+        <a href="https://www.icds.psu.edu/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/ics2-cropped.svg"
+            class="img-fluid mt-3"
+            alt="PSU Institute for Computational and Data Sciences (ICS)"
+            style="height: 150px; width: 300px"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-2" style="padding-top: 1%">
+        <!--EECS-->
+        <a href="https://www.eecs.psu.edu/" target="_blank">
+          <img src="../../../assets/images/sponsors/EECS-night.svg" alt="EECS" class="img-fluid" />
+        </a>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-md-2 justify-content-center">
+        <!--LLP-->
+        <a href="https://lionlaunchpad.psu.edu/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/LionLaunchpad-night.svg"
+            alt="LLP"
+            class=""
+            lass="img-fluid lion-launchpad"
+            style="padding-top: 15%"
+          />
+        </a>
+        <!--HVC-->
+        <a href="https://www.linkedin.com/company/happy-valley-communications/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/HVC-LOGO.svg"
+            class="img-fluid mt-5"
+            alt="Happy Valley Communications"
+          />
+        </a>
+        <!--ECHOAR-->
+        <a href="https://www.echoar.xyz/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/echoAR.svg"
+            class="img-fluid mt-5 mb-5"
+            alt="echoAR"
+          />
+        </a>
+      </div>
+      <div class="col-sm-1"></div>
+      <div class="col-md-3">
+        <!--Smeal-->
+        <a href="https://www.smeal.psu.edu/fcfe/" target="_blank">
+          <img
+            src="../../../assets/images/sponsors/smeal3.svg"
+            class="img-fluid smeal mt-5"
+            alt="smeal"
+          />
+        </a>
       </div>
     </div>
   </section>
@@ -561,7 +687,7 @@
           <a target="_blank" href="https://www.snapchat.com/add/hackpsu"
             ><img class="social-media-icon animated animated-icon" src="assets/icons/snapchat.svg"
           /></a>
-          <a target="_blank" href="https://hackpsu-fall-2020.devpost.com/"
+          <a target="_blank" href="https://hackpsu-spring-2021.devpost.com/"
             ><img class="social-media-icon animated animated-icon" src="assets/icons/devpost.svg"
           /></a>
           <a href="mailto:team@hackpsu.org"

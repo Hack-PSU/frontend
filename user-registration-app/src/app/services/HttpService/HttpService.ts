@@ -13,6 +13,7 @@ import { BaseHttpService } from '../BaseHttpService/BaseHttpService';
 import { EventModel } from '../../models/event-model';
 import { ProjectModel } from '../../models/project-model';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
+import { UserExtraCreditApiResponse } from '../../models/user-extra-credit';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -117,7 +118,7 @@ export class HttpService extends BaseHttpService {
 
   getEvents() {
     const API_ENDPOINT = 'live/events';
-    return this.get(API_ENDPOINT, false, false).pipe(map(EventModel.parseFromJSONArray));
+    return this.get(API_ENDPOINT, false, false, true).pipe(map(EventModel.parseFromJSONArray));
   }
 
   getProjectDetails() {
@@ -132,9 +133,21 @@ export class HttpService extends BaseHttpService {
     );
   }
 
+  getExtraCreditClassesForUser(uid: string) {
+    const API_ENDPOINT = 'users/extra-credit/assignment?type=user';
+    return this.get(API_ENDPOINT, true, true, true, uid).pipe(
+      map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c)))
+    );
+  }
+
   registerExtraCreditClass(c: string) {
     const API_ENDPOINT = 'users/extra-credit';
-    return this.post(API_ENDPOINT, { cid: c }, true);
+    return this.post(API_ENDPOINT, { classUid: c }, true);
+  }
+
+  removeExtraCreditClasses(uid: string) {
+    const API_ENDPOINT = 'users/extra-credit/delete-user';
+    return this.post(API_ENDPOINT, { userUid: uid }, true);
   }
 
   getUserRegistrations() {

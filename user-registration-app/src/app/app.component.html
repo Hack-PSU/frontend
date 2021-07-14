@@ -25,11 +25,11 @@
               width: 10%;
               z-index: 1;
             "
-            href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=white"
+            href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=blue"
             target="_blank"
             ><img
-              src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg"
-              alt="Major League Hacking 2020 Hackathon Season"
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-blue.svg"
+              alt="Major League Hacking 2021 Hackathon Season"
               style="width: 100%"
           /></a>
         </div>
@@ -42,9 +42,10 @@
           >
           <ul class="left hide-on-med-and-down">
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#schedule">SCHEDULE</a></li>
-            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#map-rules">INFO</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
+            <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
             <li *ngIf="DateGuard.validateDate()">
               <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">
                 {{ isOnLiveSite() ? 'REGISTER' : 'LIVE' }}
@@ -69,11 +70,12 @@
       id="mobile-demo"
       style="transform: translateX(-100%)"
     >
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#schedule">SCHEDULE</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#updates">UPDATES</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#map-rules">INFO</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#prizes">PRIZES</a></li>
-      <li *ngIf="isOnLiveSite()" class="scroller"><a href="#workshops">WORKSHOPS</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#schedule">SCHEDULE</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#updates">UPDATES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#faq">INFO</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#prizes">PRIZES</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
+      <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
       <li *ngIf="DateGuard.validateDate()">
         <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">{{
           isOnLiveSite() ? 'REGISTER' : 'LIVE'

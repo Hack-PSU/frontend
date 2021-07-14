@@ -50,7 +50,8 @@ export class BaseHttpService {
     API_ENDPOINT: string,
     ignoreCache?: boolean,
     useAuth = true,
-    v2: boolean = false
+    v2: boolean = false,
+    uid: string = ''
   ): Observable<T> {
     if (ignoreCache) {
       this.memCache.delete(API_ENDPOINT);
@@ -64,6 +65,9 @@ export class BaseHttpService {
         : AppConstants.API_BASE_URL.concat(API_ENDPOINT);
       if (ignoreCache) {
         params = params.set('ignoreCache', 'true');
+      }
+      if (uid.length > 0) {
+        params = params.set('uid', uid);
       }
       let observable = useAuth
         ? // With authentication
