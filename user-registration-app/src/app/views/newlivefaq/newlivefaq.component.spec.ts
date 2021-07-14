@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LiveFaqComponent } from './live-faq.component';
+import { NewlivefaqComponent } from './newlivefaq.component';
 
-describe('LiveFaqComponent', () => {
-  let component: LiveFaqComponent;
-  let fixture: ComponentFixture<LiveFaqComponent>;
+describe('NewlivefaqComponent', () => {
+  let component: NewlivefaqComponent;
+  let fixture: ComponentFixture<NewlivefaqComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LiveFaqComponent ]
+      declarations: [ NewlivefaqComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LiveFaqComponent);
+    fixture = TestBed.createComponent(NewlivefaqComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

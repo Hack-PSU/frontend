@@ -34,8 +34,7 @@ import {
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { TruncatePipe } from './services/pipes/truncate.pipe';
-import { LiveFaqComponent } from "/Users/sridhargudiseva/Desktop/frontend/user-registration-app/src/app/views/live-faq/live-faq.component";
-
+import { NewlivefaqComponent } from './views/newlivefaq/newlivefaq.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +51,7 @@ import { LiveFaqComponent } from "/Users/sridhargudiseva/Desktop/frontend/user-r
     ScheduleViewComponent,
     UserProfileViewComponent,
     UserRegistrationViewComponent,
-    LiveFaqComponent,
+    NewlivefaqComponent,
   ],
   imports: [
     BrowserModule,
