@@ -4,7 +4,7 @@ import { writeFile } from 'fs';
 if (!process.env.PRODUCTION === undefined) {
   const colors = require('colors');
   require('dotenv').load();
-  const targetPath = './src/environments/environment.ts';
+  const targetPath = './src/environments/environment.prod.ts';
 
   const envConfigFile = `export const environment = {
     production: '${process.env.PRODUCTION}',
