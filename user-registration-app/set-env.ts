@@ -5,6 +5,7 @@ if (!process.env.PRODUCTION === undefined) {
   const colors = require('colors');
   require('dotenv').load();
   const targetPath = './src/environments/environment.ts';
+  const targetPath2 = './src/environments/environment.prod.ts';
 
   const envConfigFile = `export const environment = {
     production: '${process.env.PRODUCTION}',
@@ -30,6 +31,15 @@ if (!process.env.PRODUCTION === undefined) {
   );
   console.log(colors.grey(envConfigFile));
   writeFile(targetPath, envConfigFile, function (err) {
+    if (err) {
+      throw console.error(err);
+    } else {
+      console.log(
+        colors.magenta(`Angular environment.ts file generated correctly at ${targetPath} \n`)
+      );
+    }
+  });
+  writeFile(targetPath2, envConfigFile, function (err) {
     if (err) {
       throw console.error(err);
     } else {
