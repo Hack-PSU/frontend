@@ -15,4 +15,5 @@ export class NewlivefaqComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
 }
