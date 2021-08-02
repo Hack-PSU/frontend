@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
-  api_v2_url: 'https://staging-v2-dot-hackpsu18.uc.r.appspot.com/',
+  api_v2_url: 'https://staging-v2-dot-hackpsu18.uc.r.appspot.com/v2/',
   // api_v2_url: 'http://staging.hackpsu18.appspot.com/v2/',
   // api_v2_url: 'http://localhost:5000/v2/',
   // api_url: 'http://localhost:5000/v1/',
-  //https://staging-v2-dot-hackpsu18.uc.r.appspot.com/
+  // https://staging-v2-dot-hackpsu18.uc.r.appspot.com/
 
   firebase: {
     apiKey: 'AIzaSyAWejnwBUrfUoULnMRumGFpOchYjjHlfTI',
