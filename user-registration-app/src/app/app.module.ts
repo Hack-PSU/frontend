@@ -34,7 +34,9 @@ import {
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { TruncatePipe } from './services/pipes/truncate.pipe';
-
+import { NewlivefaqComponent } from './views/newlivefaq/newlivefaq.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     ScheduleViewComponent,
     UserProfileViewComponent,
     UserRegistrationViewComponent,
+    NewlivefaqComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +70,10 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
     NgProgressHttpModule,
     NgProgressRouterModule,
     NgxPaginationModule,
-    ToastrModule.forRoot({ maxOpened: 5 }),
+    ToastrModule.forRoot({maxOpened: 5}),
     RouterModule,
+    MatExpansionModule,
+    MatIconModule,
   ],
   providers: [
     HttpClient,
