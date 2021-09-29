@@ -1,3 +1,6 @@
+// These are here for reference.
+// To change the actual prod environment variables, adjust the values for Vercel's production environment
+
 export const environment = {
   production: true,
   api_url: 'https://api.hackpsu.org/v1/',
@@ -13,7 +16,7 @@ export const environment = {
   },
 
   // Note: Months are indexed at 0
-  // TODO: Manually set this and push the day of hackathon because of time zone differences.
+  // TODO: Manually set this the day of hackathon because of time zone differences.
   /*
   liveWebsiteGuardTime: new Date(2021, 2, 21, 17),
   hackathonStartTime: new Date(2021, 2, 19, 16),
