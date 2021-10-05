@@ -14,6 +14,9 @@
       <!-- Emblem/Logo -->
       <div class="row" style="padding-top: 15%">
         <div class="col-6">
+          <div class="container" *ngIf="testlogo | async; let url">
+            <img [src]="url" alt="Image from AngularFireStorage">
+          </div>
           <img
             src="../assets/images/logo-spring-2021.svg"
             id="hackpsu-logo"

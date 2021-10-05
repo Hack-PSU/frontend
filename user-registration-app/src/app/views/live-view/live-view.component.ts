@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CountdownService } from '../../services/CountdownService/countdown.service';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { EventModel } from '../../models/event-model';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 declare let $: any;
 
@@ -41,10 +42,13 @@ export class LiveViewComponent implements OnInit {
 
   bannerText: string;
 
+  testlogo: any;
+
   constructor(
     private zone: NgZone,
     private countdownService: CountdownService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private afStorage: AngularFireStorage
   ) {}
 
   ngOnInit() {
@@ -59,6 +63,7 @@ export class LiveViewComponent implements OnInit {
       this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
       console.log(this.workshops);
     });
+    this.testlogo = this.afStorage.ref('Test_Logo.png').getDownloadURL();
   }
 
   particlesOptions = {
