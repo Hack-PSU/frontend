@@ -6,6 +6,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgParticlesModule } from 'ng-particles';
@@ -35,8 +36,8 @@ import { AuthService, CustomErrorHandlerService, HttpService } from './services/
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { TruncatePipe } from './services/pipes/truncate.pipe';
 import { NewlivefaqComponent } from './views/newlivefaq/newlivefaq.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatIconModule} from "@angular/material/icon";
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,13 +65,14 @@ import {MatIconModule} from "@angular/material/icon";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     MaterializeModule,
     NgParticlesModule,
     NgProgressModule,
     NgProgressHttpModule,
     NgProgressRouterModule,
     NgxPaginationModule,
-    ToastrModule.forRoot({maxOpened: 5}),
+    ToastrModule.forRoot({ maxOpened: 5 }),
     RouterModule,
     MatExpansionModule,
     MatIconModule,
