@@ -27,7 +27,9 @@ if ('PRODUCTION' in process.env) {
   };
   `;
   console.log(
-    colors.magenta('The file `environment.ts` will be written with the following content: \n')
+    colors.magenta(
+      'The files `environment.ts` and `environment.prod.ts` will be written with the following content: \n'
+    )
   );
   console.log(colors.grey(envConfigFile));
   writeFile(targetPath, envConfigFile, function (err) {
@@ -44,7 +46,7 @@ if ('PRODUCTION' in process.env) {
       throw console.error(err);
     } else {
       console.log(
-        colors.magenta(`Angular environment.ts file generated correctly at ${targetPath} \n`)
+        colors.magenta(`Angular environment.ts file generated correctly at ${targetPath2} \n`)
       );
     }
   });
