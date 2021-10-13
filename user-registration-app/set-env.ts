@@ -1,8 +1,6 @@
 import { writeFile } from 'fs';
 
 // Only overwrite environment.ts if nodejs environment variables have been provided (i.e. only if Vercel is building)
-console.log('HELLO IS THIS THING ON');
-
 if ('PRODUCTION' in process.env) {
   const colors = require('colors');
   require('dotenv').load();
@@ -28,7 +26,6 @@ if ('PRODUCTION' in process.env) {
     rsvpStartTime: new Date('${process.env.RSVP_START_TIME}'),
   };
   `;
-  console.log('YES IT IS\n');
   console.log(
     colors.magenta('The file `environment.ts` will be written with the following content: \n')
   );
