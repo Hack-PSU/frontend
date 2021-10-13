@@ -20,7 +20,7 @@ if ('PRODUCTION' in process.env) {
       projectId: '${process.env.PROJECT_ID}',
       storageBucket: '${process.env.STORAGE_BUCKET}',
       messagingSenderId: '${process.env.MESSAGING_SENDER_ID}',
-    }
+    },
     liveWebsiteGuardTime: new Date('${process.env.LIVE_WEBSITE_GUARD_TIME}'),
     hackathonStartTime: new Date('${process.env.HACKATHON_START_TIME}'),
     timerStartTime: new Date('${process.env.TIMER_START_TIME}'),
