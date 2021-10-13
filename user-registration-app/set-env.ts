@@ -11,8 +11,8 @@ if ('PRODUCTION' in process.env) {
 
   const envConfigFile = `export const environment = {
     production: '${process.env.PRODUCTION}',
-    api_url: '${process.env.API_BASE_URL}',
-    api_v2_url: '${process.env.API_URL}',
+    api_url: '${process.env.API_URL}',
+    api_v2_url: '${process.env.API_V2_URL}',
     firebase: {
       apiKey: '${process.env.API_KEY}',
       authDomain: '${process.env.AUTH_DOMAIN}',
