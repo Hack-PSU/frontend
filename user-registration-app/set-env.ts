@@ -1,6 +1,8 @@
 import { writeFile } from 'fs';
 
 // Only overwrite environment.ts if nodejs environment variables have been provided
+console.log('HELLO IS THIS THING ON');
+
 if (!process.env.PRODUCTION === undefined) {
   const colors = require('colors');
   require('dotenv').load();
@@ -26,6 +28,7 @@ if (!process.env.PRODUCTION === undefined) {
     rsvpStartTime: new Date('${process.env.RSVP_START_TIME}'),
   };
   `;
+  console.log('YES IT IS\n');
   console.log(
     colors.magenta('The file `environment.ts` will be written with the following content: \n')
   );
