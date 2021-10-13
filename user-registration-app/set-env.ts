@@ -1,9 +1,9 @@
 import { writeFile } from 'fs';
 
-// Only overwrite environment.ts if nodejs environment variables have been provided
+// Only overwrite environment.ts if nodejs environment variables have been provided (i.e. only if Vercel is building)
 console.log('HELLO IS THIS THING ON');
 
-if (!process.env.PRODUCTION === undefined) {
+if ('PRODUCTION' in process.env) {
   const colors = require('colors');
   require('dotenv').load();
   const targetPath = './src/environments/environment.ts';
