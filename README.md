@@ -41,7 +41,7 @@ and then PRed into _master_. Preview deployments to a Vercel URL happen in PRs, 
 To run the **tests**, run `npm test` in the main directory. </br>
 
 ## Running Locally
-To compile and run the **main website**, run `npm run watch-sass` then `python -m http.server` in the website directory. </br>
+To compile and run the **main website**, run `npm run watch-sass` in the main directory then `python -m http.server` in the website directory. </br>
 To compile run anything from **app.hackpsu.org**, run `npm run start` in the user-registration-app directory.
 
 ## Testing
