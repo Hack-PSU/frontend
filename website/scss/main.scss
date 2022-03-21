@@ -545,11 +545,16 @@ body {
   }
 }
 
-#moon {
-  width: 65vw;
+#saloon {
+  position: relative;
+  width: 120vw;
+  left: -18vw;
+  top: 8.5vh;
 
   @media screen and (max-width: $md-break) {
-    width: 100%;
+    width: 190vw;
+    left: -60vw;
+    top: 5vh;
   }
 }
 
