@@ -6,21 +6,21 @@ $font-stack-secondary: 'Raleway', sans-serif;
 $font-stack-tertiary: 'Cornerstone', sans-serif;
 
 /* colors */
-$white: #FFFFFF;
-$orange: #E5705C;
-$light-blue-primary: #6C88B7;
-$dark-blue-primary: #020A21;
-$light-blue: #AACACC;
-$dark-blue-secondary: #24577C;
-$light-blue-secondary: #D0EAF1;
-$orange-secondary: #C94331;
+$white: #ffffff;
+$orange: #e5705c;
+$light-blue-primary: #6c88b7;
+$dark-blue-primary: #020a21;
+$light-blue: #aacacc;
+$dark-blue-secondary: #24577c;
+$light-blue-secondary: #d0eaf1;
+$orange-secondary: #c94331;
 $gray: #333333;
 $mountain-blue: #297284;
 
 /* faq colors */
-$pale-blue-link: #99C4CC;
-$red-plus: #C94331;
-$grayish-white-question: #E1E9EA;
+$pale-blue-link: #99c4cc;
+$red-plus: #c94331;
+$grayish-white-question: #e1e9ea;
 
 /* sizing */
 $xl-break: 1440px;
@@ -35,8 +35,6 @@ $break-large: 1200px;
   font-family: 'Cornerstone';
   src: url('../assets/fonts/Cornerstone.ttf');
 }
-
-
 
 /* ====================== MIXINS ==================== */
 @mixin accent($color) {
@@ -86,8 +84,6 @@ $break-large: 1200px;
 
   font-size: $responsive;
 }
-
-
 
 /* ====================== COMPONENTS ==================== */
 body {
@@ -178,15 +174,15 @@ body {
       margin: 0;
 
       img {
-        content: url("../assets/images/moon.svg");
+        content: url('../assets/images/moon.svg');
       }
 
-      @media screen and (max-width: $break-small){
+      @media screen and (max-width: $break-small) {
         display: none;
       }
     }
 
-    @media screen and (max-width: $lg-break){
+    @media screen and (max-width: $lg-break) {
       padding-top: 25%;
     }
 
@@ -227,7 +223,7 @@ body {
       -moz-filter: grayscale(75%);
       -o-filter: grayscale(75%);
       -ms-filter: grayscale(75%);
-      filter: grayscale(75%); 
+      filter: grayscale(75%);
 
       @media screen and (max-width: $md-break) {
         left: -0.75em;
@@ -241,16 +237,16 @@ body {
     }
 
     .header-text {
-      font-family:   $font-stack-tertiary;
-      @include responsive-font(.85em, .8em, 1.25em, 1em);
+      font-family: $font-stack-tertiary;
+      @include responsive-font(0.85em, 0.8em, 1.25em, 1em);
       max-font-size: 2em;
 
       p {
-        text-align:  start;
-        padding:     0;
+        text-align: start;
+        padding: 0;
         line-height: 1em;
-        transition:  all 0.4s;
-        color:       #424242;
+        transition: all 0.4s;
+        color: #424242;
         white-space: nowrap;
       }
     }
@@ -297,7 +293,7 @@ body {
 
       @media screen and (max-width: 1121px) {
         p {
-          line-height: .95em;
+          line-height: 0.95em;
         }
       }
     }
@@ -325,9 +321,9 @@ body {
       // }
 
       .header-text p {
-          /* This centers text in button. Typically this should be equal
+        /* This centers text in button. Typically this should be equal
           to the height of the button, however the border throws it off. */
-          line-height: 9vh;
+        line-height: 9vh;
       }
 
       .header-content {
@@ -464,7 +460,7 @@ body {
     width: 30%;
     margin: 0;
 
-    @media screen and (max-width: $break-small){
+    @media screen and (max-width: $break-small) {
       width: 100%;
     }
   }
@@ -545,11 +541,16 @@ body {
   }
 }
 
-#moon {
-  width: 65vw;
+#saloon {
+  position: relative;
+  width: 120vw;
+  left: -18vw;
+  top: 8.5vh;
 
   @media screen and (max-width: $md-break) {
-    width: 100%;
+    width: 190vw;
+    left: -60vw;
+    top: 5vh;
   }
 }
 
@@ -586,8 +587,8 @@ border and the section separator bar */
 }
 
 .floating {
-  animation-name:            floating;
-  animation-duration:        3s;
+  animation-name: floating;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -624,13 +625,17 @@ border and the section separator bar */
   }
 }
 
-
 /* ====================== PLANETS ==================== */
 #planet-container {
   position: relative;
 }
 
-#planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
+#planet-1,
+#planet-2,
+#planet-3,
+#planet-4,
+#planet-5,
+#satellite {
   position: absolute;
   z-index: -1;
   width: 10vw;
@@ -696,8 +701,6 @@ border and the section separator bar */
   }
 }
 
-
-
 /* ====================== TRACKS ==================== */
 #tracks {
   padding-top: 10vh;
@@ -715,7 +718,7 @@ border and the section separator bar */
   }
 
   .track-content {
-    font-size: .6em;
+    font-size: 0.6em;
     line-height: 1.35em;
     padding-top: 5vh;
   }
@@ -723,7 +726,6 @@ border and the section separator bar */
   .track-img {
     width: 18%;
   }
-
 
   .register-btn {
     @include transition(all, 0.4s);
@@ -742,7 +744,7 @@ border and the section separator bar */
 
   p {
     font-family: 'Lato', sans-serif;
-    font-size: .6em;
+    font-size: 0.6em;
     font-weight: 100;
     text-align: left;
     line-height: 200%;
@@ -754,8 +756,6 @@ border and the section separator bar */
     }
   }
 }
-
-
 
 /* ====================== FAQ ==================== */
 #faqs {
@@ -791,7 +791,7 @@ border and the section separator bar */
 
   .horizontal-line {
     position: relative;
-    background-color: #B7C7CA;
+    background-color: #b7c7ca;
     height: 2px;
     width: 100%;
   }
@@ -807,17 +807,17 @@ border and the section separator bar */
     }
   }
   .question + .fa-chevron-right {
-    display:    inline-block;
+    display: inline-block;
     margin-top: 10px;
   }
   .question:before {
-    font-family:  "Font Awesome 5 Free", cursive;
-    display:      inline-block;
-    font-size:    large;
+    font-family: 'Font Awesome 5 Free', cursive;
+    display: inline-block;
+    font-size: large;
     margin-right: 5px;
-    content:      "\f067";
-    color:        $red-plus;
-    transition:   all 0.3s;
+    content: '\f067';
+    color: $red-plus;
+    transition: all 0.3s;
   }
 
   .open:before {
@@ -832,7 +832,7 @@ border and the section separator bar */
     background: $grayish-white-question;
     border: solid 1px $mountain-blue;
     border-radius: 7px 7px 7px 7px;
-    color: #004D6D;
+    color: #004d6d;
     text-align: left;
     padding: 10px;
     cursor: hand;
@@ -872,15 +872,13 @@ border and the section separator bar */
   }
 }
 
-
-
 /* ====================== SCHEDULE ==================== */
 #schedule {
-  color:            white;
-  font-family:      'Lato', sans-serif;
-  font-weight:      bold;
-  padding-top:      50px;
-  padding-bottom:   50px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
   // background-color: #194E6B;
 
   .header-bar {
@@ -888,8 +886,8 @@ border and the section separator bar */
   }
 
   .schedule-right {
-  padding-left: 10%;
-  border-left: 3px solid #F5F5F5;
+    padding-left: 10%;
+    border-left: 3px solid #f5f5f5;
   }
 
   @media screen and (max-width: 768px) {
@@ -898,14 +896,14 @@ border and the section separator bar */
       border: none;
     }
     .schedule-right div {
-      padding-top: .5vh;
+      padding-top: 0.5vh;
     }
 
     .schedule-left {
       padding-top: 10px;
     }
     .schedule-left div {
-      padding-top: .5vh;
+      padding-top: 0.5vh;
     }
 
     .schedule-header {
@@ -921,11 +919,11 @@ border and the section separator bar */
   }
 
   .event-center {
-    display:      inline;
-    margin-top:   10px;
+    display: inline;
+    margin-top: 10px;
     font-weight: lighter;
-    font-size:   large;
-    margin:      0 4%;
+    font-size: large;
+    margin: 0 4%;
     text-align: center;
   }
 
@@ -940,12 +938,14 @@ border and the section separator bar */
     margin-right: 24px;
   }
 
-  .nav-pills > li > a.active, .nav-pills > active > a.active:focus {
-    color: #194E6B;
+  .nav-pills > li > a.active,
+  .nav-pills > active > a.active:focus {
+    color: #194e6b;
     background-color: #fff;
   }
 
-  .nav-pills > li > a:hover, .tab-content > .tab-pane > .row > .col-8:hover {
+  .nav-pills > li > a:hover,
+  .tab-content > .tab-pane > .row > .col-8:hover {
     color: steelblue;
   }
 
@@ -958,7 +958,7 @@ border and the section separator bar */
 
   p {
     font-family: 'Lato', sans-serif;
-    font-size: .6em;
+    font-size: 0.6em;
     font-weight: 100;
     text-align: center;
     line-height: 200%;
@@ -971,8 +971,6 @@ border and the section separator bar */
   }
 }
 
-
-
 /* ====================== SPONSORS ==================== */
 #sponsors {
   padding-top: 50px;
@@ -983,11 +981,11 @@ border and the section separator bar */
   }
 
   .header-bar {
-    background: #24577C;
+    background: #24577c;
   }
 
   .header-text {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .header-bar {
@@ -1010,21 +1008,21 @@ border and the section separator bar */
     max-width: 50%;
   }
 
-  .microsoft{
+  .microsoft {
     padding-top: 1%;
     @media screen and (max-width: $md-break) {
       height: fit-content;
       width: fit-content;
     }
   }
-  .nittany-ai{
+  .nittany-ai {
     padding-top: 10%;
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
   }
 
-  .plant-village{
+  .plant-village {
     padding-top: 28%;
     @media screen and (max-width: $md-break) {
       padding-top: 20%;
@@ -1032,7 +1030,7 @@ border and the section separator bar */
     }
   }
 
-  .capital-one{
+  .capital-one {
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
@@ -1050,7 +1048,7 @@ border and the section separator bar */
     max-height: 45%;
   }
 
-  .jetbrains{
+  .jetbrains {
     padding-top: 10%;
     @media screen and (max-width: $md-break) {
       width: 60%;
@@ -1078,7 +1076,7 @@ border and the section separator bar */
     padding-top: 28%;
   }
 
-  .smeal{
+  .smeal {
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
@@ -1128,9 +1126,6 @@ border and the section separator bar */
     padding-top: 10%;
   }
 }
-
-
-
 
 /* ====================== FOOTER ==================== */
 
@@ -1186,10 +1181,8 @@ border and the section separator bar */
   }
 }
 
-
-
 /* ====================== PARTICLES.JS ==================== */
-#particles-js{
+#particles-js {
   width: 100%;
   height: 100%;
   position: fixed;
