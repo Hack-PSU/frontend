@@ -16,19 +16,11 @@ export const environment = {
   },
 
   // Note: Months are indexed at 0
-  // TODO: Manually set this the day of hackathon because of time zone differences.
-  /*
-  liveWebsiteGuardTime: new Date(2021, 2, 21, 17),
-  hackathonStartTime: new Date(2021, 2, 19, 16),
-  timerStartTime: new Date(2021, 2, 19, 17),
-  hackathonEndTime: new Date(2021, 2, 21, 17),
-  rsvpStartTime: new Date(2019, 10),
-  */
 
-  //New code that accounts for timezone differences. Time is set for 5PM EST Friday
-  liveWebsiteGuardTime: new Date(Date.UTC(2021, 2, 19, 15)),
-  hackathonStartTime: new Date(Date.UTC(2021, 2, 19, 20)),
-  timerStartTime: new Date(Date.UTC(2021, 2, 19, 21)),
-  hackathonEndTime: new Date(Date.UTC(2021, 2, 21, 21)),
+  // New code that accounts for timezone differences. Time is set for 2PM EST Saturday
+  liveWebsiteGuardTime: new Date(Date.UTC(2022, 3, 9, 17, 30)),
+  hackathonStartTime: new Date(Date.UTC(2022, 3, 9, 17)),
+  timerStartTime: new Date(Date.UTC(2022, 3, 9, 18)),
+  hackathonEndTime: new Date(Date.UTC(2022, 3, 10, 18)),
   rsvpStartTime: new Date(2019, 10),
 };
