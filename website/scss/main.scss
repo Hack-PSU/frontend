@@ -223,21 +223,16 @@ body {
       height: 13vh;
       top: calc(-8px - 1.5vh);
       left: -50px;
-      -webkit-filter: grayscale(75%);
-      -moz-filter: grayscale(75%);
-      -o-filter: grayscale(75%);
-      -ms-filter: grayscale(75%);
-      filter: grayscale(75%); 
 
       @media screen and (max-width: $md-break) {
         left: -0.75em;
       }
 
-      // &.animated {
-      //   animation-name: planet_floating;
-      //   animation-duration: 2s;
-      //   animation-iteration-count: 2;
-      // }
+      &.animated {
+        animation-name: planet_floating;
+        animation-duration: 2s;
+        animation-iteration-count: 2;
+      }
     }
 
     .header-text {
@@ -303,15 +298,15 @@ body {
     }
 
     .register-btn {
-      // @include transition(all, 0.4s);
+      @include transition(all, 0.4s);
       box-sizing: border-box;
       height: 10vh;
-      background: grey;
-      border: solid 8px rgba(80, 94, 95, 0.6);
+      background: white;
+      border: solid 8px rgba(170, 202, 204, 0.6);
       border-radius: 50px;
       margin-bottom: 2vh;
       width: 10em;
-      // cursor: pointer;
+      cursor: pointer;
 
       @media screen and (max-width: $md-break) {
         left: 0 !important;
@@ -319,10 +314,10 @@ body {
         margin: 0 0 1em 0 !important;
       }
 
-      // &:hover {
-      //   @include transition(all, 0.4s);
-      //   background: rgba(170, 202, 204, 1);
-      // }
+      &:hover {
+        @include transition(all, 0.4s);
+        background: rgba(170, 202, 204, 1);
+      }
 
       .header-text p {
           /* This centers text in button. Typically this should be equal
