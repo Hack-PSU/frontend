@@ -440,6 +440,19 @@ body {
   }
 }
 
+#saloon {
+  position: absolute;
+  width: 120vw;
+  left: -18vw;
+  top: 35vh;
+
+  @media screen and (max-width: $md-break) {
+    width: 200vw;
+    left: -63vw;
+    top: 50vh;
+  }
+}
+
 /* ====================== ABOUT SECTION ==================== */
 #about {
   position: relative;
