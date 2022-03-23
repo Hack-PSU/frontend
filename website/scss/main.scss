@@ -8,7 +8,7 @@ $font-stack-tertiary: 'Cornerstone', sans-serif;
 /* colors */
 $white: #FFFFFF;
 $orange: #E5705C;
-$light-blue-primary: #6C88B7;
+$light-blue-primary: #87CEEB;
 $dark-blue-primary: #020A21;
 $light-blue: #AACACC;
 $dark-blue-secondary: #24577C;
@@ -352,7 +352,7 @@ body {
           @include transition(all, 0.4s);
 
           p {
-            color: $dark-blue-primary;
+            color: $light-blue-primary;
           }
         }
       }
@@ -1147,7 +1147,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: $dark-blue-primary;
+      background: $light-blue-primary;
     }
   }
 
@@ -1188,7 +1188,7 @@ border and the section separator bar */
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: $dark-blue-primary;
+  background-color: $light-blue-primary;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
