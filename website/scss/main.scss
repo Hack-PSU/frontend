@@ -743,8 +743,8 @@ border and the section separator bar */
   .register-btn {
     @include transition(all, 0.4s);
     height: 10vh;
-    background: darkorange;
-    border: solid 4px black;
+    background: transparent;
+    border: 8px rgba(170, 202, 204, 0.6);
     border-radius: 50px;
     margin: 5vh 2vh;
     font-size: smaller;
@@ -994,7 +994,7 @@ border and the section separator bar */
   position: relative;
 
   .header-text {
-    color: black;
+    color: #424242;
   }
 
   .header-bar {
