@@ -444,12 +444,14 @@ body {
   position: absolute;
   width: 120vw;
   left: -18vw;
-  top: 35vh;
+  top: 6em;
+  z-index: -1;
 
   @media screen and (max-width: $md-break) {
     width: 200vw;
     left: -63vw;
-    top: 50vh;
+    top: -0.5em;
+    position: relative;
   }
 }
 
@@ -741,8 +743,8 @@ border and the section separator bar */
   .register-btn {
     @include transition(all, 0.4s);
     height: 10vh;
-    background: transparent;
-    border: solid 8px rgba(170, 202, 204, 0.6);
+    background: darkorange;
+    border: solid 4px black;
     border-radius: 50px;
     margin: 5vh 2vh;
     font-size: smaller;
@@ -992,7 +994,7 @@ border and the section separator bar */
   position: relative;
 
   .header-text {
-    color: #424242;
+    color: black;
   }
 
   .header-bar {
