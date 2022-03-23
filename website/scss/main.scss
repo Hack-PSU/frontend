@@ -438,11 +438,11 @@ body {
 /* ====================== ABOUT SECTION ==================== */
 #about {
   position: relative;
-  margin-top: -1px;
+  margin-top: 50px;
   margin-bottom: -1px;
 
   @media screen and (max-width: $md-break) {
-    margin-top: 5%;
+    margin-top: 10%;
   }
 
   .header-text {
