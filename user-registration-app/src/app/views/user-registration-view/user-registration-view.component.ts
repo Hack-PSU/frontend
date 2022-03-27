@@ -197,19 +197,19 @@ export class UserRegistrationViewComponent implements OnInit {
   showClassName(class_name: string): boolean {
     // We don't remove classes from the DB, we just filter them here.
     const shownClassNames = [
-      'CYBER 100',
-      'SRA 111',
-      'IST 220',
-      'SRA 231',
-      'SRA 111 (World Campus)',
-      'CMPSC 445',
-      'IST 110',
-      'MATH 455',
-      'CMPSC 455',
-      'CMPET 401',
-      'CMPSC 436',
-      'ACCTG 403',
-      'ACCTG 483',
+      // 'CYBER 100',
+      // 'SRA 111',
+      // 'IST 220',
+      // 'SRA 231',
+      // 'SRA 111 (World Campus)',
+      // 'CMPSC 445',
+      // 'IST 110',
+      // 'MATH 455',
+      // 'CMPSC 455',
+      // 'CMPET 401',
+      // 'CMPSC 436',
+      // 'ACCTG 403',
+      // 'ACCTG 483',
     ];
     return shownClassNames.includes(class_name);
   }

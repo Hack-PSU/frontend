@@ -7,7 +7,7 @@
   <!--Registation title-->
   <div class="registration-title">
     <h1>Registration</h1>
-    <h5>...for our <span class="orange-background">Spring 2021 </span>Hackathon!</h5>
+    <h5>...for our <span class="orange-background">Spring 2022 </span>Hackathon!</h5>
   </div>
   <div class="row scrollspy" id="name-container" materialize="scrollSpy">
     <div class="card medium darken-1">
@@ -265,8 +265,8 @@
     <div class="card medium darken-1">
       <div class="card-content">
         <h5 class="age">
-          Will you be at least 18 or a current Penn State University student before March 19th,
-          2021?
+          Will you be at least 18 or a current Penn State University student before April 9th,
+          2022?
         </h5>
         <!-- Switch -->
         <div class="switch">
@@ -442,16 +442,19 @@
             [(ngModel)]="registrationForm.addressFields.country"
           />
         </div>
+        <p>
+          <label class="data-error">Note: Country is required</label>
+        </p>
         <div class="form-group">
-          <input
+          <!-- <input
             type="checkbox"
             class="with-gap"
             id="shareAddressMlh"
             name="shareAddressMlh"
             [(ngModel)]="registrationForm.shareAddressMlh"
-          />
-          <label for="shareAddressMlh">Share your address with MLH?</label>
-          <label class="data-error">Note: Country is required by MLH</label><br />
+          /> -->
+          <!-- <label for="shareAddressMlh">Share your address with MLH?</label> -->
+          <!-- <label class="data-error">Note: Country is required by MLH</label><br /> -->
         </div>
         <div class="form-group">
           <input
@@ -464,8 +467,7 @@
           <label for="shareAddressSponsors">Share your address with our sponsors?</label><br />
         </div>
         <p class="alert">
-          This information is for us to send you goodies (domestic shipping)! Everything except
-          country is optional.
+          This information is for us to send you goodies (domestic shipping) if needed! Everything is optional.
         </p>
       </div>
     </div>
@@ -476,7 +478,6 @@
     <div class="card medium darken-1">
       <div class="card-content ">
         <h5 class="travel">Will you need travel reimbursement?</h5>
-        Switch
         <div class="switch">
           <label>
             No
@@ -529,11 +530,10 @@
   </div>
 
   <!-- Dietary Restrictions -->
-  <!-- <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="diet-container">
+  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="diet-container">
     <div class="card medium darken-1">
       <div class="card-content ">
         <h5 class="diet">Do you have any dietary restrictions or allergies?</h5>
-        Switch
         <div class="switch">
           <label>
             No
@@ -573,7 +573,7 @@
       </div>
       <img class="bouncy-bits hide-on-small-only animated bounce" src="../../../assets/images/DietaryRestrictions.svg">
     </div>
-  </div> -->
+  </div>
 
   <!-- Major -->
   <div
@@ -988,7 +988,7 @@
       <a href="#shirtSize-container" *ngIf="registrationForm.eighteenBeforeEvent">Shirt Size</a>
     </li>
     <!-- <li><a href="#travel-container" *ngIf="registrationForm.eighteenBeforeEvent">Travel Reimbursement</a></li> -->
-    <!-- <li><a href="#diet-container" *ngIf="registrationForm.eighteenBeforeEvent">Dietary Restrictions</a></li> -->
+    <li><a href="#diet-container" *ngIf="registrationForm.eighteenBeforeEvent">Dietary Restrictions</a></li>
     <li>
       <a href="#university-container" *ngIf="registrationForm.eighteenBeforeEvent">Education</a>
     </li>
