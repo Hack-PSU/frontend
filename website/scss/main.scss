@@ -285,12 +285,16 @@ body {
       @include transition(all, 0.4s);
       box-sizing: border-box;
       height: 10vh;
-      background: white;
-      border: solid 8px rgba(170, 202, 204, 0.6);
+      background: #BC6A45;
+      border: solid 8px #8A4D2F;
       border-radius: 50px;
       margin-bottom: 2vh;
       width: 10em;
       cursor: pointer;
+
+      .row {
+        justify-content: center !important;
+      }
 
       @media screen and (max-width: $md-break) {
         left: 0 !important;
@@ -300,13 +304,17 @@ body {
 
       &:hover {
         @include transition(all, 0.4s);
-        background: rgba(170, 202, 204, 1);
+        background: #d47f58;
       }
 
       .header-text p {
           /* This centers text in button. Typically this should be equal
           to the height of the button, however the border throws it off. */
           line-height: 9vh;
+      }
+
+      .register-btn-text {
+        color: black;
       }
 
       .header-content {
