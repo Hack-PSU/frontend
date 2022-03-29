@@ -156,7 +156,7 @@ body {
 
     .logo-holder {
       position: absolute;
-      width: 25%;
+      width: 8em;
       left: 0;
       right: 0;
       top: 2.5vh;
@@ -181,7 +181,7 @@ body {
     @media screen and (max-width: $sm-break) {
       padding-top: 55%;
       .logo-holder {
-        width: 60%;
+        width: 50% !important;
       }
     }
 
