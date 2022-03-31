@@ -161,11 +161,32 @@ body {
       right: 0;
       top: 2.5vh;
       margin: auto;
-      z-index: 400;
 
       @media screen and (max-width: $md-break) {
-        margin-top: 0.5em;
+        margin-top: 10vh;
         width: 75% !important;
+      }
+
+      img {
+        width: 25vw;
+        @media screen and (max-width: $md-break) {
+          width: 35vw;
+        }
+      }
+    }
+
+    .saloon-holder {
+      position: absolute;
+      width: 80vw;
+      left: -15vw;
+      right: 0;
+      top: 2.5vh;
+      margin: auto;
+
+      @media screen and (max-width: $md-break) {
+        top: 25vh;
+        width: 75vw !important;
+        left: -25vw;
       }
     }
 
@@ -206,12 +227,24 @@ body {
         div {
           padding-left: 0;
         }
+        .header-text {
+          @media screen and (max-width: $break-small){
+            font-size: 5vw;
+            left: -5vw;
+          }
+        }
       }
 
       .cta {
         padding-top: 5vh;
         @media screen and (max-width: $sm-break) {
           padding-bottom: 5.5vh;
+        }
+      }
+
+      div {
+        @media screen and (max-width: $break-small){
+          top: 5vh;
         }
       }
     }
@@ -1168,7 +1201,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: $light-blue-primary;
+      background: #754c29;
     }
   }
 
@@ -1206,13 +1239,13 @@ border and the section separator bar */
 
 /* ====================== PARTICLES.JS ==================== */
 #particles-js{
-  width: 100%;
-  height: 600%;
-  background-position: fixed;
+  width: 100vw;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #754c29;
   background-image: url("/../assets/images/background4.png");
-  background-position-y: 400px;
-  background-color: $light-blue-primary;
-  background-size: cover;
-  background-position: 0% 0%;
   background-repeat: no-repeat;
+  background-position-y: 400px;
+  background-size: cover;
+  background-position: 55% 0%;
 }
