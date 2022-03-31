@@ -1207,12 +1207,12 @@ border and the section separator bar */
 /* ====================== PARTICLES.JS ==================== */
 #particles-js{
   width: 100%;
-  height: 100%;
-  position: fixed;
-  background-image: url("/../assets/images/background.png");
+  height: 300%;
+  background-position: fixed;
+  background-image: url("/../assets/images/background3.png");
   background-position-y: 400px;
   background-color: $light-blue-primary;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 0% 0%;
   background-repeat: no-repeat;
 }
