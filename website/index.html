@@ -258,44 +258,9 @@
         </div>
       </header>
 
-      <!--Planet animation trigger-->
-      <script>
-        $('.planet').on(
-          'animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',
-          function () {
-            $(this).removeClass('animated');
-          }
-        );
-
-        $('.btn-with-planet').on('mouseenter', function (event) {
-          //get planet corresponding to button (child element)
-          var planet = this.querySelector('.planet');
-          planet.classList.add('animated');
-        });
-      </script>
-
       <section id="about">
         <!-- astronauts and rockets -->
-        <img src="assets/images/about/astronaut_laptop.svg" alt="Astronaut" id="astronaut_laptop" />
-        <img
-          src="assets/images/about/astronaut_waving.svg"
-          alt="Astronaut"
-          class="floating"
-          id="astronaut_wave"
-        />
-        <img
-          src="assets/images/about/astronaut_swimming.svg"
-          alt="Astronaut"
-          class="floating"
-          id="astronaut_swim"
-        />
         <img src="assets/images/cactus-1.svg" alt="Rocket" id="rocket_docked" />
-        <img
-          src="assets/images/about/rocket_flying.svg"
-          alt="Rocket"
-          class="flying"
-          id="rocket_flying"
-        />
         <img src="assets/images/about/hacky.svg" alt="Hacky" id="hacky" />
 
         <!-- moon and about section text -->
@@ -325,48 +290,6 @@
 
       <div id="planet-container">
         <!-- floating planets behind track, faq, and sponsors -->
-        <img
-          src="assets/images/planets/planet_1.svg"
-          alt="Planet"
-          id="planet-1"
-          class="rellax"
-          data-rellax-speed="4"
-        />
-        <img
-          src="assets/images/planets/planet_2.svg"
-          alt="Planet"
-          id="planet-2"
-          class="rellax"
-          data-rellax-speed="2"
-        />
-        <img
-          src="assets/images/planets/planet_3.svg"
-          alt="Planet"
-          id="planet-3"
-          class="rellax"
-          data-rellax-speed="6"
-        />
-        <img
-          src="assets/images/planets/planet_4.svg"
-          alt="Planet"
-          id="planet-4"
-          class="rellax"
-          data-rellax-speed="4"
-        />
-        <img
-          src="assets/images/planets/planet_5.svg"
-          alt="Planet"
-          id="planet-5"
-          class="rellax"
-          data-rellax-speed="2"
-        />
-        <img
-          src="assets/images/planets/satellite.svg"
-          alt="Satellite"
-          id="satellite"
-          class="rellax"
-          data-rellax-speed="2"
-        />
 
         <section id="tracks">
           <div class="container-fluid">
