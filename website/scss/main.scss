@@ -632,6 +632,17 @@ border and the section separator bar */
     margin-bottom: 20px;
   }
 
+  .header-text {
+    font-family: $font-stack-tertiary;
+    font-size: 15vh;
+    text-align: center;
+    padding-top: 5vh;
+
+    @media screen and (max-width: $md-break) {
+      font-size: 5vh;
+    }
+  }
+
   #location {
     margin-top: 30px;
   }
@@ -713,14 +724,14 @@ border and the section separator bar */
     background-image: url("/../assets/images/rightsign.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-size: 90% 100%;
+    background-size: 100% 100%;
   }
 
   .leftsign {
     background-image: url("/../assets/images/leftsign.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-size: 90% 100%;
+    background-size: 100% 100%;
   }
 
   .faq-answer {
