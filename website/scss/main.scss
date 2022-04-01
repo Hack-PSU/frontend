@@ -634,9 +634,7 @@ border and the section separator bar */
 
   .header-text {
     font-family: $font-stack-tertiary;
-    font-size: 15vh;
     text-align: center;
-    padding-top: 5vh;
 
     @media screen and (max-width: $md-break) {
       font-size: 5vh;
