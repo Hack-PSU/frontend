@@ -620,6 +620,13 @@ border and the section separator bar */
   padding-top: 50px;
   padding-bottom: 50px;
 
+  background-image: url("/../assets/images/post.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 100% 100%;
+  padding-bottom: 20vh;
+
+
   .header-bar {
     background-color: $mountain-blue;
     margin-bottom: 20px;
@@ -649,6 +656,16 @@ border and the section separator bar */
     background-color: #B7C7CA;
     height: 2px;
     width: 100%;
+  }
+
+  .container-fluid {
+    background-image: url("/../assets/images/sign2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    width: 90vw;
+    padding-bottom: 10vh;
+    padding-top: 5vh;
   }
 
   .question-container {
