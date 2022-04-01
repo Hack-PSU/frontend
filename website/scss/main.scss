@@ -486,15 +486,15 @@ body {
   }
 }
 
-#rocket_docked {
+#cactus {
   position: absolute;
-  top: -30%;
-  right: 20%;
+  top: 10%;
+  right: 5%;
   width: 30vw;
 
   @media screen and (max-width: $md-break) {
-    width: 50vw;
-    right: 5%;
+    width: 40vw;
+    right: 0%;
     top: -14vh;
   }
 }
