@@ -701,14 +701,26 @@ border and the section separator bar */
   }
 
   .question {
-    background: $grayish-white-question;
-    border: solid 1px $mountain-blue;
-    border-radius: 7px 7px 7px 7px;
+    text-indent: 1vw;
     color: #004D6D;
     text-align: left;
     padding: 10px;
     cursor: hand;
     font-size: large;
+  }
+
+  .rightsign {
+    background-image: url("/../assets/images/rightsign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 90% 100%;
+  }
+
+  .leftsign {
+    background-image: url("/../assets/images/leftsign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 90% 100%;
   }
 
   .faq-answer {
