@@ -477,7 +477,7 @@ body {
 
 #hacky {
   position: absolute;
-  top: -10%;
+  top: -25vh;
   right: 40%;
   width: 3vw;
 
@@ -493,9 +493,7 @@ body {
   width: 30vw;
 
   @media screen and (max-width: $md-break) {
-    width: 40vw;
-    right: 0%;
-    top: -14vh;
+    display: none;
   }
 }
 
