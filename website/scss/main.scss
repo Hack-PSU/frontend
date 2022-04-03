@@ -914,6 +914,18 @@ border and the section separator bar */
       width: 60%;
     }
   }
+  .mt-tech{
+    padding-top: 20%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+  .baker-hughes{
+    padding-top: 30%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
 
   .plant-village{
     padding-top: 28%;
