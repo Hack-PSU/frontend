@@ -904,8 +904,14 @@ border and the section separator bar */
   .microsoft{
     padding-top: 1%;
     @media screen and (max-width: $md-break) {
-      height: fit-content;
-      width: fit-content;
+      // height: fit-content;
+      // width: fit-content;
+    }
+  }
+  .celonis{
+    padding-top: 0%;
+    @media screen and (max-width: $md-break) {
+      width: 40%;
     }
   }
   .nittany-ai{
