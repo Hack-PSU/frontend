@@ -8,7 +8,7 @@ $font-stack-tertiary: 'Cornerstone', sans-serif;
 /* colors */
 $white: #FFFFFF;
 $orange: #E5705C;
-$light-blue-primary: #6C88B7;
+$light-blue-primary: #87CEEB;
 $dark-blue-primary: #020A21;
 $light-blue: #AACACC;
 $dark-blue-secondary: #24577C;
@@ -156,35 +156,40 @@ body {
 
     .logo-holder {
       position: absolute;
-      width: 25%;
+      width: 8em;
       left: 0;
       right: 0;
       top: 2.5vh;
       margin: auto;
-      z-index: 400;
 
       @media screen and (max-width: $md-break) {
-        margin-top: 0.5em;
+        margin-top: 10vh;
         width: 75% !important;
       }
-    }
-
-    .celestial-body {
-      position: absolute;
-      width: 12.5%;
-      left: 7%;
-      right: 0;
-      top: 11.5vh;
-      margin: 0;
 
       img {
-        content: url("../assets/images/moon.svg");
-      }
-
-      @media screen and (max-width: $break-small){
-        display: none;
+        width: 20vw;
+        @media screen and (max-width: $md-break) {
+          width: 35vw;
+        }
       }
     }
+
+    .saloon-holder {
+      position: absolute;
+      width: 80vw;
+      left: -15vw;
+      right: 0;
+      top: 2.5vh;
+      margin: auto;
+
+      @media screen and (max-width: $md-break) {
+        top: 25vh;
+        width: 75vw !important;
+        left: -25vw;
+      }
+    }
+
 
     @media screen and (max-width: $lg-break){
       padding-top: 25%;
@@ -197,8 +202,22 @@ body {
     @media screen and (max-width: $sm-break) {
       padding-top: 55%;
       .logo-holder {
-        width: 60%;
+        width: 50% !important;
       }
+    }
+
+
+    .cloud-1 {
+      position: absolute;
+       width: 12.5%;
+       left: 7%;
+       right: 0;
+       top: 11.5vh;
+       margin: 0;
+
+       @media screen and (max-width: $break-small){
+         display: none;
+       }
     }
 
     .header-content {
@@ -208,6 +227,12 @@ body {
         div {
           padding-left: 0;
         }
+        .header-text {
+          @media screen and (max-width: $break-small){
+            font-size: 5vw;
+            left: -5vw;
+          }
+        }
       }
 
       .cta {
@@ -216,22 +241,11 @@ body {
           padding-bottom: 5.5vh;
         }
       }
-    }
 
-    .planet {
-      position: relative;
-      height: 13vh;
-      top: calc(-8px - 1.5vh);
-      left: -50px;
-
-      @media screen and (max-width: $md-break) {
-        left: -0.75em;
-      }
-
-      &.animated {
-        animation-name: planet_floating;
-        animation-duration: 2s;
-        animation-iteration-count: 2;
+      div {
+        @media screen and (max-width: $break-small){
+          top: 5vh;
+        }
       }
     }
 
@@ -301,12 +315,16 @@ body {
       @include transition(all, 0.4s);
       box-sizing: border-box;
       height: 10vh;
-      background: white;
-      border: solid 8px rgba(170, 202, 204, 0.6);
+      background: #BC6A45;
+      border: solid 8px #8A4D2F;
       border-radius: 50px;
       margin-bottom: 2vh;
       width: 10em;
       cursor: pointer;
+
+      .row {
+        justify-content: center !important;
+      }
 
       @media screen and (max-width: $md-break) {
         left: 0 !important;
@@ -316,13 +334,17 @@ body {
 
       &:hover {
         @include transition(all, 0.4s);
-        background: rgba(170, 202, 204, 1);
+        background: #d47f58;
       }
 
       .header-text p {
           /* This centers text in button. Typically this should be equal
           to the height of the button, however the border throws it off. */
           line-height: 9vh;
+      }
+
+      .register-btn-text {
+        color: black;
       }
 
       .header-content {
@@ -352,7 +374,7 @@ body {
           @include transition(all, 0.4s);
 
           p {
-            color: $dark-blue-primary;
+            color: $light-blue-primary;
           }
         }
       }
@@ -378,60 +400,18 @@ body {
   margin-bottom: 0;
 }
 
-@-webkit-keyframes planet_floating {
-  0% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  33% {
-    transform: translateY(-2vh);
-    animation-timing-function: ease-in;
-  }
-  66% {
-    transform: translateY(2vh);
-    animation-timing-function: ease-out;
-  }
-  100% {
-    transform: translateY(0);
-    animation-timing-function: ease-in;
-  }
-}
+#saloon {
+  position: absolute;
+  width: 120vw;
+  left: -18vw;
+  top: 6em;
+  z-index: -1;
 
-@-moz-keyframes planet_floating {
-  0% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  33% {
-    transform: translateY(-2vh);
-    animation-timing-function: ease-in;
-  }
-  66% {
-    transform: translateY(2vh);
-    animation-timing-function: ease-out;
-  }
-  100% {
-    transform: translateY(0);
-    animation-timing-function: ease-in;
-  }
-}
-
-@keyframes planet_floating {
-  0% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  25% {
-    transform: translateY(-1vh);
-    animation-timing-function: ease-in;
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  75% {
-    transform: translateY(1vh);
-    animation-timing-function: ease-in;
+  @media screen and (max-width: $md-break) {
+    width: 200vw;
+    left: -63vw;
+    top: -0.5em;
+    position: relative;
   }
 }
 
@@ -497,8 +477,8 @@ body {
 
 #hacky {
   position: absolute;
-  top: -22%;
-  right: 33%;
+  top: -25vh;
+  right: 40%;
   width: 3vw;
 
   @media screen and (max-width: $md-break) {
@@ -506,70 +486,14 @@ body {
   }
 }
 
-#astronaut_laptop {
+#cactus {
   position: absolute;
-  top: -10%;
-  left: 40%;
-  width: 10vw;
-
-  @media screen and (max-width: $md-break) {
-    width: 20vw;
-    left: 20%;
-  }
-}
-
-#astronaut_swim {
-  position: absolute;
-  left: 3vw;
-  top: 30vh;
-  width: 12vw;
-
-  @media screen and (max-width: $md-break) {
-    display: none;
-  }
-}
-
-#astronaut_wave {
-  position: absolute;
-  right: 3vw;
-  top: 60vh;
-  width: 10vw;
-
-  @media screen and (max-width: $md-break) {
-    display: none;
-  }
-}
-
-#moon {
-  width: 65vw;
-
-  @media screen and (max-width: $md-break) {
-    width: 100%;
-  }
-}
-
-#rocket_flying {
-  position: absolute;
-  z-index: -1;
-  right: 26vw;
-  top: 12vh;
-  width: 6vw;
-
-  @media screen and (max-width: $md-break) {
-    display: none;
-  }
-}
-
-#rocket_docked {
-  position: absolute;
-  top: -30%;
-  right: 20%;
+  top: -25vh;
+  right: 5%;
   width: 30vw;
 
   @media screen and (max-width: $md-break) {
-    width: 50vw;
-    right: 5%;
-    top: -14vh;
+    display: none;
   }
 }
 
@@ -625,72 +549,6 @@ border and the section separator bar */
   position: relative;
 }
 
-#planet-1, #planet-2, #planet-3, #planet-4, #planet-5, #satellite {
-  position: absolute;
-  z-index: -1;
-  width: 10vw;
-
-  @media screen and (max-width: $md-break) {
-    width: 20vw;
-  }
-}
-
-#planet-1 {
-  top: 40em;
-  left: 10%;
-
-  @media screen and (max-width: $md-break) {
-    top: 25em;
-  }
-}
-
-#planet-2 {
-  top: 30em;
-  right: 20%;
-
-  @media screen and (max-width: $md-break) {
-    top: 20em;
-  }
-}
-
-#planet-3 {
-  top: 40em;
-  right: 10%;
-
-  @media screen and (max-width: $md-break) {
-    top: 40em;
-    left: 30%;
-  }
-}
-
-#planet-4 {
-  top: 60em;
-  right: 2%;
-
-  @media screen and (max-width: $md-break) {
-    top: 35em;
-  }
-}
-
-#planet-5 {
-  top: 50em;
-  left: 2%;
-
-  @media screen and (max-width: $md-break) {
-    top: 30em;
-  }
-}
-
-#satellite {
-  top: 75em;
-  left: 20%;
-
-  @media screen and (max-width: $md-break) {
-    top: 35em;
-    left: 30%;
-  }
-}
-
 
 
 /* ====================== TRACKS ==================== */
@@ -724,7 +582,7 @@ border and the section separator bar */
     @include transition(all, 0.4s);
     height: 10vh;
     background: transparent;
-    border: solid 8px rgba(170, 202, 204, 0.6);
+    border: 8px rgba(170, 202, 204, 0.6);
     border-radius: 50px;
     margin: 5vh 2vh;
     font-size: smaller;
@@ -760,9 +618,25 @@ border and the section separator bar */
   padding-top: 50px;
   padding-bottom: 50px;
 
+  background-image: url("/../assets/images/post.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 100% 100%;
+  padding-bottom: 20vh;
+
+
   .header-bar {
     background-color: $mountain-blue;
     margin-bottom: 20px;
+  }
+
+  .header-text {
+    font-family: $font-stack-tertiary;
+    text-align: center;
+
+    @media screen and (max-width: $md-break) {
+      font-size: 5vh;
+    }
   }
 
   #location {
@@ -789,6 +663,16 @@ border and the section separator bar */
     background-color: #B7C7CA;
     height: 2px;
     width: 100%;
+  }
+
+  .container-fluid {
+    background-image: url("/../assets/images/sign2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    width: 90vw;
+    padding-bottom: 10vh;
+    padding-top: 5vh;
   }
 
   .question-container {
@@ -824,14 +708,26 @@ border and the section separator bar */
   }
 
   .question {
-    background: $grayish-white-question;
-    border: solid 1px $mountain-blue;
-    border-radius: 7px 7px 7px 7px;
+    text-indent: 1vw;
     color: #004D6D;
     text-align: left;
     padding: 10px;
     cursor: hand;
     font-size: large;
+  }
+
+  .rightsign {
+    background-image: url("/../assets/images/rightsign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+  }
+
+  .leftsign {
+    background-image: url("/../assets/images/leftsign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
   }
 
   .faq-answer {
@@ -1008,12 +904,30 @@ border and the section separator bar */
   .microsoft{
     padding-top: 1%;
     @media screen and (max-width: $md-break) {
-      height: fit-content;
-      width: fit-content;
+      width: 50%;
+    }
+  }
+  .celonis{
+    padding-top: 0%;
+    @media screen and (max-width: $md-break) {
+      width: 50%;
+      padding-top: 40%;
     }
   }
   .nittany-ai{
     padding-top: 10%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+  .mt-tech{
+    padding-top: 20%;
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
+  .baker-hughes{
+    padding-top: 30%;
     @media screen and (max-width: $md-break) {
       width: 60%;
     }
@@ -1122,6 +1036,11 @@ border and the section separator bar */
     }
     padding-top: 10%;
   }
+  .pwc {
+    @media screen and (max-width: $md-break) {
+      width: 60%;
+    }
+  }
 }
 
 
@@ -1147,7 +1066,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: $dark-blue-primary;
+      background: #754c29;
     }
   }
 
@@ -1185,11 +1104,13 @@ border and the section separator bar */
 
 /* ====================== PARTICLES.JS ==================== */
 #particles-js{
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  position: fixed;
-  background-color: $dark-blue-primary;
-  background-size: cover;
-  background-position: 50% 50%;
+  overflow-y: scroll;
+  background-color: #754c29;
+  background-image: url("/../assets/images/background4.png");
   background-repeat: no-repeat;
+  background-position-y: 400px;
+  background-size: cover;
+  background-position: 55% 0%;
 }

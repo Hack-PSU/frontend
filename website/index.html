@@ -165,7 +165,7 @@
     <link rel="icon" href="assets/icons/favicon.ico" />
   </head>
 
-  <body>
+  <body id="particles-js">
     <!-- This div wraps all page content; necessary for particles js to work in background -->
     <div class="page-content">
       <header id="home" class="landing">
@@ -194,11 +194,15 @@
           <!-- HackPSU Page Logo -->
           <div class="row mb-md-0 mb-4">
             <div class="logo-holder">
-              <img id="hackpsu-logo" src="assets/images/logo-spring-2021.svg" />
+              <img id="hackpsu-logo" src="assets/images/spring2022logo.png" />
+            </div>
+            <!-- Saloon Graphic-->
+            <div class="saloon-holder">
+              <img src="assets/images/Saloon.png" alt="Saloon" id="saloon" />
             </div>
             <!-- Sun and Moon Graphic -->
-            <div class="celestial-body">
-              <img src="assets/images/moon.svg" />
+            <div class="cloud-1">
+              <img src="assets/images/cloud-1.svg" />
             </div>
           </div>
 
@@ -225,14 +229,12 @@
               </div>
 
               <div class="row cta">
-                <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn"
-                    onclick="location.href='https://app.hackpsu.org/login';">
-                  <div class="row">
-                    <a href="https://app.hackpsu.org/login">
-                      <img src="./assets/images/planet6small.svg" class="planet" />
-                    </a>
+                <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
+                  <div class="row justify-content-md-center">
+                    <!-- <a href="https://app.hackpsu.org/login"> -->
+                    <!-- </a> -->
                     <div class="header-text text-center">
-                      <p class="text-center">LOGIN</p>
+                      <p class="text-center register-btn-text">LOGIN</p>
                     </div>
                   </div>
                 </div>
@@ -240,14 +242,13 @@
                 <div
                   class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn"
                   style="left: 15vh; margin: 18px"
-                  onclick="location.href='https://app.hackpsu.org/login';"
+                  onclick="location.href='https://app.hackpsu.org/signup';"
                 >
-                  <div class="row">
-                    <a href="https://app.hackpsu.org/signup">
-                      <img src="./assets/images/planet7small.svg" class="planet" />
-                    </a>
+                  <div class="row justify-content-md-center">
+                    <!-- <a href="https://app.hackpsu.org/signup"> -->
+                    <!-- </a> -->
                     <div class="header-text text-center">
-                      <p class="text-center">SIGN UP</p>
+                      <p class="text-center register-btn-text">SIGN UP</p>
                     </div>
                   </div>
                 </div>
@@ -257,48 +258,14 @@
         </div>
       </header>
 
-      <!--Planet animation trigger-->
-      <script>
-        $('.planet').on(
-          'animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',
-          function () {
-            $(this).removeClass('animated');
-          }
-        );
-
-        $('.btn-with-planet').on('mouseenter', function (event) {
-          //get planet corresponding to button (child element)
-          var planet = this.querySelector('.planet');
-          planet.classList.add('animated');
-        });
-      </script>
+      <br>
 
       <section id="about">
         <!-- astronauts and rockets -->
-        <img src="assets/images/about/astronaut_laptop.svg" alt="Astronaut" id="astronaut_laptop" />
-        <img
-          src="assets/images/about/astronaut_waving.svg"
-          alt="Astronaut"
-          class="floating"
-          id="astronaut_wave"
-        />
-        <img
-          src="assets/images/about/astronaut_swimming.svg"
-          alt="Astronaut"
-          class="floating"
-          id="astronaut_swim"
-        />
-        <img src="assets/images/about/rocket_docked.svg" alt="Rocket" id="rocket_docked" />
-        <img
-          src="assets/images/about/rocket_flying.svg"
-          alt="Rocket"
-          class="flying"
-          id="rocket_flying"
-        />
+        <img src="assets/images/cactus-1.svg" alt="Cactus" id="cactus" />
         <img src="assets/images/about/hacky.svg" alt="Hacky" id="hacky" />
 
         <!-- moon and about section text -->
-        <img src="assets/images/about/moon_square.svg" alt="Moon" id="moon" />
         <div id="about_text_container">
           <div class="row">
             <div class="section-header col-12">
@@ -324,48 +291,6 @@
 
       <div id="planet-container">
         <!-- floating planets behind track, faq, and sponsors -->
-        <img
-          src="assets/images/planets/planet_1.svg"
-          alt="Planet"
-          id="planet-1"
-          class="rellax"
-          data-rellax-speed="4"
-        />
-        <img
-          src="assets/images/planets/planet_2.svg"
-          alt="Planet"
-          id="planet-2"
-          class="rellax"
-          data-rellax-speed="2"
-        />
-        <img
-          src="assets/images/planets/planet_3.svg"
-          alt="Planet"
-          id="planet-3"
-          class="rellax"
-          data-rellax-speed="6"
-        />
-        <img
-          src="assets/images/planets/planet_4.svg"
-          alt="Planet"
-          id="planet-4"
-          class="rellax"
-          data-rellax-speed="4"
-        />
-        <img
-          src="assets/images/planets/planet_5.svg"
-          alt="Planet"
-          id="planet-5"
-          class="rellax"
-          data-rellax-speed="2"
-        />
-        <img
-          src="assets/images/planets/satellite.svg"
-          alt="Satellite"
-          id="satellite"
-          class="rellax"
-          data-rellax-speed="2"
-        />
 
         <section id="tracks">
           <div class="container-fluid">
@@ -387,34 +312,34 @@
                   and development.
                 </p>
                 <!--<div class="register-btn">-->
-                <!--<a href="https://app.hackpsu.org">-->
-                <!--<div class="header-text text-center">-->
-                <!--<p class="text-center track-register">Tech Registration</p>-->
-                <!--</div>-->
-                <!--</a>-->
+                <!--  <a href="https://app.hackpsu.org">-->
+                <!--    <div class="header-text text-center">-->
+                <!--      <p class="text-center track-register">Tech Registration</p>-->
+                <!--    </div>-->
+                <!--  </a>-->
                 <!--</div>-->
               </div>
               <!-- <div class="col-md-4">
-        <p class="track-header">Business Track</p>
-        <img src="assets/images/business-graph-flat-icon-white.svg" class="track-img">
-        <p class="track-content">
-          HackPSU is partnering with EY and the Smeal College of Business to implement a business
-          case competition based around technology. Here, you will pitch an innovative solution
-          for a real-world tech problem facing today’s businesses. As a result, you have the
-          opportunity to learn about today’s emerging technologies and collaborate with team
-          members to present something awesome. You will have approximately 24 hours to prepare
-          a deck which will be presented to our panel of judges on Saturday night (November 2nd).
-          The prompt will be released November 1st at 5 PM ET.
-          Choose this track if you're passionate about business and consulting
-        </p>
-        <div class="register-btn">
-          <a href="./business.html">
-            <div class="header-text text-center">
-              <p class="text-center track-register">Business Registration</p>
-            </div>
-          </a>
-        </div>
-      </div> -->
+                    <p class="track-header">Business Track</p>
+                    <img src="assets/images/business-graph-flat-icon-white.svg" class="track-img">
+                    <p class="track-content">
+                      HackPSU is partnering with EY and the Smeal College of Business to implement a business
+                      case competition based around technology. Here, you will pitch an innovative solution
+                      for a real-world tech problem facing today’s businesses. As a result, you have the
+                      opportunity to learn about today’s emerging technologies and collaborate with team
+                      members to present something awesome. You will have approximately 24 hours to prepare
+                      a deck which will be presented to our panel of judges on Saturday night (November 2nd).
+                      The prompt will be released November 1st at 5 PM ET.
+                      Choose this track if you're passionate about business and consulting
+                    </p>
+                    <div class="register-btn">
+                      <a href="./business.html">
+                        <div class="header-text text-center">
+                          <p class="text-center track-register">Business Registration</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div> -->
               <div class="offset-md-2 col-md-4"></div>
               <div class="offset-md-1 col-md-10">
                 <p>
@@ -440,7 +365,7 @@
               <!-- Left column of questions -->
               <div class="col-xs-12 col-md-6">
                 <div>
-                  <p class="question">What is a hackathon?</p>
+                  <p class="question leftsign">What is a hackathon?</p>
                   <p class="faq-answer">
                     <a
                       href="https://medium.com/hackathons-anonymous/wtf-is-a-hackathon-92668579601#.41g3cpwky"
@@ -455,7 +380,7 @@
                 </div>
 
                 <div>
-                  <p class="question">Do I need a team?</p>
+                  <p class="question leftsign">Do I need a team?</p>
                   <p class="faq-answer">
                     Not at all! While some people may come with teams ready, many others will not
                     have created teams yet, or may only have partial teams. Before the event begins,
@@ -464,7 +389,7 @@
                 </div>
 
                 <div>
-                  <p class="question">Who can participate?</p>
+                  <p class="question leftsign">Who can participate?</p>
                   <p class="faq-answer">
                     MLH Hackathons are open to any student currently enrolled in full time or part
                     time higher education. <br /><br />
@@ -478,21 +403,21 @@
                 </div>
 
                 <div>
-                  <p class="question">What should I bring?</p>
+                  <p class="question leftsign">What should I bring?</p>
                   <p class="faq-answer">You might also want
                   to bring a toothbrush/toiletries. Make sure to have your student ID for
                   check-in!</p>
                 </div>
 
                 <div>
-                  <p class="question">How long is the hackathon?</p>
+                  <p class="question leftsign">How long is the hackathon?</p>
                   <p class="faq-answer">
-                    The hackathon runs from 4pm Saturday to 4pm Sunday for a total of 24 hours. Opening ceremony is at 2pm.
+                    The hackathon runs from 2pm Saturday to 2pm Sunday for a total of 24 hours. Opening ceremony is at 12pm.
                   </p>
                 </div>
 
                 <div>
-                  <p class="question">What about food?</p>
+                  <p class="question leftsign">What about food?</p>
                   <p class="faq-answer">
                     Food, drinks, and snacks will all be provided for free! Make sure to let us know of
                     any dietary restrictions when you register.
@@ -503,25 +428,25 @@
               <!-- Right column of questions -->
               <div class="col-xs-12 col-md-6">
                 <div>
-                  <p class="question">How many people can be on a team?</p>
+                  <p class="question rightsign">How many people can be on a team?</p>
                   <p class="faq-answer">
                     Teams are limited to a maximum of 5 people for the tech track.
                   </p>
                   <!-- <p class="faq-answer">
-              Teams are limited to a maximum of 4 people for the business track. Teams of 3-4 are recommended.
-            </p> -->
+                    Teams are limited to a maximum of 4 people for the business track. Teams of 3-4 are recommended.
+                  </p> -->
                 </div>
 
                 <!-- <div>
-            <p class="question">
-              When is the Case Competition?
-            </p>
-            <p class="faq-answer">
-              You will have approximately 24 hours to prepare a deck which will be presented to our panel of judges
-              on Saturday night (November 2nd). The prompt will be released November 1st at 5 PM ET.
-              You do not need to stay at the Business Building the entire time, only when you need to present!
-            </p>
-          </div> -->
+                  <p class="question">
+                    When is the Case Competition?
+                  </p>
+                  <p class="faq-answer">
+                    You will have approximately 24 hours to prepare a deck which will be presented to our panel of judges
+                    on Saturday night (November 2nd). The prompt will be released November 1st at 5 PM ET.
+                    You do not need to stay at the Business Building the entire time, only when you need to present!
+                  </p>
+                </div> -->
 
                 <!-- <div>
                   <p class="question">What in heaven's name is Discord?</p>
@@ -533,7 +458,7 @@
                 </div> -->
 
                 <div>
-                  <p class="question">What are the conduct guidelines?</p>
+                  <p class="question rightsign">What are the conduct guidelines?</p>
                   <p class="faq-answer">
                     Don't bring any firearms, knives, weapons, drugs, or alcohol. Don't use an old
                     project. Also, please read the
@@ -550,12 +475,38 @@
                 </div>
 
                 <div>
-                  <p class="question">How much does it cost?</p>
+                  <p class="question rightsign">How much does it cost?</p>
                   <p class="faq-answer">$0! The event is completely free to attend!</p>
                 </div>
 
-                <!-- <div>
-                  <p class="question">Is there travel reimbursement?</p>
+                <div>
+                  <p class="question rightsign">Who can register?</p>
+                  <p class="faq-answer">
+                    We welcome participants who are:<br /><br />
+                    18+ in age as of the hackathon date<br />
+                    Undergraduate or graduate students<br />
+                    From any university - not limited to Penn State students
+                    <br />
+                    Any skill level - beginner through advanced
+                  </p>
+                </div>
+
+                <div>
+                  <p class="question rightsign">I have a question, how do I get in touch?</p>
+                  <p class="faq-answer">
+                    General Questions:
+                    <a href="mailto:team@hackpsu.org">team@hackpsu.org</a>
+                    <br />
+                    Sponsorship Questions:
+                    <a href="mailto:sponsorship@hackpsu.org">sponsorship@hackpsu.org</a>
+                    <br />
+                    Technology Questions:
+                    <a href="mailto:technology@hackpsu.org">technology@hackpsu.org</a>
+                  </p>
+                </div>
+
+                <div>
+                  <p class="question rightsign">What if I need to travel?</p>
                   <p class="faq-answer">
                     Yes! We are offering single travelers up to $70 in reimbursements, 2+ hackers with up to $90,
                     and 4+ hackers up to $110.
@@ -573,33 +524,6 @@
                     Reimbursements may take up to 2 months. We do not reimburse travel from the State College area or
                     lodging/other accommodations.
                   </p>
-                  </p>
-                </div> -->
-
-                <div>
-                  <p class="question">Who can register?</p>
-                  <p class="faq-answer">
-                    We welcome participants who are:<br /><br />
-                    18+ in age as of the hackathon date<br />
-                    Undergraduate or graduate students<br />
-                    From any university - not limited to Penn State students
-                    <br />
-                    Any skill level - beginner through advanced
-                  </p>
-                </div>
-
-                <div>
-                  <p class="question">I have a question, how do I get in touch?</p>
-                  <p class="faq-answer">
-                    General Questions:
-                    <a href="mailto:team@hackpsu.org">team@hackpsu.org</a>
-                    <br />
-                    Sponsorship Questions:
-                    <a href="mailto:sponsorship@hackpsu.org">sponsorship@hackpsu.org</a>
-                    <br />
-                    Technology Questions:
-                    <a href="mailto:technology@hackpsu.org">technology@hackpsu.org</a>
-                  </p>
                 </div>
               </div>
             </div>
@@ -608,7 +532,7 @@
 
         <!--Schedule-->
 
-        <!-- <section id="schedule">
+        <section id="schedule">
           <div class="container-fluid">
             <div class="med-div"></div>
             <div class="container-fluid">
@@ -616,7 +540,6 @@
                 <div class="section-header col-xs-12">
                   <div class="header-text">SCHEDULE</div>
                   <div class="header-bar"></div>
-                  <p>All times listed are in EST!</p>
                 </div>
               </div>
             </div>
@@ -629,18 +552,6 @@
                 <li class="nav-item">
                   <a
                     class="nav-link active"
-                    id="friday-tab"
-                    data-toggle="tab"
-                    href="#friday"
-                    role="tab"
-                    aria-controls="friday"
-                    aria-selected="true"
-                    >Friday</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
                     id="saturday-tab"
                     data-toggle="tab"
                     href="#saturday"
@@ -666,44 +577,69 @@
               <div class="tab-content time-event-text" id="schedule-tab-view-content time">
                 <div
                   class="tab-pane fade show active container-fluid"
-                  id="friday"
-                  role="tabpanel"
-                  aria-labelledby="friday-tab"
-                >
-                  <div class="row">
-                    <div class="col-4 text-right">4:00 PM</div>
-                    <div class="col-8">Opening Ceremony</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-4 text-right">5:00 PM</div>
-                    <div class="col-8">Hacking Starts</div>
-                  </div>
-                </div>
-                <div
-                  class="tab-pane fade show container-fluid"
                   id="saturday"
                   role="tabpanel"
                   aria-labelledby="saturday-tab"
                 >
                   <div class="row">
+                    <div class="col-4 text-right">12:00 PM</div>
+                    <div class="col-8">Opening Ceremony</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">1:30 - 4:00 PM</div>
+                    <div class="col-8">Lunch</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">2:00 PM</div>
+                    <div class="col-8">Hacking Starts</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">2:00 - 7:00 PM</div>
+                    <div class="col-8">Workshops</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">5:00 - 6:00 PM</div>
+                    <div class="col-8">Internship Panel</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">7:00 - 9:00 PM</div>
+                    <div class="col-8">Dinner</div>
+                  </div>
+                  <div class="row">
                     <div class="col-4 text-right">All day</div>
-                    <div class="col-8">Workshops and Events</div>
+                    <div class="col-8">Entertainment events</div>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
                   <div class="row">
-                    <div class="col-4 text-right">5:00 PM</div>
+                    <div class="col-4 text-right">12:00 - 1:00 AM</div>
+                    <div class="col-8">Midnight Snack</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">6:00 - 2:00 PM</div>
+                    <div class="col-8">Entertainment events</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">9:00 - 2:00 PM</div>
+                    <div class="col-8">Workshops</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">10:00 - 12:00 PM</div>
+                    <div class="col-8">Brunch</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 text-right">2:00 PM</div>
                     <div class="col-8">Hacking Ends / Judging Expo</div>
                   </div>
                   <div class="row">
-                    <div class="col-4 text-right">8:00 PM</div>
+                    <div class="col-4 text-right">4:00 PM</div>
                     <div class="col-8">Closing Ceremony</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
 
         <!--End Schedule-->
 
@@ -730,10 +666,10 @@
         <!-- End of Workshops -->
 
         <!--
-  <div class="section-separator">
-    <img class="section-separator-background second-border">
-  </div>
-  -->
+        <div class="section-separator">
+          <img class="section-separator-background second-border">
+        </div>
+        -->
 
         <section id="sponsors">
           <div class="container-fluid">
@@ -743,20 +679,7 @@
                 <div class="header-bar"></div>
               </div>
             </div>
-            <!-- 2021 Sponsors-->
-            <div class="row d-flex justify-content-center" style="padding-top: 1%">
-              <div class="col-md-5">
-                <!--MICROSOFT-->
-                <a href="https://www.microsoft.com/en-us" target="_blank">
-                  <img
-                    src="assets/images/sponsors/Microsoft_blue.svg"
-                    class="img-fluid microsoft"
-                    alt="microsoft"
-                    style="height: 330px; width: 300px"
-                  />
-                </a>
-              </div>
-            </div>
+            <!-- 2022 Sponsors-->
             <div class="row d-flex justify-content-center" style="padding-top: 2%">
               <div class="col-md-2">
                 <!--NITTANY AI-->
@@ -768,33 +691,67 @@
                   />
                 </a>
               </div>
-            </div>
-            <div class="row d-flex justify-content-center" style="padding-top: 4%">
+              <div class="col-sm-2"></div>
               <div class="col-md-2">
-                <!--STARTUP WEEK-->
-                <a href="https://startupweek.psu.edu/" target="_blank">
+                <!--M&T Tech-->
+                <a href="https://www3.mtb.com/techhub/" target="_blank">
                   <img
-                    src="assets/images/sponsors/strtup.svg"
-                    class="img-fluid startup"
-                    alt="startup"
+                    src="assets/images/sponsors/MT_Tech.svg"
+                    class="img-fluid mt-tech"
+                    alt="M&T Tech"
                   />
                 </a>
               </div>
               <div class="col-sm-2"></div>
               <div class="col-md-2">
-                <!--PSU ICS-->
-                <a href="https://www.icds.psu.edu/" target="_blank">
+                <!--Baker Hughes-->
+                <a href="https://www.bakerhughes.com/" target="_blank">
                   <img
-                    src="assets/images/sponsors/ics2-cropped.svg"
-                    class="img-fluid ics"
-                    alt="PSU Institute for Computational and Data Sciences (ICS)"
-                    style="height: 150px; width: 300px; padding-bottom: 5%"
+                    src="assets/images/sponsors/Baker_Hughes.svg"
+                    class="img-fluid baker-hughes"
+                    alt="Baker Hughes"
                   />
                 </a>
               </div>
             </div>
-            <div class="row d-flex justify-content-center" style="padding-top: 6%">
-              <div class="col-md-2" style="padding-top: 1%">
+            <div class="row d-flex justify-content-center" style="padding-top: 1%">
+              <div class="col-md-2">
+                <!--MICROSOFT-->
+                <a href="https://www.microsoft.com/en-us" target="_blank">
+                  <img
+                    src="assets/images/sponsors/Microsoft_blue.svg"
+                    class="img-fluid microsoft"
+                    alt="microsoft"
+                  />
+                </a>
+              </div>
+              <div class="col-sm-2"></div>
+              <div class="col-md-2">
+                <!--Celonis-->
+                <a href="https://www.celonis.com/" target="_blank">
+                  <img
+                    src="assets/images/sponsors/Celonis.svg"
+                    class="img-fluid celonis"
+                    alt="celonis"
+                    style="padding-top: 40%"
+                  />
+                </a>
+              </div>
+              <div class="col-sm-2"></div>
+              <div class="col-md-2">
+                <!--PSU EC-->
+                <a href="https://oec.psu.edu/" target="_blank">
+                  <img
+                    src="assets/images/sponsors/PSU_EC.svg"
+                    class="img-fluid celonis"
+                    alt="PSU EC"
+                    style="padding-top: 35%"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="padding-top: 4%">
+              <div class="col-md-2" style="padding-top: 4%">
                 <!--EECS-->
                 <a href="https://www.eecs.psu.edu/" target="_blank">
                   <img
@@ -805,47 +762,48 @@
                 </a>
               </div>
               <div class="col-sm-2"></div>
-              <div class="col-md-2 justify-content-center">
-                <!--LLP-->
-                <a href="https://lionlaunchpad.psu.edu/" target="_blank">
+              <div class="col-md-2" style="padding-top: 5%">
+                <!--PSU ICS-->
+                <a href="https://www.icds.psu.edu/" target="_blank">
                   <img
-                    src="assets/images/sponsors/LionLaunchpad-night.svg"
-                    alt="LLP"
-                    class=""
-                    lass="img-fluid lion-launchpad"
-                    style="padding-top: 15%"
+                    src="assets/images/sponsors/ics2-cropped.svg"
+                    class="img-fluid ics"
+                    alt="PSU Institute for Computational and Data Sciences (ICS)"
                   />
                 </a>
-                <!--HVC-->
-                <a
-                  href="https://www.linkedin.com/company/happy-valley-communications/"
-                  target="_blank"
-                >
+              </div>
+              <div class="col-sm-2"></div>
+              <div class="col-md-2">
+                <!--PwC-->
+                <a href="https://www.pwc.com/" target="_blank">
                   <img
-                    src="assets/images/sponsors/HVC-LOGO.svg"
-                    class="img-fluid hvc"
-                    alt="Happy Valley Communications"
-                    style="padding-top: 70%"
+                    src="assets/images/sponsors/PWC_night.svg"
+                    alt="PwC"
+                    class="img-fluid pwc"
                   />
                 </a>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="padding-top: 6%; padding-bottom: 10%;">
+              <div class="col-sm-2">
                 <!--ECHOAR-->
                 <a href="https://www.echoar.xyz/" target="_blank">
                   <img
                     src="assets/images/sponsors/echoAR.svg"
                     class="img-fluid echoAR"
                     alt="echoAR"
-                    style="padding-top: 70%"
+                    style="padding-top: 10%;"
                   />
                 </a>
               </div>
-              <div class="col-sm-1"></div>
-              <div class="col-md-3">
-                <!--Smeal-->
-                <a href="https://www.smeal.psu.edu/fcfe/" target="_blank">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-2">
+                <!--Penn State Go-->
+                <a href="https://mobile.psu.edu/" target="_blank">
                   <img
-                    src="assets/images/sponsors/smeal3.svg"
-                    class="img-fluid smeal"
-                    alt="smeal"
+                    src="assets/images/sponsors/Penn_State_Go.png"
+                    class="img-fluid echoAR"
+                    alt="Penn State Go"
                   />
                 </a>
               </div>
@@ -862,114 +820,114 @@
 
             <!--Platinum Sponsors-->
             <!-- <div class="row platinum" style="padding-top: 2%">
-          <div class="offset-sm-2 col-sm-8"> -->
-            <!-- PSU IT -->
-            <!-- <a href="https://it.psu.edu/" target="_blank">
-              <img src="assets/images/sponsors/psuIT-day.svg" alt="PSU IT"
-                   class="img-fluid psuit">
-            </a>
-          </div>
-        </div> -->
+            <div class="offset-sm-2 col-sm-8"> -->
+              <!-- PSU IT -->
+              <!-- <a href="https://it.psu.edu/" target="_blank">
+                <img src="assets/images/sponsors/psuIT-day.svg" alt="PSU IT"
+                    class="img-fluid psuit">
+              </a>
+            </div>
+            </div> -->
+
             <!-- Gold Sponsors -->
             <!-- <div class="row gold d-flex justify-content-center" style="padding-top: 2%">
-          <div class="col-sm-6"> -->
-            <!-- Geico -->
-            <!-- <a href="https://www.geico.com/" target="_blank">
-              <img src="assets/images/sponsors/Geico-day.svg" alt="Geico" class="img-fluid geico" >
-            </a>
-          </div> -->
-            <!-- <div class="col-sm-6"> -->
-            <!-- Textron -->
-            <!-- <a href="https://www.textron.com/" target="_blank">
-              <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron" style="padding-top: 5%;max-width: 60%;">
-            </a>
-          </div>
-        </div> -->
+              <div class="col-sm-6"> -->
+                <!-- Geico -->
+                <!-- <a href="https://www.geico.com/" target="_blank">
+                  <img src="assets/images/sponsors/Geico-day.svg" alt="Geico" class="img-fluid geico" >
+                </a>
+              </div> -->
+                <!-- <div class="col-sm-6"> -->
+                <!-- Textron -->
+                <!-- <a href="https://www.textron.com/" target="_blank">
+                  <img src="assets/images/sponsors/textron_day.svg" alt="textron" class="img-fluid textron" style="padding-top: 5%;max-width: 60%;">
+                </a>
+              </div>
+            </div> -->
 
             <!-- Silver Sponsors -->
             <!-- <div class="row d-flex justify-content-center" style="padding-top: 2%"> -->
             <!-- DSG -->
-            <!-- <div class="col-sm-3">
-              <a href="https://www.dickssportinggoods.com/" target="_blank">
-              <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG">
-            </a>
-          </div> -->
+              <!-- <div class="col-sm-3">
+                <a href="https://www.dickssportinggoods.com/" target="_blank">
+                  <img src="assets/images/sponsors/Dicks-day.svg" alt="DSG">
+                </a>
+              </div> -->
             <!--</div>-->
+
             <!-- Bronze Sponsors -->
             <!-- <div class="row bronze d-flex justify-content-center"> -->
-            <!-- Capital One -->
-            <!-- <div class="col-sm-3">
-            <a href="https://campus.capitalone.com/" target="_blank">
-              <img src="assets/images/sponsors/Capital_One-day.svg" alt="CapOne" class="img-fluid capone" style="padding-top: 5%">
-            </a>
-          </div> -->
-            <!-- PwC -->
-            <!-- <div class="col-sm-3">
-            <a href="https://www.pwc.com/" target="_blank">
-              <img src="assets/images/sponsors/PWC_original.svg" alt="pwc" class="img-fluid pwc">
-            </a>
-          </div> -->
-            <!-- EECS -->
-            <!-- <div class="col-sm-3">
-            <a href="https://www.eecs.psu.edu/" target="_blank">
-              <img src="assets/images/sponsors/EECS-day.svg" alt="EECS" class="img-fluid eecs" style="max-width: 50%; padding-top: 12%" >
-            </a>
-          </div>
-        </div> -->
+              <!-- Capital One -->
+              <!-- <div class="col-sm-3">
+                <a href="https://campus.capitalone.com/" target="_blank">
+                  <img src="assets/images/sponsors/Capital_One-day.svg" alt="CapOne" class="img-fluid capone" style="padding-top: 5%">
+                </a>
+              </div> -->
+              <!-- PwC -->
+              <!-- <div class="col-sm-3">
+                <a href="https://www.pwc.com/" target="_blank">
+                  <img src="assets/images/sponsors/PWC_original.svg" alt="pwc" class="img-fluid pwc">
+                </a>
+              </div> -->
+              <!-- EECS -->
+              <!-- <div class="col-sm-3">
+                <a href="https://www.eecs.psu.edu/" target="_blank">
+                  <img src="assets/images/sponsors/EECS-day.svg" alt="EECS" class="img-fluid eecs" style="max-width: 50%; padding-top: 12%" >
+                </a>
+              </div>
+            </div> -->
+
             <!-- Custom $500 -->
             <!-- <div class="row basic d-flex justify-content-center">
-        <div class="col-sm-2"> -->
-            <!-- Loop -->
-            <!-- <a href="https://loopstore.com/" target=_blank>
-            <img src="assets/images/sponsors/loop-day.svg" alt="Loop"
-                 class="img-fluid loop" style="padding-bottom: 12%">
-          </a>
-        </div>
-        <div class="col-sm-2"> -->
-            <!-- Linode -->
-            <!-- <a href="https://www.linode.com/" target=_blank>
-            <img src="assets/images/sponsors/linode-day.svg" alt="Linode"
-                 class="img-fluid linode">
-          </a>
-        </div>
-        <div class="col-sm-2"> -->
-            <!-- LLP -->
-            <!-- <a href="https://lionlaunchpad.psu.edu/" target=_blank>
-            <img src="assets/images/sponsors/LionLaunchpad.svg" alt="LLP"
-                 class="img-fluid lion-launchpad" style="padding-top: 7%">
-          </a>
-        </div>
-        <div class="col-sm-2"> -->
-            <!-- Plantvillage -->
-            <!-- <a href="plantvillage.psu.edu" target=_blank>
-            <img src="assets/images/sponsors/plan_t_logo_day.svg" alt="plant-village"
-                 class="img-fluid plantvillage">
+              <div class="col-sm-2"> -->
+              <!-- Loop -->
+                <!-- <a href="https://loopstore.com/" target=_blank>
+                  <img src="assets/images/sponsors/loop-day.svg" alt="Loop"
+                  class="img-fluid loop" style="padding-bottom: 12%">
+                </a>
+              </div>
+              <div class="col-sm-2"> -->
+              <!-- Linode -->
+                <!-- <a href="https://www.linode.com/" target=_blank>
+                  <img src="assets/images/sponsors/linode-day.svg" alt="Linode"
+                  class="img-fluid linode">
+                </a>
+              </div>
+              <div class="col-sm-2"> -->
+              <!-- LLP -->
+                <!-- <a href="https://lionlaunchpad.psu.edu/" target=_blank>
+                  <img src="assets/images/sponsors/LionLaunchpad.svg" alt="LLP"
+                  class="img-fluid lion-launchpad" style="padding-top: 7%">
+                </a>
+              </div>
+              <div class="col-sm-2"> -->
+              <!-- Plantvillage -->
+                <!-- <a href="plantvillage.psu.edu" target=_blank>
+                  <img src="assets/images/sponsors/plan_t_logo_day.svg" alt="plant-village"
+                  class="img-fluid plantvillage">
+                </a>
+              </div>
+            </div> -->
 
-          </a>
-        </div>
-      </div> -->
             <!-- In kind sponsors -->
             <!--<div class="row in-kind d-flex justify-content-center">-->
-            <!-- <div class="col-sm-1"> -->
-            <!-- Jetbrains -->
-            <!-- <a href="https://www.jetbrains.com/" target=_blank>
-                <img src="assets/images/sponsors/jetbrains.svg" alt="jetbrains" class="img-fluid jetbrains">
-              </a> -->
-            <!-- </div> -->
+              <!-- <div class="col-sm-1"> -->
+              <!-- Jetbrains -->
+                <!-- <a href="https://www.jetbrains.com/" target=_blank>
+                  <img src="assets/images/sponsors/jetbrains.svg" alt="jetbrains" class="img-fluid jetbrains">
+                </a> -->
+              <!-- </div> -->
             <!--</div>-->
           </div>
         </section>
 
         <!--
-  <div class="section-separator">
-    <img class="section-separator-background third-border">
-  </div>
-  -->
-        <div style="margin-bottom: 90px">
-          <img src="assets/images/about/oldmainstarsv2transparent.svg" alt="OldMain" />
+        <div class="section-separator">
+          <img class="section-separator-background third-border">
         </div>
+        -->
 
-        <section id="footer">
+        <section id="footer" style="padding-top: 100px;">
           <div id="footer-link-container">
             <div class="row">
               <div id="social-media" class="col-12">
@@ -1017,6 +975,6 @@
       </div>
     </div>
 
-    <div id="particles-js"></div>
+    
   </body>
 </html>
