@@ -36,6 +36,11 @@ $break-large: 1200px;
   src: url('../assets/fonts/Cornerstone.ttf');
 }
 
+@font-face {
+  font-family: 'Carnevalee';
+  src: url('../assets/fonts/Carnevalee\ Freakshow.ttf');
+}
+
 
 
 /* ====================== MIXINS ==================== */
@@ -345,6 +350,8 @@ body {
 
       .register-btn-text {
         color: black;
+        font-family: 'Carnevalee';
+        letter-spacing: .1em;
       }
 
       .header-content {
