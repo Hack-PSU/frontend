@@ -473,6 +473,52 @@ td {
   vertical-align: middle;
   color: #ffffff;
 }
+
+/* sponsor styling */
+
+#sponsors {
+  text-align: center;
+}
+
+.mt-tech{
+  padding-top: 20%;
+}
+@media screen and (max-width: 768px) {
+  .mt-tech {
+    width: 60%;
+  }
+}
+
+.baker-hughes{
+  padding-top: 30%;
+}
+@media screen and (max-width: 768px) {
+  .baker-hughes{
+    width: 60%;
+  }
+}
+
+.microsoft{
+  padding-top: 1%;
+}
+.celonis{
+  padding-top: 0%;
+}
+@media screen and (max-width: 768px) {
+  .celonis{
+    width: 40%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .pwc{
+    width: 60%;
+  }
+}
+
+
+
 /* End workshop stuff */
 
 footer {
