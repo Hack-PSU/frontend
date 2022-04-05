@@ -481,43 +481,44 @@ td {
 }
 
 .mt-tech{
-  padding-top: 20%;
+  padding-top: 7%;
 }
 @media screen and (max-width: 768px) {
-  .mt-tech {
+  #sponsors .mt-tech {
     width: 60%;
   }
 }
 
 .baker-hughes{
-  padding-top: 30%;
+  padding-top: 19%;
 }
 @media screen and (max-width: 768px) {
-  .baker-hughes{
+  #sponsors .baker-hughes{
     width: 60%;
   }
 }
 
 .microsoft{
-  padding-top: 1%;
+  padding-top: 3%;
 }
 .celonis{
   padding-top: 0%;
 }
 @media screen and (max-width: 768px) {
-  .celonis{
+  #sponsors .celonis{
     width: 40%;
   }
 }
 
-
 @media screen and (max-width: 768px) {
-  .pwc{
+  #sponsors .pwc{
     width: 60%;
   }
 }
 
-
+.eecs {
+  padding-top: 6%;
+}
 
 /* End workshop stuff */
 
