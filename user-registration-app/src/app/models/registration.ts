@@ -10,7 +10,7 @@ export class Registration {
   public dietaryRestriction: string;
   public allergies: string;
   public travelReimbursement: boolean;
-  public driving: boolean | null;
+  public driving: boolean;
   public firstHackathon: boolean;
   public university: string;
   public phone: string;
@@ -134,7 +134,7 @@ export interface IRegistrationDb {
   dietary_restriction: string | null;
   allergies: string | null;
   travel_reimbursement: boolean;
-  driving: boolean | null;
+  driving: boolean;
   first_hackathon: boolean;
   university: string;
   email: string;
@@ -192,7 +192,7 @@ export class RegistrationApiResponse {
   submitted: boolean;
   time: number;
   travel_reimbursement: boolean;
-  driving: boolean | null;
+  driving: boolean;
   uid: string;
   university: string;
   veteran: string;
