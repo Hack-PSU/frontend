@@ -70,6 +70,9 @@
       "type": ["string", "null"],
       "enum": ["true", "false", "no-disclose"]
     },
+    "driving": {
+      "type": ["boolean", "null"]
+    },
     "eighteenBeforeEvent": {
       "type": "boolean"
     },
