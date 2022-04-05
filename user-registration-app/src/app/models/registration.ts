@@ -46,7 +46,7 @@ export class Registration {
     this.dietaryRestriction = null;
     this.allergies = null;
     this.travelReimbursement = false;
-    this.driving = null;
+    this.driving = false;
     this.firstHackathon = false;
     this.university = null;
     this.phone = null;
