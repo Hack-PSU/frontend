@@ -71,7 +71,7 @@
       "enum": ["true", "false", "no-disclose"]
     },
     "driving": {
-      "type": ["boolean", "null"]
+      "type": "boolean"
     },
     "eighteenBeforeEvent": {
       "type": "boolean"
