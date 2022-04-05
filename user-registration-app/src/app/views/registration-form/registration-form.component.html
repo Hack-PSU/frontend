@@ -491,6 +491,27 @@
     </div>
   </div> -->
 
+  <!-- Driving to Event -->
+  <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
+    <div class="card medium darken-1">
+      <div class="card-content">
+        <h5 class="driving">Will you be driving to the event?</h5>
+        <div class="switch">
+          <label>
+            No
+            <input
+              type="checkbox"
+              name="driving"
+              [(ngModel)]="registrationForm.driving"
+            />
+            <span class="lever"></span>
+            Yes
+          </label>
+        </div>
+      </div>
+    </div>
+  </div> 
+
   <!-- First Hackathon -->
   <div *ngIf="registrationForm.eighteenBeforeEvent" class="row">
     <div class="card medium darken-1">

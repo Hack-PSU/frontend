@@ -72,6 +72,8 @@ export class RegistrationFormComponent implements OnInit {
         return 'Please provide a country (required by MLH)';
       case '.travelReimbursement':
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
+      case '.driving':
+        return 'This is important for estimating parking capacity on the day of the event.';
       case '.firstHackathon':
         return 'Is this your first hackathon? Do let us know!';
       case '.academicYear':
