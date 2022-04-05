@@ -10,6 +10,7 @@ export class Registration {
   public dietaryRestriction: string;
   public allergies: string;
   public travelReimbursement: boolean;
+  public driving: boolean | null;
   public firstHackathon: boolean;
   public university: string;
   public phone: string;
@@ -45,6 +46,7 @@ export class Registration {
     this.dietaryRestriction = null;
     this.allergies = null;
     this.travelReimbursement = false;
+    this.driving = null;
     this.firstHackathon = false;
     this.university = null;
     this.phone = null;
@@ -99,6 +101,7 @@ export class Registration {
     registration.dietaryRestriction = value.dietary_restriction;
     registration.allergies = value.allergies;
     registration.travelReimbursement = value.travel_reimbursement;
+    registration.driving = value.driving;
     registration.firstHackathon = value.first_hackathon;
     registration.university = value.university;
     registration.phone = value.phone;
@@ -131,6 +134,7 @@ export interface IRegistrationDb {
   dietary_restriction: string | null;
   allergies: string | null;
   travel_reimbursement: boolean;
+  driving: boolean | null;
   first_hackathon: boolean;
   university: string;
   email: string;
@@ -188,6 +192,7 @@ export class RegistrationApiResponse {
   submitted: boolean;
   time: number;
   travel_reimbursement: boolean;
+  driving: boolean | null;
   uid: string;
   university: string;
   veteran: string;
@@ -213,6 +218,7 @@ export class RegistrationApiResponse {
     registration.dietary_restriction = value.dietary_restriction;
     registration.allergies = value.allergies;
     registration.travel_reimbursement = !!value.travel_reimbursement;
+    registration.driving = value.driving;
     registration.first_hackathon = !!value.first_hackathon;
     registration.university = value.university;
     registration.phone = value.phone;
