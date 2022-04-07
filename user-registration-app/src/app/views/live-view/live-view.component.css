@@ -327,10 +327,10 @@ td {
 }
 
 .question {
-  background: #e1e9ea;
-  border: solid 1px #297284;
+  background: #f3e3c2;
+  border: solid 1px black;
   border-radius: 7px 7px 7px 7px;
-  color: #004d6d;
+  color: #442a00;
   text-align: left;
   padding: 10px;
   cursor: hand;

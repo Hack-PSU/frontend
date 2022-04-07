@@ -52,15 +52,15 @@
     color: rgba(255, 255, 255, 0.5);
   }
     .mat-expansion-panel {
-        background: #e1e9ea;
+        background: #f3e3c2;
+        border: solid 1px black;
         text-align: left;
         color: #c94331;
-        border: solid 1px #297284
 
 
     }
     .mat-expansion-panel-header-title{
-        color: #004d6d;
+        color: #442a00;
         text-align: left;
         font-size: large;
     }
