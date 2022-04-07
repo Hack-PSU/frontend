@@ -38,6 +38,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
 import { NewlivefaqComponent } from './views/newlivefaq/newlivefaq.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     MatExpansionModule,
     MatIconModule,
+    QRCodeModule,
   ],
   providers: [
     HttpClient,
