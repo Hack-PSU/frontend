@@ -360,6 +360,19 @@ td {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.mat-expansion-panel {
+  background: #f3e3c2;
+  /* border: solid 1px black; */
+  text-align: left;
+  color: black;
+}
+
+.mat-expansion-panel-header-title {
+  color: #442a00;
+  text-align: left;
+  font-size: large;
+}
+
 .mobile-app-text {
   align-self: center;
   font-size: 1.15em;

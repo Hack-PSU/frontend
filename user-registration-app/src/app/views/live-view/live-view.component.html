@@ -249,25 +249,21 @@
             premises.</p>
           -->
               </div>
-              <div>
-                <p class="question">
-                  <i class="fas fa-plus icon-rotate"></i>How do I submit a project?
-                </p>
-                <p class="FAQanswer">
-                  All projects will be submitted through the HackPSU Devpost. Do NOT submit your
-                  project via email, Discord, slide into a DM, messenger pigeon, drone, overnight
-                  express mail, etc. Both hardware and software projects are allowed. Only one
-                  Devpost submission per team is needed. Participants/teams will be asked to upload
-                  a 2 minute video showcasing their project as well as questions to answers about
-                  the logistics and specifications of your build. View more requirements when
-                  submitting a project in the Devpost Rules. Link:
-                  <a href="http://devpost.hackpsu.org/"
-                    >http://devpost.hackpsu.org/</a
-                  >
-                </p>
-              </div>
-              <app-newlivefaq [question]="'questiON??'" [answer]="'answer'">
-              </app-newlivefaq>
+              <mat-expansion-panel hideToggle class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    How do I submit a Project?
+                  </mat-panel-title>
+                  <mat-icon>add</mat-icon>
+                </mat-expansion-panel-header>
+                <p>All projects will be submitted through the HackPSU Devpost by Sunday 12:00pm, then you'll be able to edit your devpost submission until 1:45pm. We will then have a judging expo in the building main area.
+                  Do NOT submit your project via email, Discord, slide into a DM, messenger pigeon, drone, overnight express mail,
+                  etc.
+                  Both hardware and software projects are allowed. Only one Devpost submission per team is needed. View more requirements when submitting a project in
+                  the Devpost Rules.
+                  Link: <a href="http://devpost.hackpsu.org/">http://devpost.hackpsu.org/</a>
+                <p>
+              </mat-expansion-panel>
 
               <!--
         <div>

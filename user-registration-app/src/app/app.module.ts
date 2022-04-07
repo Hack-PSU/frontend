@@ -35,7 +35,6 @@ import {
 import { AuthService, CustomErrorHandlerService, HttpService } from './services/services';
 import { AuthGuard, DateGuard, LiveWebsiteDateGuard } from './services/route-guards/guards';
 import { TruncatePipe } from './services/pipes/truncate.pipe';
-import { NewlivefaqComponent } from './views/newlivefaq/newlivefaq.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -55,7 +54,6 @@ import { QRCodeModule } from 'angularx-qrcode';
     ScheduleViewComponent,
     UserProfileViewComponent,
     UserRegistrationViewComponent,
-    NewlivefaqComponent,
   ],
   imports: [
     BrowserModule,
