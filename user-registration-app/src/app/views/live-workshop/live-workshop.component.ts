@@ -13,7 +13,7 @@ export class LiveWorkshopComponent implements OnInit {
 
   @Input() title: string;
   @Input() description: string;
-  @Input() link: string;
+  @Input() location: string;
   @Input() skills: string;
   @Input() downloads: string[];
   @Input() presenters: string[];

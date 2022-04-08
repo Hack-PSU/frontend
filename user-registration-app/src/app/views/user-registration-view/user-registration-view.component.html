@@ -6,28 +6,49 @@
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
-      Check back soon for Extra Credit!
-      <!-- <form class="extra-credit-form" (submit)="submitClasses()">
-        <ng-container *ngFor="let c of classes">
-          <p *ngIf="showClassName(c.class_name)">
-            <input
-              type="checkbox"
-              name="{{ c.class_name }}"
-              id="{{ c.class_name }}-checkbox"
-              [(ngModel)]="submittedClasses[c.uid]"
-            />
-            <label for="{{ c.class_name }}-checkbox">
-              <span>{{ c.class_name }}</span>
-            </label>
-          </p>
-        </ng-container>
-        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">
-          Submit
-          <i class="material-icons right">send</i>
-        </button>
-      </form> -->
+      <!-- Check back soon for Extra Credit! -->
+      <div *ngIf="this.activeRegistration; else elseEC">
+        <form class="extra-credit-form" (submit)="submitClasses()">
+          <ng-container *ngFor="let c of classes">
+            <p *ngIf="showClassName(c.class_name)">
+              <input type="checkbox" name="{{ c.class_name }}" id="{{ c.class_name }}-checkbox"
+                [(ngModel)]="submittedClasses[c.uid]" />
+              <label for="{{ c.class_name }}-checkbox">
+                <span>{{ c.class_name }}</span>
+              </label>
+            </p>
+          </ng-container>
+          <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+      <ng-template #elseEC>Be sure to <a href="/register">register</a> to sign up for extra credit classes!</ng-template>
     </div>
   </li>
+  <div *ngIf="this.activeRegistration; else elseQR" class="mt-5">
+    <p class="center">Here's your unique QR code! We may ask to scan it during the hackathon. You can also find it in
+      our app!</p>
+    <qrcode class="center" [qrdata]="'HACKPSU_'+ activeRegistration.pin" [width]="300" [errorCorrectionLevel]="'Q'"
+      [margin]="'3'">
+    </qrcode>
+  </div>
+  <ng-template #elseQR>Be sure to <a href="/register">register</a> to see your QR code!</ng-template>
+
+  <div class="row center">
+    <div class="col-md-6">
+      <a href="https://apps.apple.com/app/hackpsu-mobile/id1615222779"
+        style="display: inline-block; overflow: hidden"><img
+          src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1604620800&h=413f442f188f45f269ac02e9fafd7e0f"
+          alt="Download on the App Store" width="180" /></a>
+    </div>
+    <div class="col-md-6">
+      <a href="https://play.google.com/store/apps/details?id=org.hackpsu.prod"><img width="200"
+          alt="Get it on Google Play"
+          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" /></a>
+    </div>
+  </div>
   <!-- <li>
     <div class="collapsible-header">
       <i class="material-icons">rate_review</i>
