@@ -462,36 +462,12 @@
 
     <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
+        <div class="col-xl-1"></div>
         <!-- BEGINNER -->
-        <div class="col-md-6 col-lg-4 nopadding">
+        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">Beginner</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
-              <style>
-                #module {
-                  line-height: 1.5;
-                }
-
-                #module #collapseExample.collapse:not(.show) {
-                  display: block;
-                  height: 4.6rem;
-                  overflow: hidden;
-                }
-
-                #module #collapseExample.collapsing {
-                  height: 4.6rem;
-                }
-
-                #module a.collapsed::after {
-                  content: '+ Show More +';
-                  color: black;
-                }
-
-                #module a:not(.collapsed)::after {
-                  content: '- Show Less -';
-                  color: black;
-                }
-              </style>
               <div *ngFor="let workshop of workshops">
                 <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
                   <app-live-workshop
@@ -499,7 +475,7 @@
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
-                    [link]="workshop.location_name"
+                    [location]="workshop.location_name"
                     [skills]="
                       workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
                     "
@@ -517,7 +493,7 @@
           </div>
         </div>
         <!-- INTERMEDIATE -->
-        <div class="col-md-6 col-lg-4 nopadding">
+        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">INTERMEDIATE</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
@@ -528,7 +504,7 @@
                     [description]="workshop.event_description"
                     [date]="workshop.event_start_time"
                     [endTime]="workshop.event_end_time"
-                    [link]="workshop.location_name"
+                    [location]="workshop.location_name"
                     [skills]="
                       workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
                     "
@@ -545,8 +521,9 @@
             </div>
           </div>
         </div>
+        <div class="col-xl-1"></div>
         <!-- ADVANCED -->
-        <div class="col-md-6 col-lg-4 nopadding">
+        <!-- <div class="col-md-6 col-lg-4 nopadding">
           <span class="workshop-track">ADVANCED</span>
           <div class="row">
             <div class="container-fluid py-4">
@@ -558,7 +535,7 @@
                       [description]="workshop.event_description"
                       [date]="workshop.event_start_time"
                       [endTime]="workshop.event_end_time"
-                      [link]="workshop.location_name"
+                      [location]="workshop.location_name"
                       [skills]="
                         workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
                       "
@@ -575,7 +552,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
