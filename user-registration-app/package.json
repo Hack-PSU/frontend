@@ -27,6 +27,7 @@
     "@angular/router": "^11.0.2",
     "ajv": "^6.12.6",
     "angular2-materialize": "15.1.10",
+    "angularx-qrcode": "^11.0.0",
     "colors": "^1.1.2",
     "core-js": "^3.7.0",
     "dotenv": "^5.0.0",

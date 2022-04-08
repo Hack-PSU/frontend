@@ -280,6 +280,8 @@ i {
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .large-screen-hide {

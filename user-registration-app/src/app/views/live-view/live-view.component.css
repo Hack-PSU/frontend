@@ -1,5 +1,10 @@
 /* Materialize CSS sets content: "";, this breaks
 many of the utlities in Bootstrap, so undoing it here.*/
+@font-face {
+  font-family: "Carnevalee";
+  src: url("assets/fonts/Carnevalee Freakshow.ttf");
+}
+
 .row::after {
   content: none;
 }
@@ -16,11 +21,11 @@ many of the utlities in Bootstrap, so undoing it here.*/
   background-repeat: no-repeat;
 }
 .font {
-  font-family: 'Cornerstone', sans-serif;
+  font-family: 'Carnevalee';
 }
 #hackpsu-logo {
-  margin-top: 30px;
-  max-width: 70%;
+  margin-top: 10px;
+  max-width: 100%;
   margin-bottom: 10px;
 }
 
@@ -43,7 +48,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 #countdown-text {
-  font-family: 'Raleway', 'Lato', sans-serif;
+  font-family: 'Cornerstone', 'Lato', sans-serif;
   font-size: 2em;
   width: 100%;
 }
@@ -165,8 +170,8 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .submit-btn {
   height: auto;
   width: 500px;
-  background: black;
-  border: solid 8px rgba(170, 202, 204, 0.6);
+  background: #BC6A45;
+  border: solid 8px #8A4D2F;
   border-radius: 50px;
   margin-bottom: 2vh;
   line-height: 9vh;
@@ -175,6 +180,9 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .submit-btn-text {
   white-space: pre-line;
   width: 100%;
+  color: black;
+  letter-spacing: .1em;
+  font-family: 'Carnevalee';
 }
 
 /* responsive text for submit project button */
@@ -187,7 +195,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 
 .submit-btn:hover {
   background-color: rgba(255, 255, 255, 1);
-  color: #333333;
+  background: #b97555;
 }
 
 th {
@@ -291,65 +299,17 @@ td {
 }
 
 /* FAQ */
-.question-container {
-  margin-top: 10px;
-  padding: 0 10%;
-}
-
-@media screen and (max-width: 768px) {
-  .question-container {
-    padding: 0px;
-  }
-}
-
-.question i {
-  padding-right: 5px;
-  color: #c94331;
-}
-
-.icon-rotate {
-  transition: all 0.3s;
-}
-.icon-rotate.right-rotate {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.question {
-  background: #e1e9ea;
-  border: solid 1px #297284;
-  border-radius: 7px 7px 7px 7px;
-  color: #004d6d;
+.mat-expansion-panel {
+  background: #f3e3c2;
   text-align: left;
-  padding: 10px;
-  cursor: hand;
+  color: #b93e2d;
+  margin-top: 15px;
+}
+
+.mat-expansion-panel-header-title {
+  color: #442a00;
+  text-align: left;
   font-size: large;
-}
-
-.faq-answer {
-  color: white;
-  display: none;
-  font-weight: lighter;
-  font-size: medium;
-  margin: 0 4%;
-  text-align: left;
-  padding-bottom: 4%;
-}
-
-.faq-answer a {
-  color: #99c4cc;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.faq-answer a:hover {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .mobile-app-text {
@@ -391,7 +351,7 @@ td {
   margin-top: 10px;
   padding: 10px 0;
   line-height: 35px;
-  background-color: #78909c;
+  background-color: #c0823b;
   color: white;
   border-radius: 2px;
   box-shadow: none;
@@ -787,56 +747,69 @@ and make images go away. */
   z-index: -10;
   top: 0;
   left: 0;
-  background: linear-gradient(0deg, #133753 50%, #000000 100%);
+  background: linear-gradient(90deg, rgba(139,89,5,1) 0%, rgba(117,76,41,1) 50%, rgba(149,95,5,1) 100%);
 }
 
-/* ====================== PLANETS ==================== */
-#planet-container {
+.hackycactuscont{
+  margin-bottom: 0em;
+}
+.cactus {
+  width: 20vw;
+}
+
+#hackycowboy {
+  object-fit: contain;
+  width: 10vw;
+  margin-bottom: .7vw;
+}
+
+/* ====================== TUMBLEWEED ==================== */
+#tumbleweed-container {
   position: relative;
 }
 
-#planet-blue,
-#planet-orange,
-#planet-pink {
+#tumbleweed-1,
+#tumbleweed-2,
+#tumbleweed-3 {
   position: absolute;
   z-index: -1;
-  width: 10vw;
+  width: 14vw;
 }
 
 @media screen and (max-width: 768px) {
-  #planet-blue,
-  #planet-orange,
-  #planet-pink {
+  #tumbleweed-1,
+  #tumbleweed-2,
+  #tumbleweed-3 {
     width: 20vw;
   }
 
-  #planet-orange {
+  #tumbleweed-2 {
     top: 0 !important;
   }
 
-  #planet-blue {
+  #tumbleweed-1 {
     top: 8em !important;
   }
 
-  #planet-pink {
+  #tumbleweed-3 {
     top: 12em !important;
   }
 }
 
 /* blue planet */
-#planet-blue {
+#tumbleweed-1 {
   top: 6em;
   left: 12%;
 }
 
 /* orange planet */
-#planet-orange {
+#tumbleweed-2 {
   top: -3em;
   left: 39%;
 }
 
 /* pink planet */
-#planet-pink {
+#tumbleweed-3 {
   top: 14em;
   right: 15%;
 }
@@ -872,7 +845,7 @@ and make images go away. */
 
   #hackpsu-logo {
     margin-bottom: 2em !important;
-    max-width: 80%;
+    max-width: 100%;
   }
 
   .header-text {

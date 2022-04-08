@@ -152,19 +152,14 @@ export class UserRegistrationViewComponent implements OnInit {
           this.httpService.registerExtraCreditClass(classUid).subscribe(
             () => {
               this.progressService.ref().complete();
-              this.toastrService.success(
-                `You are now getting tracked for ${this.getClassName(parseInt(classUid))}`
-              );
             },
-            ({ error }) => {
-              this.toastrService.warning(
-                'Something may have gone wrong in that process. Contact a member of staff to check'
-              );
-            }
+            ({ error }) => {}
           );
         }
       });
     });
+    // Very dirty fix.
+    this.toastrService.success('You are now being tracked for the following classes');
   }
 
   parseInt(string: string, radix: number) {
@@ -196,21 +191,7 @@ export class UserRegistrationViewComponent implements OnInit {
 
   showClassName(class_name: string): boolean {
     // We don't remove classes from the DB, we just filter them here.
-    const shownClassNames = [
-      // 'CYBER 100',
-      // 'SRA 111',
-      // 'IST 220',
-      // 'SRA 231',
-      // 'SRA 111 (World Campus)',
-      // 'CMPSC 445',
-      // 'IST 110',
-      // 'MATH 455',
-      // 'CMPSC 455',
-      // 'CMPET 401',
-      // 'CMPSC 436',
-      // 'ACCTG 403',
-      // 'ACCTG 483',
-    ];
+    const shownClassNames = ['COMM 384.002', 'SRA 311W.001'];
     return shownClassNames.includes(class_name);
   }
 
