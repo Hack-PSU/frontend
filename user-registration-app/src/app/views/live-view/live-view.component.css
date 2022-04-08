@@ -801,13 +801,14 @@ and make images go away. */
 .hackycactuscont{
   margin-bottom: 0em;
 }
-.hackycactus {
-  width: 100%;
+.cactus {
+  width: 20vw;
 }
 
-#hacky {
+#hackycowboy {
   object-fit: contain;
-  margin-bottom: 6em;
+  width: 10vw;
+  margin-bottom: .7vw;
 }
 
 /* ====================== TUMBLEWEED ==================== */
