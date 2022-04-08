@@ -3,21 +3,17 @@
 // during build by set-env.ts
 
 export const environment = {
-  production: false,
-  api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
-  api_v2_url: 'https://staging-v2-dot-hackpsu18.uc.r.appspot.com/v2/',
-  // api_v2_url: 'http://staging.hackpsu18.appspot.com/v2/',
-  // api_v2_url: 'http://localhost:5000/v2/',
-  // api_url: 'http://localhost:5000/v1/',
-  // https://staging-v2-dot-hackpsu18.uc.r.appspot.com/
-
+  production: true,
+  api_url: 'https://api.hackpsu.org/v1/',
+  api_v2_url: 'https://api.hackpsu.org/v2/',
+  socket_url: 'https://api.hackpsu.org',
   firebase: {
-    apiKey: 'AIzaSyAWejnwBUrfUoULnMRumGFpOchYjjHlfTI',
-    authDomain: 'hackpsu18-staging.firebaseapp.com',
-    databaseURL: 'https://hackpsu18-staging.firebaseio.com',
-    projectId: 'hackpsu18-staging',
-    storageBucket: 'hackpsu18-staging.appspot.com',
-    messagingSenderId: '614592542726',
+    apiKey: 'AIzaSyCpvAPdiIcqKV_NTyt6DZgDUNyjmA6kwzU',
+    authDomain: 'hackpsu18.firebaseapp.com',
+    databaseURL: 'https://hackpsu18.firebaseio.com',
+    projectId: 'hackpsu18',
+    storageBucket: 'hackpsu18.appspot.com',
+    messagingSenderId: '1002677206617',
   },
 
   // New code that accounts for timezone differences. Time is set for 2PM EST Saturday
