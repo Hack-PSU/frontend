@@ -68,7 +68,7 @@ export class LiveViewComponent implements OnInit {
         value: 100,
       },
       color: {
-        value: '#ffffff',
+        value: '#ab6f26',
       },
       shape: {
         type: 'circle',
