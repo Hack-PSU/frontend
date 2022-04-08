@@ -798,6 +798,18 @@ and make images go away. */
   background: linear-gradient(90deg, rgba(139,89,5,1) 0%, rgba(117,76,41,1) 50%, rgba(149,95,5,1) 100%);
 }
 
+.hackycactuscont{
+  margin-bottom: 0em;
+}
+.hackycactus {
+  width: 100%;
+}
+
+#hacky {
+  object-fit: contain;
+  margin-bottom: 6em;
+}
+
 /* ====================== TUMBLEWEED ==================== */
 #tumbleweed-container {
   position: relative;
