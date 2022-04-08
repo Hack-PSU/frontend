@@ -443,7 +443,7 @@
           />
         </div>
         <p>
-          <label class="data-error">Note: Country is required</label>
+          <label class="data-error" *ngIf="registrationForm.addressFields.country.trim().length == 0">Note: Country is required</label>
         </p>
         <div class="form-group">
           <!-- <input
