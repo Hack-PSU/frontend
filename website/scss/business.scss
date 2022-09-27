@@ -142,6 +142,15 @@ $break-large: 1200px;
   color: #ccc;
 }
 
+.register-btn-transparent {
+  height: 10vh;
+  background: #00324b00;
+  border: solid 8px rgba(10, 10, 10, 0);
+  border-radius: 50px;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+
 .register-btn {
   @include transition(all, 0.4s);
   height: 10vh;
