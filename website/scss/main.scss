@@ -316,6 +316,15 @@ body {
       }
     }
 
+    .register-btn-transparent {
+      height: 10vh;
+      background: #00324b00;
+      border: solid 8px rgba(10, 10, 10, 0);
+      border-radius: 50px;
+      margin-bottom: 2vh;
+      margin-top: 2vh;
+    }
+
     .register-btn {
       @include transition(all, 0.4s);
       box-sizing: border-box;
@@ -584,6 +593,14 @@ border and the section separator bar */
     width: 18%;
   }
 
+  .register-btn-transparent {
+    height: 10vh;
+    background: #00324b00;
+    border: solid 8px rgba(10, 10, 10, 0);
+    border-radius: 50px;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+  }
 
   .register-btn {
     @include transition(all, 0.4s);
