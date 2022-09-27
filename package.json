@@ -24,7 +24,6 @@
   "dependencies": {
     "@angular/cli": "^11.2.14",
     "@babel/core": "^7.12.10",
-    "@dji-dev/us-web-config": "^1.0.0",
     "bootstrap": "^4.5.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.18.0",
