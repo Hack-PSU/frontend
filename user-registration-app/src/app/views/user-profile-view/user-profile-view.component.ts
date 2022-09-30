@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import app from 'firebase/app';
+import { User } from '@angular/fire/auth';
 import { NgProgress } from 'ngx-progressbar';
 import { finalize, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -62,7 +62,7 @@ export class UserProfileViewComponent implements OnInit {
     );
   }
 
-  public getUserPhotoUrl(user: app.User | null) {
+  public getUserPhotoUrl(user: User | null) {
     return user.photoURL || UserProfileViewComponent.DEFAULT_PROFILE_URL;
   }
 

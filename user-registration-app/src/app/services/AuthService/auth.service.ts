@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
-import app from 'firebase/app';
+import { GoogleAuthProvider, GithubAuthProvider, OAuthProvider, AuthProvider } from '@angular/fire/auth';
 
 export enum AuthProviders {
   GOOGLE_PROVIDER,
@@ -30,17 +30,17 @@ export class AuthService {
   }
 
   signInWithProvider(provider: AuthProviders): Promise<any> {
-    let authProvider: app.auth.AuthProvider = null;
+    let authProvider: AuthProvider = null;
     switch (provider) {
       case AuthProviders.GOOGLE_PROVIDER:
-        authProvider = new app.auth.GoogleAuthProvider();
+        authProvider = new GoogleAuthProvider();
         break;
       case AuthProviders.GITHUB_PROVIDER:
-        authProvider = new app.auth.GithubAuthProvider();
+        authProvider = new GithubAuthProvider();
         break;
       case AuthProviders.APPLE_PROVIDER:
         {
-          const oAuthProvider = new app.auth.OAuthProvider('apple.com');
+          const oAuthProvider = new OAuthProvider('apple.com');
           oAuthProvider.addScope('email');
           oAuthProvider.addScope('name');
           authProvider = oAuthProvider;

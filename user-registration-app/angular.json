@@ -105,7 +105,6 @@
       }
     }
   },
-  "defaultProject": "user-registration-app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
@@ -114,5 +113,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": "4ee701c4-ec0f-4646-90cf-68bbe8e08501"
   }
 }

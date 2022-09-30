@@ -68,7 +68,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), RouterModule],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }), RouterModule],
   exports: [RouterModule],
   declarations: [],
   providers: [AngularFireAuth, RegistrationResolver, RsvpResolver],
