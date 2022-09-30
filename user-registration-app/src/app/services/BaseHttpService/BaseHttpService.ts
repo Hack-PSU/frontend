@@ -33,7 +33,7 @@ export class BaseHttpService {
         console.log(`Attempt ${retryAttempt}: retrying in ${retryAttempt * scalingDuration}ms`);
         // retry after 1s, 2s, etc...
         return timer(retryAttempt * scalingDuration);
-      })
+      }),
     );
   };
 
@@ -41,7 +41,7 @@ export class BaseHttpService {
     protected http: HttpClient,
     protected authService: AuthService,
     protected errorHandler: CustomErrorHandlerService,
-    public ngProgress: NgProgress
+    public ngProgress: NgProgress,
   ) {
     this.memCache = new Map<string, Observable<any>>();
   }
@@ -51,7 +51,7 @@ export class BaseHttpService {
     ignoreCache?: boolean,
     useAuth = true,
     v2: boolean = false,
-    uid: string = ''
+    uid: string = '',
   ): Observable<T> {
     if (ignoreCache) {
       this.memCache.delete(API_ENDPOINT);
@@ -75,7 +75,7 @@ export class BaseHttpService {
             switchMap((idToken: string) => {
               headers = headers.set('idtoken', idToken);
               return this.getInternal(fullUrl, headers, params);
-            })
+            }),
           )
         : // Without authentication
           this.getInternal(fullUrl, headers, params);
@@ -85,7 +85,7 @@ export class BaseHttpService {
           return v2
             ? this.errorHandler.handleV2HttpError(err)
             : this.errorHandler.handleHttpError(err);
-        })
+        }),
       );
       this.memCache.set(API_ENDPOINT, observable);
     }
@@ -95,13 +95,13 @@ export class BaseHttpService {
   private getInternal<T>(
     fullUrl: string,
     headers: HttpHeaders,
-    params?: HttpParams
+    params?: HttpParams,
   ): Observable<T> {
     return this.http
       .get(fullUrl, { headers, params })
       .pipe(shareReplay(this.CACHE_SIZE, 10 * 1000))
       .pipe(
-        retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] }))
+        retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
       ) as Observable<T>;
   }
 
@@ -116,14 +116,14 @@ export class BaseHttpService {
             ? AppConstants.API_BASE_URL_V2.concat(API_ENDPOINT)
             : AppConstants.API_BASE_URL.concat(API_ENDPOINT),
           formObject,
-          { headers, reportProgress: true }
+          { headers, reportProgress: true },
         );
       }),
       catchError((err) => {
         return v2
           ? this.errorHandler.handleV2HttpError(err)
           : this.errorHandler.handleHttpError(err);
-      })
+      }),
     );
   }
 }

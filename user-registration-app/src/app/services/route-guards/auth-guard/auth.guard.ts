@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     protected authService: AuthService,
     protected router: Router,
-    protected ngProgress: NgProgress
+    protected ngProgress: NgProgress,
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate {
           return false;
         }
         return true;
-      })
+      }),
     );
   }
 }

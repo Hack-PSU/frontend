@@ -22,7 +22,7 @@ export class UserProfileViewComponent implements OnInit {
     public authService: AuthService,
     public httpService: HttpService,
     public progressService: NgProgress,
-    public toastrService: ToastrService
+    public toastrService: ToastrService,
   ) {}
 
   ngOnInit() {
@@ -38,12 +38,12 @@ export class UserProfileViewComponent implements OnInit {
       ({ error }) => {
         if (error && error.status === 404) {
           this.toastrService.info(
-            'You have not registered for a hackathon yet. We could not find any data for you'
+            'You have not registered for a hackathon yet. We could not find any data for you',
           );
         } else {
           this.toastrService.error('Something has gone terribly wrong');
         }
-      }
+      },
     );
     const hackObservable = this.httpService.getHackathons().subscribe(
       (hackathons: Hackathon[]) => {
@@ -58,7 +58,7 @@ export class UserProfileViewComponent implements OnInit {
         if (error && error.status === 404) {
           this.toastrService.info('No hackathons retrieved');
         }
-      }
+      },
     );
   }
 
@@ -73,7 +73,7 @@ export class UserProfileViewComponent implements OnInit {
         switchMap((user) => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
         finalize(() => {
           this.progressService.ref().complete();
-        })
+        }),
       )
       .subscribe(
         () => {
@@ -84,7 +84,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error('Something went wrong. Try again');
           observable.unsubscribe();
-        }
+        },
       );
   }
 
@@ -93,7 +93,7 @@ export class UserProfileViewComponent implements OnInit {
     const observable = this.authService.currentUser
       .pipe(
         switchMap((user) => user.updateEmail(value)),
-        finalize(() => this.progressService.ref().complete())
+        finalize(() => this.progressService.ref().complete()),
       )
       .subscribe(
         () => {
@@ -104,7 +104,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error(error.message);
           observable.unsubscribe();
-        }
+        },
       );
   }
 
@@ -121,7 +121,7 @@ export class UserProfileViewComponent implements OnInit {
     const observable = this.authService.currentUser
       .pipe(
         switchMap((user) => user.updatePassword(newPassword)),
-        finalize(() => this.progressService.ref().complete())
+        finalize(() => this.progressService.ref().complete()),
       )
       .subscribe(
         () => {
@@ -132,7 +132,7 @@ export class UserProfileViewComponent implements OnInit {
           console.error(error);
           this.toastrService.error(error.message);
           observable.unsubscribe();
-        }
+        },
       );
   }
 }

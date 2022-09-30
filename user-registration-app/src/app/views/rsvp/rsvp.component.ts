@@ -25,8 +25,9 @@ export class RsvpComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     private httpService: HttpService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {

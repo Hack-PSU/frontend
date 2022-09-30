@@ -19,8 +19,9 @@ export class RegistrationResolver implements Resolve<Registration> {
     private authService: AuthService,
     private progress: NgProgress,
     private router: Router,
-    private httpService: HttpService
-  ) {}
+    private httpService: HttpService,
+  ) {
+  }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
     this.progress.ref().start();
@@ -46,7 +47,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         // Registration not found.
         return observableOf(new Registration());
       }),
-      take(1)
+      take(1),
     );
   }
 }
