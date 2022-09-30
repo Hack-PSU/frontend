@@ -681,7 +681,7 @@
             [(ngModel)]="registrationForm.academicYear"
             #yearInput="ngModel"
           />
-          <label for="freshman">First Year Undergraduate</label><br />
+          <label for="freshman">Freshman</label><br />
           <input
             type="radio"
             class="with-gap"
@@ -691,7 +691,7 @@
             value="sophomore"
             [(ngModel)]="registrationForm.academicYear"
           />
-          <label for="sophomore">Second Year Undergraduate</label><br />
+          <label for="sophomore">Sophomore</label><br />
           <input
             type="radio"
             class="with-gap"
@@ -701,7 +701,7 @@
             value="junior"
             [(ngModel)]="registrationForm.academicYear"
           />
-          <label for="junior">Third Year Undergraduate</label><br />
+          <label for="junior">Junior</label><br />
           <input
             type="radio"
             class="with-gap"
@@ -711,7 +711,7 @@
             value="senior"
             [(ngModel)]="registrationForm.academicYear"
           />
-          <label for="senior">Fourth Year Undergraduate</label><br />
+          <label for="senior">Senior</label><br />
           <input
             type="radio"
             class="with-gap"
@@ -734,6 +734,123 @@
           <label for="other_year">Other</label><br />
         </div>
         <label class="data-error" *ngIf="!yearInput.valid">Required</label>
+      </div>
+    </div>
+  </div>
+
+  <div
+  *ngIf="registrationForm.eighteenBeforeEvent"
+  class="row scrollspy"
+  materialize="scrollSpy"
+  id="instritution-container"
+  >
+    <div class="card medium darken-1">
+      <div class="card-content">
+        <h5 class="year">What type of education institution are you enrolled in?</h5>
+        <div class="form-group">
+          <input
+            type="radio"
+            class="with-gap"
+            id="less-than-secondary"
+            required
+            name="institution"
+            value="less-than-secondary"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+            #institutionInput="ngModel"
+          />
+          <label for="less-than-secondary">Less than Secondary / High School</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="secondary"
+            required
+            name="institution"
+            value="secondary"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="secondary">Sophomore</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="two-year-university"
+            required
+            name="institution"
+            value="two-year-university"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="two-year-university">Undergraduate University (2 year - community college or similar)</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="three-plus-year-university"
+            required
+            name="institution"
+            value="three-plus-year-university"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="three-plus-year-university">Undergraduate University (3+ year)</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="graduate-university"
+            required
+            name="institution"
+            value="graduate-university"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="graduate-university">Graduate University (Masters, Professional, Doctoral, etc.)</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="code-school-or-bootcamp"
+            required
+            name="institution"
+            value="code-school-or-bootcamp"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="code-school-or-bootcamp">Code School / Bootcamp</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="vocational-trade-apprenticeship"
+            required
+            name="institution"
+            value="vocational-trade-apprenticeship"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="vocational-trade-apprenticeship">Other Vocational / Trade Program or Apprenticeship</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="other"
+            required
+            name="institution"
+            value="other"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="other">Other</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="not-a-student"
+            required
+            name="institution"
+            value="not-a-student"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="not-a-student">I'm not currently a student</label><br />
+          <input
+            type="radio"
+            class="with-gap"
+            id="prefer-no-answer"
+            required
+            name="institution"
+            value="prefer-no-answer"
+            [(ngModel)]="registrationForm.educationalInstitutionType"
+          />
+          <label for="prefer-no-answer">Prefer not to answer</label><br />
+        </div>
+        <label class="data-error" *ngIf="!institutionInput.valid">Required</label>
       </div>
     </div>
   </div>
@@ -1016,7 +1133,7 @@
   <!-- Submit -->
   <div
     *ngIf="
-      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp
+      registrationForm.eighteenBeforeEvent && registrationForm.mlhcoc && registrationForm.mlhdcp && registrationForm.educationalInstitutionType
     "
     class="center"
   >

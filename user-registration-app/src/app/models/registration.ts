@@ -15,6 +15,7 @@ export class Registration {
   public university: string;
   public phone: string;
   public academicYear: string;
+  public educationalInstitutionType?: string;
   public major: string;
   public resume: any;
   public mlhcoc: boolean;
@@ -52,6 +53,7 @@ export class Registration {
     this.university = null;
     this.phone = null;
     this.academicYear = null;
+    this.educationalInstitutionType = null;
     this.major = null;
     this.resume = null;
     this.mlhcoc = false;
