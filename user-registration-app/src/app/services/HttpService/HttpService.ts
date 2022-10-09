@@ -21,7 +21,7 @@ export class HttpService extends BaseHttpService {
     http: HttpClient,
     authService: AuthService,
     errorHandler: CustomErrorHandlerService,
-    ngProgress: NgProgress
+    ngProgress: NgProgress,
   ) {
     super(http, authService, errorHandler, ngProgress);
   }
@@ -35,7 +35,7 @@ export class HttpService extends BaseHttpService {
     const API_ENDPOINT = 'users/register';
     return this.get(API_ENDPOINT, true, true, true).pipe(
       map((registrations: any[]) => registrations.find((registration) => registration.active)),
-      map(RegistrationApiResponse.parseJSON)
+      map(RegistrationApiResponse.parseJSON),
     );
   }
 
@@ -76,9 +76,9 @@ export class HttpService extends BaseHttpService {
         return this.http.post<Registration>(
           AppConstants.API_BASE_URL.concat(API_ENDPOINT),
           { status },
-          { headers, reportProgress: true }
+          { headers, reportProgress: true },
         );
-      })
+      }),
     );
   }
 
@@ -129,14 +129,14 @@ export class HttpService extends BaseHttpService {
   getExtraCreditClasses() {
     const API_ENDPOINT = 'users/extra-credit';
     return this.get(API_ENDPOINT, false, true, true).pipe(
-      map((classes: any[]) => classes.map((c) => ExtraCreditClass.parseJSON(c)))
+      map((classes: any[]) => classes.map((c) => ExtraCreditClass.parseJSON(c))),
     );
   }
 
   getExtraCreditClassesForUser(uid: string) {
     const API_ENDPOINT = 'users/extra-credit/assignment?type=user';
     return this.get(API_ENDPOINT, true, true, true, uid).pipe(
-      map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c)))
+      map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c))),
     );
   }
 
@@ -153,14 +153,14 @@ export class HttpService extends BaseHttpService {
   getUserRegistrations() {
     const API_ENDPOINT = 'users/register';
     return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true).pipe(
-      map((regs) => regs.map(RegistrationApiResponse.parseJSON))
+      map((regs) => regs.map(RegistrationApiResponse.parseJSON)),
     );
   }
 
   getHackathons() {
     const API_ENDPOINT = 'admin/hackathon';
     return this.get<Hackathon[]>(API_ENDPOINT, false, true, true).pipe(
-      map((hackathons) => hackathons.map((h) => Hackathon.parseJSON(h)))
+      map((hackathons) => hackathons.map((h) => Hackathon.parseJSON(h))),
     );
   }
 }

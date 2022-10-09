@@ -23,7 +23,7 @@ export class LoginComponent extends BaseComponent {
     errorHandler: CustomErrorHandlerService,
     private readonly toastrService: ToastrService,
     activatedRoute: ActivatedRoute,
-    progressBar: NgProgress
+    progressBar: NgProgress,
   ) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
     this.model = new Login();
@@ -82,7 +82,7 @@ export class LoginComponent extends BaseComponent {
     if (/@psu.edu$/.test(email)) {
       this.toastrService.warning(
         'Our login system is not affiliated with Penn State. ' +
-          'Please make sure the password you choose is not your WebAccess password'
+          'Please make sure the password you choose is not your WebAccess password',
       );
     }
   }

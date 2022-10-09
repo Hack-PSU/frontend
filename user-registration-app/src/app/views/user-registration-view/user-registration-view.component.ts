@@ -27,7 +27,7 @@ export class UserRegistrationViewComponent implements OnInit {
   constructor(
     private httpService: HttpService,
     private progressService: NgProgress,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {
     this.activeRegistration = null;
     this.classes = [];
@@ -91,7 +91,7 @@ export class UserRegistrationViewComponent implements OnInit {
       .subscribe((registrations: RegistrationApiResponse[]) => {
         if (registrations) {
           this.activeRegistration = registrations.filter(
-            (registration) => registration.hackathon.active
+            (registration) => registration.hackathon.active,
           )[0];
         }
       });
@@ -133,14 +133,14 @@ export class UserRegistrationViewComponent implements OnInit {
       () => {
         this.progressService.ref().complete();
         this.toastrService.success(
-          'Your address has been updated. Please navigate away from the page to refresh this view.'
+          'Your address has been updated. Please navigate away from the page to refresh this view.',
         );
       },
       ({ error }) => {
         this.toastrService.warning(
-          'Something may have gone wrong in that process. Contact a member of staff to check'
+          'Something may have gone wrong in that process. Contact a member of staff to check',
         );
-      }
+      },
     );
   }
 
@@ -153,7 +153,7 @@ export class UserRegistrationViewComponent implements OnInit {
             () => {
               this.progressService.ref().complete();
             },
-            ({ error }) => {}
+            ({ error }) => {},
           );
         }
       });
@@ -170,7 +170,7 @@ export class UserRegistrationViewComponent implements OnInit {
     this.progressService.ref().start();
     this.httpService
       .registerExtraCreditClass(
-        this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString()
+        this.classes.find((c) => c.class_name === 'Business Challenge').uid.toString(),
       )
       .subscribe(
         () => {
@@ -182,10 +182,10 @@ export class UserRegistrationViewComponent implements OnInit {
             this.toastrService.success('You are registered for the business challenge');
           } else {
             this.toastrService.warning(
-              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check'
+              'Something may have gone wrong in that process. Email technology@hackpsu.org or contact a member of staff to check',
             );
           }
-        }
+        },
       );
   }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AppConstants } from './AppConstants';
 import {
   ForgotPasswordViewComponent,
@@ -68,7 +68,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' }), RouterModule],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }), RouterModule],
   exports: [RouterModule],
   declarations: [],
   providers: [AngularFireAuth, RegistrationResolver, RsvpResolver],

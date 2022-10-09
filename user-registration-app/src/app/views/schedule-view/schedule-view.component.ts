@@ -54,7 +54,7 @@ export class ScheduleViewComponent implements OnInit {
       },
       (error) => {
         this.errorHandler.handleHttpError(error);
-      }
+      },
     );
   }
 
@@ -69,17 +69,17 @@ export class ScheduleViewComponent implements OnInit {
       case 'activities':
         return (this.activitiesViewNum = ScheduleViewComponent.increment(
           this.activitiesViewNum,
-          this.activities.length
+          this.activities.length,
         ));
       case 'meals':
         return (this.mealsViewNum = ScheduleViewComponent.increment(
           this.mealsViewNum,
-          this.meals.length
+          this.meals.length,
         ));
       case 'workshops':
         return (this.workshopsViewNum = ScheduleViewComponent.increment(
           this.workshopsViewNum,
-          this.workshops.length
+          this.workshops.length,
         ));
     }
   }

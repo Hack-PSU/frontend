@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import app from 'firebase/app';
+import { User } from '@angular/fire/auth';
 import { AppConstants } from '../../AppConstants';
 import { AuthService } from '../../services/AuthService/auth.service';
 
@@ -21,7 +21,7 @@ export class UserViewComponent {
       .catch(() => this._router.navigate([AppConstants.LOGIN_ENDPOINT]));
   }
 
-  public getUserPhotoUrl(user: app.User | null) {
+  public getUserPhotoUrl(user: User | null) {
     if (user.photoURL) {
       return user.photoURL;
     }

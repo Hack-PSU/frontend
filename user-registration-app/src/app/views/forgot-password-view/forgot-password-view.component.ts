@@ -22,7 +22,7 @@ export class ForgotPasswordViewComponent extends BaseComponent implements OnInit
     errorHandler: CustomErrorHandlerService,
     activatedRoute: ActivatedRoute,
     progressBar: NgProgress,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {
     super(authService, progressBar, errorHandler, activatedRoute, router);
   }
@@ -39,7 +39,7 @@ export class ForgotPasswordViewComponent extends BaseComponent implements OnInit
         .sendPasswordResetEmail(this.email)
         .then((complete) => {
           this.toastrService.success(
-            'An email was sent to the provided email. Check there to reset your password.'
+            'An email was sent to the provided email. Check there to reset your password.',
           );
           this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
         })

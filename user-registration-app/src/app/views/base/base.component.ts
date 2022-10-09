@@ -8,7 +8,7 @@ export abstract class BaseComponent {
     public progressBar: NgProgress,
     protected errorHandler: CustomErrorHandlerService,
     protected activatedRoute: ActivatedRoute,
-    protected router: Router
+    protected router: Router,
   ) {}
 
   protected readRouteAndNavigate(callback) {

@@ -13,7 +13,7 @@ export class Hackathon {
       parseInt(value['start_time'], 10),
       parseInt(value['end_time'], 10),
       value['base_pin'],
-      value['active']
+      value['active'],
     );
   }
 
@@ -23,7 +23,7 @@ export class Hackathon {
     start_time: number,
     end_time: number,
     base_pin: number,
-    active: boolean
+    active: boolean,
   ) {
     this.uid = uid;
     this.name = name;

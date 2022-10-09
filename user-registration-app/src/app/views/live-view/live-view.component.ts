@@ -41,26 +41,6 @@ export class LiveViewComponent implements OnInit {
 
   bannerText: string;
 
-  constructor(
-    private zone: NgZone,
-    private countdownService: CountdownService,
-    private httpService: HttpService
-  ) {}
-
-  ngOnInit() {
-    this.countdownService.startCountDown().subscribe(({ duration, bannerText }) => {
-      this.days = duration.days;
-      this.hours = duration.hours;
-      this.minutes = duration.minutes;
-      this.seconds = duration.seconds;
-      this.bannerText = bannerText;
-    });
-    this.httpService.getEvents().subscribe((eventsArr) => {
-      this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
-      console.log(this.workshops);
-    });
-  }
-
   particlesOptions = {
     fpsLimit: 24,
     particles: {
@@ -131,4 +111,24 @@ export class LiveViewComponent implements OnInit {
     },
     detectRetina: true,
   };
+
+  constructor(
+    private zone: NgZone,
+    private countdownService: CountdownService,
+    private httpService: HttpService,
+  ) {}
+
+  ngOnInit() {
+    this.countdownService.startCountDown().subscribe(({ duration, bannerText }) => {
+      this.days = duration.days;
+      this.hours = duration.hours;
+      this.minutes = duration.minutes;
+      this.seconds = duration.seconds;
+      this.bannerText = bannerText;
+    });
+    this.httpService.getEvents().subscribe((eventsArr) => {
+      this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
+      console.log(this.workshops);
+    });
+  }
 }

@@ -21,7 +21,7 @@ export class TravelReimbursementViewComponent implements OnInit {
   constructor(
     private httpService: HttpService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
     this.travelForm = {};
   }
@@ -61,7 +61,7 @@ export class TravelReimbursementViewComponent implements OnInit {
       },
       () => {
         this.loading = false;
-      }
+      },
     );
   }
 

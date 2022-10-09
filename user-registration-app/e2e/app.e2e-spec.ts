@@ -9,6 +9,7 @@ describe('user-registration-app App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+    // @ts-ignore
     expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
