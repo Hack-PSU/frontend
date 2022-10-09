@@ -15,6 +15,7 @@ export class Registration {
   public university: string;
   public phone: string;
   public academicYear: string;
+  public educationalInstitutionType?: string;
   public major: string;
   public resume: any;
   public mlhcoc: boolean;
@@ -30,6 +31,7 @@ export class Registration {
   public addressFields: any;
   public shareAddressMlh: boolean;
   public shareAddressSponsors: boolean;
+  public shareEmailMlh: boolean;
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
@@ -51,10 +53,12 @@ export class Registration {
     this.university = null;
     this.phone = null;
     this.academicYear = null;
+    this.educationalInstitutionType = null;
     this.major = null;
     this.resume = null;
     this.mlhcoc = false;
     this.mlhdcp = null;
+    this.shareEmailMlh = false;
     this.ethnicity = null;
     this.ethnicities = {
       native: false,
@@ -110,6 +114,7 @@ export class Registration {
     registration.resume = value.resume;
     registration.mlhcoc = value.mlh_coc;
     registration.mlhdcp = value.mlh_dcp;
+    registration.shareEmailMlh = false;
     registration.ethnicity = value.race;
     registration.codingExperience = value.coding_experience;
     registration.referral = value.referral;
@@ -148,6 +153,7 @@ export interface IRegistrationDb {
   eighteenBeforeEvent: boolean;
   mlh_coc: boolean;
   mlh_dcp: boolean;
+  mlh_email?: boolean;
   referral: string | null;
   project: string | null;
   expectations: string | null;
@@ -181,6 +187,7 @@ export class RegistrationApiResponse {
   major: string;
   mlh_coc: boolean;
   mlh_dcp: boolean;
+  mlh_email?: boolean;
   name: string;
   phone: string;
   project: string | null;
@@ -227,6 +234,7 @@ export class RegistrationApiResponse {
     registration.resume = value.resume ? new URL(value.resume) : null;
     registration.mlh_coc = !!value.mlh_coc;
     registration.mlh_dcp = !!value.mlh_dcp;
+    registration.mlh_email = false;
     registration.race = value.race;
     registration.coding_experience = value.coding_experience;
     registration.referral = value.referral;

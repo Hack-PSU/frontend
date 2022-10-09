@@ -82,6 +82,9 @@
     "mlhdcp": {
       "type": "boolean"
     },
+    "shareEmailMlh": {
+      "type": "boolean"
+    },
     "referral": {
       "type": ["string", "null"]
     },
