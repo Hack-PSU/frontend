@@ -35,6 +35,7 @@ export class Registration {
   public submitted: boolean;
   public hackathon: string;
   public pin: string;
+  public wordPin: string;
   public uid: string;
   public time: number;
 
@@ -80,6 +81,7 @@ export class Registration {
     };
     this.shareAddressMlh = false;
     this.shareAddressSponsors = false;
+    this.shareAddressMlh = false;
     this.codingExperience = null;
     this.referral = null;
     this.projectDesc = null;
@@ -114,7 +116,7 @@ export class Registration {
     registration.resume = value.resume;
     registration.mlhcoc = value.mlh_coc;
     registration.mlhdcp = value.mlh_dcp;
-    registration.shareEmailMlh = false;
+    registration.shareEmailMlh = value.share_email_mlh;
     registration.ethnicity = value.race;
     registration.codingExperience = value.coding_experience;
     registration.referral = value.referral;
@@ -123,6 +125,7 @@ export class Registration {
     registration.veteran = value.veteran;
     registration.submitted = value.submitted;
     registration.hackathon = Hackathon.parseJSON(registration).uid;
+    registration.wordPin = value.word_pin;
     registration.pin = value.pin.toString();
     registration.uid = value.uid;
     registration.time = Date.now();
@@ -165,6 +168,7 @@ export interface IRegistrationDb {
   start_time: string;
   end_time: string;
   base_pin: string;
+  word_pin: string;
   active: boolean;
 }
 
@@ -188,6 +192,7 @@ export class RegistrationApiResponse {
   mlh_coc: boolean;
   mlh_dcp: boolean;
   mlh_email?: boolean;
+  share_email_mlh: boolean;
   name: string;
   phone: string;
   project: string | null;
@@ -203,6 +208,7 @@ export class RegistrationApiResponse {
   uid: string;
   university: string;
   veteran: string;
+  word_pin: string;
   hackathon: Hackathon;
 
   // This is a result of the auto incremented pin.
@@ -246,6 +252,7 @@ export class RegistrationApiResponse {
     registration.hackathon.uid = value.hackathon;
     registration.pinAi = value.pin;
     registration.uid = value.uid;
+    registration.word_pin = value.word_pin;
     registration.time = parseInt(value.time, 10);
     return registration;
   }
