@@ -14,12 +14,12 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
     private authService: AuthService,
     private progress: NgProgress,
     private httpService: HttpService,
-    private router: Router
+    private router: Router,
   ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ): Observable<RegistrationApiResponse> {
     this.progress.ref().start();
     return this.authService.currentUser.pipe(
@@ -40,7 +40,7 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
       take(1),
       finalize(() => {
         this.progress.ref().complete();
-      })
+      }),
     );
   }
 }

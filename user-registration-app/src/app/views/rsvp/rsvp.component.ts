@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { ActivatedRoute, Router } from '@angular/router';
-import app from 'firebase/app';
+import { User } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../services/AuthService/auth.service';
@@ -16,7 +16,7 @@ declare let $: any;
 })
 export class RsvpComponent implements OnInit {
   public loading = false;
-  public user: app.User;
+  public user: User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
   public registrationData: RegistrationApiResponse;
@@ -25,8 +25,9 @@ export class RsvpComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     private httpService: HttpService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+  ) {
+  }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {

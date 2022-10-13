@@ -16,12 +16,12 @@ export class RegistrationGuard implements CanActivate {
     private httpService: HttpService,
     private router: Router,
     private ngProgress: NgProgress,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
     // Checks users registration status
     return this.httpService.getRegistrationStatus().pipe(
@@ -42,7 +42,7 @@ export class RegistrationGuard implements CanActivate {
           this.ngProgress.ref().complete();
         });
         return of(false);
-      })
+      }),
     );
   }
 }
