@@ -64,3 +64,5 @@ api/**
 .DS_Store
 
 launch.json
+./user-registration-app/launch.json
+./website/launch.json
