@@ -30,7 +30,7 @@
   <div *ngIf="this.activeRegistration; else elseQR" class="mt-5">
     <p class="center">Here's your unique QR code! We may ask to scan it during the hackathon. You can also find it in
       our app!</p>
-    <qrcode class="center" [qrdata]="'HACKPSU_'+ activeRegistration.pin" [width]="300" [errorCorrectionLevel]="'Q'"
+    <qrcode class="center" [qrdata]="'HACKPSU_'+ activeRegistration.word_pin" [width]="300" [errorCorrectionLevel]="'Q'"
       [margin]="'3'">
     </qrcode>
   </div>
