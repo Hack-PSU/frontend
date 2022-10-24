@@ -130,11 +130,9 @@ export class LiveViewComponent implements OnInit {
     });
     this.httpService.getEvents().subscribe((eventsArr) => {
       this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
-      console.log(this.workshops);
     });
     this.httpService.getSponsors().subscribe((sponsorsArr) => {
       this.sponsors = sponsorsArr.sort((a, b) => a.order - b.order);
-      console.log(this.sponsors);
     });
   }
 }
