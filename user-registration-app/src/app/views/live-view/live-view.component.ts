@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CountdownService } from '../../services/CountdownService/countdown.service';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { EventModel } from '../../models/event-model';
+import { SponsorModel } from '../../models/sponsor';
 
 declare let $: any;
 
@@ -38,6 +39,7 @@ export class LiveViewComponent implements OnInit {
   seconds: number;
 
   workshops: EventModel[];
+  sponsors: SponsorModel[];
 
   bannerText: string;
 
@@ -128,7 +130,9 @@ export class LiveViewComponent implements OnInit {
     });
     this.httpService.getEvents().subscribe((eventsArr) => {
       this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
-      console.log(this.workshops);
+    });
+    this.httpService.getSponsors().subscribe((sponsorsArr) => {
+      this.sponsors = sponsorsArr.sort((a, b) => a.order - b.order);
     });
   }
 }

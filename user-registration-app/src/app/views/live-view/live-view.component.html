@@ -568,114 +568,18 @@
     </div>
     <!-- 2022 Sponsors-->
 
-    <div class="row d-flex justify-content-center" style="padding-top: 2%">
-      <div class="col-md-2">
-        <!--NITTANY AI-->
-        <a href="https://nittanyai.psu.edu/" target="_blank">
-          <img
-            src="assets/images/sponsors/nittanyai-night.svg"
-            class="img-fluid nittany-ai"
-            alt="NitannyAI"
-          />
-        </a>
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let sponsor of sponsors" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
+            <a href="{{sponsor.website_link}}" target="_blank">
+              <img
+                src="{{sponsor.logo}}"
+                class="img-fluid sponsor-max-height"
+                alt="{{sponsor.name}}"
+              />
+            </a>
+        </div>
       </div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2">
-        <!--M&T Tech-->
-        <a href="https://www3.mtb.com/techhub/" target="_blank">
-          <img
-            src="assets/images/sponsors/MT_Tech.svg"
-            class="img-fluid mt-tech"
-            alt="M&T Tech"
-          />
-        </a>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center" style="padding-top: 1%">
-      <div class="col-md-2">
-        <!--Celonis-->
-        <a href="https://www.celonis.com/" target="_blank">
-          <img
-            src="assets/images/sponsors/Celonis.svg"
-            class="img-fluid celonis"
-            alt="celonis"
-            style="padding-top: 40%"
-          />
-        </a>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2">
-        <!--PSU EC-->
-        <a href="https://oec.psu.edu/" target="_blank">
-          <img
-            src="assets/images/sponsors/PSU_EC.png"
-            class="img-fluid celonis"
-            alt="PSU EC"
-            style="padding-top: 35%"
-          />
-        </a>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center" style="padding-top: 4%">
-      <div class="col-md-2" style="padding-top: 4%">
-        <!--EECS-->
-        <a href="https://www.eecs.psu.edu/" target="_blank">
-          <img
-            src="assets/images/sponsors/EECS-night.svg"
-            alt="EECS"
-            class="img-fluid eecs"
-          />
-        </a>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2" style="padding-top: 5%">
-        <!--PSU ICS-->
-        <a href="https://www.icds.psu.edu/" target="_blank">
-          <img
-            src="assets/images/sponsors/ics2-cropped.svg"
-            class="img-fluid ics"
-            alt="PSU Institute for Computational and Data Sciences (ICS)"
-          />
-        </a>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2">
-        <!--PwC-->
-        <a href="https://www.pwc.com/" target="_blank">
-          <img
-            src="assets/images/sponsors/PWC_night.svg"
-            alt="PwC"
-            class="img-fluid pwc"
-          />
-        </a>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center" style="padding-top: 6%; padding-bottom: 0em;">
-      <div class="col-sm-2">
-        <!--ECHO3D-->
-        <a href="https://www.echo3d.co/" target="_blank">
-          <img
-            src="assets/images/sponsors/echoAR.png"
-            class="img-fluid echoAR"
-            alt="echoAR"
-            style="padding-top: 45%;"
-          />
-        </a>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-2">
-        <!--Saxbys-->
-        <a href="https://www.echo3d.co/" target="_blank">
-          <img src="assets/images/sponsors/saxbys.png" class="img-fluid echoAR" alt="saxbys" style="padding-top: 10%;" />
-        </a>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-2" style="padding-top: 1%"></div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2 justify-content-center"></div>
-      <div class="col-sm-2"></div>
-      <div class="col-md-2"></div>
     </div>
   </section>
 

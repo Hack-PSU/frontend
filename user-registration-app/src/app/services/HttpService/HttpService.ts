@@ -14,6 +14,7 @@ import { EventModel } from '../../models/event-model';
 import { ProjectModel } from '../../models/project-model';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { UserExtraCreditApiResponse } from '../../models/user-extra-credit';
+import { SponsorModel } from '../../models/sponsor';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -162,5 +163,10 @@ export class HttpService extends BaseHttpService {
     return this.get<Hackathon[]>(API_ENDPOINT, false, true, true).pipe(
       map((hackathons) => hackathons.map((h) => Hackathon.parseJSON(h))),
     );
+  }
+
+  getSponsors() {
+    const API_ENDPOINT = 'sponsorship/all';
+    return this.get(API_ENDPOINT, false, false, true).pipe(map(SponsorModel.parseFromJSONArray));
   }
 }
