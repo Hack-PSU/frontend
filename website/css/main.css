@@ -339,25 +339,6 @@ header {
     background-color: white;
 }
 
-.cloud-1 {
-    width: 30%;
-    position: absolute;
-    top: 10vh;
-    left: 5%;
-}
-.cloud-2 {
-    width: 30%;
-    position: absolute;
-    top: 20vh;
-    right: 2%;
-}
-.cloud-3 {
-    width: 18%;
-    position: absolute;
-    top: 52vh;
-    left: 20%;
-}
-
 .floating {
     animation-name: floating;
     animation-duration: 3s;

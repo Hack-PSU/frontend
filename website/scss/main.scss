@@ -180,21 +180,6 @@ body {
       }
     }
 
-    .saloon-holder {
-      position: absolute;
-      width: 80vw;
-      left: -15vw;
-      right: 0;
-      top: 2.5vh;
-      margin: auto;
-
-      @media screen and (max-width: $md-break) {
-        top: 25vh;
-        width: 75vw !important;
-        left: -25vw;
-      }
-    }
-
 
     @media screen and (max-width: $lg-break){
       padding-top: 25%;
@@ -209,20 +194,6 @@ body {
       .logo-holder {
         width: 50% !important;
       }
-    }
-
-
-    .cloud-1 {
-      position: absolute;
-       width: 12.5%;
-       left: 7%;
-       right: 0;
-       top: 11.5vh;
-       margin: 0;
-
-       @media screen and (max-width: $break-small){
-         display: none;
-       }
     }
 
     .header-content {
@@ -414,21 +385,6 @@ body {
 
 .row {
   margin-bottom: 0;
-}
-
-#saloon {
-  position: absolute;
-  width: 120vw;
-  left: -18vw;
-  top: 6em;
-  z-index: -1;
-
-  @media screen and (max-width: $md-break) {
-    width: 200vw;
-    left: -63vw;
-    top: -0.5em;
-    position: relative;
-  }
 }
 
 /* ====================== ABOUT SECTION ==================== */
