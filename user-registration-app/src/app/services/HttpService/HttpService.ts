@@ -167,6 +167,7 @@ export class HttpService extends BaseHttpService {
 
   getSponsors() {
     const API_ENDPOINT = 'sponsorship/all';
+    // TODO: change this to be unauthorized when api allows that.
     return this.get(API_ENDPOINT, false, true, true).pipe(map(SponsorModel.parseFromJSONArray));
   }
 }
