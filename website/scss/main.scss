@@ -300,9 +300,8 @@ body {
       @include transition(all, 0.4s);
       box-sizing: border-box;
       height: 10vh;
-      background: #BC6A45;
-      border: solid 8px #8A4D2F;
-      border-radius: 50px;
+      background: #000000;
+      border: solid 8px #FFFFFF;
       margin-bottom: 2vh;
       width: 10em;
       cursor: pointer;
@@ -329,8 +328,7 @@ body {
       }
 
       .register-btn-text {
-        color: black;
-        font-family: 'Carnevalee';
+        color: white;
         letter-spacing: .1em;
       }
 
@@ -598,7 +596,7 @@ border and the section separator bar */
   padding-top: 50px;
   padding-bottom: 50px;
 
-  background-image: url("/../assets/images/post.png");
+  // background-image: url("/../assets/images/post.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-size: 100% 100%;
@@ -646,7 +644,7 @@ border and the section separator bar */
   }
 
   .container-fluid {
-    background-image: url("/../assets/images/sign2.png");
+    // background-image: url("/../assets/images/sign2.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-size: 100% 100%;
@@ -689,7 +687,7 @@ border and the section separator bar */
 
   .question {
     text-indent: 1vw;
-    color: #004D6D;
+    color: #FFFFFF;
     text-align: left;
     padding: 10px;
     cursor: hand;
@@ -697,14 +695,14 @@ border and the section separator bar */
   }
 
   .rightsign {
-    background-image: url("/../assets/images/rightsign.png");
+    // background-image: url("/../assets/images/rightsign.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-size: 100% 100%;
   }
 
   .leftsign {
-    background-image: url("/../assets/images/leftsign.png");
+    // background-image: url("/../assets/images/leftsign.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-size: 100% 100%;
@@ -1088,7 +1086,7 @@ border and the section separator bar */
   height: 100%;
   overflow-y: scroll;
   background-color: #231f20;
-  background-image: url("/../assets/Fall 2022/vw-background.svg");
+  // background-image: url("/../assets/Fall 2022/vw-background.svg");
   background-repeat: no-repeat;
   background-position-y: 400px;
   background-size: cover;
