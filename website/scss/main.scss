@@ -1046,7 +1046,7 @@ border and the section separator bar */
   #footer-mobile-padding {
     @media screen and (max-width: $md-break) {
       height: 3em;
-      background: #754c29;
+      background: #000000;
     }
   }
 
@@ -1087,7 +1087,7 @@ border and the section separator bar */
   width: 100vw;
   height: 100%;
   overflow-y: scroll;
-  background-color: #000000;
+  background-color: #231f20;
   background-image: url("/../assets/Fall 2022/vw-background.svg");
   background-repeat: no-repeat;
   background-position-y: 400px;
