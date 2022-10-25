@@ -8,6 +8,7 @@ $font-stack-tertiary: 'Cornerstone', sans-serif;
 /* vaporwave color scheme */
 $bg-color: #2b1165;
 $fg-color: #c02c53;
+$base-color:#000000;
 
 
 
@@ -183,6 +184,137 @@ body {
 }
 
 .landing {
+  background-color: $bg-color;
+  background: $bg-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // vaporwave effects
+
+  .vw-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: transparent;
+    background-size: 5px 5px, 5px 5px;
+    background-position:  -1px -1px, -1px -1px;
+    background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    mix-blend-mode: difference;
+   }
+   
+   .vw-glitch {
+    clip-path: polygon(0 0, 100% 0, 100% .5em, 0 .5em);
+    animation: glitch 10s linear infinite;
+    transform: translatex(.1rem);
+   }
+   
+   @keyframes glitch {
+    to {
+     clip-path: polygon(0 calc(100% - .5em), 100% calc(100% - .5em), 0 100%, 0 100%)
+    }
+   }
+   
+   .vw-sun {
+    width: 40vh;
+    height: 40vh;
+    font-size: 1rem;
+    border-radius: 20vh;
+   
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    &:before {
+     content: "";
+   
+     display: block;
+     position: absolute;
+     top: 0;
+     height: 50%;
+     background-color: $fg-color;
+     background: $fg-gradient;
+     background-size: 40vh 40vh;
+     width: 100%;
+    }
+    &:after {
+     content: "";
+   
+     display: block;
+     position: absolute;
+     bottom: 0;
+   
+     width: 100%;
+     height: 50%;
+     background-color: $fg-color;
+     background: $fg-gradient;
+     background-size: 40vh 40vh;
+     background-position: bottom center;
+     clip-path: polygon(
+      0 -10em, 100% -10em, 100% -10.5em, 0 -10.5em,
+   0 -9em, 100% -9em, 100% -9.5em, 0 -9.5em,
+   0 -8em, 100% -8em, 100% -8.5em, 0 -8.5em,
+   0 -7em, 100% -7em, 100% -7.5em, 0 -7.5em,
+   0 -6em, 100% -6em, 100% -6.5em, 0 -6.5em,
+   0 -5em, 100% -5em, 100% -5.5em, 0 -5.5em,
+   0 -4em, 100% -4em, 100% -4.5em, 0 -4.5em,
+   0 -3em, 100% -3em, 100% -3.5em, 0 -3.5em,
+   0 -2em, 100% -2em, 100% -2.5em, 0 -2.5em,
+   0 -1em, 100% -1em, 100% -1.5em, 0 -1.5em,
+   0 0, 100% 0, 100% -.5em, 0 -.5em,
+   0 0, 100% 0, 100% .5em, 0 .5em,
+   0 1em, 100% 1em, 100% 1.5em, 0 1.5em,
+   0 2em, 100% 2em, 100% 2.5em, 0 2.5em,
+   0 3em, 100% 3em, 100% 3.5em, 0 3.5em,
+   0 4em, 100% 4em, 100% 4.5em, 0 4.5em,
+   0 5em, 100% 5em, 100% 5.5em, 0 5.5em,
+   0 6em, 100% 6em, 100% 6.5em, 0 6.5em,
+   0 7em, 100% 7em, 100% 7.5em, 0 7.5em,
+   0 8em, 100% 8em, 100% 8.5em, 0 8.5em,
+   0 9em, 100% 9em, 100% 9.5em, 0 9.5em);
+     animation: lightEffect 20s linear infinite reverse;
+    }
+   }
+   
+   @keyframes lightEffect {
+    to {
+     clip-path: polygon(
+   0 0, 100% 0, 100% .5em, 0 .5em,
+   0 1em, 100% 1em, 100% 1.5em, 0 1.5em,
+   0 2em, 100% 2em, 100% 2.5em, 0 2.5em,
+   0 3em, 100% 3em, 100% 3.5em, 0 3.5em,
+   0 4em, 100% 4em, 100% 4.5em, 0 4.5em,
+   0 5em, 100% 5em, 100% 5.5em, 0 5.5em,
+   0 6em, 100% 6em, 100% 6.5em, 0 6.5em,
+   0 7em, 100% 7em, 100% 7.5em, 0 7.5em,
+   0 8em, 100% 8em, 100% 8.5em, 0 8.5em,
+   0 9em, 100% 9em, 100% 9.5em, 0 9.5em,
+   0 10em, 100% 10em, 100% 10em, 0 10em,
+   0 11em, 100% 11em, 100% 11.5em, 0 11.5em,
+   0 12em, 100% 12em, 100% 12.5em, 0 12.5em,
+   0 13em, 100% 13em, 100% 13.5em, 0 13.5em,
+   0 14em, 100% 14em, 100% 14.5em, 0 14.5em,
+   0 15em, 100% 15em, 100% 15.5em, 0 15.5em,
+   0 16em, 100% 16em, 100% 16.5em, 0 16.5em,
+   0 17em, 100% 17em, 100% 17.5em, 0 17.5em,
+   0 18em, 100% 18em, 100% 18.5em, 0 18.5em,
+   0 19em, 100% 19em, 100% 19.5em, 0 19.5em,
+   0 20em, 100% 20em, 100% 20.5em, 0 20.5em
+     );
+    }
+   }
+
+
+
+
+
+  .hackpsu-logo {
+    z-index: 100;
+  }
   .holder {
     padding-top: 22%;
 
@@ -235,13 +367,6 @@ body {
             font-size: 5vw;
             left: -5vw;
           }
-        }
-      }
-
-      .cta {
-        padding-top: 5vh;
-        @media screen and (max-width: $sm-break) {
-          padding-bottom: 5.5vh;
         }
       }
 
@@ -323,19 +448,19 @@ body {
       margin-top: 2vh;
     }
 
+    .register-btn-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
     .register-btn {
       @include transition(all, 0.4s);
-      box-sizing: border-box;
       height: 10vh;
       background: #000000;
       border: solid 8px #FFFFFF;
       margin-bottom: 2vh;
       width: 10em;
       cursor: pointer;
-
-      .row {
-        justify-content: center !important;
-      }
 
       @media screen and (max-width: $md-break) {
         left: 0 !important;
@@ -357,28 +482,6 @@ body {
       .register-btn-text {
         color: white;
         letter-spacing: .1em;
-      }
-
-      .header-content {
-        .event-info {
-          padding-top: 6vh;
-
-          div {
-            padding-left: 0;
-          }
-        }
-
-        .event-info div {
-          padding-left: 0;
-        }
-
-        .cta {
-          padding-top: 5vh;
-
-          @media screen and (max-width: $sm-break) {
-            padding-bottom: 5.5vh;
-          }
-        }
       }
 
       .header-hover {
@@ -551,6 +654,7 @@ border and the section separator bar */
 /* ====================== TRACKS ==================== */
 #tracks {
   padding-top: 10vh;
+  background-color: $base-color;
 
   .header-bar {
     background-color: $mountain-blue;
@@ -618,6 +722,7 @@ border and the section separator bar */
 /* ====================== FAQ ==================== */
 #faqs {
   color: white;
+  background-color: $base-color;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   padding-top: 50px;
@@ -772,6 +877,7 @@ border and the section separator bar */
 
 /* ====================== SCHEDULE ==================== */
 #schedule {
+  background-color: $base-color;
   color:            white;
   font-family:      'Lato', sans-serif;
   font-weight:      bold;
@@ -871,6 +977,7 @@ border and the section separator bar */
 
 /* ====================== SPONSORS ==================== */
 #sponsors {
+  background-color: $base-color;
   padding-top: 50px;
   position: relative;
 
@@ -1055,6 +1162,7 @@ border and the section separator bar */
 
 #footer {
   position: relative;
+  background-color: $base-color;
 
   #footer-link-container {
     position: absolute;
@@ -1108,12 +1216,13 @@ border and the section separator bar */
 
 
 /* ====================== PARTICLES.JS ==================== */
-#particles-js{
+#page-content-wrapper{
   width: 100vw;
-  height: 800px;
   overflow-y: scroll;
-  background-color: $bg-color;
-  background: $bg-gradient;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
   // background-image: url("/../assets/Fall 2022/vw-background.svg");
   background-repeat: no-repeat;
   background-position-y: 400px;
