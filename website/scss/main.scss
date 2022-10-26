@@ -186,9 +186,6 @@ body {
 .landing {
   background-color: $bg-color;
   background: $bg-gradient;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   // vaporwave effects
 
@@ -308,18 +305,14 @@ body {
     }
    }
 
-
-
-
-
-  .hackpsu-logo {
-    z-index: 100;
-  }
   .holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 22%;
 
     .logo-holder {
-      position: absolute;
+      position: relative;
       width: 8em;
       left: 0;
       right: 0;
@@ -380,7 +373,6 @@ body {
     .header-text {
       font-family:   $font-stack-tertiary;
       @include responsive-font(.85em, .8em, 1.25em, 1em);
-      max-font-size: 2em;
 
       p {
         text-align:  start;
@@ -586,17 +578,6 @@ body {
   }
 }
 
-#cactus {
-  position: absolute;
-  top: -25vh;
-  right: 5%;
-  width: 30vw;
-
-  @media screen and (max-width: $md-break) {
-    display: none;
-  }
-}
-
 /* fixes the dreaded line between the first
 border and the section separator bar */
 .first-border {
@@ -642,13 +623,6 @@ border and the section separator bar */
     transform: translate(40vw, -40vw) rotate(45deg);
   }
 }
-
-
-/* ====================== PLANETS ==================== */
-#planet-container {
-  position: relative;
-}
-
 
 
 /* ====================== TRACKS ==================== */
@@ -1215,7 +1189,7 @@ border and the section separator bar */
 
 
 
-/* ====================== PARTICLES.JS ==================== */
+/* ====================== FORMERLY PARTICLES.JS ==================== */
 #page-content-wrapper{
   width: 100vw;
   overflow-y: scroll;
