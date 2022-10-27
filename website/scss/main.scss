@@ -123,6 +123,11 @@ $break-large: 1200px;
 
 
 /* ====================== COMPONENTS ==================== */
+html {
+  width: 100vw;
+}
+
+
 body {
   font-family: $font-stack-primary;
   color: white;
@@ -187,9 +192,9 @@ body {
   // background-color: $bg-color;
   // background: $bg-gradient;
   background-image: url("../assets/Fall\ 2022/vw-good-background.png");
-  overflow: hidden;
-  // overflow-y: scroll;
-  // background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 735px;
 
   // vaporwave effects
 
@@ -310,10 +315,11 @@ body {
    }
 
   .holder {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .logo-holder {
 
@@ -323,9 +329,9 @@ body {
       }
 
       img {
-        width: 20vw;
+        width: 15vw;
         @media screen and (max-width: $md-break) {
-          width: 35vw;
+          width: 25vw;
         }
       }
     }
