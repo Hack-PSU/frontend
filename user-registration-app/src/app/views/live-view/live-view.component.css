@@ -440,44 +440,8 @@ td {
   text-align: center;
 }
 
-.mt-tech{
-  padding-top: 7%;
-}
-@media screen and (max-width: 768px) {
-  #sponsors .mt-tech {
-    width: 60%;
-  }
-}
-
-.baker-hughes{
-  padding-top: 19%;
-}
-@media screen and (max-width: 768px) {
-  #sponsors .baker-hughes{
-    width: 60%;
-  }
-}
-
-.microsoft{
-  padding-top: 3%;
-}
-.celonis{
-  padding-top: 0%;
-}
-@media screen and (max-width: 768px) {
-  #sponsors .celonis{
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #sponsors .pwc{
-    width: 60%;
-  }
-}
-
-.eecs {
-  padding-top: 6%;
+#sponsors .sponsor-max-height {
+  max-height: 105px !important;
 }
 
 /* End workshop stuff */
