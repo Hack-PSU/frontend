@@ -31,6 +31,20 @@ $card-gradient: linear-gradient(
 	rgba(26, 58, 130, 1),
 	$fg-color 100%
 );
+$button-gradient: linear-gradient(
+	140deg,
+	rgba(234, 0, 116, 1),
+	#e5705c,
+	rgba(255, 193, 37, 1),
+	rgba(234, 0, 116, 1),
+);
+// $button-gradient: repeating-linear-gradient(
+// 	140deg,
+// 	repeating-linear-gradient(red, yellow 10%, green 20%);
+// 	rgba(255, 193, 37, 255) 40%,
+// 	rgba(234, 0, 116, 255) 40%,
+// 	$fg-color 10%
+// );
 
 /* extra colors */
 $white: #ffffff;
@@ -618,9 +632,11 @@ body {
 	}
 
 	.header-btn {
-		background: $card-gradient;
+		background: $button-gradient;
 		padding: 10px;
 		border-radius: 8px;
+		margin-left: 10px;
+		margin-bottom: 10px;
 
 		.header-btn-text {
 			background-color: white;
@@ -631,13 +647,13 @@ body {
 			color: white;
 			text-transform: uppercase;
 			font-weight: 800;
-			transition: background 500ms ease-in-out;
-			@include transition(background, 200ms)
+			font: 2.2rem Inconsolata, monospace;
 		}
 
 		&:hover {
 			.header-btn-text {
-				background-color: #2878DA;
+				background-color: #ffc400;
+				color: black;
 			}
 		}
 
@@ -645,7 +661,6 @@ body {
 
 	.info-card {
 		margin: 2rem auto;
-		// min-width: 50px;
 		background: $card-gradient;
 		border-radius: 8px;
 		display: flex;
@@ -663,6 +678,7 @@ body {
 						 
 	.info-text-wrapper {
 		 color: white;
+		 font: 2.0rem Inconsolata, monospace;
 		 text-align: center;
 	}
 }

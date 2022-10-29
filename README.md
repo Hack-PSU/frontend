@@ -1,5 +1,5 @@
-# HackPSU Spring 2022
-Repository for the main website for HackPSU Spring 2022
+# HackPSU
+Repository for the main website for HackPSU
 
 
 ## Frontend
