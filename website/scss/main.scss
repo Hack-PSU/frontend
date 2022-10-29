@@ -631,12 +631,38 @@ body {
 		margin: 0;
 	}
 
+	.info-card {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		margin-left: auto;
+		background: $card-gradient;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+	}
+				 
+	.info-text-border {
+		width: 100%;
+		border-radius: 8px;
+		background: #090035;
+	}
+						 
+	.info-text-wrapper { 
+		color: white;
+		font: 2.0rem Inconsolata, monospace;
+		text-align: center;
+		padding-top: 4px;
+		padding-bottom: 6px;
+	}
+
 	.header-btn {
 		background: $button-gradient;
 		padding: 10px;
 		border-radius: 8px;
-		margin-left: 10px;
-		margin-bottom: 10px;
+		margin-left: 0.5rem;
+		margin-bottom: 1rem;
 
 		.header-btn-text {
 			background-color: white;
@@ -663,31 +689,6 @@ body {
 
 	}
 
-	.info-card {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		margin-left: auto;
-		background: $card-gradient;
-		border-radius: 8px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 10px;
-	}
-				 
-	.info-text-border {
-		width: 100%;
-		border-radius: 8px;
-		background: #090035;
-	}
-						 
-	.info-text-wrapper { 
-		color: white;
-		font: 2.0rem Inconsolata, monospace;
-		text-align: center;
-		padding-top: 4px;
-		padding-bottom: 6px;
-	}
 }
 
 .page-content {
