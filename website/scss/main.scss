@@ -643,7 +643,7 @@ body {
 			margin: 0;
 			padding: 3px 25px;
 			border-radius: 8px;
-			background-color: rgba(9, 0, 53, 1);
+			background: black;
 			color: white;
 			text-transform: uppercase;
 			font-weight: 800;
@@ -652,10 +652,13 @@ body {
 
 		&:hover {
 			.header-btn-text {
-				// background-color: #ffd900;
-				background-color: rgba(9, 0, 53, 0.2);
+				background-color: rgba(0, 0, 0, 0.2);
 				color: black;
 			}
+		}
+
+		.header-btn:first-child {
+			margin-left: 0;
 		}
 
 	}
