@@ -32,10 +32,10 @@ $card-gradient: linear-gradient(
 	$fg-color 100%
 );
 $button-gradient: linear-gradient(
-	140deg,
+	155deg,
 	rgba(234, 0, 116, 1),
 	#e5705c,
-	rgba(255, 193, 37, 1),
+	rgb(255, 225, 0),
 	rgba(234, 0, 116, 1),
 );
 // $button-gradient: repeating-linear-gradient(
@@ -643,7 +643,7 @@ body {
 			margin: 0;
 			padding: 3px 25px;
 			border-radius: 8px;
-			background-color: #090035;
+			background-color: rgba(9, 0, 53, 1);
 			color: white;
 			text-transform: uppercase;
 			font-weight: 800;
@@ -652,7 +652,8 @@ body {
 
 		&:hover {
 			.header-btn-text {
-				background-color: #ffc400;
+				// background-color: #ffd900;
+				background-color: rgba(9, 0, 53, 0.2);
 				color: black;
 			}
 		}
@@ -670,16 +671,15 @@ body {
 	}
 				 
 	.info-text-border {
-		background-color: white;
 		width: 100%;
 		border-radius: 8px;
 		background: #090035;
 	}
 						 
-	.info-text-wrapper {
-		 color: white;
-		 font: 2.0rem Inconsolata, monospace;
-		 text-align: center;
+	.info-text-wrapper { 
+		color: white;
+		font: 2.0rem Inconsolata, monospace;
+		text-align: center;
 	}
 }
 
