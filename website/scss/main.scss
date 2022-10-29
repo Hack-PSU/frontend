@@ -453,7 +453,6 @@ body {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 
 		.logo-holder {
 			@media screen and (max-width: $md-break) {
@@ -573,11 +572,11 @@ body {
 
 		.register-btn {
 			@include transition(all, 0.4s);
-			height: 10vh;
+			// height: 10vh;
 			background: #000000;
 			border: solid 8px #ffffff;
-			margin-bottom: 2vh;
-			width: 10em;
+			// margin-bottom: 2vh;
+			// width: 10em;
 			cursor: pointer;
 
 			@media screen and (max-width: $md-break) {
@@ -613,25 +612,57 @@ body {
 			}
 		}
 	}
-			 
+		
+	.info-header-row {
+		margin: 0;
+	}
+
+	.header-btn {
+		background: $card-gradient;
+		padding: 10px;
+		border-radius: 8px;
+
+		.header-btn-text {
+			background-color: white;
+			margin: 0;
+			padding: 3px 25px;
+			border-radius: 8px;
+			background-color: #090035;
+			color: white;
+			text-transform: uppercase;
+			font-weight: 800;
+			transition: background 500ms ease-in-out;
+			@include transition(background, 200ms)
+		}
+
+		&:hover {
+			.header-btn-text {
+				background-color: #2878DA;
+			}
+		}
+
+	}
+
 	.info-card {
 		margin: 2rem auto;
-		min-width: 30px;
+		// min-width: 50px;
+		background: $card-gradient;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
 	}
 				 
 	.info-text-border {
-		background-image: $card-gradient;
+		background-color: white;
+		width: 100%;
 		border-radius: 8px;
-		padding: 10px;
+		background: #090035;
 	}
 						 
 	.info-text-wrapper {
-		 background: #090035;
-		 border-radius: 2px;
-		//  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 		 color: white;
-		 padding-right: 5px;
-		 padding-left: 5px;
 		 text-align: center;
 	}
 }

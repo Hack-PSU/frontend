@@ -58,13 +58,13 @@
 		<!-- JS Carousel -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-		<link
+		<!--<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
-		/>
+		/>-->
 
 		<!-- Compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
 
 		<!--Import Google Icon Font-->
 		<link
@@ -208,7 +208,7 @@
 							style="width: 100%"
 					/></a>
 				</div>
-				<div class="row mb-md-0 mb-4">
+				<div class="row mb-md-0 mb-4 justify-content-center">
 					<div class="logo-holder">
 						<img
 							id="hackpsu-logo"
@@ -217,9 +217,8 @@
 						/>
 					</div>	
 				</div>
-				<div class="row header-content">
-					<div class="col-md-3">
-					
+				<div class="row header-content justify-content-start">
+					<div class="offset-md-2 col-md-3">
 						<div class="info-card">
 							<div class="info-text-border">
 								<div class="info-text-wrapper">November 5-6!</div>
@@ -228,27 +227,34 @@
 						</div>
 
 						<div class="row cta">
-              <div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">
+              <!--<div class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn">-->
                 <div class="row justify-content-md-center">
-                  <a href="https://hackpsu.org/login"></a>
-                  <div class="header-text text-center">
-                    <p class="text-center register-btn-text">LOGIN</p>
-                  </div>
-                </div>
+                  <a href="https://hackpsu.org/login" class="header-btn btn-login">
+										<p class="header-btn-text">
+											LOGIN
+										</p>
+									</a>
+                <!--</div>-->
               </div>
-
+							</div>
+							<div class="row cta">
               <div
                 class="offset-md-2 col-lg-8 col-md-10 col-sm-12 register-btn"
                 style="left: 15vh; margin: 18px"
-                onclick="location.href='https://hackpsu.org/signup';"
-              >
+							>
+                <!--onclick="location.href='https://hackpsu.org/signup';"-->
                 <div class="row justify-content-md-center">
-                  <a href="https://app.hackpsu.org/signup"></a>
-                  <div class="header-text text-center">
+                  <a href="https://app.hackpsu.org/signup">
+										<button class="header-btn btn-signup">
+											SIGN UP
+										</button>
+									</a>
+                  <!--<div class="header-text text-center">
                     <p class="text-center register-btn-text">SIGN UP</p>
-                  </div>
+                  </div>-->
                 </div>
               </div>
+							</div>
 						</div>
 
 					</div>
