@@ -155,68 +155,6 @@ header {
     }
   }
 
-  .header-graphic {
-    display: block;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    .cloud-1 {
-      position: absolute;
-      width: 48%;
-      height: 22%;
-      top: -2%;
-      left: 33%;
-      z-index: 100;
-      background-image: url("../assets/images/cloud-2.svg");
-      background-repeat: no-repeat;
-      background-size: 65%;
-    }
-    .cloud-2 {
-      position: absolute;
-      width: 43%;
-      height: 22%;
-      top: 20%;
-      right: -8%;
-      z-index: 300;
-      background-image: url("../assets/images/cloud-1.svg");
-      background-repeat: no-repeat;
-      background-size: 65%;
-    }
-    .cloud-3 {
-      position: absolute;
-      width: 28%;
-      height: 22%;
-      top: 30%;
-      left: 10%;
-      z-index: 300;
-      background-image: url("../assets/images/cloud-5.svg");
-      background-repeat: no-repeat;
-      background-position: right;
-      background-size: 65%;
-    }
-    .mountain {
-      position: relative;
-      top: 0px;
-      margin: auto;
-      width: 100%;
-      // padding-right: 5%;
-      z-index: 200;
-      content: url("../assets/images/flat-mountain-graphic-snow.svg");
-    }
-    .mountain:after {
-      content: url("../assets/images/flat-mountain-graphic-snow.svg");
-    }
-    @media screen and (max-width: $lg-break) {
-      .mountain {
-        margin-top: 10vh;
-      }
-      .cloud-1, .cloud-2, .cloud-3 {
-        margin-top: 6vh;
-      }
-    }
-
-  }
-
 }
 
 .section-separator {
