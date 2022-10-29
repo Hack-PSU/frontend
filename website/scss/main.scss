@@ -24,6 +24,27 @@ $fg-gradient: linear-gradient(
 	rgba(171, 36, 177, 1) 69%,
 	$fg-color 100%
 );
+$card-gradient: linear-gradient(
+	200deg,
+	$bg-color 0%,
+	rgba(171, 36, 177, 1),
+	rgba(26, 58, 130, 1),
+	$fg-color 100%
+);
+$button-gradient: linear-gradient(
+	155deg,
+	rgba(234, 0, 116, 1),
+	#e5705c,
+	rgb(255, 225, 0),
+	rgba(234, 0, 116, 1),
+);
+// $button-gradient: repeating-linear-gradient(
+// 	140deg,
+// 	repeating-linear-gradient(red, yellow 10%, green 20%);
+// 	rgba(255, 193, 37, 255) 40%,
+// 	rgba(234, 0, 116, 255) 40%,
+// 	$fg-color 10%
+// );
 
 /* extra colors */
 $white: #ffffff;
@@ -446,7 +467,6 @@ body {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 
 		.logo-holder {
 			@media screen and (max-width: $md-break) {
@@ -480,6 +500,8 @@ body {
 		.header-content {
 			.event-info {
 				padding-top: 6vh;
+				padding-right: 0vh;
+				padding-left: 0vh;
 
 				div {
 					padding-left: 0;
@@ -528,13 +550,10 @@ body {
 				z-index: 200;
 			}
 
-			p span {
-				@include accent-text(#424242);
-				background: white;
-				border: solid 8px rgba(170, 202, 204, 0.6);
-				border-radius: 0 15px 15px 0;
-				padding: 10px 10px 4px 10px;
-				font-weight: 400;
+			p span { 
+				@include accent-text(#00d7c2);
+				background: black;
+
 			}
 
 			p:first-of-type span {
@@ -560,15 +579,6 @@ body {
 			}
 		}
 
-		.register-btn-transparent {
-			height: 10vh;
-			background: #00324b00;
-			border: solid 8px rgba(10, 10, 10, 0);
-			border-radius: 50px;
-			margin-bottom: 2vh;
-			margin-top: 2vh;
-		}
-
 		.register-btn-wrapper {
 			display: flex;
 			flex-direction: row;
@@ -576,11 +586,11 @@ body {
 
 		.register-btn {
 			@include transition(all, 0.4s);
-			height: 10vh;
+			// height: 10vh;
 			background: #000000;
 			border: solid 8px #ffffff;
-			margin-bottom: 2vh;
-			width: 10em;
+			// margin-bottom: 2vh;
+			// width: 10em;
 			cursor: pointer;
 
 			@media screen and (max-width: $md-break) {
@@ -616,6 +626,69 @@ body {
 			}
 		}
 	}
+		
+	.info-header-row {
+		margin: 0;
+	}
+
+	.info-card {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		margin-left: auto;
+		background: $card-gradient;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+	}
+				 
+	.info-text-border {
+		width: 100%;
+		border-radius: 8px;
+		background: #090035;
+	}
+						 
+	.info-text-wrapper { 
+		color: white;
+		font: 2.0rem Inconsolata, monospace;
+		text-align: center;
+		padding-top: 4px;
+		padding-bottom: 6px;
+	}
+
+	.header-btn {
+		background: $button-gradient;
+		padding: 10px;
+		border-radius: 8px;
+		margin-left: 0.5rem;
+		margin-bottom: 1rem;
+
+		.header-btn-text {
+			background-color: white;
+			margin: 0;
+			padding: 3px 25px;
+			border-radius: 8px;
+			background: black;
+			color: white;
+			text-transform: uppercase;
+			font-weight: 800;
+			font: 2.2rem Inconsolata, monospace;
+		}
+
+		&:hover {
+			.header-btn-text {
+				background-color: rgba(0, 0, 0, 0.2);
+				color: black;
+			}
+		}
+
+		.header-btn:first-child {
+			margin-left: 0;
+		}
+
+	}
+
 }
 
 .page-content {
@@ -778,15 +851,6 @@ border and the section separator bar */
 
 	.track-img {
 		width: 18%;
-	}
-
-	.register-btn-transparent {
-		height: 10vh;
-		background: #00324b00;
-		border: solid 8px rgba(10, 10, 10, 0);
-		border-radius: 50px;
-		margin-bottom: 2vh;
-		margin-top: 2vh;
 	}
 
 	.register-btn {
@@ -1245,6 +1309,7 @@ border and the section separator bar */
 		}
 		padding-top: 10%;
 	}
+
 	.pwc {
 		@media screen and (max-width: $md-break) {
 			width: 60%;
