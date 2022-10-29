@@ -664,7 +664,9 @@ body {
 	}
 
 	.info-card {
-		margin: 2rem auto;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		margin-left: auto;
 		background: $card-gradient;
 		border-radius: 8px;
 		display: flex;
