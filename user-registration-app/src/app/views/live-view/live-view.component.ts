@@ -43,6 +43,8 @@ export class LiveViewComponent implements OnInit {
 
   bannerText: string;
 
+  htmlString = "<div><h1>test</h1><p>hello</p></div>";
+
   particlesOptions = {
     fpsLimit: 24,
     particles: {
