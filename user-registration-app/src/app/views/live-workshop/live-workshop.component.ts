@@ -41,6 +41,11 @@ export class LiveWorkshopComponent implements OnInit {
     return this._endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
+  // Maybe not the best way to detect if it's rich text or not?
+  isRichTextDescription(): boolean {
+    return this.description.charAt(0) === "<";
+  }
+
   ngOnInit() {
     // this.removePresenter(1, this.presenter1Name, this.presenter1img);
     // this.removePresenter(2, this.presenter2Name, this.presenter2img);
