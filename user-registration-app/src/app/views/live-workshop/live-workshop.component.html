@@ -6,8 +6,17 @@
 
   <div id="module">
     <p><b>Location:</b> {{ location }}</p>
+    <!-- In case there are some events that don't have rich text, so must check for that. -->
     <div *ngIf="isRichTextDescription(); else elseBlock">
-      <b>Description:</b><div [innerHTML]="description"></div>
+      <b>Description:</b>
+      <div class="row">
+        <!-- Have a little tab for the description content so it's obvious
+             that it's part of the description. -->
+        <div class="col-1"></div>
+        <div class="col">
+          <div [innerHTML]="description"></div>
+        </div>
+      </div>
     </div>
     <ng-template #elseBlock>
       <p><b>Description:</b> {{ description }}</p>
