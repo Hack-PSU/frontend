@@ -1,0 +1,23 @@
+<!-- 
+  This is a simple page to allow for redirecting users to Firebase's password reset system
+  from a 'Reset Password' link.
+     
+  The reason we need this is because when a password reset email is sent, if the email sender 
+  and reset link do not map to the same domain, then the email gets quarantined by Microsoft 365,
+  which means it doesn't even show up in the user's spam or junk folder. For some reason, the 
+  default 'hackpsu18.firebaseapp.com' domain email also gets blocked, even if the domains match,
+  so we cannot send from that email domain and must instead send from the 'hackpsu.org' email domain.
+  Password authentication is handled through Firebase, though, so we must redirect to there to
+  allow the user to change their password.
+
+  Technically, the same result could probably also be achieved by defining a redirect in Namecheap,
+  but those do not serve HTTPS, and instead only serve HTTP (unless you pay for an SSL certificate).
+  For a user password reset, this would be insufficient security.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>window.location.replace('https://hackpsu18.firebaseapp.com/__/auth/action' + window.location.search)</script>
+  </head>
+</html>
