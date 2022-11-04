@@ -18,6 +18,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .header {
   background-size: cover;
   background-image: url('../../../assets/images/vapor-backgound.png');
+  padding-bottom: 10%
 }
 .font {
   font-family: 'Cyperspace_Front';
@@ -169,14 +170,15 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .submit-btn {
   height: auto;
   width: 500px;
-  background: #BC6A45;
-  border: solid 8px #8A4D2F;
-  border-radius: 50px;
+  background-image: url("../../../assets/images/vaporwave_popup_button.png");
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
   margin-bottom: 2vh;
   line-height: 9vh;
   font-size: 1.5rem;
 }
 .submit-btn-text {
+  padding-top: 7%;
   white-space: pre-line;
   width: 100%;
   color: black;
@@ -193,8 +195,10 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 .submit-btn:hover {
-  background-color: rgba(255, 255, 255, 1);
-  background: #b97555;
+  background-image: url("../../../assets/images/vaporwave_popup_button.png");
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  opacity: 50%;
 }
 
 th {
