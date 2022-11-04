@@ -315,6 +315,12 @@ td {
   font-size: large;
 }
 
+.icon-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mobile-app-text {
   align-self: center;
   font-size: 1.15em;
