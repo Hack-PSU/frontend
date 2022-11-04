@@ -1,8 +1,8 @@
 /* Materialize CSS sets content: "";, this breaks
 many of the utlities in Bootstrap, so undoing it here.*/
 @font-face {
-  font-family: "Carnevalee";
-  src: url("assets/fonts/Carnevalee Freakshow.ttf");
+  font-family: "Cyperspace_Front";
+  src: url("assets/fonts/CyberspaceRacewayFront.ttf"); 
 }
 
 .row::after {
@@ -20,7 +20,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
   background-image: url('../../../assets/images/vapor-backgound.png');
 }
 .font {
-  font-family: 'Carnevalee';
+  font-family: 'Cyperspace_Front';
 }
 #hackpsu-logo {
   margin-top: 10px;
@@ -181,7 +181,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
   width: 100%;
   color: black;
   letter-spacing: .1em;
-  font-family: 'Carnevalee';
+  font-family: 'Cyperspace_Front';
 }
 
 /* responsive text for submit project button */
