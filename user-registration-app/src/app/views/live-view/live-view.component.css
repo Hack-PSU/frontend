@@ -303,14 +303,14 @@ td {
 
 /* FAQ */
 .mat-expansion-panel {
-  background: #f3e3c2;
+  background: #0e36a3;
   text-align: left;
-  color: #b93e2d;
+  color: #fff;
   margin-top: 15px;
 }
 
 .mat-expansion-panel-header-title {
-  color: #442a00;
+  color: #fff;
   text-align: left;
   font-size: large;
 }
@@ -354,7 +354,7 @@ td {
   margin-top: 10px;
   padding: 10px 0;
   line-height: 35px;
-  background-color: #c0823b;
+  background-color: #0e36a3;
   color: white;
   border-radius: 2px;
   box-shadow: none;
@@ -395,8 +395,8 @@ td {
   font-family: 'Cornerstone', sans-serif;
   font-size: 1.75em;
   font-weight: bold;
-  background-color: #e5704c;
-  border: 5px solid #e5704c;
+  background-color: #0e36a3;
+  border: 5px solid #0e36a3;
   border-width: 9px 20px 5px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
@@ -412,20 +412,20 @@ td {
 }
 
 .beginner {
-  background: #6fa7b3;
-  border-color: #6fa7b3;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
 }
 
 .intermediate {
-  background: #1d5b7c;
-  border-color: #1d5b7c;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
 }
 
 .advanced {
-  background: #15425f;
-  border-color: #15425f;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
   color: #ffffff;
 }
