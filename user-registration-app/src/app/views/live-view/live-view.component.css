@@ -54,15 +54,22 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 #rules li {
-  padding: 0 10px;
+  /* padding: 0 10px; */
   font-weight: bold;
+  font-size: large;
 }
+
+#rules a {
+  color: rgb(6, 212, 219);
+}
+
 .left-side {
   /* background:#9FC2CC; */
   display: inline-block;
   font-size: 1em;
   margin: 10px 0;
 }
+
 .right-side {
   /* text-align: right; */
   font-size: 1em;
@@ -309,10 +316,17 @@ td {
   margin-top: 15px;
 }
 
+.mat-expansion-panel-header {
+  /* doing this to avoid messing with the automatic left-right padding */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .mat-expansion-panel-header-title {
   color: #fff;
   text-align: left;
   font-size: large;
+  font-weight: bold;
 }
 
 .icon-holder {
