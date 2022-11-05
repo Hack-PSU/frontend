@@ -1,8 +1,8 @@
 .card {
   border-radius: 10px;
   padding: 20px;
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-color: #0e36a3;
+  /* transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  background: linear-gradient(200deg, #1d0b42 0%, #86203b 100%);
   /* background-image: linear-gradient(160deg, #cf9c2d 0%, #b88311 100%); */
 }
 
