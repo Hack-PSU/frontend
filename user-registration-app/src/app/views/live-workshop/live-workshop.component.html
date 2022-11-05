@@ -10,10 +10,7 @@
     <div *ngIf="isRichTextDescription(); else elseBlock">
       <b>Description:</b>
       <div class="row">
-        <!-- Have a little tab for the description content so it's obvious
-             that it's part of the description. -->
-        <div class="col-1"></div>
-        <div class="col">
+        <div class="col" style="padding: 0;">
           <div [innerHTML]="description"></div>
         </div>
       </div>
