@@ -10,7 +10,7 @@
     <div *ngIf="isRichTextDescription(); else elseBlock">
       <b>Description:</b>
       <div [innerHTML]="description"></div>
-    </div>    
+    </div>
     <ng-template #elseBlock>
       <p><b>Description:</b> {{ description }}</p>
     </ng-template>
