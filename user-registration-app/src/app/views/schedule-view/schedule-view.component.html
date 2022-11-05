@@ -153,8 +153,8 @@
             Skills Needed:
           </p>
           {{ event.ws_relevant_skills }}<br />
-          <p style="font-weight: bold; display: inline">Event Desciption:</p>
-          {{ event.event_description }}<br />
+          <p style="font-weight: bold; display: inline">Event Description:</p>
+          <div [innerHTML]="event.event_description"></div>
           <p
             *ngIf="event.ws_urls && event.ws_urls.length !== 0"
             style="font-weight: bold; display: inline"

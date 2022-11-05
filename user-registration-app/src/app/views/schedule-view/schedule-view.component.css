@@ -246,8 +246,15 @@ i {
 }
 .modal-title {
   font-family: 'Cornerstone', sans-serif;
-  font-size: 1.95em;
+  /* font-size: 1.95em; */
   font-weight: bold;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  line-height: 3em; /* a */
+  max-height: 3em; /* a x number of line to show (ex : 2 line)  */
 }
 
 .modal-footer {
