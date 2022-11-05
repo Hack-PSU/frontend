@@ -18,6 +18,7 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .header {
   background-size: cover;
   background-image: url('../../../assets/images/vapor-backgound.png');
+  background-position: center;
   padding-bottom: 10%
 }
 .font {
