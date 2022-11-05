@@ -1,8 +1,8 @@
 /* Materialize CSS sets content: "";, this breaks
 many of the utlities in Bootstrap, so undoing it here.*/
 @font-face {
-  font-family: "Carnevalee";
-  src: url("assets/fonts/Carnevalee Freakshow.ttf");
+  font-family: "Cyperspace_Front";
+  src: url("assets/fonts/CyberspaceRacewayFront.ttf"); 
 }
 
 .row::after {
@@ -17,11 +17,12 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 .header {
   background-size: cover;
-  /*background-image: url('../../../assets/images/stars_1.svg') , linear-gradient(0deg ,#11334A 40%,#000000 100%);*/
-  background-repeat: no-repeat;
+  background-image: url('../../../assets/images/vapor-backgound.png');
+  background-position: center;
+  padding-bottom: 10%
 }
 .font {
-  font-family: 'Carnevalee';
+  font-family: 'Cyperspace_Front';
 }
 #hackpsu-logo {
   margin-top: 10px;
@@ -54,15 +55,22 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 #rules li {
-  padding: 0 10px;
+  /* padding: 0 10px; */
   font-weight: bold;
+  font-size: large;
 }
+
+#rules a {
+  color: rgb(6, 212, 219);
+}
+
 .left-side {
   /* background:#9FC2CC; */
   display: inline-block;
   font-size: 1em;
   margin: 10px 0;
 }
+
 .right-side {
   /* text-align: right; */
   font-size: 1em;
@@ -170,19 +178,20 @@ many of the utlities in Bootstrap, so undoing it here.*/
 .submit-btn {
   height: auto;
   width: 500px;
-  background: #BC6A45;
-  border: solid 8px #8A4D2F;
-  border-radius: 50px;
+  background-image: url("../../../assets/images/vaporwave_popup_button.png");
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
   margin-bottom: 2vh;
   line-height: 9vh;
   font-size: 1.5rem;
 }
 .submit-btn-text {
+  padding-top: 7%;
   white-space: pre-line;
   width: 100%;
   color: black;
   letter-spacing: .1em;
-  font-family: 'Carnevalee';
+  font-family: 'Cyperspace_Front';
 }
 
 /* responsive text for submit project button */
@@ -194,8 +203,10 @@ many of the utlities in Bootstrap, so undoing it here.*/
 }
 
 .submit-btn:hover {
-  background-color: rgba(255, 255, 255, 1);
-  background: #b97555;
+  background-image: url("../../../assets/images/vaporwave_popup_button.png");
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  opacity: 50%;
 }
 
 th {
@@ -300,16 +311,29 @@ td {
 
 /* FAQ */
 .mat-expansion-panel {
-  background: #f3e3c2;
+  background: #0e36a3;
   text-align: left;
-  color: #b93e2d;
+  color: #fff;
   margin-top: 15px;
 }
 
+.mat-expansion-panel-header {
+  /* doing this to avoid messing with the automatic left-right padding */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .mat-expansion-panel-header-title {
-  color: #442a00;
+  color: #fff;
   text-align: left;
   font-size: large;
+  font-weight: bold;
+}
+
+.icon-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile-app-text {
@@ -351,7 +375,7 @@ td {
   margin-top: 10px;
   padding: 10px 0;
   line-height: 35px;
-  background-color: #c0823b;
+  background-color: #0e36a3;
   color: white;
   border-radius: 2px;
   box-shadow: none;
@@ -392,8 +416,8 @@ td {
   font-family: 'Cornerstone', sans-serif;
   font-size: 1.75em;
   font-weight: bold;
-  background-color: #e5704c;
-  border: 5px solid #e5704c;
+  background-color: #0e36a3;
+  border: 5px solid #0e36a3;
   border-width: 9px 20px 5px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
@@ -409,20 +433,20 @@ td {
 }
 
 .beginner {
-  background: #6fa7b3;
-  border-color: #6fa7b3;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
 }
 
 .intermediate {
-  background: #1d5b7c;
-  border-color: #1d5b7c;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
 }
 
 .advanced {
-  background: #15425f;
-  border-color: #15425f;
+  background: #0e36a3;
+  border-color: #0e36a3;
   vertical-align: middle;
   color: #ffffff;
 }
@@ -702,80 +726,6 @@ and make images go away. */
   position: absolute;
   width: 100%;
   overflow-x: hidden;
-}
-
-#particles-js {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -10;
-  top: 0;
-  left: 0;
-  background: linear-gradient(90deg, rgba(139,89,5,1) 0%, rgba(117,76,41,1) 50%, rgba(149,95,5,1) 100%);
-}
-
-.hackycactuscont{
-  margin-bottom: 0em;
-}
-.cactus {
-  width: 20vw;
-}
-
-#hackycowboy {
-  object-fit: contain;
-  width: 10vw;
-  margin-bottom: .7vw;
-}
-
-/* ====================== TUMBLEWEED ==================== */
-#tumbleweed-container {
-  position: relative;
-}
-
-#tumbleweed-1,
-#tumbleweed-2,
-#tumbleweed-3 {
-  position: absolute;
-  z-index: -1;
-  width: 14vw;
-}
-
-@media screen and (max-width: 768px) {
-  #tumbleweed-1,
-  #tumbleweed-2,
-  #tumbleweed-3 {
-    width: 20vw;
-  }
-
-  #tumbleweed-2 {
-    top: 0 !important;
-  }
-
-  #tumbleweed-1 {
-    top: 8em !important;
-  }
-
-  #tumbleweed-3 {
-    top: 12em !important;
-  }
-}
-
-/* blue planet */
-#tumbleweed-1 {
-  top: 6em;
-  left: 12%;
-}
-
-/* orange planet */
-#tumbleweed-2 {
-  top: -3em;
-  left: 39%;
-}
-
-/* pink planet */
-#tumbleweed-3 {
-  top: 14em;
-  right: 15%;
 }
 
 /* ====================== MOBILE FIXES ==================== */
