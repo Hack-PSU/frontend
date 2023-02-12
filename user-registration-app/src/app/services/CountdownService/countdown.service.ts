@@ -32,7 +32,7 @@ export class CountdownService {
             });
             // this.isBeforeEvent = true;
           } else if (currentTime < this.endTime) {
-            bannerText = 'remains!';
+            bannerText = 'remains until hackpsu!';
             duration = new Duration(currentTime, this.endTime);
             this.zone.run(() => {
               observer.next({ duration, bannerText });
