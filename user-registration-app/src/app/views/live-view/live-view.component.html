@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-12">
-              <p class="text-center" style="font-size: 24px;">at Business Building!</p>
+              <p class="text-center" style="font-size: 24px;"> April 1st at Business Building!</p>
             </div>
 
             <br />
@@ -74,11 +74,17 @@
               <div class="font text-res submit-btn-text">Discord</div>
             </a>
             <br />
-            <a
+            <!--<a
               class="btn submit-btn"
               target="_blank"
               href="http://devpost.hackpsu.org/"
-              ><div class="font submit-btn-text text-res">Submit Your Project</div></a
+              ><div class="font submit-btn-text text-res">Submit Your Project</div> </a
+              -->
+            <a
+              class="btn submit-btn"
+              target="_blank"
+              href="/register"
+              ><div class="font submit-btn-text text-res">Register Now</div> </a
             >
           </div>
           <div class="page-header"></div>
@@ -151,19 +157,31 @@
             <div class="info-card col-12">
               <ol class="info-list">
                 <li>
-                  All participants must be 18 or older, and must bring a valid form of
-                  identification.
+                  All participants must be a current PSU Student or recent PSU graduate (less than one year), 
+                  or at least 18 years old and a student of some university. All participants must bring a valid 
+                  form of identification.
                 </li>
-                <li>Teams may be comprised of up to five members.</li>
                 <li>
-                  Projects should be original works created on site. Coming with an idea in mind is
+                  Teams may be comprised of up to five members. A team may only submit one project, and no participant
+                  may be a member of multiple teams.
+                </li>
+                <li>
+                  Projects must be original works created on site. Coming with an idea in mind is
                   perfectly fine, working on an existing project is not.
                 </li>
-                <li>All projects must be submitted through DevPost by 12PM on Sunday (even if not completed!) and can be edited until 1:45PM Sunday.</li>
-                <li>Students are permitted to come and go from the venue as they please.</li>
                 <li>
-                  Anything you create is your work, HackPSU and its partners have no claim over
-                  intellectual property produced at the event.
+                  All projects must be created through <a href="http://devpost.hackpsu.org">Devpost</a> 
+                  by 12PM on Sunday (even if not completed!) and can be edited until 1:45PM Sunday.
+                </li>
+                <li>All project code must be attached to the project's Devpost submission.</li>
+                <li>
+                  To be considered for prizes, at least one project representative must attend
+                  the judging expo after hacking ends on Sunday.
+                </li>
+                <li>
+                  Projects and other submission materials created by participants during the hackathon
+                  are owned by the participants who created them. HackPSU and its partners have
+                  no claim over intellectual property produced at the event.
                 </li>
                 <li>
                   All participants must agree to the 
@@ -202,7 +220,8 @@
                   </div>
                 </mat-expansion-panel-header>
                 <p>
-                  We have an info booth in-person!
+                  We have an info booth in the Business Building lobby! You can also see any member
+                  of the HackPSU organizing team at the event.
                 <p>
               </mat-expansion-panel>
               <mat-expansion-panel hideToggle class="mat-elevation-z0">
@@ -220,6 +239,65 @@
                   fine too! All that we ask is that you only work on your project while on the
                   premises.
                 <p>
+              </mat-expansion-panel>
+              <mat-expansion-panel hideToggle class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Can I sleep at the event?
+                  </mat-panel-title>
+                  <div class="icon-holder">
+                    <mat-icon>add</mat-icon>
+                  </div>
+                </mat-expansion-panel-header>
+                <p>
+                  Yes! We have air mattresses for checkout at the registration table
+                  starting at 10pm. All we ask is that you treat them nicely and please
+                  return them when you're done!
+                <p>
+              </mat-expansion-panel>
+              <mat-expansion-panel hideToggle class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Can I be reimbursed for travel?
+                  </mat-panel-title>
+                  <div class="icon-holder">
+                    <mat-icon>add</mat-icon>
+                  </div>
+                </mat-expansion-panel-header>
+                <p>
+                  Travel reimbursements will be handled at the registration table Saturday after 3pm and Sunday
+                  from 11am-1pm. Please come to the table with everyone that you traveled with,
+                  and the receipts for your transportation costs. If you spoke with us directly about
+                  special consideration, please have any emails/messages shared open and ready!
+                  <br>
+                  For more information, please refer to our <a href="http://app.hackpsu.org/travel-reimbursement">
+                    Travel Reimbursement Policy
+                  </a>.
+                <p>
+              </mat-expansion-panel>             
+            </div>
+      
+            <!-- Right column of questions -->
+            <div class="col-lg-6">
+              <mat-expansion-panel hideToggle class="mat-elevation-z0">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    How does extra credit work?
+                  </mat-panel-title>
+                  <div class="icon-holder">
+                    <mat-icon>add</mat-icon>
+                  </div>
+                </mat-expansion-panel-header>
+                <p>
+                  If your professor is offering extra credit for attending HackPSU, please sign up
+                  for extra credit for your class in your profile page <a routerLink="/profile">here</a>.
+                  If your professor requires workshop attendance, please see a HackPSU organizer 
+                  outside the workshop so that we can record your attendance and confirm 
+                  that you participated at the event.
+                <p>
+                <p>
+                  Click <a routerLink="/profile">here</a> to sign up for extra credit!
+                </p>
               </mat-expansion-panel>
               <mat-expansion-panel hideToggle class="mat-elevation-z0">
                 <mat-expansion-panel-header>
@@ -243,73 +321,6 @@
               <mat-expansion-panel hideToggle class="mat-elevation-z0">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Can I sleep at the event?
-                  </mat-panel-title>
-                  <div class="icon-holder">
-                    <mat-icon>add</mat-icon>
-                  </div>
-                </mat-expansion-panel-header>
-                <p>
-                  Yes! We have air mattresses for checkout at the registration table
-                  starting at 10pm. All we ask is that you treat them nicely and please return them when
-                  you're done!
-                <p>
-              </mat-expansion-panel>
-              <mat-expansion-panel hideToggle class="mat-elevation-z0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    When can I get travel reimbursement?
-                  </mat-panel-title>
-                  <div class="icon-holder">
-                    <mat-icon>add</mat-icon>
-                  </div>
-                </mat-expansion-panel-header>
-                <p>
-                  Travel reimbursements will be handled at the registration table Saturday after 3pm and Sunday
-                  from 11am-1pm. Please come to the table with everyone that you traveled with,
-                  and the receipts for your transportation costs. If you spoke with us directly about
-                  special consideration, please have any emails/messages shared open and ready!
-                <p>
-              </mat-expansion-panel>             
-            </div>
-      
-            <!-- Right column of questions -->
-            <div class="col-lg-6">
-              <mat-expansion-panel hideToggle class="mat-elevation-z0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    How does extra credit work?
-                  </mat-panel-title>
-                  <div class="icon-holder">
-                    <mat-icon>add</mat-icon>
-                  </div>
-                </mat-expansion-panel-header>
-                <p>
-                  If you are attending and a professor is offering extra credit for being at
-                  HackPSU, please refer to the requirements they set out for receiving extra credit.
-                  We will be tracking attendance to events like workshops, and will be reporting
-                  back to professors with data so that they may confirm you were participating.
-                <p>
-                <p>
-                  Click <a routerLink="/profile">here</a> to sign up for extra credit!
-                </p>
-              </mat-expansion-panel>
-              <mat-expansion-panel hideToggle class="mat-elevation-z0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Where did the old website go?
-                  </mat-panel-title>
-                  <div class="icon-holder">
-                    <mat-icon>add</mat-icon>
-                  </div>
-                </mat-expansion-panel-header>
-                <p>
-                  It's right <a target="_blank" href="https://app.hackpsu.org">here!</a>
-                <p>
-              </mat-expansion-panel>
-              <mat-expansion-panel hideToggle class="mat-elevation-z0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
                     What is Devpost?
                   </mat-panel-title>
                   <div class="icon-holder">
@@ -326,17 +337,16 @@
               <mat-expansion-panel hideToggle class="mat-elevation-z0">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    When are Devpost submissions due?
+                    When are project submissions due?
                   </mat-panel-title>
                   <div class="icon-holder">
                     <mat-icon>add</mat-icon>
                   </div>
                 </mat-expansion-panel-header>
                 <p>
-                  You must have a Devpost submission created by Sunday 12pm (even if not completed) in our HackPSU
-                  Fall 2022 Devpost so we know how many projects we have to judge. That doesn't mean you have
-                  to stop working on it though! You can keep editing your Devpost all the way until hacking ends
-                  on Sunday at 1:45pm.
+                  You must have a Devpost submission created by Sunday 12pm (even if not completed) 
+                  on our <a href="http://devpost.hackpsu.org">Devpost page</a>. However, you can continue
+                  editing the submission until hacking ends on Sunday at 1:45pm.
                 <p>
               </mat-expansion-panel>
             </div>
