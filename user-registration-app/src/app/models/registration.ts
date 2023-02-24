@@ -27,8 +27,8 @@ export class Registration {
   public projectDesc: string;
   public expectations: string;
   public veteran: string;
-  public address: string;
-  public addressFields: any;
+  public country: string;
+  //public addressFields: any;
   public shareAddressMlh: boolean;
   public shareAddressSponsors: boolean;
   public shareEmailMlh: boolean;
@@ -70,15 +70,15 @@ export class Registration {
       caucasian: false,
       noDisclose: false,
     };
-    this.address = '';
-    this.addressFields = {
-      addressLine1: '',
-      addressLine2: '',
-      city: '',
-      stateProvince: '',
-      zipcode: '',
-      country: '',
-    };
+    this.country = null;
+    // this.addressFields = {
+    //   addressLine1: '',
+    //   addressLine2: '',
+    //   city: '',
+    //   stateProvince: '',
+    //   zipcode: '',
+    //   country: '',
+    // };
     this.shareAddressMlh = false;
     this.shareAddressSponsors = false;
     this.shareAddressMlh = false;
@@ -97,7 +97,7 @@ export class Registration {
 
   public static parseFromApiResponse(value: RegistrationApiResponse): Registration {
     const registration = new Registration();
-    registration.address = value.address;
+    registration.country = value.country;
     registration.firstName = value.firstname;
     registration.lastName = value.lastname;
     registration.gender = value.gender;
@@ -134,7 +134,7 @@ export class Registration {
 }
 
 export interface IRegistrationDb {
-  address: string;
+  country: string;
   firstname: string;
   lastname: string;
   gender: string;
@@ -173,7 +173,7 @@ export interface IRegistrationDb {
 }
 
 export class RegistrationApiResponse {
-  address: string;
+  country: string;
   academic_year: string;
   active: boolean;
   allergies: string | null;
@@ -223,7 +223,7 @@ export class RegistrationApiResponse {
     const registration = new RegistrationApiResponse();
     registration.firstname = value.firstname;
     registration.lastname = value.lastname;
-    registration.address = value.address;
+    registration.country = value.country;
     registration.gender = value.gender;
     registration.email = value.email;
     registration.eighteenBeforeEvent = !!value.eighteenBeforeEvent;

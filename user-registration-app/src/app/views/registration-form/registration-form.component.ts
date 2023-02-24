@@ -68,7 +68,7 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
         return 'Please tell us your gender. We think we\'ve covered all the options';
       case '.shirtSize':
         return 'Please provide a shirt size. Wouldn\'t wanna miss out on that :)';
-      case '.address':
+      case '.country':
         return 'Please provide a country (required by MLH)';
       case '.travelReimbursement':
         return 'Are you travelling from far away? You may be eligible for reimbursement!';
@@ -101,11 +101,11 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
     return selectedEthnicities.join(', ');
   }
 
-  private consolidateAddress() {
-    return Object.values(this.registrationForm.addressFields)
-      .filter((field) => field)
-      .join(', ');
-  }
+  // private consolidateAddress() {
+  //   return Object.values(this.registrationForm.addressFields)
+  //     .filter((field) => field)
+  //     .join(', ');
+  // }
 
   private validate() {
     const result = this.validator(this.registrationForm);
@@ -229,7 +229,7 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
 
   validateAndSubmit() {
     this.registrationForm.ethnicity = this.consolidateEthnicities();
-    this.registrationForm.address = this.consolidateAddress();
+    //this.registrationForm.address = this.consolidateAddress();
 
     if (this.validate() && this.form.valid) {
       this.submit();
