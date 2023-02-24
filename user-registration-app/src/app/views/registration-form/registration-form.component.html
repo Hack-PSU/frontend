@@ -377,15 +377,57 @@
     </div>
   </div>
 
-  <!-- Address -->
+  <!-- Country -->
   <div
     *ngIf="registrationForm.eighteenBeforeEvent"
     [@enterAnimation]
     class="row scrollspy"
     materialize="scrollSpy"
-    id="address-container"
+    id="country-container"
   >
-    <div class="card medium darken-1">
+  <div class="card medium darken-1">
+    <div class="card-content">
+      <h5>What country are you from?</h5>
+      <div class="input-field">
+        <input
+          name="country"
+          id="country-container"
+          class="validate required"
+          required
+          [(ngModel)]="registrationForm.country"
+          #countryControl="ngModel"
+          autocomplete="country"
+          type="text"
+        />
+        <label for="country-container" data-error="country is required"
+          >Enter your country</label>
+      </div>
+      <label class="data-error" *ngIf="!countryControl.valid">Required</label> 
+    </div>
+    <div class="form-group">
+      <input
+       type="checkbox"
+       class="with-gap"
+       id="shareAddressMlh"
+       name="shareAddressMlh"
+       [(ngModel)]="registrationForm.shareAddressMlh"
+     /> 
+     <!-- <label for="shareAddressMlh">Share your address with MLH?</label> -->
+     <!-- <label class="data-error">Note: Country is required by MLH</label><br /> -->
+   </div>
+   <div class="form-group">
+     <input
+       type="checkbox"
+       class="with-gap"
+       id="shareAddressSponsors"
+       name="shareAddressSponsors"
+       [(ngModel)]="registrationForm.shareAddressSponsors"
+     />
+     <label for="shareAddressSponsors">Share my address with HackPSU sponsors</label><br />
+   </div>
+  </div>
+
+    <!--<div class="card medium darken-1">
       <div class="card-content">
         <h5 class="address">What is your address?</h5>
         <div class="input-field">
@@ -445,33 +487,13 @@
         <p>
           <label class="data-error" *ngIf="registrationForm.addressFields.country.trim().length == 0">Note: Country is required</label>
         </p>
-        <div class="form-group">
-          <!-- <input
-            type="checkbox"
-            class="with-gap"
-            id="shareAddressMlh"
-            name="shareAddressMlh"
-            [(ngModel)]="registrationForm.shareAddressMlh"
-          /> -->
-          <!-- <label for="shareAddressMlh">Share your address with MLH?</label> -->
-          <!-- <label class="data-error">Note: Country is required by MLH</label><br /> -->
-        </div>
-        <div class="form-group">
-          <input
-            type="checkbox"
-            class="with-gap"
-            id="shareAddressSponsors"
-            name="shareAddressSponsors"
-            [(ngModel)]="registrationForm.shareAddressSponsors"
-          />
-          <label for="shareAddressSponsors">Share my address with HackPSU sponsors</label><br />
-        </div>
+        
         <p class="alert">
           This information is for us to send you goodies (domestic shipping) if needed! Everything is optional.
         </p>
       </div>
-    </div>
-  </div>
+    </div>-->
+  </div> 
 
   <!-- Travel Reimbursement -->
   <!-- <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="travel-container">

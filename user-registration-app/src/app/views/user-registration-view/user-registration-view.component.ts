@@ -45,7 +45,7 @@ export class UserRegistrationViewComponent implements OnInit {
     this.willUpdateAddressFields = false;
     this.regPropertyNameResolve = {
       academic_year: 'Academic Year',
-      address: 'Address',
+      country: 'Country',
       allergies: 'Allergies',
       coding_experience: 'Coding experience',
       dietary_restriction: 'Dietary Restrictions',
@@ -110,22 +110,22 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   getAddress(): string {
-    if (this.activeRegistration && this.activeRegistration.address) {
-      return this.activeRegistration.address;
+    if (this.activeRegistration && this.activeRegistration.country) {
+      return this.activeRegistration.country;
     }
     return 'No address on file. Please add your address if you would like to receive some swag!';
   }
 
-  private consolidateAddress() {
-    return Object.values(this.updatedAddressFields)
-      .filter((field) => field)
-      .join(', ');
-  }
+  // private consolidateAddress() {
+  //   return Object.values(this.updatedAddressFields)
+  //     .filter((field) => field)
+  //     .join(', ');
+  // }
 
   submitAddress() {
     this.progressService.ref().start();
     const reg = Registration.parseFromApiResponse(this.activeRegistration);
-    reg.address = this.consolidateAddress();
+    //reg.address = this.consolidateAddress();
     reg.shareAddressMlh = this.shareAddressMlh;
     reg.shareAddressSponsors = this.shareAddressSponsors;
 
@@ -133,7 +133,7 @@ export class UserRegistrationViewComponent implements OnInit {
       () => {
         this.progressService.ref().complete();
         this.toastrService.success(
-          'Your address has been updated. Please navigate away from the page to refresh this view.',
+          'Your country has been updated. Please navigate away from the page to refresh this view.',
         );
       },
       ({ error }) => {
