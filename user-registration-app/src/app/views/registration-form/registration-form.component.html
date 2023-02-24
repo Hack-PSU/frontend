@@ -25,7 +25,7 @@
             type="text"
           />
           <label for="firstName-container" data-error="First name is required"
-            >Enter your First Name</label
+            >Enter your first name</label
           >
         </div>
         <div class="input-field">
@@ -40,7 +40,7 @@
             type="text"
           />
           <label for="lastName-container" data-error="Last name is required"
-            >Enter your Last Name</label
+            >Enter your last name</label
           >
         </div>
         <label class="data-error" *ngIf="!firstnameInput.valid">Required</label>
@@ -265,8 +265,7 @@
     <div class="card medium darken-1">
       <div class="card-content">
         <h5 class="age">
-          Will you be at least 18 or a current Penn State University student before November 5th,
-          2022?
+          Will you be at least 18 years old before April 1st, 2023?
         </h5>
         <!-- Switch -->
         <div class="switch">
@@ -285,8 +284,8 @@
         </div>
         <div *ngIf="!registrationForm.eighteenBeforeEvent">
           <p class="alert danger">
-            You must be 18 to attend. If you are under 18 and still wish to attend, please contact
-            us at <a href="mailto://team@hackpsu.org">team@hackpsu.org</a>
+            If you are under 18 and wish to attend, please contact us at 
+            <a href="mailto://team@hackpsu.org">team@hackpsu.org</a> for special registration circumstances.
           </p>
         </div>
         <label class="data-error" *ngIf="!registrationForm.eighteenBeforeEvent">Required</label>
@@ -388,7 +387,7 @@
   <div class="card medium darken-1">
     <div class="card-content">
       <h5>What country are you from?</h5>
-      <div class="input-field">
+      <div class="input-field">  
         <input
           name="country"
           id="country-container"
@@ -399,101 +398,12 @@
           autocomplete="country"
           type="text"
         />
-        <label for="country-container" data-error="country is required"
-          >Enter your country</label>
+        <label for="country-container" data-error="Country is required">Enter your Country</label>
       </div>
-      <label class="data-error" *ngIf="!countryControl.valid">Required</label> 
+      <label class="data-error" *ngIf="!countryControl.valid">Required</label>
     </div>
-    <div class="form-group">
-      <input
-       type="checkbox"
-       class="with-gap"
-       id="shareAddressMlh"
-       name="shareAddressMlh"
-       [(ngModel)]="registrationForm.shareAddressMlh"
-     /> 
-     <!-- <label for="shareAddressMlh">Share your address with MLH?</label> -->
-     <!-- <label class="data-error">Note: Country is required by MLH</label><br /> -->
-   </div>
-   <div class="form-group">
-     <input
-       type="checkbox"
-       class="with-gap"
-       id="shareAddressSponsors"
-       name="shareAddressSponsors"
-       [(ngModel)]="registrationForm.shareAddressSponsors"
-     />
-     <label for="shareAddressSponsors">Share my address with HackPSU sponsors</label><br />
    </div>
   </div>
-
-    <!--<div class="card medium darken-1">
-      <div class="card-content">
-        <h5 class="address">What is your address?</h5>
-        <div class="input-field">
-          <label for="addressLine1">Address line 1</label>
-          <input
-            type="text"
-            id="addressLine1"
-            name="addressLine1"
-            [(ngModel)]="registrationForm.addressFields.addressLine1"
-          />
-        </div>
-        <div class="input-field">
-          <label for="addressLine2">Address line 2</label>
-          <input
-            type="text"
-            id="addressLine2"
-            name="addressLine2"
-            [(ngModel)]="registrationForm.addressFields.addressLine2"
-          />
-        </div>
-        <div class="input-field">
-          <label for="zipcode">Zipcode</label>
-          <input
-            type="text"
-            id="zipcode"
-            name="zipcode"
-            [(ngModel)]="registrationForm.addressFields.zipcode"
-          />
-        </div>
-        <div class="input-field">
-          <label for="city">City</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            [(ngModel)]="registrationForm.addressFields.city"
-          />
-        </div>
-        <div class="input-field">
-          <label for="stateProvince">State/Province</label>
-          <input
-            type="text"
-            id="stateProvince"
-            name="stateProvince"
-            [(ngModel)]="registrationForm.addressFields.stateProvince"
-          />
-        </div>
-        <div class="input-field">
-          <label for="country">Country</label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            [(ngModel)]="registrationForm.addressFields.country"
-          />
-        </div>
-        <p>
-          <label class="data-error" *ngIf="registrationForm.addressFields.country.trim().length == 0">Note: Country is required</label>
-        </p>
-        
-        <p class="alert">
-          This information is for us to send you goodies (domestic shipping) if needed! Everything is optional.
-        </p>
-      </div>
-    </div>-->
-  </div> 
 
   <!-- Travel Reimbursement -->
   <!-- <div *ngIf="registrationForm.eighteenBeforeEvent" class="row scrollspy" materialize="scrollSpy" id="travel-container">
@@ -587,8 +497,8 @@
         </div>
         <div class="form-group" *ngIf="diet_restr">
           <p class="alert">NOTE: We will try our best to accommodate all dietary restrictions as
-            long as your registration is submitted at least a month before the event. In case you
-            need to select multiple options, just type them all under "other"</p>
+            long as your registration is submitted at least a month before the event. If you need
+            to select multiple options, please type them all under "other"</p>
           <input type="radio" class="with-gap" id="vegetarian" required name="dietaryRestriction" value="vegetarian"
             (change)="dietaryRestriction($event)">
           <label for="vegetarian">Vegetarian</label><br>
@@ -659,9 +569,9 @@
   >
     <div class="card medium darken-1">
       <div class="card-content">
-        <h5 class="school">What university do you attend?</h5>
+        <h5 class="school">What school do you attend?</h5>
         <div class="input-field">
-          <label for="autocomplete-input-university">Name of university</label>
+          <label for="autocomplete-input-university">Name of school</label>
           <input
             type="text"
             name="university"
@@ -761,10 +671,10 @@
   </div>
 
   <div
-  *ngIf="registrationForm.eighteenBeforeEvent"
-  class="row scrollspy"
-  materialize="scrollSpy"
-  id="instritution-container"
+    *ngIf="registrationForm.eighteenBeforeEvent"
+    class="row scrollspy"
+    materialize="scrollSpy"
+    id="instritution-container"
   >
     <div class="card medium darken-1">
       <div class="card-content">
@@ -890,8 +800,7 @@
           Submit {{ registrationForm.hasExistingResume() ? 'new' : 'your' }} resume
         </h5>
         <p class="alert">
-          This field is completely optional. You may submit your resume if you want us to share it
-          with employers at HackPSU.
+          If a resume is submitted, it will be shared with employers sponsoring HackPSU.
         </p>
         <div class="file-field input-field row">
           <div class="btn col-sm-6 offset-sm-3">
@@ -964,10 +873,9 @@
       <div class="card-content">
         <h5 class="mlh-coc">Do you agree to MLH Data Sharing Notice?</h5>
         <p class="small-text">
-          Data Sharing Notice:<br />
-          I authorize you to share my application/registration information for event administration,
-          ranking, MLH administration, pre- and post-event informational e-mails, and occasional
-          messages about hackathons in-line with the
+          By agreeing to this notice, you affirm that: "
+          I authorize you to share my registration information with Major League Hacking
+          for event administration, ranking, MLH administration in-line with the
           <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>. I further agree
           to the terms of both the
           <a
@@ -975,10 +883,10 @@
             target="_blank"
             >MLH Contest Terms and Conditions</a
           >
-          and the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>.<br />
+          and the <a href="https://mlh.io/privacy" target="_blank">MLH Privacy Policy</a>."<br />
         </p>
 
-        <p class="alert">Note that to participate at HackPSU, you must agree to this policy.</p>
+        <p class="alert">To participate at HackPSU, you must agree to this policy.</p>
         <div class="switch">
           <label>
             No
@@ -998,7 +906,7 @@
     </div>
   </div>
 
-  <!-- MLH Email Sharing -->
+  <!-- MLH Email opt-in Sharing -->
   <div
     *ngIf="registrationForm.eighteenBeforeEvent"
     class="row scrollspy"
@@ -1007,7 +915,7 @@
   >
     <div class="card medium darken-1">
       <div class="card-content">
-        <h5 class="mlh-coc">Do you want to share your email with MLH?</h5>
+        <h5 class="mlh-coc">Do you want to opt into further communications from MLH?</h5>
         <p class="small-text">
           Communication from MLH: "I authorize MLH to send me an email where I can further opt into the MLH Hacker, Events, or Organizer Newsletters and other communications from MLH."
         </p>
