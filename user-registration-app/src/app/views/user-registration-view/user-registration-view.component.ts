@@ -15,10 +15,6 @@ export class UserRegistrationViewComponent implements OnInit {
   classes: ExtraCreditClass[];
   submittedClasses: Map<string, boolean>;
   regPropertyNameResolve: any;
-  willUpdateAddressFields: boolean;
-  updatedAddressFields: any;
-  shareAddressMlh: boolean;
-  shareAddressSponsors: boolean;
 
   public keyVals(object: any) {
     return Object.entries(object);
@@ -32,20 +28,9 @@ export class UserRegistrationViewComponent implements OnInit {
     this.activeRegistration = null;
     this.classes = [];
     this.submittedClasses = new Map();
-    this.updatedAddressFields = {
-      addressLine1: '',
-      addressLine2: '',
-      city: '',
-      stateProvince: '',
-      zipcode: '',
-      country: '',
-    };
-    this.shareAddressMlh = false;
-    this.shareAddressSponsors = false;
-    this.willUpdateAddressFields = false;
     this.regPropertyNameResolve = {
       academic_year: 'Academic Year',
-      address: 'Address',
+      country: 'Country',
       allergies: 'Allergies',
       coding_experience: 'Coding experience',
       dietary_restriction: 'Dietary Restrictions',
@@ -103,45 +88,6 @@ export class UserRegistrationViewComponent implements OnInit {
         classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
       });
     });
-  }
-
-  editAddressToggle() {
-    this.willUpdateAddressFields = !this.willUpdateAddressFields;
-  }
-
-  getAddress(): string {
-    if (this.activeRegistration && this.activeRegistration.address) {
-      return this.activeRegistration.address;
-    }
-    return 'No address on file. Please add your address if you would like to receive some swag!';
-  }
-
-  private consolidateAddress() {
-    return Object.values(this.updatedAddressFields)
-      .filter((field) => field)
-      .join(', ');
-  }
-
-  submitAddress() {
-    this.progressService.ref().start();
-    const reg = Registration.parseFromApiResponse(this.activeRegistration);
-    reg.address = this.consolidateAddress();
-    reg.shareAddressMlh = this.shareAddressMlh;
-    reg.shareAddressSponsors = this.shareAddressSponsors;
-
-    this.httpService.submitAddress(reg).subscribe(
-      () => {
-        this.progressService.ref().complete();
-        this.toastrService.success(
-          'Your address has been updated. Please navigate away from the page to refresh this view.',
-        );
-      },
-      ({ error }) => {
-        this.toastrService.warning(
-          'Something may have gone wrong in that process. Contact a member of staff to check',
-        );
-      },
-    );
   }
 
   async submitClasses() {
