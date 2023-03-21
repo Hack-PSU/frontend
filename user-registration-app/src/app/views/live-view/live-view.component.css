@@ -655,6 +655,11 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.powered-by-text {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.4em;
+}
 /* Properly scale our text and icons on smaller screens,
 and make images go away. */
 @media screen and (max-width: 568px) {
