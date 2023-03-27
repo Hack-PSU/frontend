@@ -15,6 +15,7 @@ import { ProjectModel } from '../../models/project-model';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { UserExtraCreditApiResponse } from '../../models/user-extra-credit';
 import { SponsorModel } from '../../models/sponsor';
+import {HackathonStaticModel} from '../../models/hackathon-static-model';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -117,8 +118,22 @@ export class HttpService extends BaseHttpService {
     return this.get(API_ENDPOINT).pipe(map(Rsvp.parseJSON));
   }
 
+  getActiveHackathon() {
+    return this
+      .get(
+        '/hackathons/active/static',
+        false,
+        false,
+        false,
+        true,
+      )
+      .pipe(
+        map(HackathonStaticModel.parseJSON),
+      );
+  }
+
   getEvents() {
-    const API_ENDPOINT = 'live/events';
+    const API_ENDPOINT = '/events';
     return this.get(API_ENDPOINT, false, false, true).pipe(map(EventModel.parseFromJSONArray));
   }
 
@@ -137,7 +152,7 @@ export class HttpService extends BaseHttpService {
 
   getExtraCreditClassesForUser(uid: string) {
     const API_ENDPOINT = 'users/extra-credit/assignment?type=user';
-    return this.get(API_ENDPOINT, true, true, true, uid).pipe(
+    return this.get(API_ENDPOINT, true, true, true, false, uid).pipe(
       map((classes: any[]) => classes.map((c) => UserExtraCreditApiResponse.parseJSON(c))),
     );
   }

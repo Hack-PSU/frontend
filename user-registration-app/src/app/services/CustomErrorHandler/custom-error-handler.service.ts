@@ -5,6 +5,7 @@ import { Error } from '../../models/interfaces';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, throwError } from 'rxjs';
 import { IApiResponse } from '../../models/api-response.v2';
+import {ApiErrorResponseV3} from '../../models/api-error-response-v3';
 
 @Injectable()
 export class CustomErrorHandlerService {
@@ -90,5 +91,10 @@ export class CustomErrorHandlerService {
     console.error(error);
     // this.toastrService.error(error.message);
     return throwError(error);
+  }
+
+  handleV3HttpError(err: { error: ApiErrorResponseV3 }) {
+    console.error(err);
+    return throwError(err);
   }
 }

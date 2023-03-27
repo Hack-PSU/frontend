@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   api_url: 'https://staging-dot-hackpsu18.appspot.com/v1/',
   api_v2_url: 'https://staging-v2-dot-hackpsu18.uc.r.appspot.com/v2/',
+  api_v3_url: 'https://apiv3-staging-apgi25sgea-uc.a.run.app',
   // api_url: 'http://localhost:5000/v1/',
   // api_v2_url: 'http://localhost:5000/v2/',
   // https://staging-v2-dot-hackpsu18.uc.r.appspot.com/

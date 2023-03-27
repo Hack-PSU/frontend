@@ -1,10 +1,10 @@
-import { Component, NgZone, OnInit } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
-import { Subscription } from 'rxjs';
-import { CountdownService } from '../../services/CountdownService/countdown.service';
-import { HttpService } from '../../services/HttpService/HttpService';
-import { EventModel } from '../../models/event-model';
-import { SponsorModel } from '../../models/sponsor';
+import {Component, NgZone, OnInit} from '@angular/core';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {Subscription} from 'rxjs';
+import {CountdownService} from '../../services/CountdownService/countdown.service';
+import {HttpService} from '../../services/HttpService/HttpService';
+import {EventV3Model} from '../../models/event-v3-model';
+import {SponsorV3Model} from '../../models/sponsor-v3-model';
 
 declare let $: any;
 
@@ -16,12 +16,12 @@ declare let $: any;
   animations: [
     trigger('enterAnimation', [
       transition(':enter', [
-        style({ transform: 'scale(0)', opacity: 0 }),
-        animate('500ms', style({ transform: 'scale(1)', opacity: 1 })),
+        style({transform: 'scale(0)', opacity: 0}),
+        animate('500ms', style({transform: 'scale(1)', opacity: 1})),
       ]),
       transition(':leave', [
-        style({ transform: 'scale(1)', opacity: 1 }),
-        animate('500ms', style({ transform: 'scale(0)', opacity: 0 })),
+        style({transform: 'scale(1)', opacity: 1}),
+        animate('500ms', style({transform: 'scale(0)', opacity: 0})),
       ]),
     ]),
   ],
@@ -38,8 +38,11 @@ export class LiveViewComponent implements OnInit {
   minutes: number;
   seconds: number;
 
-  workshops: EventModel[];
-  sponsors: SponsorModel[];
+  activities: EventV3Model[];
+  meals: EventV3Model[];
+  workshops: EventV3Model[];
+  activeWorkshops: EventV3Model[];
+  sponsors: SponsorV3Model[];
 
   bannerText: string;
 
@@ -118,21 +121,22 @@ export class LiveViewComponent implements OnInit {
     private zone: NgZone,
     private countdownService: CountdownService,
     private httpService: HttpService,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
-    this.countdownService.startCountDown().subscribe(({ duration, bannerText }) => {
+    this.countdownService.startCountDown().subscribe(({duration, bannerText}) => {
       this.days = duration.days;
       this.hours = duration.hours;
       this.minutes = duration.minutes;
       this.seconds = duration.seconds;
       this.bannerText = bannerText;
     });
-    this.httpService.getEvents().subscribe((eventsArr) => {
-      this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
-    });
-    this.httpService.getSponsors().subscribe((sponsorsArr) => {
-      this.sponsors = sponsorsArr.sort((a, b) => a.order - b.order);
+    this.httpService.getActiveHackathon().subscribe((hackathon) => {
+      this.activities = hackathon.events.filter((e) => e.type === 'activity');
+      this.meals = hackathon.events.filter((e) => e.type === 'food');
+      this.workshops = hackathon.events.filter((e) => e.type === 'workshop');
+      this.sponsors = hackathon.sponsors;
     });
   }
 }
