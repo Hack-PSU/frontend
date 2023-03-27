@@ -38,6 +38,7 @@ import { TruncatePipe } from './services/pipes/truncate.pipe';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { QRCodeModule } from 'angularx-qrcode';
+import {ActiveEventsPipe} from "./services/pipes/active-events.pipe";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     RsvpComponent,
     LiveWorkshopComponent,
     TruncatePipe,
+    ActiveEventsPipe,
     ScheduleViewComponent,
     UserProfileViewComponent,
     UserRegistrationViewComponent,

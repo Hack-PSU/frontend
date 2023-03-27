@@ -3,9 +3,9 @@
     <div class="col-md-4">
       <span class="schedule-title">ACTIVITIES</span>
       <div class="row event-row activity">
-        <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)" id="event_key-{{activity.uid}}"
+        <div *ngFor="let activity of (activities | limitTo: activitiesViewNum)" id="event_key-{{activity.id}}"
           class="event" [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)"
-          data-toggle="modal" [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+          data-toggle="modal" [attr.data-target]="'#event_key-'+activity.id+'-modal'">
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
@@ -17,10 +17,10 @@
                 <div class="event-time">
                   {{getStartTime(activity)}} - {{getEndTime(activity)}}
                 </div>
-                <div class="event-location">{{activity.location_name}}</div>
+                <div class="event-location">{{activity.location.name}}</div>
               </div>
               <div class="col-6">
-                <div class="event-title">{{activity.event_title}}</div>
+                <div class="event-title">{{activity.name}}</div>
                 <div class="event-description"></div>
               </div>
             </div>
@@ -35,9 +35,9 @@
     <div class="col-md-4">
       <span class="schedule-title">MEALS</span>
       <div class="row event-row food">
-        <div *ngFor="let activity of (meals | limitTo: mealsViewNum)" id="event_key-{{activity.uid}}" class="event"
+        <div *ngFor="let activity of (meals | limitTo: mealsViewNum)" id="event_key-{{activity.id}}" class="event"
           [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)" data-toggle="modal"
-          [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+          [attr.data-target]="'#event_key-'+activity.id+'-modal'">
           <ng-container>
             <div class="container-fluid">
               <div class="row">
@@ -69,9 +69,9 @@
     <div class="col-md-4">
       <span class="schedule-title">WORKSHOPS</span>
       <div class="row event-row workshops">
-        <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)" id="event_key-{{activity.uid}}"
+        <div *ngFor="let activity of (workshops | limitTo: workshopsViewNum)" id="event_key-{{activity.id}}"
           class="event" [attr.start_time]="getStartTime(activity)" [attr.end_time]="getEndTime(activity)"
-          data-toggle="modal" [attr.data-target]="'#event_key-'+activity.uid+'-modal'">
+          data-toggle="modal" [attr.data-target]="'#event_key-'+activity.id+'-modal'">
           <ng-container>
             <div class="container-fluid">
               <div class="row">
@@ -84,10 +84,10 @@
                   <div class="event-time">
                     {{getStartTime(activity)}} - {{getEndTime(activity)}}
                   </div>
-                  <div class="event-location">{{activity.location_name}}</div>
+                  <div class="event-location">{{activity.location.name}}</div>
                 </div>
                 <div class="col-6">
-                  <div class="event-title">{{activity.event_title}}</div>
+                  <div class="event-title">{{activity.name}}</div>
                   <div class="event-description"></div>
                 </div>
               </div>
@@ -106,7 +106,7 @@
 <div
   *ngFor="let event of activities?.concat(meals)?.concat(workshops)"
   class="modal fade"
-  id="event_key-{{ event.uid }}-modal"
+  id="event_key-{{ event.id }}-modal"
   role="dialog"
   tabindex="-1"
   data-backdrop="static"
@@ -116,30 +116,30 @@
       <div class="content col-md-12" style="height: 120px">
         <div class="modal-header ' + snapshot.type + '">
           <!--<div class="modal-icon">{{ event.event_icon }}</div>-->
-          <div *ngIf="event.event_icon !== null" class='img-fluid event-icon' style='background:url({{event.event_icon}})'></div>
+          <div *ngIf="event.icon !== null" class='img-fluid event-icon' style="background:url({{event.icon}})"></div>
 
           <!--changing position of date, time, skill level with and without image manually-->
           <div
             class="modal-title"
             style="margin-left: 100px; position: absolute"
-            *ngIf="event.event_icon !== null"
+            *ngIf="event.icon !== null"
           >
-            {{ event.event_title }}
+            {{ event.name }}
           </div>
-          <div class="modal-title" *ngIf="event.event_icon == null">{{ event.event_title }}</div>
+          <div class="modal-title" *ngIf="event.icon == null">{{ event.name }}</div>
           <a data-dismiss="modal" aria-label="Close" class="close"></a>
           <!--changing position of date, time, skill level with and without image manually-->
-          <div class="modal-day" style="position: absolute" *ngIf="event.event_icon == null">
-            {{ event.ws_skill_level }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
+          <div class="modal-day" style="position: absolute" *ngIf="event.icon == null">
+            {{ event.wsSkillLevel }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
             {{ getEndTime(event) }}
           </div>
-          <div class="modal-day" style="margin-left: 100px" *ngIf="event.event_icon !== null">
-            {{ event.ws_skill_level }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
+          <div class="modal-day" style="margin-left: 100px" *ngIf="event.icon !== null">
+            {{ event.wsSkillLevel }} - {{ getEventDay(event) }}, {{ getStartTime(event) }} -
             {{ getEndTime(event) }}
           </div>
           <button
-            *ngIf="isLink(event.location_name)"
-            (click)="openZoomLink(event.location_name)"
+            *ngIf="isLink(event.location.name)"
+            (click)="openZoomLink(event.location.name)"
             type="button"
             class="btn success"
             style="position: absolute; margin-top: 100px"
@@ -148,31 +148,31 @@
           </button>
         </div>
         <div class="modal-major-content" style="padding-top: 70px">
-          <p *ngIf="!isLink(event.location_name)"><b>Location</b>: {{ event.location_name }}</p>
-          <p style="font-weight: bold; display: inline" *ngIf="event.ws_relevant_skills !== null">
+          <p *ngIf="!isLink(event.location.name)"><b>Location</b>: {{ event.location.name }}</p>
+          <p style="font-weight: bold; display: inline" *ngIf="event.wsRelevantSkills !== null">
             Skills Needed:
           </p>
-          {{ event.ws_relevant_skills }}<br />
+          {{ event.wsRelevantSkills }}<br />
           <p style="font-weight: bold; display: inline">Event Description:</p>
-          <div [innerHTML]="event.event_description"></div>
+          <div [innerHTML]="event.description"></div>
           <p
-            *ngIf="event.ws_urls && event.ws_urls.length !== 0"
+            *ngIf="event.wsUrls && event.wsUrls.length !== 0"
             style="font-weight: bold; display: inline"
           >
             Downloads:
           </p>
           <a
-            *ngFor="let download of event.ws_urls; index as i"
+            *ngFor="let download of event.wsUrls; index as i"
             href="{{ download }}"
             style="color: #e5704c"
           >
             Download {{ i + 1 }},
           </a>
           <br />
-          <p style="font-weight: bold; display: inline" *ngIf="event.ws_presenter_names !== null">
+          <p style="font-weight: bold; display: inline" *ngIf="event.wsPresenterNames !== null">
             Presenters:
           </p>
-          {{ event.ws_presenter_names }} <br />
+          {{ event.wsPresenterNames }} <br />
         </div>
       </div>
     </div>

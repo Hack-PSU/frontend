@@ -1,4 +1,4 @@
-import { writeFile } from 'fs';
+import {writeFile} from 'fs';
 
 // Only overwrite environment.ts if nodejs environment variables have been provided (i.e. only if Vercel is building)
 if ('PRODUCTION' in process.env) {
@@ -11,6 +11,7 @@ if ('PRODUCTION' in process.env) {
     production: '${process.env.PRODUCTION}',
     api_url: '${process.env.API_URL}',
     api_v2_url: '${process.env.API_V2_URL}',
+    api_v3_url: '${process.env.API_V3_URL}',
     firebase: {
       apiKey: '${process.env.API_KEY}',
       authDomain: '${process.env.AUTH_DOMAIN}',

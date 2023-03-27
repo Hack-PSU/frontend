@@ -94,7 +94,7 @@
   </section>
 
   <!-- Schedule -->
-  <!-- <section id="schedule" style="margin-top: 21em">
+  <section id="schedule" style="margin-top: 21em">
     <div class="container-fluid">
       <div>
         <div class="col-12 section-title">
@@ -104,10 +104,14 @@
           <div class="header-bar"></div>
         </div>
 
-        <app-schedule-view></app-schedule-view>
+        <app-schedule-view
+          [activities]="activities"
+          [meals]="meals"
+          [workshops]="workshops"
+        ></app-schedule-view>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- Live Updates -->
   <!-- Leaving this here because I'm not entirely sure what it does or if removing it would break something? -->
@@ -149,7 +153,7 @@
                   perfectly fine, working on an existing project is not.
                 </li>
                 <li>
-                  All projects must be created through <a href="http://devpost.hackpsu.org">Devpost</a> 
+                  All projects must be created through <a href="http://devpost.hackpsu.org">Devpost</a>
                   by 12PM on Sunday (even if not completed!) and can be edited until 1:45PM Sunday.
                 </li>
                 <li>All project code must be attached to the project's Devpost submission.</li>
@@ -163,7 +167,7 @@
                   no claim over intellectual property produced at the event.
                 </li>
                 <li>
-                  All participants must agree to the 
+                  All participants must agree to the
                   <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">MLH Code of Conduct</a>.
                 </li>
               </ol>
@@ -253,9 +257,9 @@
                     Travel Reimbursement Policy
                   </a>.
                 <p>
-              </mat-expansion-panel>             
+              </mat-expansion-panel>
             </div>
-      
+
             <!-- Right column of questions -->
             <div class="col-lg-6">
               <mat-expansion-panel hideToggle class="mat-elevation-z0">
@@ -270,8 +274,8 @@
                 <p>
                   If your professor is offering extra credit for attending HackPSU, please sign up
                   for extra credit for your class in your profile page <a routerLink="/profile">here</a>.
-                  If your professor requires workshop attendance, please see a HackPSU organizer 
-                  outside the workshop so that we can record your attendance and confirm 
+                  If your professor requires workshop attendance, please see a HackPSU organizer
+                  outside the workshop so that we can record your attendance and confirm
                   that you participated at the event.
                 <p>
                 <p>
@@ -323,7 +327,7 @@
                   </div>
                 </mat-expansion-panel-header>
                 <p>
-                  You must have a Devpost submission created by Sunday 12pm (even if not completed) 
+                  You must have a Devpost submission created by Sunday 12pm (even if not completed)
                   on our <a href="http://devpost.hackpsu.org">Devpost page</a>. However, you can continue
                   editing the submission until hacking ends on Sunday at 1:45pm.
                 <p>
@@ -433,9 +437,9 @@
       <div class="row prizes-text">
         <div class="offset-md-2 col-md-8">
           <p>
-            <span>SUBMISSION:</span> To submit please visit our Devpost page at 
-            <a href="http://devpost.hackpsu.org">http://devpost.hackpsu.org</a>. 
-            Make sure to submit your project (even if not completed) on Devpost by 12PM Sunday! 
+            <span>SUBMISSION:</span> To submit please visit our Devpost page at
+            <a href="http://devpost.hackpsu.org">http://devpost.hackpsu.org</a>.
+            Make sure to submit your project (even if not completed) on Devpost by 12PM Sunday!
             You can edit it until 1:45PM Sunday. This is a hard deadline - submissions received after 12PM
             will not be considered for prizes.
           </p>
@@ -465,30 +469,30 @@
       Check back soon for a list of workshops!
     </p>
 
-    <!-- <div id="workshop-container" class="container-fluid nopadding">
+    <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
         <div class="col-xl-1"></div>
-        
+
         <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">Beginner</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
+                <div *ngIf="workshop.wsSkillLevel == 'Beginner' || workshop.wsSkillLevel == ''">
                   <app-live-workshop
-                    [title]="workshop.event_title"
-                    [description]="workshop.event_description"
-                    [date]="workshop.event_start_time"
-                    [endTime]="workshop.event_end_time"
-                    [location]="workshop.location_name"
+                    [title]="workshop.name"
+                    [description]="workshop.description"
+                    [date]="workshop.startTime"
+                    [endTime]="workshop.endTime"
+                    [location]="workshop.location.name"
                     [skills]="
-                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                      workshop.wsRelevantSkills ? workshop.wsRelevantSkills.split(',') : []
                     "
                     [presenters]="
-                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                      workshop.wsPresenterNames ? workshop.wsPresenterNames.split(',') : []
                     "
-                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    [downloads]="workshop.ws_urls"
+                    [eventIcon]="workshop.icon ? workshop.icon.split(',') : []"
+                    [downloads]="workshop.wsUrls"
                     collapseID="css/html"
                   >
                   </app-live-workshop>
@@ -497,27 +501,27 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">INTERMEDIATE</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="workshop.ws_skill_level == 'Intermediate'">
+                <div *ngIf="workshop.wsSkillLevel == 'Intermediate'">
                   <app-live-workshop
-                    [title]="workshop.event_title"
-                    [description]="workshop.event_description"
-                    [date]="workshop.event_start_time"
-                    [endTime]="workshop.event_end_time"
-                    [location]="workshop.location_name"
+                    [title]="workshop.name"
+                    [description]="workshop.description"
+                    [date]="workshop.startTime"
+                    [endTime]="workshop.endTime"
+                    [location]="workshop.location.name"
                     [skills]="
-                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                      workshop.wsRelevantSkills ? workshop.wsRelevantSkills.split(',') : []
                     "
                     [presenters]="
-                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                      workshop.wsPresenterNames ? workshop.wsPresenterNames.split(',') : []
                     "
-                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    [downloads]="workshop.ws_urls"
+                    [eventIcon]="workshop.icon ? workshop.icon.split(',') : []"
+                    [downloads]="workshop.wsUrls"
                     collapseID="css/html"
                   >
                   </app-live-workshop>
@@ -526,29 +530,29 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-1"></div> -->
+        <div class="col-xl-1"></div>
         <!-- ADVANCED -->
-        <!-- <div class="col-md-6 col-lg-4 nopadding">
+        <div class="col-md-6 col-lg-4 nopadding">
           <span class="workshop-track">ADVANCED</span>
           <div class="row">
             <div class="container-fluid py-4">
               <div class="col-12 p-md-0 px-4">
                 <div *ngFor="let workshop of workshops">
-                  <div *ngIf="workshop.ws_skill_level == 'Advanced'">
+                  <div *ngIf="workshop.wsSkillLevel == 'Advanced'">
                     <app-live-workshop
-                      [title]="workshop.event_title"
-                      [description]="workshop.event_description"
-                      [date]="workshop.event_start_time"
-                      [endTime]="workshop.event_end_time"
-                      [location]="workshop.location_name"
+                      [title]="workshop.name"
+                      [description]="workshop.description"
+                      [date]="workshop.startTime"
+                      [endTime]="workshop.endTime"
+                      [location]="workshop.location.name"
                       [skills]="
-                        workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
+                        workshop.wsRelevantSkills ? workshop.wsRelevantSkills.split(',') : []
                       "
                       [presenters]="
-                        workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
+                        workshop.wsPresenterNames ? workshop.wsPresenterNames.split(',') : []
                       "
-                      [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                      [downloads]="workshop.ws_urls"
+                      [eventIcon]="workshop.icon ? workshop.icon.split(',') : []"
+                      [downloads]="workshop.wsUrls"
                       collapseID="css/html"
                     >
                     </app-live-workshop>
@@ -557,9 +561,9 @@
               </div>
             </div>
           </div>
-        </div> -->
-      <!-- </div>
-    </div> -->
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="sponsors" class="container-fluid">
@@ -575,9 +579,9 @@
     <div class="container">
       <div class="row">
         <div *ngFor="let sponsor of sponsors" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
-            <a href="{{sponsor.website_link}}" target="_blank">
+            <a href="{{sponsor.link}}" target="_blank">
               <img
-                src="{{sponsor.logo}}"
+                src="{{sponsor.darkLogo}}"
                 class="img-fluid sponsor-max-height"
                 alt="{{sponsor.name}}"
               />

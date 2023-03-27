@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { CustomErrorHandlerService, HttpService } from '../../services/services';
 import { EventModel } from '../../models/event-model';
+import {EventV3Model} from '../../models/event-v3-model';
 
 @Component({
   selector: 'app-schedule-view',
   templateUrl: './schedule-view.component.html',
   styleUrls: ['./schedule-view.component.css'],
 })
-export class ScheduleViewComponent implements OnInit {
+export class ScheduleViewComponent {
   private static days = [
     'Sunday',
     'Monday',
@@ -17,49 +18,52 @@ export class ScheduleViewComponent implements OnInit {
     'Friday',
     'Saturday',
   ];
+  @Input() activities: EventV3Model[];
+  @Input() meals: EventV3Model[];
+  @Input() workshops: EventV3Model[];
 
-  public activities: EventModel[];
+  // public activities: EventModel[];
   public activitiesViewNum = 5;
-  public meals: EventModel[];
+  // public meals: EventModel[];
   public mealsViewNum = 5;
-  public workshops: EventModel[];
+  // public workshops: EventModel[];
   public workshopsViewNum = 5;
 
   constructor(private httpService: HttpService, private errorHandler: CustomErrorHandlerService) {
-    this.activities = [];
-    this.meals = [];
-    this.workshops = [];
+    // this.activities = [];
+    // this.meals = [];
+    // this.workshops = [];
   }
 
-  ngOnInit() {
-    this.httpService.getEvents().subscribe(
-      (events: EventModel[]) => {
-        events
-          .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
-          .forEach((event) => {
-            switch (event.event_type) {
-              case 'activity':
-                this.activities = this.activities.concat(event);
-                break;
-              case 'food':
-                this.meals = this.meals.concat(event);
-                break;
-              case 'workshop':
-                this.workshops = this.workshops.concat(event);
-                break;
-              default:
-                break;
-            }
-          });
-      },
-      (error) => {
-        this.errorHandler.handleHttpError(error);
-      },
-    );
-  }
+  // ngOnInit() {
+  //   this.httpService.getEvents().subscribe(
+  //     (events: EventModel[]) => {
+  //       events
+  //         .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
+  //         .forEach((event) => {
+  //           switch (event.event_type) {
+  //             case 'activity':
+  //               this.activities = this.activities.concat(event);
+  //               break;
+  //             case 'food':
+  //               this.meals = this.meals.concat(event);
+  //               break;
+  //             case 'workshop':
+  //               this.workshops = this.workshops.concat(event);
+  //               break;
+  //             default:
+  //               break;
+  //           }
+  //         });
+  //     },
+  //     (error) => {
+  //       this.errorHandler.handleHttpError(error);
+  //     },
+  //   );
+  // }
 
-  getStartTime(event: EventModel) {
-    return new Date(parseInt(event.event_start_time, 10))
+  getStartTime(event: EventV3Model) {
+    return new Date(event.startTime)
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
       .replace(/^0(?:0:0?)?/, '');
   }
@@ -92,14 +96,14 @@ export class ScheduleViewComponent implements OnInit {
     return viewNum + INCREMENTOR;
   }
 
-  getEndTime(event: EventModel) {
-    return new Date(parseInt(event.event_end_time, 10))
+  getEndTime(event: EventV3Model) {
+    return new Date(event.endTime)
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
       .replace(/^0(?:0:0?)?/, '');
   }
 
-  getEventDay(event: EventModel) {
-    return ScheduleViewComponent.days[new Date(parseInt(event.event_start_time, 10)).getDay()];
+  getEventDay(event: EventV3Model) {
+    return ScheduleViewComponent.days[new Date(event.startTime).getDay()];
   }
 
   openZoomLink(link: string) {

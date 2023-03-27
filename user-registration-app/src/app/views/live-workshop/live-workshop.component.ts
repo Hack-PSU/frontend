@@ -14,7 +14,7 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() title: string;
   @Input() description: string;
   @Input() location: string;
-  @Input() skills: string;
+  @Input() skills: string[];
   @Input() downloads: string[];
   @Input() presenters: string[];
   @Input() collapseID: string;
@@ -43,7 +43,7 @@ export class LiveWorkshopComponent implements OnInit {
 
   // Maybe not the best way to detect if it's rich text or not?
   isRichTextDescription(): boolean {
-    return this.description.charAt(0) === "<";
+    return this.description.charAt(0) === '<';
   }
 
   ngOnInit() {
