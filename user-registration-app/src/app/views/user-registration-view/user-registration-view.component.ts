@@ -135,12 +135,6 @@ export class UserRegistrationViewComponent implements OnInit {
       );
   }
 
-  showClassName(class_name: string): boolean {
-    // We don't remove classes from the DB, we just filter them here.
-    const shownClassNames = ['COMM 384.002', 'SRA 311W.001'];
-    return shownClassNames.includes(class_name);
-  }
-
   getClassName(classUid: number): string {
     return this.classes.filter((ecClass) => ecClass.uid == classUid)[0].class_name;
   }
