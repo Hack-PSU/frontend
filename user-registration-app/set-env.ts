@@ -20,9 +20,9 @@ if ('PRODUCTION' in process.env) {
       messagingSenderId: '${process.env.MESSAGING_SENDER_ID}',
     },
     liveWebsiteGuardTime: new Date('${process.env.LIVE_WEBSITE_GUARD_TIME}'),
-    hackathonStartTime: new Date('${process.env.HACKATHON_START_TIME}'),
+    hackathonStartTime: ${process.env.HACKATHON_START_TIME},
     timerStartTime: new Date('${process.env.TIMER_START_TIME}'),
-    hackathonEndTime: new Date('${process.env.HACKATHON_END_TIME}'),
+    hackathonEndTime: ${process.env.HACKATHON_END_TIME},
     rsvpStartTime: new Date('${process.env.RSVP_START_TIME}'),
   };
   `;

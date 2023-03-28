@@ -19,8 +19,8 @@ export const environment = {
 
   // New code that accounts for timezone differences. Time is set for 2PM EST Saturday
   liveWebsiteGuardTime: new Date(Date.UTC(2022, 3, 9, 17, 30)),
-  hackathonStartTime: new Date(Date.UTC(2023, 3, 1, 14)),
+  hackathonStartTime: 1680364800000,
   timerStartTime: new Date(Date.UTC(2022, 1, 12, 14)),
-  hackathonEndTime: new Date(Date.UTC(2023, 3, 2, 14)),
+  hackathonEndTime: 1680457500000,
   rsvpStartTime: new Date(2019, 10),
 };
