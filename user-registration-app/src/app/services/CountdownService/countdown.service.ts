@@ -11,7 +11,7 @@ export class CountdownService {
   private readonly endTime: Date;
 
   constructor(private zone: NgZone) {
-    this.startTime = environment.timerStartTime;
+    this.startTime = environment.hackathonStartTime;
     this.endTime = environment.hackathonEndTime;
   }
 
