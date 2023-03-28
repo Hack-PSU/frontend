@@ -17,7 +17,7 @@
     "shirtSize": {
       "enum": ["XS", "S", "M", "L", "XL", "XXL"]
     },
-    "address": {
+    "country": {
       "type": ["string", "null"],
       "minLength": 1,
       "maxLength": 200

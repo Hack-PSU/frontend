@@ -129,7 +129,8 @@ export class HttpService extends BaseHttpService {
 
   getExtraCreditClasses() {
     const API_ENDPOINT = 'users/extra-credit';
-    return this.get(API_ENDPOINT, false, true, true).pipe(
+    const params = 'byhackathon=true'
+    return this.get(API_ENDPOINT + '?' + params, false, true, true).pipe(
       map((classes: any[]) => classes.map((c) => ExtraCreditClass.parseJSON(c))),
     );
   }

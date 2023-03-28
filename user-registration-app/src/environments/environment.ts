@@ -1,5 +1,5 @@
 // The build system defaults to the dev environment, which uses this file, but
-// if nodejs environment variables are provided (likely by Vercel), this file will be overwritten
+// if Node.js environment variables are provided (likely by Vercel), this file will be overwritten
 // during build by set-env.ts
 
 export const environment = {
