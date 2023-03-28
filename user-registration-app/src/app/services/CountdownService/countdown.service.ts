@@ -11,8 +11,8 @@ export class CountdownService {
   private readonly endTime: Date;
 
   constructor(private zone: NgZone) {
-    this.startTime = environment.hackathonStartTime;
-    this.endTime = environment.hackathonEndTime;
+    this.startTime = new Date(environment.hackathonStartTime);
+    this.endTime = new Date(environment.hackathonEndTime);
   }
 
   public startCountDown(): Observable<{ duration: Duration; bannerText: string }> {
@@ -32,7 +32,7 @@ export class CountdownService {
             });
             // this.isBeforeEvent = true;
           } else if (currentTime < this.endTime) {
-            bannerText = 'remains until hackpsu!';
+            bannerText = 'remains until hacking stops!';
             duration = new Duration(currentTime, this.endTime);
             this.zone.run(() => {
               observer.next({ duration, bannerText });

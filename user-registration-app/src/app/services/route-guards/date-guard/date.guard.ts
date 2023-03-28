@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class DateGuard implements CanActivate {
   static validateDate(date = new Date()) {
-    return environment.hackathonStartTime.getTime() <= date.getTime();
+    return new Date(environment.liveWebsiteGuardTime).getTime() <= date.getTime();
   }
 
   constructor(private router: Router, private toastrService: ToastrService) {}
@@ -18,7 +18,7 @@ export class DateGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (!DateGuard.validateDate(new Date())) {
       this.toastrService.error(
-        `You may only visit this page on or after ${environment.hackathonStartTime.toDateString()}`,
+        `You may only visit this page on or after ${new Date(environment.liveWebsiteGuardTime).toDateString()}`,
       );
       this.router.navigate([AppConstants.LIVE_ENDPOINT]);
       return false;
