@@ -94,7 +94,7 @@
   </section>
 
   <!-- Schedule -->
-  <!-- <section id="schedule" style="margin-top: 21em">
+  <section id="schedule" style="margin-top: 21em">
     <div class="container-fluid">
       <div>
         <div class="col-12 section-title">
@@ -103,11 +103,10 @@
           </div>
           <div class="header-bar"></div>
         </div>
-
         <app-schedule-view></app-schedule-view>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- Live Updates -->
   <!-- Leaving this here because I'm not entirely sure what it does or if removing it would break something? -->
@@ -394,9 +393,15 @@
             class="rounded-more mx-auto d-block prize-img"
           />
           <div class="prizes-text">
-            The standard HackPSU experience - work together alone or in a team to build something
-            awesome! We'll have tons of great mentors and other staff around to help you on your
-            way. Choose this track if you're passionate about technology and development.
+            The standard HackPSU experience - work together alone or in a team to build something awesome!
+            All monetary prizes will be split among the winning team members equally.
+            <br>
+            <br>
+            Grand Prize: $200 Amazon gift card
+            <br>
+            Runner-up: $150 Amazon gift card
+            <br>
+            Third place: $100 Amazon gift card
           </div>
         </div>
         <!--
@@ -433,8 +438,8 @@
       <div class="row prizes-text">
         <div class="offset-md-2 col-md-8">
           <p>
-            <span>SUBMISSION:</span> To submit please visit our Devpost page at 
-            <a href="http://devpost.hackpsu.org">http://devpost.hackpsu.org</a>. 
+            <span>SUBMISSIONS:</span> To submit, please visit our Devpost page at 
+            <a href="http://devpost.hackpsu.org">devpost.hackpsu.org</a>. 
             Make sure to submit your project (even if not completed) on Devpost by 12PM Sunday! 
             You can edit it until 1:45PM Sunday. This is a hard deadline - submissions received after 12PM
             will not be considered for prizes.
@@ -461,20 +466,25 @@
       </div>
     </div>
 
-    <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
+    <!-- <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
       Check back soon for a list of workshops!
-    </p>
+    </p> -->
 
-    <!-- <div id="workshop-container" class="container-fluid nopadding">
+    <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
         <div class="col-xl-1"></div>
         
-        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
-          <span class="workshop-track">Beginner</span>
-          <div class="container-fluid py-4">
-            <div class="col-12 p-md-0 px-4">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding"> -->
+          <!-- <span class="workshop-track">Beginner</span> -->
+          <div class="container-fluid">
+            <div class="col-12">
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
+                <!-- Bodgy hack since person putting in events is inconsistent -->
+                <div *ngIf="workshop.ws_skill_level == 'Beginner' 
+                || workshop.ws_skill_levell == 'beginner'
+                || workshop.ws_skill_level == '' 
+                || workshop.ws_skill_level == null" 
+                style="max-width: 800px; margin: auto">
                   <app-live-workshop
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
@@ -496,9 +506,9 @@
               </div>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
         
-        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">INTERMEDIATE</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
@@ -558,8 +568,8 @@
             </div>
           </div>
         </div> -->
-      <!-- </div>
-    </div> -->
+      </div>
+    </div>
   </section>
 
   <section id="sponsors" class="container-fluid">
@@ -575,13 +585,13 @@
     <div class="container">
       <div class="row">
         <div *ngFor="let sponsor of sponsors" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
-            <a href="{{sponsor.website_link}}" target="_blank">
-              <img
-                src="{{sponsor.logo}}"
-                class="img-fluid sponsor-max-height"
-                alt="{{sponsor.name}}"
-              />
-            </a>
+          <a href="{{sponsor.website_link}}" target="_blank">
+            <img
+              src="{{sponsor.logo}}"
+              class="img-fluid sponsor-max-height"
+              alt="{{sponsor.name}}"
+            />
+          </a>
         </div>
       </div>
     </div>
