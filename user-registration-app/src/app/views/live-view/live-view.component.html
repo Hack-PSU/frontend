@@ -461,20 +461,25 @@
       </div>
     </div>
 
-    <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
+    <!-- <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
       Check back soon for a list of workshops!
-    </p>
+    </p> -->
 
-    <!-- <div id="workshop-container" class="container-fluid nopadding">
+    <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
         <div class="col-xl-1"></div>
         
-        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
-          <span class="workshop-track">Beginner</span>
-          <div class="container-fluid py-4">
-            <div class="col-12 p-md-0 px-4">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding"> -->
+          <!-- <span class="workshop-track">Beginner</span> -->
+          <div class="container-fluid">
+            <div class="col-12">
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="workshop.ws_skill_level == 'Beginner' || workshop.ws_skill_level == ''">
+                <!-- Bodgy hack since person putting in events is inconsistent -->
+                <div *ngIf="workshop.ws_skill_level == 'Beginner' 
+                || workshop.ws_skill_levell == 'beginner'
+                || workshop.ws_skill_level == '' 
+                || workshop.ws_skill_level == null" 
+                style="max-width: 800px; margin: auto">
                   <app-live-workshop
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
@@ -496,9 +501,9 @@
               </div>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
         
-        <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
           <span class="workshop-track">INTERMEDIATE</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
@@ -558,8 +563,8 @@
             </div>
           </div>
         </div> -->
-      <!-- </div>
-    </div> -->
+      </div>
+    </div>
   </section>
 
   <section id="sponsors" class="container-fluid">
@@ -575,13 +580,13 @@
     <div class="container">
       <div class="row">
         <div *ngFor="let sponsor of sponsors" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
-            <a href="{{sponsor.website_link}}" target="_blank">
-              <img
-                src="{{sponsor.logo}}"
-                class="img-fluid sponsor-max-height"
-                alt="{{sponsor.name}}"
-              />
-            </a>
+          <a href="{{sponsor.website_link}}" target="_blank">
+            <img
+              src="{{sponsor.logo}}"
+              class="img-fluid sponsor-max-height"
+              alt="{{sponsor.name}}"
+            />
+          </a>
         </div>
       </div>
     </div>

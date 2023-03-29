@@ -20,7 +20,7 @@ export class LiveWorkshopComponent implements OnInit {
   @Input() collapseID: string;
   @Input() eventIcon: string[];
 
-  // not the most prettiest way to handle this date conversion
+  // not the prettiest way to handle this date conversion
   @Input() set date(value: any) {
     this._date = new Date(0);
     this._date.setUTCMilliseconds(value);
@@ -43,7 +43,7 @@ export class LiveWorkshopComponent implements OnInit {
 
   // Maybe not the best way to detect if it's rich text or not?
   isRichTextDescription(): boolean {
-    return this.description.charAt(0) === "<";
+    return this.description && this.description.charAt(0) === "<";
   }
 
   ngOnInit() {
