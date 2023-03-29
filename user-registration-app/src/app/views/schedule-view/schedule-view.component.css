@@ -301,6 +301,7 @@ i {
   color: black;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1.5em;
   z-index: 500;
 }
 
