@@ -472,48 +472,14 @@
 
     <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
-        <div class="col-xl-1"></div>
+        <!-- <div class="col-xl-1"></div> -->
         
-        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding"> -->
-          <!-- <span class="workshop-track">Beginner</span> -->
-          <div class="container-fluid">
-            <div class="col-12">
-              <div *ngFor="let workshop of workshops">
-                <!-- Bodgy hack since person putting in events is inconsistent -->
-                <div *ngIf="workshop.ws_skill_level == 'Beginner' 
-                || workshop.ws_skill_levell == 'beginner'
-                || workshop.ws_skill_level == '' 
-                || workshop.ws_skill_level == null" 
-                style="max-width: 800px; margin: auto">
-                  <app-live-workshop
-                    [title]="workshop.event_title"
-                    [description]="workshop.event_description"
-                    [date]="workshop.event_start_time"
-                    [endTime]="workshop.event_end_time"
-                    [location]="workshop.location_name"
-                    [skills]="
-                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
-                    "
-                    [presenters]="
-                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
-                    "
-                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    [downloads]="workshop.ws_urls"
-                    collapseID="css/html"
-                  >
-                  </app-live-workshop>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
-        
-        <!-- <div class="col-md-6 col-lg-6 col-xl-5 nopadding">
-          <span class="workshop-track">INTERMEDIATE</span>
+        <div class="col-sm-6 col-md-12 col-lg-4 col-xl-4 nopadding">
+          <span class="workshop-track">Room 124</span>
           <div class="container-fluid py-4">
             <div class="col-12 p-md-0 px-4">
               <div *ngFor="let workshop of workshops">
-                <div *ngIf="workshop.ws_skill_level == 'Intermediate'">
+                <div *ngIf="workshop.location_name === '124 Business Building'">
                   <app-live-workshop
                     [title]="workshop.event_title"
                     [description]="workshop.event_description"
@@ -536,38 +502,59 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-1"></div> -->
-        <!-- ADVANCED -->
-        <!-- <div class="col-md-6 col-lg-4 nopadding">
-          <span class="workshop-track">ADVANCED</span>
-          <div class="row">
-            <div class="container-fluid py-4">
-              <div class="col-12 p-md-0 px-4">
-                <div *ngFor="let workshop of workshops">
-                  <div *ngIf="workshop.ws_skill_level == 'Advanced'">
-                    <app-live-workshop
-                      [title]="workshop.event_title"
-                      [description]="workshop.event_description"
-                      [date]="workshop.event_start_time"
-                      [endTime]="workshop.event_end_time"
-                      [location]="workshop.location_name"
-                      [skills]="
-                        workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
-                      "
-                      [presenters]="
-                        workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
-                      "
-                      [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                      [downloads]="workshop.ws_urls"
-                      collapseID="css/html"
-                    >
-                    </app-live-workshop>
-                  </div>
+        
+        <div class="col-sm-6 col-md-12 col-lg-4 col-xl-4 nopadding">
+          <span class="workshop-track">Room 125</span>
+          <div class="container-fluid py-4">
+            <div class="col-12 p-md-0 px-4">
+              <div *ngFor="let workshop of workshops">
+                <div *ngIf="workshop.location_name === '125 Business Building'">
+                  <app-live-workshop
+                    [title]="workshop.event_title"
+                    [description]="workshop.event_description"
+                    [date]="workshop.event_start_time"
+                    [endTime]="workshop.event_end_time"
+                    [location]="workshop.location_name"
+                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
+                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
+                    [downloads]="workshop.ws_urls"
+                    collapseID="css/html"
+                  >
+                  </app-live-workshop>
                 </div>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
+        <!-- <div class="col-xl-1"></div> -->
+
+        <!-- ADVANCED -->
+        <div class="col-sm-6 col-md-12 col-lg-4 col-xl-4 nopadding">
+          <span class="workshop-track">Room 126</span>
+          <div class="container-fluid py-4">
+            <div class="col-12 p-md-0 px-4">
+              <div *ngFor="let workshop of workshops">
+                <div *ngIf="workshop.location_name === '126 Business Building'">
+                  <app-live-workshop
+                    [title]="workshop.event_title"
+                    [description]="workshop.event_description"
+                    [date]="workshop.event_start_time"
+                    [endTime]="workshop.event_end_time"
+                    [location]="workshop.location_name"
+                    [skills]="workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []"
+                    [presenters]="workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []"
+                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
+                    [downloads]="workshop.ws_urls"
+                    collapseID="css/html"
+                  >
+                  </app-live-workshop>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
