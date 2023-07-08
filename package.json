@@ -19,7 +19,7 @@
     "prettier": "2.2.1"
   },
   "dependencies": {
-    "@angular/cli": "^11.2.14",
+    "@angular/cli": "^16.1.4",
     "@babel/core": "^7.12.10",
     "bootstrap": "^4.5.0",
     "deepmerge": "^4.2.2",
