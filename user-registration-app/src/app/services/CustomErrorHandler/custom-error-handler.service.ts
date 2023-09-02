@@ -91,4 +91,11 @@ export class CustomErrorHandlerService {
     // this.toastrService.error(error.message);
     return throwError(error);
   }
+
+  handleV3HttpError(err: any) {
+    console.error(err.statusCode);
+    console.error(err.message);
+    const error = { error: err.statusCode, message: err.message};
+    return throwError(error);
+  }
 }

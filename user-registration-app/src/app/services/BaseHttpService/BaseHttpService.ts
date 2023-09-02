@@ -24,10 +24,7 @@ export class BaseHttpService {
         const retryAttempt = i + 1;
         // if maximum number of retries have been met
         // or response is a status code we don't wish to retry, throw error
-        if (
-          retryAttempt > maxRetryAttempts ||
-          excludedStatusCodes.find((e) => e === error.status)
-        ) {
+        if (retryAttempt > maxRetryAttempts || excludedStatusCodes.find((e) => e === error.status)) {
           return throwError(error);
         }
         console.log(`Attempt ${retryAttempt}: retrying in ${retryAttempt * scalingDuration}ms`);
@@ -92,6 +89,43 @@ export class BaseHttpService {
     return this.memCache.get(API_ENDPOINT);
   }
 
+  protected getV3<T>(
+    API_ENDPOINT: string,
+    ignoreCache?: boolean,
+    useAuth = true,
+  ): Observable<T> {
+    if (ignoreCache) {
+      this.memCache.delete(API_ENDPOINT);
+    }
+    if (!this.memCache.has(API_ENDPOINT)) {
+      // Set the value in the memory cache
+      let headers = new HttpHeaders();
+      let params = new HttpParams();
+      const fullUrl = AppConstants.API_BASE_URL_V3.concat(API_ENDPOINT);
+      if (ignoreCache) {
+        params = params.set('ignoreCache', 'true');
+      }
+      let observable = useAuth
+        ? // With authentication
+          this.authService.idToken.pipe(
+            switchMap((idToken: string) => {
+              headers = headers.set('authorization', 'Bearer '.concat(idToken));
+              return this.getInternal(fullUrl, headers, params);
+            })
+          )
+        : // Without authentication
+          this.getInternal(fullUrl, headers, params);
+      observable = observable.pipe(
+        // map((apiResponse: any) => apiResponse.body.data),
+        catchError((err) => {
+          return this.errorHandler.handleV3HttpError(err);
+        })
+      );
+      this.memCache.set(API_ENDPOINT, observable);
+    }
+    return this.memCache.get(API_ENDPOINT);
+  }
+
   private getInternal<T>(
     fullUrl: string,
     headers: HttpHeaders,
@@ -101,7 +135,7 @@ export class BaseHttpService {
       .get(fullUrl, { headers, params })
       .pipe(shareReplay(this.CACHE_SIZE, 10 * 1000))
       .pipe(
-        retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 404, 409] })),
+        retryWhen(this.genericRetryStrategy({ excludedStatusCodes: [400, 401, 403, 404, 409] }))
       ) as Observable<T>;
   }
 
@@ -124,6 +158,23 @@ export class BaseHttpService {
           ? this.errorHandler.handleV2HttpError(err)
           : this.errorHandler.handleHttpError(err);
       }),
+    );
+  }
+
+  protected postV3(API_ENDPOINT: string, formObject: FormData | any) {
+    this.memCache.set(API_ENDPOINT, null);
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('authorization', 'Bearer '.concat(idToken));
+        return this.http.post(
+          AppConstants.API_BASE_URL_V3.concat(API_ENDPOINT),
+          formObject,
+          { headers, reportProgress: true });
+      }),
+      catchError((err) => {
+        return this.errorHandler.handleV3HttpError(err);
+      })
     );
   }
 }

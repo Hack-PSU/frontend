@@ -15,6 +15,8 @@ import { ProjectModel } from '../../models/project-model';
 import { ExtraCreditClass } from '../../models/extra-credit-class';
 import { UserExtraCreditApiResponse } from '../../models/user-extra-credit';
 import { SponsorModel } from '../../models/sponsor';
+import { RegistrationApiResponseV3, RegistrationV3 } from '../../models-v3/registration-v3';
+import { HackathonV3 } from '../../models-v3/hackathon-v3';
 
 @Injectable()
 export class HttpService extends BaseHttpService {
@@ -27,11 +29,12 @@ export class HttpService extends BaseHttpService {
     super(http, authService, errorHandler, ngProgress);
   }
 
-  getUpdatesReference(): Observable<string> {
-    const API_ENDPOINT = 'live/updates/reference';
-    return this.get(API_ENDPOINT).pipe(map((object: any) => object.reference));
-  }
+  // getUpdatesReference(): Observable<string> {
+  //   const API_ENDPOINT = 'live/updates/reference';
+  //   return this.get(API_ENDPOINT).pipe(map((object: any) => object.reference));
+  // }
 
+  // Gets the currently active registration
   getRegistrationStatus(): Observable<RegistrationApiResponse> {
     const API_ENDPOINT = 'users/register';
     return this.get(API_ENDPOINT, true, true, true).pipe(
@@ -40,21 +43,28 @@ export class HttpService extends BaseHttpService {
     );
   }
 
+  getRegistrationStatusV3(): Observable<RegistrationApiResponseV3> {
+    const API_ENDPOINT = '/users/info/me';
+    return this.getV3(API_ENDPOINT, true, true).pipe(map(RegistrationApiResponseV3.parseJSON));
+  }
+
   getCurrentHackathon(): Observable<Hackathon> {
     const API_ENDPOINT = 'users/hackathon/active';
     return this.get(API_ENDPOINT).pipe(map(Hackathon.parseJSON));
   }
 
+  getCurrentHackathonV3(): Observable<HackathonV3> {
+    const API_ENDPOINT = '/hackathons/active/static';
+    return this.getV3(API_ENDPOINT, false, false).pipe(map(Hackathon.parseJSON));
+  }
+
   submitRegistration(submitData: Registration, uid: string) {
-    const API_ENDPOINT = 'users/register';
+    const API_ENDPOINT = `users/${uid}/register`;
     const formObject: FormData = new FormData();
-    formObject.append('uid', uid);
+    // formObject.append('uid', uid);
     for (const key in submitData) {
       if (
-        Object.prototype.hasOwnProperty.call(submitData, key) &&
-        submitData[key] &&
-        key !== 'resume'
-      ) {
+        Object.prototype.hasOwnProperty.call(submitData, key) && submitData[key] && key !== 'resume') {
         formObject.append(key, submitData[key]);
       }
     }
@@ -65,7 +75,7 @@ export class HttpService extends BaseHttpService {
         formObject.append('resume', submitData.resume, submitData.resume.name);
       }
     }
-    return this.post(API_ENDPOINT, formObject, true);
+    return this.postV3(API_ENDPOINT, formObject);
   }
 
   submitRSVP(currentUser: any, status: boolean) {
@@ -152,6 +162,7 @@ export class HttpService extends BaseHttpService {
     return this.post(API_ENDPOINT, { userUid: uid }, true);
   }
 
+  // Gets all the registrations associated with the user
   getUserRegistrations() {
     const API_ENDPOINT = 'users/register';
     return this.get<RegistrationApiResponse[]>(API_ENDPOINT, false, true, true).pipe(

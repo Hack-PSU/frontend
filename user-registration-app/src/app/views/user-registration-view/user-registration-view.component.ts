@@ -83,7 +83,7 @@ export class UserRegistrationViewComponent implements OnInit {
   }
 
   loadSubmittedExtraCreditClasses() {
-    this.httpService.getRegistrationStatus().subscribe((registration) => {
+    this.httpService.getRegistrationStatusV3().subscribe((registration) => {
       this.httpService.getExtraCreditClassesForUser(registration.uid).subscribe((classes) => {
         classes.forEach((c) => (this.submittedClasses[c.class_uid] = true));
       });

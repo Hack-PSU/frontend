@@ -7,6 +7,7 @@ import { Registration } from '../../../models/registration';
 import { AppConstants } from '../../../AppConstants';
 import { AuthService } from '../../AuthService/auth.service';
 import { HttpService } from '../../HttpService/HttpService';
+import { RegistrationV3 } from '../../../models-v3/registration-v3';
 
 @Injectable()
 /**
@@ -31,15 +32,15 @@ export class RegistrationResolver implements Resolve<Registration> {
           this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
           return null;
         }
-        return this.httpService.getRegistrationStatus();
+        return this.httpService.getRegistrationStatusV3();
       }),
       map((registration) => {
-        if (registration.isCurrentRegistration() && registration.submitted) {
+        if (registration.isCurrentRegistration()) {
           this.progress.ref().complete();
           this.router.navigate([AppConstants.PIN_ENDPOINT]);
           return null;
         }
-        return Registration.parseFromApiResponse(registration);
+        return RegistrationV3.parseFromApiResponse(registration);
       }),
       catchError((error) => {
         this.progress.ref().complete();

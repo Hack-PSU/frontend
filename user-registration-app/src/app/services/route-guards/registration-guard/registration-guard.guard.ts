@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpService } from '../../HttpService/HttpService';
 import { RegistrationApiResponse } from '../../../models/registration';
+import { RegistrationApiResponseV3 } from '../../../models-v3/registration-v3';
 import { AppConstants } from '../../../AppConstants';
 import { NgProgress } from 'ngx-progressbar';
 import { ToastrService } from 'ngx-toastr';
@@ -24,9 +25,9 @@ export class RegistrationGuard implements CanActivate {
     state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
     // Checks users registration status
-    return this.httpService.getRegistrationStatus().pipe(
-      map<RegistrationApiResponse, boolean>((registration) => {
-        if (!registration) {
+    return this.httpService.getRegistrationStatusV3().pipe(
+      map<RegistrationApiResponseV3, boolean>((response) => {
+        if (!response.isCurrentRegistration()) {
           // Navigates users to registration
           this.router.navigate([AppConstants.REGISTER_ENDPOINT]).then(() => {
             this.ngProgress.ref().complete();

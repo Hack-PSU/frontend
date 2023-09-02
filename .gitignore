@@ -62,6 +62,8 @@ collaborators.txt
 .idea/**
 api/**
 
+.vscode/launch.json
+
 .DS_Store
 
 launch.json
