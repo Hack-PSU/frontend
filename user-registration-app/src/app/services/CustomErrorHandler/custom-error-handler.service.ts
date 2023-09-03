@@ -91,7 +91,7 @@ export class CustomErrorHandlerService {
       const error = { error: err.error, message: err.error.body.data.message };
       return throwError(error);
     } else {
-      const error = { error: err.error, message: "An unkonwn error has occurred." };
+      const error = { error: err.error, message: "An unknown error has occurred." };
       return throwError(error);
     }
   }

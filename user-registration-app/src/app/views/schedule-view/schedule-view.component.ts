@@ -32,30 +32,30 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getEvents().subscribe(
-      (events: EventModel[]) => {
-        events
-          .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
-          .forEach((event) => {
-            switch (event.event_type) {
-              case 'activity':
-                this.activities = this.activities.concat(event);
-                break;
-              case 'food':
-                this.meals = this.meals.concat(event);
-                break;
-              case 'workshop':
-                this.workshops = this.workshops.concat(event);
-                break;
-              default:
-                break;
-            }
-          });
-      },
-      (error) => {
-        this.errorHandler.handleHttpError(error);
-      },
-    );
+    // this.httpService.getEvents().subscribe(
+    //   (events: EventModel[]) => {
+    //     events
+    //       .filter((activity) => parseInt(activity.event_end_time, 10) >= Date.now())
+    //       .forEach((event) => {
+    //         switch (event.event_type) {
+    //           case 'activity':
+    //             this.activities = this.activities.concat(event);
+    //             break;
+    //           case 'food':
+    //             this.meals = this.meals.concat(event);
+    //             break;
+    //           case 'workshop':
+    //             this.workshops = this.workshops.concat(event);
+    //             break;
+    //           default:
+    //             break;
+    //         }
+    //       });
+    //   },
+    //   (error) => {
+    //     this.errorHandler.handleHttpError(error);
+    //   },
+    // );
   }
 
   getStartTime(event: EventModel) {

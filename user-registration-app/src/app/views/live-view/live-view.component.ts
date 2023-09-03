@@ -128,11 +128,11 @@ export class LiveViewComponent implements OnInit {
       this.seconds = duration.seconds;
       this.bannerText = bannerText;
     });
-    this.httpService.getEvents().subscribe((eventsArr) => {
-      this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
-    });
-    this.httpService.getSponsors().subscribe((sponsorsArr) => {
-      this.sponsors = sponsorsArr.sort((a, b) => a.order - b.order);
-    });
+    // this.httpService.getEvents().subscribe((eventsArr) => {
+    //   this.workshops = eventsArr.filter((event) => event.event_type === 'workshop');
+    // });
+    // this.httpService.getSponsors().subscribe((sponsorsArr) => {
+    //   this.sponsors = sponsorsArr.sort((a, b) => a.order - b.order);
+    // });
   }
 }
