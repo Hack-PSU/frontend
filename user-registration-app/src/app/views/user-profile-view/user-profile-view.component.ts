@@ -7,6 +7,8 @@ import { AuthService } from '../../services/AuthService/auth.service';
 import { RegistrationApiResponse } from '../../models/registration';
 import { HttpService } from '../../services/HttpService/HttpService';
 import { Hackathon } from '../../models/hackathon';
+import { RegistrationApiResponseV3 } from '../../models-v3/registration-v3';
+import { HackathonV3 } from '../../models-v3/hackathon-v3';
 
 @Component({
   selector: 'app-user-profile-view',
@@ -26,40 +28,30 @@ export class UserProfileViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const regObservable = this.httpService.getUserRegistrations().subscribe(
-      (registrations: RegistrationApiResponse[]) => {
-        registrations.forEach((registration) => {
-          if (registration.hackathon.active) {
-            this.currentPin = registration.pin;
-          }
-        });
-        regObservable.unsubscribe();
-      },
-      ({ error }) => {
-        if (error && error.status === 404) {
-          this.toastrService.info(
-            'You have not registered for a hackathon yet. We could not find any data for you',
-          );
-        } else {
-          this.toastrService.error('Something has gone terribly wrong');
-        }
-      },
-    );
-    const hackObservable = this.httpService.getHackathons().subscribe(
-      (hackathons: Hackathon[]) => {
-        hackathons.forEach((hackathon) => {
-          if (hackathon.active) {
-            this.currentHackathon = hackathon;
-            hackObservable.unsubscribe();
-          }
-        });
-      },
-      ({ error }) => {
-        if (error && error.status === 404) {
-          this.toastrService.info('No hackathons retrieved');
-        }
-      },
-    );
+    this.currentPin = 123; // Legacy support. Should be removed as soon as it is verifiably no longer used.
+
+    const reg = this.httpService.getRegistrationStatusV3().subscribe((user: RegistrationApiResponseV3) => {
+      if (!user.registration) {
+        this.toastrService.info('You have not registered for a hackathon yet. We could not find any data for you.');
+      }
+      reg.unsubscribe();
+    });
+    
+    const hack = this.httpService.getCurrentHackathonV3().subscribe((hackathon: HackathonV3) => {
+      this.currentHackathon = new Hackathon(
+        hackathon.uid,
+        hackathon.name,
+        1,
+        1,
+        0,
+        hackathon.active,
+      );
+      
+      // Hacky way to avoid potential weirdness when converting out of 'Date' type into milliseconds and back.
+      this.currentHackathon.startTime = hackathon.startTime;
+      this.currentHackathon.endTime = hackathon.endTime;
+      hack.unsubscribe();
+    });
   }
 
   public getUserPhotoUrl(user: User | null) {
@@ -68,44 +60,40 @@ export class UserProfileViewComponent implements OnInit {
 
   submitNewName(value: string) {
     this.progressService.ref().start();
-    const observable = this.authService.currentUser
-      .pipe(
-        switchMap((user) => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
-        finalize(() => {
-          this.progressService.ref().complete();
-        }),
-      )
-      .subscribe(
-        () => {
-          this.toastrService.info('Successfully changed display name');
-          observable.unsubscribe();
-        },
-        (error) => {
-          console.error(error);
-          this.toastrService.error('Something went wrong. Try again');
-          observable.unsubscribe();
-        },
-      );
+    const observable = this.authService.currentUser.pipe(
+      switchMap((user) => user.updateProfile({ displayName: value, photoURL: user.photoURL })),
+      finalize(() => {
+        this.progressService.ref().complete();
+      }),
+    ).subscribe(
+      () => {
+        this.toastrService.info('Successfully changed display name');
+        observable.unsubscribe();
+      },
+      (error) => {
+        console.error(error);
+        this.toastrService.error('Something went wrong. Try again');
+        observable.unsubscribe();
+      },
+    );
   }
 
   submitNewEmail(value: string) {
     this.progressService.ref().start();
-    const observable = this.authService.currentUser
-      .pipe(
-        switchMap((user) => user.updateEmail(value)),
-        finalize(() => this.progressService.ref().complete()),
-      )
-      .subscribe(
-        () => {
-          this.toastrService.info('Successfully changed display name');
-          observable.unsubscribe();
-        },
-        (error) => {
-          console.error(error);
-          this.toastrService.error(error.message);
-          observable.unsubscribe();
-        },
-      );
+    const observable = this.authService.currentUser.pipe(
+      switchMap((user) => user.updateEmail(value)),
+      finalize(() => this.progressService.ref().complete()),
+    ).subscribe(
+      () => {
+        this.toastrService.info('Successfully changed display name');
+        observable.unsubscribe();
+      },
+      (error) => {
+        console.error(error);
+        this.toastrService.error(error.message);
+        observable.unsubscribe();
+      },
+    );
   }
 
   submitNewPassword(newPassword: string, confirmedPassword: string) {
@@ -118,21 +106,19 @@ export class UserProfileViewComponent implements OnInit {
       return;
     }
     this.progressService.ref().start();
-    const observable = this.authService.currentUser
-      .pipe(
-        switchMap((user) => user.updatePassword(newPassword)),
-        finalize(() => this.progressService.ref().complete()),
-      )
-      .subscribe(
-        () => {
-          this.toastrService.info('Successfully changed display name');
-          observable.unsubscribe();
-        },
-        (error) => {
-          console.error(error);
-          this.toastrService.error(error.message);
-          observable.unsubscribe();
-        },
-      );
+    const observable = this.authService.currentUser.pipe(
+      switchMap((user) => user.updatePassword(newPassword)),
+      finalize(() => this.progressService.ref().complete()),
+    ).subscribe(
+      () => {
+        this.toastrService.info('Successfully changed display name');
+        observable.unsubscribe();
+      },
+      (error) => {
+        console.error(error);
+        this.toastrService.error(error.message);
+        observable.unsubscribe();
+      },
+    );
   }
 }

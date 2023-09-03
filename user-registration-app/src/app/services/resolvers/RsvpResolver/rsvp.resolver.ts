@@ -7,9 +7,10 @@ import { NgProgress } from 'ngx-progressbar';
 import { HttpService } from '../../HttpService/HttpService';
 import { Injectable } from '@angular/core';
 import { RegistrationApiResponse } from '../../../models/registration';
+import { RegistrationApiResponseV3 } from '../../../models-v3/registration-v3';
 
 @Injectable()
-export class RsvpResolver implements Resolve<RegistrationApiResponse> {
+export class RsvpResolver implements Resolve<RegistrationApiResponseV3> {
   constructor(
     private authService: AuthService,
     private progress: NgProgress,
@@ -17,21 +18,18 @@ export class RsvpResolver implements Resolve<RegistrationApiResponse> {
     private router: Router,
   ) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): Observable<RegistrationApiResponse> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RegistrationApiResponseV3> {
     this.progress.ref().start();
     return this.authService.currentUser.pipe(
       mergeMap((user) => {
         if (!user) {
           this.router.navigate([AppConstants.LOGIN_ENDPOINT]);
         } else {
-          return this.httpService.getRegistrationStatus();
+          return this.httpService.getRegistrationStatusV3();
         }
       }),
       map((registration) => {
-        if (!registration || !registration.submitted) {
+        if (!registration.registration) {
           this.router.navigate([AppConstants.REGISTER_ENDPOINT]);
           return null;
         }

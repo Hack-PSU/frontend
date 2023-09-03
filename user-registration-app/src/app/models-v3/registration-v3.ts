@@ -167,7 +167,6 @@ export class RegistrationApiResponseV3 {
   } | null;
 
   public static parseJSON(value: any): RegistrationApiResponseV3 {
-    console.log(value);
     const response = new RegistrationApiResponseV3();
     response.firstName = value.firstname;
     response.lastName = value.lastname;

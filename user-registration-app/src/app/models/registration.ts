@@ -213,7 +213,7 @@ export class RegistrationApiResponse {
 
   // This is a result of the auto incremented pin.
   // The actual pin value is the result of subtracting the base pin from this
-  private pinAi: number;
+  public pinAi: number;
 
   public get pin(): number {
     return this.pinAi - this.hackathon.basePin;
