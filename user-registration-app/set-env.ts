@@ -11,6 +11,7 @@ if ('PRODUCTION' in process.env) {
     production: '${process.env.PRODUCTION}',
     api_url: '${process.env.API_URL}',
     api_v2_url: '${process.env.API_V2_URL}',
+    api_v3_url: '${process.env.API_V3_URL},
     firebase: {
       apiKey: '${process.env.API_KEY}',
       authDomain: '${process.env.AUTH_DOMAIN}',
