@@ -48,7 +48,7 @@ To compile run anything from **app.hackpsu.org**, run `npm run start` in the use
 
 Tests are Javascript files under api/test. Tests should use the [MochaJS](http://Mochajs.org) testing framework. In addition, use
 [ChaiJS](http://chaijs.com) for assertions. RESTful testing also uses the mocha-typescript package formatted using [mocha-typescript](https://www.npmjs.com/package/mocha-typescript).
-All PRs should include the appropriate passing tests, and should be reviewed by the Director for Technology (@rsquared226).
+All PRs should include the appropriate passing tests, and should be reviewed by the Director for Technology (@jdurrell).
 
 
 ## Practices

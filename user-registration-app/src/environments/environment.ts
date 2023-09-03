@@ -19,13 +19,12 @@ export const environment = {
     projectId: "ninth-expanse-396918",
     storageBucket: "ninth-expanse-396918.appspot.com",
     messagingSenderId: "43519659979",
-    appId: "1:43519659979:web:ec1a7a4e155340be70304e"
   },
 
   // New code that accounts for timezone differences. Time is set for 2PM EST Saturday
   liveWebsiteGuardTime: new Date(Date.UTC(2021, 4, 1, 17, 30)),
-  hackathonStartTime: 1680364800000,
+  hackathonStartTime: 1697911200000,
   timerStartTime: new Date(Date.UTC(2023, 1, 12, 14)),
-  hackathonEndTime: 1680457500000,
+  hackathonEndTime: 1697996700000,
   rsvpStartTime: new Date(2019, 10),
 };
