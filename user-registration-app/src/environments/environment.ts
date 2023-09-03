@@ -10,6 +10,7 @@ export const environment = {
   // api_v2_url: "http://localhost:5000/v2/",
   // api_url: "http://localhost:5000/v1/",
   api_v3_url: "https://api-v3-production-oz3dekgbpa-uk.a.run.app/",
+  // api_v3_url: "http://localhost:3000",
   // https://staging-v2-dot-hackpsu18.uc.r.appspot.com/
 
   firebase: {

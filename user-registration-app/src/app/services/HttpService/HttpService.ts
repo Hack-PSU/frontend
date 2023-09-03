@@ -58,6 +58,88 @@ export class HttpService extends BaseHttpService {
     return this.getV3(API_ENDPOINT, false, false).pipe(map(Hackathon.parseJSON));
   }
 
+  submitUserV3(submitData: Registration, uid: string): Observable<Object> {
+    const API_ENDPOINT = '/users';
+    
+    // Hackfix to retrofit this frontend to fit V3's API.
+    // V3 needs to be refactored to avoid this separate user/registration route weirdness.
+    const userV3: FormData = new FormData();
+    console.log("User being submitted:");
+    userV3.append('id', uid);
+    console.log(userV3.get('id'));
+    userV3.append('firstName', submitData.firstName);
+    console.log(userV3.get('firstName'));
+    userV3.append('lastName', submitData.lastName);
+    console.log(userV3.get('lastName'));
+    userV3.append('gender', submitData.gender);
+    console.log(userV3.get('gender'));
+    userV3.append('shirtSize', submitData.shirtSize);
+    console.log(userV3.get('shirtSize'));
+    userV3.append('university', submitData.university);
+    console.log(userV3.get('university'));
+    userV3.append('email', submitData.email);
+    console.log(userV3.get('email'));
+    userV3.append('major', submitData.major);
+    console.log(userV3.get('major'));
+    userV3.append('phone', submitData.phone);
+    console.log(userV3.get('phone'));
+    userV3.append('country', submitData.country)
+    console.log(userV3.get('country'));
+    if (submitData.dietaryRestriction) {
+      userV3.append('dietaryRestriction', submitData.dietaryRestriction);
+    } else {
+      userV3.append('dietaryRestriction', "asdfasdf");
+    }
+    console.log(userV3.get('dietaryRestriction'));
+    if (submitData.allergies) {
+      userV3.append('allergies', submitData.allergies);
+    } else {
+      userV3.append('allergies', "asdfasdf");
+    }
+    console.log(userV3.get('allergies'));
+    if (submitData.ethnicity) {
+      userV3.append('race', submitData.ethnicity);
+    }
+    console.log(userV3.get('race'));
+    if (submitData.resume) {
+      if (submitData.hasExistingResume()) {
+        userV3.append('resume', submitData.resume.href);
+      } else {
+        userV3.append('resume', submitData.resume, submitData.resume.name);
+      }
+    }
+    console.log(userV3.get('resume'));
+
+    return this.postV3(API_ENDPOINT, userV3);
+  }
+
+  submitRegistrationV3(submitData: Registration, uid: string) {
+    const API_ENDPOINT = `/users/${uid}/register`
+    let registrationV3 = {
+      eighteenBeforeEvent: submitData.eighteenBeforeEvent,
+      shareAddressSponsors: submitData.shareAddressSponsors,
+      travelReimbursement: submitData.travelReimbursement,
+      shareAddressMlh: submitData.shareAddressMlh,
+      educationalInstitutionType: submitData.educationalInstitutionType,
+      academicYear: submitData.academicYear,
+      codingExperience: submitData.codingExperience,
+      expectations: submitData.expectations,
+      driving: submitData.driving,
+      firstHackathon: submitData.firstHackathon,
+      mlhCoc: submitData.mlhcoc,
+      mlhDcp: submitData.mlhdcp,
+      project: submitData.projectDesc,
+      referral: submitData.referral,
+      shareEmailMlh: submitData.shareEmailMlh,
+      time: Date.now(),
+      veteran: submitData.veteran,
+    }
+    console.log("registration being submitted:");
+    console.log(registrationV3);
+
+    return this.postV3(API_ENDPOINT, registrationV3);
+  }
+
   submitRegistration(submitData: Registration, uid: string) {
     const API_ENDPOINT = `users/${uid}/register`;
     const formObject: FormData = new FormData();

@@ -166,7 +166,7 @@ export class BaseHttpService {
     return this.authService.idToken.pipe(
       switchMap((idToken: string) => {
         let headers = new HttpHeaders();
-        headers = headers.set('authorization', 'Bearer '.concat(idToken));
+        headers = headers.set('Authorization', 'Bearer '.concat(idToken));
         return this.http.post(
           AppConstants.API_BASE_URL_V3.concat(API_ENDPOINT),
           formObject,

@@ -15,7 +15,7 @@ import { RegistrationV3 } from '../../../models-v3/registration-v3';
  * registration-resolver redirects the user to registration page. If the registration can check the user ID and the
  * their registration is submitted, then routes the user to RSVP page.
  */
-export class RegistrationResolver implements Resolve<Registration> {
+export class RegistrationResolver implements Resolve<RegistrationV3> {
   constructor(
     private authService: AuthService,
     private progress: NgProgress,
@@ -24,7 +24,7 @@ export class RegistrationResolver implements Resolve<Registration> {
   ) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Registration> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RegistrationV3> {
     this.progress.ref().start();
     return this.authService.currentUser.pipe(
       switchMap((user) => {
@@ -46,7 +46,7 @@ export class RegistrationResolver implements Resolve<Registration> {
         this.progress.ref().complete();
         console.log(error);
         // Registration not found.
-        return observableOf(new Registration());
+        return observableOf(new RegistrationV3());
       }),
       take(1),
     );

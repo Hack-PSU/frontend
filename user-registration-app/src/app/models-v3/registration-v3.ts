@@ -96,31 +96,33 @@ export class RegistrationV3 {
     registration.lastName = value.lastName;
     registration.gender = value.gender;
     registration.email = value.email;
-    registration.eighteenBeforeEvent = value.registration.eighteenBeforeEvent;
     registration.shirtSize = value.shirtSize;
     registration.dietaryRestriction = value.dietaryRestriction;
     registration.allergies = value.allergies;
-    registration.travelReimbursement = value.registration.travelReimbursement;
-    registration.driving = value.registration.driving;
-    registration.firstHackathon = value.registration.firstHackathon;
     registration.university = value.university;
     registration.phone = value.phone;
-    registration.academicYear = value.registration.academicYear;
     registration.major = value.major;
     registration.resume = value.resume;
-    registration.mlhcoc = value.registration.mlhCoc;
-    registration.mlhdcp = value.registration.mlhDcp;
     registration.ethnicity = value.race;
-    registration.codingExperience = value.registration.codingExperience;
-    registration.referral = value.registration.referral;
-    registration.projectDesc = value.registration.project;
-    registration.expectations = value.registration.expectations;
-    registration.veteran = value.registration.veteran;
     registration.submitted = true;
-    registration.hackathon = value.registration.hackathonId;
     registration.pin = "legacy pin";
     registration.uid = value.uid;
-    registration.time = value.registration.time;
+    if (value.registration) {
+      registration.eighteenBeforeEvent = value.registration.eighteenBeforeEvent;
+      registration.travelReimbursement = value.registration.travelReimbursement;
+      registration.driving = value.registration.driving;
+      registration.firstHackathon = value.registration.firstHackathon;
+      registration.academicYear = value.registration.academicYear;
+      registration.mlhcoc = value.registration.mlhCoc;
+      registration.mlhdcp = value.registration.mlhDcp;
+      registration.codingExperience = value.registration.codingExperience;
+      registration.referral = value.registration.referral;
+      registration.projectDesc = value.registration.project;
+      registration.expectations = value.registration.expectations;
+      registration.veteran = value.registration.veteran;
+      registration.hackathon = value.registration.hackathonId;
+      registration.time = value.registration.time;    
+    }
     return registration;
   }
 }
@@ -165,6 +167,7 @@ export class RegistrationApiResponseV3 {
   } | null;
 
   public static parseJSON(value: any): RegistrationApiResponseV3 {
+    console.log(value);
     const response = new RegistrationApiResponseV3();
     response.firstName = value.firstname;
     response.lastName = value.lastname;
@@ -181,25 +184,30 @@ export class RegistrationApiResponseV3 {
     response.race = value.race;
     response.uid = value.uid;
     if (value.registration) {
-      response.registration.hackathonId = value.registration.hackathonId;
-      response.registration.academicYear = value.registration.academicYear;
-      response.registration.educationalInstitutionType = value.registration.educationalInstitutionType;
-      response.registration.codingExperience = value.registration.codingExperience;
-      response.registration.referral = value.registration.referral;
-      response.registration.project = value.registration.project;
-      response.registration.expectations = value.registration.expectations;
-      response.registration.veteran = value.registration.veteran;
-      response.registration.time = parseInt(value.registration.time, 10);
-      response.registration.submitted = !!value.registration.submitted;
-      response.registration.travelReimbursement = !!value.registration.travelReimbursement;
-      response.registration.driving = value.driving;
-      response.registration.firstHackathon = !!value.registration.firsthackathon;
-      response.registration.eighteenBeforeEvent = !!value.registration.eighteenBeforeEvent;
-      response.registration.mlhCoc = !!value.registration.mlhCoc;
-      response.registration.mlhDcp = !!value.registration.mlhDcp;
-      response.registration.shareAddressMlh = !!value.registration.shareAddressMlh;
-      response.registration.shareAddressSponsors = !!value.registration.shareAddressSponsors;
-      response.registration.shareEmailMlh = !!value.registration.shareEmailMlh;
+      response.registration = {
+        id: value.registration.id,
+        userId: value.registration.userId,
+        hackathonId: value.registration.hackathonId,
+        academicYear: value.registration.academicYear,
+        educationalInstitutionType: value.registration.educationalInstitutionType,
+        codingExperience: value.registration.codingExperience,
+        referral: value.registration.referral,
+        project: value.registration.project,
+        expectations: value.registration.expectations,
+        veteran: value.registration.veteran,
+        time: parseInt(value.registration.time, 10),
+        submitted: !!value.registration.submitted,
+        travelReimbursement: !!value.registration.travelReimbursement,
+        driving: !!value.driving,
+        firstHackathon: !!value.registration.firsthackathon,
+        eighteenBeforeEvent: !!value.registration.eighteenBeforeEvent,
+        mlhCoc: !!value.registration.mlhCoc,
+        mlhDcp: !!value.registration.mlhDcp,
+        shareAddressMlh: !!value.registration.shareAddressMlh,
+        shareAddressSponsors: !!value.registration.shareAddressSponsors,
+        shareEmailMlh: !!value.registration.shareEmailMlh,
+      };
+
     } else {
       response.registration = null;
     }

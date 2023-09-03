@@ -162,7 +162,7 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
       setTimeout(() => {
         this.progress.ref().complete();
         Materialize.updateTextFields();
-      },         750);
+      }, 750);
     });
   }
 
@@ -194,19 +194,24 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
 
   submit() {
     this.progress.ref().start();
-    this.authService.currentUser
-      .pipe(
+    this.authService.currentUser.pipe(
+      mergeMap((user) => {
+        this.registrationForm.email = user.email;
+        return this.httpService.submitUserV3(this.registrationForm, user.uid);
+      }),
+      take(1),
+    ).subscribe(() => {
+      this.authService.currentUser.pipe(
         mergeMap((user) => {
           this.registrationForm.email = user.email;
-          return this.httpService.submitRegistration(this.registrationForm, user.uid);
+          return this.httpService.submitRegistrationV3(this.registrationForm, user.uid);
         }),
         take(1),
-      )
-      .subscribe(() => {
-        this.router
-          .navigate([AppConstants.PIN_ENDPOINT])
+      ).subscribe(() => {
+        this.router.navigate([AppConstants.PIN_ENDPOINT])
           .then(() => this.progress.ref().complete());
       });
+    });
   }
 
   fileAdded(event: any) {

@@ -86,15 +86,18 @@ export class CustomErrorHandlerService {
   }
 
   handleV2HttpError(err: { error: IApiResponse<Error> }) {
-    const error = { error: err.error, message: err.error.body.data.message };
-    console.error(error);
-    // this.toastrService.error(error.message);
-    return throwError(error);
+    console.error(err);
+    if (err.error && err.error.body && err.error.body.data) {
+      const error = { error: err.error, message: err.error.body.data.message };
+      return throwError(error);
+    } else {
+      const error = { error: err.error, message: "An unkonwn error has occurred." };
+      return throwError(error);
+    }
   }
 
   handleV3HttpError(err: any) {
-    console.error(err.statusCode);
-    console.error(err.message);
+    console.error(err);
     const error = { error: err.statusCode, message: err.message};
     return throwError(error);
   }
