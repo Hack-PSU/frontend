@@ -24,7 +24,7 @@ export class RegistrationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
-    // Checks users registration status
+    // Checks users' registration status
     return this.httpService.getRegistrationStatusV3().pipe(
       map<RegistrationApiResponseV3, boolean>((response) => {
         if (!response.isCurrentRegistration()) {

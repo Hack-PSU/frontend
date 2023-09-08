@@ -5,7 +5,7 @@ import { User } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../services/AuthService/auth.service';
-import { RegistrationApiResponse } from '../../models/registration';
+import { RegistrationApiResponseV3 } from '../../models-v3/registration-v3';
 
 declare let $: any;
 
@@ -19,7 +19,7 @@ export class RsvpComponent implements OnInit {
   public user: User;
   public errors = null;
   public rsvpDataObservable: Observable<any>;
-  public registrationData: RegistrationApiResponse;
+  public registrationData: RegistrationApiResponseV3;
 
   constructor(
     public authService: AuthService,
@@ -30,7 +30,7 @@ export class RsvpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponse }) => {
+    this.activatedRoute.data.subscribe((data: { registration: RegistrationApiResponseV3 }) => {
       const { registration } = data;
       this.registrationData = registration;
     });
@@ -38,26 +38,6 @@ export class RsvpComponent implements OnInit {
       $('ul.tabs').tabs();
     });
   }
-
-  // rsvp(status: boolean) {
-  //   this.progress.start();
-  //   this.httpService.submitRSVP(this.user, status)
-  //     .pipe(finalize(() => this.progress.complete()))
-  //     .subscribe(() => {
-  //       this.rsvpDataObservable = this.httpService.getRsvpStatus();
-  //       this.rsvpDataObservable.subscribe((value) => {
-  //         this.rsvpData = value;
-  //       },                                (error) => {
-  //         this.errors = error;
-  //       });
-  //     },         (error) => {
-  //       this.errors = error.message;
-  //     });
-  // }
-
-  // getPin() {
-  //   return parseInt(this.registrationData.pin, 10).toString(14).padStart(3, '0');
-  // }
 
   rsvpReady() {
     return new Date().getTime() >= environment.rsvpStartTime.getTime();

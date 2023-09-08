@@ -1,5 +1,3 @@
-import { timeStamp } from "console";
-
 export class RegistrationV3 {
   public firstName: string;
   public lastName: string;
@@ -181,7 +179,7 @@ export class RegistrationApiResponseV3 {
     response.major = value.major;
     response.resume = value.resume ? new URL(value.resume) : null;
     response.race = value.race;
-    response.uid = value.uid;
+    response.uid = value.id;
     if (value.registration) {
       response.registration = {
         id: value.registration.id,
