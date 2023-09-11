@@ -465,7 +465,19 @@ td {
 }
 
 #sponsors .sponsor-max-height {
-  max-height: 105px !important;
+  max-height: 11rem !important;
+}
+
+.sponsor-border {
+  background-color: #6c88b7; /* Matches the section underline color */
+  border: 5px;
+  border-radius: 20px;
+  padding: 10px
+}
+
+.sponsor-card {
+  background-color: white;
+  border-radius: 13px;
 }
 
 /* End workshop stuff */

@@ -584,13 +584,18 @@
 
     <div class="container">
       <div class="row">
-        <div *ngFor="let sponsor of sponsors" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
-          <a href="{{sponsor.website_link}}" target="_blank">
-            <img
-              src="{{sponsor.logo}}"
-              class="img-fluid sponsor-max-height"
-              alt="{{sponsor.name}}"
-            />
+        <div *ngFor="let sponsor of sponsors" class="col-xl-6 col-lg-4 col-md-6 col-sm-12 align-self-center mb-5">
+          <a href="{{sponsor.link}}" target="_blank">
+            <div class="sponsor-border">
+              <div class="sponsor-card">
+                <img
+                  src="{{sponsor.darkLogo}}"
+                  class="img-fluid sponsor-max-height"
+                  alt="{{sponsor.name}}"
+                  style="margin: auto; padding: 5px"
+                />
+              </div>
+            </div>
           </a>
         </div>
       </div>

@@ -238,8 +238,8 @@ export class HttpService extends BaseHttpService {
     );
   }
 
-  getSponsors() {
-    const API_ENDPOINT = 'sponsorship/all';
-    return this.get(API_ENDPOINT, false, false, true).pipe(map(SponsorModel.parseFromJSONArray));
+  getSponsors(): Observable<SponsorModel[]> {
+    const API_ENDPOINT = 'sponsors/';
+    return this.getV3(API_ENDPOINT, false, false).pipe(map(SponsorModel.parseFromJSONArray));
   }
 }

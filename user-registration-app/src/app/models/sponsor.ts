@@ -1,13 +1,14 @@
 export class SponsorModel {
-  public uid: number;
+  public id: number;
   public name: string;
   public level: string;
-  public logo: string;
+  public darkLogo: string;
+  public lightLogo: string;
   public order: number;
-  public website_link: string;
-  public hackathon: string;
+  public link: string;
+  public hackathonId: string;
 
-  static parseJSON(value: any) {
+  static parseJSON(value: any): SponsorModel {
     const sponsor = new SponsorModel();
     return Object.assign(sponsor, value);
   }

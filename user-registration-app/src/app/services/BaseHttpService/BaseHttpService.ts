@@ -116,13 +116,13 @@ export class BaseHttpService {
         : // Without authentication
           this.getInternal(fullUrl, headers, params);
       observable = observable.pipe(
-        // map((apiResponse: any) => apiResponse.body.data),
         catchError((err) => {
           return this.errorHandler.handleV3HttpError(err);
         })
       );
       this.memCache.set(API_ENDPOINT, observable);
     }
+    console.log(this.memCache.get(API_ENDPOINT));
     return this.memCache.get(API_ENDPOINT);
   }
 
