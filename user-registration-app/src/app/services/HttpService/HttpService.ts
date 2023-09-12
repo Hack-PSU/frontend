@@ -44,7 +44,7 @@ export class HttpService extends BaseHttpService {
   }
 
   getRegistrationStatusV3(): Observable<RegistrationApiResponseV3> {
-    const API_ENDPOINT = '/users/info/me';
+    const API_ENDPOINT = 'users/info/me';
     return this.getV3(API_ENDPOINT, true, true).pipe(map(RegistrationApiResponseV3.parseJSON));
   }
 
@@ -54,12 +54,12 @@ export class HttpService extends BaseHttpService {
   }
 
   getCurrentHackathonV3(): Observable<HackathonV3> {
-    const API_ENDPOINT = '/hackathons/active/static';
+    const API_ENDPOINT = 'hackathons/active/static';
     return this.getV3(API_ENDPOINT, false, false).pipe(map(HackathonV3.parseJSON));
   }
 
   submitUserV3(submitData: Registration, uid: string): Observable<Object> {
-    const API_ENDPOINT = '/users';
+    const API_ENDPOINT = 'users';
     
     // Hackfix to retrofit this frontend to fit V3's API.
     // V3 needs to be refactored to avoid this separate user/registration route weirdness.
@@ -95,7 +95,7 @@ export class HttpService extends BaseHttpService {
   }
 
   submitRegistrationV3(submitData: Registration, uid: string) {
-    const API_ENDPOINT = `/users/${uid}/register`
+    const API_ENDPOINT = `users/${uid}/register`
     let registrationV3 = {
       eighteenBeforeEvent: submitData.eighteenBeforeEvent,
       shareAddressSponsors: submitData.shareAddressSponsors,
