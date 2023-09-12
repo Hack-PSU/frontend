@@ -61,8 +61,8 @@ export class UserRegistrationViewComponent implements OnInit {
 
   ngOnInit() {
     this.loadActiveRegistration();
-    this.loadAvailableExtraCreditClasses();
-    this.loadSubmittedExtraCreditClasses();
+    // this.loadAvailableExtraCreditClasses();
+    // this.loadSubmittedExtraCreditClasses();
     // The error for registrations gets handled in user-profile-view
   }
 

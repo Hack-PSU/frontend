@@ -6,8 +6,8 @@
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
-      <!-- Check back soon for Extra Credit! -->
-      <div *ngIf="this.activeRegistration; else elseEC">
+      Check back soon for Extra Credit!
+      <!-- <div *ngIf="this.activeRegistration; else elseEC">
         <form class="extra-credit-form" (submit)="submitClasses()">
           <ng-container *ngFor="let c of classes">
             <p>
@@ -23,8 +23,8 @@
             <i class="material-icons right">send</i>
           </button>
         </form>
-      </div>
-      <ng-template #elseEC>Be sure to <a href="/register">register</a> to sign up for extra credit classes!</ng-template>
+      </div> -->
+      <!-- <ng-template #elseEC>Be sure to <a href="/register">register</a> to sign up for extra credit classes!</ng-template> -->
     </div>
   </li>
   <div *ngIf="this.activeRegistration; else elseQR" class="mt-5">
