@@ -282,12 +282,6 @@
             Yes
           </label>
         </div>
-        <div *ngIf="!registrationForm.eighteenBeforeEvent">
-          <p class="alert danger">
-            If you are under 18 and wish to attend, please contact us at 
-            <a href="mailto://team@hackpsu.org">team@hackpsu.org</a> for special registration circumstances.
-          </p>
-        </div>
         <label class="data-error" *ngIf="!registrationForm.eighteenBeforeEvent">Required</label>
       </div>
     </div>
