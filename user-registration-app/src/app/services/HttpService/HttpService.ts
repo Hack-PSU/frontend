@@ -60,26 +60,32 @@ export class HttpService extends BaseHttpService {
 
   submitUserV3(submitData: Registration, uid: string): Observable<Object> {
     const API_ENDPOINT = 'users';
+    const USER_FIELDS: string[] = [
+      'firstName',
+      'lastName',
+      'gender',
+      'shirtSize',
+      'university',
+      'email',
+      'major',
+      'phone',
+      'country',
+      'dietaryRestriction',
+      'allergies'
+    ];
     
     // Hackfix to retrofit this frontend to fit V3's API.
     // V3 needs to be refactored to avoid this separate user/registration route weirdness.
     const userV3: FormData = new FormData();
     userV3.append('id', uid);
-    userV3.append('firstName', submitData.firstName);
-    userV3.append('lastName', submitData.lastName);
-    userV3.append('gender', submitData.gender);
-    userV3.append('shirtSize', submitData.shirtSize);
-    userV3.append('university', submitData.university);
-    userV3.append('email', submitData.email);
-    userV3.append('major', submitData.major);
-    userV3.append('phone', submitData.phone);
-    userV3.append('country', submitData.country)
-    if (submitData.dietaryRestriction) {
-      userV3.append('dietaryRestriction', submitData.dietaryRestriction);
-    }
-    if (submitData.allergies) {
-      userV3.append('allergies', submitData.allergies);
-    }
+    USER_FIELDS.forEach((field) => {
+      console.log(`${field}: ${submitData[field]}`);
+      if (submitData[field]) {
+        console.log("appended");
+        userV3.append(field, submitData[field]);
+      }
+    });
+    
     if (submitData.ethnicity) {
       userV3.append('race', submitData.ethnicity);
     }
@@ -95,26 +101,34 @@ export class HttpService extends BaseHttpService {
   }
 
   submitRegistrationV3(submitData: Registration, uid: string) {
-    const API_ENDPOINT = `users/${uid}/register`
-    let registrationV3 = {
-      eighteenBeforeEvent: submitData.eighteenBeforeEvent,
-      shareAddressSponsors: submitData.shareAddressSponsors,
-      travelReimbursement: submitData.travelReimbursement,
-      shareAddressMlh: submitData.shareAddressMlh,
-      educationalInstitutionType: submitData.educationalInstitutionType,
-      academicYear: submitData.academicYear,
-      codingExperience: submitData.codingExperience,
-      expectations: submitData.expectations,
-      driving: submitData.driving,
-      firstHackathon: submitData.firstHackathon,
-      mlhCoc: submitData.mlhcoc,
-      mlhDcp: submitData.mlhdcp,
-      project: submitData.projectDesc,
-      referral: submitData.referral,
-      shareEmailMlh: submitData.shareEmailMlh,
-      time: Date.now(),
-      veteran: submitData.veteran,
-    }
+    const API_ENDPOINT = `users/${uid}/register`;
+
+    const REGISTRATION_FIELDS: string[] = [
+      'eighteenBeforeEvent',
+      'shareAddressSponsors',
+      'travelReimbursement',
+      'shareAddressMlh',
+      'educationalInstitutionType',
+      'academicYear',
+      'codingExperience',
+      'expectations',
+      'driving',
+      'firstHackathon',
+      'project',
+      'referral',
+      'shareEmailMlh',
+      'veteran',
+    ];
+
+    let registrationV3: Record<string, any> = {};
+    REGISTRATION_FIELDS.forEach((field) => {
+      registrationV3[field] = submitData[field];
+    });
+    registrationV3['mlhCoc'] = submitData.mlhcoc;
+    registrationV3['mlhDcp'] = submitData.mlhdcp;
+    registrationV3['time'] = Date.now();
+
+    console.log(registrationV3);
 
     return this.postV3(API_ENDPOINT, registrationV3);
   }
