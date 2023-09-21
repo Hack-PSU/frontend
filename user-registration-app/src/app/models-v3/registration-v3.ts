@@ -171,7 +171,7 @@ export class RegistrationApiResponseV3 {
     response.country = value.country;
     response.gender = value.gender;
     response.email = value.email;
-    response.shirtSize = value.shirt_size;
+    response.shirtSize = value.shirtSize;
     response.dietaryRestriction = value.dietaryRestriction;
     response.allergies = value.allergies;
     response.university = value.university;

@@ -8,6 +8,7 @@ import * as Ajv from 'ajv';
 import { default as schools } from '../../../assets/schools.json';
 import { default as majors } from '../../../assets/majors.json';
 import { default as referrals } from '../../../assets/referrals.json';
+import { default as countries } from '../../../assets/countries.json';
 import { Registration } from '../../models/registration';
 import * as registeredUserSchema from './registeredUserSchema.json';
 import { AuthService, HttpService } from '../../services/services';
@@ -39,6 +40,7 @@ export class RegistrationFormComponent implements OnInit, AfterViewChecked {
   public univAutoCompleteInit = this.makeAutoCompleteSettings('university', schools);
   public majorAutoCompleteInit = this.makeAutoCompleteSettings('major', majors);
   public referralAutoCompleteInit = this.makeAutoCompleteSettings('referral', referrals);
+  public countryAutoCompleteInit = this.makeAutoCompleteSettings('country', countries);
   public registrationForm: Registration;
   public isNotUsPhoneNumber: boolean;
   public prettifiedPhone: string;
