@@ -1,13 +1,13 @@
 <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" class="black-text">
   <li>
-    <div class="collapsible-header">
+    <!-- <div class="collapsible-header">
       <i class="material-icons">rate_review</i>
       Extra Credit Registration
       <i class="material-icons right">keyboard_arrow_down</i>
     </div>
     <div class="collapsible-body">
       Check back soon for Extra Credit!
-      <!-- <div *ngIf="this.activeRegistration; else elseEC">
+      <div *ngIf="this.activeRegistration; else elseEC">
         <form class="extra-credit-form" (submit)="submitClasses()">
           <ng-container *ngFor="let c of classes">
             <p>
@@ -23,9 +23,9 @@
             <i class="material-icons right">send</i>
           </button>
         </form>
-      </div> -->
-      <!-- <ng-template #elseEC>Be sure to <a href="/register">register</a> to sign up for extra credit classes!</ng-template> -->
-    </div>
+      </div>
+      <ng-template #elseEC>Be sure to <a href="/register">register</a> to sign up for extra credit classes!</ng-template>
+    </div> -->
   </li>
   <div *ngIf="this.activeRegistration; else elseQR" class="mt-5">
     <p class="center">Here's your unique QR code! We may ask to scan it during the hackathon. You can also find it in
