@@ -453,9 +453,10 @@
       </div>
     </div>
 
-    <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
+    <!-- Uncomment this after the hackathon. -->
+    <!-- <p style="text-align: center; font-family: 'Raleway', sans-serif; font-size: 2.15em; font-weight: bold;">
       Check back soon for a list of workshops!
-    </p>
+    </p> -->
 
     <div id="workshop-container" class="container-fluid nopadding">
       <div class="row no padding">
@@ -467,25 +468,17 @@
             <div class="col-12">
               <div *ngFor="let workshop of workshops">
                 <!-- Bodgy hack since person putting in events is inconsistent -->
-                <div *ngIf="workshop.ws_skill_level == 'Beginner' 
-                || workshop.ws_skill_levell == 'beginner'
-                || workshop.ws_skill_level == '' 
-                || workshop.ws_skill_level == null" 
-                style="max-width: 800px; margin: auto">
+                <div style="max-width: 800px; margin: auto">
                   <app-live-workshop
-                    [title]="workshop.event_title"
-                    [description]="workshop.event_description"
-                    [date]="workshop.event_start_time"
-                    [endTime]="workshop.event_end_time"
-                    [location]="workshop.location_name"
-                    [skills]="
-                      workshop.ws_relevant_skills ? workshop.ws_relevant_skills.split(',') : []
-                    "
-                    [presenters]="
-                      workshop.ws_presenter_names ? workshop.ws_presenter_names.split(',') : []
-                    "
-                    [eventIcon]="workshop.event_icon ? workshop.event_icon.split(',') : []"
-                    [downloads]="workshop.ws_urls"
+                    [title]="workshop.name"
+                    [description]="workshop.description"
+                    [date]="workshop.startTime"
+                    [endTime]="workshop.endTime"
+                    [location]="workshop.location.name"
+                    [skills]="workshop.wsRelevantSkills ? workshop.wsRelevantSkills.split(',') : []"
+                    [presenters]="workshop.wsPresenterNames ? workshop.wsPresenterNames.split(',') : []"
+                    [eventIcon]="workshop.icon ? workshop.icon.split(',') : []"
+                    [downloads]="workshop.wsUrls"
                     collapseID="css/html"
                   >
                   </app-live-workshop>
@@ -599,19 +592,16 @@
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
         <div style="text-align: center" class="col-8 col-offset-2 col-md-8 col-md-offset-2">
-          <a target="_blank" href="https://www.facebook.com/HackPSU/">
-            <img class="social-media-icon animated animated-icon" src="../../../assets/icons/facebook.svg"/>
-          </a>
-          <a target="_blank" href="http://twitter.com/hackpsu">
-            <img class="social-media-icon animated animated-icon" src="../../../assets/icons/twitter.svg"/>
-          </a>
           <a target="_blank" href="https://www.instagram.com/hack_psu/">
             <img class="social-media-icon animated animated-icon" src="../../../assets/icons/instagram.svg"/>
           </a>
-          <a target="_blank" href="https://www.snapchat.com/add/hackpsu">
-            <img class="social-media-icon animated animated-icon" src="../../../assets/icons/snapchat.svg"/>
+          <a target="_blank" href="https://www.linkedin.com/company/hackpsuofficial/">
+            <img class="social-media-icon animated animated-icon" 
+              style="background: white;"
+              src="../../../assets/icons/linkedin.svg"
+            />
           </a>
-          <a target="_blank" href="http://devpost.hackpsu.com/">
+          <a target="_blank" href="http://devpost.hackpsu.org/">
             <img class="social-media-icon animated animated-icon" src="../../../assets/icons/devpost.svg"/>
           </a>
           <a href="mailto:team@hackpsu.org">

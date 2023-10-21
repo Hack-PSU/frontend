@@ -1,16 +1,21 @@
 export class EventModel {
-  public uid: string;
-  public event_title: string;
-  public event_type: string;
-  public event_start_time: string;
-  public event_end_time: string;
-  public event_description: string;
-  public event_icon: string;
-  public event_location_name: string;
-  public ws_presenter_names: string;
-  public ws_skill_level: string;
-  public ws_relevant_skills: string;
-  public ws_urls: string[];
+  id: string;
+  name: string;
+  type: string;
+  description: string;
+  locationId: number;
+  icon: string;
+  startTime: number;
+  endTime: number;
+  wsPresenterNames: string;
+  wsRelevantSkills: string;
+  wsSkillLevel: string;
+  hackathonId: string;
+  wsUrls: [string];
+  location: {
+    id: number,
+    name: string
+  }
 
   static parseJSON(value: any) {
     const event = new EventModel();

@@ -203,8 +203,9 @@ export class HttpService extends BaseHttpService {
   }
 
   getEvents() {
-    const API_ENDPOINT = 'live/events';
-    return this.get(API_ENDPOINT, false, false, true).pipe(map(EventModel.parseFromJSONArray));
+    const API_ENDPOINT = 'events';
+    return this.getV3(API_ENDPOINT, false, false).pipe(map(EventModel.parseFromJSONArray))
+    // return this.get(API_ENDPOINT, false, false, true).pipe(map(EventModel.parseFromJSONArray));
   }
 
   getProjectDetails() {

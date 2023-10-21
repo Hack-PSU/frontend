@@ -59,7 +59,7 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   getStartTime(event: EventModel) {
-    return new Date(parseInt(event.event_start_time, 10))
+    return new Date(event.startTime)
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
       .replace(/^0(?:0:0?)?/, '');
   }
@@ -93,13 +93,13 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   getEndTime(event: EventModel) {
-    return new Date(parseInt(event.event_end_time, 10))
+    return new Date(event.endTime)
       .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
       .replace(/^0(?:0:0?)?/, '');
   }
 
   getEventDay(event: EventModel) {
-    return ScheduleViewComponent.days[new Date(parseInt(event.event_start_time, 10)).getDay()];
+    return ScheduleViewComponent.days[new Date(event.startTime).getDay()];
   }
 
   openZoomLink(link: string) {
