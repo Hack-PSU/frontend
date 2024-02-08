@@ -47,9 +47,7 @@
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
             <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
             <li *ngIf="DateGuard.validateDate()">
-              <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">
-                {{ isOnLiveSite() ? 'REGISTER' : 'LIVE' }}
-              </a>
+              <a href="http://hackpsu.org"> LIVE</a>
             </li>
             <!--<li *ngIf="isOnLiveSite()">-->
             <!--<a class="dropdown-button" href="#!" data-activates="dropdown1">OTHER-->
@@ -77,9 +75,7 @@
       <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#workshops">WORKSHOPS</a></li>
       <li *ngIf="isOnLiveSite()" class="scroller"><a href="/live#sponsors">SPONSORS</a></li>
       <li *ngIf="DateGuard.validateDate()">
-        <a routerLink="{{ isOnLiveSite() ? '/register' : '/live' }}">{{
-          isOnLiveSite() ? 'REGISTER' : 'LIVE'
-        }}</a>
+        <a href="http://hackpsu.org"> LIVE</a>
       </li>
       <!--<li *ngIf="router.url !== '/register'">-->
       <!--<a class="dropdown-button" href="#!" data-activates="dropdown1-mobile">OTHER-->
