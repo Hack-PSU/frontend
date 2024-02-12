@@ -79,9 +79,7 @@ export class HttpService extends BaseHttpService {
     const userV3: FormData = new FormData();
     userV3.append('id', uid);
     USER_FIELDS.forEach((field) => {
-      console.log(`${field}: ${submitData[field]}`);
       if (submitData[field]) {
-        console.log("appended");
         userV3.append(field, submitData[field]);
       }
     });
@@ -127,8 +125,6 @@ export class HttpService extends BaseHttpService {
     registrationV3['mlhCoc'] = submitData.mlhcoc;
     registrationV3['mlhDcp'] = submitData.mlhdcp;
     registrationV3['time'] = Date.now();
-
-    console.log(registrationV3);
 
     return this.postV3(API_ENDPOINT, registrationV3);
   }
