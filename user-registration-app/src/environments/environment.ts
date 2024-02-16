@@ -9,16 +9,16 @@ export const environment = {
   // api_v2_url: "http://staging.hackpsu18.appspot.com/v2/",
   // api_v2_url: "http://localhost:5000/v2/",
   // api_url: "http://localhost:5000/v1/",
-  api_v3_url: "https://api-v3-production-oz3dekgbpa-uk.a.run.app/",
-  // api_v3_url: "http://localhost:3000/",
+  // api_v3_url: "https://api-v3-production-zyiwplqi4q-uk.a.run.app/",
+  api_v3_url: "http://localhost:3001/",
   // https://staging-v2-dot-hackpsu18.uc.r.appspot.com/
 
   firebase: {
-    apiKey: "AIzaSyAVFkHP_g2BhsHp4AMRaGnxff8rqBvtg7w",
-    authDomain: "ninth-expanse-396918-9fe32.firebaseapp.com",
-    projectId: "ninth-expanse-396918",
-    storageBucket: "ninth-expanse-396918.appspot.com",
-    messagingSenderId: "43519659979",
+    apiKey: "AIzaSyBG636oXijUAzCq6Makd2DNU_0WzPJRw8s",
+    authDomain: "hackpsu-408118.firebaseapp.com",
+    projectId: "hackpsu-408118",
+    storageBucket: "hackpsu408118.appspot.com",
+    messagingSenderId: "695455897614",
   },
 
   // New code that accounts for timezone differences. Time is set for 2PM EST Saturday

@@ -177,4 +177,21 @@ export class BaseHttpService {
       })
     );
   }
+
+  protected putV3(API_ENDPOINT: string, formObject: FormData | any) {
+    this.memCache.set(API_ENDPOINT, null);
+    return this.authService.idToken.pipe(
+      switchMap((idToken: string) => {
+        let headers = new HttpHeaders();
+        headers = headers.set('Authorization', 'Bearer '.concat(idToken));
+        return this.http.put(
+          AppConstants.API_BASE_URL_V3.concat(API_ENDPOINT),
+          formObject,
+          { headers, reportProgress: true });
+      }),
+      catchError((err) => {
+        return this.errorHandler.handleV3HttpError(err);
+      })
+    );
+  }
 }

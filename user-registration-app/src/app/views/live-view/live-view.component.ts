@@ -129,7 +129,6 @@ export class LiveViewComponent implements OnInit {
       this.bannerText = bannerText;
     });
     this.httpService.getEvents().subscribe((eventsArr) => {
-      console.log(eventsArr);
       this.workshops = eventsArr
         .filter((event) => event.type === 'workshop')
         .sort((eventA, eventB) => {
