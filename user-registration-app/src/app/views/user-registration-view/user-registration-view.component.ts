@@ -126,16 +126,6 @@ export class UserRegistrationViewComponent implements OnInit {
           true,
         );
       });
-
-    // this.httpService
-    //   .getUserRegistrations()
-    //   .subscribe((registrations: RegistrationApiResponse[]) => {
-    //     if (registrations) {
-    //       this.activeRegistration = registrations.filter(
-    //         (registration) => registration.hackathon.active,
-    //       )[0];
-    //     }
-    //   });
   }
 
   loadSubmittedExtraCreditClasses() {

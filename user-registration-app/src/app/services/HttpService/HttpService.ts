@@ -59,7 +59,7 @@ export class HttpService extends BaseHttpService {
   }
 
   submitUserV3(submitData: Registration, uid: string): Observable<Object> {
-    const API_ENDPOINT = 'users';
+    const API_ENDPOINT = `users/${uid}`;
     const USER_FIELDS: string[] = [
       'firstName',
       'lastName',
@@ -77,7 +77,6 @@ export class HttpService extends BaseHttpService {
     // Hackfix to retrofit this frontend to fit V3's API.
     // V3 needs to be refactored to avoid this separate user/registration route weirdness.
     const userV3: FormData = new FormData();
-    userV3.append('id', uid);
     USER_FIELDS.forEach((field) => {
       if (submitData[field]) {
         userV3.append(field, submitData[field]);
@@ -95,7 +94,7 @@ export class HttpService extends BaseHttpService {
       }
     }
 
-    return this.postV3(API_ENDPOINT, userV3);
+    return this.putV3(API_ENDPOINT, userV3);
   }
 
   submitRegistrationV3(submitData: Registration, uid: string) {
