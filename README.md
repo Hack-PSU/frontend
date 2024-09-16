@@ -1,4 +1,6 @@
 # HackPSU
+This website is now archived. We have moved the website to the frontend-template repository
+
 Repository for the main website for HackPSU
 
 
